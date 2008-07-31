@@ -53,7 +53,7 @@
 
 % ENVIRONMENT MACROS {{{
 \def\envhl{\colorswitched{red}}
-\def\envempty{{\envhl \mathbb{I}} }
+\def\envempty{{\envhl ()} }
 \def\envvarfresh#1#2#3{\envfresh{\envvarxx{#1}{#2}}{#3}}
 \def\envvarxx#1#2{{\termvar{#1}} \mathrel{\envhl :} {#2}}
 \def\envsymbcombine#1#2#3{{#1} \mathop{\envhl{#3}} {#2}}
