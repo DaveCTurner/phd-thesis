@@ -54,13 +54,14 @@ $\envcombine{()}{\envvarfresh{x}{\typeP}{s}}$.
 
 \subsubsection{Syntax of Terms}
 
-Pre-terms are given by the following grammar, where $\termvar{x}$ ranges over
-variables, $a$ ranges over names, $p$ over pre-actions and $\ell$ over labels.
+Terms are given by the following grammar, where $\termvar{x}$ ranges over
+variables, $a$ ranges over names, $s$ over finite sets of names, $p$ over
+actions and $\ell$ over labels.
 \[\begin{array}{lclcl} t, u &::=&
 \quad \termvar{x} \bigmid \rec{x}{t} &\qquad&\text{variables; recursion}
 \\
 %
-&&\bigmid \bang{t} \bigmid \match{u}{p}{x}{t} && \text{prefixing}\\
+&&\bigmid \bang{t} \bigmid \matchx{s}{u}{p}{x}{t} && \text{prefixing}\\
 %
 &&\bigmid \abstract{x}{t} \bigmid \apply{t}{u} &&\text{abstraction and
 application} \\
@@ -76,41 +77,76 @@ application} \\
 \end{array}\]
 The forms \[\rec{x}{t} \qquad \match{u}{p}{x}{t} \qquad \abstract{x}{t}\] all
 bind $\termvar{x}$ in $t$, and the set of free variables of $t$, $\fv{t}$, is
-defined in the usual way.
+defined in the usual way. The form $\new{a}{t}$ binds the name $a$.
 
-The nondeterministic sum may be over an infinite set
-$I$, but there are constraints to ensure that it behaves properly: the mapping
-$i \mapsto t_i$ is a finitely supported function from a nominal set $I$ to the
-set of pre-terms, and is such that there exists a finite set $X$ of variables
-such that for all $i$, the free variables of $t_i$ are contained in $X$.
-
-The set of pre-terms can be equipped with a
-permutation action by recursion in the obvious fashion, and is therefore a
-nominal set.
+The nondeterministic sum may be over an infinite set $I$, but there are
+constraints to ensure that it behaves properly: the mapping $i \mapsto t_i$ is
+a finitely supported function from a nominal set $I$ to the set of terms, and
+is such that there exists a finite set $X$ of variables such that for all $i$,
+the free variables of $t_i$ are contained in $X$.  Write $\inactive$ for a term
+of the form $\ndsum{i}{\varnothing} t_i$.
 
 \subsubsection{Syntax of Actions}
 
-Pre-actions are given by the following grammar, where $u$ ranges over
-closed pre-terms (i.e. those pre-terms $u$ with $\fv{u} = \varnothing$), $a$ ranges over names and $\ell$ over labels.
+Actions are given by the following grammar, where $t$ ranges over closed terms
+(i.e. those terms $t$ with $\fv{t} = \varnothing$), $a$ ranges over names and
+$\ell$ over labels.
 \[\begin{array}{lclcl} p &::=&
 \quad \bangaction &\qquad&\text{prefixing}
 \\
 %
 &&\bigmid \labelaction{\ell}{p} && \text{labelled actions}\\
 %
-&&\bigmid \mapaction{u}{p} &&\text{higher-order actions} \\
+&&\bigmid \mapaction{t}{p} &&\text{higher-order actions} \\
 %
 &&\bigmid \absaction{p} && \text{recursive type actions}\\
 %
 &&\bigmid \newaction{a}{p} && \text{new name actions}\\
 \end{array}\]
-The set of pre-actions can be equipped with a permutation action by recursion
-in the obvious fashion, and is therefore a nominal set. 
+The form $\newaction{a}{p}$ binds the name $a$.
 
-The nominal sets of terms and actions are formed by taking the respective
-quotients of the sets of pre-terms and pre-actions by $\alpha$-equivalence
-on names (in which $\new{a}{t}$ and $\newaction{a}{p}$ are the binding forms).
+The permutation action on terms and actions is as follows.
 
-Write $\inactive$ for a term of the form $\ndsum{i}{\varnothing} t_i$.
+\[\begin{array}{rclcrcl} \sigma \cdot \termvar{x} &=& \termvar{x} &\qquad&
+%
+\sigma \cdot (\rec{x}{t}) &=& \rec{x}{(\sigma \cdot t)} \\
+%
+\sigma \cdot (\bang{t}) &=& \bang{(\sigma \cdot t)} &&
+%
+\sigma \cdot \left(\ndsum{i}{I}{t_i}\right) &=& \ndsum{i}{I}{(\sigma \cdot
+t_i)} \\
+%
+\multicolumn{3}{c}{\sigma \cdot (\matchx{s}{u}{p}{x}{t})} &=&
+\multicolumn{3}{c}{ \matchx{(\sigma \cdot s)}{(\sigma \cdot u)}{(\sigma \cdot
+p)}{x}{(\sigma \cdot t)}} \\ \sigma \cdot (\abstract{x}{t}) &=&
+\abstract{x}{(\sigma \cdot t)} &&
+%
+\sigma \cdot (\apply{t}{u}) &=& \apply{(\sigma \cdot t)}{(\sigma \cdot u)} \\
+%
+\sigma \cdot (\new{a}{t}) &=& \new{(\sigma \cdot a)}{(\sigma \cdot t)} &&
+%
+\sigma \cdot (\newapply{t}{a}) &=& 
+\newapply{(\sigma \cdot t)}{(\sigma \cdot a)} \\
+%
+\sigma \cdot (\linj{\ell}{t}) &=& \linj{(\sigma \cdot \ell)}{(\sigma \cdot t)} &&
+%
+\sigma \cdot (\lproj{\ell}{t}) &=& \lproj{(\sigma \cdot \ell)}{(\sigma \cdot t)} \\
+%
+\sigma \cdot (\abs{t}) &=& \abs{(\sigma \cdot t)} &&
+%
+\sigma \cdot (\rep{t}) &=& \rep{(\sigma \cdot t)} \\
+%
+\\
+%
+\sigma \cdot \bangaction &=& \bangaction &&
+%
+\sigma \cdot (\labelaction{\ell}{p}) &=& \labelaction{(\sigma \cdot \ell)}{(\sigma \cdot p)} \\
+%
+\sigma \cdot (\mapaction{t}{p}) &=& \mapaction{(\sigma \cdot t)}{(\sigma \cdot p)} &&
+%
+\sigma \cdot (\newaction{a}{p}) &=& \newaction{(\sigma \cdot a)}{(\sigma \cdot p)} \\
+%
+\sigma \cdot (\absaction{p}) &=& \absaction{(\sigma \cdot p)} \\
+\end{array}\]
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s tw=0 nowrap:
