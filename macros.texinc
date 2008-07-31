@@ -47,7 +47,6 @@
 \def\ndsum#1#2#3{{\termhl \textstyle\sum_{\colorswitched{black}{#1} \mathrel{\termhl \in} {#2}} } {#3}}
 \def\abs#1{\termfont{\termhl abs}\,{#1}}
 \def\rep#1{\termfont{\termhl rep}\,{#1}}
-\def\intersect#1#2{\termfont{\termhl >}{#1}\termfont{\termhl <:}{#2}}
 \def\termsubst#1#2#3{{#1}{\termhl [}{#2}{\termhl /}{\termvar{#3}}{\termhl ]}}
 % }}}
 
