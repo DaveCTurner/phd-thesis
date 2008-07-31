@@ -30,41 +30,22 @@ intended meaning of $\envvarfresh{x}{\typeP}{s}$ is that the variable
 $\termvar{x}$ takes values of type $\typeP$ that are assumed to be fresh for
 $s$.  The set of environments may be equipped with a permutation action which
 simply permutes the freshness assumptions: \[ \sigma \cdot \envempty =
-\envempty \qquad \sigma \cdot (\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}})
-= \envcombine{(\sigma \cdot \Gamma)}{\envvarfresh{x}{\typeP}{\sigma \cdot s}},\]
-and is therefore a nominal set.
+\envempty \qquad\text{and}\qquad \sigma \cdot
+(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}}) = \envcombine{(\sigma \cdot
+\Gamma)}{\envvarfresh{x}{\typeP}{(\sigma \cdot s)}},\] and is therefore a
+nominal set.
 
-Combining general environments
-$\envcombine{\Gamma}{\Lambda}$ is defined by the recursion
-\[
-\envcombine{\Gamma}{()} = \Gamma
-\qquad
-\envcombine{\Gamma}{(\envcombine{\Lambda}{\envvarfresh{x}{\typeP}{\bar{s}}})}
-=
-\envcombine{(\envcombine{\Gamma}{\Lambda})}{\envvarfresh{x}{\typeP}{\bar{s}} },
-\]
-which immediately forces the variables in $\Gamma$ and $\Lambda$ to be distinct.
-
-As a shorthand, define $\envfresh{\Gamma}{\bar{s}}$ as \[\envfresh{()}{\bar{s}}
-= () \qquad\text{and}\qquad
-\envfresh{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\bar{s'}}}\bigr)}{\bar{s}}
-= \envcombine{\envfresh{\Gamma}{\bar{s}}}{\envvarfresh{x}{\typeP}{\bar{s'} \cup
-\bar{s}}}.\] 
-
-Also write $\envvarfresh{x}{\typeP}{\bar{s'}}$ for the
-single-variable environment
-$\envcombine{()}{\envvarfresh{x}{\typeP}{\bar{s'}}}$. In cases where the type
-of the variable is clear or unimportant, write it as simply $\termvar{x}$.
-
-It is sometimes convenient to replace a variable in an environment with another
-general environment.  Define $\envsubst{\Gamma}{\Lambda}{x}$ as
-\[\begin{array}{ccl} \envsubst{()}{\Lambda}{x} = () &\qquad&
-\envsubst{(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\bar{s}} })}{\Lambda}{x}
-= \envcombine{\Gamma}{\Lambda}\\&&
-\envsubst{(\envcombine{\Gamma}{\envvarfresh{y}{\typeP}{\bar{s}} })}{\Lambda}{x}
-= \envcombine{\envsubst{\Gamma}{\Lambda}{x}}{\envvarfresh{y}{\typeP}{\bar{s}} }
-\end{array}\] where $\termvar{x} \ne \termvar{y}$. This immediately forces the
-variables in $\Gamma$ and $\Lambda$ to be distinct, except for $\termvar{x}$.
+Define $\envcombine{\Gamma}{\Lambda}$ is defined by the obvious recursion \[
+\envcombine{\Gamma}{\envempty} = \Gamma \qquad\text{and}\qquad
+\envcombine{\Gamma}{(\envcombine{\Lambda}{\envvarfresh{x}{\typeP}{s}})} =
+\envcombine{(\envcombine{\Gamma}{\Lambda})}{\envvarfresh{x}{\typeP}{s} }, \]
+which only makes sense when the variables in $\Gamma$ and $\Lambda$ to be
+distinct. Also define $\envfresh{\Gamma}{s}$ by \[\envfresh{\envempty}{s} =
+\envempty \qquad\text{and}\qquad
+\envfresh{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s'}}\bigr)}{s} =
+\envcombine{\envfresh{\Gamma}{s}}{\envvarfresh{x}{\typeP}{s' \cup s}}.\] Also
+write $\envvarfresh{x}{\typeP}{s}$ for the single-variable environment
+$\envcombine{()}{\envvarfresh{x}{\typeP}{s}}$.
 
 
 
