@@ -21,10 +21,10 @@ is the term obtained by simultaneously substituting $v$ for the variables
 $\termvar{y1}, \ldots, \termvar{yn}$ in $t$.
 
 The proof now proceeds by induction on the derivation of
-$\tjudge{s}{\Gamma'}{t}{\typeP}$. Throughout we will use variables beginning
+$\tjudge{s}{\Gamma'}{t}{\typeP}$. Throughout variables beginning
 with $\termvar{y}$ and $\termvar{z}$ such as $\termvar{y1}, \termvar{ym}$ and
-$\termvar{zn}$ to represent variables that are subject to substitution, and
-other variables such as $\termvar{x}$, $\termvar{x1}$ and so on to represent
+$\termvar{zn}$ will represent variables that are subject to substitution, and
+other variables such as $\termvar{x}$, $\termvar{x1}$ and so on will represent
 variables that are not subject to substitution.
 
 \paragraph{Variable}
@@ -161,23 +161,23 @@ and that $\Lambda'$ is a reordering of $\Lambda,
 
 There are now two possibilities, depending on whether $m = 0$ or not. If $m
 \neq 0$ then by induction $\tjudge{s \cup
-s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envvarfresh{x}{\typeQp}{s'}
-}}{t[v]}{\typeP}$ and $\tjudge{s'' \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}
+}{\envvarfresh{x}{\typeQp}{s'} }}{t[v]}{\typeP}$ and $\tjudge{s'' \cup
 s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}$ and hence
-$\tjudge{s'' \cup
-s_1}{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}} }{u[v']}{\typeQ}$ where
-$\Delta'$ and $v'$ are $\Delta$ and $v$ with all the variables renamed.  Also
-by fresh-weakening $\atjudge{s'' \cup s_1}{\typeQ}{q}{\typeQp}$.  By hypothesis, we
-have that $(r \cup s' \cup r') \cap s_1 = \varnothing$ so that $s' \cap s_1 =
-\varnothing$ and hence $s_1 \subseteq (s \cup s_1) \setminus s'$. Also $s''
-\subseteq s \setminus s' \subseteq (s \cup s_1) \setminus s'$ so that finally
-$(s'' \cup s_1) \subseteq (s \cup s_1) \setminus s'$. Therefore \[\tjudge{s
-\cup
-s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envcombine{\envfresh{\Lambda}{s'}}{\envfresh{\Delta'}{r'
-\cup s'}} }} {\matchx{s'}{(u[v'])}{q}{x}{t[v]}}{\typeP}\] so that by contraction,
-exchange and fresh-weakening, \[\tjudge{s \cup
-s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta}{r
-\cup r' \cup s'}} } {\matchx{s'}{u[v]}{q}{x}{t[v]} =
+$\tjudge{s'' \cup s_1}{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}}
+}{u[v']}{\typeQ}$ where $\Delta'$ and $v'$ are $\Delta$ and $v$ with all the
+variables renamed.  Also by fresh-weakening $\atjudge{s'' \cup
+s_1}{\typeQ}{q}{\typeQp}$.  By hypothesis, $(r \cup s' \cup r') \cap s_1 =
+\varnothing$ so that $s' \cap s_1 = \varnothing$ and hence $s_1 \subseteq (s
+\cup s_1) \setminus s'$. Also $s'' \subseteq s \setminus s' \subseteq (s \cup
+s_1) \setminus s'$ so that finally $(s'' \cup s_1) \subseteq (s \cup s_1)
+\setminus s'$. Therefore \[\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}
+}{\envcombine{\envfresh{\Lambda}{s'}}{\envfresh{\Delta'}{r' \cup s'}} }}
+{\matchx{s'}{(u[v'])}{q}{x}{t[v]}}{\typeP}\] so that by contraction, exchange
+and fresh-weakening, \[\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}
+}{\envfresh{\Delta}{r \cup r' \cup s'}} } {\matchx{s'}{u[v]}{q}{x}{t[v]} =
 \matchx{s'}{u}{q}{x}{t}[v]}{\typeP}\] as required.
 
 If $m = 0$ then by induction $\tjudge{s \cup

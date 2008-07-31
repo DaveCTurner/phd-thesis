@@ -233,7 +233,7 @@ from which it follows that \[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
 
 \paragraph{Recursion} (TODO Some bold assertions here!) The hom-set
 $\mathbf{ChCts}_s(\sem{\Gamma}, \typeP)$ is a chain-complete poset with the
-ordering given pointwise. Suppose we are given the arrow $f =
+ordering given pointwise. Let $f =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
 }}{t}{\typeP}}$ and consider the operation on homsets 
 $f^* : \mathbf{ChCts}_s(\sem{\Gamma}, \typeP) \to \mathbf{ChCts}_s(\sem{\Gamma},
@@ -384,11 +384,11 @@ We know from (TODO) of the adjunction $(-)^{\freshfor a} \dashv \delta_a :
 \mathbf{FMPre}_s \leftrightarrows \mathbf{FMPre}_{s \udot \{a\}}$ with unit
 $\xi$ and counit $\epsilon$. Recall from (TODO) that $\mathbf{FMLin}_s$ is
 (equivalent to) the Kleisli category of the monad $(\widehat{(-)}, \{\cdot\},
-\mathord{\cup})$ on $\mathbf{FMPre}_s$.  Furthermore we have natural
+\mathord{\cup})$ on $\mathbf{FMPre}_s$.  Furthermore there are natural
 isomorphisms $\theta : \delta_a \widehat{(-)} \to \widehat{\delta_a -}$ and
 $\phi : \widehat{(-)}^{\freshfor a} \to \widehat{(-)^{\freshfor a}}$, and these
 natural transformations satisfy the commuting diagrams required by theorem
-(TODO), so we can lift the adjunction above to $(-)^{\freshfor a+} \dashv
+(TODO), so the adjunction above lifts to $(-)^{\freshfor a+} \dashv
 \delta^+_a : \mathbf{FMLin}_s \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$
 with unit $\xi^+$ and counit $\epsilon^+$ as follows. If $A$ is an object of
 $\mathbf{FMLin}_s$ then define $A^{\freshfor a+} = A^{\freshfor a}$.  If $f : A
@@ -441,14 +441,14 @@ $\{\cdot\}$ these lift to isomorphisms $\theta^{{!}+} : \delta^+_a{!} \to
 {!}\delta^+_a$ and $\phi^{{!}+} : {!}\bigl((-)^{\freshfor a+}\bigr) \to
 ({!}-)^{\freshfor a+}$.  Now recall that $\mathbf{ChCts}_s$ is (equivalent to)
 the co-Kleisli category of the comonad $({!}, \mathord{\cup}^{!}, \zeta)$ on
-$\mathbf{FMLin}_s$. Using the dual of theorem (TODO) we can further lift the
-adjunction $(-)^{\freshfor a+} \dashv \delta^+_a : \mathbf{FMLin}_s
-\leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$ to $(-)^{\freshfor a++} \dashv
-\delta^{++}_a : \mathbf{ChCts}_s \leftrightarrows \mathbf{ChCts}_{s \udot \{a\}}$
-as follows.  If $A$ is an object of $\mathbf{ChCts}_s$ then define $A^{\freshfor
-a++} = A^{\freshfor a+} = A^{\freshfor a}$.  If $f : A \to B$ is an arrow of
-$\mathbf{ChCts}_s$ then define $f^{\freshfor a++}$ to be the following
-composition in $\mathbf{FMLin}_{s \udot \{a\}}$:
+$\mathbf{FMLin}_s$. Using the dual of theorem (TODO) the adjunction
+$(-)^{\freshfor a+} \dashv \delta^+_a : \mathbf{FMLin}_s \leftrightarrows
+\mathbf{FMLin}_{s \udot \{a\}}$ lifts further to $(-)^{\freshfor a++} \dashv
+\delta^{++}_a : \mathbf{ChCts}_s \leftrightarrows \mathbf{ChCts}_{s \udot
+\{a\}}$ as follows.  If $A$ is an object of $\mathbf{ChCts}_s$ then define
+$A^{\freshfor a++} = A^{\freshfor a+} = A^{\freshfor a}$.  If $f : A \to B$ is
+an arrow of $\mathbf{ChCts}_s$ then define $f^{\freshfor a++}$ to be the
+following composition in $\mathbf{FMLin}_{s \udot \{a\}}$:
 \[\xymatrix{
 {!}(A^{\freshfor a})
 \ar[r]^{{\phi^{{!}+}_A}^{-1}} &

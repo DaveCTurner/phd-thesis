@@ -117,9 +117,10 @@ too, so that $\login{P}{\typelift\typeP}{t_1}$ as required.
 
 \paragraph{Function Space Path} By assumption,
 $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_0}$, so that for all $u$ such that $\logrel{Q}{\typeQ}{u}$,
-$\login{p}{\typeP}{\apply{t_0}{u}}$.  Since
-$\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ we have
-$\oprel{\apply{t_0}{u}}{\typeP}{\apply{t_1}{u}}$ as follows. Suppose that
+$\login{p}{\typeP}{\apply{t_0}{u}}$. Also
+$\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ implies that
+$\oprel{\apply{t_0}{u}}{\typeP}{\apply{t_1}{u}}$ as follows.
+Suppose that
 $\ajudge{\typeP}{\apply{t_0}{u}}{p'}{t'}$, then by lemma TODO
 $\ajudge{\typemap{\typeQ}{\typeP}}{t_0}{\mapaction{u}{p'}}{t'}$ and hence
 $\ajudge{\typemap{\typeQ}{\typeP}}{t_1}{\mapaction{u}{p'}}{t'}$ so that
@@ -129,8 +130,8 @@ $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_1}$ as required.
 
 \paragraph{New Name Path}
 By assumpton, $\login{\newpath{b}{p}}{\typedelta\typeP}{t_0}$ where $b$ is a
-fresh name, so that $\login{p}{\typeP}{\newapply{t_0}{b}}$. Since
-$\oprel{t_0}{\typedelta\typeP}{t_1}$ we have
+fresh name, so that $\login{p}{\typeP}{\newapply{t_0}{b}}$. Also
+$\oprel{t_0}{\typedelta\typeP}{t_1}$ implies that
 $\oprel{\newapply{t_0}{b}}{\typeP}{\newapply{t_1}{b}}$ as follows. Suppose that
 $\ajudge{\typeP}{\newapply{t_0}{b}}{p'}{t'}$, then by lemma TODO
 $\ajudge{\typedelta\typeP}{t_0}{\newaction{b}{p'}}{\new{b}{t'}}$ and hence
@@ -141,8 +142,8 @@ $\login{\newpath{b}{p}}{\typedelta\typeP}{t_1}$ as required.
 
 \paragraph{Labelled Path}
 By assumpton, $\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_0}$ so that
-$\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}$. Since
-$\oprel{t_0}{\stdtypesum}{t_1}$ we have
+$\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}$. Also
+$\oprel{t_0}{\stdtypesum}{t_1}$ implies that
 $\oprel{\lproj{\ell_0}{t_0}}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}$ as
 follows. Suppose that
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}{p'}{t'}$, then by lemma
@@ -154,8 +155,8 @@ $\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_1}$ as required.
 
 \paragraph{Recursive Type Path} By assumpton,
 $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{t_0}$, so that by definition
-$\login{p}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}$. Since
-$\oprel{t_0}{\typerec{j}{P}{\typeP}}{t_1}$ we have
+$\login{p}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}$. Also
+$\oprel{t_0}{\typerec{j}{P}{\typeP}}{t_1}$ implies that 
 $\oprel{\rep{t_0}}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}$ as
 follows. Suppose that
 $\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}{p'}{t'}$, then by

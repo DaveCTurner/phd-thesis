@@ -34,13 +34,13 @@ i_1^* \sem{v}^n) \] where $t[v]$ is the term obtained by simultaneously
 substituting $v$ for the variables $\termvar{y1}, \ldots, \termvar{yn}$ in $t$.
 
 The proof now proceeds by induction on the derivation of
-$\tjudge{s}{\Gamma'}{t}{\typeP}$. Throughout we will use variables beginning
-with $\termvar{y}$ and $\termvar{z}$ such as $\termvar{y1}, \termvar{ym}$ and
-$\termvar{zn}$ to represent variables that are subject to substitution, and
-other variables such as $\termvar{x}$, $\termvar{x1}$ and so on to represent
-variables that are not subject to substitution. Where it is unimportant, we
-will omit the map $\sigma$ and the functors $i_1^*$ and $i_2^*$ to preserve the
-clarity of the proof.
+$\tjudge{s}{\Gamma'}{t}{\typeP}$. Throughout variables beginning with
+$\termvar{y}$ and $\termvar{z}$ such as $\termvar{y1}, \termvar{ym}$ and
+$\termvar{zn}$ will represent variables that are subject to substitution, and
+other variables such as $\termvar{x}$, $\termvar{x1}$ and so on will represent
+variables that are not subject to substitution. Where it is unimportant, omit
+the map $\sigma$ and the functors $i_1^*$ and $i_2^*$ to preserve the clarity
+of the proof.
 
 \paragraph{Variable}
 %\infer{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}
