@@ -127,7 +127,6 @@
 \def\abspath#1{{\pathhl \mathtt{abs}}\ {#1}}
 % }}}
 
-\def\revisionnumber{$ $Revision: 2100 $ $}
-% Revision bumper: av,xcmanbvujEsTWC84jz2whBj6ZddzW/avxjklhb
+\def\revisionnumber{}
 % vim: set filetype=tex foldlevel=0 cms=\%%s:
 
