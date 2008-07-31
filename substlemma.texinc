@@ -1,0 +1,295 @@
+\begin{lemma}[Syntactic Substitution Lemma]\label{substitutionlemma} Suppose
+that $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{y}{\typeR}{r} }}{t}{\typeP}$
+and $\tjudge{s_1}{\Delta}{v}{\typeP}$ where $s_1 \cap r = \varnothing$ and
+$\dom\Gamma \cap \dom\Delta = \varnothing$. Then \[\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\termsubst{t}{v}{y}}{\typeP}\]
+\end{lemma}
+
+% Proof of Substitution Lemma {{{
+\begin{proof} The proof is by induction over the typing rules. Because of the
+structural rules of contraction and exchange it is necessary to use a stronger
+induction hypothesis than that given by the statement of the lemma:
+
+Suppose that $\tjudge{s}{\Gamma'}{t}{\typeP}$,
+$\tjudge{s_1}{\Delta}{v}{\typeR}$, and $\Gamma'$ is a reordering of the
+environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
+\envvarfresh{yn}{\typeR}{r_n}$. Let $r = r_1 \cup \ldots \cup r_n$. Suppose
+also that $\dom\Gamma \cap \dom\Delta = \varnothing$ and that $s_1 \cap r =
+\varnothing$. Then \[\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} } {t[v]}{\typeP}\] where $t[v]$
+is the term obtained by simultaneously substituting $v$ for the variables
+$\termvar{y1}, \ldots, \termvar{yn}$ in $t$.
+
+The proof now proceeds by induction on the derivation of
+$\tjudge{s}{\Gamma'}{t}{\typeP}$. Throughout we will use variables beginning
+with $\termvar{y}$ and $\termvar{z}$ such as $\termvar{y1}, \termvar{ym}$ and
+$\termvar{zn}$ to represent variables that are subject to substitution, and
+other variables such as $\termvar{x}$, $\termvar{x1}$ and so on to represent
+variables that are not subject to substitution.
+
+\paragraph{Variable}
+%\infer{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing} }{\termvar{x}}{\typeP}}{-}
+There are two possibilities for the variable rule, depending on whether the variable in question
+is subject to substitution or not. If it is subject to substitution then $t =
+\termvar{y1}$ and $s = \varnothing$ so by assumption
+$\tjudge{s_1}{\Delta}{v}{\mathbb R}$ and $\termsubst{t}{v}{y1} = v$, so that
+$\tjudge{\varnothing \cup s_1}{\Delta}{\termsubst{t}{v}{y1}}{\mathbb R}$ as
+required. On the other hand if the variable in question is not subject to substitution then $t = \termvar{x}$ so
+by repeated use of weakening, support-weakening and fresh-weakening it is possible
+to derive $\tjudge{s_1}{\envcombine{\envvarfresh{x}{\typeP}{\varnothing}}{\Delta}}
+{x}{\typeP}$ as required.
+
+\paragraph{Weakening} 
+%\infer{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
+%}}{t}{\typeP}} {\tjudge{s}{\Gamma}{t}{\typeP}}
+There are two possibilities for the weakening rule, depending on whether the
+newly-added variable is subject to substitution or not.  Suppose that
+$\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{yn}{\typeR}{\varnothing}
+}}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma'}{t}{\typeP}$, then by
+induction $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup
+\ldots \cup r_{n-1} \cup \varnothing}}}{t[v]}{\typeP}$. Furthermore,
+$\termvar{yn}$ does not appear free in $t$ so that the judgement above is as
+required.
+
+On the other hand, suppose that
+$\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQ}{\varnothing}
+}}{t}{\typeP}$ is derived from the judgement $\tjudge{s}{\Gamma'}{t}{\typeP}$,
+then $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup \ldots
+\cup r_n} }}{t[v]}{\typeP}$ by induction and hence by weakening $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envcombine{\envfresh{\Delta}{r_1 \cup \ldots \cup
+r_n}}{\envvarfresh{x}{\typeQ}{\varnothing}} }}{t[v]}{\typeP}$ as required.
+
+\paragraph{Exchange} This case is trivial, by reordering the environments appropriately.
+
+\vfill\pagebreak
+
+\paragraph{Contraction} There are two possibilities for this case, depending on
+whether the contracted variable is subject to substitution or not. Suppose that
+the judgement
+$\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{yn}{\typeR}{r_n}
+}}{\termsubst{t}{\termvar{yn}}{ym}}{\typeP}$ is derived from a judgement of the form
+$\tjudge{s}{\envcombine{\Gamma'}{\envcombine{\envvarfresh{yn}{\typeR}{r_n}
+}{\envvarfresh{ym}{\typeR}{r_n}} }}{t}{\typeP}$, then by induction
+$\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{t[v]}{\typeP}$
+and $t[v] = \termsubst{t}{\termvar{yn}}{ym}[v]$ so this judgement is as required.
+
+On the other hand suppose that the judgement
+$\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x1}{\typeQ}{s'}
+}}{\termsubst{t}{\termvar{x1}}{x2}}{\typeP}$ is derived from the judgement
+$\tjudge{s}{\envcombine{\Gamma'}{\envcombine{\envvarfresh{x1}{\typeQ}{s'}
+}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$, then by induction
+$\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ}{s'}
+}{\envvarfresh{x2}{\typeQ}{s'}} }}{\envfresh{\Delta}{r}} }{t[v]}{\typeP}$
+and hence by contraction and exchange
+$\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{s'}} }
+{\envfresh{\Delta}{r}} }{\termsubst{t[v]}{\termvar{x1}}{x2}}{\typeP}$.
+Furthermore as the substitutions $[v]$ and $\termsubst{}{\termvar{x1}}{x2}$ are
+disjoint, $\termsubst{t[v]}{\termvar{x1}}{x2} =
+\termsubst{t}{\termvar{x1}}{x2}[v]$ so this judgement is as required.
+
+\paragraph{Fresh-Weakening}
+%\infer[(s'' \subseteq s' \subseteq s)]
+%{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
+%{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}} 
+There are two possibilities for this case, depending on whether the variable
+with extra freshness assumptions is subject to substitution or not. If it is
+not subject to substitution then this case is a simple application of the
+inductive hypothesis. On the other hand, suppose that $r'_n \subseteq r_n
+\subseteq s$, that $\Gamma'$ is a reordering of the environment $\Gamma,
+\envvarfresh{y1}{\typeR}{r_1}, \ldots, \envvarfresh{yn}{\typeR}{r_n}$ and also
+that $\Gamma''$ is a reordering of the environment $\Gamma,
+\envvarfresh{y1}{\typeR}{r_1}, \ldots, \envvarfresh{yn}{\typeR}{r'_n}$. If
+$\tjudge{s}{\Gamma'}{t}{\typeP}$ is derived from
+$\tjudge{s}{\Gamma''}{t}{\typeP}$ then $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup \ldots \cup r_{n-1} \cup
+r'_n} }}{t[v]}{\typeP}$ by induction, hence $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup \ldots \cup r_{n-1} \cup
+r_n} }}{t[v]}{\typeP}$ by repeated applications of fresh-weakening on the
+variables in $\Delta$, as required.
+
+\paragraph{Support-Weakening}
+%\infer[(s' \subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}}
+%{\tjudge{s'}{\Gamma}{t}{\typeP}} \\
+Suppose that $s' \subseteq s$ and that
+$\tjudge{s}{\Gamma'}{t}{\typeP}$ is
+derived from $\tjudge{s'}{\Gamma'}{t}{\typeP}$, then $\tjudge{s' \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typeP}$
+by induction, and hence $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typeP}$
+by support-weakening as required.
+
+\paragraph{Prefix}
+%\infer{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}}
+%{\tjudge{s}{\Gamma}{t}{\typeP}} &&
+Suppose that $\tjudge{s}{\Gamma'}{\bang{t}}{\typelift\typeP}$ is derived from
+$\tjudge{s}{\Gamma'}{t}{\typeP}$, then by induction
+$\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{t[v]}{\typeP}$ and so it follows from the rule
+for prefixed terms that $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\bang{(t[v])}
+={(\bang{t})}[v]}{\typelift\typeP}$ as required.
+
+\paragraph{Recursion} Suppose that
+$\tjudge{s}{\Gamma'}{\rec{x}{t}}{\typeP}$ is derived from the judgement
+$\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}$, then $\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{\envvarfresh{x}{\typeP}{\varnothing} }}{t[v]}{\typeP}$ by induction and
+hence $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{\rec{x}{(t[v])} = (\rec{x}{t}) [v]}{\typeP}$ as
+required.
+
+\vfill\pagebreak
+
+\paragraph{Prefix-Match}
+%\infer[(s'' \subseteq s \setminus s')]
+%{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
+%{\matchx{s'}{u}{q}{x}{t}}{\typeP}}
+%{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} &
+%\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
+Suppose that $\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'} }}
+{\matchx{s'}{u}{q}{x}{t}}{\typeP}$ is derived from
+$\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP}$,
+$\tjudge{s''}{\Lambda'}{u}{\typeQ}$ and $\atjudge{s''}{\typeQ}{q}{\typeQp}$
+where $s'' \subseteq s \setminus s'$. Suppose that $\Gamma'$ is a reordering of
+$\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots, \envvarfresh{yn}{\typeR}{r_n}$
+and that $\Lambda'$ is a reordering of $\Lambda,
+\envvarfresh{z1}{\typeR}{r'_1}, \ldots, \envvarfresh{zm}{\typeR}{r'_m}$. Let $r
+= r_1 \cup \ldots \cup r_n$ and $r' = r'_1 \cup \ldots \cup r'_m$.
+
+There are now two possibilities, depending on whether $m = 0$ or not. If $m
+\neq 0$ then by induction $\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envvarfresh{x}{\typeQp}{s'}
+}}{t[v]}{\typeP}$ and $\tjudge{s'' \cup
+s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}$ and hence
+$\tjudge{s'' \cup
+s_1}{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}} }{u[v']}{\typeQ}$ where
+$\Delta'$ and $v'$ are $\Delta$ and $v$ with all the variables renamed.  Also
+by fresh-weakening $\atjudge{s'' \cup s_1}{\typeQ}{q}{\typeQp}$.  By hypothesis, we
+have that $(r \cup s' \cup r') \cap s_1 = \varnothing$ so that $s' \cap s_1 =
+\varnothing$ and hence $s_1 \subseteq (s \cup s_1) \setminus s'$. Also $s''
+\subseteq s \setminus s' \subseteq (s \cup s_1) \setminus s'$ so that finally
+$(s'' \cup s_1) \subseteq (s \cup s_1) \setminus s'$. Therefore \[\tjudge{s
+\cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envcombine{\envfresh{\Lambda}{s'}}{\envfresh{\Delta'}{r'
+\cup s'}} }} {\matchx{s'}{(u[v'])}{q}{x}{t[v]}}{\typeP}\] so that by contraction,
+exchange and fresh-weakening, \[\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta}{r
+\cup r' \cup s'}} } {\matchx{s'}{u[v]}{q}{x}{t[v]} =
+\matchx{s'}{u}{q}{x}{t}[v]}{\typeP}\] as required.
+
+If $m = 0$ then by induction $\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envvarfresh{x}{\typeQp}{s'}
+}}{t[v]}{\typeP}$ and $s'' \subseteq s \setminus s' \subseteq (s \cup s_1)
+\setminus s'$.  Therefore \[\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envfresh{\Lambda}{s'}} }
+{\matchx{s'}{u}{q}{x}{t[v]}= \matchx{s'}{u}{q}{x}{t}[v]}{\typeP}\] as
+required (up-to exchange).
+
+
+\paragraph{Function Abstraction} Suppose that
+$\tjudge{s}{\Gamma'}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP}}$ is derived from the judgement
+$\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQ}{\varnothing}
+}}{t}{\typeP}$, then $\tjudge{s \cup
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{\envvarfresh{x}{\typeQ}{\varnothing} }}{t[v]}{\typeP}$ by induction and
+hence $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{\abstract{x}{(t[v])} = (\abstract{x}{t}) [v]}{\typemap{\typeQ}{\typeP}}$ as required.
+
+\paragraph{Function Application} Suppose that
+$\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}}{\typeP}$ is derived
+from $\tjudge{s}{\Gamma'}{t}{\typemap{\typeQ}{\typeP}}$ and
+$\tjudge{s}{\Lambda'}{u}{\typeQ}$.  Suppose that $\Gamma'$ is a reordering of
+the environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
+\envvarfresh{yn}{\typeR}{r_n}$ and that $\Lambda'$ is a reordering of the
+environment $\Lambda, \envvarfresh{z1}{\typeR}{r'_1}, \ldots,
+\envvarfresh{zm}{\typeR}{r'_m}$. Let $r = r_1 \cup \ldots \cup r_n$ and $r' =
+r'_1 \cup \ldots \cup r'_m$. By induction, it follows that $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{t[v]}{\typemap{\typeQ}{\typeP}}$
+and $\tjudge{s \cup
+s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}$ so that
+$\tjudge{s \cup s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }
+{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}} }}{\apply{(t[v])}{(u[v'])}
+}{\typeP}$ where $\Delta'$ and $v'$ are $\Delta$ and $v$ with freshly-named
+variables. Therefore by contraction and exchange and fresh-weakening,
+$\tjudge{s \cup s_1}{\envcombine{\Gamma}
+{\envcombine{\Lambda}{\envfresh{\Delta}{r \cup r'}} }}{\apply{(t[v])}{(u[v])}
+= (\apply{t}{u})[v]}{\typeP}$ as required.
+
+\vfill\pagebreak
+
+\paragraph{Name Abstraction}
+Suppose that
+$\tjudge{s}{\Gamma'}{\new{a}{t}}{\typedelta \typeP}$ is derived from $\tjudge{s \udot
+\{a\}}{\envfresh{\Gamma'}{a}}{t}{\typeP}$ where $a$ is a fresh name and $\Gamma'$ is a reordering of
+$\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
+\envvarfresh{yn}{\typeR}{r_n}$. Notice that as $a$ is fresh, therefore $a \notin r$
+and $a \notin s_1$ so that $a \freshfor v$. By induction $\tjudge{s \cup s_1
+\udot \{a\}}{\envcombine{\envfresh{\Gamma}{a}}{\envfresh{\Delta}{r \udot \{a\}}
+}}{t[v]}{\typeP}$ so that $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\new{a}{(t[v])}
+= (\new{a}{t})[v]}{\typedelta\typeP}$ as required.
+
+\paragraph{Name Application}
+Suppose that $a \notin s$ and that 
+$\tjudge{s \udot \{a\}}{\envfresh{\Gamma'}{a}}{\newapply{t}{a}}{\typeP}$
+is derived from $\tjudge{s}{\Gamma'}{t}{\typedelta \typeP}$
+where $\Gamma'$ is a reordering of $\Gamma, \envvarfresh{y1}{\typeR}{r_1},
+\ldots, \envvarfresh{yn}{\typeR}{r_n}$.
+By hypothesis, $s_1 \cap (r \udot \{a\}) = \varnothing$ so that $a \notin s_1$
+and hence $a \freshfor v$. By induction $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{t[v]}{\typedelta \typeP}$ so that finally \[\tjudge{s \cup s_1
+\udot\{a\}}{\envcombine{\envfresh{\Gamma}{a}}{\envfresh{\Delta}{r \udot\{a\}}
+}} {\newapply{(t[v])}{a} =
+(\newapply{t}{a})[v]}{\typeP}\] as required.
+
+\paragraph{Labelling}
+Suppose that $\tjudge{s}{\Gamma'}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
+$\tjudge{s}{\Gamma'}{t}{\typePsub{\ell_0}}$, then by induction
+$\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{t[v]}{\typePsub{\ell_0}}$ and so $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\linj{\ell_0}{(t[v])}
+={(\linj{\ell_0}{t})}[v]}{\stdtypesum}$ as required.
+
+\paragraph{Label Projection}
+Suppose that $\tjudge{s}{\Gamma'}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
+$\tjudge{s}{\Gamma'}{t}{\stdtypesum}$, then by induction
+$\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{t[v]}{\stdtypesum}$ and so $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\lproj{\ell_0}{(t[v])}
+={(\lproj{\ell_0}{t})}[v]}{\typePsub{\ell_0}}$ as required.
+
+\paragraph{Nondeterministic Sum}
+Suppose that $\tjudge{s}{\Gamma'}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from
+$\tjudge{s_i}{\Gamma'}{t_i}{\typeP}$ for all $i \in I$, then by induction
+$\tjudge{s_i \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{t_i[v]}{\typeP}$ for all $i \in I$. Note that the support of the
+mapping $i \mapsto s_i \cup s_1$ is at most $s \cup s_1$ and so $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\ndsum{i}{I}{(t[v])}
+={\bigl(\ndsum{i}{I}{t}\bigr)}[v]}{\stdtypesum}$ as required.
+
+\paragraph{Recursive Type Folding}
+Suppose that $\tjudge{s}{\Gamma'}{\abs{t}}{\typerec{j}{P}{\typeP} }$ is derived from
+$\tjudge{s}{\Gamma'}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$, then by induction
+$\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{t[v]}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ and so $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\abs{(t[v])}
+={(\abs{t})}[v]}{\typerec{j}{P}{\typeP} }$ as required.
+
+\paragraph{Recursive Type Unfolding}
+Suppose that $\tjudge{s}{\Gamma'}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is derived from
+$\tjudge{s}{\Gamma'}{t}{\typerec{j}{P}{\typeP} }$, then by induction
+$\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{t[v]}{\typerec{j}{P}{\typeP} }$ and so $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\rep{(t[v])}
+={(\rep{t})}[v]}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ as required.
+%
+\end{proof}
+% }}}
+
+\vfill\pagebreak
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s tw=0 nowrap:

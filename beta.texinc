@@ -1,0 +1,65 @@
+\subsection{Beta-reduction}
+
+\begin{lemma}\label{betasound}Beta-reduction is sound in the following senses.
+\begin{enumerate}
+\item$\sem{\tjudge{\Gamma}{\termsubst{t}{u}{x}}{\typeP}} =
+\sem{\tjudge{\Gamma}{\apply{\abstract{x}{t}}{u}}{\typeP}}$.
+\item$\sem{\tjudge{\Gamma}{\termsubst{t}{u'}{x}}{\typeP}} \sqsubseteq
+\sem{\tjudge{\Gamma}{\match{u}{p}{x}{t}}{\typeP}}$ where $\sem{\bang{u'}}
+\sqsubseteq \sem{p} \circ \sem{u}$, with equality if $\sem{\bang{u'}} = \sem{p} \circ \sem{u}$.
+\item$\sem{\tjudge{\Gamma}{t}{\typePsub{\ell}}} =
+\sem{\tjudge{\Gamma}{\lproj{\ell}{(\linj{\ell}{t}})}{\typePsub{\ell}}}$ where 
+$\ell \in L$.
+\item$\sem{\tjudge{\Gamma}{\termsubst{t}{\rec{x}{t}}{x}}{\typeP}} =
+\sem{\tjudge{\Gamma}{\rec{x}{t}}{\typeP}}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+\item
+\begin{eqnarray*}\sem{\apply{\abstract{x}{t}}{u}} &=& \mathrm{app}^\otimes
+\circ (\mathrm{abs}^\otimes \sem{t} \otimes \sem{u}) \\ &=&
+\mathrm{app}^\otimes \circ (\mathrm{abs}^\otimes \sem{t} \otimes
+\mathbf{1}_{\mathbb P}) \circ (\mathbf{1}_{\Gamma} \otimes \sem{u})\\ &=&
+\sem{t} \circ (\mathbf{1}_\Gamma \otimes \sem{u}) = \sem{\termsubst{t}{u}{x}}.
+\end{eqnarray*}
+\item
+\begin{eqnarray*}\sem{\match{u}{p}{x}{t}}
+&=& \epsilon_{\mathbb P} \circ {!}\sem{t} \circ \str{\Gamma}{x}{\typeQ} \circ \Gamma[\sem{p} \circ \sem{u}/x] \\
+&\sqsupseteq& \epsilon_{\mathbb P} \circ {!}\sem{t} \circ
+\str{\Gamma}{x}{\typeQ} \circ \Gamma[\sem{\bang{u'}}/x] \\
+&=& \epsilon_{\mathbb P} \circ {!}\sem{t} \circ
+\str{\Gamma}{x}{\typeQ} \circ \Gamma[\eta_{\mathbb Q}/x]
+\circ
+\Gamma[\sem{u'}/x] \\
+&=& \epsilon_{\mathbb P} \circ {!}\sem{t} \circ \eta_\Gamma \circ
+\Gamma[\sem{u'}/x] \\
+&=& \epsilon_{\mathbb P} \circ
+\eta_{\mathbb P} \circ \sem{t} \circ \Gamma[\sem{u'}/x] \\
+&=& \sem{t} \circ \Gamma[\sem{u'}/x] \\
+&=& \sem{\termsubst{t}{u'}{x}}.
+\end{eqnarray*}
+\item 
+\begin{eqnarray*}
+\sem{\lproj{\ell}{(\linj{\ell}{t}})}
+&=& \pi_{\ell} \circ \mathrm{inj}_{\ell} \circ \sem{t} \\
+&=& \sem{t} 
+\end{eqnarray*}
+\item
+\begin{eqnarray*}
+\sem{\rec{x}{t}}
+&=& \sem{\tjudge{\envcombine{\envvar{x}{\typeP}}{\Gamma}}{t}{\typeP}} \circ (\sem{\rec{x}{t}} \otimes \mathbf{1}_\Gamma) \circ \Delta \\
+&=& \sem{\tjudge{\envcombine{\envvar{x}{\typeP}}{\Gamma}}{t}{\typeP}} \circ
+(\envcombine{\Gamma}{\envvar{x}{\typeP}})[\sem{\rec{x}{t}}/x] \circ \Delta \\
+&=&
+\sem{\tjudge{\envcombine{\Gamma}{\Gamma}}{\termsubst{t}{\rec{x}{t}}{x}}{\typeP}}
+\circ \Delta \\
+&=&
+\sem{\tjudge{\Gamma}{\termsubst{t}{\rec{x}{t}}{x}}{\typeP}}
+\end{eqnarray*}
+\end{enumerate}
+\end{proof}
+
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s:

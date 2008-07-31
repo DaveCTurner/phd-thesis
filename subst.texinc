@@ -1,0 +1,66 @@
+\subsection{Substitution}
+
+The substitution $\termsubst{t}{v}{y}$ of a term $v$ for the free variable
+$\termvar{y}$ in a term $t$ is defined by induction on $t$ as follows.
+%
+% Definition of substitution {{{
+\[\begin{array}{ccc}
+%
+\termsubst{\termvar{y}}{v}{y} = v
+%
+&\qquad&
+%
+\termsubst{\termvar x}{v}{y} = \termvar x \qquad (\termvar x \neq \termvar y) \\
+%
+\rule{0pt}{3ex}
+%
+\termsubst{(\rec{x}{t})}{v}{y} = \rec{x}{(\termsubst{t}{v}{y})} &&
+%
+\termsubst{(\bang{t})}{v}{y} = \bang{(\termsubst{t}{v}{y})} \\
+%
+\multicolumn{3}{c}{
+\rule{0pt}{3ex}
+%
+\termsubst{(\match{u}{p}{x}{t})}{v}{y} =
+	\match{(\termsubst{u}{v}{y})}{p}{x}{(\termsubst{t}{v}{y})}} \\
+%
+\rule{0pt}{3ex}
+%
+\termsubst{(\abstract{x}{t})}{v}{y} = \abstract{x}{(\termsubst{t}{v}{y})} &&
+%
+\termsubst{(\apply{t}{u})}{v}{y} =
+	\apply{(\termsubst{t}{v}{y})}{\termsubst{u}{v}{y}} \\
+%
+\rule{0pt}{3ex}
+\termsubst{(\new{a}{t})}{v}{y} = \new{a}{(\termsubst{t}{v}{y})} &&
+%
+\rule{0pt}{3ex}
+\termsubst{(\newapply{t}{a})}{v}{y} = \newapply{(\termsubst{t}{v}{y})}{a}\\
+%
+\rule{0pt}{3ex}
+\termsubst{(\linj{\ell}{t})}{v}{y} = 
+	\linj{\ell}{(\termsubst{t}{v}{y})} &&
+%
+\termsubst{(\lproj{\ell}{t})}{v}{y} = \lproj{\ell}{(\termsubst{t}{v}{y})} \\
+%
+\rule{0pt}{3ex}
+\termsubst{\left( \ndsum{i}{I}{t_i} \right)}{v}{y} = 
+	\ndsum{i}{I}{(\termsubst{t_{i}}{v}{y})} &&
+%
+\termsubst{(\intersect{t}{s})}{v}{y} = \intersect{\termsubst{t}{v}{y}}{s}
+\end{array}\]
+% }}}
+Substitution is to be capture-avoiding in both names and variables,
+in the sense that for substitution into a term of the forms \[\rec{x}{t}
+\qquad \match{u}{p}{x}{t} \qquad \abstract{x}{t}\] the variable $\termvar{x}$
+is assumed not to be free in $v$, and for substitution into a term of the form
+\[\new{a}{t}\] the name $a$ is chosen to be fresh for $v$.
+
+To avoid capture in variables, substitution is tacitly assumed to rename bound
+variables in the usual fashion. There is no need for any work to avoid
+capturing a name since it is always possible to choose a representative of the
+appropriate equivalence class corresponding to a fresh name. Formally, the
+definition of substitution on pre-terms is equivariant, and hence it is
+well-defined on $\alpha$-equivalence classes.
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s:

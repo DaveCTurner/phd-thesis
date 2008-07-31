@@ -1,0 +1,12 @@
+.svn
+*.pstex
+*.pstex_t
+*.pdf
+*.ps
+*.dvi
+*.log
+*.aux
+*.bak
+*.bbl
+*.blg
+.*.swp

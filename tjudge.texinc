@@ -1,0 +1,555 @@
+\subsection{Typing Rules}
+
+\subsubsection{Typing Rules for Terms}
+
+%
+% Typing rules {{{
+\[\begin{array}{ccc}
+%
+\infer{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing} }{\termvar{x}}{\typeP}}{-}
+%
+&& 
+\infer{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}}
+{\tjudge{s}{\Gamma}{t}{\typeP}}
+%
+\\\multicolumn{3}{c}{\rule{0pt}{7ex}
+%
+\infer
+{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}}
+{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ {}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
+}
+\\\multicolumn{3}{c}{\rule{0pt}{7ex}
+%
+\infer
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}}
+{\tjudge{s}{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}
+}
+\\
+\rule{0pt}{7ex}
+\infer[(s'' \subseteq s' \subseteq s)]
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}} 
+%
+&&
+\infer[(s' \subseteq s)]
+{\tjudge{s}{\Gamma}{t}{\typeP}}
+{\tjudge{s'}{\Gamma}{t}{\typeP}} \\
+%
+\rule{0pt}{7ex}
+\infer{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}}
+{\tjudge{s}{\Gamma}{t}{\typeP}} &&
+%
+\infer{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing} }}{t}{\typeP}} \\
+%
+\multicolumn{3}{c}{\rule{0pt}{7ex}
+%
+\infer[(s'' \subseteq s \setminus s')]
+{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
+	{\matchx{s'}{u}{q}{x}{t}}{\typeP}}
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} &
+\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
+%
+\rule{0pt}{7ex}
+%
+\infer{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }}
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}} &&
+%
+\infer{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}}{\typeP}}
+{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}} & 
+\tjudge{s}{\Lambda}{u}{\typeQ}} \\
+%
+\rule{0pt}{7ex}
+%
+\infer[(a \notin s)]
+{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
+{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} &&
+%
+\infer[(a \notin s)]
+{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
+{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \\
+%
+\rule{0pt}{7ex}
+%
+\infer
+{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}}
+{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}} } &&
+%
+\infer
+{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} }
+{\tjudge{s}{\Gamma}{t}{\stdtypesum}} \\
+%
+\rule{0pt}{7ex}
+%
+\infer
+{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
+{\tjudge{s_i}{\Gamma}{t_i}{\typeP} \qquad\text{each $i \in I$}} \\
+%
+\rule{0pt}{7ex}
+%
+\infer
+{\tjudge{s}{\Gamma}{\abs t}{\typerec{j}{P}{\typeP} }}
+{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} &&
+%
+\infer
+{\tjudge{s}{\Gamma}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
+{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }} 
+\end{array}\]
+% }}}
+
+Notice that in the rule for $\apply{t}{u}$ the environments force $\fv{t} \cap \fv{u} = \varnothing$, and 
+in the rule for $\matchx{s}{u}{q}{x}{t}$ the environments force $\fv{t} \cap \fv{u} \subseteq \{ \termvar{x} \}$.
+
+In each of the rules above for terms of the forms $\linj{\ell_0} t$ and
+$\lproj{\ell_0} t$, the support of $\ell_0$ must be contained in $s$. Also, in
+the rule for terms of the form $\ndsum{i}{I}{t_i}$, the mapping $i \mapsto
+\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ must be supported by $s$.
+
+\vfill\pagebreak
+
+\begin{lemma} 
+\label{closedtermtypebackwards}
+If the conclusion of a non-structural typing rule for a closed term is
+derivable then so are its premises, in a sense made precise below.
+\begin{enumerate}[(i)]
+%
+\item \label{closedtermtypebackwardsbang}
+If $\tjudge{s}{}{\bang{t}}{\typelift\typeP}$ then
+$\tjudge{s}{}{t}{\typeP}$.
+%
+\item \label{closedtermtypebackwardsrec}
+If $\tjudge{s}{}{\rec{x}{t}}{\typeP}$ then
+$\tjudge{s}{\envvarfresh{x}{\typeP}{\varnothing}}{t}{\typeP}$.
+%
+\item \label{closedtermtypebackwardsmatch}
+If $\tjudge{s}{}{\matchx{s'}{u}{q}{x}{t}}{\typeP}$ then $s' \subseteq s$ and
+there exist $\typeQ$, $\typeQp$ and $s'' \subseteq s \setminus s'$ such that
+$\tjudge{s}{\envvarfresh{x}{\typeQp}{s'} }{t}{\typeP}$,
+$\tjudge{s''}{}{u}{\typeQ}$ and $\atjudge{s''}{\typeQ}{q}{\typeQp}$.
+%
+\item \label{closedtermtypebackwardsabstract}
+If $\tjudge{s}{}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }$ then
+$\tjudge{s}{\envvarfresh{x}{\typeQ}{\varnothing} }{t}{\typeP}$.
+%
+\item \label{closedtermtypebackwardsapply}
+If $\tjudge{s}{}{\apply{t}{u}}{\typeP}$ then
+there exists a type $\typeQ$ such that
+$\tjudge{s}{}{t}{\typemap{\typeQ}{\typeP}}$ and $\tjudge{s}{}{u}{\typeQ}$.
+%
+\item \label{closedtermtypebackwardsnew}
+If $\tjudge{s}{}{\new{a}{t}}{\typedelta \typeP}$ and $a \notin s$
+then $\tjudge{s \udot \{a\}}{}{t}{\typeP}$.
+%
+\item \label{closedtermtypebackwardsnewapply}
+If $\tjudge{s}{}{\newapply{t}{a}}{\typeP}$ then $a \in s$ and
+$\tjudge{s \setminus \{a\}}{}{t}{\typedelta \typeP}$.
+%
+\item \label{closedtermtypebackwardslinj}
+If $\tjudge{s}{}{\linj{\ell_0}{t}}{\stdtypesum}$ then
+$\tjudge{s}{}{t}{\typePsub{\ell_0}}$.
+%
+\item \label{closedtermtypebackwardslproj}
+If $\tjudge{s}{}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} $ then
+$\tjudge{s}{}{t}{\stdtypesum}$.
+%
+\item \label{closedtermtypebackwardsndsum}
+If $\tjudge{s}{}{\ndsum{i}{I}{t_i}}{\typeP}$ then for each $i \in I$
+there exists $s_i$ such that $\tjudge{s_i}{}{t_i}{\typeP}$, and such that the
+mapping $i \mapsto (s_i, t_i)$ is supported by $s$.
+%
+\item \label{closedtermtypebackwardsabs}
+If $\tjudge{s}{}{\abs t}{\typerec{j}{P}{\typeP} }$ then 
+$\tjudge{s}{}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$.
+%
+\item \label{closedtermtypebackwardsrep}
+If $\tjudge{s}{}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$
+then $\tjudge{s}{}{t}{\typerec{j}{P}{\typeP} }$.
+%
+\end{enumerate}
+\end{lemma}
+
+\begin{proof} Each statement in this lemma is of the form ``If $C$ then
+\ldots'' where $C$ is some typing judgement. Consider the last steps of the
+derivation of $C$. By inspection, each $C$ can arise from at most one
+non-structural rule, and each $C$ has empty environment so $C$ can arise from
+the support-weakening rule but no other structural rule concludes with an empty
+environment.  Therefore the derivation of $C$ must finish with the appropriate
+non-structural rule followed by some number of applications of the
+support-weakening rule. However, the support-weakening rule is transitive and
+reflexive, so the $C$ may be derived by a sequence of rules finishing with the
+appropriate non-structural rule followed by exactly one application of the
+support-weakening rule, say one which extends the support from $s_1$ to $s_2 \supseteq s_1$.
+
+The result follows immediately for cases (\ref{closedtermtypebackwardsbang}),
+(\ref{closedtermtypebackwardsrec}), (\ref{closedtermtypebackwardsabstract}),
+(\ref{closedtermtypebackwardsapply}), (\ref{closedtermtypebackwardslinj}),
+(\ref{closedtermtypebackwardslproj}), (\ref{closedtermtypebackwardsabs}) and
+(\ref{closedtermtypebackwardsrep}) since the non-structural rule in each of these
+cases preserves the support, so if it is valid at support $s_1$ then it remains
+valid at $s_2$. For case (\ref{closedtermtypebackwardsmatch}) the result follows
+similarly, since $s' \subseteq s_1$ so that if $s'' \subseteq s_1 \setminus s'$
+then $s'' \subseteq s_2 \setminus s'$. Case (\ref{closedtermtypebackwardsndsum})
+is immediate too, since this case does not depend on the support of $C$.
+
+For case (\ref{closedtermtypebackwardsnew}) if $a$ is fresh for $s_2$ then it is
+certainly fresh for $s_1$, so this case follows. Finally, for case
+(\ref{closedtermtypebackwardsnewapply}) by considering the structure of the
+derivation it must be that $a \in s_1$ so that $s_1 \setminus \{a\} \subseteq
+s_2 \setminus \{a\}$ and $\tjudge{s_1 \setminus \{a\}}{}{t}{\typedelta\typeP}$,
+so that $\tjudge{s_2 \setminus \{a\}}{}{t}{\typedelta\typeP}$ as required.
+\end{proof}
+
+\subsubsection{Typing Rules for Actions}
+\[\begin{array}{ccc}
+%
+\infer
+{\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}}
+{-}
+%
+&&
+%
+\infer
+{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}
+{\atjudge{s}{\typeP}{p}{\typePp} & \tjudge{s}{}{u}{\typeQ}}
+%
+\\
+\rule{0pt}{7ex}
+%
+\infer
+{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}
+{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}}
+%
+&&
+%
+\infer
+{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}
+{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}
+%
+\\
+\rule{0pt}{7ex}
+%
+\infer[(a \notin s)]
+{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}
+{\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}}
+%
+&&
+\infer[(s' \subseteq s)]
+{\atjudge{s}{\typeP}{p}{\typePp}}
+{\atjudge{s'}{\typeP}{p}{\typePp}}
+\end{array}\]
+
+As with the typing rules for terms, in the rule for actions of the form
+$\labelaction{\ell_0}{p}$ the support of $\ell_0$ must be contained in $s$.
+
+\begin{lemma} 
+\label{closedactiontypebackwards}
+If the conclusion of a non-structural typing rule for an action is
+derivable then so are its premises, in a sense made precise below.
+\begin{enumerate}[(i)]
+%
+\item \label{closedactiontypebackwardsmap}
+If $\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ then
+$\tjudge{s}{}{u}{\typeQ}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
+%
+\item \label{closedactiontypebackwardsnew}
+If $\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$ and $a
+\notin s$ then $\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}$.
+%
+\item \label{closedactiontypebackwardslabel}
+If $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ then
+$\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$.
+%
+\item \label{closedactiontypebackwardsabs}
+If $\atjudge{s}{\typerec{j}{P}{\typeP} }{\absaction p}{\typePp}$ then 
+$\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$.
+%
+\end{enumerate}
+\end{lemma}
+
+\begin{proof} Each statement in this lemma is of the form ``If $C$ then
+\ldots'' where $C$ is some typing judgement. Consider the last steps of the
+derivation of $C$. By inspection, each $C$ can arise from at most one
+non-structural rule, or from the support-weakening rule, so the derivation of $C$ must finish with the appropriate
+non-structural rule followed by some number of applications of the
+support-weakening rule. However, the support-weakening rule is transitive and
+reflexive, so the $C$ may be derived by a sequence of rules finishing with the
+appropriate non-structural rule followed by exactly one application of the
+support-weakening rule, say one which extends the support from $s_1$ to $s_2 \supseteq s_1$.
+
+The result follows immediately for cases (\ref{closedactiontypebackwardsmap}),
+(\ref{closedactiontypebackwardslabel}) and (\ref{closedactiontypebackwardsabs})
+since the non-structural rule in each of these cases preserves the support, so
+if it is valid at support $s_1$ then it remains valid at $s_2$. For case
+(\ref{closedactiontypebackwardsnew}) if $a$ is fresh for $s_2$ then it is
+certainly fresh for $s_1$, so this case follows.\end{proof}
+
+\vfill\pagebreak
+If $\Gamma$ is an environment then write $\envrestrict{\Gamma}{s}$ for the
+environment obtained from $\Gamma$ by deleting all freshness assumptions not in
+$s$.
+
+\begin{lemma} \begin{enumerate}[(a)]
+%
+\item If $\tjudge{s}{\Gamma}{t}{\typeP}$ then
+$\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp t}}{t}{\typeP}$.
+%
+\item If $\atjudge{s}{\typeP}{p}{\typePp}$ then
+$\atjudge{\supp{p}}{\typeP}{p}{\typePp}$.
+%
+\end{enumerate} \end{lemma}
+
+\begin{proof} The proof is by mutual induction on the derivations of
+$\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
+
+\paragraph{Variable} Trivially, since $\supp{\termvar{x}} = \varnothing$.
+
+\paragraph{Weakening} Suppose that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
+}}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$, then by
+induction $\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typeP}$ and
+hence $\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}
+{\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}$ as required.
+
+\paragraph{Exchange} This case follows by a straightforward application of the
+induction hypothesis, similarly to the case of weakening above.
+
+\paragraph{Contraction} 
+This case follows by a straightforward application of the
+induction hypothesis, similarly to the case of weakening above.
+
+\paragraph{Fresh-Weakening} Suppose that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}$ is
+derived from the judgement
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}$
+where $s'' \subseteq s' \subseteq s$, then by induction it follows that
+$\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\typeQ}{s''
+\cap \supp{t}} }}{t}{\typeP}$ and hence by fresh-weakening
+$\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\typeQ}{s'
+\cap \supp{t}} }}{t}{\typeP}$ as required.
+
+\paragraph{Support-Weakening (Terms)} If $\tjudge{s}{\Gamma}{t}{\typeP}$ is derived
+from $\tjudge{s'}{\Gamma}{t}{\typeP}$ then by induction
+$\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typeP}$ as required.
+
+\paragraph{Prefix}
+Suppose that $\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$,
+then by induction $\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typeP}$, and $\supp{\bang{t}} = \supp{t}$
+so that $\tjudge{\supp{\bang{t}}}{\envrestrict{\Gamma}{\supp{\bang{t}}}}{\bang{t}}{\typelift\typeP}$ as required.
+
+\paragraph{Recursion} Suppose that $\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}$ is
+derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}$, then by induction
+$\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}$, and $\supp{\rec{x}{t}} = \supp{t}$ so that
+$\tjudge{\supp{\rec{x}{t}}}{\envrestrict{\Gamma}{\supp{\rec{x}{t}}}}{\rec{x}{t}}{\typeP}$
+as required.
+
+\paragraph{Prefix-Match} Suppose that
+$\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
+{\matchx{s'}{u}{q}{x}{t}}{\typeP}$ is derived from
+\[\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP}, \quad
+\tjudge{s''}{\Lambda}{u}{\typeQ} \quad \text{and} \quad \atjudge{s''}{\typeQ}{q}{\typeQp}\]
+where $s'' \subseteq s \setminus s'$, then by induction
+\[\begin{array}{l}
+\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\typeQp}{s'
+\cap \supp{t}} }}{t}{\typeP}, \\
+\tjudge{\supp{u}}{\envrestrict{\Lambda}{\supp{u}}}{u}{\typeQ} \quad\text{and}\quad
+\atjudge{\supp{q}}{\typeQ}{q}{\typeQp}. \end{array}\]
+Notice that $\supp{\matchx{s'}{u}{q}{x}{t}} = \supp{u,q,t,s'}$.
+By fresh-weakening and support-weakening it follows that
+\[\begin{array}{l}
+\tjudge{\supp{u,q,t,s'}}{\envcombine{\envrestrict{\Gamma}{\supp{u,q,t,s'}}}{\envvarfresh{x}{\typeQp}{s'}
+}}{t}{\typeP}, \\
+\tjudge{\supp{u,q}}{\envrestrict{\Lambda}{\supp{u}}}{u}{\typeQ} \quad\text{and}\quad
+\atjudge{\supp{u,q}}{\typeQ}{q}{\typeQp}.\end{array}\]
+Also, $\supp{u,q} \subseteq s'' \cap \supp{u,q,t,s'}
+\subseteq \supp{u,q,t,s'} \setminus s'$
+so that
+\[\tjudge{\supp{u,q,t,s'}}{\envcombine{\envrestrict{\Gamma}{\supp{u,q,t,s'}}}
+{\envfresh{\envrestrict{\Lambda}{\supp{u}}}{s'} }}
+{\matchx{s'}{u}{q}{x}{t}}{\typeP}\]
+and hence
+\[\tjudge{\supp{u,q,t,s'}}{\envcombine{\envrestrict{\Gamma}{\supp{u,q,t,s'}}}
+{\envfresh{\envrestrict{\Lambda}{\supp{u,q,t,s'}}}{s'} }}
+{\matchx{s'}{u}{q}{x}{t}}{\typeP}\]
+by fresh-weakening as required.
+
+\paragraph{Function Abstraction} Suppose that
+$\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }$ is derived
+from $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
+}}{t}{\typeP}$, then by induction
+$\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\typeQ}{\varnothing}
+}}{t}{\typeP}$, and also $\supp{\abstract{x}{t}} = \supp{t}$ so that
+$\tjudge{\supp{\abstract{x}{t}}}{\envrestrict{\Gamma}{\supp{\abstract{x}{t}}}}
+{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }$ as required.
+
+\paragraph{Function Application}
+Suppose that $\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}}{\typeP}$
+is derived from the judgements $\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}$ and $\tjudge{s}{\Lambda}{u}{\typeQ}$,
+then by induction followed by support-weakening and fresh-weakening
+$\tjudge{\supp{t,u}}{\envrestrict{\Gamma}{\supp{t,u}}}{t}{\typemap{\typeQ}{\typeP}}$
+and $\tjudge{\supp{t,u}}{\envrestrict{\Lambda}{\supp{t,u}}}{u}{\typeQ}$, and $\supp{\apply{t}{u}} =
+\supp{t,u}$ so it follows that $\tjudge{\supp{\apply{t}{u}}}
+{\envcombine{\envrestrict{\Gamma}{\supp{t,u}}}{\envrestrict{\Lambda}{\supp{t,u}}}}{\apply{t}{u}}{\typeP}$ as required.
+
+\paragraph{Name Abstraction} Suppose that
+$\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}$ is derived from the judgement $\tjudge{s
+\udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}$ where $a$ is fresh, then by
+induction and support-weakening $\tjudge{\supp{t} \cup
+\{a\}}{\envrestrict{\envfresh{\Gamma}{a}}{\supp{t}}}{t}{\typeP}$, and $\supp{\new{a}{t}} = \supp{t}
+\setminus \{a\}$ so that $\tjudge{\supp{t} \setminus
+\{a\}}{\envrestrict{\Gamma}{\supp{t} \setminus \{a\}}}{\new{a}{t}}{\typeP}$ as required.
+
+\paragraph{Name Application} Suppose that
+$\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}$ is
+derived from the judgement $\tjudge{s}{\Gamma}{t}{\typedelta \typeP}$ and $a
+\notin s$, then by induction
+$\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typedelta\typeP}$,
+and $\supp{\newapply{t}{a}} = \supp{t} \udot \{a\}$, so that
+$\tjudge{\supp{\newapply{t}{a}}}{\envrestrict{\envfresh{\Gamma}{a}}{\supp{\newapply{t}{a}}}}{\newapply{t}{a}}{\typeP}$
+as required.
+
+
+\paragraph{Labelling} Suppose that
+$\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
+$\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$, then by induction followed by
+support-weakening and freshness-weakening
+it follows that $\tjudge{\supp{t,\ell_0}}{\envrestrict{\Gamma}{\supp{t,\ell_0}}}{t}{\typePsub{\ell_0}}$
+and $\supp{\linj{\ell_0}{t}} = \supp{t,\ell_0}$ so that
+$\tjudge{\supp{t,\ell_0}}{\envrestrict{\Gamma}{\supp{t,\ell_0}}}{\linj{\ell_0}{t}}{\stdtypesum}$
+as required.
+
+
+\paragraph{Label Projection} Suppose that
+$\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
+the judgement $\tjudge{s}{\Gamma}{t}{\stdtypesum}$, then by induction followed by
+support-weakening and freshness-weakening
+$\tjudge{\supp{t,\ell_0}}{\envrestrict{\Gamma}{\supp{t,\ell_0}}}{t}{\stdtypesum}$.
+Also $\supp{\lproj{\ell_0}{t}} = \supp{t,\ell_0}$ so that
+$\tjudge{\supp{t,\ell_0}}{\envrestrict{\Gamma}{\supp{t,\ell_0}}}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$
+as required.
+
+
+\paragraph{Nondeterministic Sum} Suppose that
+$\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from the judgements
+$\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ for all $i \in I$.  Therefore by induction
+for each $i \in I$ it follows that
+$\tjudge{\supp{t_i}}{\envrestrict{\Gamma}{\supp{t_i}}}{t_i}{\typeP}$. Let $i
+\in I$. Enumerate the names in $(\supp{i} \cap \supp{\Gamma}) \setminus
+\supp{\lambda i. t_i}$ as $a_1, \ldots, a_n$, let $b_1, \ldots, b_n$ be fresh
+and let $\pi = (a_1 b_1) \ldots (a_n b_n)$. Since the $a_j$ and $b_j$ are fresh
+for $\lambda i. t_i$, it follows that $\pi \cdot t_i = t_{\pi \cdot i}$. Since
+typing is equivariant, $\tjudge{\supp{t_i}}{\pi^{-1} \cdot
+\bigl(\envrestrict{\Gamma}{\supp{t_{\pi \cdot i}}}\bigr)}{t_i}{\typeP}$.
+Suppose that the freshness assumption $\termvar{x} \freshfor a$ is in the
+environment $\pi^{-1} \cdot \bigl(\envrestrict{\Gamma}{\supp{t_{\pi \cdot
+i}}}\bigr)$, then $\termvar{x} \freshfor (\pi \cdot a)$ is in
+$\envrestrict{\Gamma}{\supp{t_{\pi \cdot i}}}$ and hence in $\Gamma$ and
+furthermore $\pi \cdot a \in \supp{t_{\pi \cdot i}}$ so that finally $a \in
+\supp{t_i} \subseteq \supp{i} \cup \supp{\lambda i.  t_i}$.  If $a \in
+\supp{\lambda i. t_i}$ then $\pi \cdot a = a$ and $\termvar{x} \freshfor a$ is
+in $\envrestrict{\Gamma}{\supp{\lambda i. t_i}}$.
+
+On the other hand, suppose that $a \in \supp{i} \setminus \supp{\lambda i.
+t_i}$.  Recall that $\termvar{x} \freshfor (\pi \cdot a)$ is a freshness
+assumption of $\Gamma$ and hence that $\pi \cdot a \in \supp{\Gamma}$.  It
+cannot be that $a = a_j$ for some $j$, because then $\pi \cdot a = b_j$ and the
+$b_j$ were chosen fresh for $\Gamma$. Nor can it be that $a = b_j$ for some
+$j$, because $a \in \supp{i}$ and the $b_j$ were chosen fresh for $i$. Finally,
+it cannot be that $\pi \cdot a = a$, because then $a \in \supp{\Gamma}$ and
+hence $a = a_j$ for some $j$, which has already been shown impossible.
+Therefore $a \notin \supp{i} \setminus \supp{\lambda i. t_i}$, so that $a \in
+\supp{\lambda i. t_i}$ and hence $\termvar{x} \freshfor a$ is in
+$\envrestrict{\Gamma}{\supp{\lambda i. t_i}}$.
+
+Therefore, starting from $\tjudge{\supp{t_i}}{\pi^{-1} \cdot
+\bigl(\envrestrict{\Gamma}{\supp{t_{\pi \cdot i}}}\bigr)}{t_i}{\typeP}$ it is
+possible to apply fresh-weakening to conclude that
+$\tjudge{\supp{t_i}}{\envrestrict{\Gamma}{\supp{\lambda i.
+t_i}}}{t_i}{\typeP}$ for each $i$, and hence
+$\tjudge{\supp{\lambda i. t_i}}{\envrestrict{\Gamma}{\supp{\lambda i.
+t_i}}}{\ndsum{i}{I}{t_i}}{\typeP}$.
+
+
+\paragraph{Recursive Type Folding}
+Suppose that $\tjudge{s}{\Gamma}{\abs t}{\typerec{j}{P}{\typeP} }$
+is derived from $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$
+then by induction 
+$\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$
+and $\supp{\abs t} = \supp{t}$ so that 
+$\tjudge{\supp{\abs t}}{\envrestrict{\Gamma}{\supp{\abs t}}}{\abs t}{\typerec{j}{P}{\typeP} }$
+as required.
+
+
+\paragraph{Recursive Type Unfolding}
+Suppose that $\tjudge{s}{\Gamma}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$
+is derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }$
+then by induction 
+$\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typerec{j}{P}{\typeP} }$
+and $\supp{\rep t} = \supp t$ so that
+$\tjudge{\supp{\rep t}}{\envrestrict{\Gamma}{\supp{\rep t}}}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$
+as required.
+
+\paragraph{Prefix Action} Trivially, since $\supp{\bangaction} = \varnothing$.
+
+\paragraph{Higher-Order Action} Suppose that
+$\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ is derived
+from $\atjudge{s}{\typeP}{p}{\typePp}$ and $\tjudge{s}{}{u}{\typeQ}$, then by
+induction and support-weakening $\atjudge{\supp{u,p}}{\typeP}{p}{\typePp}$ and
+$\tjudge{\supp{u,p}}{}{u}{\typeQ}$. Also $\supp{\mapaction{u}{p}} = \supp{u,p}$
+so that
+$\atjudge{\supp{u,p}}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ as
+required.
+
+\paragraph{Labelled Action} Suppose that
+$\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is derived from
+$\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$, then by induction and
+support-weakening $\atjudge{\supp{p, \ell_0}}{\typePsub{\ell_0}}{p}{\typePp}$.
+Also $\supp{\labelaction{\ell_0}{p}} = \supp{p, \ell_0}$ so that
+$\atjudge{\supp{p, \ell_0}}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ as
+required.
+
+\paragraph{New Name Action} Suppose that
+$\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$ is derived
+from $\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}$, then by induction and
+support-weakening $\atjudge{\supp{p} \cup \{a\}}{\typeP}{p}{\typePp}$. Also
+$\supp{\newaction{a}{p}} = \supp{p} \setminus \{a\}$ so that $\atjudge{\supp{p}
+\setminus \{a\}}{\typedelta\typeP}{\newaction{a}{p}}{\typePp}$ as required.
+
+\paragraph{Recursive Type Action}
+Suppose that $\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$
+is derived from $\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$,
+then by induction 
+$\atjudge{\supp{p}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$
+and $\supp{\absaction{p}} = \supp{p}$ so that
+$\atjudge{\supp{p}}{\typerec{j}{P}{\typeP} }{\abs p}{\typePp}$ as required.
+
+\paragraph{Support-Weakening (Actions)}
+
+If $\atjudge{s}{\typeP}{p}{\typePp}$ is derived from
+$\atjudge{s'}{\typeP}{p}{\typePp}$ then
+$\atjudge{\supp{p}}{\typeP}{p}{\typePp}$ by induction as required.
+
+\end{proof}
+
+In the light of this result, write $\tjudge{}{\Gamma}{t}{\typeP}$ for $\tjudge{\supp{t}}{\Gamma}{t}{\typeP}$
+and $\atjudge{}{\typeP}{p}{\typePp}$ for $\atjudge{\supp{p}}{\typeP}{p}{\typePp}$.
+
+
+%\vfill\pagebreak
+
+%\begin{lemma}[Well-defined] Typing is well-defined on equivalence-classes of pre-terms.
+%\begin{enumerate}
+%\item If $\tjudge{s}{\Gamma}{t}{\typeP}$ and $t$ and $t'$ are $\alpha$-equivalent then $\tjudge{s}{\Gamma}{t'}{\typeP}$.
+%\item If $\atjudgex{s}{\typeP}{p}{\typePp}$ and $p$ and $p'$ are $\alpha$-equivalent then $\atjudgex{s}{\typeP}{p'}{\typePp}$.
+%\end{enumerate}
+%\end{lemma}
+
+%\begin{proof}
+%The proof is by induction on the derivation of the respective typing judgements.
+%\end{proof}
+
+\vfill\pagebreak
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s tw=0 nowrap:

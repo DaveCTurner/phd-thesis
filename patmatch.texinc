@@ -1,0 +1,168 @@
+\subsection{Pattern Matching}
+
+For a general action $p$, define $\genmatch{u}{p}{(x)}{t}$ as follows.
+\[\begin{array}{c}
+\prefmatch{u}{(x)}{t} = \prefmatch{u}{x}{t} \\
+\genmatch{u}{\labelaction{\ell}{p}}{(x)}{t} =
+\genmatch{\lproj{\ell}{u}}{p}{(x)}{t} \\
+\genmatch{u}{\mapaction{v}{p}}{(x)}{t} =
+\genmatch{\apply{u}{v}}{p}{(x)}{t} \\
+\genmatch{u}{\newaction{a}{p}}{(x)}{t} =
+\ndsum{(u', a', p')}{I_{u, a, p, t}}{\new{a'}{\genmatch{u'}{p'}{(x)}{t}}}
+\end{array}\] where $I_{u, a, p, t} = \{(u', a', p') \mid 
+u \results \new{a'}{u'},\ (a, p) \sim_\alpha (a', p'),\ a' \freshfor t\}$
+
+\begin{lemma}
+Let $q$ be an action, let $u \evaluate u'$ and let
+$\ajudge{\typeP}{\genmatch{u'}{q}{(x)}{t}}{p}{t'}$. Then
+$\ajudge{\typeP}{\genmatch{u}{q}{(x)}{t}}{p}{t'}$.
+\end{lemma}
+
+\begin{theorem}
+Let $q$ be an action and suppose that $|\vec{s}| = \mathtt{news}(q)$ and
+$\vec{s} \freshfor t$. Then the following operational rules are derivable.
+\[
+\infer
+{\ajudge{\typemultidelta{|\vec{s}|}{\typeP}}{\genmatch{u}{q}{(x)}{t}}{\multinewaction{s}{p}}{\new{\vec{s}}{t'}}}
+{\ajudge{\typeQ}{u}{q}{\new{\vec{s}}{u'}}
+& \ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}}
+\]
+\end{theorem}
+
+\begin{proof} The proof is by induction on the structure of $q$.
+\begin{enumerate}
+\item \[
+\infer
+{\ajudge{\typeP}{\prefmatch{u}{(x)}{t}}{p}{t'}}
+{\infer{\ajudge{\typeP}{\prefmatch{u}{x}{t}}{p}{t'}}{\ajudge{\typelift\typeQ}{u}{\bangaction}{u'}
+& \ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}}}
+\]
+%
+\item \[
+\infer
+{
+	\ajudge{\typemultidelta{|\vec{s}|}{\typeP}}{\genmatch{u}{\labelaction{\ell_0}{q}}{(x)}{t}}{\multinewaction{s}{p}}{\new{\vec{s}}{t'}}
+}
+{
+	\infer
+	{
+		u \results \linj{\ell_0}{u_0} 
+		\qquad \ajudge{\typemultidelta{|\vec{s}|}{\typeP}}{\genmatch{\linj{\ell_0}{u_0}}{\labelaction{\ell_0}{q}}{(x)}{t}}{\multinewaction{s}{p}}{\new{\vec{s}}{t'}}
+	}
+	{
+		\infer
+		{
+			u \results \linj{\ell_0}{u_0}
+			\qquad \ajudge{\typemultidelta{|\vec{s}|}{\typeP}}{\genmatch{\lproj{\ell_0}{\linj{\ell_0}{u_0}}}{q}{(x)}{t}}{\multinewaction{s}{p}}{\new{\vec{s}}{t'}}
+		}
+		{
+			\infer
+			{
+				u \results \linj{\ell_0}{u_0}
+				\qquad \ajudge{\typeQsub{\ell_0}}{\lproj{\ell_0}{\linj{\ell_0}{u_0}}}{q}{\new{\vec{s}}{u'}}
+			}
+			{
+				\infer
+				{
+					u \results \linj{\ell_0}{u_0}
+					\qquad \ajudge{\typesum{\ell}{L}{\typeQsub{\ell}}}{\linj{\ell_0}{u_0}}{\labelaction{\ell_0}{q}}{\new{\vec{s}}{u'}}
+				}
+				{
+					\ajudge{\typesum{\ell}{L}{\typeQsub{\ell}}}{u}{\labelaction{\ell_0}{q}}{\new{\vec{s}}{u'}}
+				}
+			}
+			&\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}
+		}
+	}
+}
+\]
+%
+\item \[
+\infer
+{
+	\ajudge{\typemultidelta{|\vec{s}|}{\typeP}}{\genmatch{u}{\mapaction{v}{q}}{(x)}{t}}{\multinewaction{s}{p}}{\new{\vec{s}}{t'}}
+}
+{
+	\infer
+	{
+		u \results \abstract{x}{u_0} 
+		\qquad \ajudge{\typemultidelta{|\vec{s}|}{\typeP}}{\genmatch{\abstract{x}{u_0}}{\mapaction{v}{q}}{(x)}{t}}{\multinewaction{s}{p}}{\new{\vec{s}}{t'}}
+	}
+	{
+		\infer
+		{
+			u \results \abstract{x}{u_0} 
+			\qquad \ajudge{\typemultidelta{|\vec{s}|}{\typeP}}{\genmatch{\apply{\abstract{x}{u_0}}{v}}{q}{(x)}{t}}{\multinewaction{s}{p}}{\new{\vec{s}}{t'}}
+		}
+		{
+			\infer
+			{
+				u \results \abstract{x}{u_0} 
+				\qquad \ajudge{\typeQ}{\apply{\abstract{x}{u_0}}{v}}{q}{\new{\vec{s}}{u'}}
+			}
+			{
+				\infer
+				{
+					u \results \abstract{x}{u_0} 
+					\qquad \ajudge{\typelinmap{\typeR}{\typeQ}}{\abstract{x}{u_0}}{\mapaction{v}{q}}{\new{\vec{s}}{u'}}
+				}
+				{
+					\ajudge{\typelinmap{\typeR}{\typeQ}}{u}{\mapaction{v}{q}}{\new{\vec{s}}{u'}}
+				}
+			}
+			&\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}
+		}
+	}
+}
+\]
+%
+\item Throughout, $(a, q) \sim_\alpha (a', q')$. Notice that in this case
+$\vec{s} \ne \mathtt{nil}$ and hence write $\vec{s} = a'::\vec{s'}$. \[
+\infer
+{
+	\ajudge{\typemultidelta{|\vec{s}|}{\typeP}}{\genmatch{u}{\newaction{a}{q}}{(x)}{t}}{\multinewaction{s}{p}}{\new{\vec{s}}{t'}}
+}
+{
+	\infer
+	{
+		u \results \new{a'}{u_0}
+		\qquad \ajudge{\typemultidelta{|\vec{s}|}{\typeP}}{\new{a'}{\genmatch{u_0}{q'}{(x)}{t}}}{\multinewaction{s}{p}}{\new{\vec{s}}{t'}}
+	}
+	{
+		\infer
+		{
+			u \results \new{a'}{u_0}
+			\qquad \ajudge{\typemultidelta{|\vec{s'}|}{\typeP}}{\genmatch{u_0}{q'}{(x)}{t}}{\multinewaction{s'}{p}}{\new{\vec{s'}}{t'}}
+		}
+		{
+			\infer
+			{
+				u \results \new{a'}{u_0}
+				\qquad \ajudge{\typeQ}{u_0}{q'}{\new{\vec{s'}}{u'}}
+			}
+			{
+				\infer
+				{
+					u \results \new{a'}{u_0}
+					\qquad \ajudge{\typedelta\typeQ}{\new{a'}{u_0}}{\newaction{a'}{q'}}{\new{a'::\vec{s'}}{u'}}
+				}
+				{
+					\infer
+					{
+						\ajudge{\typedelta\typeQ}{u}{\newaction{a'}{q'}}{\new{a'::\vec{s'}}{u'}}
+					}
+					{
+						\ajudge{\typedelta\typeQ}{u}{\newaction{a}{q}}{\new{\vec{s}}{u'}}
+					}
+				}
+			}
+			&\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}
+		}
+	}
+}
+\]
+%
+\end{enumerate}
+\end{proof}
+
+% vim: set filetype=tex foldlevel=0 tw=78 cms=\%%s:

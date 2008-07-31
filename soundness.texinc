@@ -1,0 +1,294 @@
+\subsection{Soundness}
+
+\begin{lemma}[Soundness]
+\label{soundnessactions}
+If $\ajudge{\typeP}{t}{p}{t'}$ and $\atjudge{}{\typeP}{p}{\typePp}$ and
+$\supp{t,p,t'} \subseteq s$ then \[\sem{\tjudge{s}{}{\bang{t'}
+}{\typelift\typePp}} \sqsubseteq \sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ
+\sem{\tjudge{s}{}{t}{\typePp}}.\]
+\end{lemma}
+
+\begin{proof}
+By induction on the derivation of $\ajudge{\typeP}{t}{p}{t'}$ as follows.
+
+\paragraph{Recursion} Suppose that $\ajudge{\typeP}{\rec{x}{t}}{p}{t'}$ is
+derived from $\ajudge{\typeP}{\termsubst{t}{\rec{x}{t}}{x}}{p}{t'}$.  Let $t^*$
+be defined by $t^*(f) = \sem{t} \circ f$, then \[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{\sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ
+\sem{\tjudge{s}{}{\rec{x}{t}}{\typeP}}} \\
+%
+&=& \sem{p} \circ \mathrm{fix}(t^*) & \text{by the denotational semantics}\\
+%
+&=& \sem{p} \circ t^*\bigl(\mathrm{fix}(t^*)) & \text{by the properties of
+$\mathrm{fix}$}\\
+%
+&=& \sem{p} \circ \sem{t} \circ \mathrm{fix}(t^*) & \text{by definition of
+$t^*$}\\
+%
+&=& \sem{p} \circ \sem{t} \circ \sem{\rec{x}{t}} & \text{by the denotational
+semantics}\\
+%
+&=& \sem{p} \circ \sem{\termsubst{t}{\rec{x}{t}}{x}} & \text{by the
+substitution lemma}\\
+%
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by induction}\\
+%
+\end{array}\] as required.
+
+\paragraph{Prefix}
+If $\ajudge{\typelift\typeP}{\bang{t}}{\bangaction}{t}$ then
+\[\sem{\atjudge{s}{\typelift\typeP}{\bangaction}{\typeP}}
+\circ \sem{\tjudge{s}{}{\bang{t}}{\typelift\typeP}} = \sem
+{\tjudge{s}{}{\bang{t}}{\typelift\typeP}}\] as required.
+
+\paragraph{Prefix Match} Suppose that
+$\ajudge{\typeP}{\matchx{s'}{u}{q}{x}{t}}{p}{t'}$ is derived from
+$\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}$ and $\ajudge{\typeQ}{u}{q}{u'}$,
+then \[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{\sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ
+\sem{\tjudge{s}{}{\matchx{s'}{u}{q}{x}{t}}{\typeP}}} \\
+%
+&=& \sem{p} \circ \epsilon_{\typeP} \circ {!}\sem{t} \circ
+\widehat{\phi_{\typeQp}} \circ \bigl(\sem{q} \circ \sem{u}\bigr)^{\freshfor s'}
+\\
+%
+&\sqsupseteq& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
+\widehat{\phi_{\typeQp}} \circ \sem{\bang{u'}}^{\freshfor s'} & \text{by
+induction on $u$} \\
+%
+&=& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
+\widehat{\phi_{\typeQp}} \circ \eta_{\typeQp}^{\freshfor s'} \circ
+\sem{u'}^{\freshfor s'} \\
+%
+&\sqsupseteq& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
+\eta_{\typeQp^{\freshfor s'}} \circ \sem{u'}^{\freshfor s'} &\text{by lemma
+TODO} \\
+%
+&=& \sem{p} \circ  \epsilon_{\typeP} \circ \eta_{\typeP} \circ \sem{t} \circ
+\sem{u'}^{\freshfor s'} &\text{by naturality of $\eta$} \\
+%
+&=& \sem{p} \circ  \sem{t} \circ \sem{u'}^{\freshfor s'} &\text{by triangle
+identity} \\
+%
+&=& \sem{p} \circ  \sem{\termsubst{t}{u'}{x}} &\text{by substitution lemma} \\
+%
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} &\text{by
+induction on $t$} \\
+%
+\end{array}\] as required.
+
+\paragraph{Name Abstraction} Suppose that
+$\ajudge{\typedelta\typeP}{\new{a}{t}}{\newaction{a}{p}}{\new{a}{t'}}$ is
+derived from $\ajudge{\typeP}{t}{p}{t'}$, then \[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{
+\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}} \circ
+\sem{\tjudge{s}{}{\new{a}{t}}{\typedelta\typeP}}} \\
+%
+&=& \bigl(\widehat{\theta^{!}_{\typePp}} \circ \delta_a \sem{p} \bigr) \circ
+\sem{t}^{\vee} & \text{by the denotational semantics}\\
+%
+&=& \widehat{\theta^{!}_{\typePp}} \circ \bigl(\sem{p} \circ \sem{t}\bigr)^{\vee}
+& \text{by naturality of the adjunction}\\
+%
+&\sqsupseteq& \widehat{\theta^{!}_{\typePp}} \circ 
+\sem{\bang{t'}}^{\vee}
+& \text{by induction}\\
+%
+&=& \widehat{\theta^{!}_{\typePp}} \circ 
+\delta_a \eta_{\typePp} \circ \sem{t'}^{\vee}
+& \text{by naturality of the adjunction}\\
+%
+&=& \eta_{\delta_a\typePp} \circ \sem{t'}^{\vee}
+& \text{by lemma TODO}\\
+%
+&=& \sem{\tjudge{s}{}{\bang{\new{a}{t'}}}{\typelift{\typedelta\typePp}}}
+& \text{by the denotational semantics}\\
+%
+\end{array}\]
+as required.
+
+\paragraph{Name Application} Suppose that
+$\ajudge{\typeP}{\newapply{t}{a}}{p}{t'}$ is derived from
+$\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}$, then
+\[\begin{array}{rcll}
+%
+\widehat{\theta^{!}_\typePp} \circ \delta_a \sem{p} \circ \sem{t}
+%
+&=& \sem{\newaction{a}{p}} \circ \sem{t} & \text{by the denotational semantics}\\
+%
+&\sqsupseteq& \sem{\bang{\new{a}{t'}}} & \text{by induction} \\
+%
+&=& \eta_{\typePp} \circ \sem{t'}^{\vee} & \text{by the denotational semantics}
+%
+\end{array}\]
+so that
+\[\begin{array}{rcll}
+%
+\delta_a \sem{p} \circ \sem{t} & \sqsupseteq & \widehat{{\theta^{!}_{\typePp}}^{-1}}
+\circ \eta_{\typePp} \circ \sem{t'}^{\vee} \\
+%
+&=& \delta_a \eta_{\typePp} \circ \sem{t'}^{\vee} & \text{by lemma TODO} \\
+%
+&=& \bigl( \eta_{\typePp} \circ \sem{t'} \bigr)^{\vee} & \text{by naturality of the adjunction} \\
+%
+\end{array}\]
+and hence $\bigl(\delta_a \sem{p} \circ \sem{t}\bigr)^{\wedge} \sqsupseteq  \eta_{\typePp} \circ \sem{t'}$
+by lemma TODO. Therefore
+\[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{ \sem{\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}} \circ
+\sem{\tjudge{s \udot \{a\}}{}{\newapply{t}{a}}{\typeP}}} \\
+%
+&=& \sem{p} \circ \sem{t}^{\wedge} & \text{by the denotational semantics}\\
+%
+&=& \bigl(\delta_a \sem{p} \circ \sem{t}\bigr)^{\wedge} & \text{by naturality
+of the adjunction}\\
+%
+& \sqsupseteq & \eta_{\typePp} \circ \sem{t'} \\
+%
+&=& \sem{\tjudge{s \udot \{a\}}{}{\bang{t'}}{\typelift\typePp}},
+\end{array}\]
+as required.
+
+
+\paragraph{Function Abstraction} Suppose that
+$\ajudge{\typemap{\typeQ}{\typeP}}{\abstract{x}{t}}{\mapaction{u}{p}}{t'}$ is
+derived from $\ajudge{\typeP}{\termsubst{t}{u}{x}}{p}{t'}$, then
+\[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}
+\circ \sem{\tjudge{s}{}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP}}}} \\
+%
+&=& \sem{p} \circ \mathbf{apply} \circ
+\bigl(\mathbf{1}_{\typemap{\typeQ}{\typeP}} \amp \sem{u} \bigr) \circ
+\mathbf{curry} \sem{t} & \text{by the denotational semantics}\\
+%
+&=& \sem{p} \circ \mathbf{apply} \circ \bigl(\mathbf{curry} \sem{t} \amp
+\mathbf{1}_{\typeQ} \bigr) \circ \sem{u} & \text{by naturality} \\
+%
+&=& \sem{p} \circ \sem{t} \circ \sem{u} \\
+%
+&=& \sem{p} \circ \sem{\termsubst{t}{u}{x}} & \text{by the substitution lemma} \\
+%
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by induction} \\
+%
+\end{array}\]
+as required.
+
+\paragraph{Function Application}
+Suppose that $\ajudge{\typeP}{\apply{t}{u}}{p}{t'}$
+is derived from $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$, then
+\[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{\sem{\atjudge{s}{\typeP}{p}{\typePp}}
+\circ \sem{\tjudge{s}{}{\apply{t}{u}}{\typeP}}} \\
+%
+&=& \sem{p} \circ \mathbf{apply} \circ
+\bigl(\sem{t} \amp \sem{u} \bigr) & \text{by the denotational semantics}\\
+%
+&=& \sem{p} \circ \mathbf{apply} \circ
+\bigl(\mathbf{1}_{\typemap{\typeQ}{\typeP}} \amp \sem{u} \bigr) \circ
+\sem{t} & \text{by naturality}\\
+%
+&=& \sem{\mapaction{u}{p}} \circ \sem{t} & \text{by the denotational semantics}\\
+%
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by induction}\\
+%
+\end{array}\]
+as required.
+
+\paragraph{Labelling} Suppose that
+$\ajudge{\stdtypesum}{\linj{\ell_0}{t}}{\labelaction{\ell_0}{p}}{t'}$ is
+derived from $\ajudge{\typePsub{\ell_0}}{t}{p}{t'}$, then \[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}
+\circ \sem{\tjudge{s}{}{\linj{\ell_0}{t}}{\stdtypesum}}} \\
+%
+&=& \sem{p} \circ \mathbf{out}_{\ell_0} \circ \mathbf{in}_{\ell_0} \circ
+\sem{t} & \text{by the denotational semantics}\\
+%
+&=& \sem{p} \circ \sem{t} & \text{by properties of the biproduct}\\
+%
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by
+induction}\\
+%
+\end{array}\] as required
+
+\paragraph{Label Projection}
+Suppose that $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}$
+is derived from $\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$,
+then \[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{\sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}}
+\circ \sem{\tjudge{s}{}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}} \\
+%
+&=& \sem{p} \circ \mathbf{out}_{\ell_0} \circ
+\sem{t} & \text{by the denotational semantics}\\
+%
+&=& \sem{\labelaction{\ell_0}{p}} \circ \sem{t} & \text{by the denotational semantics} \\
+%
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by
+induction}\\
+%
+\end{array}\] as required
+
+\paragraph{Recursive Type Folding}
+Suppose that
+$\ajudge{\typerec{j}{P}{\typeP}}{\abs{t}}{\absaction{p}}{t'}$
+is derived from
+$\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{t}{p}{t'}$, then
+\[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}
+\circ \sem{\tjudge{s}{}{\abs{t}}{\typerec{j}{P}{\typeP}}}} \\
+%
+&=& \sem{p} \circ \mathbf{rep} \circ \mathbf{abs} \circ
+\sem{t} & \text{by the denotational semantics}\\
+%
+&=& \sem{p} \circ \sem{t} & \text{as $\mathbf{rep} = \mathbf{abs}^{-1}$}\\
+%
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by
+induction}\\
+%
+\end{array}\] as required
+
+\paragraph{Recursive Type Unfolding}
+Suppose that $\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}{p}{t'}$
+is derived from $\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$,
+then \[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{\sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}
+\circ \sem{\tjudge{s}{}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}} \\
+%
+&=& \sem{p} \circ \mathbf{rep} \circ
+\sem{t} & \text{by the denotational semantics}\\
+%
+&=& \sem{\absaction{p}} \circ \sem{t} & \text{by the denotational semantics} \\
+%
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by
+induction}\\
+%
+\end{array}\] as required
+
+\paragraph{Nondeterministic Sum}
+Suppose that $\ajudge{\typeP}{\ndsum{i}{I}{t_i}}{p}{t'}$
+is derived from $\ajudge{\typeP}{t_{i_0}}{p}{t'}$, then
+\[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{\sem{\atjudge{s}{\typeP}{p}{\typePp}}
+\circ \sem{\tjudge{s}{}{\ndsum{i}{I}{t_i}}{\typeP}}} \\
+%
+&\sqsupseteq& \sem{p} \circ \sem{t_i} & \text{by the denotational semantics}\\
+%
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by
+induction}\\
+%
+\end{array}\] as required
+%
+\end{proof}
+
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=0:

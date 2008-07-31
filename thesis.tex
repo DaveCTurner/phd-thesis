@@ -1,0 +1,630 @@
+\documentclass[twoside]{article}
+% vim: set foldlevel=0 cms=\%%s:
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsthm}
+\usepackage{proof}
+\usepackage{overlay}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage[all]{xy}
+
+\setlength\parskip{2ex}
+\setlength\parindent{0pt}
+
+\input{macros.texinc}
+
+\usepackage{fancyheadings}
+\pagestyle{fancy}
+\rfoot[]{\revisionnumber}
+\lfoot[\revisionnumber]{}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{Nominal Domain Theory for Concurrency}
+\date{\revisionnumber}
+\author{David Turner}
+
+
+\begin{document}
+%\maketitle
+
+%\input{definitions.texinc}
+
+%\section{Nominal HOPLA}
+
+%\input{syntax.texinc}
+
+%\input{subst.texinc}
+
+
+%\input{typeenv.texinc}
+
+\input{tjudge.texinc}
+
+\input{substlemma.texinc}
+
+\input{opsem.texinc}
+
+\vfill\pagebreak
+
+\input{densem.texinc}
+
+%\vfill\pagebreak
+
+\input{substlemmaden.texinc}
+
+%\input{beta.texinc}
+%\input{redsem.texinc}
+
+\input{soundness.texinc}
+\input{adequacy.texinc}
+
+\end{document}
+
+\end
+
+\vfill\pagebreak
+
+
+\subsection{Soundness}
+
+\begin{lemma}\label{betasound}The following statements hold.
+\begin{enumerate}
+\item$\sem{\tjudge{\Gamma}{\termsubst{t}{u}{x}}{\typeP}} =
+\sem{\tjudge{\Gamma}{\apply{\abstract{x}{t}}{u}}{\typeP}}$.
+\item$\sem{\tjudge{\Gamma}{\termsubst{t}{u}{x}}{\typeP}} =
+\sem{\tjudge{\Gamma}{\newapply{\newabstract{x}{t}}{u}}{\typeP}}$ where $u
+\freshfor t$.
+\item$\sem{\tjudge{\Gamma}{\termsubst{t}{u'}{x}}{\typeP}} \sqsubseteq
+\sem{\tjudge{\Gamma}{\prefmatch{u}{x}{t}}{\typeP}}$ where $\sem{\bang{u'}}
+\sqsubseteq \sem{u}$, with equality if $\sem{\bang{u'}} = \sem{u}$.
+\item$\sem{\tjudge{\Gamma}{t}{\typePsub{\ell}}} =
+\sem{\tjudge{\Gamma}{\lproj{\ell}{(\linj{\ell}{t}})}{\typePsub{\ell}}}$ where 
+$\ell \in L$.\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+\item
+\begin{eqnarray*}\sem{\apply{\abstract{x}{t}}{u}} &=& \mathrm{app}^\otimes
+\circ (\mathrm{abs}^\otimes \sem{t} \otimes \sem{u}) \\ &=&
+\mathrm{app}^\otimes \circ (\mathrm{abs}^\otimes \sem{t} \otimes
+\mathbf{1}_{\mathbb P}) \circ (\mathbf{1}_{\Gamma} \otimes \sem{u})\\ &=&
+\sem{t} \circ (\mathbf{1}_\Gamma \otimes \sem{u}) = \sem{\termsubst{t}{u}{x}}.
+\end{eqnarray*}
+\item
+\begin{eqnarray*}\sem{\newapply{\newabstract{x}{t}}{u}} &=& \mathrm{app}^\boxtimes
+\circ (\mathrm{abs}^\boxtimes \sem{t} \boxtimes \sem{u}) \\ &=&
+\mathrm{app}^\boxtimes \circ (\mathrm{abs}^\boxtimes \sem{t} \boxtimes
+\mathbf{1}_{\mathbb P}) \circ (\mathbf{1}_{\Gamma} \boxtimes \sem{u})\\ &=&
+\sem{t} \circ (\mathbf{1}_\Gamma \boxtimes \sem{u}) =
+\sem{\termsubst{t}{u}{x}}.
+\end{eqnarray*}
+\item
+\begin{eqnarray*}\sem{\prefmatch{u}{x}{t}}
+&=& \epsilon_{\mathbb P} \circ \sem{t}_\bot \circ s_{\Gamma, \mathbb
+Q} \circ \Gamma[\sem{u}/x] \\
+&\sqsupseteq& \epsilon_{\mathbb P} \circ \sem{t}_\bot \circ
+s_{\Gamma, \mathbb Q} \circ \Gamma[\sem{\bang{u'}}/x] \\
+&=& \epsilon_{\mathbb P} \circ \sem{t}_\bot \circ s_{\Gamma, \mathbb
+Q} \circ \Gamma[\eta_{\mathbb Q}/x] \circ
+\Gamma[\sem{u'}/x] \\
+&=& \epsilon_{\mathbb P} \circ \sem{t}_\bot \circ \eta_\Gamma \circ
+\Gamma[\eta_{\mathbb Q}/x] \circ \Gamma[\sem{u'}/x] \\
+&=& \epsilon_{\mathbb P} \circ
+\eta_{\mathbb P} \circ \sem{t} \circ \Gamma[\sem{u'}/x] \\
+&=& \sem{t} \circ \Gamma[\sem{u'}/x] \\
+&=& \sem{\termsubst{t}{u'}{x}}.
+\end{eqnarray*}
+\item 
+\begin{eqnarray*}
+\sem{\lproj{\ell}{(\linj{\ell}{t}})}
+&=& \pi_{\ell} \circ \mathrm{inj}_{\ell} \circ \sem{t} \\
+&=& \sem{t} 
+\end{eqnarray*}
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}[Soundness]
+\label{soundnessactions}
+If $\ajudge{\typelift{\typeP}}{t}{\bangaction}{t'}$ then \[\bang{t'}
+\ctxle_{\typelift{\typeP}} t, \text{ and}\] 
+\[\sem{\tjudge{}{\bang{t'}}{\typelift{\typeP}}} \sqsubseteq 
+	\sem{\tjudge{}{t}{\typelift{\typeP}}}.\]
+\end{theorem}
+\renewcommand\thetheorem{\arabic{theorem}}
+
+% Proof of soundnessactions {{{
+\begin{proof} The only action that $\bang{t'}$ may perform is
+$\ajudge{\typelift{\typeP}}{\bang{t'}}{\bangaction}{t'}$, so the first
+conclusion is immediate. The remainder of the proof is by induction on the
+derivation of the transition. The base case is immediate. Note that each
+inductive step is of the form
+\[\infer{\ajudge{\typeP}{C(t_2)}{\bangaction}{t'}}
+{\ajudge{\typeP}{C(t_1)}{\bangaction}{t'}}.\] By monotonicity of composition,
+it is sufficient to show that $\sem{t_2} \sqsupseteq \sem{t_1}$ in each case.
+\begin{enumerate}
+%
+\item[${!}E$] By lemma \ref{betasound}, $\sem{\prefmatch{\bang{u}}{x}{t}} =
+\sem{\termsubst{t}{u}{x}}$.
+%
+\item[$\lambda I$] By lemma \ref{betasound},
+$\sem{\apply{\abstract{x}{t}}{u}} = \sem{\termsubst{t}{u}{x}}$.
+%
+\item[$\nu I$] By lemma \ref{betasound}, if $u \freshfor t$ then
+$\sem{\newapply{\newabstract{x}{t}}{u}} = \sem{\termsubst{t}{u}{x}}$.
+%
+\item[$\mathord{\bigoplus} I$] By lemma \ref{betasound},
+$\sem{\lproj{\ell}{\linj{\ell}{t}}} = \sem{t}$.
+%
+\item[$\lambda E$] If $t = \apply{t_0}{u}$ then \[\sem{\termop{a}{t}} =
+\sem{\termop{a}{\apply{t_0}{u} } } = \sem{\termop{(\mapaction{u}{a})}{t_0}}
+\sqsupseteq \sem{\bang{t'}}\]
+%
+\item[$\nu I$] If $a = \newmapaction{u}{a_0}$ and $t = \newabstract{x}{t_0}$
+then since $u \freshfor t$ \begin{eqnarray*}\sem{\termop{a}{t}} &=&
+\sem{\termop{a_0}{\newapply{\newabstract{x}{t_0}}{u} }} =
+\sem{\termop{a_0}{\termsubst{t_0}{u}{x} }} \sqsupseteq
+\sem{\bang{t'}}\end{eqnarray*}
+%
+\item[$\nu E$] If $t = \newapply{t_0}{u}$ then \[\sem{\termop{a}{t}} =
+\sem{\termop{a}{\newapply{t_0}{u} } } = \sem{\termop{(\newmapaction{u}{a})}{t_0}}
+\sqsupseteq \sem{\bang{t'}}\]
+%
+\item[$\mathord{\bigoplus} I$] If $a = \labelaction{\ell_0}{a_0}$ and $t =
+\linj{\ell_0}{t_0}$ then \begin{eqnarray*} \sem{\termop{a}{t}} =
+\sem{\termop{a_0}{{t_0 } }} \sqsupseteq \sem{\bang{t'}} \end{eqnarray*}
+%
+\item[$\mathord{\bigoplus} E$] If $t = \lproj{\ell}{t_0}$ then
+\[\sem{\termop{a}{t}} = \sem{\termop{a}{\lproj{\ell}{t_0} }} =
+\sem{\termop{(\labelaction{\ell_0}{a})}{t_0}} \sqsupseteq \sem{\bang{t'}}\]
+%
+\item[$\Sigma I$]
+If $t = \ndsum{i}{I}{t_i}$ then \begin{eqnarray*}
+\sem{\termop{a}{t}} &=& \sem{\termop{a}{\ndsum{i}{I}{t_i} }} \\
+&=& a^*\bigl(\textstyle\sum_{i \in I} \sem{t_i}\bigr) \sqsupseteq
+a^*\bigl(\sem{t_{i_0}}\bigr) \sqsupseteq \sem{\bang{t'}} 
+\end{eqnarray*}
+%
+\end{enumerate}
+\end{proof}
+% }}}
+
+Define a relation $X \trianglelefteq_{\mathbb P} t$ between $X
+\subseteq_\downarrow \mathbb P$ and closed terms of type $\mathbb P$. Define
+also a relation $p \in_{\mathbb P} t$ between elements of $\mathbb P$ and
+closed terms of type $\mathbb P$. $P$ is a set of paths with at most one
+element.
+
+% Definition of \trianglelefteq_{\mathbb P} {{{
+\[\begin{array}{rcl}
+X \trianglelefteq_{\mathbb P} t & \Longleftrightarrow & \forall p \in X.\ p
+\in_{\mathbb P} t \\
+p \in_{\typeO} t & \Longleftrightarrow & \bot \\
+\alpha \linmapsto a;p \in_{\mathbb A \linmap \mathbb Q} t &
+\Longleftrightarrow & a;p \in_{\mathbb Q} t(\alpha) \\
+\alpha \newmapsto a;p \in_{\mathbb A \newmap \mathbb Q} t &
+\Longleftrightarrow & a;p \in_{\mathbb Q} t[\alpha] \\
+\ell_0{:}a;p \in_{\bigoplus_{\ell \in L} \mathbb P_\ell} t &
+\Longleftrightarrow & a;p \in_{\mathbb P_{\ell_0}} \pi_{\ell_0} t\\
+P \in_{\mathbb P_\bot} t & \Longleftrightarrow & \exists t'.\
+\mathbb{P}_\bot : t \labelrightarrow{!} t' : \mathbb P \text{ and } P
+\trianglelefteq_{\mathbb P} t'
+\end{array}\]
+% }}}
+
+\begin{lemma} \label{triangleleftandsyntacticpreorder}
+If $p \le_{\mathbb P} p'$ and $p' \in_{\mathbb P} t$ then $p \in_{\mathbb P}
+t$.
+\end{lemma}
+
+% Proof of triangleleftandsyntacticpreorder {{{
+\begin{proof}
+The proof is by induction on the type $\mathbb P$.
+\begin{itemize}
+\item[$\typeO$] The hypotheses are never satisfied so the implication holds.
+%
+\item[$\mathbb P_\bot$] If $p' \in \mathbb P_\bot$ then either $p' = \{q'\}$
+for some $q' \in \mathbb P$, or $p' = \varnothing$. If $p' = \varnothing$ then
+$p = p'$ and the result follows. If $p' = \{q'\}$ then there exists a $t'$
+such that $\mathbb P_\bot : t \labelrightarrow{!} t' : \mathbb P$ and $q'
+\in_{\mathbb P} t'$. Either $p = \{q\}$ with $q \le_{\mathbb P} q'$ or $p =
+\varnothing$. In the former case, by induction, $q \in_{\mathbb P} t'$ and
+hence $p \in_{\mathbb P_\bot} t$, and in the latter case, it is clear that
+$\varnothing \in_{\mathbb P_\bot} t$ as required.
+%
+\item[$\mathbb P \linmap \mathbb Q$] If $p' \in \mathbb P \linmap \mathbb Q$
+then $p' = (\sem{u'}, q')$ for some $\vdash u : \mathbb P$ and some $q' \in
+\mathbb Q$. Therefore $p = (\sem{u}, q)$ for some $q \le_{\mathbb Q} q'$ and
+$u' \le_{\mathbb P} u$.  By definition $q' \in_{\mathbb Q} t(u')$ and so by
+induction $q \in_{\mathbb Q} t(u)$, whence $p \in_{\mathbb P \linmap \mathbb
+Q} t$ as required.
+%
+\item[$\mathbb P \newmap \mathbb Q$] If $p' \in \mathbb P \newmap \mathbb Q$
+then $p' = [(\sem{u}, q')]_\sim$ for some $\vdash u : \mathbb P$ and some $q'
+\in \mathbb Q$. Choosing a sufficiently fresh $u$, $p = [(\sem{u}, q)]_\sim$
+for some $q \le_{\mathbb Q} q'$. By definition $q' \in_{\mathbb Q} t[u]$ and
+so by induction $q \in_{\mathbb Q} t[u]$, whence $p \in_{\mathbb P \newmap
+\mathbb Q} t$ as required.
+%
+\item[$\bigoplus_{\ell \in L} \mathbb P_\ell$] If $p' \in \bigoplus_{\ell \in
+L} \mathbb P_\ell$ then $p' = \ell_0{:}q'$ for some $\ell_0 \in L$ and $q' \in
+\mathbb P_{\ell_0}$. Therefore $p = \ell_0{:}q$ for some $q \in \mathbb
+P_{\ell_0}$, so that $q' \in_{\mathbb P_{\ell_0}} \pi_{\ell_0} t$ implies $q
+\in_{\mathbb P_{\ell_0}} \pi_{\ell_0} t$ and the result follows.
+%
+\end{itemize}
+\end{proof}
+% }}}
+
+\begin{lemma}\label{ctxle1}
+If $p \in_{\mathbb P} t_1$ and $t_1 \ctxle_{\mathbb P} t_2$ then $p
+\in_{\mathbb P} t_2$.
+\end{lemma}
+
+% Proof of ctxle1 {{{
+\begin{proof}
+The proof is by induction on the type $\mathbb P$.
+\begin{itemize}
+%
+\item[$\typeO$] The hypotheses are never satisfied so the implication holds.
+%
+\item[$\mathbb P_\bot$] If $p \in_{\mathbb P_\bot} t_1$
+then there exists $t'$ such that $\mathbb P_\bot : t_1 \labelrightarrow{!}
+t'$, and hence $\mathbb P_\bot : t_2 \labelrightarrow{!} t'$. If $p = \{q\}$
+where $q \in \mathbb P$ then furthermore $q \in_{\mathbb P} t'$; in any case
+$p \in_{\mathbb P_\bot} t_2$ as required.
+%
+\item[$\mathbb P \linmap \mathbb Q$] If $p \in \mathbb P \linmap \mathbb Q$
+then $p = (\sem{u}, q)$ for some $\vdash u : \mathbb P$ and $q \in \mathbb Q$,
+and hence $q \in_{\mathbb Q} t(u)$. But $t_1(u) \ctxle_{\mathbb Q} t_2(u)$ and
+by induction $q \in_{\mathbb P} t_2(u)$. Therefore $p \in_{\mathbb P \linmap
+\mathbb Q} t_2$, as required.
+%
+\item[$\mathbb P \newmap \mathbb Q$] If $p \in \mathbb P \newmap \mathbb Q$
+then $p = [(\sem{u}, q)]_\sim$ for some $\vdash u : \mathbb P$ and $q \in
+\mathbb Q$, and hence $q \in_{\mathbb Q} t[u]$. But similarly to the previous
+case, $t_1[u] \ctxle_{\mathbb Q} t_2[u]$ and by induction $q \in_{\mathbb Q}
+t_2[u]$. Therefore $p \in_{\mathbb P \newmap \mathbb Q} t_2$, as required.
+%
+\item[$\bigoplus_{\ell \in L} \mathbb P_\ell$] If $p \in \bigoplus_{\ell \in
+L} \mathbb P_\ell$ then $p = \ell_0{:}q$ for some $\ell_0 \in L$ and some $q
+\in \mathbb P_{\ell_0}$ and hence $q \in_{\mathbb P_{\ell_0}} \pi_{\ell_0} t_1$.
+But again $\pi_{\ell_0} t_1 \ctxle_1 \pi_{\ell_0} t_2$ so that $q \in_{\mathbb
+P_{\ell_0}} \pi_{\ell_0} t_2$. Therefore $p \in_{\bigoplus_{\ell \in L}
+\mathbb P_\ell} t_2$ as required.
+%
+\end{itemize}
+\end{proof}
+% }}}
+
+\begin{lemma}\label{triangleleftanddenotations}
+If $p \in_{\mathbb P} t$ then $p \in \sem{\vdash t : \mathbb P}$.
+\end{lemma}
+
+% Proof of triangleleftanddenotations {{{
+\begin{proof}
+The proof is by induction on the type $\mathbb P$.
+\begin{itemize}
+%
+\item[$\typeO$] The hypotheses are never satisfied so the implication holds.
+%
+\item[$\mathbb P_\bot$] If $p \in_{\mathbb P_\bot} t$ then there is a $t'$
+such that $\mathbb P_\bot : t \labelrightarrow{!} t'$ and $p
+\trianglelefteq_{\mathbb P} t'$. Hence for all $q \in p$, $q \in_{\mathbb P}
+t'$, and so by induction, $q \in \sem{t'}$ and therefore $p \in \sem{!t'}$.
+But by soundness, $\sem{!t'} \subseteq \sem{t}$ and hence $p \in \sem{t}$ as
+required.
+%
+\item[$\mathbb P \linmap \mathbb Q$] If $p_0 \in_{\mathbb P \linmap \mathbb
+Q} t$ then $p_0 = (\sem{u}, p)$ and $p \in_{\mathbb Q} t(u)$. Hence by
+induction $p \in \sem{t(u)}$ so that $p_0 = (\sem{u}, p) \in \sem{t}$ as
+required.
+%
+\item[$\mathbb P \newmap \mathbb Q$] If $p_0 \in_{\mathbb P \newmap \mathbb
+Q} t$ then $p_0 = [(\sem{u}, p)]_\sim$ and $p \in_{\mathbb Q} t[u]$. Hence
+by induction $p \in \sem{t[u]}$ so that $p_0 = [(\sem{u}, p)]_\sim \in
+\sem{t}$ as required.
+%
+\item[$\bigoplus_{\ell \in L} \mathbb P_\ell$] If $p_0 \in_{\bigoplus_{\ell
+\in L} \mathbb P_\ell} t$ then $p_0 = \ell_0{:}p$ for some $\ell_0 \in L$ and
+$p \in_{\mathbb P_{\ell_0}} \pi_{\ell_0} t$. Hence by induction $p \in
+\sem{\pi_{\ell_0} t}$ so that $\ell_0{:}p \in \sem{t}$ as required.
+%
+\end{itemize}
+\end{proof}
+% }}}
+
+\begin{lemma}\label{biglemma}
+Suppose $\Gamma \vdash t : \mathbb P$, let $\gamma \in \Gamma$ and define
+$\gamma_x = \sem{\Gamma \vdash x : \mathbb P_x}(\gamma)$ to be the
+$x$-component of $\gamma$ for each $x \in \dom{\Gamma}$. Also let $s_x$ be a
+closed term such that $\vdash s_x : \mathbb P_x$ and $\gamma_x
+\trianglelefteq_{\mathbb P_x} s_x$ for each $x \in \dom{\Gamma}$. Then
+\[\sem{\Gamma \vdash t : \mathbb P}(\gamma) \trianglelefteq_{\mathbb P}
+t[s_x/x]_{x \in \dom{\Gamma}}\] where $t[s_x/x]_{x \in \dom{\Gamma}}$ is the
+term obtained by substituting each $x \in \dom{\Gamma}$ with $s_x$.
+\end{lemma}
+
+% Proof of biglemma {{{
+\begin{proof}
+The proof is by induction on the typing judgement $\Gamma \vdash t : \mathbb
+P$.
+%
+\begin{itemize}
+%
+\item[$\otimes C$] For each contracted variable pair, let $x^+$ be the
+variable remaining after the contraction and $x^-$ be the lost variable. Apply
+the induction hypothesis with $s_{x^-} = s_{x^+}$.
+%
+\item[$\otimes / \boxtimes$] If $\gamma \in \Gamma[\Delta \boxtimes
+\Delta'/x]$ then $\gamma \in \Gamma[\Delta \otimes \Delta'/x]$. Apply the
+induction hypothesis.
+%
+\item[$\otimes W$] The weakened term does not mention any of the new
+variables, so the induction hypothesis applies.
+%
+\item[$\boxtimes W$] Similarly.
+%
+\item[$\mathit{var}$] If $\Gamma = x : \mathbb P$ and $t = x$ then for any
+$\gamma \in \Gamma$, $\gamma_x = \gamma$ and $t[s_x/x] = s_x$ so this case is
+trivially true.
+%
+\item[$\mathrm{rec}I$] %TODO
+%
+\item[$!I$] The induction hypothesis states that $\sem{\Gamma \vdash t :
+\mathbb P}(\gamma) \trianglelefteq_{\mathbb P} t[s_x/x]_{x \in \dom{\Gamma}}$,
+so that $\sem{\Gamma \vdash t : \mathbb P}(\gamma) \in_{\mathbb P_\bot}
+{!}t[s_x/x]_{x \in \dom{\Gamma}}$. But $\sem{\Gamma \vdash {!}t : \mathbb
+P}(\gamma) = \{ \sem{\Gamma \vdash t : \mathbb P}(\gamma)\}$ and the result
+follows.
+%
+\item[$!E$] As a useful shorthand, write $u^{[s]}$ for $u[s_x/x]_{x \in
+\dom\Lambda}$. The induction hypothesis says that for each $q \in \sem{u}
+(\gamma_u)$, $q \in_{\mathbb Q_\bot} u^{[s]}$. Therefore there is a $u_0$ such
+that $\mathbb Q_{\bot}: u^{[s]} \labelrightarrow{!} u_0$ and $q
+\trianglelefteq_{\mathbb Q} u_0$, and hence \[\textstyle q \in_{\mathbb Q_\bot} {!}u_0
+\ctxle_{\mathbb Q_\bot} \sum_{u^{[s]} \labelrightarrow{!} u'} {!}u' \quad \text{and hence}
+\quad q \in \bigsem{\sum_{u^{[s]} \labelrightarrow{!} u'} {!}u'}\] Thus
+\[\textstyle\sem{u}(\gamma_u) \subseteq \bigsem{\sum_{u^{[s]}
+\labelrightarrow{!} u'} {!}u'} = \sum_{u^{[s]} \labelrightarrow{!} u'}
+\eta_{\mathbb Q} \circ \sem{u'}\]
+and hence
+\begin{eqnarray*}
+\sem{[u > {!}x \Rightarrow t]} (\gamma) & = & \epsilon_{\mathbb P} \circ
+\sem{t}_\bot \circ s_{\Gamma, x_0} \circ \Gamma[\sem{u}/x_0] (\gamma) \\ &
+\subseteq & \textstyle
+\sum_{u^{[s]} \labelrightarrow{!} u'} \epsilon_{\mathbb P} \circ \sem{t}_\bot
+\circ s_{\Gamma, x_0} \circ \Gamma[ \eta_{\mathbb Q} \circ \sem{u'}/x_0] \\
+&=&\textstyle
+\sum_{u^{[s]} \labelrightarrow{!} u'} \epsilon_{\mathbb P} \circ \sem{t}_\bot
+\circ \eta_{\Gamma[\mathbb Q/x_0]} \circ \Gamma[ \sem{u'}/x_0] \\
+&=&\textstyle
+\sum_{u^{[s]} \labelrightarrow{!} u'} \epsilon_{\mathbb P} \circ \eta_{\mathbb
+P} \circ \sem{t} \circ \Gamma[ \sem{u'}/x_0] \\
+&=& \textstyle
+\sum_{u^{[s]} \labelrightarrow{!} u'} \sem{t[u'/x]} = \bigsem{\sum_{u^{[s]}
+\labelrightarrow{!} u'} t[u'/x]}\\
+&\trianglelefteq_{\mathbb P} & \textstyle\sum_{u^{[s]} \labelrightarrow{!} u'}
+t[u'/x] [s_x/x]_{x \in \dom\Gamma} \\
+&\ctxle_{\mathbb P}& [u>{!}x \Rightarrow t][s_x/x]_{x \in \dom{\Gamma[\Lambda/x_0]}} 
+\end{eqnarray*}
+Where the last step relies on the observation (proven by induction on $\mathbb
+P$) that $\sum_{u \labelrightarrow{!} u'} t[u'/x] \ctxle_{\mathbb P} [u > {!}x
+\Rightarrow t]$.
+%
+\item[$\lambda I$] If $p_0 \in \sem{\Gamma \vdash \lambda x.t : \mathbb P
+\linmap \mathbb Q}(\gamma)$ then by the denotational semantics there is
+$\vdash u : \mathbb P$, $q \in \gamma$, and $p \in \sem{t}(\sem{u}, q)$ such
+that $p_0 = (\sem{u}, p)$. By induction $\sem{u} \trianglelefteq_{\mathbb P}
+u$ and also \[p \in_{\mathbb P} t[s_x/x]_{x \in
+\dom\Gamma}[u/x] \ctxle_{\mathbb Q} \lambda x.t[s_x/x]_{x \in \dom\Gamma}
+(u)\] and hence $(\sem{u}, p) \in_{\mathbb P \linmap \mathbb Q} \lambda
+x.t[s_x/x]_{x \in \dom\Gamma}$ as required.
+%
+\item[$\lambda E$] If $p \in \sem{t(u)}(\gamma)$ then $(\sem{u}, p) \in
+\sem{t}(\gamma)$. By induction, \[(\sem{u}, p) \in_{\mathbb P \linmap \mathbb
+Q} t[s_x/x]_{x \in \dom\Gamma}\] and hence $p \in_{\mathbb Q}
+t(u)[s_x/x]_{x \in \dom\Gamma}$ as required.
+%
+\item[$\nu I$] If $p_0 \in \sem{\Gamma \vdash \nu x.t : \mathbb P \newmap
+\mathbb Q}(\gamma)$ then by the denotational semantics there is $\vdash u :
+\mathbb P$ and $q \in \gamma$ with $\sem{u} \freshfor q$, and $p \in
+\sem{t}(\sem{u}, q)$ such that $p_0 = [(\sem{u}, p)]_\sim$. By
+finite-supportness, there is such an $u$ such that $u \freshfor t$ as well. By
+induction, \[p \in_{\mathbb Q} t[s_x/x]_{x \in \dom\Gamma}[u/x]
+\ctxle_{\mathbb Q} \nu x.t[s_x/x]_{x \in \dom\Gamma} [u]\] and hence
+$[(\sem{u}, p)]_\sim \in_{\mathbb P \newmap \mathbb Q} \nu x.t[s_x/x]_{x \in
+\dom\Gamma}$ as required.
+%
+\item[$\nu E$] If $p \in \sem{t[u]}(\gamma)$ then $[(\sem{u}, p)]_\sim \in
+\sem{t}(\gamma)$. By induction, \[[(\sem{u}, p)]_\sim \in_{\mathbb P \newmap
+\mathbb Q} t[s_x/x]_{x \in \dom\Gamma}\] and hence $p \in_{\mathbb Q}
+t[u][s_x/x]_{x \in \dom\Gamma}$ as required.
+%
+\item[$\mathord{\bigoplus} I$] If $p_0 \in \sem{\linj{\ell_0}{t}} (\gamma)$
+then there is  $p \in \sem{t}(\gamma)$ such that $p_0 = \ell_0{:}p$. By
+induction, \[p \in_{\mathbb P_{\ell_0}} t[s_x/x]_{x \in \dom\Gamma}
+\ctxle_{\mathbb P_{\ell_0}} \lproj{\ell_0}{(\linj{\ell_0}{t})}
+ [s_x/x]_{x \in \dom\Gamma}\] so that $\ell_0{:}p \in_{\bigoplus_{\ell
+\in L} \mathbb P_{\ell}} \linj{\ell_0}{t} [s_x/x]_{x \in \dom\Gamma}$ as required.
+%
+\item[$\mathord{\bigoplus} E$] If $p \in \sem{\pi_{\ell_0} t}(\gamma)$ then
+$\ell_0{:}p \in \sem{t}(\gamma)$. By induction, \[\ell_0{:}p
+\in_{\bigoplus_{\ell \in L} \mathbb P_\ell} t[s_x/x]_{x \in \dom\Gamma}\] and
+hence $p \in_{\mathbb P_{\ell_0}} \pi_{\ell_0} t[s_x/x]_{x \in \dom\Gamma}$ as
+required.
+%
+\item[$\Sigma I$] If $p \in \sem{\sum_{i \in I} t_i} (\gamma)$ then there is
+an $i_0 \in I$ such that $p \in \sem{t_{i_0}} (\gamma)$. By induction, \[p
+\in_{\mathbb P} t_{i_0}[s_x/x]_{x\in\dom\Gamma} \ctxle_{\mathbb P}
+\textstyle\sum_{i \in I} t_i[s_x/x]_{x\in\dom\Gamma}\] as required.
+%
+\end{itemize}
+\end{proof}
+% }}}
+
+\begin{lemma}[Main Lemma]
+\label{mainlemma}
+Suppose $\vdash t : \mathbb P$. Then $\sem{t} \trianglelefteq_{\mathbb P} t$.
+\end{lemma}
+
+% Proof of mainlemma {{{
+\begin{proof}
+Let $\Gamma = \mathbb I$ and apply lemma \ref{biglemma}.
+\end{proof}
+% }}}
+
+\begin{theorem}[Adequacy]\label{adequacy}
+$\sem{\vdash t : \mathbb P_\bot} = \sem{\vdash \varnothing : \mathbb P_\bot}$
+if and only if there exists no $t'$ such that $\mathbb P_\bot :  t
+\labelrightarrow{!} t'$.
+\end{theorem}
+
+% Proof of adequacy {{{
+\begin{proof}
+Suppose that there exists a $t'$ such that $\mathbb P_\bot : t
+\labelrightarrow{!} t'$. Then $\vdash t' : \mathbb P$, and by soundness
+$\sem{!t'} \sqsubseteq \sem{t}$.  But $\sem{!t'} = \eta_{\mathbb P} \circ
+\sem{t'}$ and $\eta_{\mathbb P}(X) \ne \varnothing$ for any $X
+\subseteq_\downarrow \mathbb P$ and therefore $\sem{t} \ne \sem{\varnothing}$.
+
+Conversely, suppose $\sem{t} \ne \varnothing$. Then since $\sem{t}
+\subseteq_\downarrow \mathbb P_\bot$, $\varnothing \in \sem{t}$. Hence by
+lemma \ref{mainlemma}, $\varnothing \in_{\mathbb P_\bot} t$ and so there is a
+$t'$ such that $\mathbb P_\bot : t \labelrightarrow{!} t'$ as required.
+\end{proof}
+% }}}
+
+\section{Full Abstraction} %{{{
+
+Paths are given by the grammar \[p ::= \emptypath \mid \bangpath{p} \mid
+\labelpath{\ell}{p} \mid \mappath{u}{p} \mid \newmappath{u}{p} \] where
+$\ell$ is a label and $u$ is a closed term.
+
+
+
+%
+%Say that $t$ is a closed term if $\mathbb O \vdash t : \mathbb P$ where
+%$\mathbb O$ is the empty environment. Say that $t$ is a program if it is a
+%closed term of type $\mathbb O_\bot$.
+%
+%Let there be a distinguished variable, denoted $(-)$, and say that a term $C$
+%is a $(\Lambda, \mathbb P)$ program context if, whenever $\Lambda \vdash t :
+%\mathbb P$, $C[t/(-)]$ is a program. As a convenient shorthand, write $C(t)$
+%for $C[t/(-)]$.
+%
+%Define the contextual preorder $\ctxle$ by the following. Let $t_1$ and
+%$t_2$ be terms such that $\Lambda \vdash t_i : \mathbb P$ for $i = 1, 2$. Then
+%$t_1 \ctxle t_2$ if and only if for all $(\Lambda, \mathbb P)$ program
+%contexts it is the case that $\sem{C(t_1)} \ne \sem{\varnothing} \Rightarrow
+%\sem{C(t_2)} \ne \sem{\varnothing}$. Notice that, in the light of the adequacy
+%theorem above, $t_1 \ctxle t_2$ if and only if for all $C$, $C(t_2)$ can
+%perform a ${!}$ action whenever $C(t_1)$ can.
+%
+%It will be necessary to consider finite strings $p$ of actions. The empty
+%string is written $\varnothing$ and pairs of strings are concatenated as $p_1;
+%p_2$. Actions may be assigned types as follows.
+%
+%\[\begin{array}{ccc}
+%\infer{\varnothing : \mathbb P}{-} &
+%\infer{{!}{;}p : \mathbb P_\bot}{p : \mathbb P} &
+%\infer[\ell_0 \in L]{\ell_0{:}a{;}p : \bigoplus_{\ell \in L} \mathbb
+%P_\ell}{a{;}p : \mathbb P_{\ell_0}} \\&
+%\rule{0pt}{7ex}
+%\infer{\alpha \linmapsto a{;}p : \mathbb A \linmap \mathbb P}{a{;}p : \mathbb
+%P} &
+%\infer{\alpha \newmapsto a{;}p : \mathbb A \newmap \mathbb P}{a{;}p : \mathbb
+%P}
+%\end{array}\]
+%
+%The typing judgement $p : \mathbb P$ may be interpreted as a linear map
+%$\mathbb I \to \mathbb P$ as follows.
+%
+%\[\begin{array}{ccc}
+%\sem{\varnothing : \mathbb P} = \bot &
+%\sem{{!}{;}p : \mathbb P_\bot} = \eta_{\mathbb P} \circ \sem{p : \mathbb P} &
+%\sem{\ell_0{:}a{;}p : \bigoplus_{\ell \in L} \mathbb
+%P_\ell} = \mathrm{inj}_{\ell_0} \circ \sem{a{;}p : \mathbb P_{\ell_0}} \\
+%\rule{0pt}{5ex} &
+%\multicolumn{2}{c}{ \sem{\alpha \linmapsto a{;}p : \mathbb A \linmap \mathbb
+%P} = \mathrm{abs}^\otimes ({=}\alpha{?} \circ \sem{a{;}p : \mathbb P})} \\
+%\rule{0pt}{5ex} &
+%\multicolumn{2}{c}{ \sem{\alpha \newmapsto a{;}p : \mathbb A \newmap \mathbb
+%P} = \mathrm{abs}^\boxtimes ({=}\alpha{?} \circ \sem{a{;}p : \mathbb P})} \\
+%\end{array}\]
+%where ${=}\alpha{?}$ is the linear map $\mathbb A \to \mathbb I$ which sends
+%$X \subseteq_\downarrow \mathbb A$ to $\varnothing$ if and only if $\alpha
+%\notin X$. 
+%
+%More informally, the typing judgement $p : \mathbb P$ may be
+%interpreted as an element $\sem{p : \mathbb P} \in \mathbb P$ as follows.
+%\[\begin{array}{ccc}
+%\sem{\varnothing : \mathbb P} = \bot &
+%\sem{{!}{;}p : \mathbb P_\bot} = \{\sem{p : \mathbb P}\} &
+%\sem{\ell_0{:}a{;}p : \bigoplus_{\ell \in L} \mathbb
+%P_\ell} = \mathrm{inj}_{\ell_0}(\sem{a{;}p : \mathbb P_{\ell_0}}) \\
+%\rule{0pt}{5ex} &
+%\multicolumn{2}{c}{ \sem{\alpha \linmapsto a{;}p : \mathbb A \linmap \mathbb
+%P} = (\alpha, \sem{a{;}p : \mathbb P})} \\
+%\rule{0pt}{5ex} &
+%\multicolumn{2}{c}{ \sem{\alpha \newmapsto a{;}p : \mathbb A \newmap \mathbb
+%P} = [(\alpha, \sem{a{;}p : \mathbb P})]_{\sim}}
+%\end{array}\]
+%
+%\begin{theorem}[Full Abstraction] Suppose that $t_1$ and $t_2$ are terms such
+%that $\Lambda \vdash t_i : \mathbb P$ for $i = 1, 2$. Then \[\sem{t_1}
+%\sqsubseteq \sem{t_2} \quad \Longleftrightarrow \quad t_1 \ctxle t_2\]
+%\end{theorem}
+%
+%\begin{proof} Firstly, suppose that $\sem{t_1} \sqsubseteq \sem{t_2}$ and let
+%$C$ be a $(\Lambda, \mathbb P)$ program context with $\sem{C(t_2)} =
+%\sem{\varnothing}$. Then by the substitution lemma and the monotonicity of
+%composition, $\sem{C(t_1)} \sqsubseteq \sem{C(t_2)} = \sem{\varnothing}$ and
+%hence $t_1 \ctxle t_2$ as required.
+%
+%For the convese implication, it is necessary to consider finite strings $p$ of
+%actions. The empty string is written $\varnothing$ and pairs of strings are
+%concatenated as $p_1; p_2$. Define a program context $C_p$ which tests for a
+%particular string $p$ by induction as follows.
+%
+%\[\begin{array}{c}
+%C_\varnothing = {!}\varnothing \\
+%C_{{!}; p} = [(-) > {!}x \Rightarrow C_p(x)] \\
+%C_{\ell{:} a; p} = C_{a; p}(\pi_\ell (-))\\
+%C_{\alpha \linmapsto a; p} = C_{a; p}((-)(\alpha))\\
+%C_{\alpha \newmapsto a; p} = C_{a; p}((-)[\alpha])
+%\end{array}
+%\]
+%
+%%TODO So strings of actions are prime elements in the denotations. Go into
+%%this.
+%
+%%TODO prove this next statement
+%%TODO What does \in \sem{t} really mean? \sem{t} is a morphism.
+%Note that if $p \in \sem{t}$ and there is a prime below $p$ which corresponds
+%to the string $p_0$ of actions then $C_p(t)$ is a well-typed program; the
+%interesting case is when $p$ contains actions which are constructed using
+%$\newmapsto$.
+%
+%
+%
+%
+%
+%\end{proof}
+%
+%
+%
+%
+%
+%
+%
+% }}}
+\end{document}

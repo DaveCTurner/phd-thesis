@@ -1,0 +1,226 @@
+\subsection{Typing Environments}
+
+Typing environments are defined by \[\Gamma ::= 
+\envvar{x}{\typeP} \mid  \envcombine{\Gamma_1}{\Gamma_2} \] where $\typeP$ is
+a process type and $x$ is a variable.
+The domain $\dom{\Gamma}$ is defined by \[\dom{\envvar{x}{\typeP}} = \{x\}\]
+\[\dom{\envcombine{\Gamma_1}{\Gamma_2}} = \dom{\Gamma_1} \udot
+\dom{\Gamma_2}.\] Notice that the domain of $\envcombine{\Gamma_1}{\Gamma_2}$
+is only defined when $\Gamma_1$ and $\Gamma_2$ have disjoint domains. We
+immediately restrict attention to those environments with a well-defined
+domain.
+
+Define an interpretation $\sem{\Gamma}$ by \[\sem{\envvar{x}{\mathbb P}} = \mathbb P
+\]\[\sem{\envcombine{\Gamma_1}{\Gamma_2}} = \sem{\Gamma_1} \otimes
+\sem{\Gamma_2}.\]
+
+If $\Gamma$ and $\Lambda$ are typing environments such that
+$\mathrm{dom}(\Gamma) \cap \mathrm{dom}(\Lambda) \subseteq \{x\}$ for some
+variable $x$ then define the substitution $\envsubst{\Gamma}{\Lambda}{x}$ of $x$ by
+$\Lambda$ in $\Gamma$ as follows.
+%
+\[\envsubst{(\envvar{x}{\mathbb P})}{\Lambda}{x} = \Lambda\]
+%
+\[\envsubst{(\envvar{x'}{\mathbb P'})}{\Lambda}{x} = 
+	\envvar{x'}{\mathbb P'} \quad (x' \ne x) \]
+%
+\[\envsubst{(\envcombine{\Gamma_1}{\Gamma_2})}{\Lambda}{x} =
+	\envcombine
+		{\envsubst{\Gamma_1}{\Lambda}{x}}
+		{\envsubst{\Gamma_2}{\Lambda}{x}}\]
+%
+If $\Gamma$, $\Lambda_1$ and $\Lambda_2$ are typing environments and $x_1$,
+$x_2$ are distinct variables such that  $\Gamma \cap \Lambda_i \subseteq
+\{x_i\}$ for $i = 1, 2$ then notice that
+\[\envsubst{\envsubst{\Gamma}{\Lambda_1}{x_1}}{\Lambda_2}{x_2} =
+\envsubst{\envsubst{\Gamma}{\Lambda_2}{x_2}}{\Lambda_1}{x_1}\] by induction on
+$\Gamma$. More fully,
+for $(i, j) \in \{(1, 2), (2, 1)\}$, 
+%
+\[\envsubst{\envsubst{(\envvar{x_i}{\mathbb P_i})}
+	{\Lambda_i}{x_i}}{\Lambda_j}{x_j} = \Lambda_i =
+\envsubst{\envsubst{(\envvar{x_i}{\mathbb P_i})}
+	{\Lambda_j}{x_j}}{\Lambda_i}{x_i} \]
+%
+\[\envsubst{\envsubst{(\envvar{x'}{\mathbb
+P'})}{\Lambda_i}{x_i}}{\Lambda_j}{x_j} = \envvar{x'}{\mathbb P'} \quad (x'
+\notin \{x_1, x_2\}) \] 
+%
+\begin{eqnarray*}
+%
+\envsubst{\envsubst{(\envcombine{\Gamma_1}{\Gamma_2})}
+	{\Lambda_i}{x_i}}{\Lambda_j}{x_j}
+%
+&=& \envcombine
+	{\envsubst{\envsubst{\Gamma_1}{\Lambda_i}{x_i}}{\Lambda_j}{x_j}} 
+	{\envsubst{\envsubst{\Gamma_2}{\Lambda_i}{x_i}}{\Lambda_j}{x_j}} \\
+%
+&=& \envcombine
+	{\envsubst{\envsubst{\Gamma_1}{\Lambda_j}{x_j}}{\Lambda_i}{x_i}} 
+	{\envsubst{\envsubst{\Gamma_2}{\Lambda_j}{x_j}}{\Lambda_i}{x_i}} \\
+%
+&=& \envsubst{\envsubst{(\envcombine{\Gamma_1}{\Gamma_2})}
+	{\Lambda_j}{x_j}}{\Lambda_i}{x_i}
+%
+\end{eqnarray*} Therefore `sufficiently disjoint' substitutions commute.
+
+In fact, we will consider equivalence classes of environments under the
+smallest equivalance relation $\cong$ satisfying \begin{enumerate} 
+%
+\item $\envcombine{\Gamma}{\Lambda} \cong \envcombine{\Lambda}{\Gamma}$, 
+%
+\item $\envcombine{(\envcombine{\Gamma}{\Lambda})}{\Delta} \cong 
+\envcombine{\Gamma}{(\envcombine{\Lambda}{\Delta})} $ and 
+%
+\item $\envsubst{\Gamma}{\Delta}{x} \cong \envsubst{\Gamma}{\Delta'}{x}$ if
+$\Delta \cong \Delta'$ and if these substitutions are defined.
+%
+\end{enumerate} This equivalence relation only identifies
+environments whose interpretations are (canonically) isomorphic, and hence its
+quotient can be taken with very little trouble or further mention.
+
+Define $\mathrm{freefrom}(\Gamma)$ by
+\[\mathrm{freefrom}(\envvar{x}{\typeP}) = \mathrm{freefrom}(\typeP)
+\]\[\mathrm{freefrom}(\envcombine{\Gamma_1}{\Gamma_2}) =
+\mathrm{freefrom}(\Gamma_1) \cap \mathrm{freefrom}(\Gamma_2)\]
+
+If $f : \sem{\Lambda} \to \sem{\Lambda'}$ then define $\Gamma[f/x] :
+\sem{\envsubst{\Gamma}{\Lambda}{x}} \to \sem{\envsubst{\Gamma}{\Lambda'}{x}}$ by 
+%
+\[(\envvar{x}{\typeP}) [f/x] = f \qquad (\envvar{x'}{\typePp})[f/x] =
+\mathbf{1}_{\typePp} \]
+\[(\envcombine{\Gamma_1}{\Gamma_2}) [f/x] = \Gamma_1[f/x] \otimes
+\Gamma_2[f/x]\] On the full subcategory of typing
+environments, it is clear that the operation $\Gamma[-/x]$ is a functor.
+
+Define a combined strength \[\combiner{\Gamma_1}{\Gamma_2}{\otimes}{p} :
+\delta^p\sem{\Gamma_1} \otimes \delta^p\sem{\Gamma_2} \to
+\delta^p(\sem{\Gamma_1} \otimes \sem{\Gamma_2})\] as follows.
+\[\combiner{\Gamma_1}{\Gamma_2}{\otimes}{\bangaction} = \bangstrength_{\sem{\Gamma_1},
+\sem{\Gamma_2}}^\otimes\]
+\[\combiner{\Gamma_1}{\Gamma_2}{\otimes}{\labelaction{\ell}{p}} = 
+\combiner{\Gamma_1}{\Gamma_2}{\otimes}{\mapaction{u}{p}} = 
+\combiner{\Gamma_1}{\Gamma_2}{\otimes}{p}\] 
+\[\combiner{\Gamma_1}{\Gamma_2}{\otimes}{\newaction{a}{p}} = \delta\combiner{\Gamma_1}{\Gamma_2}{\otimes}{p} \circ 
+\deltastrength_{\delta^p \sem{\Gamma_1}, \delta^p \sem{\Gamma_2}}^{\otimes}\]
+
+Suppose that $f : \sem{\Lambda} \to \delta^p \sem{\Lambda'}$ and define a map
+\[\str{\Gamma}{x}{f}{p}: \sem{\envsubst{\Gamma}{\Lambda}{x}} \to
+\delta^p \sem{\envsubst{\Gamma}{\Lambda'}{x}}\] as follows. 
+\[\str{\envvar{x}{\typeP}}{x}{f}{p} = f\]
+\[\str{\envvar{x'}{\typeP}}{x}{f}{\bangaction} = \eta_{\mathbb P}\]
+\[\str{\envvar{x'}{\typeP}}{x}{f}{\labelaction{\ell}{p}} = 
+\str{\envvar{x'}{\typeP}}{x}{f}{\mapaction{u}{p}} = 
+\str{\envvar{x'}{\typeP}}{x}{f}{p}\]
+\[\str{\envvar{x'}{\typeP}}{x}{f}{\newaction{a}{p}} = \delta 
+\str{\envvar{x'}{\typeP}}{x}{f}{p} \circ \deltacounit_{\mathbb P}\]
+\[\str{\envcombine{\Gamma_1}{\Gamma_2}}{x}{f}{p} = \combiner{\sem{\Gamma_1}}{\sem{\Gamma_2}}{\otimes}{p}
+\circ \str{\Gamma_1}{x}{f}{p} \otimes \str{\Gamma_2}{x}{f}{p} \] 
+
+Define also a map
+\[\match{p}{\typeP}: F_p \typeP \to \delta^p \typeP\] as follows.
+\[\match{\bangaction}{\typeP} = \mathbf{1}_{\typelift\typeP}\]
+\[\match{\mapaction{u}{p}}{\typeP} = \match{p}{\typeP} \circ \mathrm{app}^\otimes \circ
+(\mathbf{1}_{F_p \typeP} \otimes \sem{u})\]
+\[\match{\labelaction{\ell}{p}}{\typeP} = \match{p}{\typeP} \circ \pi_{\ell}\]
+\[\match{\newaction{a}{p}}{\typeP} = \delta \match{p}{\typeP}\]
+
+\begin{lemma}\label{bangcounitstrength}
+\[\str{\Gamma}{x}{\match{\bangaction}{\typeP}}{\bangaction} \circ \Gamma[\bangcounit_{\mathbb P}/x] = \bangcounit_\Gamma\]
+\end{lemma}
+
+% Proof of bangcounitstrength {{{
+\begin{proof} The proof is by induction on $\Gamma$.
+\begin{itemize}
+\item[$\envvar{x}{\mathbb P}$] Since $\str{\envvar{x}{\mathbb P}}{x}{\match{\bangaction}{\typeP}}{\bangaction} =
+\match{\bangaction}{\typeP} = \mathbf{1}_{\mathbb P_\bot}$ this case is trivial.
+\item[$\envvar{x'}{\mathbb P'}$] Since $(\envvar{x'}{\mathbb P'})[\eta_\mathbb P/x] =
+\mathbf{1}_{\mathbb P'}$, this case is trivial.
+\item[$\envcombine{\Gamma_1}{\Gamma_2}$] By induction,
+$\str{\Gamma_i}{x}{\match{\bangaction}{\typeP}}{\bangaction}
+\circ \Gamma_i[\eta_\mathbb P/x] = \eta_{\Gamma_i}$ so that
+\[\str{\Gamma}{x}{\match{\bangaction}{\typeP}}{\bangaction}
+\circ \Gamma[\eta_{\mathbb P}/x] = \bangstrength^\otimes_{\sem{\Gamma_1}, \sem{\Gamma_2}}
+\circ (\eta_{\Gamma_1} \otimes \eta_{\Gamma_2}) = \eta_\Gamma\] as required.
+%TODO Prove this last equality.
+\end{itemize}
+\end{proof}
+% }}}
+
+\begin{lemma}\label{deltacounitstrength}
+If $f_n = \mathbf{1}_{\typemultidelta{n}{\typelift\typeP}} : \sem{\envvar{x}{\typemultidelta{n}{\typelift\typeP}} } \to
+\delta^{n}\sem{\envvar{x'}{\typeP}}_\bot$ and either $\Gamma = \mathbb I$ or $a \in
+\mathrm{freefrom}(\Gamma[\envvar{x'}{\freshfrom{\typeO}{\{a\}} }/x])$ then
+\[\str{\Gamma}{x}{f_{n+1}}{n+1} \circ \Gamma[[a]/x] = [a] \circ \str{\Gamma}{x}{f_n}{n}\]
+\end{lemma}
+
+% Proof of deltacounitstrength {{{
+\begin{proof} The proof is by induction on $\Gamma$.
+\begin{itemize}
+\item[$\envempty$] Since $a \freshfor \str{\envempty}{x}{f_n}{n}$,
+\[\delta\str{\envempty}{x}{f_n}{n} \circ [a] = [a] \circ
+\str{\envempty}{x}{f_n}{n}\] But also $[a] = \deltacounit_{\mathbb I} :
+\mathbb I \to \delta \mathbb I$ so that \[\delta\str{\envempty}{x}{f_n}{n}
+\circ \deltacounit_{\mathbb I} = [a] \circ \str{\envempty}{x}{f_n}{n}\] and
+hence \[\str{\envempty}{x}{f_{n+1}}{n+1} \circ \envempty[[a]/x] = [a] \circ
+\str{\envempty}{x}{f_n}{n}\] as required.
+\item[$\envvar{x}{\mathbb P}$] Since $\str{\envvar{x}{\mathbb P}}{x}{f_{n+1}}{n+1} =
+\mathbf{1}_{\typemultidelta{n+1}{\typelift\typeP}} =
+\delta\mathbf{1}_{\typemultidelta{n}{\typelift\typeP}} =
+\delta\str{\envvar{x}{\mathbb P}}{x}{f_n}{n}$ and $a \freshfor \str{\envempty}{x}{f_n}{n}$, this case follows easily.
+%TODO Relies on that \str{...} does not have a in its support.
+\item[$\envvar{x'}{\mathbb P'}$]
+Since $a \freshfor \str{\envvar{x'}{\typePp}}{x}{f_n}{n}$,
+\[\delta\str{\envvar{x'}{\typePp}}{x}{f_n}{n} \circ [a] = [a] \circ
+\str{\envvar{x'}{\typePp}}{x}{f_n}{n}\] But also as $a \in \mathrm{freefrom}(\typePp)$, $[a] = \deltacounit_{\typePp} :
+\typePp \to \delta \typePp$ so that \[\delta\str{\envvar{x'}{\typePp}}{x}{f_n}{n}
+\circ \deltacounit_{\typePp} = [a] \circ \str{\envvar{x'}{\typePp}}{x}{f_n}{n}\] and
+hence \[\str{\envvar{x'}{\typePp}}{x}{f_{n+1}}{n+1} \circ (\envvar{x'}{\typePp})[[a]/x] = [a] \circ
+\str{\envvar{x'}{\typePp}}{x}{f_n}{n}\] as required.
+\vfill\pagebreak
+\item[$\envcombine{\Gamma_1}{\Gamma_2}$] By definition, $a \in
+\mathrm{freefrom}(\Gamma_i)$ for $i \in \{1, 2\}$. Therefore by induction,
+\[\str{\Gamma_i}{x}{f_{n+1}}{n+1} \circ \Gamma_i[[a]/x] = [a] \circ
+\str{\Gamma_i}{x}{f_n}{n}\] so that\[
+\begin{array}{rcl}\multicolumn{3}{l}{\str{\Gamma}{x}{f_{n+1}}{n+1}
+\circ \Gamma[[a]/x]}\\
+%
+\rule{0pt}{3ex}&=& \combiner{\Gamma_1}{\Gamma_2}{\otimes}{n+1} \\
+%
+&&{}\circ 
+(\str{\Gamma_1}{x}{f_{n+1}}{n+1} \otimes \str{\Gamma_2}{x}{f_{n+1}}{n+1})
+\\
+%
+&&{}\circ (\Gamma_1[[a]/x] \otimes \Gamma_2[[a]/x]) \\
+%
+\rule{0pt}{3ex}&=& \combiner{\Gamma_1}{\Gamma_2}{\otimes}{n+1} \\
+%
+&&{}\circ 
+((\str{\Gamma_1}{x}{f_{n+1}}{n+1} \circ \Gamma_1[[a]/x]) \\
+%
+&&\quad{}\otimes (\str{\Gamma_2}{x}{f_{n+1}}{n+1} \circ \Gamma_2[[a]/x]))\\
+%
+\rule{0pt}{3ex}&=& \combiner{\Gamma_1}{\Gamma_2}{\otimes}{n+1} \\
+%
+&&{}\circ (([a] \circ \str{\Gamma_1}{x}{f_n}{n}) \otimes ([a] \circ \str{\Gamma_2}{x}{f_n}{n}))
+\\
+%
+\rule{0pt}{3ex}&=& \combiner{\Gamma_1}{\Gamma_2}{\otimes}{n+1} \circ ([a]
+\otimes [a])\\
+%
+&&{}\circ (\str{\Gamma_1}{x}{f_n}{n} \otimes \str{\Gamma_2}{x}{f_n}{n}) \\
+%
+\rule{0pt}{3ex}&=& [a] \circ \combiner{\Gamma_1}{\Gamma_2}{\otimes}{n} \\
+%
+&&{}\circ (\str{\Gamma_1}{x}{f_n}{n} \otimes \str{\Gamma_2}{x}{f_n}{n}) \\
+%
+\rule{0pt}{3ex}&=& [a] \circ \str{\Gamma}{x}{f_n}{n}
+\end{array}\] as required.
+%TODO Prove the dodgy steps here
+\end{itemize}
+\end{proof}
+% }}}
+
+\vfill\pagebreak
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s:

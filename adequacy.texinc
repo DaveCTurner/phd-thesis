@@ -1,0 +1,530 @@
+\vfill\pagebreak
+
+\subsection{Adequacy}
+
+Define a relation $\logrel{X}{\typeP}{t}$ between $X
+\subseteq_\downarrow \typeP$ and terms such that $\tjudge{}{}{t}{\typeP}$. Define
+also a relation $\login{p}{\typeP}{t}$ between $p \in \typeP$ and
+terms such that $\tjudge{}{}{t}{\typeP}$.
+
+% Definition of \trianglelefteq_{\mathbb P} {{{
+\[\begin{array}{rcl}
+
+\logrel{X}{\typeP}{t}                                 & \Longleftrightarrow & 
+\forall p \in X.\ \login{p}{\typeP}{t} \\
+
+\login{P}{\typelift{\typeP}}{t}                       & \Longleftrightarrow & 
+\exists t'.\ \ajudge{\typelift{\typeP}}{t}{\bangaction}{t'} 
+\text{ and } \logrel{P}{\typeP}{t'} \\
+
+\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t}      & \Longleftrightarrow & 
+\forall u.\ (\logrel{Q}{\typeQ}{u} \Rightarrow \login{p}{\typeP}{\apply{t}{u}}) \\
+
+\login{\newpath{a}{p}}{\typedelta{\typeP}}{t}       & \Longleftrightarrow & 
+\login{p}{\typeP}{\newapply{t}{a}} \quad\text{where $a$ is fresh}\\
+
+\login{\ell_0:p}{\stdtypesum}{t}                      & \Longleftrightarrow & 
+\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}} \\
+
+\login{\abs{p}}{\typerec{j}{P}{\typeP}}{t}                               & \Longleftrightarrow & 
+\login{p}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}} \\
+
+\end{array}\]
+% }}}
+
+\vfill\pagebreak
+
+\begin{lemma} \label{triangleleftandsyntacticpreorder}
+If $\login{p_0}{\typeP}{t}$ and $p_1 \le_{\mathbb P} p_0$ then $\login{p_1}{\typeP}{t}$.
+\end{lemma}
+
+% Proof of triangleleftandsyntacticpreorder {{{
+\begin{proof}
+The proof is by induction on the path $p_0$.
+TODO Names of the cases are rubbish - think of better ones.
+
+\paragraph{Finite Path Set} By assumption, $\login{P_0}{\typelift\typeP}{t}$
+and $P_1 \le_{\typelift\typeP} P_0$, so that $P_1 \subseteq P_0 \subseteq
+\typeP$ and $P_0$ and $P_1$ are chain-finite. From the definition of the logical
+relation, there exists $t'$ such that
+$\ajudge{\typelift\typeP}{t}{\bangaction}{t'}$ and
+$\logrel{P_0}{\typeP}{t'}$. Since $P_1 \subseteq P_0$,
+$\logrel{P_1}{\typeP}{t'}$ too. Therefore
+$\login{P_1}{\typelift\typeP}{t}$ as required.
+
+\paragraph{Function Space Path} By assumption,
+$\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ and
+$\mappath{Q_1}{p_1} \le_{\typemap{\typeQ}{\typeP}} \mappath{Q_0}{p_0}$, so that
+$p_1 \le_{\typeP} p_0$ and $Q_0 \le_{\typelift\typeQ} Q_1$ and hence $Q_0
+\subseteq Q_1 \subseteq \typeQ$ and $Q_0$ and $Q_1$ are chain-finite.  We wish
+to show that $\login{\mappath{Q_1}{p_1}}{\typemap{\typeQ}{\typeP}}{t}$, so
+let $u$ be such that $\logrel{Q_1}{\typeQ}{u}$.
+Since $Q_0 \subseteq Q_1$, this means that $\logrel{Q_0}{\typeQ}{u}$ too,
+and since $\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ it must
+be the case that $\login{p_0}{\typeP}{\apply{t}{u}}$ and hence by induction
+$\login{p_1}{\typeP}{\apply{t}{u}}$ as required.
+
+\paragraph{New Name Path}
+By assumption, $\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$ and
+$\newpath{b}{p_0} \le_{\typedelta\typeP} \newpath{b}{p_1}$ where $b$ is a fresh
+name, and hence $p_0 \le_{\typeP} p_1$. We wish to show that
+$\login{\newpath{b}{p_1}}{\typedelta\typeP}{t}$, so it is sufficient to show
+that $\login{p_1}{\typeP}{\newapply{t}{b}}$ and hence by induction that
+$\login{p_0}{\typeP}{\newapply{t}{b}}$; this is immediate since 
+$\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$.
+
+\paragraph{Labelled Path}
+By assumption, $\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$ and
+$\labelpath{\ell_0}{p_0} \le_{\stdtypesum} \labelpath{\ell_1}{p_1}$ so that
+$\ell_0 = \ell_1$ and $p_0 \le_{\typePsub{\ell_0}} p_1$. We wish to show that
+$\login{\labelpath{\ell_0}{p_1}}{\stdtypesum}{t}$ so it is sufficient to show
+that $\login{p_1}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$ and hence by induction
+that $\login{p_0}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$; this is immediate
+since $\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$.
+
+\paragraph{Recursive Type Path}
+By assumption, $\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$ and
+$\abspath{p_0} \le_{\typerec{j}{P}{\typeP}} \abspath{p_1}$ so that $p_0
+\le_{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]} p_1$. We wish to show
+$\login{\abspath{p_1}}{\typerec{j}{P}{\typeP}}{t}$ so it is sufficient to show
+that $\login{p_1}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$ and hence
+by induction that
+$\login{p_0}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$; this is
+immediate since $\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$.
+%
+\end{proof}
+%}}}
+
+\vfill\pagebreak
+
+Define a relation between closed terms of type $\typeP$ by
+$\oprel{t_0}{\typeP}{t_1}$ if for all $t'$ and $p$,
+\[\ajudge{\typeP}{t_0}{p}{t'} \qquad \Rightarrow \qquad
+\ajudge{\typeP}{t_1}{p}{t'}\]
+
+\begin{lemma}\label{ctxle1} If $\login{p}{\typeP}{t_0}$ and
+$\oprel{t_0}{\typeP}{t_1}$ then $\login{p}{\typeP}{t_1}$.  \end{lemma}
+
+\begin{proof}
+The proof is by induction on the path $p$.
+TODO Names of the cases are rubbish - think of better ones.
+
+\paragraph{Finite Path Set} By assumption, $\login{P}{\typelift\typeP}{t_0}$, so
+there exists $t'$ such that $\logrel{P}{\typeP}{t'}$ and
+$\ajudge{\typelift\typeP}{t_0}{\bangaction}{t'}$. Since
+$\oprel{t_0}{\typeP}{t_1}$, $\ajudge{\typelift\typeP}{t_1}{\bangaction}{t'}$
+too, so that $\login{P}{\typelift\typeP}{t_1}$ as required.
+
+\paragraph{Function Space Path} By assumption,
+$\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_0}$, so that for all $u$ such that $\logrel{Q}{\typeQ}{u}$,
+$\login{p}{\typeP}{\apply{t_0}{u}}$.  Since
+$\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ we have
+$\oprel{\apply{t_0}{u}}{\typeP}{\apply{t_1}{u}}$ as follows. Suppose that
+$\ajudge{\typeP}{\apply{t_0}{u}}{p'}{t'}$, then by lemma TODO
+$\ajudge{\typemap{\typeQ}{\typeP}}{t_0}{\mapaction{u}{p'}}{t'}$ and hence
+$\ajudge{\typemap{\typeQ}{\typeP}}{t_1}{\mapaction{u}{p'}}{t'}$ so that
+finally $\ajudge{\typeP}{\apply{t_1}{u}}{p'}{t'}$. Thus by induction
+$\login{p}{\typeP}{\apply{t_1}{u}}$, so that
+$\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_1}$ as required.
+
+\paragraph{New Name Path}
+By assumpton, $\login{\newpath{b}{p}}{\typedelta\typeP}{t_0}$ where $b$ is a
+fresh name, so that $\login{p}{\typeP}{\newapply{t_0}{b}}$. Since
+$\oprel{t_0}{\typedelta\typeP}{t_1}$ we have
+$\oprel{\newapply{t_0}{b}}{\typeP}{\newapply{t_1}{b}}$ as follows. Suppose that
+$\ajudge{\typeP}{\newapply{t_0}{b}}{p'}{t'}$, then by lemma TODO
+$\ajudge{\typedelta\typeP}{t_0}{\newaction{b}{p'}}{\new{b}{t'}}$ and hence
+$\ajudge{\typedelta\typeP}{t_1}{\newaction{b}{p'}}{\new{b}{t'}}$ so that finally
+$\ajudge{\typeP}{\newapply{t_1}{b}}{p'}{t'}$. Thus by induction
+$\login{p}{\typeP}{\newapply{t_1}{b}}$, so that
+$\login{\newpath{b}{p}}{\typedelta\typeP}{t_1}$ as required.
+
+\paragraph{Labelled Path}
+By assumpton, $\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_0}$ so that
+$\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}$. Since
+$\oprel{t_0}{\stdtypesum}{t_1}$ we have
+$\oprel{\lproj{\ell_0}{t_0}}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}$ as
+follows. Suppose that
+$\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}{p'}{t'}$, then by lemma
+TODO $\ajudge{\stdtypesum}{t_0}{\labelaction{\ell_0}{p'}}{t'}$ and hence
+$\ajudge{\stdtypesum}{t_1}{\labelaction{\ell_0}{p'}}{t'}$ so that finally
+$\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}{p'}{t'}$. Thus by induction
+$\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}$, so that
+$\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_1}$ as required.
+
+\paragraph{Recursive Type Path} By assumpton,
+$\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{t_0}$, so that by definition
+$\login{p}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}$. Since
+$\oprel{t_0}{\typerec{j}{P}{\typeP}}{t_1}$ we have
+$\oprel{\rep{t_0}}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}$ as
+follows. Suppose that
+$\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}{p'}{t'}$, then by
+lemma TODO $\ajudge{\typerec{j}{P}{\typeP}}{t_0}{\absaction{p'}}{t'}$ and hence
+$\ajudge{\typerec{j}{P}{\typeP}}{t_1}{\absaction{p'}}{t'}$ so that finally
+$\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}{p'}{t'}$.  Thus by
+induction $\login{p}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}$, so
+that $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{t_1}$ as required.
+%
+\end{proof}
+
+\vfill\pagebreak
+
+\begin{lemma}\label{biglemma} Suppose $\tjudge{s}{\Gamma}{t}{\typeP}$ where
+$\Gamma = \envcombine{\envvarfresh{$\termvar{x}_1$}{\typePsub{1}}{s_1}}
+{\envcombine{\ldots}{\envvarfresh{$\termvar{x}_n$}{\typePsub{n}}{s_n}} }$. For
+each $i \in \{1, \ldots, n\}$ let $\gamma_i \in \widehat{\mathbb P_i}^{\freshfor
+s_i}$ and let $v_i$ be a closed term such that $\tjudge{s \setminus
+s_i}{}{v_i}{\typePsub{i}}$ and $\logrel{\gamma_i}{\typePsub{i}}{v_i}$.  Then
+\[\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma_1, \ldots, \gamma_n
+\rangle}{\typeP}{t[v]} \] where $t[v]$ is the term obtained by simultaneously
+substituting each $\termvar{x}_i$ with $v_i$.\end{lemma}
+
+\begin{lemma}
+\label{biglemmaact}
+If $\atjudge{s}{\typeP}{p}{\typePp}$ and $\logrel{X}{\typeP}{t}$ and $P \in
+\sem{p} X$ then there exists $t'$ such that $\ajudge{\typeP}{t}{p}{t'}$ and
+$\logrel{P}{\typePp}{t'}$.
+\end{lemma}
+
+\begin{proof} The proof is by mutual induction on the respective derivations of
+$\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
+
+\paragraph{Variable} Here $n = 1$, $\typePsub{1} = \typeP$, $t =
+\termvar{x}_1$, $\gamma = \gamma_1$ and $s = s_1 = \varnothing$.
+\[\begin{array}{rcll}
+\sem{\tjudge{\varnothing}{\envvarfresh{$\termvar{x}_1$}{\typeP}{\varnothing}}
+{\termvar{x}_1}{\typeP}}
+\langle \gamma \rangle &=& \mathbf{1}_{\typeP}\gamma_1 = \gamma_1 &
+\text{by the denotational semantics} \\
+& \trianglelefteq_{\typePsub{1}} & v_1 & \text{by hypothesis} \\
+& = & t[v] & \text{by hypothesis,}
+\end{array}\] as required.
+
+\paragraph{Weakening} 
+\[\begin{array}{rcll}
+\multicolumn{4}{l}{\sem{\tjudge{s}{\envcombine{\Gamma}
+{\envvarfresh{$\termvar{x}_{n+1}$}{\typePsub{n+1}}{s_{n+1}} }}{t}{\typeP}}
+\langle \gamma_1, \ldots, \gamma_{n+1} \rangle} \\
+\qquad &=& 
+(\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \pi_1) \langle \gamma_1, \ldots, \gamma_{n+1} \rangle
+&\text{by the denotational semantics} \\
+&=& 
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma_1, \ldots, \gamma_n \rangle
+\\
+&\trianglelefteq_{\typeP} & t[v'] & \text{by induction,} \\
+\end{array}\]
+where $[v']$ is the simultaneous substitution of $v_i$ for $x_i$ for $i \in
+\{1, \ldots, n\}$ only. However $t[v'] = t[v]$ since $x_{n+1}$ does not appear
+free in $t$ (TODO by induction) which yields the desired result.
+
+\paragraph{Exchange} 
+\[\begin{array}{rcll} \multicolumn{4}{l}{
+\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }}
+}{\Lambda}}{t}{\typeP}}\langle \gamma, q_1, q_2, \lambda \rangle} \\ &=&
+\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }}
+}{\Lambda}}{t}{\typeP}}\langle \gamma, q_2, q_1, \lambda \rangle
+& \text{by den. sem.}\\
+&\trianglelefteq_{\typeP} & t[v'] & \text{by induction} \\ &=& t[v]
+\end{array}\] where $[v']$ is the substitution $[v]$ appropriately reordered,
+as required.
+
+\paragraph{Fresh-Weakening}
+Since the freshness conditions have been strengthened, the terms $v_i$
+satisfy the weaker conditions required for the induction hypothesis to hold.
+Therefore
+\[\begin{array}{rcll} 
+\multicolumn{4}{l}{\sem{\tjudge{s}{\envcombine{\Gamma}
+{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
+\langle \gamma, q \rangle} \\
+&=& \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
+\langle \gamma, q \rangle 
+& \text{from the denotational semantics}\\
+&\trianglelefteq_{\typeP} & t[v] & \text{by induction,}
+\end{array}\]
+as required.
+
+\paragraph{Support-Weakening (Terms)}
+Suppose that $s' \subseteq s$. Therefore
+\[\begin{array}{rcll}
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle
+&=& \sem{\tjudge{s'}{\Gamma}{t}{\typeP}}
+\langle \gamma \rangle & \text{by the denotational semantics} \\
+&\trianglelefteq_{\typeP} & t[v] & \text{by induction,}
+\end{array}\]
+as required.
+
+\paragraph{Prefix} Let $P \in
+\sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} \langle \gamma \rangle$. By
+the denotational semantics therefore $P \subseteq
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle$. By induction
+$\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
+\rangle}{\typeP}{t[v]}$ so that $\logrel{P}{\typeP}{t[v]}$; by the
+operational semantics,
+$\ajudge{\typelift\typeP}{\bang{t[v]}}{\bangaction}{t[v]}$ so that
+$\login{P}{\typelift\typeP}{\bang{t[v]}}$ as required.
+
+\paragraph{Recursion} Let $p \in \sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
+\langle \gamma \rangle$. By the denotational semantics therefore there exists $n
+\in \omega$ such that $p \in
+\bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}}}{t}{\typeP}}^*\bigr)^n
+\langle \gamma \rangle$. By induction on $n$, each
+$\logrel{\bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}}}{t}{\typeP}}^*\bigr)^n
+\langle \gamma \rangle}{\typeP}{\rec{x}{t[v]}}$, as
+follows. Certainly
+$\logrel{\bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}}}{t}{\typeP}}^*\bigr)^0
+\langle \gamma \rangle = \varnothing}{\typeP}{\rec{x}{t[v]}}$. Suppose that the
+result is true at $n$,
+then \[\begin{array}{rcll} \bigl(\sem{t}^*\bigr)^{n+1}\langle \gamma \rangle &=& \sem{t}
+\circ (\mathbf{1}_{\sem{\Gamma}} \times \bigl(\sem{t}^*\bigr)^n) \circ
+\Delta_{\sem{\Gamma}} \langle \gamma \rangle \\
+&=& \sem{t}
+\circ (\mathbf{1}_{\sem{\Gamma}} \times \bigl(\sem{t}^*\bigr)^n) \langle \gamma, \gamma \rangle \\
+&=& \sem{t} \langle \gamma, \bigl(\sem{t}^*\bigr)^n \gamma \rangle \\
+&\trianglelefteq_{\typeP} & \termsubst{t[v]}{\rec{x}{t[v]}}{x} & \text{by
+induction} \\
+&\ctxle_{\typeP} & \rec{x}{t}[v] & \text{by the op. semantics}
+\end{array}\] so that $\login{p}{\typeP}{\rec{x}{t}[v]}$ as required.
+
+\vfill\pagebreak
+%\infer[(s'' \subseteq s \setminus s')]
+%{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
+%{\matchx{s'}{u}{q}{x}{t}}{\typeP}}
+%{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} &
+%\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
+\paragraph{Prefix-Match} Let $p \in
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
+{\matchx{s'}{u}{q}{x}{t}}{\typeP}} \langle \gamma, \lambda \rangle$, then by the
+denotational semantics there exists $Q \in \typelift\typeQp$ such that $p \in
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} }
+\langle \gamma, Q \rangle$ and $Q \in
+\bigl(\sem{\atjudge{s''}{\typeQ}{q}{\typeQp}} \circ
+\sem{\tjudge{s''}{\Lambda}{u}{\typeQ}} \bigr) \langle \lambda \rangle$. By
+induction on $u$, $\logrel{\sem{\tjudge{s''}{\Lambda}{u}{\typeQ}} \langle
+\lambda \rangle}{\typeQ}{u[v]}$ so that by induction on $q$ there exists $u'$
+such that $\ajudge{\typeQ}{u[v]}{q}{u'}$ and $\logrel{Q}{\typeQp}{u'}$.
+Therefore by induction on $t$,
+$\logrel{\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}
+}}{t}{\typeP} } \langle \gamma, Q \rangle}{\typeP}{\termsubst{t}{u'}{x}[v]}$ and
+by the operational semantics $\oprel{\termsubst{t}{u'}{x}[v]}{\typeP}{
+\matchx{s'}{u}{q}{x}{t}[v]}$ so that
+$\login{p}{\typeP}{\matchx{s'}{u}{q}{x}{t}[v]}$ as required.
+
+\paragraph{Function Abstraction} Let $\mappath{Q}{p} \in
+\sem{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP}}} \langle
+\gamma \rangle$, and let $u$ be such that 
+$\logrel{Q}{\typeQ}{u}$. Then
+\[\begin{array}{rcll} p &\in&
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}
+{t}{\typeP}} \langle \gamma, Q \rangle & \text{by the denotational semantics} \\
+&\trianglelefteq_{\typeP} &
+\termsubst{t[v]}{u}{x} & \text{by induction}\\ &\ctxle_{\typeP}&
+\apply{\abstract{x}{t[v]}}{u} \end{array}\] so that
+$\login{p}{\typeP}{\apply{\abstract{x}{t[v]}}{u}}$ and hence
+$\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{\abstract{x}{t[v]}}$ as
+required.
+
+\paragraph{Function Application} Let $p \in
+\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}}{\typeP}} \langle
+\gamma, \lambda \rangle$, then by the denotational semantics there is $Q \in
+\typelift\typeQ$ such that $\mappath{Q}{p} \in
+\sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}} \langle \gamma \rangle $
+and $Q \subseteq \sem{\tjudge{s}{\Lambda}{u}{\typeQ}} \langle \lambda \rangle$.
+By induction on $u$, $\logrel{\sem{\tjudge{s}{\Lambda}{u}{\typeQ}}
+\langle\lambda\rangle}{\typeQ}{u[v]}$ so that $\logrel{Q}{\typeQ}{u[v]}$.
+By induction on $t$,
+$\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}}\langle\gamma\rangle}{\typemap{\typeQ}{\typeP}}{t[v]}$
+so that $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t[v]}$ and hence
+$\login{p}{\typeP} {\apply{t[v]}{u[v]} = \apply{t}{u}[v]}$ as required.
+
+\paragraph{Name Abstraction} Let $\newpath{b}{p} \in
+\sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta\typeP}} \langle \gamma
+\rangle_\Gamma$, where $b$ is fresh, then by the denotational semantics $p \in
+\sem{\tjudge{s\udot\{b\}}{\envfresh{\Gamma}{b}}{(ab) \cdot t}{\typeP}} \langle
+\gamma \rangle_{\envfresh{\Gamma}{b}}$. Since $b$ was fresh,
+\[\begin{array}{rcll} p &\in_{\typeP}& ((ab)\cdot t)[v] & \text{by
+induction} \\ &\ctxle_{\typeP}& \newapply{\bigl(\new{b}{((ab)\cdot
+t)[v]}\bigr)}{b} &\text{by the operational semantics}\\ &=&
+\newapply{\bigl(\new{b}{((ab)\cdot t)}\bigr)[v]}{b} &\text{as $b \freshfor v$}\\
+&=& \newapply{(\new{a}{t})[v]}{b} & \text{by $\alpha$-equivalence}\\
+\end{array}\] so that
+$\login{p}{\typeP}{\newapply{(\new{a}{t})[v]}{b}}$ and hence
+$\login{\newpath{b}{p}}{\typedelta\typeP}{(\new{a}{t})[v]}$ as required.
+
+\paragraph{Name Application} Let $p \in
+\sem{\tjudge{s\udot\{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
+\langle \gamma \rangle_{\envfresh{\Gamma}{a}}$ then by the denotational
+semantics $\newpath{a}{p} \in \sem{\tjudge{s}{\Gamma}{t}{\typedelta\typeP}}
+\langle \gamma \rangle_\Gamma$ and hence by induction
+$\login{\newpath{a}{p}}{\typedelta\typeP}{t[v]}$. Let $b$ be a fresh name,
+then $\newpath{a}{p} = \newpath{b}{((ab) \cdot p)}$, so that
+$\login{(ab) \cdot p}{\typedelta\typeP}{\newapply{t[v]}{b} =
+\newapply{t}{b}[v]}$. By assumption $a \freshfor t$ and $a \freshfor v$ so that
+by equivariance $\login{p}{\typedelta\typeP}{\newapply{t}{a}[v]}$
+as required.
+
+\paragraph{Labelling} Let $\labelpath{\ell}{p} \in
+\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle \gamma
+\rangle_\Gamma$, then by the denotational semantics $\ell = \ell_0$ and $p \in
+\sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}}$. By induction
+$\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell}}}\langle\gamma\rangle}{\typePsub{\ell_0}}{t[v]}$
+and by the operational semantics
+$\oprel{t[v]}{\typePsub{\ell_0}}{\lproj{\ell_0}{\linj{\ell_0}{t} }}$ so that
+$\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{\linj{\ell_0}{t} }}$ and hence
+$\login{\labelpath{\ell}{p}}{\stdtypesum} {\linj{\ell_0}{t[v]}}$ as
+required.
+
+\paragraph{Label Projection}
+Let $p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
+\langle \gamma \rangle_\Gamma$, then by the denotational
+semantics $\labelpath{\ell_0}{p} \in \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}} \langle \gamma \rangle_\Gamma$. Also by
+induction it follows that $\logrel{\sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}}\gamma}{\stdtypesum}{t[v]}$ so that
+$\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t[v]}$ and hence
+$\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t[v]}}$ as required.
+
+\paragraph{Nondeterministic Sum} Let $p \in
+\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle \gamma
+\rangle_\Gamma$, then by the denotational semantics there exists $i_0 \in I$
+such that $p \in \sem{\tjudge{s_{i_0}}{\Gamma}{t_{i_0}}{\typeP}} \langle \gamma
+\rangle_\Gamma$. By induction $\login{p}{\typeP}{t_{i_0}[v]}$ and by
+the operational semantics $\oprel{t_{i_0}}{\typeP}{\ndsum{i}{I}{t_i}}$ so that
+$\login{p}{\typeP}{\ndsum{i}{I}{t_i}}$ as required.
+
+\paragraph{Recursive Type Folding} Let $\abspath{p} \in
+\sem{\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP}}} \langle \gamma
+\rangle_\Gamma$, then by the denotational semantics $p \in
+\sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} \langle
+\gamma \rangle_\Gamma$. By induction
+$\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
+\langle \gamma \rangle_\Gamma}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{t[v]}$
+and by the operational semantics
+$\oprel{t[v]}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{\abs{t} }}$ so that
+$\login{p}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{\abs{t} }}$ and
+hence $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{\abs{t[v]}}$ as required.
+
+\paragraph{Recursive Type Unfolding}
+Let $p \in
+\sem{\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
+\langle \gamma \rangle_\Gamma$, then by the denotational semantics $\abspath{p}
+\in \sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}}\langle \gamma
+\rangle_\Gamma$. By induction
+$\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}} \langle \gamma
+\rangle_\Gamma}{\typerec{j}{P}{\typeP}}{t[v]}$ so that
+$\login{\abs{p}}{\typerec{j}{P}{\typeP}}{t[v]}$ and hence
+$\login{p}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t[v]}}$ as
+required.
+
+\paragraph{Prefix Action}
+Suppose that $\logrel{X}{\typelift\typeP}{t}$ and $P \in
+\sem{\atjudge{s}{\typelift\typeP}{\bangaction}{\typeP}} X = X$, then
+$\login{P}{\typelift\typeP}{t}$ and hence there exists $t'$ such that
+$\logrel{P}{\typeP}{t'}$ and $\ajudge{\typelift\typeP}{t}{\bangaction}{t'}$ as required.
+
+\paragraph{Higher-Order Action} Let $X' = \{ p' \mid \exists Q \subseteq
+\sem{\tjudge{s}{}{u}{\typeQ}}.\ \mappath{Q}{p'} \in X\}$ then by the
+denotational semantics
+$\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}X =
+\sem{\atjudge{s}{\typeP}{p}{\typePp}}X'$. Also, if $p' \in X'$ then there is $Q
+\subseteq \sem{\tjudge{s}{}{u}{\typeQ}}$ such that $\mapaction{Q}{p'} \in X$. By
+induction, $Q \subseteq \sem{\tjudge{s}{}{u}{\typeQ}}$ implies that
+$\logrel{Q}{\typeQ}{u}$, and $\logrel{X}{\typemap{\typeQ}{\typeP}}{t}$ by
+hypothesis so $\login{\mapaction{Q}{p'}}{\typemap{\typeQ}{\typeP}}{t}$ and hence
+$\login{p'}{\typeP}{\apply{t}{u}}$. Therefore
+$\logrel{X'}{\typeP}{\apply{t}{u}}$. Thus by induction if $P \in
+\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}X =
+\sem{\atjudge{s}{\typeP}{p}{\typePp}}X'$ then there exists $t'$ such that
+$\ajudge{\typeP}{\apply{t}{u}}{p}{t'}$ and $\logrel{P}{\typePp}{t'}$ and so by
+lemma TODO $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$ as
+required.
+
+\paragraph{Labelled Action} Let $X' = \{ p' \mid \labelpath{\ell_0}{p'}
+\in X \}$ then $\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}X = \sem{
+\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}}X'$ and if
+$\logrel{X}{\stdtypesum}{t}$ then
+$\logrel{X'}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$. Therefore by induction
+there exists $t'$ such that
+$\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}$ and
+$\logrel{P}{\typePp}{t'}$ and hence by lemma TODO
+$\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$ as required.
+
+\paragraph{New Name Action} The induction premises are that
+$\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$,
+$\logrel{X}{\typedelta\typeP}{t}$ and $P \in
+\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}X$. By
+the denotational semantics, $P \in
+\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}X$
+implies that $P = \theta^{!}_{\typePp} P'$ and for fresh $b$, $P' @ b \in
+\sem{\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}} X'$ where $X' = \{ x
+\mid \newpath{b}{x} \in X\}$.
+
+Let $x' \in X'$, then $\newpath{b}{x'} \in X
+\trianglelefteq_{\typedelta\typeP} t$ and hence 
+$\login{x'}{\typeP}{\newapply{t}{b}}$. Therefore
+$\logrel{X'}{\typeP}{\newapply{t}{b}}$; also $P' @ b \in
+\sem{\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}} X'$
+and $\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}$ so that by
+induction there exists $t'$ such that $\ajudge{\typeP}{\newapply{t}{b}}{(ab) \cdot p}{t'}$ and
+$\logrel{P'@b}{\typePp}{t'}$. By lemma TODO,
+$\ajudge{\typeP}{t}{\newaction{b}{(ab) \cdot p}}{\new{b}{t'}}$, and by
+$\alpha$-equivalence $\newaction{b}{(ab) \cdot p} = \newaction{a}{p}$ so that
+finally $\ajudge{\typeP}{t}{\newaction{a}{p}}{\new{b}{t'}}$.
+
+It remains to show that $\logrel{P}{\typedelta\typePp}{\new{b}{t'}}$. Let
+$x \in P$ and recall that $P = \theta^{!}_{\typePp} P' = \{x \mid
+\mathop{\mathbf{fresh}} b \mathop{\mathbf{in}} x@b \in P'@b\}$. Let $b$ be
+fresh, then $x = \newpath{b}{x'}$ and $x' \in P'@b$. Furthermore,
+$\logrel{P'@b}{\typePp}{t'}$ so that
+$\login{x'}{\typePp}{t'}$. By the
+operational semantics, $\oprel{t'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ so that
+$\login{x'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ and hence
+$\login{x}{\typedelta\typePp}{\new{b}{t'}}$, as required.
+
+\paragraph{Recursive Type Action} Let \[X' = \{ p' \mid \abspath{p'} \in X \}\]
+then $\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}X =
+\sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}X'$ and if
+$\logrel{X}{\typerec{j}{P}{\typeP}}{t}$ then
+$\logrel{X'}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$. Therefore by
+induction there exists $t'$ such that
+$\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}{p}{t'}$ and
+$\logrel{P}{\typePp}{t'}$ and hence by lemma TODO
+$\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$ as required.
+
+\paragraph{Support-Weakening (Actions)}
+TODO
+%
+\end{proof}
+
+\begin{lemma}
+\label{mainlemma}
+Suppose $\tjudge{s}{}{t}{\typeP}$. Then $\logrel{\sem{\tjudge{s}{}{t}{\typeP}} }{\typeP}{t}$.
+\end{lemma}
+
+\begin{proof}
+Let $\Gamma$ be the empty environment and apply lemma \ref{biglemma}.
+\end{proof}
+
+\begin{theorem}[Adequacy]\label{adequacy}
+$\sem{\tjudge{}{}{t}{\typelift{\typeP}} } = \varnothing$
+if and only if there exists no $t'$ such that
+$\ajudge{\typelift{\typeP}}{t}{\bangaction}{t'}$.
+\end{theorem}
+
+\begin{proof} Suppose that there exists a $t'$ such that
+$\ajudge{\typelift{\typeP}}{t}{\bangaction}{t'}$.  Then by soundness
+$\sem{\tjudge{s}{}{\bang{t'}}{\typelift\typeP}} \sqsubseteq
+\sem{\atjudge{s}{\typelift\typeP}{\bangaction}{\typeP}} \circ
+\sem{\tjudge{s}{}{t}{\typelift\typeP}} =
+\sem{\tjudge{}{}{t}{\typelift\typeP}}$.  But $\sem{\bang{t'}} = \eta_{\typeP}
+\circ \sem{t'}$ and $\eta_{\typeP}(X) \ne \varnothing$ for any $X
+\subseteq_\downarrow \typeP$ and therefore
+$\sem{\tjudge{}{}{t}{\typelift\typeP}} \ne \varnothing$ as required.
+
+Conversely, suppose $\sem{\tjudge{}{}{t}{\typelift\typeP}} \ne \varnothing$.
+Then since $\sem{\tjudge{}{}{t}{\typelift\typeP}} \subseteq_\downarrow
+\typelift{\typeP}$, $\varnothing \in \sem{\tjudge{}{}{t}{\typelift\typeP}}$.
+Hence by lemma \ref{mainlemma}, $\login{\varnothing}{\typelift{\typeP}}{t}$ and so
+there is a $t'$ such that
+$\ajudge{\typelift{\typeP}}{t}{\bangaction}{t'}$ as required.  \end{proof}
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:

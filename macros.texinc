@@ -1,0 +1,133 @@
+% GENERAL MACROS {{{
+\def\colorswitched#1{\relax}
+%\def\colorswitched#1{\color{#1}}
+\def\figureincl#1#2{\begin{figure}[htb]\begin{center}\input{#1.pstex_t}
+\caption{\label{#1}#2}\end{center}\end{figure}}
+\def\dom#1{\mathrm{dom}(#1)}
+\def\ctxle{\mathrel{\smash{\text{\raisebox{-3.5pt}{\shortstack{$\sqsubset$\\[-2pt]$\sim$}}%
+}}%
+}}
+\def\sem#1{[\![#1]\!]}
+\def\semp#1{[\![#1]\!]'}
+\def\bigsem#1{\bigl[\hspace{-2.5pt}\bigl[#1\bigr]\hspace{-2.5pt}\bigr]}
+\newcommand\linmap{\multimap}
+\newcommand\adj{\mathrel{\overlay{\overlay{\raisebox{0.8ex}{$\longleftarrow$}}%
+{\raisebox{-0.8ex}{$\lhook\joinrel\longrightarrow$}}%
+}{\raisebox{0.2ex}{\tiny$\bot$}}%
+}}
+\newcommand\linmapsto{\mathrel{\mapstochar\linmap}}
+\newcommand\bigmid{\rule{0pt}{4ex}\ \mathrel{\Big|}\ }
+\def\labelrightarrow#1{\mathrel{\mathop{\longrightarrow}\limits^{#1}}%
+}
+\def\freshfor{\mathrel{\#}}
+\def\supp#1{\mathrm{supp}({#1})}
+\def\usupp#1{\mathrm{usupp}({#1})}
+\def\fv#1{\mathrm{fv}({#1})}
+\def\str#1#2#3{\mathbf{str}({#1}; {#2}; {#3})}
+\def\finelt#1#2{\langle{#1}\rangle_{#2}}
+\def\udot{\mathrel{\dot{\cup}} }
+\def\amp{\mathop{\&}}
+% }}}
+
+% TERM SYNTAX MACROS {{{
+\def\termhl{\colorswitched{magenta}}
+\def\termfont#1{\textup{\texttt{#1}} }
+\def\termvar#1{\termfont{#1}}
+\def\inactive{\termfont{\termhl nil}}
+\def\rec#1#2{\termfont{\termhl rec}\,{\termvar{#1}} \termfont{\termhl .} {#2}}
+\def\bang#1{\termfont{\termhl !}{#1}}
+\def\matchx#1#2#3#4#5{\termfont{\termhl [}{#1} \mathrel{\termfont{\termhl \#}} {#2} \mathrel{\termfont{\termhl >}}{#3}{\termfont{(#4)}} \mathrel{\termfont{\termhl =>}}{#5}\termfont{\termhl ]}}
+\def\match#1#2#3#4{\termfont{\termhl [}{#1} \mathrel{\termfont{\termhl >}}{#2}{\termfont{(#3)}} \mathrel{\termfont{\termhl =>}}{#4}\termfont{\termhl ]}}
+\def\abstract#1#2{{\termhl \lambda}\,{\termvar{#1}}\termfont{\termhl .}{#2}}
+\def\new#1#2{\termfont{\termhl new}\,{#1} \termfont{\termhl .}{#2}}
+\def\apply#1#2{{#1}\termfont{\termhl (}{#2}\termfont{\termhl )}}
+\def\newapply#1#2{{#1}{\termhl\termfont{[}}{#2}{\termhl\termfont{]} }}
+\def\linj#1#2{{#1}\termfont{\termhl :} {#2}}
+\def\lproj#1#2{{\termhl\pi}_{#1} {#2}}
+\def\ndsum#1#2#3{{\termhl \textstyle\sum_{\colorswitched{black}{#1} \mathrel{\termhl \in} {#2}} } {#3}}
+\def\abs#1{\termfont{\termhl abs}\,{#1}}
+\def\rep#1{\termfont{\termhl rep}\,{#1}}
+\def\intersect#1#2{\termfont{\termhl >}{#1}\termfont{\termhl <:}{#2}}
+\def\termsubst#1#2#3{{#1}{\termhl [}{#2}{\termhl /}{\termvar{#3}}{\termhl ]}}
+% }}}
+
+% ENVIRONMENT MACROS {{{
+\def\envhl{\colorswitched{red}}
+\def\envempty{{\envhl \mathbb{I}} }
+\def\envvarfresh#1#2#3{\envfresh{\envvarxx{#1}{#2}}{#3}}
+\def\envvarxx#1#2{{\termvar{#1}} \mathrel{\envhl :} {#2}}
+\def\envsymbcombine#1#2#3{{#1} \mathop{\envhl{#3}} {#2}}
+\def\envcombine#1#2{{#1}, {#2}}
+\def\envsubst#1#2#3{{#1}{\envhl [}{#2}{\envhl /}{\termvar{#3}}{\envhl ]}}
+\def\envfresh#1#2{{#1}^{{\envhl \#} #2}}
+\def\envrestrict#1#2{{#1}\mathord{\envhl\mid}_{#2}}
+% }}}
+
+% TYPING MACROS {{{
+\def\typehl{\colorswitched{red}}
+\def\tjudge#1#2#3#4{{#2} \mathrel{{\typehl\vdash}_{#1}} {#3} \mathrel{\typehl :} {#4}}
+\def\typevar#1{#1}
+\def\typerec#1#2#3{{\typehl \mu}_{#1}\vec{\typevar{#2}}.\ \vec{#3}}
+\def\typeP{{\typehl \mathbb P}}
+\def\typePsub#1{{\typehl \mathbb P}_{#1}}
+\def\typeQsub#1{{\typehl \mathbb Q}_{#1}}
+\def\typeO{{\typehl \mathbb O}}
+\def\typeQ{{\typehl \mathbb Q}}
+\def\typeR{{\typehl \mathbb R}}
+\def\typePp{{\typehl \mathbb P'}}
+\def\typePpp{{\typehl \mathbb P''}}
+\def\typeQp{{\typehl \mathbb Q'}}
+\def\typeRp{{\typehl \mathbb R'}}
+\def\typelift#1{{\typehl !}{#1}}
+\def\typemap#1#2{{#1} \mathop{\typehl \rightarrow} {#2}}
+\def\typedelta#1{{\typehl \delta}#1}
+\def\typemultidelta#1#2{{\typehl \delta}^{#1} #2}
+\def\typesum#1#2#3{{\typehl \textstyle\bigoplus_{\colorswitched{black}{#1} \mathrel{\typehl \in} {#2}} } {#3}}
+\def\stdtypesum{\typesum{\ell}{L}{\typePsub{\ell}} }
+\def\typefresh#1#2{{#1}^{{\typehl \#} #2}}
+% }}}
+
+% ACTION MACROS {{{
+\definecolor{actioncolor}{rgb}{0.7,0,0.7}
+\def\actionhl{\colorswitched{actioncolor}}
+\def\bangaction{{\actionhl \termfont{!}} }
+\def\labelaction#1#2{{#1}\termfont{\actionhl {:}}{#2}}
+\def\mapaction#1#2{{#1}\mathrel{\actionhl \mapsto}{#2}}
+\def\newaction#1#2{{\actionhl \mathtt{new}}\,{#1}{\actionhl .}\,{#2}}
+\def\absaction#1{{\actionhl \mathtt{abs}}\ {#1}}
+\def\termop#1#2{{#1}^{*}({#2}) }
+\def\ajudge#1#2#3#4{{#1} \mathrel{\actionhl :} 
+{#2} \mathrel{\actionhl\labelrightarrow{#3}} {#4}}
+\def\ajudgex#1#2#3#4#5{{} \mathrel{{\actionhl\vdash}_{#1}} {#2} \mathrel{\actionhl :} 
+{#3} \mathrel{\actionhl\labelrightarrow{#4}} {#5}}
+\def\ajudgexx#1#2#3#4#5#6#7{{} \mathrel{{\actionhl\vdash}_{#1}} {#2} \mathrel{\actionhl :} {#3}
+\mathrel{\actionhl\labelrightarrow{#4}} 
+{\vdash_{#5} {#6} \mathrel{\actionhl :} {#7}} }
+\def\atjudgex#1#2#3{\atjudge{??}{#1}{#2}{#3}}
+\def\atjudge#1#2#3#4{{} \mathrel{{\actionhl\vdash}_{#1}} {#2} \mathrel{\actionhl :} {#3} \mathrel{\actionhl :} {#4}}
+\def\tajudge#1#2#3#4#5{{#1} \mathrel{\actionhl :} {#2} \mathrel{\actionhl\labelrightarrow{#3}} {#4} \mathrel{\actionhl :} {#5}}
+% }}}
+
+% LOGICAL RELATION MACROS {{{
+\definecolor{darkred}{rgb}{0.5,0,0}
+\def\logrelhl{\colorswitched{darkred}}
+\def\logrelx#1#2#3#4{{#2} \mathrel{{\logrelhl\trianglelefteq}^{#1}_{#3}} {#4}}
+\def\loginx#1#2#3#4{{#2} \mathrel{{\logrelhl\in}^{#1}_{#3}} {#4}}
+\def\logrel#1#2#3{{#1} \mathrel{{\logrelhl\trianglelefteq}_{#2}} {#3}}
+\def\login#1#2#3{{#1} \mathrel{{\logrelhl\in}_{#2}} {#3}}
+\def\oprel#1#2#3{{#1} \mathrel{{\logrelhl\ctxle}_{#2}} {#3}}
+% }}}
+
+% PATH MACROS {{{
+\definecolor{darkgreen}{rgb}{0,0.35,0}
+\def\pathhl{\colorswitched{darkgreen}}
+\def\labelpath#1#2{{#1}\termfont{\pathhl {:}}{#2}}
+\def\mappath#1#2{{#1}\mathrel{\pathhl \mapsto}{#2}}
+\def\newpath#1#2{{\pathhl \mathtt{new}}\,{#1}{\pathhl .}\,{#2}}
+\def\abspath#1{{\pathhl \mathtt{abs}}\ {#1}}
+% }}}
+
+\def\revisionnumber{$ $Revision: 2100 $ $}
+% Revision bumper: av,xcmanbvujEsTWC84jz2whBj6ZddzW/avxjklhb
+% vim: set filetype=tex foldlevel=0 cms=\%%s:
+

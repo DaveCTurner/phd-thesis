@@ -1,0 +1,350 @@
+\section{Definitions}
+
+Natural isomorphism
+\[\theta_{\typeP}: \delta\widehat{\typeP} \to \widehat{\delta{\typeP}}\] 
+defined by
+\[\theta_{\typeP}(X) = \{ y \in \delta\typeP \mid \textrm{some/any}\ a.\, y@a \in
+X@a\}\]
+\[\theta_{\typeP}^{-1}(Y) = \mathrm{fresh}\ a\ \mathrm{in}\ [a]\{ x \in \typeP \mid
+[a]x \in Y \}\]
+
+Natural isomorphism
+\[\psi_{\typeP}: \typedelta{\typelift\typeP} \to \typelift{\typedelta\typeP} \]
+defined by
+\[\psi_{\typeP}([a]\finelt{F}{s}) = \finelt{[a]F}{s \setminus \{a\}}
+\qquad (a \in s)\]
+\[\psi_{\typeP}^{-1}(\finelt{[a]F}{s}) = [a] \finelt{F}{s \udot \{a\}}
+\qquad (a \notin s)\]
+
+Natural inclusion
+\[\phi_{\typeP}: \typelift\typeP \to \widehat{\typeP}\]
+defined by
+\[\phi_{\typeP}(f) = \{p \in \typeP \mid p \le f\}\]
+
+$\theta$ is the restriction of $\psi$ in the sense that \[\theta
+\circ {\delta}\phi = \phi_{\delta} \circ \psi\]
+
+Natural transformation
+\[\lambda_{\typeP}: \typelift{\widehat{\typeP}} \to \widehat{\typelift\typeP}\]
+defined by
+\[\lambda_{\typeP}(F) = \{p \in \typeP \mid p \in F, \text{$p$ finite}\}\]
+
+Algebraicity is that \[\phi_{\hat{\ }} =
+\widehat{\phi} \circ \lambda\]
+
+\[\begin{array}{rcll}
+\widehat{\phi_{\delta}} \circ \widehat{\psi} \circ \theta_{!} \circ {\delta}\lambda 
+%
+&=& \widehat{\theta} \circ \widehat{\delta\phi} \circ \theta_{!} \circ
+{\delta}\lambda & \text{by restriction} \\
+%
+&=& \widehat{\theta} \circ \theta_{\hat{\ }} \circ {\delta}\widehat{\phi} \circ
+{\delta}\lambda & \text{by naturality of $\theta$}\\
+%
+&=& \widehat{\theta} \circ \theta_{\hat{\ }} \circ {\delta}\phi_{\hat{\ }} &
+\text{by algebraicity} \\
+%
+&=& \widehat{\theta} \circ \phi_{\delta\hat{\ }} \circ \psi_{\hat{\ }} &
+\text{by restriction}\\
+%
+&=& \phi_{\hat{\delta\ }} \circ {!}\theta \circ  \psi_{\hat{\ }} & \text{by
+naturality of $\phi$}\\
+%
+&=& \widehat{\phi_{\delta}} \circ \lambda_{\delta} \circ {!}\theta \circ
+\psi_{\hat{\ }} & \text{by algebraicity} \\
+\end{array}\]
+
+But $\phi$ is pointwise monic and $\widehat{\ }$ preserves monics, so that
+\[\widehat{\psi} \circ \theta_{!} \circ {\delta}\lambda = \lambda_{\delta} \circ {!}\theta \circ
+\psi_{\hat{\ }}\]
+
+Natural transformation
+\[[a]_{\typeP} : \typeP \to \typedelta\typeP\]
+defined by
+\[[a]_{\typeP}(p) = [a]p\]
+
+Then (WLOG $a \in s$) \begin{eqnarray*}
+![a]_{\typeP}(\finelt{F}{s}) &=& \bigvee\{[a] \pi\cdot F \mid \pi \freshfor
+s\} \\&=& \bigvee\{\pi \cdot [a]F \mid \pi \freshfor s\} \\&=& \finelt{[a]F}{s}
+\\&\sqsubseteq& \finelt{[a]F}{s\setminus a} \\&=& \psi_{\typeP} \circ
+[a]_{\typelift\typeP}(\finelt{F}{s})\end{eqnarray*}
+so that ${!}[a] \sqsubseteq \psi \circ [a]_{!}$.
+
+\vfill
+\pagebreak
+
+\begin{lemma}[Footprint Lemma]
+Let $B$ and $D$ be disjoint finite sets of atoms such that $|D| > |B|$. Then
+for all permutations $\pi$ there exist permutations $\pi_1$, $\pi_2$, $\pi_3$
+such that $\pi_1 \freshfor B$, $\pi_3
+\freshfor B$, $\supp{\pi_2} \subseteq B \cup D$ and $\pi = \pi_1 \pi_2 \pi_3$.
+\end{lemma}
+
+\begin{proof}
+Represent $\pi$ as a finite list of transpositions and proceed by induction on
+the length of the list. 
+\begin{itemize}
+\item If the list is empty then $\pi = \iota$ and
+$\pi_1 = \pi_2 = \pi_3 = \iota$ is a factorisation in the right form.
+\item If the list is nonempty then $\pi = \pi' \cdot (ab) = \pi_1 \pi_2 \pi_3
+(ab)$ by induction. 
+\begin{itemize}
+\item If $a \notin B$ and $b \notin B$ then $\pi'_3 = \pi_3(ab) \freshfor B$
+and $\pi = \pi_1 \pi_2 \pi'_3$ is a factorisation in the right form. 
+\item If $a \in B$ and $b \in B$ then $\pi_3(ab) = (ab)\pi_3$ so let $\pi'_2 =
+\pi_2(ab)$ which has $\supp{\pi'_2} \subseteq B \cup D$, so that $\pi = \pi_1
+\pi'_2 \pi_3$ is a factorisation in the right form.
+\item Otherwise without loss of generality let $a \notin B$ and $b \in B$. Then
+$\pi_3(ab) = (a'b)\pi_3$ where $a' = \pi_3(a) \notin B$ since $a \notin B$ and
+$\pi_3 \freshfor B$. \begin{itemize}\item If $a' \in D$ then let $\pi'_2 = \pi_2(a'b)$ which has
+$\supp{\pi'_2} \subseteq B \cup D$ so that $\pi = \pi_1 \pi'_2 \pi_3$ is a
+factorisation in the right form. \item If $a' \notin D$ then let $c \in D$ be
+such that $\pi_2(c) \in D$, which exists since by assumption $|D| > |B|$. Then
+$(a'b) = (a'c)(bc)(a'c)$. Writing $c' = \pi_2(c) \in D$, then $\pi = \pi_1
+(a'c') \pi_2 (bc) (a'c) \pi_3$. Let $\pi'_1 = \pi_1 (a'c')$, $\pi'_2 = \pi_2
+(bc)$ and $\pi'_3 = (a'c) \pi_3$, then $\pi = \pi'_1 \pi'_2 \pi'_3$ is in the
+right form.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{proof}
+
+Define $\finelt{F}{s} = \bigcup_{\pi \freshfor s} \pi \cdot F$ where $F$ is a
+finite set and $s$ is a finite set of names. Then $\pi \cdot \finelt{F}{s} =
+\finelt{\pi \cdot F}{\pi \cdot s}$ and $\supp{\finelt{F}{s}} \subseteq s$.
+
+\begin{lemma}
+Given a finite set $F$, and finite sets of names $s \subseteq s'$ there exists
+a finite set $F'$ such that $\finelt{F}{s} = \finelt{F'}{s'}$.
+\end{lemma}
+
+\begin{proof}
+Let $B = \supp{F} \cup s'$ and let $D$ be a set of names such that $|B| < |D|$
+and $B \cap D = \varnothing$. Let $A = (B \cup D) \setminus s$. There are
+finitely many $\pi_2$ such that $\supp{\pi_2} \subseteq A$, so that \[F' =
+\bigcup_{\supp{\pi_2} \subseteq A} \pi_2 \cdot F\] is a finite set. Suppose
+that $\pi \freshfor s$ and write $\pi = \pi_1 \pi_2 \pi_3$ where $\pi_1
+\freshfor B$, $\pi_3 \freshfor B$ and $\supp{\pi_2} \subseteq B \cup D$. Then
+$\pi_3 \cdot F = F$.  Also since $\pi \freshfor s$, $\pi_2 \freshfor s$ so
+that $\supp{\pi_2} \subseteq A$ and hence $\pi_2 \cdot F \subseteq F'$.
+Finally $\supp{\finelt{F'}{s'}} \subseteq s' \freshfor D$ so that $\pi_1 \cdot
+\finelt{F'}{s'} = \finelt{F'}{s'}$. Therefore \[ \pi \cdot F = \pi_1 \pi_2
+\pi_3 \cdot F = \pi_1 \pi_2 \cdot F \subseteq \pi_1 \cdot F' \subseteq \pi_1
+\cdot \finelt{F'}{s'} = \finelt{F'}{s'} \] and hence $\finelt{F}{s} \subseteq
+\finelt{F'}{s'}$. Conversely, suppose that $\pi \freshfor s'$ and $x \in \pi
+\cdot F'$, then there exists $\pi_2$ such that $\supp{\pi_2} \subseteq A$ and
+$x \in \pi \pi_2 \cdot F$. $\pi \pi_2 \freshfor s$ so that $x \in
+\finelt{F}{s}$ and hence $\finelt{F'}{s'} = \finelt{F}{s}$ as required.
+\end{proof}
+
+
+\section{Domain Theory}
+
+If $s$ is a finite set of names, let $\mathbf{FM}_s$ be the category whose
+objects are FM sets supported by $s$ and whose arrows are FM functions
+supported by $s$.
+
+\begin{lemma}
+$\mathbf{FM}_s$ is a Boolean elementary topos.
+\end{lemma}
+
+\begin{proof}
+Finite (co)limits are constructed as in $\mathbf{Set}$; in each case
+since the (co)limit is over a finite diagram the supports of the (co)limit and
+its (co)projections are contained in that of the diagram, which is contained
+in $s$.
+
+Exponentials are constructed as in $\mathbf{Nom}$. In detail, \[A \to B = \{ f
+: A \to B \mid \text{$f$ is finitely supported}\}.\] To see that this object
+is supported by $s$ whenever $A$ and $B$ are, let $\pi \freshfor s$, let $f :
+A \to B$ be finitely supported, and consider $\pi \cdot f$. If $a \in A$ then
+$\pi^{-1} \cdot a \in A$ since $s$ supports $A$, so \[(\pi \cdot f)(a) = \pi
+\cdot (f(\pi^{-1} \cdot a)) \in \pi \cdot B = B\] Thus $\pi \cdot f$ is a
+finitely supported function $A \to B$; by symmetry, this means that for any
+$\pi \freshfor s$, $\pi \cdot (A \to B) = A \to B$ as required.
+
+The two-object set $\Omega = \{ \top, \bot \}$ with the trivial group action
+acts as a subobject classifier. For, given a monomorphism $j : U
+\rightarrowtail X$ supported by $s$ the function $\chi_U : X \to \Omega$ given
+by \[\chi_U(x) = \begin{cases} \top & \text{if $\exists u \in U.\ x = ju$}\\
+\bot &\text{otherwise}\end{cases}\] is clearly the appropriate characteristic
+function as long as it is supported by $s$. Let $\pi \freshfor s$, then
+\begin{eqnarray*}
+(\pi \cdot \chi_U)(x) &=& \pi \cdot
+(\chi_U(\pi^{-1} \cdot x)) = \pi \cdot \begin{cases} \top & \text{if $\exists
+u \in U.\ \pi^{-1} \cdot x = j u$} \\ \bot &
+\text{otherwise}\end{cases} \\
+&=& \begin{cases} \pi \cdot \top & \text{if $\exists
+u \in U.\ x = j (\pi \cdot u)$} \\ \pi \cdot \bot &
+\text{otherwise}\end{cases} \\
+&=& \begin{cases} \top & \text{if $\exists
+u \in \pi \cdot U.\ x = j u$} \\ \bot &
+\text{otherwise}\end{cases} = \chi_U(x)
+\end{eqnarray*}
+since $\pi \cdot U = U$, so that $\chi_U$ is supported by $s$ as required.
+Thus $\mathbf{FM}_s$ is an elementary topos.
+
+Finally notice that elements of $\Omega$ are functions $1 \to \Omega$ of which
+there are two and each is supported by $s$, so that $\mathbf{FM}_s$ is
+boolean.
+\end{proof}
+
+So $\mathbf{FM}_s$ is a category rather like $\mathbf{Nom}$; in particular,
+$\mathbf{Nom} = \mathbf{FM}_\varnothing$. TODO: Present $\mathbf{FM}_s$ as the
+slice $\mathbf{Nom}/ys$.
+
+Let $\mathbf{FMPre}_s$ be the category whose objects are FM preorders
+supported by $s$ and whose arrows are monotone FM functions supported by $s$.
+In detail, if $\langle \mathbb P, \le_{\mathbb P} \rangle$ and $\langle
+\mathbb Q, \le_{\mathbb Q} \rangle$ are FM preorders supported by $s$ then the
+function $f : \mathbb P \to \mathbb Q$ is an arrow of $\mathbf{FMPre}_s$ when
+it is supported by $s$ (and hence an arrow of $\mathbf{FM}_s$) and for every
+$p, p' \in \mathbb P$, $p \le_{\mathbb P} p' \Rightarrow f(p) \le_{\mathbb Q}
+f(p')$.
+
+\def\yoneda{\mathord{\downarrow}}
+
+Let $\widehat{(-)} = (-)^{op} \to \mathbf{2}$, an endofunctor of
+$\mathbf{FMPre}_s$ and also let $\yoneda: \mathbf{1} \mathop{\to}\limits^{.}
+\widehat{(-)}$ be the curried form of $\mathord{\le_{(-)}} : (-) \times
+(-)^{op} \to \mathbf{2}$.  Concretely, $\widehat{\mathbb{P}}$ consists of all
+downwards-closed finitely-supported subsets of $\mathbb{P}$ ordered by
+inclusion, and \[\yoneda_{\mathbb{P}}(x) = \{ p \in \mathbb{P} \mid p \le x
+\}.\] Together with $\bigcup: \widehat{\widehat{(-)}} \mathop{\to}\limits^{.}
+\widehat{(-)}$ this forms a monad $(\widehat{(-)}, \yoneda, \bigcup)$ on
+$\mathbf{FMPre}_s$.
+
+\begin{lemma}
+$\widehat{\mathbb{P}}$ is the free finitely-supported join completion of
+$\mathbb{P}$ in the sense that $\widehat{\mathbb{P}}$ has all
+finitely-supported joins and if $\mathbb{Q}$ also has all finitely-supported
+joins and $f: \mathbb{P} \to \mathbb{Q}$ then there is a unique
+finitely-supported-join-preserving map $g: \widehat{\mathbb{P}} \to
+\mathbb{Q}$ such that \[ g \circ \yoneda_\mathbb{P} = f \]
+\end{lemma}
+
+\begin{proof}
+Firstly, joins in $\widehat{\mathbb{P}}$ are given by taking unions. For, if
+$X$ is a finitely-supported subset of $\widehat{\mathbb{P}}$ and $P \in X$
+then $P \subseteq \bigcup X$, and if $P \subseteq P'$ for all $P \in X$ then
+$\bigcup P \subseteq P'$. Since the union of a finitely-supported set of
+finitely-supported downwards-closed sets is itself finitely-supported and
+downwards-closed, $\widehat{\mathbb{P}}$ immediately has all
+finitely-supported joins.
+
+Furthermore, if $\mathbb{Q}$ has all finitely-supported joins and $f:
+\mathbb{P} \to \mathbb{Q}$ and $P \in \widehat{\mathbb{P}}$ then define $g(P)
+= \bigvee\{ f(p) \mid p \in P \}$. Then \[g \circ \yoneda_\mathbb{P} (p) =
+\bigvee\{ f(p') \mid p' \le p \} = f(p), \] and $g$ clearly preserves
+finitely-supported joins. Finally, since $\widehat{\mathbb P}$ is algebraic,
+$P = \bigvee \{ y_{\mathbb P}(p) \mid p \in P \}$ so that $g$ is unique as
+required.  \end{proof}
+
+Let $\mathbf{FMLin}_s$ be the Kleisli category of $\widehat{(-)} :
+\mathbf{FMPre}_s \to \mathbf{FMPre}_s$. Concretely, it is a category whose
+objects are those of $\mathbf{FMPre}_s$ and whose arrows $\mathbb{P} \to
+\mathbb{Q}$ are arrows $\mathbb{P} \to \widehat{\mathbb{Q}}$ of
+$\mathbf{FMPre}_s$.  By freeness, this category is isomorphic to the
+category of arrows $\widehat{\mathbb{P}} \to \widehat{\mathbb{Q}}$ which
+preserve finitely-supported joins (in other words, {\bf
+Lin}ear arrows of $\mathbf{FMPre}_s$).
+
+Let $\mathbb P$ be an object of $\mathbf{FMPre}_s$. A {\it finitely-supported
+chain in $\mathbb P$} is a totally ordered finitely-supported subset of
+$\mathbb P$. A {\it uniform set in $\mathbb P$} is a subset $X$ of $\mathbb P$
+such that there exists a finite set of names $s$ such that for each $x \in X$,
+$\supp{x} \subseteq s$. The set $s$ is the {\it uniform support} of $X$,
+written $\usupp{X}$.
+
+\begin{lemma}
+Suppose $D \subseteq \mathbb P$ is $\kappa$-directed and uniform where
+$\kappa$ is a regular cardinal and $\kappa \ge |D|$. Then there exists a
+finitely-supported chain $X \subseteq D$ such that $D \preceq X$.
+\end{lemma}
+
+\begin{proof}
+Let $(p_i)$ be a wellordering of the elements of $D$, which exists by the
+(external) axiom of choice. Since $\kappa$ is regular, for all $i$ it is the
+case that $|i| < \kappa$ and hence $q_i = \bigvee_{j \le i} p_j$ is defined.
+Furthermore, if $i \le j$ then $q_i \le q_j$ so $(q_i)$ forms a chain.
+
+Let $s = \usupp{D}$. The chain $(q_i)$ is supported by $s$ since if $\pi
+\freshfor s$ then $\pi \cdot p_j = p_j$ for all $j$ and hence $\pi \cdot q_i =
+q_i$. Furthermore, if $p \in D$ then there exists $i$ such that $p = p_i \le
+q_i$ as required. \end{proof}
+
+In the following, all chains are assumed to be finitely-supported, and all
+sets are assumed to be (externally) countable, so that $\kappa = \aleph_0$ and
+$\kappa$-directed means directed. Say that an element $p \in \mathbb{P}$ is
+{\it chain-finite} if for all chains $Q$ such that $p \le \bigvee Q$ there
+exists an $q \in Q$ such that $p \le q$.
+
+\begin{lemma}
+$P \in \widehat{\mathbb P}$ is chain finite if and only if there exists a
+finite set $F \subseteq \mathbb P$ and a finite set of names $s$ such that $P
+= \finelt{F}{s}$.
+\end{lemma}
+
+\begin{proof}
+Suppose that $Q$ is a chain such that $\finelt{F}{s} \subseteq \bigcup Q$. Let
+$s' = s \cup \usupp{Q}$ and let $F'$ be such that $\finelt{F}{s} =
+\finelt{F'}{s'}$. Certainly $F' \subseteq \bigcup Q$ and $F'$ is finite so
+there exists $q \in Q$ such that $F' \subseteq q$. However, $\supp{q}
+\subseteq s'$ so that $\pi \cdot F' \subseteq q$ for all $\pi \freshfor s'$
+and hence $q \supseteq \finelt{F'}{s'} = \finelt{F}{s}$ as required.
+
+Conversely, let $q$ be chain-finite, let $\supp{q} = s$ and let \[P =
+\{\finelt{F}{s} \mid F \subseteq q, \text{$F$ finite}\},\] which is a uniform
+directed set with $q \subseteq \bigcup P$ and hence contains a chain $Q$ such
+that $\bigcup P \subseteq \bigcup Q$. Therefore $q \subseteq \bigcup Q$ so
+that there exists $p \in Q$ with $q \subseteq p$, and hence $p =
+\finelt{F}{s}$ for some $F$. However, $F \subseteq q$ so that $\pi \cdot F
+\subseteq q$ for all $\pi \freshfor s$. Therefore $\finelt{F}{s} \subseteq q$
+and hence $q = \finelt{F}{s}$ as required.
+\end{proof}
+
+Let ${!}\mathbb P = \{ P \in \widehat{\mathbb P} \mid \text{$P$ is
+chain-finite}\}$, with an ordering defined by $P
+\le_{{!}\mathbb P} P'$ if for each $p \in P$ there exists $p' \in P'$ such
+that $p \le_{\mathbb P} p'$. Let $i: {!}(-) \mathop{\to}\limits^{.}
+\widehat{(-)}$ be the inclusion.
+
+\begin{lemma}
+$\widehat{\mathbb{P}}$ is the free chain-join completion of ${!}\mathbb{P}$ in
+the sense that $\widehat{\mathbb{P}}$ has all joins of chains and if
+$\mathbb{Q}$ also has all joins of chains and $f: {!}\mathbb{P} \to
+\mathbb{Q}$ then there is a unique map $g: \widehat{\mathbb{P}} \to
+\mathbb{Q}$ which preserves joins of chains and such that \[ g \circ
+i_\mathbb{P} = f \]
+\end{lemma}
+
+\begin{proof}
+$\widehat{\mathbb P}$ has all finitely-supported joins, so certainly has all
+joins of chains. Furthermore, let \[g(Q) = \bigvee\{f(P) \mid P \subseteq Q,
+\text{$P$ is chain-finite and $\supp{P} \subseteq \supp{Q, f}$}\}. \] This
+join is over a uniform directed set, bounded by $\supp{Q, f}$, so it is equal
+to the join of a chain of its elements and hence the join exists in $\mathbb
+Q$.  Then \[\begin{array}{rcl} g \circ i_{\mathbb P}(Q) &=& \bigvee\{f(P) \mid
+P \subseteq Q, \text{$P$ is chain-finite and $\supp{P} \subseteq
+\supp{Q,f}$}\}\\& =& f(Q) \end{array}\] since $Q$ is itself chain-finite, and
+$g$ clearly preserves joins of chains. Finally, since $\widehat{\mathbb P}$ is
+algebraic, \[Q = \bigvee\{ i_{\mathbb P}(P) \mid P \subseteq Q, \text{$P$ chain-finite},
+\supp{P} \subseteq \supp{Q} \}\] so that $g$ is unique as required.
+\end{proof}
+
+Say that a function is {\it chain-continuous} if it preserves joins of chains.
+Define the category $\mathbf{ChCts}_s$ as having the same objects as
+$\mathbf{FMLin}_s$ and arrows $\mathbb P \to \mathbb Q$ are chain-continuous
+functions $\widehat{\mathbb P} \to \widehat{\mathbb Q}$.  Note that if a
+function preserves finitely-supported joins then it certainly preserves joins
+of chains, so that $\mathbf{FMLin}_s$ is a subcategory of $\mathbf{ChCts}_s$.
+By the freeness property above, chain-continuous functions $\widehat{\mathbb
+P} \to \widehat{\mathbb Q}$ correspond to monotone functions ${!}\mathbb P \to
+\widehat{\mathbb Q}$ and hence to arrows ${!}\mathbb P \to \mathbb Q$ in
+$\mathbf{FMLin}_s$. Therefore \[ \mathbf{FMLin}_s({!}\mathbb P, \mathbb Q)
+\cong \mathbf{ChCts}_s(\mathbb P, \mathbb Q),\] naturally in $\mathbb P$ and
+$\mathbb Q$ and hence there is an adjunction $\mathbf{FMLin}_s \adj
+\mathbf{ChCts}_s$.
+
+
+% vim: set filetype=tex foldlevel=0 tw=78 cms=\%%s:

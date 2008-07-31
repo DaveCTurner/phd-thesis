@@ -1,0 +1,204 @@
+\subsection{Operational Semantics}
+
+That a term $t$ such that $\tjudge{}{}{t}{\typeP}$ may perform an action $p$
+such that $\atjudge{}{\typeP}{p}{\typePp}$ and resume as the term $t'$ is
+written \[\ajudge{\typeP}{t}{p}{t'}.\] The operational semantics of closed,
+well-typed terms are defined below. These rules define the semantics only of
+well-typed terms in the sense that each of these rules has an additional
+premise, omitted for clarity, that the term on the left of the transition in
+the conclusion has the correct type.
+%
+\[\begin{array}{ccc}
+% ===========================================================================
+%                                      REC
+\infer
+{\ajudge{\typeP}{\rec{x}{t}}{p}{t'}}
+{\ajudge{\typeP}{\termsubst{t}{\rec{x}{t}}{x}}{p}{t'}} 
+% ===========================================================================
+&&
+% ===========================================================================
+%                                      BANG
+\infer
+{\ajudge{\typelift{\typeP}}{\bang{t}}{\bangaction}{t}}
+{-}
+% ===========================================================================
+\\ \multicolumn{3}{c}{\rule{0pt}{8ex} 
+% ===========================================================================
+%                                      MATCH
+\infer
+{\ajudge{\typeP}{\matchx{s'}{u}{q}{x}{t}}{p}{t'}}
+{\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}
+&
+\ajudge{\typeQ}{u}{q}{u'}}
+}
+% ===========================================================================
+\\ \rule{0pt}{8ex} 
+% ===========================================================================
+%                                      NEW
+\infer
+{\ajudge{\typedelta\typeP}{\new{a}{t}}{\newaction{a}{p}}{\new{a}{t'}}}
+{\ajudge{\typeP}{t}{p}{t'}}
+% ===========================================================================
+&&
+% ===========================================================================
+%                                      NEWAPPLY
+\infer
+{\ajudge{\typeP}{\newapply{t}{a}}{p}{t'}}
+{\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}}
+% ===========================================================================
+\\ \rule{0pt}{8ex}
+% ===========================================================================
+%                                      ABSTRACT
+\infer 
+{\ajudge{\typemap{\typeQ}{\typeP}}{\abstract{x}{t}}{\mapaction{u}{p}}{t'}}
+{\ajudge{\typeP}{\termsubst{t}{u}{x}}{p}{t'}}
+% ===========================================================================
+&& 
+% ===========================================================================
+%                                      APPLY
+\infer 
+{\ajudge{\typeP}{\apply{t}{u}}{p}{t'}}
+{\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}}
+% ===========================================================================
+\\ \rule{0pt}{8ex}
+% ===========================================================================
+%                                      INJECT
+\infer
+{\ajudge{\stdtypesum}{\linj{\ell_0}{t}}{\labelaction{\ell_0}{p}}{t'}}
+{\ajudge{\typePsub{\ell_0}}{t}{p}{t'}}
+% ===========================================================================
+&&
+% ===========================================================================
+%                                      PROJECT
+\infer
+{\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}}
+{\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}}
+% ===========================================================================
+\\ \rule{0pt}{8ex}
+% ===========================================================================
+%                                      ABS
+\infer
+{\ajudge{\typerec{j}{P}{\typeP}}{\abs{t}}{\absaction{p}}{t'}}
+{\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{t}{p}{t'}}
+% ===========================================================================
+&&
+% ===========================================================================
+%                                      REP
+\infer
+{\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}{p}{t'}}
+{\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}}
+% ===========================================================================
+\\ \rule{0pt}{8ex}
+% ===========================================================================
+%                                      NDSUM
+\infer
+{\ajudge{\typeP}{\ndsum{i}{I}{t_i}}{p}{t'}}
+{\ajudge{\typeP}{t_{i_0}}{p}{t'}}
+% ===========================================================================
+\end{array}\]
+
+\vfill\pagebreak
+
+\begin{lemma} \label{ajudgeimptjudge} If $\ajudge{\typeP}{t}{p}{t'}$ then
+$\tjudge{}{}{t}{\typeP}$.  \end{lemma} \begin{proof} By induction over the
+derivation of $\ajudge{\typeP}{t}{p}{t'}$, using the impicit typing
+premise mentioned above.  \end{proof}
+
+\begin{lemma} \label{ajudgeimpatjudge} If $\ajudge{\typeP}{t}{p}{t'}$ then
+there exists a unique $\typePp$ such that $\atjudge{}{\typeP}{p}{\typePp}$.
+\end{lemma} \begin{proof} By induction over the derivation of
+$\ajudge{\typeP}{t}{p}{t'}$.  \end{proof}
+
+\begin{lemma}
+If $\ajudge{\typeP}{t}{p}{t'}$ and $\atjudge{}{\typeP}{p}{\typePp}$ then
+$\tjudge{}{}{t'}{\typePp}$.  \end{lemma}
+
+\begin{proof}
+By induction on the derivation of $\ajudge{\typeP}{t}{p}{t'}$ as follows.
+
+\paragraph{Recursion} The induction hypothesis says that
+$\atjudge{}{\typeP}{p}{\typePp}$ and
+$\ajudge{\typeP}{\termsubst{t}{\rec{x}{t}}{x}}{p}{t'}$ so that
+$\tjudge{}{}{t'}{\typeP}$ follows immediately by induction.
+
+\paragraph{Prefix} The induction hypothesis says that
+$\tjudge{}{}{\bang{t}}{\typelift\typeP}$ so that by lemma
+\ref{closedtermtypebackwards}(\ref{closedtermtypebackwardsbang})
+$\tjudge{}{}{t}{\typeP}$, as required.
+
+\paragraph{Prefix Match} The induction hypothesis says that
+$\atjudge{}{\typeP}{p}{\typePp}$ and
+$\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}$, so that
+$\tjudge{}{}{t'}{\typeP}$ follows immediately by induction.
+
+\paragraph{Name Abstraction} The induction hypothesis says that
+$\atjudge{}{\typedelta\typeP}{\newaction{a}{p}}{\typePpp}$ and
+$\ajudge{\typeP}{t}{p}{t'}$. Therefore $\typePpp = \typedelta\typePp$ for some
+$\typePp$, and hence
+$\atjudge{}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$.  From
+lemma \ref{closedactiontypebackwards}(\ref{closedactiontypebackwardsnew})
+therefore $\atjudge{}{\typeP}{p}{\typePp}$ so that by induction
+$\tjudge{}{}{t'}{\typePp}$ and hence
+$\tjudge{}{}{\new{a}{t'}}{\typedelta\typePp}$ as required.
+
+\paragraph{Name Application} The induction hypothesis says that $\atjudge{}{\typeP}{p}{\typePp}$ and
+$\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}$ so that
+$\atjudge{}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$ and hence
+by induction $\tjudge{}{}{\new{a}{t'}}{\typedelta\typePp}$.  From lemma
+\ref{closedtermtypebackwards}(\ref{closedtermtypebackwardsnew}) therefore
+$\tjudge{}{}{t'}{\typePp}$ as required.
+
+\paragraph{Function Abstraction} The induction hypothesis says that
+$\atjudge{}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ and
+$\ajudge{\typeP}{\termsubst{t}{u}{x}}{p}{t'}$. From lemma
+\ref{closedactiontypebackwards}(\ref{closedactiontypebackwardsmap}) therefore
+$\atjudge{}{\typeP}{p}{\typePp}$ and hence by induction
+$\tjudge{}{}{t'}{\typePp}$ as required.
+
+\paragraph{Function Application} The induction hypothesis says that
+$\atjudge{}{\typeP}{p}{\typePp}$ and
+$\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$.  By lemma
+\ref{ajudgeimpatjudge} there exists a unique $\typePpp$ such that
+$\atjudge{}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePpp}$ and by
+lemma \ref{closedactiontypebackwards}(\ref{closedactiontypebackwardsmap})
+$\tjudge{}{}{u}{\typeQ}$ and $\atjudge{}{\typeP}{p}{\typePpp}$ so that
+$\typePpp = \typePp$. Therefore by induction $\tjudge{}{}{t'}{\typePp}$ by
+induction as required.
+
+\paragraph{Labelling} The induction hypothesis says that
+$\ajudge{\typePsub{\ell_0}}{t}{p}{t'}$ and
+$\atjudge{}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$.  From lemma
+\ref{closedactiontypebackwards}(\ref{closedactiontypebackwardslabel})
+therefore $\atjudge{}{\typePsub{\ell_0}}{p}{\typePp}$ so that
+$\tjudge{}{}{t'}{\typePp}$ by induction as required.
+
+\paragraph{Label Projection} The induction hypothesis says that
+$\atjudge{}{\typePsub{\ell_0}}{p}{\typePp}$ and
+$\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$.  From the typing
+rules $\atjudge{}{\stdtypesum}{\labelaction{\ell_0}{p}}{t'}$ so that
+$\tjudge{}{}{t'}{\typePp}$ by induction as required.
+
+\paragraph{Recursive Type Folding} The induction hypothesis gives the
+statements that
+$\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{t}{p}{t'}$ and
+$\atjudge{}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$.  From lemma
+\ref{closedactiontypebackwards}(\ref{closedactiontypebackwardsabs}) therefore
+$\atjudge{}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$, so that
+$\tjudge{}{}{t'}{\typePp}$ by induction as required.
+
+\paragraph{Recursive Type Unfolding} The induction hypothesis gives the
+statements that
+$\atjudge{}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$ and
+$\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$. From the typing
+rules $\atjudge{}{\typerec{j}{P}{\typeP}}{\absaction{p}}{t'}$ so that
+$\tjudge{}{}{t'}{\typePp}$ by induction as required.
+
+\paragraph{Nondeterministic Sum}
+The induction hypothesis says that
+$\atjudge{}{\typeP}{p}{\typePp}$
+and $\ajudge{\typeP}{t_{i_0}}{p}{t'}$ so that $\tjudge{}{}{t'}{\typePp}$
+by induction as required.
+%
+\end{proof}
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s:

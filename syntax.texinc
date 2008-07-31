@@ -1,0 +1,136 @@
+\subsection{Syntax}
+
+\subsubsection{Preliminaries}
+
+Take as given a fixed set of (term) variables $\termvar{x}, \termvar{y},
+\ldots$ and a fixed set of type variables $P, \ldots$, each with a discrete
+permutation action.  Also take a fixed set $\mathcal L$ of nominal label-sets
+$L, \ldots$.  $\mathcal L$ also has the discrete permutation action. Labels
+will be written $\ell, \ell_0, \ldots \in L$.
+
+It may seem perverse to have the set of term variables as a discrete nominal
+set since nontrivial nominal sets are used to naturally represent abstract
+syntax and capture-avoiding substitution in a formal way. However here we
+consider the semantic applications of nominal sets, and we will continue to
+treat syntax in the usual informal way for the sake of clarity and
+familiarity.
+
+\subsubsection{Syntax of Types}
+
+Types are given by the grammar \[\typeP, \typeQ ::= \typevar{P} \mid
+\typelift{\typeP} \mid \typemap{\typeQ}{\typeP} \mid \typedelta{\typeP} \mid
+\stdtypesum \mid \typerec{j}{P}{\typeP}, \] where $P$ is a type variable and
+$\typerec{j}{P}{\typeP}$ binds $\vec{P}$. The mapping $\ell \mapsto
+\typePsub{\ell}$ is equivariant. A closed type is a type with no free
+variables, and in the following, closed types will normally simply be called
+`types'.
+
+\subsubsection{Syntax of Environments}
+
+Environments are given by the grammar \[ \Gamma ::=
+() \mid \envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\bar{s}}}\]
+where $\termvar{x}$ ranges over variables, $\typeP$ ranges over types and
+$\bar{s}$ ranges over finite sets of names, and the variables in $\Gamma$ are 
+distinct from $\termvar{x}$. 
+The set of environments may be equipped with a permutation action which simply
+permutes the freshness assumptions, and is therefore a nominal set.
+
+Combining general environments
+$\envcombine{\Gamma}{\Lambda}$ is defined by the recursion
+\[
+\envcombine{\Gamma}{()} = \Gamma
+\qquad
+\envcombine{\Gamma}{(\envcombine{\Lambda}{\envvarfresh{x}{\typeP}{\bar{s}}})}
+=
+\envcombine{(\envcombine{\Gamma}{\Lambda})}{\envvarfresh{x}{\typeP}{\bar{s}} },
+\]
+which immediately forces the variables in $\Gamma$ and $\Lambda$ to be distinct.
+
+As a shorthand, define $\envfresh{\Gamma}{\bar{s}}$ as \[\envfresh{()}{\bar{s}}
+= () \qquad\text{and}\qquad
+\envfresh{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\bar{s'}}}\bigr)}{\bar{s}}
+= \envcombine{\envfresh{\Gamma}{\bar{s}}}{\envvarfresh{x}{\typeP}{\bar{s'} \cup
+\bar{s}}}.\] 
+
+Also write $\envvarfresh{x}{\typeP}{\bar{s'}}$ for the
+single-variable environment
+$\envcombine{()}{\envvarfresh{x}{\typeP}{\bar{s'}}}$. In cases where the type
+of the variable is clear or unimportant, write it as simply $\termvar{x}$.
+
+It is sometimes convenient to replace a variable in an environment with another
+general environment.  Define $\envsubst{\Gamma}{\Lambda}{x}$ as
+\[\begin{array}{ccl} \envsubst{()}{\Lambda}{x} = () &\qquad&
+\envsubst{(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\bar{s}} })}{\Lambda}{x}
+= \envcombine{\Gamma}{\Lambda}\\&&
+\envsubst{(\envcombine{\Gamma}{\envvarfresh{y}{\typeP}{\bar{s}} })}{\Lambda}{x}
+= \envcombine{\envsubst{\Gamma}{\Lambda}{x}}{\envvarfresh{y}{\typeP}{\bar{s}} }
+\end{array}\] where $\termvar{x} \ne \termvar{y}$. This immediately forces the
+variables in $\Gamma$ and $\Lambda$ to be distinct, except for $\termvar{x}$.
+
+
+
+\vfill\pagebreak
+
+
+\subsubsection{Syntax of Terms}
+
+Pre-terms are given by the following grammar, where $\termvar{x}$ ranges over
+variables, $a$ ranges over names, $p$ over pre-actions and $\ell$ over labels.
+\[\begin{array}{lclcl} t, u &::=&
+\quad \termvar{x} \bigmid \rec{x}{t} &\qquad&\text{variables; recursion}
+\\
+%
+&&\bigmid \bang{t} \bigmid \match{u}{p}{x}{t} && \text{prefixing}\\
+%
+&&\bigmid \abstract{x}{t} \bigmid \apply{t}{u} &&\text{abstraction and
+application} \\
+%
+&&\bigmid \new{a}{t} \bigmid \newapply{t}{a} && \text{binding and concretion}\\
+%
+&&\bigmid \linj{\ell}{t} \bigmid \lproj{\ell}{t} &&
+\text{labelling}\\
+%
+&&\bigmid \ndsum{i}{I}{t_i} && \text{nondeterminstic sum} \\
+%
+&&\bigmid \abs{t} \bigmid \rep{t} && \text{recursive types}\\
+\end{array}\]
+The forms \[\rec{x}{t} \qquad \match{u}{p}{x}{t} \qquad \abstract{x}{t}\] all
+bind $\termvar{x}$ in $t$, and the set of free variables of $t$, $\fv{t}$, is
+defined in the usual way.
+
+The nondeterministic sum may be over an infinite set
+$I$, but there are constraints to ensure that it behaves properly: the mapping
+$i \mapsto t_i$ is a finitely supported function from a nominal set $I$ to the
+set of pre-terms, and is such that there exists a finite set $X$ of variables
+such that for all $i$, the free variables of $t_i$ are contained in $X$.
+
+The set of pre-terms can be equipped with a
+permutation action by recursion in the obvious fashion, and is therefore a
+nominal set.
+
+\subsubsection{Syntax of Actions}
+
+Pre-actions are given by the following grammar, where $u$ ranges over
+closed pre-terms (i.e. those pre-terms $u$ with $\fv{u} = \varnothing$), $a$ ranges over names and $\ell$ over labels.
+\[\begin{array}{lclcl} p &::=&
+\quad \bangaction &\qquad&\text{prefixing}
+\\
+%
+&&\bigmid \labelaction{\ell}{p} && \text{labelled actions}\\
+%
+&&\bigmid \mapaction{u}{p} &&\text{higher-order actions} \\
+%
+&&\bigmid \absaction{p} && \text{recursive type actions}\\
+%
+&&\bigmid \newaction{a}{p} && \text{new name actions}\\
+\end{array}\]
+The set of pre-actions can be equipped with a permutation action by recursion
+in the obvious fashion, and is therefore a nominal set. 
+
+The nominal sets of terms and actions are formed by taking the respective
+quotients of the sets of pre-terms and pre-actions by $\alpha$-equivalence
+on names (in which $\new{a}{t}$ and $\newaction{a}{p}$ are the binding forms).
+
+Write $\inactive$ for a term of the form $\ndsum{i}{\varnothing} t_i$.
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s tw=0 nowrap:
