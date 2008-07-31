@@ -22,13 +22,17 @@ called `types'.
 
 \subsubsection{Syntax of Environments}
 
-Environments are given by the grammar \[ \Gamma ::=
-() \mid \envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\bar{s}}}\]
-where $\termvar{x}$ ranges over variables, $\typeP$ ranges over types and
-$\bar{s}$ ranges over finite sets of names, and the variables in $\Gamma$ are 
-distinct from $\termvar{x}$. 
-The set of environments may be equipped with a permutation action which simply
-permutes the freshness assumptions, and is therefore a nominal set.
+Environments are given by the grammar \[ \Gamma ::= \envempty \mid
+\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}}\] where $\termvar{x}$ ranges
+over variables, $\typeP$ ranges over types and $s$ ranges over finite sets of
+names, and the variables in $\Gamma$ are distinct from $\termvar{x}$. The
+intended meaning of $\envvarfresh{x}{\typeP}{s}$ is that the variable
+$\termvar{x}$ takes values of type $\typeP$ that are assumed to be fresh for
+$s$.  The set of environments may be equipped with a permutation action which
+simply permutes the freshness assumptions: \[ \sigma \cdot \envempty =
+\envempty \qquad \sigma \cdot (\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}})
+= \envcombine{(\sigma \cdot \Gamma)}{\envvarfresh{x}{\typeP}{\sigma \cdot s}},\]
+and is therefore a nominal set.
 
 Combining general environments
 $\envcombine{\Gamma}{\Lambda}$ is defined by the recursion
