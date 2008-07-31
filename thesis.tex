@@ -58,6 +58,24 @@ $\mathbb{I}$ are related: HOPLA has no names, New-HOPLA treats names
 explicitly in its syntax, whereas the treatment of names in Nominal HOPLA is
 much more implicit.
 
+In order to develop (TODO wrong word) Nominal HOPLA it is necessary to give
+the language an abstract syntax, and this syntax will include some binding
+operators such as $\abstract{x}{t}$ which binds free occurrences of the
+variable $\termvar{x}$ in the term $t$. One of the earliest applications of
+nominal sets\cite{??} was to formalise common informal arguments about syntax
+with binding. For example, when performing a proof by induction over the
+syntax of a language with binding operators, bound variables are commonly
+assumed to be fresh, and this can be shown to be a valid induction principle
+by representing the syntax within nominal sets, where variables are
+represented by names.
+
+However, the structure of interest here is not the syntax of Nominal HOPLA but
+its semantics, and the binding of variables in its syntax is a distraction.
+To avoid confusion the binding of variables will be treated in the usual
+informal fashion: bound variables will always be distinct from the other
+variables in scope, and substitution will silently avoid capturing free
+variables. In particular, if $\termvar{x}$ is a variable and $\sigma$ is a
+permutation of the set of atoms then $\sigma \cdot \termvar{x} = \termvar{x}$.
 
 \input{syntax.texinc}
 

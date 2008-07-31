@@ -8,13 +8,6 @@ permutation action.  Also take a fixed set $\mathcal L$ of nominal label-sets
 $L, \ldots$.  $\mathcal L$ also has the discrete permutation action. Labels
 will be written $\ell, \ell_0, \ldots \in L$.
 
-It may seem perverse to have the set of term variables as a discrete nominal
-set since nontrivial nominal sets are used to naturally represent abstract
-syntax and capture-avoiding substitution in a formal way. However here we
-consider the semantic applications of nominal sets, and we will continue to
-treat syntax in the usual informal way for the sake of clarity and
-familiarity.
-
 \subsubsection{Syntax of Types}
 
 Types are given by the grammar \[\typeP, \typeQ ::= \typevar{P} \mid
