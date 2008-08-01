@@ -79,7 +79,7 @@ application} \\
 \end{array}\]
 The forms \[\rec{x}{t} \qquad \match{u}{p}{x}{t} \qquad \abstract{x}{t}\] all
 bind $\termvar{x}$ in $t$, and the set of free variables of $t$, $\fv{t}$, is
-defined in the usual way. The form $\new{a}{t}$ binds the name $a$.
+defined in the usual way.
 
 The nondeterministic sum may be over an infinite set $I$, but there are
 constraints to ensure that it behaves properly: the mapping $i \mapsto t_i$ is
@@ -87,6 +87,17 @@ a finitely supported function from a nominal set $I$ to the set of terms, and
 is such that there exists a finite set $X$ of variables such that for all $i$,
 the free variables of $t_i$ are contained in $X$.  Write $\inactive$ for a term
 of the form $\ndsum{i}{\varnothing} t_i$.
+
+Although the binding of variables is treated informally, the binding of the
+name $a$ in the form $\new{a}{t}$ must be treated more carefully. Strictly
+speaking, the form $\new{a}{t}$ is the equivalence class of pairs of names and
+terms that contains $(a, t)$ under the usual $\alpha$-equivalence relation
+\[(a, t) \sim (a', t') \quad\Leftrightarrow\quad \exists b \freshfor (a, a', t,
+t'). (ab) \cdot t = (a'b) \cdot t'.\] Therefore for any fresh name $b$,
+$\new{a}{t} = \new{b}{(ab) \cdot t}$, where the equality in this statement is
+literally equality, not simply equality-up-to-$\alpha$.
+TODO Chicken-and-egg problem here: can't say $b \freshfor t$ without defining
+the permutation action on $t$.
 
 \subsubsection{Syntax of Actions}
 
@@ -105,10 +116,10 @@ $\ell$ over labels.
 %
 &&\bigmid \newaction{a}{p} && \text{new name actions}\\
 \end{array}\]
-The form $\newaction{a}{p}$ binds the name $a$.
+The form $\newaction{a}{p}$ binds the name $a$ in the same way that $a$ is
+bound in the term $\new{a}{t}$.
 
 The permutation action on terms and actions is as follows.
-
 \[\begin{array}{rclcrcl} \sigma \cdot \termvar{x} &=& \termvar{x} &\qquad&
 %
 \sigma \cdot (\rec{x}{t}) &=& \rec{x}{(\sigma \cdot t)} \\
