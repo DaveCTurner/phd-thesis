@@ -44,7 +44,8 @@ which only makes sense when the variables in $\Gamma$ and $\Lambda$ to be
 distinct. Also define $\envfresh{\Gamma}{s}$ by \[\envfresh{\envempty}{s} =
 \envempty \qquad\text{and}\qquad
 \envfresh{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s'}}\bigr)}{s} =
-\envcombine{\envfresh{\Gamma}{s}}{\envvarfresh{x}{\typeP}{s' \cup s}}.\] Also
+\envcombine{\envfresh{\Gamma}{s}}{\envvarfresh{x}{\typeP}{s' \cup s}}.\]
+Finally, omit $\envempty$ where it is unambiguous to do so. In particular,
 write $\envvarfresh{x}{\typeP}{s}$ for the single-variable environment
 $\envcombine{()}{\envvarfresh{x}{\typeP}{s}}$.
 
