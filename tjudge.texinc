@@ -2,6 +2,21 @@
 
 \subsubsection{Typing Rules for Terms}
 
+Terms of Nominal HOPLA are typed with judgements of the form
+$\tjudge{s}{\Gamma}{t}{\typeP}$, where $\Gamma$ is an environment, $s$ is a
+finite set of names, $t$ is a term and $\typeP$ is a type. As one may expect,
+the environment $\Gamma$ records types (and freshness assumptions) for the
+variables of $t$, and $\typeP$ records the type of $t$ itself. The set $s$
+records a bound on the support of the typing judgement, which helps to give a
+clean presentation of the denotational semantics. However, lemma
+\ref{typerestrictsupport} below demonstrates that a suitable $s$ may inferred
+from the rest of the typing judgement.
+
+In the rules below for terms of the forms $\linj{\ell_0} t$ and
+$\lproj{\ell_0} t$, the support of $\ell_0$ must be contained in $s$. In
+the rule for terms of the form $\ndsum{i}{I}{t_i}$, the mapping $i \mapsto
+\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ must be supported by $s$.
+
 %
 % Typing rules {{{
 \[\begin{array}{ccc}
@@ -97,13 +112,6 @@
 \end{array}\]
 % }}}
 
-Notice that in the rule for $\apply{t}{u}$ the environments force $\fv{t} \cap \fv{u} = \varnothing$, and 
-in the rule for $\matchx{s}{u}{q}{x}{t}$ the environments force $\fv{t} \cap \fv{u} \subseteq \{ \termvar{x} \}$.
-
-In each of the rules above for terms of the forms $\linj{\ell_0} t$ and
-$\lproj{\ell_0} t$, the support of $\ell_0$ must be contained in $s$. Also, in
-the rule for terms of the form $\ndsum{i}{I}{t_i}$, the mapping $i \mapsto
-\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ must be supported by $s$.
 
 \vfill\pagebreak
 
@@ -301,7 +309,7 @@ If $\Gamma$ is an environment then write $\envrestrict{\Gamma}{s}$ for the
 environment obtained from $\Gamma$ by deleting all freshness assumptions not in
 $s$.
 
-\begin{lemma} \begin{enumerate}[(a)]
+\begin{lemma}\label{typerestrictsupport} \begin{enumerate}[(a)]
 %
 \item If $\tjudge{s}{\Gamma}{t}{\typeP}$ then
 $\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp t}}{t}{\typeP}$.
