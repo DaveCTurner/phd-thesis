@@ -1,4 +1,5 @@
 \subsection{Operational Semantics}
+\label{opsem}
 
 That a term $t$ such that $\tjudge{}{}{t}{\typeP}$ may perform an action $p$
 such that $\atjudge{}{\typeP}{p}{\typePp}$ and resume as the term $t'$ is

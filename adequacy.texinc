@@ -1,6 +1,7 @@
 \vfill\pagebreak
 
 \subsection{Adequacy}
+\label{secadequacy}
 
 Define a relation $\logrel{X}{\typeP}{t}$ between $X
 \subseteq_\downarrow \typeP$ and terms such that $\tjudge{}{}{t}{\typeP}$. Define

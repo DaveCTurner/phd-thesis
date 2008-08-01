@@ -49,7 +49,7 @@ domain theory of the previous section. Nominal HOPLA follows closely the
 development of HOPLA (Higher-Order Process LAnguage) \cite{nygaardwinskel1}
 and is inspired by the language New-HOPLA \cite{zappanardelliwinskel}.
 
-Recall from section \ref{??} that it is possible to add name-binding to set
+Recall from section TODO that it is possible to add name-binding to set
 theory by the use of presheaves or sheaves over $\mathbb{I}$, and that the
 sheaf approach gives rise to the theory of nominal sets. Roughly speaking,
 HOPLA, New-HOPLA and Nominal HOPLA are related to each other in the same way
@@ -77,12 +77,19 @@ variables in scope, and substitution will silently avoid capturing free
 variables. In particular, if $\termvar{x}$ is a variable and $\sigma$ is a
 permutation of the set of atoms then $\sigma \cdot \termvar{x} = \termvar{x}$.
 
+The design of Nominal HOPLA is motivated by universal constructions in the
+domain theory, such as its cartesian closed structure (for higher-order
+processes) and the adjunction $(-)^{\freshfor a} \dashv \delta_a$ (for names
+and name binding). This motivation will become clear in section \ref{densem}
+which shows the details of the denotational semantics. Before that, the syntax
+(section \ref{syntax}), type system (section \ref{tjudge}) and operational
+semantics (section \ref{opsem}) will be presented. Finally, in section
+\ref{secadequacy} it will be shown that the denotational semantics and
+operational semantics correspond adequately.
+
 \input{syntax.texinc}
 
 \input{subst.texinc}
-
-
-%\input{typeenv.texinc}
 
 \input{tjudge.texinc}
 
@@ -97,9 +104,6 @@ permutation of the set of atoms then $\sigma \cdot \termvar{x} = \termvar{x}$.
 %\vfill\pagebreak
 
 \input{substlemmaden.texinc}
-
-%\input{beta.texinc}
-%\input{redsem.texinc}
 
 \input{soundness.texinc}
 \input{adequacy.texinc}
