@@ -41,18 +41,20 @@ Define $\envcombine{\Gamma}{\Lambda}$ is defined by the obvious recursion \[
 \envcombine{\Gamma}{(\envcombine{\Lambda}{\envvarfresh{x}{\typeP}{s}})} =
 \envcombine{(\envcombine{\Gamma}{\Lambda})}{\envvarfresh{x}{\typeP}{s} }, \]
 which only makes sense when the variables in $\Gamma$ and $\Lambda$ to be
-distinct. Also define $\envfresh{\Gamma}{s}$ by \[\envfresh{\envempty}{s} =
-\envempty \qquad\text{and}\qquad
+distinct. It is sometimes useful to be able to simultaneously alter all the
+freshness assumptions in an environment: define $\envfresh{\Gamma}{s}$ by
+\[\envfresh{\envempty}{s} = \envempty \qquad\text{and}\qquad
 \envfresh{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s'}}\bigr)}{s} =
-\envcombine{\envfresh{\Gamma}{s}}{\envvarfresh{x}{\typeP}{s' \cup s}}.\]
-Finally, omit $\envempty$ where it is unambiguous to do so. In particular,
-write $\envvarfresh{x}{\typeP}{s}$ for the single-variable environment
-$\envcombine{()}{\envvarfresh{x}{\typeP}{s}}$.
-
-
+\envcombine{\envfresh{\Gamma}{s}}{\envvarfresh{x}{\typeP}{s' \cup s}},\] and
+define $\envrestrict{\Gamma}{s}$ by \[\envrestrict{\envempty}{s} = \envempty
+\qquad\text{and}\qquad
+\envrestrict{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s'}}\bigr)} =
+\envcombine{\bigl(\envrestrict{\Gamma}{s}\bigr)}{\envvarfresh{x}{\typeP}{s'
+\cap s}}.\] Finally, omit $\envempty$ where it is unambiguous to do so. In
+particular, write $\envvarfresh{x}{\typeP}{s}$ for the single-variable
+environment $\envcombine{()}{\envvarfresh{x}{\typeP}{s}}$.
 
 \vfill\pagebreak
-
 
 \subsubsection{Syntax of Terms}
 

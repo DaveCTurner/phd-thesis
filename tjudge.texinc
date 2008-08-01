@@ -305,9 +305,6 @@ derivations of the judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ and
 $\atjudge{s}{\typeP}{p}{\typePp}$.  \end{proof}
 
 \vfill\pagebreak
-If $\Gamma$ is an environment then write $\envrestrict{\Gamma}{s}$ for the
-environment obtained from $\Gamma$ by deleting all freshness assumptions not in
-$s$.
 
 \begin{lemma}\label{typerestrictsupport} \begin{enumerate}[(a)]
 %
