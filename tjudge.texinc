@@ -4,18 +4,18 @@
 
 Terms of Nominal HOPLA are typed with judgements of the form
 $\tjudge{s}{\Gamma}{t}{\typeP}$, where $\Gamma$ is an environment, $s$ is a
-finite set of names, $t$ is a term and $\typeP$ is a type. As one may expect,
-the environment $\Gamma$ records types (and freshness assumptions) for the
-variables of $t$, and $\typeP$ records the type of $t$ itself. The set $s$
-records a bound on the support of the typing judgement, which helps to give a
-clean presentation of the denotational semantics. However, lemma
-\ref{typerestrictsupport} below demonstrates that a suitable $s$ may inferred
-from the rest of the typing judgement.
+finite set of names, $t$ is a term and $\typeP$ is a type.  The environment
+$\Gamma$ records types (and freshness assumptions) for the variables of $t$,
+and $\typeP$ records the type of $t$ itself. The set $s$ records a bound on the
+support of the typing judgement, which helps to give a clean presentation of
+the denotational semantics. However, lemma \ref{typerestrictsupport} below
+demonstrates that it is not strictly necessary to include the $s$, since a
+suitable $s$ may inferred from the rest of the typing judgement.
 
 In the rules below for terms of the forms $\linj{\ell_0} t$ and
-$\lproj{\ell_0} t$, the support of $\ell_0$ must be contained in $s$. In
+$\lproj{\ell_0} t$, the support of $\ell_0$ must be contained in $s$, and in
 the rule for terms of the form $\ndsum{i}{I}{t_i}$, the mapping $i \mapsto
-\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ must be supported by $s$.
+\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ must also be supported by $s$.
 
 %
 % Typing rules {{{
@@ -114,6 +114,12 @@ the rule for terms of the form $\ndsum{i}{I}{t_i}$, the mapping $i \mapsto
 
 
 \vfill\pagebreak
+
+The typing rules are directed by the syntax of terms, so that it is sometimes
+possible to derive information about the type of subterms from the type of a
+term.  The structural rules make this difficult to do in general, but for the
+purposes of this discussion it will be enough to be able to derive type
+information about subterms of a closed term.
 
 \begin{lemma} 
 \label{closedtermtypebackwards}
