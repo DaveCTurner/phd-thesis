@@ -4,13 +4,14 @@
 
 Terms of Nominal HOPLA are typed with judgements of the form
 $\tjudge{s}{\Gamma}{t}{\typeP}$, where $\Gamma$ is an environment, $s$ is a
-finite set of names, $t$ is a term and $\typeP$ is a type.  The environment
-$\Gamma$ records types (and freshness assumptions) for the variables of $t$,
-and $\typeP$ records the type of $t$ itself. The set $s$ records a bound on the
-support of the typing judgement, which helps to give a clean presentation of
-the denotational semantics. However, lemma \ref{typerestrictsupport} below
-demonstrates that it is not strictly necessary to include the $s$, since a
-suitable $s$ may inferred from the rest of the typing judgement.
+finite set of names, $t$ is a term and $\typeP$ is a type. The type $\typeP$
+describes the actions that the term may perform. The environment $\Gamma$
+records types (and freshness assumptions) for the variables of $t$. The set $s$
+records a bound on the support of the typing judgement, which helps to give a
+clean presentation of the denotational semantics. However, lemma
+\ref{typerestrictsupport} below demonstrates that it is not strictly necessary
+to include this information, since a suitable $s$ may inferred from the rest of
+the typing judgement.
 
 In the rules below for terms of the forms $\linj{\ell_0} t$ and
 $\lproj{\ell_0} t$, the support of $\ell_0$ must be contained in $s$, and in
@@ -214,6 +215,18 @@ so that $\tjudge{s_2 \setminus \{a\}}{}{t}{\typedelta\typeP}$ as required.
 \end{proof}
 
 \subsubsection{Typing Rules for Actions}
+
+Actions are typed with judgements of the form $\atjudge{s}{\typeP}{p}{\typePp}$
+where $s$ is a finite set of names and $\typeP$ and $\typePp$ are types.
+Intuitively, this means that $p$ is an action that terms of type $\typeP$ may
+perform, and the resumption will be of type $\typePp$. As with typing
+judgements for terms, the set $s$ helps with the presentation of the associated
+denotational semantics, and lemma \ref{typerestrictsupport} shows that, if
+omitted, a suitable $s$ may be inferred from the rest of the typing judgement.
+
+As with the typing rules for terms, in the rule for actions of the form
+$\labelaction{\ell_0}{p}$ the support of $\ell_0$ must be contained in $s$.
+
 \[\begin{array}{ccc}
 %
 \infer
@@ -252,8 +265,6 @@ so that $\tjudge{s_2 \setminus \{a\}}{}{t}{\typedelta\typeP}$ as required.
 {\atjudge{s'}{\typeP}{p}{\typePp}}
 \end{array}\]
 
-As with the typing rules for terms, in the rule for actions of the form
-$\labelaction{\ell_0}{p}$ the support of $\ell_0$ must be contained in $s$.
 
 \begin{lemma} 
 \label{closedactiontypebackwards}
