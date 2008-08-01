@@ -14,11 +14,12 @@ it may be the case that $\sigma \cdot \ell \neq \ell$.
 
 Types are given by the grammar \[\typeP, \typeQ ::= \typevar{P} \mid
 \typelift{\typeP} \mid \typemap{\typeQ}{\typeP} \mid \typedelta{\typeP} \mid
-\stdtypesum \mid \typerec{j}{P}{\typeP}, \] where $P$ is a type variable and
-$\typerec{j}{P}{\typeP}$ binds $\vec{P}$. The mapping $\ell \mapsto
-\typePsub{\ell}$ must always be equivariant. A closed type is a type with no
-free variables, and in the following, closed types will normally simply be
-called `types'.
+\stdtypesum \mid \typerec{j}{P}{\typeP}, \] where $P$ is a type variable,
+$\vec{P}$ is a list of type variables, and $\typerec{j}{P}{\typeP}$ binds
+$\vec{P}$. A closed type is a type with no free variables, and in the
+following, closed types will normally simply be called `types'. The permutation
+action on types is the discrete action: for all types $\typeP$ and permutations
+$\sigma$, $\sigma \cdot \typeP = \typeP$.
 
 \subsubsection{Syntax of Environments}
 
