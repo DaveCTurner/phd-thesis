@@ -39,53 +39,7 @@
 
 \input{domthy.texinc}
 
-\section{Nominal HOPLA}
-
-\subsection{Introduction}
-
-Nominal HOPLA is an expressive calculus for higher-order processes with
-nondeterminism and name-binding which will now be used to illustrate the
-domain theory of the previous section. Nominal HOPLA follows closely the
-development of HOPLA (Higher-Order Process LAnguage) \cite{nygaardwinskel1}
-and is inspired by the language New-HOPLA \cite{zappanardelliwinskel}.
-
-Recall from section TODO that it is possible to add name-binding to set
-theory by the use of presheaves or sheaves over $\mathbb{I}$, and that the
-sheaf approach gives rise to the theory of nominal sets. Roughly speaking,
-HOPLA, New-HOPLA and Nominal HOPLA are related to each other in the same way
-that respectively set theory, presheaves over $\mathbb{I}$ and sheaves over
-$\mathbb{I}$ are related: HOPLA has no names, New-HOPLA treats names
-explicitly in its syntax, whereas the treatment of names in Nominal HOPLA is
-much more implicit.
-
-In order to present Nominal HOPLA it is necessary to give the language an
-abstract syntax, and this syntax will include some binding operators such as
-$\abstract{x}{t}$ which binds free occurrences of the variable $\termvar{x}$
-in the term $t$. One of the earliest applications of nominal
-sets\cite{pitts??} was to formalise common informal arguments about syntax
-with binding. For example, when performing a proof by induction over the
-syntax of a language with binding operators, bound variables are commonly
-assumed to be fresh, and this can be shown to be a valid induction principle
-by representing the syntax within nominal sets, where variables are
-represented by names.
-
-However, the structure of interest here is not the syntax of Nominal HOPLA but
-its semantics, and the binding of variables in its syntax is a distraction.
-To avoid confusion the binding of variables will be treated in the usual
-informal fashion: bound variables will always be distinct from the other
-variables in scope, and substitution will silently avoid capturing free
-variables. In particular, if $\termvar{x}$ is a variable and $\sigma$ is a
-permutation of the set of atoms then $\sigma \cdot \termvar{x} = \termvar{x}$.
-
-The design of Nominal HOPLA is motivated by universal constructions in the
-domain theory, such as its cartesian closed structure (for higher-order
-processes) and the adjunction $(-)^{\freshfor a} \dashv \delta_a$ (for names
-and name binding). This motivation will become clear in section \ref{densem}
-which shows the details of the denotational semantics. Before that, the syntax
-(section \ref{syntax}), type system (section \ref{tjudge}) and operational
-semantics (section \ref{opsem}) will be presented. Finally, in section
-\ref{secadequacy} it will be shown that the denotational semantics and
-operational semantics correspond adequately.
+\input{nominalhoplaintro.texinc}
 
 \input{syntax.texinc}
 
