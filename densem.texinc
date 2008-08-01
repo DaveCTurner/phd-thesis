@@ -97,7 +97,7 @@ $\sem{p}$ respectively.
 % Definition of denotational semantics { {{
 \paragraph{Variable} The meaning of a free variable (with no
 freshness assumptions) is simply the identity map on the underlying type.
- \[\sem{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}}{\termvar
+\[\sem{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}}{\termvar
 x}{\typeP}} = \mathbf{1}_{\typeP}\]
 
 \paragraph{Weakening} Define
