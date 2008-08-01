@@ -109,19 +109,16 @@ follows that
 \langle \gamma \rangle.\]
 
 \paragraph{Exchange} Since each $\mathbf{ChCts}_s$ is cartesian, for any objects
-$X$, $Y$, $Z$, $W$ there is a unique $\sigma_{X,Y,Z,W} : X \amp Y \amp Z \amp W \to X
-\amp Z \amp Y \amp W$ such that \[\begin{array}{rclcrcl}
-\pi_1 \circ \sigma_{X,Y,Z,W} &=& \pi_1,&&\pi_2 \circ \sigma_{X,Y,Z,W} &=&
-\pi_3,\\ \pi_3 \circ \sigma_{X,Y,Z,W} &=& \pi_2,&\quad\text{and}\quad& \pi_4
-\circ \sigma_{X,Y,Z,W} &=& \pi_4.
-\end{array}\] Given an arrow \[f = \sem{
+$X$ and $Y$ there is a twist map $\sigma_{X,Y} : X \amp Y \to Y \amp X$ given by
+$\sigma_{X,Y} = \langle \pi_2, \pi_1 \rangle$.
+Given an arrow \[f = \sem{
 \tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
 {}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}},\]
 define \[
 \sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
 {}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}} = f
-\circ \sigma_{\sem{\Gamma}, {{\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}},
-\sem{\Lambda}}\]
+\circ \bigl( \mathbf{1}_\Gamma \amp \sigma_{{{\typeQ {}_1}^{\freshfor s_1}},
+{{\typeQ {}_2}^{\freshfor s_2}}} \amp \mathbf{1}_{\Lambda} \bigr) \]
 from which it follows that \[\begin{array}{l}
 \sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
 {}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
@@ -132,14 +129,13 @@ from which it follows that \[\begin{array}{l}
 
 \paragraph{Contraction}
 Since each $\mathbf{ChCts}_s$ is cartesian, for any object $X$ there is a unique
-diagonal $\Delta_{X} : X \to X \amp X$ such that $\pi_1 \circ \Delta_{X} =
-\pi_2 \circ \Delta_X = \mathbf{1}_X$. Given an arrow \[f =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
+map $\Delta_{X} : X \to X \amp X$ given by $\langle \mathbf{1}_X, \mathbf{1}_X
+\rangle$. Given an arrow \[f = \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
 {\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
 define \[\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}}
-= f \circ \bigl( \mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr)\]
-from which it follows that
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} = f \circ \bigl(
+\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr)\] from which it
+follows that
 \[\begin{array}{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
 }}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \langle \gamma, q \rangle \\
