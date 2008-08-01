@@ -283,6 +283,19 @@ if it is valid at support $s_1$ then it remains valid at $s_2$. For case
 (\ref{closedactiontypebackwardsnew}) if $a$ is fresh for $s_2$ then it is
 certainly fresh for $s_1$, so this case follows.\end{proof}
 
+\begin{lemma}[Equivariance of Typing] For all permutations $\sigma$,
+\begin{enumerate}[(a)]
+%
+\item If $\tjudge{s}{\Gamma}{t}{\typeP}$ then $\tjudge{(\sigma \cdot
+s)}{(\sigma \cdot \Gamma)}{(\sigma \cdot t)}{\typeP}$.
+%
+\item If $\atjudge{s}{\typeP}{p}{\typePp}$ then $\atjudge{(\sigma \cdot
+s)}{\typeP}{(\sigma \cdot p)}{\typePp}$.
+%
+\end{enumerate}\end{lemma} \begin{proof}By a straightforward induction over the
+derivations of the judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ and
+$\atjudge{s}{\typeP}{p}{\typePp}$.  \end{proof}
+
 \vfill\pagebreak
 If $\Gamma$ is an environment then write $\envrestrict{\Gamma}{s}$ for the
 environment obtained from $\Gamma$ by deleting all freshness assumptions not in
