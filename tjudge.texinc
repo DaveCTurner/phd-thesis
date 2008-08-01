@@ -220,8 +220,8 @@ Actions are typed with judgements of the form $\atjudge{s}{\typeP}{p}{\typePp}$
 where $s$ is a finite set of names and $\typeP$ and $\typePp$ are types.
 Intuitively, this means that $p$ is an action that terms of type $\typeP$ may
 perform, and the resumption will be of type $\typePp$. As with typing
-judgements for terms, the set $s$ helps with the presentation of the associated
-denotational semantics, and lemma \ref{typerestrictsupport} shows that, if
+judgements for terms the set $s$ helps with the presentation of the associated
+denotational semantics and lemma \ref{typerestrictsupport} shows that, if
 omitted, a suitable $s$ may be inferred from the rest of the typing judgement.
 
 As with the typing rules for terms, in the rule for actions of the form
