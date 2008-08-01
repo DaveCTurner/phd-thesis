@@ -101,9 +101,7 @@ the conclusion has the correct type.
 \vfill\pagebreak
 
 \begin{lemma} \label{ajudgeimptjudge} If $\ajudge{\typeP}{t}{p}{t'}$ then
-$\tjudge{}{}{t}{\typeP}$.  \end{lemma} \begin{proof} By induction over the
-derivation of $\ajudge{\typeP}{t}{p}{t'}$, using the impicit typing
-premise mentioned above.  \end{proof}
+$\tjudge{}{}{t}{\typeP}$.  \end{lemma} \begin{proof} By definition.\end{proof}
 
 \begin{lemma} \label{ajudgeimpatjudge} If $\ajudge{\typeP}{t}{p}{t'}$ then
 there exists a unique $\typePp$ such that $\atjudge{}{\typeP}{p}{\typePp}$.
