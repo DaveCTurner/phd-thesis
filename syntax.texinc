@@ -49,7 +49,7 @@ freshness assumptions in an environment: define $\envfresh{\Gamma}{s}$ by
 \envcombine{\envfresh{\Gamma}{s}}{\envvarfresh{x}{\typeP}{s' \cup s}},\] and
 define $\envrestrict{\Gamma}{s}$ by \[\envrestrict{\envempty}{s} = \envempty
 \qquad\text{and}\qquad
-\envrestrict{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s'}}\bigr)} =
+\envrestrict{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s'}}\bigr)}{s} =
 \envcombine{\bigl(\envrestrict{\Gamma}{s}\bigr)}{\envvarfresh{x}{\typeP}{s'
 \cap s}}.\] Finally, omit $\envempty$ where it is unambiguous to do so. In
 particular, write $\envvarfresh{x}{\typeP}{s}$ for the single-variable
