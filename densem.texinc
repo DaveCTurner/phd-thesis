@@ -3,7 +3,8 @@
 
 \subsubsection{Types}
 
-Closed types $\typeP$ denote the corresponding objects $\typeP$ of $\mathbf{ChCts_\varnothing}$.
+Closed types $\typeP$ denote the corresponding objects $\typeP$ of
+$\mathbf{ChCts_\varnothing}$.  TODO More detail on the paths in each type.
 
 \subsubsection{Environments}
 
