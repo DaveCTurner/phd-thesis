@@ -88,8 +88,8 @@ The nondeterministic sum may be over an infinite set $I$, but there are
 constraints to ensure that it behaves properly: the mapping $i \mapsto t_i$ is
 a finitely supported function from a nominal set $I$ to the set of terms, and
 is such that there exists a finite set $X$ of variables such that for all $i$,
-the free variables of $t_i$ are contained in $X$.  Write $\inactive$ for a term
-of the form $\ndsum{i}{\varnothing} t_i$.
+the free variables of $t_i$ are contained in $X$.  Write $\inactive$ for the
+term $\ndsum{i}{\varnothing} t_i$.
 
 Although the binding of variables is treated informally, the binding of the
 name $a$ in the form $\new{a}{t}$ must be treated more carefully. Strictly
