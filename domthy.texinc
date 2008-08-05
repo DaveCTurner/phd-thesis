@@ -112,6 +112,19 @@ $\mathbf{SubNPre}_s \simeq \mathbf{FMPre}_s$.
 TODO
 \end{proof}
 
+It is immediate that if $\langle X, X_0 \rangle$ and $\langle X, X_1 \rangle$
+are objects of $\mathbf{SubNPre}_s$ then they are isomorphic if the permutation
+action on $X_0$ restricted to $X_0 \cap X_1$ is the same as the permutation
+action on $X_1$ restricted to $X_0 \cap X_1$, so the nominal sets $X_0$ and
+$X_1$ really only serve to specify the (partial) permutation action on $X$.
+Following the style of nominal sets, write $X$ instead of $\langle X, X_0
+\rangle$ and assume that the permutation action is understood.
+
+As the objects and arrows of this category live in some larger nominal set, it 
+is possible to use the rich language of nominal sets to manipulate them. This
+will be the preferred language in the remainder of this thesis.
+
+
 \subsubsection{A Fibred Presentation of $\mathbf{FMPre}_s$.}
 
 TODO
@@ -122,8 +135,15 @@ TODO Inclusions $j : s \hookrightarrow s'$ give rise to inclusion functors $j^*
 = J^{s \hookrightarrow s'} : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$.
 
 TODO Fresh functor as fresh tensor. Inclusions $s \hookrightarrow s'$
-give rise to natural transformations $\kappa^{s \hookrightarrow s'} :
-(-)^{\freshfor s'} \to (-)^{\freshfor s}$.
+give rise to natural transformations \[\xymatrix{
+\mathbf{FMPre}_{s_0} \drlowertwocell_{(-)^{\freshfor s'}}{\kappa^{s_0; s
+\hookrightarrow s'}} \ar[r]^{(-)^{\freshfor s}}
+& 
+\mathbf{FMPre}_{s_0 \udot s} \ar[d]^{J^{s_0 \udot s \hookrightarrow s_0 \udot
+s'}}
+\\ &
+\mathbf{FMPre}_{s_0 \udot s'}
+}\]
 
 TODO $\delta_a$ functor as $\delta$, and adjunction with $(-)^{\freshfor a}$.
 
