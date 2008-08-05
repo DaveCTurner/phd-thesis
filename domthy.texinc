@@ -344,4 +344,130 @@ discussion at the end of the previous section shows that this category is
 isomorphic to the Kleisli category of the monad $\langle \widehat{(\cdot)},
 \{\cdot\}_{\downarrow}, \bigcup \rangle$ on $\mathbf{FMPre}_s$.
 
+TODO Definition of this monad in more detail?
+
+TODO Copy across discussion of structures in $\mathbf{FMLin}_s$ from
+$\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.
+
+\subsubsection{Relationship between $\widehat{(-)}$, $(-)^{\freshfor a}$ and
+$\delta_a$ }
+
+\begin{lemma} Let $a \notin s$. The functors $\widehat{(-)}^{\freshfor a},
+\widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s
+\udot \{a\}}$ are naturally isomorphic.  \end{lemma}
+
+TODO arrow in the statement of this lemma should be two parallel arrows,
+but don't know how to typeset that.
+
+\begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_s$ define
+$\phi_{\typeP} : \widehat{\typeP}^{\freshfor a} \to \widehat{\typeP^{\freshfor
+a}}$ by \[\phi_{\typeP} (x) = \{ p \in x \mid a \freshfor p \}.\]
+%
+% Well-defined
+Then it is clear that $\phi_{\typeP}$ is an arrow of $\mathbf{FMPre}_{s \udot
+\{a\}}$. 
+%
+% Naturality
+To see that $\phi_{\typeP}$ is natural in $\typeP$, let $f : \typeP \to \typeQ$
+be an arrow of $\mathbf{FMPre}_s$ and let $x \in \widehat{\typeP}^{\freshfor
+a}$.
+%
+% Naturality (1)
+Let $q \in \bigl(\widehat{f^{\freshfor a}} \circ \phi_{\typeP}\bigr) (x)$, then
+there is some $p \in x$ such that $a \freshfor p$ and $q \le f p$, and also $a
+\freshfor q$. However if $a \freshfor p$ then $a \freshfor f p$ since $a
+\freshfor f$ by assumption, so that $q \in \bigl(\phi_{\typeQ} \circ
+\widehat{f}^{\freshfor a} \bigr)(x)$.
+%
+% Naturality(2)
+Conversely let $q \in \bigl(\phi_{\typeQ} \circ \widehat{f}^{\freshfor a}
+\bigr)(x)$, then $a \freshfor q$ and $q \le f p$ for some $p \in x$. Let $b$ be
+a fresh name, then $q = (ab) \cdot q \le (ab) \cdot (f p) = f ((ab) \cdot p)$,
+and $b \freshfor p$ so that $a \freshfor (ab) \cdot p$. Therefore $q \le f((ab)
+\cdot p) \in \bigl(\widehat{f^{\freshfor a}} \circ \phi_{\typeP}\bigr) (x)$ and
+hence $\bigl(\widehat{f^{\freshfor a}} \circ \phi_{\typeP}\bigr) =
+\bigl(\phi_{\typeQ} \circ \widehat{f}^{\freshfor a} \bigr)(x)$ so that
+$\phi_{\typeP}$ is natural in $\typeP$.
+
+%
+% Definition of inverse
+Define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
+\widehat{\typeP}^{\freshfor a} $ by \[\phi^{-1}_{\typeP} (x) = x \cup \bigcup_{b
+\freshfor x} (ab) \cdot x.\] 
+%
+% Welldefined
+It is clear that $\phi^{-1}_{\typeP}$ is monotone.  TODO show that it is
+well-defined?
+%
+% Supported by s+a
+To see that $\phi^{-1}_{\typeP}$ is supported by $s \udot \{a\}$ let $x \in
+\widehat{\typeP^{\freshfor a}}$ and let $\sigma$ be a permutation that fixes $s
+\udot \{a\}$.
+%
+% Supported by s+a (1)
+Let $p \in \sigma \cdot (\phi^{-1}_{\typeP} (x))$, then either $p \in \sigma
+\cdot x$ or $p \in \sigma \cdot (ab) \cdot x$ for some $b \freshfor x$. If $p
+\in \sigma \cdot x$ then certainly $p \in \phi^{-1}_{\typeP} (\sigma \cdot x)$.
+On the other hand, let $b$ be such that $b \freshfor x$ and $p \in \sigma \cdot
+(ab) \cdot x = (a\ (\sigma \cdot b)) \cdot \sigma \cdot x$. Since $b \freshfor
+x$ it follows that $\sigma \cdot b \freshfor \sigma \cdot x$ so that again $p
+\in \phi^{-1}_{\typeP} (\sigma \cdot x)$.
+%
+% Supported by s+a (2)
+Conversely let $p \in \phi^{-1}_{\typeP} (\sigma \cdot x)$, then either $p \in
+\sigma \cdot x$ or $p \in (ab) \cdot \sigma \cdot x$ for some $b \freshfor
+\sigma \cdot x$. If $p \in \sigma \cdot x$ then $p \in \sigma \cdot
+\phi^{-1}_{\typeP}(x)$ immediately. On the other hand, let $b$ be such that $b
+\freshfor \sigma \cdot x$ and $p \in (ab) \cdot \sigma \cdot x = \sigma \cdot
+(a\ (\sigma^{-1} \cdot b)) \cdot x$. Since $b \freshfor \sigma \cdot x$ it
+follows that $\sigma^{-1} \cdot b \freshfor x$ so that again $p \in \sigma \cdot
+\phi^{-1}_{\typeP}(x)$. Therefore $\sigma \cdot \phi^{-1}_{\typeP}(x) =
+\phi^{-1}_{\typeP} (\sigma \cdot x)$ and hence $\phi^{-1}_{\typeP}$ is an arrow
+of $\mathbf{FMPre}_{s \udot \{a\}}$.
+
+%
+% Inverses (1)
+To see that $\phi^{-1}_{\typeP} \circ \phi_{\typeP} =
+\mathbf{1}_{\widehat{\typeP}^{\freshfor a}}$, let
+$x \in \widehat{\typeP}^{\freshfor a}$ and attempt to show that
+$(\phi^{-1}_\typeP \circ \phi_{\typeP})(x) = x$. Let $p \in x$ and let $b$ be a
+fresh name. By assumption, $a \freshfor x$ so that $(ab) \cdot p \in x$.  Also
+$b \freshfor p$ so that $a \freshfor (ab) \cdot p$ and hence $(ab) \cdot p \in
+\phi_{\typeP}(x)$. Therefore $p \in (ab) \cdot \phi_{\typeP}(x)$ and $b
+\freshfor \phi_{\typeP}(x)$ so that finally $p \in (\phi^{-1}_{\typeP} \circ
+\phi_{\typeP}) (x)$. Conversely let $p \in (\phi^{-1}_{\typeP} \circ
+\phi_{\typeP}) (x)$, then either $p \in \phi_{\typeP}(x)$ or there exists $b$
+such that $b \freshfor \phi_{\typeP}(x)$ and $p \in (ab) \cdot
+\phi_{\typeP}(x)$. If $p \in \phi_{\typeP}(x)$ then $p \in x$ immediately.  On
+the other hand, let $b$ be such that $b \freshfor \phi_{\typeP}(x)$ and $p \in
+(ab) \cdot \phi_{\typeP}(x)$, then $p \in (ab) \cdot x$ and $b \freshfor p$.
+Therefore $(ab) \cdot p \in x$ and $a \freshfor (ab) \cdot p$ so that $(ab)
+\cdot p \in \phi_{\typeP}(x)$. Let $c$ be a fresh name, then \[p \in (ab) \cdot
+\phi_{\typeP}(x) = (ab) \cdot (bc) \cdot \phi_{\typeP}(x) \subseteq (ab) \cdot
+(bc) \cdot x = (bc) \cdot (ac) \cdot x = (bc) \cdot x \] so that $p = (bc) \cdot
+p \in x$. Therefore $\phi^{-1}_{\typeP} \circ \phi_{\typeP} =
+\mathbf{1}_{\widehat{\typeP}^{\freshfor a}}$.
+
+%
+% Inverses (2)
+To see that $\phi_{\typeP} \circ \phi^{-1}_{\typeP} =
+\mathbf{1}_{\widehat{\typeP^{\freshfor a}}}$, let $x \in
+\widehat{\typeP^{\freshfor a}}$ and attempt to show that $(\phi_{\typeP} \circ
+\phi^{-1}_\typeP) (x) = x$. Let $p \in x$ and let $b$ be a fresh name, then $a
+\freshfor p$ so that $p \in \phi^{-1}_{\typeP}(x)$ and hence $p \in
+(\phi_{\typeP} \circ \phi^{-1}_{\typeP}) (x)$. Conversely, let $p \in
+(\phi_{\typeP} \circ \phi^{-1}_{\typeP}) (x)$, then $a \freshfor p$ and $p \in
+\phi^{-1}_{\typeP} (x)$ so that either $p \in x$ or there exists $b$ such that
+$b \freshfor x$ and $p \in (ab) \cdot x$. Suppose that the latter case holds,
+then $(ab) \cdot p \in x$ so that $a \freshfor (ab) \cdot p$ and hence $b
+\freshfor p$. Therefore $p = (ab) \cdot p \in x$. Therefore $\phi_{\typeP} \circ
+\phi_{\typeP}^{-1} = \mathbf{1}_{\widehat{\typeP^{\freshfor a}}}$. It follows
+immediately that $\phi^{-1}_{\typeP}$ is natural in $\typeP$, and hence that
+$\phi$ is a natural isomorphism $\widehat{(-)}^{\freshfor a} \to
+\widehat{(-)^{\freshfor a}}$ with inverse given by $\phi^{-1}$.  \end{proof}
+
+\begin{lemma} Let $a \notin s$. The functors $\delta_a \widehat{(-)},
+\widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}} \to \mathbf{FMPre}_s$ are
+naturally isomorphic. \end{lemma}
+
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
