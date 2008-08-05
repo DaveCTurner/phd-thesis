@@ -335,4 +335,13 @@ are in bijective correspondence with finitely-supported
 finitely-supported-join-preserving maps $\widehat{\typeP} \to \widehat{\typeQ}$.
 For brevity, call such maps `FM-linear'.
 
+\subsection{Categories of FM-Linear Maps}
+
+Let $\mathbf{FMLin}_s$ be the category whose objects are FM-preorders $\typeP$,
+$\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \to \typeQ$ are
+FM-linear maps $\widehat{\typeP} \to \widehat{\typeQ}$ supported by $s$.  The
+discussion at the end of the previous section shows that this category is
+isomorphic to the Kleisli category of the monad $\langle \widehat{(\cdot)},
+\{\cdot\}_{\downarrow}, \bigcup \rangle$ on $\mathbf{FMPre}_s$.
+
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
