@@ -282,5 +282,11 @@ _{\kappa^{s_0; s \hookrightarrow s'}}
 
 TODO $\delta_a$ functor as $\delta$, and adjunction with $(-)^{\freshfor a}$.
 
+\subsection{Nominal Path Semantics}
+
+TODO Motivate subsets of nominal path orders as representing processes.
+
+TODO Notation: $X_{\downarrow} = \{x' \mid \exists x \in X. x' \le x \}$.
+
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
