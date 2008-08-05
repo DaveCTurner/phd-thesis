@@ -108,9 +108,18 @@ $\mathbf{SubNPre}_s \simeq \mathbf{FMPre}_s$.
 \end{lemma}
 
 \begin{proof}
-Given $X \in \mathbf{FMPre}_s$, define $\overline{X} = \bigcup_{\sigma} \sigma
-\cdot X$ TODO
+TODO
 \end{proof}
+
+\subsubsection{A Fibred Presentation of $\mathbf{FMPre}_s$.}
+
+TODO
+
+TODO Proof that this is equivalent to the elementary presentation above.
+
+TODO Fresh functor as fresh tensor.
+
+TODO $\delta_a$ functor as $\delta$, and adjunction with $(-)^{\freshfor a}$.
 
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
