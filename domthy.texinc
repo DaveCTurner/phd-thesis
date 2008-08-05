@@ -37,9 +37,9 @@ within $\mathbf{NPre}$: for example, the preorder $\mathbb A$ is the set of all
 names with the discrete order (and the obvious permutation action), but $\mathbb
 A ^{\freshfor a} = \mathbb A \setminus \{a\}$ is not even a nominal set, as $b
 \in \mathbb A ^{\freshfor a}$ but $a = (ab) \cdot b \notin \mathbb A ^{\freshfor
-a}$ so $A^{\freshfor a}$ is not closed under the permutation action.
+a}$ so $\mathbb A^{\freshfor a}$ is not closed under the permutation action.
 
-Fraenkel-Mostowski (FM) set theory is the set theory that is closely related to
+Fraenkel-Mostowski (FM) set theory is a set theory that is closely related to
 the theory of nominal sets. The universe of FM sets $\mathcal{V}_{\mathrm{FM}}$
 is constructed similarly to the the von Neumann hierarchy
 $\mathcal{V}_{\mathrm{ZF}}$ of ZF set theory, with the following differences.
@@ -61,8 +61,9 @@ made into a functor, but this is not possible on $\mathbf{FMPre}$. To see this,
 let $X$ be any FM-preorder and consider the unique map $f : X \to \{a\}$ which
 is necessarily monotone and finitely-supported, and hence an arrow of
 $\mathbf{FMPre}$: however if $X$ contains an element without $a$ in its support
-then there are no candidate arrows $f^{\freshfor a} : X^{\freshfor a} \to
-\{a\}^{\freshfor a} = \varnothing$.
+then $X^{\freshfor a} \neq \varnothing$ so there are no possible candidates for
+the arrow $f^{\freshfor a} : X^{\freshfor a} \to \{a\}^{\freshfor a} =
+\varnothing$.
 
 In some sense therefore $\mathbf{NPre}$ is too small to define $(-)^{\freshfor
 a}$ on objects but $\mathbf{FMPre}$ is too large to define $(-)^{\freshfor a}$
