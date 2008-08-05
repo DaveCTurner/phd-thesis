@@ -288,5 +288,51 @@ TODO Motivate subsets of nominal path orders as representing processes.
 
 TODO Notation: $X_{\downarrow} = \{x' \mid \exists x \in X. x' \le x \}$.
 
+\subsection{Nominal Nondeterministic Domains}
+
+The collection of path sets over a nominal path order $\typeP$ may be ordered by
+inclusion to form the nominal partial order $\widehat{\typeP}$, which will be
+interpreted as a domain of the meanings of processs of type $\typeP$. More
+generally, if $\typeP$ is any FM-preorder then define $\widehat{\typeP} =
+\{x_\downarrow \mid x \subseteq_{\mathrm{fs}} \typeP\}$. These posets
+are FM-complete join-semilattice: every finitely-supported subset of
+$\widehat{\typeP}$ has a join in $\widehat{\typeP}$ given by its union.
+
+Alternatively, $\widehat{\typeP}$ may be viewed as the monotone function space
+$\typeP^{\mathrm{op}} \to_{\mathrm{fs}} \mathbf{2}$ where $\mathbf{2}$ is the
+nontrivial two-element poset on $\{\top, \bot\}$. Elements $x \in
+\widehat{\typeP}$ correspond to their characteristic functions $\chi_x$ such
+that \[\chi_x(p) = \begin{cases} \top & \text{if $p \in x$} \\ \bot &
+\text{otherwise.} \end{cases}\]
+
+The order $\widehat{\typeP}$ contains elements of the form $\{p\}_{\downarrow}$
+for each $p \in \typeP$. These elements are (completely) prime: if $X \subseteq
+\widehat{\typeP}$ and $\{p\}_{\downarrow} \subseteq \bigcup X$ then $p \in
+\bigcup X$ so there exists $x \in X$ such that $p \in x$ and hence
+$\{p\}_{\downarrow} \subseteq x$. Conversely, every prime element is of this
+form: if $x$ is prime then $x \subseteq \bigcup \{\{p\}_{\downarrow} \mid p \in
+x\}$ so that there exists $p \in x$ such that $x \subseteq \{p\}_{\downarrow}$
+and hence $x = \{p\}_{\downarrow}$ as required.
+
+Furthermore, each $x \in \widehat{\typeP}$ is the join of the prime elements
+below it so that $\widehat{\typeP}$ is a completely prime algebraic lattice: $x
+= \bigcup \{\{p\}_{\downarrow} \mid p \in x\}$.
+
+Finally, $\widehat{\typeP}$ is the free finitely-supported join completion of
+$\typeP$. In other words, $\widehat{\typeP}$ has all finitely-supported joins
+and if $C$ is a poset that also has all finitely supported joins and $f : \typeP
+\to C$ is a monotone finitely-supported function then there is a unique
+finitely-supported $f^{\dagger} : \widehat{\typeP} \to C$ that preserves all
+finitely supported joins and such that the following diagram commutes.
+\[\xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\downarrow}} \ar[dr]_f & \widehat{\typeP}
+\ar[d]^{f^{\dagger}} \\& C}\] The function $f^{\dagger}$ is given by
+$f^{\dagger}X = \bigcup\{f p \mid p \in X\}$. The uniqueness of $f^{\dagger}$
+follows from the algebraicity of $\widehat{\typeP}$, and it is not hard to show
+that it preserves finitely-supported joins and that it is itself
+finitely-supported. In particular, if $C$ is of the form $\widehat{\typeQ}$ then
+this shows that finitely-supported monotone maps $\typeP \to \widehat{\typeQ}$
+are in bijective correspondence with finitely-supported
+finitely-supported-join-preserving maps $\widehat{\typeP} \to \widehat{\typeQ}$.
+For brevity, call such maps `FM-linear'.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
