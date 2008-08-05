@@ -273,12 +273,15 @@ TODO Inclusions $j : s \hookrightarrow s'$ give rise to inclusion functors $j^*
 
 TODO Fresh functor as fresh tensor. Inclusions $s \hookrightarrow s'$
 give rise to natural transformations \[\xymatrix{
-\mathbf{FMPre}_{s_0} \drlowertwocell_{(-)^{\freshfor s'}}{\kappa^{s_0; s
-\hookrightarrow s'}} \ar[r]^{(-)^{\freshfor s}}
-& 
-\mathbf{FMPre}_{s_0 \udot s} \ar[d]^{J^{s_0 \udot s \hookrightarrow s_0 \udot
+\mathbf{FMPre}_{s_0} 
+\ar[ddrr]_{(-)^{\freshfor s'}}
+\ar[rr]^{(-)^{\freshfor s}}
+&&
+\mathbf{FMPre}_{s_0 \udot s} \ar[dd]^{J^{s_0 \udot s \hookrightarrow s_0 \udot
 s'}}
-\\ &
+\ar@{=>}[dl]
+_{\kappa^{s_0; s \hookrightarrow s'}}
+\\ &{}\\ &&
 \mathbf{FMPre}_{s_0 \udot s'}
 }\]
 
