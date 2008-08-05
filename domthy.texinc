@@ -118,7 +118,12 @@ TODO
 
 TODO Proof that this is equivalent to the elementary presentation above.
 
-TODO Fresh functor as fresh tensor.
+TODO Inclusions $j : s \hookrightarrow s'$ give rise to inclusion functors $j^*
+= J^{s \hookrightarrow s'} : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$.
+
+TODO Fresh functor as fresh tensor. Inclusions $s \hookrightarrow s'$
+give rise to natural transformations $\kappa^{s \hookrightarrow s'} :
+(-)^{\freshfor s'} \to (-)^{\freshfor s}$.
 
 TODO $\delta_a$ functor as $\delta$, and adjunction with $(-)^{\freshfor a}$.
 
