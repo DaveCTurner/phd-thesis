@@ -257,11 +257,6 @@ $X_1$ really only serve to specify the (partial) permutation action on $X$.
 Following the style of nominal sets, write $X$ instead of $\langle X, X_0
 \rangle$ and assume that the permutation action is understood.
 
-As the objects and arrows of this category live in some larger nominal set, it 
-is possible to use the rich language of nominal sets to manipulate them. This
-will be the preferred language in the remainder of this thesis.
-
-
 \subsubsection{A Fibred Presentation of $\mathbf{FMPre}_s$.}
 
 TODO
