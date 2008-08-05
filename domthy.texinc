@@ -470,4 +470,14 @@ $\phi$ is a natural isomorphism $\widehat{(-)}^{\freshfor a} \to
 \widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}} \to \mathbf{FMPre}_s$ are
 naturally isomorphic. \end{lemma}
 
+TODO double arrows above.
+
+\begin{proof}
+For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define 
+$\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a \typeP}$ by
+\[\theta_{\typeP}(x') = \{p' \mid \mathop{\mathbf{fresh}} b \mathop{\mathbf{in}} 
+p' @ b \in x' @ b\}.\]
+
+\end{proof}
+
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
