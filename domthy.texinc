@@ -474,11 +474,53 @@ $\phi$ is a natural isomorphism with inverse given by $\phi^{-1}$ as required.
 \widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows
 \mathbf{FMPre}_s$ are naturally isomorphic. \end{lemma}
 
-\begin{proof}
-For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define 
-$\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a \typeP}$ by
-\[\theta_{\typeP}(x') = \{p' \mid \mathop{\mathbf{fresh}} b \mathop{\mathbf{in}} 
-p' @ b \in x' @ b\}.\]
+\begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$
+define $\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a
+\typeP}$ by \[\theta_{\typeP}(x') = \{p' \mid \mathop{\mathbf{fresh}} b
+\mathop{\mathbf{in}} p' @ b \in x' @ b\}.\]
+%
+% Well-defined
+It is necessary to show that $\theta_{\typeP}$ is well-defined, so let $x' \in
+\delta_a\widehat{\typeP}$ and show that $\theta_{\typeP}(x') \in
+\widehat{\delta_a \typeP}$ as follows.  Let $p' \in \theta_{\typeP}(x')$ and let
+$b$ be a fresh name, then $p' @ b \in x' @ b \in (ab) \cdot \widehat{\typeP}$ so
+that $p' @ b \in (ab) \cdot \typeP$ and hence $p' \in \delta_a\typeP$. Let $p''
+\le_{\delta_a\typeP} p'$ and let $b'$ be a fresh name, then $p'' @ b' \le_{(ab')
+\cdot \typeP} p' @ b' \in x' @ b' \in (ab') \cdot \widehat{\typeP}$ so that $p''
+@ b' \in x' @ b'$ and hence $p'' \in x'$. Therefore $\theta_{\typeP}(x) \in
+\widehat{\delta_a\typeP}$ as required.
+
+To see that $\theta_{\typeP}$ is supported by $s$ let $\sigma$ be a permutation
+that fixes $s$, let $x' \in \delta_a\widehat{\typeP}$ and show that $\sigma
+\cdot \theta_{\typeP}(x') = \theta_{\typeP} (\sigma \cdot x')$ as follows.  Let
+$p' \in \sigma \cdot \theta_{\typeP}(x')$ and let $b$ be a fresh name, then
+$(\sigma \cdot p') @ b \in x' @ b$ and hence $p' @ b \in (\sigma \cdot x') @ b$
+as $\sigma \cdot b = b$ so that $p' \in \theta_{\typeP}(\sigma \cdot x')$.
+Conversely, let $p' \in \theta_{\typeP}(\sigma \cdot x')$ and let $b$ be a fresh
+name, then $p' @ b \in (\sigma \cdot x') @ b$ and hence $(\sigma \cdot p') @ b
+\in x' @ b$ as $\sigma \cdot b = b$ so that $p' \in \sigma \cdot \theta_{\typeP}
+(x')$ as required. It is clear that $\theta_{\typeP}$ is monotone, so this has
+shown that $\theta_{\typeP}$ is an arrow of $\mathbf{FMPre}_{s}$.
+
+To see that $\theta_{\typeP}$ is natural in $\typeP$, let $f : \typeP \to
+\typeQ$ be an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$, let $x' \in \delta_a
+\widehat{\typeP}$ and show that $(\theta_{\typeQ} \circ \delta_a
+\widehat{f})(x') = (\widehat{\delta_a f} \circ \theta_{\typeP}) (x')$ as
+follows.  Let $q' \in (\theta_{\typeQ} \circ \delta_a \widehat{f})(x')$ and let
+$b$ be a fresh name, then \[q' @ b \in (\delta_a \widehat{f}(x')) @ b =
+\bigl((ab) \cdot \widehat{f}\bigr) (x'@b)\] so that there exists $p \in x'@b$
+such that $q'@b \le_{\typeQ} ((ab) \cdot f)(p)$.  Therefore \[q' \le_{\delta_a
+\typeQ} [b].((ab) \cdot f)(p) = [b].\bigl((ab) \cdot
+f\bigr)\bigl(([b].p)@b\bigr) = \delta_a f ([b].p)\] and $[b].p \in
+\theta_{\typeP} (x')$ so that $q' \in (\widehat{\delta_a f} \circ
+\theta_{\typeP}) (x')$. Conversely, let $q' \in (\widehat{\delta_a f} \circ
+\theta_{\typeP}) (x')$ so that there is $p' \in \theta_{\typeP} (x')$ such that
+$q' \le_{\delta_a\typeQ} \delta_a f (p')$. Let $b$ be a fresh name, then $p' @ b
+\in x' @ b$ and $q' @ b \le_{\typeQ} \bigl(\delta_a f (p')\bigr) @ b =
+\bigl((ab) \cdot f\bigr)(p' @ b)$. Therefore $q' @ b \in \bigl((ab) \cdot
+\widehat{f}\bigr)(x'@b) = \bigl(\delta_a \widehat{f} (x')\bigr) @ b$ and hence
+$q' \in (\theta_{\typeQ} \circ \delta_a \widehat{f})(x')$ as required.
+
 
 \end{proof}
 
