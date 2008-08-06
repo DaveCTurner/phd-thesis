@@ -293,8 +293,8 @@ The collection of path sets over a nominal path order $\typeP$ may be ordered by
 inclusion to form the nominal partial order $\widehat{\typeP}$, which will be
 interpreted as a domain of the meanings of processs of type $\typeP$. More
 generally, if $\typeP$ is any FM-preorder then define $\widehat{\typeP} =
-\{x_\downarrow \mid x \subseteq_{\mathrm{fs}} \typeP\}$. These posets
-are FM-complete join-semilattice: every finitely-supported subset of
+\{x_\downarrow \mid x \subseteq_{\mathrm{fs}} \typeP\}$. Such a poset is a
+FM-complete join-semilattice: every finitely-supported subset of
 $\widehat{\typeP}$ has a join in $\widehat{\typeP}$ given by its union.
 
 Alternatively, $\widehat{\typeP}$ may be viewed as the monotone function space
