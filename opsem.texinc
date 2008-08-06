@@ -28,10 +28,12 @@ the transition in the conclusion has the correct type.
 % ===========================================================================
 %                                      MATCH
 \infer
-{\ajudge{\typeP}{\matchx{s'}{u}{q}{x}{t}}{p}{t'}}
+{\ajudge{\typeP}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{p}{t'}}
 {\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}
 &
-\ajudge{\typeQ}{u}{q}{u'}}
+\ajudge{\typeQ}{u}{q}{u'}
+&
+\atjudge{}{\typeQ}{q}{\typeQp}}
 }
 % ===========================================================================
 \\ \rule{0pt}{8ex} 
