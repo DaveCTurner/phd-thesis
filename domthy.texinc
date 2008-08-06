@@ -463,10 +463,8 @@ $\phi$ is a natural isomorphism $\widehat{(-)}^{\freshfor a} \to
 \widehat{(-)^{\freshfor a}}$ with inverse given by $\phi^{-1}$.  \end{proof}
 
 \begin{lemma} Let $a \notin s$. The functors $\delta_a \widehat{(-)},
-\widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}} \to \mathbf{FMPre}_s$ are
-naturally isomorphic. \end{lemma}
-
-TODO double arrows above.
+\widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows
+\mathbf{FMPre}_s$ are naturally isomorphic. \end{lemma}
 
 \begin{proof}
 For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define 
