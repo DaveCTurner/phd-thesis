@@ -63,7 +63,7 @@ the rule for terms of the form $\ndsum{i}{I}{t_i}$, the mapping $i \mapsto
 %
 \infer[(s'' \subseteq s \setminus s')]
 {\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
-	{\matchx{s'}{u}{q}{x}{t}}{\typeP}}
+	{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 {\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} &
 \tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
 %
@@ -141,8 +141,8 @@ If $\tjudge{s}{}{\rec{x}{t}}{\typeP}$ then
 $\tjudge{s}{\envvarfresh{x}{\typeP}{\varnothing}}{t}{\typeP}$.
 %
 \item \label{closedtermtypebackwardsmatch}
-If $\tjudge{s}{}{\matchx{s'}{u}{q}{x}{t}}{\typeP}$ then $s' \subseteq s$ and
-there exist $\typeQ$, $\typeQp$ and $s'' \subseteq s \setminus s'$ such that
+If $\tjudge{s}{}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}$ then $s' \subseteq
+s$ and there exists $\typeQ$ and $s'' \subseteq s \setminus s'$ such that
 $\tjudge{s}{\envvarfresh{x}{\typeQp}{s'} }{t}{\typeP}$,
 $\tjudge{s''}{}{u}{\typeQ}$ and $\atjudge{s''}{\typeQ}{q}{\typeQp}$.
 %
@@ -386,7 +386,7 @@ as required.
 
 \paragraph{Prefix-Match} Suppose that
 $\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
-{\matchx{s'}{u}{q}{x}{t}}{\typeP}$ is derived from
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}$ is derived from
 \[\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP}, \quad
 \tjudge{s''}{\Lambda}{u}{\typeQ} \quad \text{and} \quad \atjudge{s''}{\typeQ}{q}{\typeQp}\]
 where $s'' \subseteq s \setminus s'$, then by induction
@@ -395,7 +395,7 @@ where $s'' \subseteq s \setminus s'$, then by induction
 \cap \supp{t}} }}{t}{\typeP}, \\
 \tjudge{\supp{u}}{\envrestrict{\Lambda}{\supp{u}}}{u}{\typeQ} \quad\text{and}\quad
 \atjudge{\supp{q}}{\typeQ}{q}{\typeQp}. \end{array}\]
-Notice that $\supp{\matchx{s'}{u}{q}{x}{t}} = \supp{u,q,t,s'}$.
+Notice that $\supp{\matchz{s'}{u}{q}{x}{t}{\typeQp}} = \supp{u,q,t,s'}$.
 By fresh-weakening and support-weakening it follows that
 \[\begin{array}{l}
 \tjudge{\supp{u,q,t,s'}}{\envcombine{\envrestrict{\Gamma}{\supp{u,q,t,s'}}}{\envvarfresh{x}{\typeQp}{s'}
@@ -407,11 +407,11 @@ Also, $\supp{u,q} \subseteq s'' \cap \supp{u,q,t,s'}
 so that
 \[\tjudge{\supp{u,q,t,s'}}{\envcombine{\envrestrict{\Gamma}{\supp{u,q,t,s'}}}
 {\envfresh{\envrestrict{\Lambda}{\supp{u}}}{s'} }}
-{\matchx{s'}{u}{q}{x}{t}}{\typeP}\]
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}\]
 and hence
 \[\tjudge{\supp{u,q,t,s'}}{\envcombine{\envrestrict{\Gamma}{\supp{u,q,t,s'}}}
 {\envfresh{\envrestrict{\Lambda}{\supp{u,q,t,s'}}}{s'} }}
-{\matchx{s'}{u}{q}{x}{t}}{\typeP}\]
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}\]
 by fresh-weakening as required.
 
 \paragraph{Function Abstraction} Suppose that
