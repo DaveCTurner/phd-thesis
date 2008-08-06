@@ -21,8 +21,8 @@ $\termvar{y}$ in a term $t$ is defined by recursion on $t$ as follows.
 \multicolumn{3}{c}{
 \rule{0pt}{3ex}
 %
-\termsubst{(\match{u}{p}{x}{t})}{v}{y} =
-	\match{(\termsubst{u}{v}{y})}{p}{x}{(\termsubst{t}{v}{y})}} \\
+\termsubst{(\matchx{s}{u}{p}{x}{t})}{v}{y} =
+	\matchx{s}{(\termsubst{u}{v}{y})}{p}{x}{(\termsubst{t}{v}{y})}} \\
 %
 \rule{0pt}{3ex}
 %
