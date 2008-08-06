@@ -352,11 +352,8 @@ $\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.
 $\delta_a$ }
 
 \begin{lemma} Let $a \notin s$. The functors $\widehat{(-)}^{\freshfor a},
-\widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s
-\udot \{a\}}$ are naturally isomorphic.  \end{lemma}
-
-TODO arrow in the statement of this lemma should be two parallel arrows,
-but don't know how to typeset that.
+\widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s \rightrightarrows
+\mathbf{FMPre}_{s \udot \{a\}}$ are naturally isomorphic.  \end{lemma}
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_s$ define
 $\phi_{\typeP} : \widehat{\typeP}^{\freshfor a} \to \widehat{\typeP^{\freshfor
