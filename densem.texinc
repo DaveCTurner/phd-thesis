@@ -277,7 +277,7 @@ the composition
 {!}\bigl(\sem{\Gamma} \amp (-)\bigr).
 }\]
 Finally define $\sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
-{\matchx{s'}{u}{q}{x}{t}}{\typeP}}$ to be the composition
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}$ to be the composition
 \[
 \xymatrix{
 \sem{\Gamma} \amp \sem{\Lambda}^{\freshfor s'}
@@ -299,7 +299,7 @@ Finally define $\sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
 Suppose that $\gamma \in \semp{\Gamma}$, $\lambda \in
 \semp{\envfresh{\Lambda}{s'}}$, and \[\begin{array}{rcl} p &\in&
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
-{\matchx{s'}{u}{q}{x}{t}}{\typeP}} \langle \gamma, \lambda
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda
 \rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}} \\ \rule{0pt}{4ex}&=&
 \bigl(\epsilon_\typeP \circ {!}\sem{t} \circ
 \mathbf{str}^{\Gamma}_{\typeQp^{\freshfor s'}} \circ (\mathbf{1}_{\Gamma} \amp
@@ -331,7 +331,7 @@ $\bigl(\phi_{\typeQp}^{-1} Q_2\bigr) \in \bigl(\sem{q} \circ
 
 Letting $Q = \phi_{\typeQp}^{-1}Q_2$, this means that if $p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
-{\matchx{s'}{u}{q}{x}{t}}{\typeP}} \langle \gamma, \lambda
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda
 \rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}$ then there exists $Q$
 such that $p \in \sem{t} \langle \gamma, Q
 \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ and $Q \in
