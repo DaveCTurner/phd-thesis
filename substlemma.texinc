@@ -146,11 +146,11 @@ required.
 \paragraph{Prefix-Match}
 %\infer[(s'' \subseteq s \setminus s')]
 %{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
-%{\matchx{s'}{u}{q}{x}{t}}{\typeP}}
+%{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} &
 %\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
 Suppose that $\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'} }}
-{\matchx{s'}{u}{q}{x}{t}}{\typeP}$ is derived from
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}$ is derived from
 $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP}$,
 $\tjudge{s''}{\Lambda'}{u}{\typeQ}$ and $\atjudge{s''}{\typeQ}{q}{\typeQp}$
 where $s'' \subseteq s \setminus s'$. Suppose that $\Gamma'$ is a reordering of
@@ -174,20 +174,21 @@ s_1) \setminus s'$ so that finally $(s'' \cup s_1) \subseteq (s \cup s_1)
 \setminus s'$. Therefore \[\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}
 }{\envcombine{\envfresh{\Lambda}{s'}}{\envfresh{\Delta'}{r' \cup s'}} }}
-{\matchx{s'}{(u[v'])}{q}{x}{t[v]}}{\typeP}\] so that by contraction, exchange
-and fresh-weakening, \[\tjudge{s \cup
+{\matchz{s'}{(u[v'])}{q}{x}{t[v]}{\typeQp}}{\typeP}\] so that by contraction,
+exchange and fresh-weakening, \[\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}
-}{\envfresh{\Delta}{r \cup r' \cup s'}} } {\matchx{s'}{u[v]}{q}{x}{t[v]} =
-\matchx{s'}{u}{q}{x}{t}[v]}{\typeP}\] as required.
+}{\envfresh{\Delta}{r \cup r' \cup s'}} }
+{\matchz{s'}{u[v]}{q}{x}{t[v]}{\typeQp}}{\typeP}\] which is as required since
+\[\matchz{s'}{u[v]}{q}{x}{t[v]}{\typeQp} =
+\matchz{s'}{u}{q}{x}{t}{\typeQp}[v].\]
 
 If $m = 0$ then by induction $\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envvarfresh{x}{\typeQp}{s'}
 }}{t[v]}{\typeP}$ and $s'' \subseteq s \setminus s' \subseteq (s \cup s_1)
 \setminus s'$.  Therefore \[\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envfresh{\Lambda}{s'}} }
-{\matchx{s'}{u}{q}{x}{t[v]}= \matchx{s'}{u}{q}{x}{t}[v]}{\typeP}\] as
+{\matchz{s'}{u}{q}{x}{t[v]}{\typeQp} = \matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}{\typeP}\] as
 required (up-to exchange).
-
 
 \paragraph{Function Abstraction} Suppose that
 $\tjudge{s}{\Gamma'}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP}}$ is derived from the judgement
