@@ -21,8 +21,8 @@ $\termvar{y}$ in a term $t$ is defined by recursion on $t$ as follows.
 \multicolumn{3}{c}{
 \rule{0pt}{3ex}
 %
-\termsubst{(\matchx{s}{u}{p}{x}{t})}{v}{y} =
-	\matchx{s}{(\termsubst{u}{v}{y})}{p}{x}{(\termsubst{t}{v}{y})}} \\
+\termsubst{(\matchz{s}{u}{p}{x}{t}{\typeP})}{v}{y} =
+	\matchz{s}{(\termsubst{u}{v}{y})}{p}{x}{(\termsubst{t}{v}{y})}{\typeP}} \\
 %
 \rule{0pt}{3ex}
 %
@@ -50,7 +50,7 @@ $\termvar{y}$ in a term $t$ is defined by recursion on $t$ as follows.
 % }}}
 As discussed above, substitution is capture-avoiding in both names and variables,
 in the sense that for substitution into a term of the forms \[\rec{x}{t}
-\qquad \matchx{s}{u}{p}{x}{t} \qquad \abstract{x}{t}\] the variable $\termvar{x}$
+\qquad \matchz{s}{u}{p}{x}{t}{\typeP} \qquad \abstract{x}{t}\] the variable $\termvar{x}$
 is assumed not to be free in $v$, and for substitution into a term of the form
 \[\new{a}{t}\] the name $a$ is chosen to be fresh for $v$.
 
