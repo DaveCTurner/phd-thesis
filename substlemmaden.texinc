@@ -348,11 +348,11 @@ as required.
 \paragraph{Prefix-Match}
 %\infer[(s'' \subseteq s \setminus s')]
 %{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
-%{\matchx{s'}{u}{q}{x}{t}}{\typeP}}
+%{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} &
 %\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
 Suppose that $\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'} }}
-{\matchx{s'}{u}{q}{x}{t}}{\typeP}$ is derived from
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}$ is derived from
 $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP}$,
 $\tjudge{s''}{\Lambda'}{u}{\typeQ}$ and $\atjudge{s''}{\typeQ}{q}{\typeQp}$
 where $s'' \subseteq s \setminus s'$. Suppose that $\Gamma'$ is a reordering of
@@ -365,18 +365,18 @@ now two possibilities, depending on whether $m = 0$ or not. Suppose that $m
 renamed. Then \[\begin{array}{rcl} \multicolumn{3}{l}{\sem{\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}
 }{\envfresh{\Delta}{r \cup r' \cup s'}} }
-{\matchx{s'}{u}{q}{x}{t}[v]}{\typeP}}} \\
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}{\typeP}}} \\
 %
 &=& \sem{\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r \cup r'
 \cup s'}}}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta'}{r \cup r' \cup s'}} }
-{\matchx{s'}{u[v']}{q}{x}{t[v]}}{\typeP}} \\&&{} \circ
+{\matchz{s'}{u[v']}{q}{x}{t[v]}{\typeQp}}{\typeP}} \\&&{} \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
 \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
 %
 &=& \sem{\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envfresh{\Lambda}{s'}}
-}{\envfresh{\Delta'}{r' \cup s'}} } {\matchx{s'}{u[v']}{q}{x}{t[v]}}{\typeP}}
+}{\envfresh{\Delta'}{r' \cup s'}} } {\matchz{s'}{u[v']}{q}{x}{t[v]}{\typeQp}}{\typeP}}
 \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 \mathbf{1}_{\envfresh{\Lambda}{s'}} \amp k^{(2)}_\Delta \bigr) \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
@@ -451,14 +451,14 @@ s'} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
 %
 &=&
-\sem{\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'}}}{\matchx{s'}{u}{q}{x}{t}}{\typeP}}
+\sem{\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'}}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \\&&{} \circ \Bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda}^{\freshfor
 s'}} \amp \bigl((\sem{v}^{n} \amp {\sem{v}^{m}}^{\freshfor s'}) \circ
 (k^{(1)}_\Delta \amp k^{(2)}_\Delta) \circ \Delta_{\Delta^{\freshfor r \cup r'
 \cup s'}}\bigr)\Bigr) \\
 %
 &=&
-\sem{\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'}}}{\matchx{s'}{u}{q}{x}{t}}{\typeP}}
+\sem{\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'}}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \circ (\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda}^{\freshfor s'}} \amp
 \sem{v}^{m+n}) \\
 %
