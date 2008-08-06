@@ -521,6 +521,21 @@ $q' \le_{\delta_a\typeQ} \delta_a f (p')$. Let $b$ be a fresh name, then $p' @ b
 \widehat{f}\bigr)(x'@b) = \bigl(\delta_a \widehat{f} (x')\bigr) @ b$ and hence
 $q' \in (\theta_{\typeQ} \circ \delta_a \widehat{f})(x')$ as required.
 
+Now for each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
+$\theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \delta_a\widehat{\typeP}$
+by \[\theta^{-1}_{\typeP}(x) = \mathop{\mathbf{fresh}} b \mathop{\mathbf{in}}
+[b].\{p \mid [b].p \in x\}.\] It is necessary to show that
+$\theta^{-1}_{\typeP}$ is well-defined, so let $x \in \widehat{\delta_a \typeP}$
+and show that $\theta^{-1}_{\typeP}(x) \in \delta_a\widehat{\typeP}$ as follows.
+Let $b$ be a fresh name, and let $p \in \bigl(\theta^{-1}_{\typeP}(x)\bigr) @
+b$, then $[b].p \in x \subseteq{\delta_a \typeP}$ so that $[b].p \in \delta_a
+\typeP$ and hence $p \in (ab) \cdot \typeP$. Let $p' \le_{\typeP} p$, then
+$[b].p' \le_{\delta_a \typeP} [b].p \in x \in \widehat{\delta_a \typeP}$ so that
+$[b].p' \in x$ and hence $p' \in \bigl(\theta^{-1}_{\typeP}(x)\bigr)@b$.
+Therefore $\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b \in (ab) \cdot
+\widehat{\typeP}$ so that $\theta^{-1}_{\typeP}(x) \in \delta_a
+\widehat{\typeP}$ as required.
+
 
 \end{proof}
 
