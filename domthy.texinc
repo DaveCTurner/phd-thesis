@@ -536,7 +536,45 @@ Therefore $\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b \in (ab) \cdot
 \widehat{\typeP}$ so that $\theta^{-1}_{\typeP}(x) \in \delta_a
 \widehat{\typeP}$ as required.
 
+To see that $\theta^{-1}_{\typeP}$ is supported by $s$, let $\sigma$ be a
+permutation that fixes $s$, let $x \in \widehat{\delta_a\typeP}$, let $b$ be a
+fresh name and show that $\sigma \cdot \theta^{-1}_{\typeP}(x) =
+\theta^{-1}_{\typeP} (\sigma \cdot x)$ as follows.  Let $p \in \bigl(\sigma
+\cdot \theta^{-1}_{\typeP}(x)\bigr) @ b$ then $[b].(\sigma^{-1} \cdot p) \in x$
+and hence $[b].p \in \sigma \cdot x$ since $\sigma \cdot b = b$. Therefore $p
+\in \bigl(\theta^{-1}_{\typeP}(\sigma \cdot x)\bigr) @ b$. Conversely let $p \in
+\bigl(\theta^{-1}_{\typeP}(\sigma \cdot x)\bigr) @ b$ then $[b].p \in \sigma
+\cdot x$ and hence $[b].(\sigma^{-1} \cdot p) \in x$ since $\sigma \cdot b = b$.
+Therefore $p \in \bigl(\sigma \cdot \theta^{-1}_{\typeP}(x)\bigr) @ b$ so that
+$\bigl(\sigma \cdot \theta^{-1}_{\typeP}(x)\bigr) @ b =
+\bigl(\theta^{-1}_{\typeP}(\sigma \cdot x)\bigr) @ b$ and hence $\sigma \cdot
+\theta^{-1}_{\typeP}(x) = \theta^{-1}_{\typeP} (\sigma \cdot x)$ as required. It
+is not hard to see that $\theta^{-1}_{\typeP}$ is monotone, so this has shown
+that $\theta^{-1}_{\typeP}$ is an arrow of $\mathbf{FMPre}_{s}$.
 
-\end{proof}
+To see that $\theta^{-1}_{\typeP} \circ \theta_{\typeP} =
+\mathbf{1}_{\delta_a\widehat{\typeP}}$, let $x' \in \delta_a\widehat{\typeP}$
+and show that $(\theta^{-1}_{\typeP} \circ \theta_{\typeP}) (x') = x'$ as
+follows. Let $b$ be a fresh name, then it suffices to show that
+$\bigl((\theta^{-1}_{\typeP} \circ \theta_{\typeP}) (x')\bigr) @ b = x' @ b$.
+Let $p \in x'@b$, then $([b].p)@b \in x'@b$ and hence $[b].p \in
+\theta_{\typeP}(x')$ so that finally $p \in \bigl(\theta^{-1}_{\typeP}
+(\theta_{\typeP}(x'))\bigr) @b$.  Conversely, let $p \in
+\bigl(\theta^{-1}_{\typeP} (\theta_{\typeP}(x'))\bigr) @b$, then $[b].p \in
+\theta_{\typeP}(x')$ so that if $c$ is a fresh name then $(bc) \cdot p \in x' @
+c$ and as $b$ and $c$ were fresh this means that $p \in ((bc) \cdot x') @ b = x'
+@ b$ as required.
+
+To see that $\theta_{\typeP} \circ \theta^{-1}_{\typeP} =
+\mathbf{1}_{\widehat{\delta_a \typeP}}$, let $x \in \widehat{\delta_a\typeP}$
+and show that $(\theta_{\typeP} \circ \theta^{-1}_{\typeP}) (x) = x$ as follows.
+Let $p' \in x$ and let $b$ be a fresh name, then $p'@b \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b$ so that $p' \in (\theta_{\typeP} \circ
+\theta^{-1}_{\typeP}) (x)$.  Conversely, let $p' \in (\theta_{\typeP} \circ
+\theta^{-1}_{\typeP}) (x)$ and let $b$ be a fresh name, then $p'@b \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b$ so that $p' = [b].(p'@b) \in x$ as
+required.  It follows immediately that $\theta^{-1}_{\typeP}$ is natural in
+$\typeP$, and hence $\theta$ is a natural isomorphism with inverse given by
+$\theta^{-1}$ as required.  \end{proof}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
