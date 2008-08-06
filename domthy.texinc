@@ -389,78 +389,86 @@ $\phi_{\typeP}$ is natural in $\typeP$.
 % Definition of inverse
 Define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
 \widehat{\typeP}^{\freshfor a} $ by \[\phi^{-1}_{\typeP} (x) = x \cup \bigcup_{b
-\freshfor x} (ab) \cdot x.\] 
-%
-% Welldefined
-It is clear that $\phi^{-1}_{\typeP}$ is monotone.  TODO show that it is
-well-defined?
+\freshfor x} (ab) \cdot x.\] It will simplify the remainder of this discussion
+to show that if $x \in \widehat{\typeP^{\freshfor a}}$ then $p \in
+\phi^{-1}_{\typeP} (x)$ if and only if $\mathop{\mathbf{fresh}} c
+\mathop{\mathbf{in}} p \in (ac) \cdot x$. To see this, suppose that $p \in
+\phi^{-1}_{\typeP} (x)$, then either $p \in x$ or there exists $b$ such that 
+$b \freshfor x$ and $p \in (ab) \cdot x$. If $p \in x$ then $a \freshfor p$.
+Let $c$ be fresh, then $p = (ac) \cdot p \in (ac) \cdot x$
+as required. On the other hand, let $b$ be such that $b \freshfor x$ and $p \in
+(ab) \cdot x$, then $b \freshfor p$. If $a = b$ then this reduces to the
+previous case, so suppose that $a \neq b$. Let $c$ be fresh, then \[p = (bc)
+\cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x\]
+as required. Conversely, suppose that $c$ is fresh and $p \in (ac) \cdot x$,
+then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
+
+Now it is necessary to show that $\phi^{-1}_{\typeP}$ is well-defined, so let $x
+\in \widehat{\typeP^{\freshfor a}}$. Let $p \in \phi^{-1}_{\typeP} (x)$ and let
+$b$ be a fresh name, then $p \in (ab) \cdot x \subseteq (ab) \cdot \typeP =
+\typeP$ so that $\phi^{-1}_{\typeP} (x) \subseteq \typeP$. Now let $p'
+\le_{\typeP} p$, and let $b'$ be fresh, then $a \freshfor (ab') \cdot p'$ so
+that $(ab') \cdot p' \le_{\typeP^{\freshfor a}} (ab') \cdot p \in x \in
+\widehat{\typeP^{\freshfor a}}$ so that $(ab') \cdot p' \in x$ and hence $p' \in
+\phi^{-1}_{\typeP} (x)$. Therefore $\phi^{-1}_{\typeP} (x) \in
+\widehat{\typeP}$. It remains to show that $a \freshfor \phi^{-1}_{\typeP} (x)$,
+so let $b$ be a fresh name and aim to prove that $\phi^{-1}_{\typeP} (x) = (ab)
+\cdot \phi^{-1}_{\typeP} (x)$. Let $p \in \phi^{-1}_{\typeP} (x)$ and let $c$ be
+a fresh name, then $p \in (ac) \cdot x$ and hence $(ab) \cdot p \in (ab) \cdot
+(ac) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x$ so that $(ab) \cdot p \in
+\phi^{-1}_{\typeP} (x)$. Therefore $\phi^{-1}_{\typeP} (x) \subseteq (ab) \cdot
+\phi^{-1}_{\typeP} (x)$ so that by equivariance $\phi^{-1}_{\typeP} (x) = (ab)
+\cdot \phi^{-1}_{\typeP} (x)$ and hence $\phi^{-1}_{\typeP} (x) \in
+\widehat{\typeP}^{\freshfor a}$.
 %
 % Supported by s+a
-To see that $\phi^{-1}_{\typeP}$ is supported by $s \udot \{a\}$ let $x \in
+Now to see that $\phi^{-1}_{\typeP}$ is supported by $s \udot \{a\}$ let $x \in
 \widehat{\typeP^{\freshfor a}}$ and let $\sigma$ be a permutation that fixes $s
 \udot \{a\}$.
 %
 % Supported by s+a (1)
-Let $p \in \sigma \cdot (\phi^{-1}_{\typeP} (x))$, then either $p \in \sigma
-\cdot x$ or $p \in \sigma \cdot (ab) \cdot x$ for some $b \freshfor x$. If $p
-\in \sigma \cdot x$ then certainly $p \in \phi^{-1}_{\typeP} (\sigma \cdot x)$.
-On the other hand, let $b$ be such that $b \freshfor x$ and $p \in \sigma \cdot
-(ab) \cdot x = (a\ (\sigma \cdot b)) \cdot \sigma \cdot x$. Since $b \freshfor
-x$ it follows that $\sigma \cdot b \freshfor \sigma \cdot x$ so that again $p
+Let $p \in \sigma \cdot (\phi^{-1}_{\typeP} (x))$ and let $b$ be a fresh name,
+then $p \in \sigma \cdot (ab) \cdot x = (ab) \cdot \sigma \cdot x$ and hence $p
 \in \phi^{-1}_{\typeP} (\sigma \cdot x)$.
 %
 % Supported by s+a (2)
-Conversely let $p \in \phi^{-1}_{\typeP} (\sigma \cdot x)$, then either $p \in
-\sigma \cdot x$ or $p \in (ab) \cdot \sigma \cdot x$ for some $b \freshfor
-\sigma \cdot x$. If $p \in \sigma \cdot x$ then $p \in \sigma \cdot
-\phi^{-1}_{\typeP}(x)$ immediately. On the other hand, let $b$ be such that $b
-\freshfor \sigma \cdot x$ and $p \in (ab) \cdot \sigma \cdot x = \sigma \cdot
-(a\ (\sigma^{-1} \cdot b)) \cdot x$. Since $b \freshfor \sigma \cdot x$ it
-follows that $\sigma^{-1} \cdot b \freshfor x$ so that again $p \in \sigma \cdot
-\phi^{-1}_{\typeP}(x)$. Therefore $\sigma \cdot \phi^{-1}_{\typeP}(x) =
-\phi^{-1}_{\typeP} (\sigma \cdot x)$ and hence $\phi^{-1}_{\typeP}$ is an arrow
-of $\mathbf{FMPre}_{s \udot \{a\}}$.
+Conversely let $p \in \phi^{-1}_{\typeP} (\sigma \cdot x)$ and let $b$ be a
+fresh name, then $p \in (ab) \cdot \sigma \cdot x = \sigma \cdot (ab) \cdot x$
+and hence $p \in \sigma \cdot \phi^{-1}_{\typeP} (x)$ as required.  Therefore
+$\sigma \cdot \phi^{-1}_{\typeP}(x) = \phi^{-1}_{\typeP} (\sigma \cdot x)$.  It
+is clear that $\phi^{-1}_{\typeP}$ is monotone, so this has shown that
+$\phi^{-1}_{\typeP}$ is indeed an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$.
 
 %
 % Inverses (1)
 To see that $\phi^{-1}_{\typeP} \circ \phi_{\typeP} =
-\mathbf{1}_{\widehat{\typeP}^{\freshfor a}}$, let
-$x \in \widehat{\typeP}^{\freshfor a}$ and attempt to show that
-$(\phi^{-1}_\typeP \circ \phi_{\typeP})(x) = x$. Let $p \in x$ and let $b$ be a
-fresh name. By assumption, $a \freshfor x$ so that $(ab) \cdot p \in x$.  Also
-$b \freshfor p$ so that $a \freshfor (ab) \cdot p$ and hence $(ab) \cdot p \in
-\phi_{\typeP}(x)$. Therefore $p \in (ab) \cdot \phi_{\typeP}(x)$ and $b
-\freshfor \phi_{\typeP}(x)$ so that finally $p \in (\phi^{-1}_{\typeP} \circ
-\phi_{\typeP}) (x)$. Conversely let $p \in (\phi^{-1}_{\typeP} \circ
-\phi_{\typeP}) (x)$, then either $p \in \phi_{\typeP}(x)$ or there exists $b$
-such that $b \freshfor \phi_{\typeP}(x)$ and $p \in (ab) \cdot
-\phi_{\typeP}(x)$. If $p \in \phi_{\typeP}(x)$ then $p \in x$ immediately.  On
-the other hand, let $b$ be such that $b \freshfor \phi_{\typeP}(x)$ and $p \in
-(ab) \cdot \phi_{\typeP}(x)$, then $p \in (ab) \cdot x$ and $b \freshfor p$.
-Therefore $(ab) \cdot p \in x$ and $a \freshfor (ab) \cdot p$ so that $(ab)
-\cdot p \in \phi_{\typeP}(x)$. Let $c$ be a fresh name, then \[p \in (ab) \cdot
-\phi_{\typeP}(x) = (ab) \cdot (bc) \cdot \phi_{\typeP}(x) \subseteq (ab) \cdot
-(bc) \cdot x = (bc) \cdot (ac) \cdot x = (bc) \cdot x \] so that $p = (bc) \cdot
-p \in x$. Therefore $\phi^{-1}_{\typeP} \circ \phi_{\typeP} =
+\mathbf{1}_{\widehat{\typeP}^{\freshfor a}}$, let $x \in
+\widehat{\typeP}^{\freshfor a}$ and show that $(\phi^{-1}_\typeP \circ
+\phi_{\typeP})(x) = x$ as follows. Let $p \in x$ and let $b$ be a fresh name. By
+assumption, $a \freshfor x$ so that $(ab) \cdot p \in x$.  Also $b \freshfor p$
+so that $a \freshfor (ab) \cdot p$ and hence $(ab) \cdot p \in
+\phi_{\typeP}(x)$. Therefore $p \in (ab) \cdot \phi_{\typeP}(x)$ and $b$ is
+fresh so that $p \in (\phi^{-1}_{\typeP} \circ \phi_{\typeP}) (x)$.  Conversely
+let $p \in (\phi^{-1}_{\typeP} \circ \phi_{\typeP}) (x)$ and let $b$ be a fresh
+name, then $p \in (ab) \cdot \phi_{\typeP}(x)$ so that $p \in (ab) \cdot x = x$.
+Therefore $\phi^{-1}_{\typeP} \circ \phi_{\typeP} =
 \mathbf{1}_{\widehat{\typeP}^{\freshfor a}}$.
 
 %
 % Inverses (2)
 To see that $\phi_{\typeP} \circ \phi^{-1}_{\typeP} =
 \mathbf{1}_{\widehat{\typeP^{\freshfor a}}}$, let $x \in
-\widehat{\typeP^{\freshfor a}}$ and attempt to show that $(\phi_{\typeP} \circ
-\phi^{-1}_\typeP) (x) = x$. Let $p \in x$ and let $b$ be a fresh name, then $a
-\freshfor p$ so that $p \in \phi^{-1}_{\typeP}(x)$ and hence $p \in
+\widehat{\typeP^{\freshfor a}}$ and show that $(\phi_{\typeP} \circ
+\phi^{-1}_\typeP) (x) = x$ as follows. Let $p \in x$, then $p \in
+\phi^{-1}_{\typeP}(x)$ and furthermore $a \freshfor p$ so that $p \in
 (\phi_{\typeP} \circ \phi^{-1}_{\typeP}) (x)$. Conversely, let $p \in
 (\phi_{\typeP} \circ \phi^{-1}_{\typeP}) (x)$, then $a \freshfor p$ and $p \in
-\phi^{-1}_{\typeP} (x)$ so that either $p \in x$ or there exists $b$ such that
-$b \freshfor x$ and $p \in (ab) \cdot x$. Suppose that the latter case holds,
-then $(ab) \cdot p \in x$ so that $a \freshfor (ab) \cdot p$ and hence $b
-\freshfor p$. Therefore $p = (ab) \cdot p \in x$. Therefore $\phi_{\typeP} \circ
+\phi^{-1}_{\typeP} (x)$ so that for a fresh name $b$, $p \in (ab) \cdot x$ and
+hence $p = (ab) \cdot p \in x$.  Therefore $\phi_{\typeP} \circ
 \phi_{\typeP}^{-1} = \mathbf{1}_{\widehat{\typeP^{\freshfor a}}}$. It follows
 immediately that $\phi^{-1}_{\typeP}$ is natural in $\typeP$, and hence that
-$\phi$ is a natural isomorphism $\widehat{(-)}^{\freshfor a} \to
-\widehat{(-)^{\freshfor a}}$ with inverse given by $\phi^{-1}$.  \end{proof}
+$\phi$ is a natural isomorphism with inverse given by $\phi^{-1}$ as required.
+\end{proof}
 
 \begin{lemma} Let $a \notin s$. The functors $\delta_a \widehat{(-)},
 \widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows
