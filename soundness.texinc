@@ -43,12 +43,12 @@ If $\ajudge{\typelift\typeP}{\bang{t}}{\bangaction}{t}$ then
 {\tjudge{s}{}{\bang{t}}{\typelift\typeP}}\] as required.
 
 \paragraph{Prefix Match} Suppose that
-$\ajudge{\typeP}{\matchx{s'}{u}{q}{x}{t}}{p}{t'}$ is derived from
+$\ajudge{\typeP}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{p}{t'}$ is derived from
 $\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}$ and $\ajudge{\typeQ}{u}{q}{u'}$,
 then \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{\sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ
-\sem{\tjudge{s}{}{\matchx{s'}{u}{q}{x}{t}}{\typeP}}} \\
+\sem{\tjudge{s}{}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}} \\
 %
 &=& \sem{p} \circ \epsilon_{\typeP} \circ {!}\sem{t} \circ
 \widehat{\phi_{\typeQp}} \circ \bigl(\sem{q} \circ \sem{u}\bigr)^{\freshfor s'}
