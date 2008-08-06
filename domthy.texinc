@@ -194,7 +194,7 @@ It remains to show that $\xi$ and $\epsilon$ satisfy the triangle identities.
 Let $x \in X^{\freshfor a}$ and let $b$ be fresh, then $(\epsilon_{X^{\freshfor
 a}} \circ \xi_X^{\freshfor a}) (x) = ([b].x)@a = (ab) \cdot x = x$ as $a
 \freshfor x$ so that $\epsilon_{(-)^{\freshfor a}} \circ \xi^{\freshfor a} =
-\mathbf{1}$.
+\mathbf{1}_{(-)^{\freshfor a}}$.
 
 Let $y' \in \delta_a Y$ and let $b$ be fresh, then \[ \begin{array}{rcl}
 (\delta_a \epsilon_Y \circ \xi_{\delta_a Y}) (y') 
@@ -209,8 +209,8 @@ Let $y' \in \delta_a Y$ and let $b$ be fresh, then \[ \begin{array}{rcl}
 %
 &=& [b].(y' @ b) = y'\\
 %
-\end{array}\] so that $ \delta_a \epsilon \circ \xi_{\delta_a} = \mathbf{1}$
-as required.  \end{proof}
+\end{array}\] so that $ \delta_a \epsilon \circ \xi_{\delta_a} =
+\mathbf{1}_{\delta_a}$ as required.  \end{proof}
 
 
 \subsection{Alternative Presentations of $\mathbf{FMPre}_s$.}
