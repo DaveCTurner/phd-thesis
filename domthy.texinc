@@ -309,9 +309,9 @@ for each $p \in \typeP$. These elements are (completely) prime: if $X \subseteq
 \widehat{\typeP}$ and $\{p\}_{\downarrow} \subseteq \bigcup X$ then $p \in
 \bigcup X$ so there exists $x \in X$ such that $p \in x$ and hence
 $\{p\}_{\downarrow} \subseteq x$. Conversely, every prime element is of this
-form: if $x$ is prime then $x \subseteq \bigcup \{\{p\}_{\downarrow} \mid p \in
-x\}$ so that there exists $p \in x$ such that $x \subseteq \{p\}_{\downarrow}$
-and hence $x = \{p\}_{\downarrow}$ as required.
+form: certainly $x \subseteq \bigcup \{\{p\}_{\downarrow} \mid p \in x\}$ so if
+$x$ is prime then there exists $p \in x$ such that $x \subseteq
+\{p\}_{\downarrow}$ and hence $x = \{p\}_{\downarrow}$ as required.
 
 Furthermore, each $x \in \widehat{\typeP}$ is the join of the prime elements
 below it so that $\widehat{\typeP}$ is a completely prime algebraic lattice: $x
