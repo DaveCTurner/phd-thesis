@@ -577,4 +577,14 @@ required.  It follows immediately that $\theta^{-1}_{\typeP}$ is natural in
 $\typeP$, and hence $\theta$ is a natural isomorphism with inverse given by
 $\theta^{-1}$ as required.  \end{proof}
 
+\subsection{Categories of FM-Continuous Maps}
+
+As in the development of HOPLA, linear maps are too restrictive to give a
+semantics for concurrent processes: it is desirable for a process to be able to
+perform actions spontaneously and without having received any input, but linear
+maps are join-preserving so that they preserve empty joins in particular and
+hence a linear process with no input can generate no output.
+
+TODO Failure of continuity for $\new{a}{x}$.
+
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
