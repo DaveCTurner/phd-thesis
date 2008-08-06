@@ -36,11 +36,9 @@
 \def\inactive{\termfont{\termhl nil}}
 \def\rec#1#2{\termfont{\termhl rec}\,{\termvar{#1}} \termfont{\termhl .} {#2}}
 \def\bang#1{\termfont{\termhl !}{#1}}
-\def\matchx#1#2#3#4#5{\termfont{\termhl [}{#1} \mathrel{\termfont{\termhl \#}} {#2} \mathrel{\termfont{\termhl >}}{#3}{\termfont{(#4)}} \mathrel{\termfont{\termhl =>}}{#5}\termfont{\termhl ]}}
 \def\matchz#1#2#3#4#5#6{\termfont{\termhl [}{#2} \mathrel{\termfont{\termhl >}}{#3}%
 {\termfont{({#4}:} {#6} \mathrel{\termfont{\termhl \#}} {#1} \termfont{)}}%
 \mathrel{\termfont{\termhl =>}}{#5}\termfont{\termhl ]}}
-%\def\match#1#2#3#4{\termfont{\termhl [}{#1} \mathrel{\termfont{\termhl >}}{#2}{\termfont{(#3)}} \mathrel{\termfont{\termhl =>}}{#4}\termfont{\termhl ]}}
 \def\abstract#1#2{{\termhl \lambda}\,{\termvar{#1}}\termfont{\termhl .}{#2}}
 \def\new#1#2{\termfont{\termhl new}\,{#1} \termfont{\termhl .}{#2}}
 \def\apply#1#2{{#1}\termfont{\termhl (}{#2}\termfont{\termhl )}}
