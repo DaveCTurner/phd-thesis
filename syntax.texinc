@@ -80,9 +80,9 @@ application} \\
 %
 &&\bigmid \abs{t} \bigmid \rep{t} && \text{recursive types}\\
 \end{array}\]
-The forms \[\rec{x}{t} \qquad \match{u}{p}{x}{t} \qquad \abstract{x}{t}\] all
-bind $\termvar{x}$ in $t$, and the set of free variables of $t$, $\fv{t}$, is
-defined in the usual way.
+The forms \[\rec{x}{t} \qquad \matchx{s}{u}{p}{x}{t} \qquad \abstract{x}{t}\]
+all bind $\termvar{x}$ in $t$, and the set of free variables of $t$, $\fv{t}$,
+is defined in the usual way.
 
 The nondeterministic sum may be over an infinite set $I$, but there are
 constraints to ensure that it behaves properly: the mapping $i \mapsto t_i$ is

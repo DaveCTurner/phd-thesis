@@ -50,7 +50,7 @@ $\termvar{y}$ in a term $t$ is defined by recursion on $t$ as follows.
 % }}}
 As discussed above, substitution is capture-avoiding in both names and variables,
 in the sense that for substitution into a term of the forms \[\rec{x}{t}
-\qquad \match{u}{p}{x}{t} \qquad \abstract{x}{t}\] the variable $\termvar{x}$
+\qquad \matchx{s}{u}{p}{x}{t} \qquad \abstract{x}{t}\] the variable $\termvar{x}$
 is assumed not to be free in $v$, and for substitution into a term of the form
 \[\new{a}{t}\] the name $a$ is chosen to be fresh for $v$.
 
