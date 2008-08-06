@@ -61,12 +61,12 @@ environment $\envcombine{()}{\envvarfresh{x}{\typeP}{s}}$.
 
 Terms are given by the following grammar, where $\termvar{x}$ ranges over
 variables, $a$ ranges over names, $s$ over finite sets of names, $p$ over
-actions and $\ell$ over labels.
+actions, $\ell$ over labels and $\typeP$ over types.
 \[\begin{array}{lclcl} t, u &::=&
 \quad \termvar{x} \bigmid \rec{x}{t} &\qquad&\text{variables; recursion}
 \\
 %
-&&\bigmid \bang{t} \bigmid \matchx{s}{u}{p}{x}{t} && \text{prefixing}\\
+&&\bigmid \bang{t} \bigmid \matchz{s}{u}{p}{x}{t}{\typeP} && \text{prefixing}\\
 %
 &&\bigmid \abstract{x}{t} \bigmid \apply{t}{u} &&\text{abstraction and
 application} \\
@@ -80,9 +80,9 @@ application} \\
 %
 &&\bigmid \abs{t} \bigmid \rep{t} && \text{recursive types}\\
 \end{array}\]
-The forms \[\rec{x}{t} \qquad \matchx{s}{u}{p}{x}{t} \qquad \abstract{x}{t}\]
-all bind $\termvar{x}$ in $t$, and the set of free variables of $t$, $\fv{t}$,
-is defined in the usual way.
+The forms \[\rec{x}{t} \qquad \matchz{s}{u}{p}{x}{t}{\typeP} \qquad
+\abstract{x}{t}\] all bind $\termvar{x}$ in $t$, and the set of free variables
+of $t$, $\fv{t}$, is defined in the usual way.
 
 The nondeterministic sum may be over an infinite set $I$, but there are
 constraints to ensure that it behaves properly: the mapping $i \mapsto t_i$ is
@@ -132,9 +132,9 @@ The permutation action on terms and actions is as follows.
 \sigma \cdot \left(\ndsum{i}{I}{t_i}\right) &=& \ndsum{i}{I}{(\sigma \cdot
 t_i)} \\
 %
-\multicolumn{3}{c}{\sigma \cdot (\matchx{s}{u}{p}{x}{t})} &=&
-\multicolumn{3}{c}{ \matchx{(\sigma \cdot s)}{(\sigma \cdot u)}{(\sigma \cdot
-p)}{x}{(\sigma \cdot t)}} \\ \sigma \cdot (\abstract{x}{t}) &=&
+\multicolumn{3}{c}{\sigma \cdot (\matchz{s}{u}{p}{x}{t}{\typeP})} &=&
+\multicolumn{3}{c}{ \matchz{(\sigma \cdot s)}{(\sigma \cdot u)}{(\sigma \cdot
+p)}{x}{(\sigma \cdot t)}{\typeP}} \\ \sigma \cdot (\abstract{x}{t}) &=&
 \abstract{x}{(\sigma \cdot t)} &&
 %
 \sigma \cdot (\apply{t}{u}) &=& \apply{(\sigma \cdot t)}{(\sigma \cdot u)} \\
