@@ -299,10 +299,10 @@ $\widehat{\typeP}$ has a join in $\widehat{\typeP}$ given by its union.
 
 Alternatively, $\widehat{\typeP}$ may be viewed as the monotone function space
 $\typeP^{\mathrm{op}} \to_{\mathrm{fs}} \mathbf{2}$ where $\mathbf{2}$ is the
-nontrivial two-element poset on $\{\top, \bot\}$. Elements $x \in
-\widehat{\typeP}$ correspond to their characteristic functions $\chi_x$ such
-that \[\chi_x(p) = \begin{cases} \top & \text{if $p \in x$} \\ \bot &
-\text{otherwise.} \end{cases}\]
+nontrivial poset on $\{\top, \bot\}$. Elements $x \in \widehat{\typeP}$
+correspond to their characteristic functions $\chi_x$ such that \[\chi_x(p) =
+\begin{cases} \top & \text{if $p \in x$} \\ \bot & \text{otherwise.}
+\end{cases}\]
 
 The order $\widehat{\typeP}$ contains elements of the form $\{p\}_{\downarrow}$
 for each $p \in \typeP$. These elements are (completely) prime: if $X \subseteq
