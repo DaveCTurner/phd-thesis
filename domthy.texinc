@@ -647,7 +647,180 @@ any $i$ as $a'$ was chosen to be fresh. Therefore if the map
 $\sem{\new{a}{\termvar{x}}}$ is to have the properties ascribed to it in
 new-HOPLA, it cannot be that it preserves directed joins.
 
-TODO Resolution.
+\subsubsection{FM-Continuity}
+
+In some sense the notion of limits of directed sets is the intuituionistic ---
+and therefore computational --- analogue of a limit of a (transfinite) sequence
+in point-set topology. Classically, a domain has limits of all increasing
+sequences iff it has limits of all directed sets: increasing sequences give rise
+to directed sets, and conversely given a well-ordered directed set the
+well-ordering gives rise to an increasing sequence. The Axiom of Choice ensures
+that all directed sets have well-orderings.
+
+However, the Axiom of Choice does not hold in the theory of FM sets, so the
+analogy between sequences and directed sets breaks down. An FM-sequence in a
+domain $D$ is a sequence (i.e. a function from some ordinal $\alpha$ to $D$)
+that is additionally finitely-supported. If the sequence is supported by $s$
+then each element must also be supported by $s$ since ordinals have empty
+support: this support is said to be \textit{uniform} since it applies uniformly
+to all of the elements of the sequence.  Furthermore any uniformly supported
+sequence is an FM-sequence.
+
+Classical sequences are to directed sets as uniformly supported sequences are to
+directed sets that are also uniformly supported. More precisely, A FM preorder
+has limits of all increasing uniformly supported sequences iff it has limits of
+all uniformly supported directed sets: well-orderings of a uniformly supported
+set are always finitely supported so the (external) Axiom of Choice gives rise
+to an (internal) well-ordering and the remainder of the proof is as in the
+classical case.
+
+\subsubsection{FM-Isolated Elements}
+
+Considering $\widehat{\typeP}$ as a domain of meanings for processes of type
+$\typeP$, it is now sensible to investigate the structure of the isolated (or
+compact or finite) elements of this domain with respect to FM-continuity.  An
+element $x$ is compact in this sense iff for all uniformly supported directed
+sets $X \subseteq \widehat{\typeP}$, if $x \subseteq \bigcup X$ then there
+exists $x' \in X$ such that $x \subseteq x'$.
+
+For example, all finitely-supported subsets of $\mathbb A$ are isolated in
+$\widehat{\mathbb A}$. To see this, let $x \subseteq \mathbb A$ be
+finitely-supported and such that $x \subseteq \bigcup X$ where $X \subseteq
+\widehat{\mathbb A}$ is directed and uniformly supported by $s$, then every
+element of $X$ is either a subset of $s$ or a superset of $\mathbb A \setminus
+s$. Therefore $X$ is finite, and since it is also directed there must exist $x'
+\in X$ such that $x \le x'$.
+
+More generally, if $\typeP$ is a FM-preorder then define \[\finelt{F}{s} =
+\bigcup_{\sigma \freshfor s} \sigma \cdot F_\downarrow\] where $F$ is a finite subset
+of $\typeP$ and $s$ is a finite set of names that contains the support of
+$\typeP$. Then every $x \in \widehat{\mathbb A}$ is of this form: either $x$ is
+finite and hence $x = \finelt{x}{\supp{x}}$ or else $x$ is cofinite and hence $x
+= \finelt{\{a\}}{\supp{x}}$ for any $a \in x$.
+
+TODO Move this lemma somewhere more appropriate - early discussion on nominal
+sets?  \begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
+mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
+permutations $\sigma$ such that $\sigma \freshfor A$ there exist permutations
+$\sigma_1$, $\sigma_2$, $\sigma_3$ such that $\sigma_1 \freshfor A \cup B$,
+$\sigma_3 \freshfor A \cup B$, $\supp{\sigma_2} \subseteq (B \cup D) \setminus
+A$ and $\sigma = \sigma_1 \sigma_2 \sigma_3$.  \end{lemma}
+
+\begin{proof} Represent $\sigma$ as a finite list of transpositions of names not
+in $A$ and proceed by induction on the length of the list.  \begin{itemize}
+%
+\item If the list is empty then $\sigma = \iota$ and $\sigma_1 = \sigma_2 =
+\sigma_3 = \iota$ is a factorisation in the desired form.
+%
+\item If the list is nonempty then write $\sigma = \sigma' \cdot (ab)$ where $a
+\notin A$ and $b \notin A$ and $\sigma' \freshfor A$. By induction there exist
+$\sigma_1$, $\sigma_2$ and $\sigma_3$ such that $\sigma' = \sigma_1 \sigma_2
+\sigma_3$ and $\sigma_1 \freshfor A \cup B$, $\sigma_3 \freshfor A \cup B$ and
+$\supp{\sigma_2} \subseteq (B \cup D) \setminus A$.  \begin{itemize}
+%
+\item If $a \notin B$ and $b \notin B$ then $\sigma'_3 = \sigma_3(ab) \freshfor
+A \cup B$ and $\sigma = \sigma_1 \sigma_2 \sigma'_3$ is a factorisation in the
+desired form. 
+%
+\item If $a \in B$ and $b \in B$ then $\sigma_3(ab) = (ab)\sigma_3$ so let
+$\sigma'_2 = \sigma_2(ab)$ which has $\supp{\sigma'_2} \subseteq (B \cup D)
+\setminus A$, so that $\sigma = \sigma_1 \sigma'_2 \sigma_3$ is a factorisation
+in the desired form.
+%
+\item Otherwise without loss of generality let $a \notin B$ and $b \in B$. Then
+$\sigma_3(ab) = (a'b)\sigma_3$ where $a' = \sigma_3 \cdot a \notin A \cup B$ since $a
+\notin A \cup B$ and $\sigma_3 \freshfor A \cup B$.  \begin{itemize}
+%
+\item If $a' \in D$ then let $\sigma'_2 = \sigma_2(a'b)$ which has
+$\supp{\sigma'_2} \subseteq (B \cup D) \setminus A$ so that $\sigma = \sigma_1
+\sigma'_2 \sigma_3$ is a factorisation in the desired form.
+%
+\item If $a' \notin D$ then let $c \in D$ be such that $\sigma_2 \cdot c \in D$,
+which exists since by assumption $|D| > |B|$. Then $(a'b) = (a'c)(bc)(a'c)$.
+Writing $c' = \sigma_2 \cdot c \in D$, then $\sigma = \sigma_1 (a'c') \sigma_2 (bc)
+(a'c) \sigma_3$. Let $\sigma'_1 = \sigma_1 (a'c')$, $\sigma'_2 = \sigma_2 (bc)$
+and $\sigma'_3 = (a'c) \sigma_3$, then $\sigma = \sigma'_1 \sigma'_2 \sigma'_3$
+is a factorisation in the desired form.
+%
+\end{itemize} \end{itemize} \end{itemize} \end{proof}
+
+\begin{lemma}\label{fineltextension} If $\supp{\typeP} \subseteq s \subseteq s'$
+and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq
+\typeP$ such that $\finelt{F}{s} = \finelt{F'}{s'}$.  \end{lemma}
+
+\begin{proof} Let $\bar{s} = s' \cup \bigcup_{p \in F} \supp{p}$ and note that
+since $F$ is finite, $\bar{s}$ is finite and $\supp{F} \subseteq \bar{s}$.  Let
+$s''$ be a finite set of fresh names of greater cardinality that $\bar{s}$ and
+let $\Sigma = \{\sigma \mid \supp{\sigma} \subseteq (\bar{s} \cup s'') \setminus
+s \}$.  Let $F' = \bigcup_{\sigma \in \Sigma} \sigma \cdot F$ and note that
+$\Sigma$ is finite, so that $F'$ is also finite. Show that $\finelt{F}{s} =
+\finelt{F'}{s'}$ as follows.
+
+Let $p \in \finelt{F}{s}$, then by definition there exists $\sigma$ and $p'$
+where $\sigma \freshfor s$, $p' \in F$ and $p \le_{\typeP} \sigma \cdot p'$.  By
+lemma \ref{footprint} there exists $\sigma_1$, $\sigma_2$, $\sigma_3$ such that
+$\sigma = \sigma_1 \sigma_2 \sigma_3$ where $\sigma_1 \freshfor \bar{s}$ and
+$\sigma_3 \freshfor \bar{s}$ and $\supp{\sigma_2} \subseteq (\bar{s} \cup s'')
+\setminus s$.
+
+Firstly, $\supp{F} \subseteq \bar{s}$ so that $\sigma_3 \cdot F = F$ and hence
+$\sigma_3 \cdot p' \in F$.  Also, since $\sigma_2 \in \Sigma$, $\sigma_2 \cdot
+\sigma_3 \cdot p' \in F'$.  Also, since $p \le_{\typeP} \sigma_1 \cdot \sigma_2
+\cdot \sigma_3 \cdot p'$ it follows that $\sigma_1^{-1} \cdot p \le_{\typeP} \sigma_2 \cdot
+\sigma_3 \cdot p' \in F'$ and hence $p \in \sigma_1 \cdot F'_{\downarrow}$.
+Finally, $\sigma_1 \freshfor s'$ so that $p \in \finelt{F'}{s'}$ as required.
+
+Conversely, let $p \in \finelt{F'}{s'}$, then there exists $\sigma$ and $p'$
+where $\sigma \freshfor s'$, $p' \in F'$ and $p \le_{\typeP} \sigma \cdot p'$.
+By definition of $F'$, there exists $\sigma'$ such that $p' \in \sigma' \cdot F$
+and $\sigma' \freshfor s$. Therefore $p \le_{\typeP} \sigma \cdot p' = \sigma
+\cdot \sigma' \cdot \sigma'^{-1} \cdot p' \in \sigma \cdot \sigma' \cdot F$.
+Furthermore, $s \subseteq s'$ so that $\sigma \sigma' \freshfor s$ and hence $p
+\in \finelt{F}{s}$ as required.
+\end{proof}
+
+\begin{lemma}
+\label{fineltsupport}The support of $\finelt{F}{s}$ is contained in $s$.
+\end{lemma}
+
+\begin{proof} It is sufficient to show that if $\sigma \freshfor s$ then $\sigma
+\cdot \finelt{F}{s} = \finelt{F}{s}$.  Let $p \in \finelt{F}{s}$, then there
+exists $\sigma' \freshfor s$ and $p' \in F$ such that $p \le \sigma' \cdot p'$.
+Then $\sigma \cdot p \le \sigma \cdot \sigma' \cdot p'$ and $\sigma\sigma'
+\freshfor s$ so that $\sigma \cdot p \in \finelt{F}{s}$ and hence $\sigma \cdot
+\finelt{F}{s} \subseteq \finelt{F}{s}$. The converse is similar.  \end{proof}
+
+\begin{lemma}\label{finelts} An element $x \in \widehat{\typeP}$ is isolated iff
+it is of the form $\finelt{F}{s}$ where $F$ is a finite subset of $\typeP$ and
+$s$ is a finite set of names that contains the support of $\typeP$.  \end{lemma}
+
+\begin{proof} Suppose that $\finelt{F}{s} \subseteq \bigcup X$ where $X
+\subseteq \widehat{\typeP}$ is uniformly supported and directed.  In the light
+of lemma \ref{fineltextension} suppose without loss of generality that $s$ is
+large enough to be a uniform support for $X$. Let $F = \{p_1, \ldots, p_n\}$,
+then for each $i \in \{1, \ldots, n\}$, $p_i \in \finelt{F}{s} \subseteq \bigcup
+X$ so there exists $x_i \in X$ such that $p_i \in x_i$. Since $X$ is directed,
+it contains an upper bound $\bar{x}$ for the $x_i$.  If $p \in \finelt{F}{s}$
+then $p \le_{\typeP} \sigma \cdot p_i$ for some $i \in \{1, \ldots, n\}$ and
+some $\sigma \freshfor s$. Therefore $p \in \sigma \cdot x_i \subseteq \sigma
+\cdot \bar{x}$, but $s$ is a uniform support for $X$ so that $\sigma \cdot
+\bar{x} = \bar{x}$ and hence $p \in \bar{x}$. Therefore $\finelt{F}{s}$ is
+isolated.
+
+Conversely, let $x \in \widehat{\typeP}$ be isolated, let $s = \supp{x} \cup
+\supp{\typeP}$ and define $X \subseteq \widehat{\typeP}$ by $X = \{\finelt{F}{s}
+\mid F \subseteq_{\mathrm{fin}} x\}$. From lemma \ref{fineltsupport} it follows
+that $X$ is uniformly supported by $s$, and it is clear that if $F_1
+\subseteq_{\mathrm{fin}} x$ and $F_2 \subseteq_{\mathrm{fin}} x$ then $F_1 \cup
+F_2 \subseteq_{\mathrm{fin}} x$ and $\finelt{F_1 \cup F_2}{s}$ is an upper bound
+for $\finelt{F_1}{s}$ and $\finelt{F_2}{s}$ so that $X$ is directed.  Therefore
+by the isolation of $x$ there exists $F \subseteq_{\mathrm{fin}} x$ such that $x
+\subseteq \finelt{F}{s}$. Furthermore, $\finelt{F}{s} \subseteq x$ as follows.
+Let $p \in \finelt{F}{s}$, then there exists $\sigma \freshfor s$ and $p' \in F$
+such that $p \le_{\typeP} \sigma \cdot p'$. Also, $F \subseteq x$ so that $p'
+\in x$, and $\sigma \freshfor s$ so that $\sigma \cdot x = x$ and hence $p
+\le_{\typeP} \sigma \cdot p' \in x \in \widehat{\typeP}$ so that $p \in x$.
+Therefore $x = \finelt{F}{s}$ as required.  \end{proof}
 
 
 
