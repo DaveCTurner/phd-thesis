@@ -624,7 +624,7 @@ satisfy the same operational semantics as new-HOPLA, and therefore \[\new{a}{a}
 
 Recall that in HOPLA substitution is given by composition of denotations. In
 new-HOPLA, substitution under a $\new{a}{(-)}$ ensures that $a$ is a fresh name
-before proceeding, but that has no effect here since $\ndsum{b}{\mathbb
+before proceeding, but any $a$ is fresh here since $\ndsum{b}{\mathbb
 A}{\labelaction{b}{\bang{\inactive}} }$ has empty support. Therefore
 \[\sem{\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
 }\bigr)}} = \sem{\new{a}{\termvar{x}}} \circ \sem{\ndsum{b}{\mathbb
