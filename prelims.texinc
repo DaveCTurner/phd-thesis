@@ -22,6 +22,7 @@ on the formal theory of monads\cite{street:monads} but the proof is elementary
 diagram-chasing so it is reproduced here.
 
 \begin{lemma}
+\label{adjunctionlift}
 Let $\mathcal{C}$ and $\mathcal{D}$ be categories. Let $(T, \eta, \mu)$ be a
 monad on $\mathcal{C}$ and let $(S, \theta, \nu)$ be a monad on $\mathcal{D}$.
 Let $F \dashv G : \mathcal{C} \leftrightarrows \mathcal{D}$ be an adjunction
