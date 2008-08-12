@@ -579,20 +579,21 @@ $\theta^{-1}$ as required.  \end{proof}
 
 Furthermore, the isomorphisms $\phi$ and $\theta$ defined above can be used to
 lift the adjunction $(-)^{\freshfor a} \dashv \delta_a$ to an adjunction
-$\mathbf{FMLin}_{s} \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$ as follows.
+$\mathbf{FMLin}_{s} \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$.  Firstly
+from the freeness property above (TODO?) each $\mathbf{FMLin}_s$ is equivalent
+to the Kleisli category of the monad $\langle \widehat{(-)}, \{\cdot\},
+\mathord{\cup}\rangle$ on $\mathbf{FMPre}_{s}$. Therefore it is enough to show
+the following.
 
-\begin{lemma}
-There is an adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ :
-\mathbf{FMLin}_{s} \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$,
-where the operation $(-)^+$ is as defined in the statement of lemma
-\ref{adjunctionlift}.
-\end{lemma}
+\begin{lemma} There is an adjunction \[(-)^{\freshfor a+} \dashv \delta_a^+ :
+\mathrm{Kl}\bigl(\widehat{(-)} \text{ on } \mathbf{FMPre}_s\bigr)
+\leftrightarrows \mathrm{Kl}\bigl(\widehat{(-)} \text{ on } \mathbf{FMPre}_{s
+\udot \{a\}}\bigr),\] where $(-)^{\freshfor a+}$ and $\delta_a^+$ are defined as
+in the statement of lemma \ref{adjunctionlift}.  \end{lemma}
 
 \begin{proof}
-The freeness property (TODO) demonstrates that $\mathbf{FMLin}_s$
-is equivalent to $\mathrm{Kl}\bigl(\widehat{(-)}\bigr)$ where $\widehat{(-)}$
-is the monad on $\mathbf{FMPre}_s$ described above (TODO?). By lemma
-\ref{adjunctionlift} it is sufficient to show that the diagrams below commute.
+By lemma \ref{adjunctionlift} it is sufficient to show that the diagrams below
+commute.
 \[\begin{array}{ccc}
 \xymatrix{
 \typeP^{\freshfor a} \ar[r]^{\{\cdot\}_{\typeP}^{\freshfor a}} 
@@ -639,6 +640,13 @@ is the monad on $\mathbf{FMPre}_s$ described above (TODO?). By lemma
 \widehat{\typeP} &
 \widehat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\epsilon_{\typeP}}}}
 \end{array}\]
+
+Let $p \in \typeP^{\freshfor a}$ and let $p' \in \{\cdot\}_{\typeP^{\freshfor
+a}} p$, then $p' \le_{\typeP^{\freshfor a}}$ and hence $p' \le_{\typeP} p$ and
+$a \freshfor p'$ so that $p' \in \phi_{\typeP} \circ
+\{\cdot\}_{\typeP}^{\freshfor a} p$. The converse case is similar.
+
+TODO blimey this is tedious.
 \end{proof}
 
 \subsection{Categories of FM-Continuous Maps}
