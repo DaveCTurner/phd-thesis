@@ -588,19 +588,23 @@ hence a linear process with no input can generate no output.
 The solution to this issue could be to consider maps which are continuous (with
 respect to some notion of approximation) rather than merely linear. In the
 development of HOPLA, continuity was chosen to mean `preserves directed joins'
-but this is not a suitable choice in $\mathbf{FMLin}_s$, because the operation
-of binding a name is not continuous in this sense.  To see this it is necessary
-to speculate a little about what a nominal process calculus might look like.
+but it will be shown that this is not a suitable choice in $\mathbf{FMLin}_s$.
 
-The intention is to extend HOPLA with a term former $\new{a}{t}$ whose intended
-meaning is to bind the name $a$ in the outputs of $t$, and in particular there
-will be a term $\new{a}{\termvar{x}}$ (where $\termvar{x}$ is a free variable)
-which receives a process as input and binds the name $a$ in its output. As the
-effect of $\new{a}{t}$ is to bind $a$, if $b$ is a fresh name then it should be
-the case that $\new{a}{t} = \new{b}{\bigl((ab) \cdot t\bigr)}$, and in
-particular the name $a$ should not be in the support of $\new{a}{t}$. The
-semantics of $\new{a}{t}$ are motivated by the corresponding term former in
+\subsubsection{Name-Binding is Discontinuous}
+
+It is now necessary to speculate a little on what a nominal extension to HOPLA
+may look like. This speculation is motivated by the development of
 new-HOPLA\cite{zappanardelliwinskel}.
+
+A key feature of a nominal extension to HOPLA would be terms of the form
+$\new{a}{t}$ whose intended meaning is to bind the name $a$ in the outputs of
+$t$. In particular there will be a term $\new{a}{\termvar{x}}$ (where
+$\termvar{x}$ is a free variable) which receives a process as input and binds
+the name $a$ in its output. As the effect of $\new{a}{t}$ is to bind $a$, if $b$
+is a fresh name then it should be the case that $\new{a}{t} = \new{b}{\bigl((ab)
+\cdot t\bigr)}$, and in particular the name $a$ should not be in the support of
+$\new{a}{t}$. The semantics of $\new{a}{t}$ are motivated by the semantics of
+$\new{\alpha}{t}$ from new-HOPLA.
 
 Now consider the term $\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}}$
 which nondeterministically chooses a name $b$ and outputs it. Recall that the
