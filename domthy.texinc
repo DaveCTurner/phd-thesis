@@ -621,7 +621,7 @@ The term $\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
 satisfy the same operational semantics as new-HOPLA, and therefore \[\new{a}{a}
 \in \sem{\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
 }\bigr)}}.\]
-%
+
 Recall that in HOPLA substitution is given by composition of denotations. In
 new-HOPLA, substitution under a $\new{a}{(-)}$ ensures that $a$ is a fresh name
 before proceeding, but that has no effect here since $\ndsum{b}{\mathbb
@@ -630,7 +630,7 @@ A}{\labelaction{b}{\bang{\inactive}} }$ has empty support. Therefore
 }\bigr)}} = \sem{\new{a}{\termvar{x}}} \circ \sem{\ndsum{b}{\mathbb
 A}{\labelaction{b}{\bang{\inactive}} }} = \sem{\new{a}{\termvar{x}}} (\mathbb
 A).\]
-%
+
 Now $\mathbb A = \bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A} B$ is a directed
 join, so if $\sem{\new{a}{\termvar{x}}}$ is continuous then
 \[\sem{\new{a}{\termvar{x}}} (\mathbb A) = \sem{\new{a}{\termvar{x}}}
@@ -641,7 +641,7 @@ follows that $\new{a}{a} \in \bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A}
 \[\newaction{a}{a} \in \sem{\new{a}{\termvar{x}}} \{b_1, \ldots, b_n\} =
 \sem{\new{a}{\termvar{x}}} \circ \sem{\linj{b_1}{\bang{\inactive}}
 \mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}} \linj{b_n}{\bang{\inactive}}}.\]
-%
+
 Again, note that substitution under a $\new{a}{(-)}$ ensures that $a$ is a fresh
 name in new-HOPLA. In particular we may choose $a'$ so that it is distinct from
 the $b_i$ and rewrite $\new{a}{\termvar{x}}$ as $\new{a'}{\termvar{x}}$ since
