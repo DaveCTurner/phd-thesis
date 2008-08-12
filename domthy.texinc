@@ -618,8 +618,8 @@ A}{\labelaction{b}{\bang{\inactive}}}} = \mathbb A.\]
 
 The term $\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
 }\bigr)}$ should be able to output a bound name $\newaction{a}{a}$ if it is to
-validate the operational semantics of new-HOPLA, and therefore \[\new{a}{a} \in
-\sem{\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
+satisfy the same operational semantics as new-HOPLA, and therefore \[\new{a}{a}
+\in \sem{\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
 }\bigr)}}.\]
 %
 Recall that in HOPLA substitution is given by composition of denotations. In
