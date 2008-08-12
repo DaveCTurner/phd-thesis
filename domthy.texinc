@@ -612,8 +612,9 @@ which nondeterministically chooses a name $b$ and outputs it. Recall that the
 types of HOPLA terms correspond to the actions that it can do, so the type of
 this process will be (isomorphic to) $\mathbb A$ since its actions are
 (essentially) outputs of elements of $\mathbb A$. Furthermore, it is closed so
-its denotation will simply be a subset of $\mathbb A$, and it must be all of
-$\mathbb A$ since it can output any name.
+its denotation will simply be a subset of $\mathbb A$, and since it can output
+any name it must be that \[ \sem{\ndsum{b}{\mathbb
+A}{\labelaction{b}{\bang{\inactive}}}} = \mathbb A.\]
 
 The term $\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
 }\bigr)}$ should be able to output a bound name $\newaction{a}{a}$ if it is to
