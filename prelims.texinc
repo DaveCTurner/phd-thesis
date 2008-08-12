@@ -1,6 +1,26 @@
 \section{Preliminaries}
 \label{prelims}
 
+In a situation
+\[
+\xymatrix{
+\mathcal{C}
+\ar@/^2ex/[rr]^{F}
+\ar@(ul,dl)_{T}
+&
+\bot
+&
+\mathcal{D}
+\ar@/^2ex/[ll]^{G}
+\ar@(ur,dr)^{S}
+}
+\]
+where $T$ and $S$ are monads and all the functors satisfy certain coherence
+conditions, it is possible to `lift' the adjunction $F \dashv G$ to the
+respective Kleisli categories of $T$ and $S$. This follows from abstract results
+on the formal theory of monads\cite{street:monads} but the proof is elementary
+diagram-chasing so it is reproduced here.
+
 \begin{lemma}
 Let $\mathcal{C}$ and $\mathcal{D}$ be categories. Let $(T, \eta, \mu)$ be a
 monad on $\mathcal{C}$ and let $(S, \theta, \nu)$ be a monad on $\mathcal{D}$.
