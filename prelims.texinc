@@ -1,5 +1,331 @@
 \section{Preliminaries}
 \label{prelims}
 
+\begin{lemma}
+Let $\mathcal{C}$ and $\mathcal{D}$ be categories. Let $(T, \eta, \mu)$ be a
+monad on $\mathcal{C}$ and let $(S, \theta, \nu)$ be a monad on $\mathcal{D}$.
+Let $F \dashv G : \mathcal{C} \leftrightarrows \mathcal{D}$ be an adjunction
+with unit $\xi$ and counit $\epsilon$. Let $k : FT \to SF$ and $h : GS \to TG$
+be natural transformations such that the following diagrams commute.
+\begin{gather}
+\label{ktriangle}
+\xymatrix{
+F \ar[r]^{F\eta} 
+\ar[dr]_{\theta_F} & 
+FT \ar[d]^{k} \\ & SF}
+%
+\\
+%
+\label{kpentagon}
+\xymatrix{
+FTT \ar[r]^{F\mu} \ar[d]^{k_T} &
+FT \ar[dd]^{k} \\
+SFT \ar[d]^{Sk} \\
+SSF \ar[r]^{\nu_F} &
+SF}
+%
+\\
+%
+\label{htriangle}
+\xymatrix{
+G \ar[r]^{G\theta} 
+\ar[dr]_{\eta_G} & 
+GS \ar[d]^{h} \\ & TG}
+%
+\\
+%
+\label{hpentagon}
+\xymatrix{
+GSS \ar[r]^{G\nu} \ar[d]^{h_S} &
+GS \ar[dd]^{h} \\
+TGS \ar[d]^{Th} \\
+TTG \ar[r]^{\mu_G} &
+TG}
+%
+\\
+%
+\label{Tsquare}
+\xymatrix{
+T \ar[r]^{T\xi} 
+\ar[d]^{\xi_T} & 
+TGF \\
+GFT \ar[r]^{Gk} & 
+GSF \ar[u]_{h_F}}
+%
+\\
+%
+\label{Ssquare}
+\xymatrix{
+FGS \ar[r]^{Fh} 
+\ar[d]^{\epsilon_S} & 
+FTG \ar[d]^{k_G} \\
+S &
+SFG \ar[l]_{S\epsilon}}
+\end{gather}
+
+% TODO Better typesetting - in a table - but can't work out how to do the
+% numbers.
+
+For all objects $A$ of $\mathcal{C}$ define $F^+A = FA$ and for all arrows $f :
+A \to TB$ of $\mathcal{C}$ define $F^+f = k_B \circ Ff$.  For all objects $A$ of
+$\mathcal{D}$ define $G^+A = GA$ and for all arrows $g : A \to SB$ of
+$\mathcal{D}$ define $G^+f = h_B \circ Gf$.  Then there is an adjunction $F^+
+\dashv G^+ : \mathrm{Kl}(T) \leftrightarrows \mathrm{Kl}(S)$ with unit $\xi^+ =
+\eta_{GF} \circ \xi$ and counit $\epsilon^+ = \theta \circ \epsilon$.
+\end{lemma}
+
+\begin{proof}
+The proof proceeds by unwinding definitions and diagram-chasing as follows.
+
+\paragraph{$F^+$ is a functor $\mathrm{Kl}(T) \to \mathrm{Kl}(S)$:} Let $A$ be
+an object of $\mathrm{Kl}(T)$, then the identity on $A$ is given by $\eta_A$ in
+$\mathcal{C}$. Then by (\ref{ktriangle}), $F^+\eta_A = k_A \circ F \eta_A =
+\theta_{FA}$ which is the identity on $FA = F^+A$ in $\mathrm{Kl}(S)$ as
+required.
+
+Let $f : A \to B$ and $g : B \to C$ be arrows in $\mathrm{Kl}(T)$, then
+the following diagram commutes in $\mathcal{D}$ by naturality of $k$ and
+(\ref{kpentagon}).
+\[\xymatrix{
+FA 
+	\ar[r]^{Ff}
+&
+FTB
+	\ar[r]^{FTg} 
+	\ar[d]^{k_B}
+&
+FTTC
+	\ar[r]^{F\mu_C}
+	\ar[d]^{k_{TC}}
+&
+FTC
+	\ar[dd]^{k_C}
+\\&
+SFB
+	\ar[r]^{SFg}
+&
+SFTC
+	\ar[d]^{Sk_C}
+\\&&
+SSFC
+	\ar[r]^{\nu_{FC}}
+&
+SFC
+}\]
+In $\mathrm{Kl}(S)$, the compositions along the top and bottom of this diagram
+are the arrows $F^+(g \circ f)$ and $F^+g \circ F^+f$ respectively, which shows
+that $F^+$ is a functor.
+
+\paragraph{$G^+$ is a functor $\mathrm{Kl}(S) \to \mathrm{Kl}(T)$:} Let $A$ be
+an object of $\mathrm{Kl}(S)$, then the identity on $A$ is given by $\theta_A$
+in $\mathcal{D}$. Then by (\ref{htriangle}), $G^+\theta_A = h_A \circ G \theta_A
+= \eta_{GA}$ which is the identity on $GA = G^+A$ in $\mathrm{Kl}(T)$ as
+required.
+
+Let $f : A \to B$ and $g : B \to C$ be arrows in $\mathrm{Kl}(S)$, then
+the following diagram commutes in $\mathcal{C}$ by naturality of $h$ and
+(\ref{hpentagon}).
+\[\xymatrix{
+GA 
+	\ar[r]^{Gf}
+&
+GSB
+	\ar[r]^{GSg} 
+	\ar[d]^{h_B}
+&
+GSSC
+	\ar[r]^{G\nu_C}
+	\ar[d]^{h_{SC}}
+&
+GSC
+	\ar[dd]^{h_C}
+\\&
+TGB
+	\ar[r]^{TGg}
+&
+TGSC
+	\ar[d]^{Th_C}
+\\&&
+TTGC
+	\ar[r]^{\mu_{GC}}
+&
+TGC
+}\]
+In $\mathrm{Kl}(T)$ the compositions along the top and bottom of this diagram
+are the arrows $G^+(g \circ f)$ and $G^+g \circ G^+f$ respectively, which shows
+that $G^+$ is a functor.
+
+\paragraph{$\xi^+$ is a natural transformation $\mathbf{1} \to G^+F^+$:}
+Let $f : A \to B$ be an arrow of $\mathrm{Kl}(T)$. The following diagram
+commutes in $\mathcal{C}$ by naturality of $\eta$ and $\xi$, the monad laws for $T$,
+and (\ref{Tsquare}).
+\[\xymatrix{
+A
+	\ar[r]^{f}
+	\ar[d]^{\xi_A}
+&
+TB
+	\ar`r[drr]^{T\xi_B} [drr]
+	\ar[d]^{\xi_{TB}}
+\\
+GFA
+	\ar[r]^{GFf}
+	\ar[d]^{\eta_{GFA}}
+&
+GFTB
+	\ar[r]^{Gk_B}
+&
+GSFB
+	\ar[r]^{h_{FB}}
+&
+TGFB
+	\ar[r]^{T\eta_{GFB}}
+	\ar[d]_{\eta_{TGFB}}
+	\ar@{=}[dr]
+&
+TTGFB
+	\ar[d]^{\mu_{GFB}}
+\\
+TGFA
+	\ar[r]^{TGFf}
+&
+TGFTB
+	\ar[r]^{TGk_B}
+&
+TGSFB
+	\ar[r]^{Th_{FB}}
+&
+TTGFB
+	\ar[r]^{\mu_{GFB}}
+&
+TGFB
+}\]
+In $\mathrm{Kl}(T)$ the compositions along the top and bottom of this diagram
+are the arrows $\xi^+_B \circ f$ and $G^+F^+f \circ \xi^+_A$ respectively, which shows
+that $\xi^+$ is natural.
+
+\paragraph{$\epsilon^+$ is a natural transformation $F^+G^+ \to \mathbf{1}$:}
+Let $f : A \to B$ be an arrow of $\mathrm{Kl}(S)$. The following diagram
+commutes in $\mathcal{D}$ by naturality of $\epsilon$ and $\theta$, the monad
+laws for $S$ and (\ref{Ssquare}).
+\[\xymatrix{
+FGA
+	\ar[r]^{FGf}
+	\ar[d]^{\epsilon_A}
+&
+FGSB
+	\ar[r]^{Fh_B}
+	\ar[d]_{\epsilon_{SB}}
+&
+FTGB
+	\ar[r]^{k_{GB}}
+&
+SFGB
+	\ar@<+4pt> `d[ll] `l[dll]_{S\epsilon_B} [dll]
+\\
+A
+	\ar[r]^f
+	\ar[d]^{\theta_A}
+&
+SB
+	\ar[r]_{S\theta_B}
+	\ar[d]_{\theta_{SB}}
+	\ar@{=}[dr]
+&
+SSB
+	\ar[d]^{\nu_B}
+\\
+SA
+	\ar[r]^{Sf}
+&
+SSB
+	\ar[r]_{\nu_B}
+&
+SB
+}\]
+In $\mathrm{Kl}(S)$ the compositions around the outside of this diagram
+clockwise and anticlockwise 
+are the arrows $\epsilon^+_B \circ F^+G^+ f$ and $f \circ \epsilon^+_A$ respectively, which shows
+that $\epsilon^+$ is natural.
+
+\paragraph{$\xi^+$ and $\epsilon^+$ satisfy the triangular identities:}
+The following diagram commutes in $\mathcal{C}$ by naturality of $\eta$, the
+monad laws for $T$, the triangular identity for $G$ and (\ref{htriangle}).
+\[\xymatrix{
+&
+TGFGA
+	\ar[r]^{TG\epsilon_A}
+&
+TGA
+	\ar[r]^{TG\theta_A}
+&
+TGSA
+	\ar[r]^{Th_A}
+&
+TTGA
+	\ar[r]^{\mu_{GA}}
+&
+TGA
+\\
+GA
+	\ar@/_6ex/@{=}[rr]
+	\ar[r]^{\xi_{GA}}
+&
+GFGA
+	\ar[u]^{\eta_{GFGA}}
+	\ar[r]^{G\epsilon_A}
+&
+GA
+	\ar@/_6ex/[rr]_{\eta_{GA}}
+	\ar[r]^{G\theta_A}
+&
+GSA
+	\ar[r]^{h_A}
+&
+TGA
+	\ar@{=}[ur]
+	\ar[u]^{\eta_{TGA}}
+}\]
+In $\mathrm{Kl}(T)$ the compositions along the top and bottom of this diagram
+are the arrows $G^+\epsilon^+_A \circ \xi_{G^+A}$ and the identity on $GA$
+respectively, which demonstrates the triangular identity for $G^+$.
+
+The following diagram commutes in $\mathcal{D}$ by the naturality of $\theta$, 
+the monad laws for $S$, the triangular identity for $F$ and (\ref{ktriangle}).
+\[
+\raisebox{-15ex}{\rule{0pt}{10ex}}
+\xymatrix{
+FTGFA
+	\ar[r]^{k_{GFA}}
+&
+SFGFA
+	\ar[r]^{S\epsilon_{FA}}
+&
+SFA
+	\ar[r]^{S\theta_{FA}}
+	\ar@{=}[dr]
+&
+SSFA
+	\ar[d]^{\nu_{FA}}
+\\
+FA
+	\ar@/_6ex/@{=}[rr]
+	\ar[r]_{F\xi_A}
+&
+FGFA
+	\ar[ul]^{F\eta_{GFA}}
+	\ar[u]_{\theta_{FGFA}}
+	\ar[r]^{\epsilon_{FA}}
+&
+FA
+	\ar[u]^{\theta_{FA}}
+&
+SFA
+}\]
+In $\mathrm{Kl}(S)$ the compositions along the top and bottom of this diagram
+are the arrows $\epsilon^+_{F^+A} \circ F^+ \xi_{A}$ and the identity on $FA$
+respectively, which demonstrates the triangular identity for $F^+$. This
+completes the proof.
+\end{proof}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
