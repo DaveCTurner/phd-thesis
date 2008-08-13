@@ -84,13 +84,10 @@ The proof proceeds by unwinding definitions and diagram-chasing as follows.
 
 \paragraph{$F^+ : \mathrm{Kl}(T) \to \mathrm{Kl}(S)$ is a functor:} Let $A$ be
 an object of $\mathrm{Kl}(T)$, then the identity on $A$ is given by $\eta_A$ in
-$\mathcal{C}$. Then by (a), $F^+\eta_A = k_A \circ F \eta_A =
-\theta_{FA}$ which is the identity on $FA = F^+A$ in $\mathrm{Kl}(S)$ as
-required.
-
-Let $f : A \to B$ and $g : B \to C$ be arrows in $\mathrm{Kl}(T)$, then
-the following diagram commutes in $\mathcal{D}$ by naturality of $k$ and
-(b).
+$\mathcal{C}$. Then by (a), $F^+\eta_A = k_A \circ F \eta_A = \theta_{FA}$ which
+is the identity on $FA = F^+A$ in $\mathrm{Kl}(S)$ as required.  Now let $f : A
+\to B$ and $g : B \to C$ be arrows in $\mathrm{Kl}(T)$, then the following
+diagram commutes in $\mathcal{D}$ by naturality of $k$ and (b).
 \[\xymatrix{
 FA 
 	\ar[r]^{Ff}
@@ -121,15 +118,12 @@ In $\mathrm{Kl}(S)$, the compositions along the top and bottom of this diagram
 are the arrows $F^+(g \circ f)$ and $F^+g \circ F^+f$ respectively, which shows
 that $F^+$ is a functor.
 
-\paragraph{$G^+:\mathrm{Kl}(S) \to \mathrm{Kl}(T)$ is a functor:} Let $A$ be
-an object of $\mathrm{Kl}(S)$, then the identity on $A$ is given by $\theta_A$
-in $\mathcal{D}$. Then by (d), $G^+\theta_A = h_A \circ G \theta_A
-= \eta_{GA}$ which is the identity on $GA = G^+A$ in $\mathrm{Kl}(T)$ as
-required.
-
-Let $f : A \to B$ and $g : B \to C$ be arrows in $\mathrm{Kl}(S)$, then
-the following diagram commutes in $\mathcal{C}$ by naturality of $h$ and
-(e).
+\paragraph{$G^+:\mathrm{Kl}(S) \to \mathrm{Kl}(T)$ is a functor:} Let $A$ be an
+object of $\mathrm{Kl}(S)$, then the identity on $A$ is given by $\theta_A$ in
+$\mathcal{D}$. Then by (d), $G^+\theta_A = h_A \circ G \theta_A = \eta_{GA}$
+which is the identity on $GA = G^+A$ in $\mathrm{Kl}(T)$ as required.  Now let
+$f : A \to B$ and $g : B \to C$ be arrows in $\mathrm{Kl}(S)$, then the
+following diagram commutes in $\mathcal{C}$ by naturality of $h$ and (e).
 \[\xymatrix{
 GA 
 	\ar[r]^{Gf}
