@@ -100,18 +100,18 @@ FTB
 	\ar[d]^{k_B}
 &
 FTTC
-	\ar[r]^{F\mu_C}
+	\ar[rr]^{F\mu_C}
 	\ar[d]^{k_{TC}}
-&
+&&
 FTC
-	\ar[dd]^{k_C}
+	\ar[d]^{k_C}
 \\&
 SFB
 	\ar[r]^{SFg}
 &
 SFTC
-	\ar[d]^{Sk_C}
-\\&&
+	\ar[r]^{Sk_C}
+&
 SSFC
 	\ar[r]^{\nu_{FC}}
 &
@@ -139,18 +139,18 @@ GSB
 	\ar[d]^{h_B}
 &
 GSSC
-	\ar[r]^{G\nu_C}
+	\ar[rr]^{G\nu_C}
 	\ar[d]^{h_{SC}}
-&
+&&
 GSC
-	\ar[dd]^{h_C}
+	\ar[d]^{h_C}
 \\&
 TGB
 	\ar[r]^{TGg}
 &
 TGSC
-	\ar[d]^{Th_C}
-\\&&
+	\ar[r]^{Th_C}
+&
 TTGC
 	\ar[r]^{\mu_{GC}}
 &
