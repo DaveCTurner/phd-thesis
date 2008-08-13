@@ -472,14 +472,12 @@ $\ajudge{\typeP}{t}{\newaction{b}{(ab) \cdot p}}{\new{b}{t'}}$, and by
 $\alpha$-equivalence $\newaction{b}{(ab) \cdot p} = \newaction{a}{p}$ so that
 finally $\ajudge{\typeP}{t}{\newaction{a}{p}}{\new{b}{t'}}$.
 
-It remains to show that $\logrel{P}{\typedelta\typePp}{\new{b}{t'}}$. Let
-$x \in P$ and recall that $P = \theta^{!}_{\typePp} P' = \{x \mid
-\mathop{\mathbf{fresh}} b \mathop{\mathbf{in}} x@b \in P'@b\}$. Let $b$ be
-fresh, then $x = \newpath{b}{x'}$ and $x' \in P'@b$. Furthermore,
-$\logrel{P'@b}{\typePp}{t'}$ so that
-$\login{x'}{\typePp}{t'}$. By the
-operational semantics, $\oprel{t'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ so that
-$\login{x'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ and hence
+It remains to show that $\logrel{P}{\typedelta\typePp}{\new{b}{t'}}$. Let $x \in
+P$ and recall that $P = \theta^{!}_{\typePp} P' = \{x \mid \freshin{b}{x@b \in
+P'@b}\}$. Let $b$ be fresh, then $x = \newpath{b}{x'}$ and $x' \in P'@b$.
+Furthermore, $\logrel{P'@b}{\typePp}{t'}$ so that $\login{x'}{\typePp}{t'}$. By
+the operational semantics, $\oprel{t'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ so
+that $\login{x'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ and hence
 $\login{x}{\typedelta\typePp}{\new{b}{t'}}$, as required.
 
 \paragraph{Recursive Type Action} Let \[X' = \{ p' \mid \abspath{p'} \in X \}\]

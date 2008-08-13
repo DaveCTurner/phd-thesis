@@ -27,6 +27,7 @@
 \def\finelt#1#2{\langle{#1}\rangle_{#2}}
 \def\udot{\mathrel{\dot{\cup}} }
 \def\amp{\mathop{\&}}
+\def\freshin#1#2{\mathop{\mathbf{fresh}} {#1} \mathop{\mathbf{in}} {#2}}
 % }}}
 
 % TERM SYNTAX MACROS {{{

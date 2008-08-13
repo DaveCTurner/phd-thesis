@@ -89,14 +89,12 @@ functor $j^* : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$.
 
 For all $s$ and $a \notin s$ there is a functor $\delta_a : \mathbf{FMPre}_{s
 \udot a} \to  \mathbf{FMPre}_s$ defined as follows. If $X$ is an object of
-$\mathbf{FMPre}_{s \udot \{a\}}$ then \[\delta_a X = \{x' \mid
-\mathop{\mathbf{fresh}} b \mathop{\mathbf{in}} x' @ b \in (ab) \cdot X \},\] and
-if $x'_1$ and $x'_2$ are elements of $\delta_a X$ then \[x'_1 \le_{\delta_a X}
-x'_2 \qquad \Leftrightarrow \qquad \mathop{\mathbf{fresh}} b
-\mathop{\mathbf{in}} x'_1 @ b \le_{(ab) \cdot X} x'_2 @ b.\] If $f : X \to Y$ is
-an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$ and $x' \in \delta_a X$ then define
-\[\delta_a f (x') = \mathop{\mathbf{fresh}} b \mathop{\mathbf{in}}
-[b].\bigl((ab) \cdot f) (x' @ b).\]
+$\mathbf{FMPre}_{s \udot \{a\}}$ then \[\delta_a X = \{x' \mid \freshin{b}{x' @
+b \in (ab) \cdot X \}},\] and if $x'_1$ and $x'_2$ are elements of $\delta_a X$
+then \[x'_1 \le_{\delta_a X} x'_2 \qquad \Leftrightarrow \qquad \freshin{b}{x'_1
+@ b \le_{(ab) \cdot X} x'_2 @ b}.\] If $f : X \to Y$ is an arrow of
+$\mathbf{FMPre}_{s \udot \{a\}}$ and $x' \in \delta_a X$ then define \[\delta_a
+f (x') = \freshin{b}{[b].\bigl((ab) \cdot f) (x' @ b)}.\]
 
 \begin{lemma}The operation $\delta_a$ defined above is a functor.\end{lemma}
 
@@ -145,13 +143,13 @@ to see that the action of $\delta_a$ is functorial.  \end{proof}
 
 \begin{proof} For each object $X$ of $\mathbf{FMPre}_s$ define $\xi_X : X \to
 \delta_a(X^{\freshfor a})$ as an arrow of $\mathbf{FMPre}_s$ by \[\xi_X(x) =
-\mathop{\mathbf{fresh}} b \mathop{\mathbf{in}} [b].x.\] Let $x \in X$ and let
-$b$ be a fresh name. Since $s$ supports $X$, $(ab) \cdot X = X$ so that $(ab)
-\cdot x \in X$. Furthermore $b$ is fresh for $x$ so that $a$ is fresh for $(ab)
-\cdot x$ and hence $(ab) \cdot x \in X^{\freshfor a}$, so that $([b].x)@b = x
-\in (ab) \cdot (X^{\freshfor a})$. Therefore $\xi_X(x) = [b].x \in \delta_a
-(X^{\freshfor a})$ so that $\xi_X$ is well-defined. It is not hard to see that
-$\xi_X$ is supported by $s$ and that it is monotone.
+\freshin{b}{[b].x]}.\] Let $x \in X$ and let $b$ be a fresh name. Since $s$
+supports $X$, $(ab) \cdot X = X$ so that $(ab) \cdot x \in X$. Furthermore $b$
+is fresh for $x$ so that $a$ is fresh for $(ab) \cdot x$ and hence $(ab) \cdot x
+\in X^{\freshfor a}$, so that $([b].x)@b = x \in (ab) \cdot (X^{\freshfor a})$.
+Therefore $\xi_X(x) = [b].x \in \delta_a (X^{\freshfor a})$ so that $\xi_X$ is
+well-defined. It is not hard to see that $\xi_X$ is supported by $s$ and that it
+is monotone.
 
 For each object $Y$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define $\epsilon_Y :
 (\delta_a Y)^{\freshfor a} \to Y$ as an arrow of $\mathbf{FMPre}_{s \udot
@@ -391,14 +389,13 @@ Define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
 \widehat{\typeP}^{\freshfor a} $ by \[\phi^{-1}_{\typeP} (x) = x \cup \bigcup_{b
 \freshfor x} (ab) \cdot x.\] It will simplify the remainder of this discussion
 to show that if $x \in \widehat{\typeP^{\freshfor a}}$ then $p \in
-\phi^{-1}_{\typeP} (x)$ if and only if $\mathop{\mathbf{fresh}} c
-\mathop{\mathbf{in}} p \in (ac) \cdot x$. To see this, suppose that $p \in
-\phi^{-1}_{\typeP} (x)$, then either $p \in x$ or there exists $b$ such that 
-$b \freshfor x$ and $p \in (ab) \cdot x$. If $p \in x$ then $a \freshfor p$.
-Let $c$ be fresh, then $p = (ac) \cdot p \in (ac) \cdot x$
-as required. On the other hand, let $b$ be such that $b \freshfor x$ and $p \in
-(ab) \cdot x$, then $b \freshfor p$. If $a = b$ then this reduces to the
-previous case, so suppose that $a \neq b$. Let $c$ be fresh, then \[p = (bc)
+\phi^{-1}_{\typeP} (x)$ if and only if $\freshin{c}{p \in (ac) \cdot x}$. To see
+this, suppose that $p \in \phi^{-1}_{\typeP} (x)$, then either $p \in x$ or
+there exists $b$ such that $b \freshfor x$ and $p \in (ab) \cdot x$. If $p \in
+x$ then $a \freshfor p$.  Let $c$ be fresh, then $p = (ac) \cdot p \in (ac)
+\cdot x$ as required. On the other hand, let $b$ be such that $b \freshfor x$
+and $p \in (ab) \cdot x$, then $b \freshfor p$. If $a = b$ then this reduces to
+the previous case, so suppose that $a \neq b$. Let $c$ be fresh, then \[p = (bc)
 \cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x\]
 as required. Conversely, suppose that $c$ is fresh and $p \in (ac) \cdot x$,
 then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
@@ -476,8 +473,8 @@ $\phi$ is a natural isomorphism with inverse given by $\phi^{-1}$ as required.
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$
 define $\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a
-\typeP}$ by \[\theta_{\typeP}(x') = \{p' \mid \mathop{\mathbf{fresh}} b
-\mathop{\mathbf{in}} p' @ b \in x' @ b\}.\]
+\typeP}$ by \[\theta_{\typeP}(x') = \{p' \mid \freshin{b}{ p' @ b \in x' @
+b\}}.\]
 %
 % Well-defined
 It is necessary to show that $\theta_{\typeP}$ is well-defined, so let $x' \in
@@ -523,18 +520,17 @@ $q' \in (\theta_{\typeQ} \circ \delta_a \widehat{f})(x')$ as required.
 
 Now for each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
 $\theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \delta_a\widehat{\typeP}$
-by \[\theta^{-1}_{\typeP}(x) = \mathop{\mathbf{fresh}} b \mathop{\mathbf{in}}
-[b].\{p \mid [b].p \in x\}.\] It is necessary to show that
-$\theta^{-1}_{\typeP}$ is well-defined, so let $x \in \widehat{\delta_a \typeP}$
-and show that $\theta^{-1}_{\typeP}(x) \in \delta_a\widehat{\typeP}$ as follows.
-Let $b$ be a fresh name, and let $p \in \bigl(\theta^{-1}_{\typeP}(x)\bigr) @
-b$, then $[b].p \in x \subseteq{\delta_a \typeP}$ so that $[b].p \in \delta_a
-\typeP$ and hence $p \in (ab) \cdot \typeP$. Let $p' \le_{\typeP} p$, then
-$[b].p' \le_{\delta_a \typeP} [b].p \in x \in \widehat{\delta_a \typeP}$ so that
-$[b].p' \in x$ and hence $p' \in \bigl(\theta^{-1}_{\typeP}(x)\bigr)@b$.
-Therefore $\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b \in (ab) \cdot
-\widehat{\typeP}$ so that $\theta^{-1}_{\typeP}(x) \in \delta_a
-\widehat{\typeP}$ as required.
+by \[\theta^{-1}_{\typeP}(x) = \freshin{b}{ [b].\{p \mid [b].p \in x\}}.\] It is
+necessary to show that $\theta^{-1}_{\typeP}$ is well-defined, so let $x \in
+\widehat{\delta_a \typeP}$ and show that $\theta^{-1}_{\typeP}(x) \in
+\delta_a\widehat{\typeP}$ as follows.  Let $b$ be a fresh name, and let $p \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b$, then $[b].p \in x \subseteq{\delta_a
+\typeP}$ so that $[b].p \in \delta_a \typeP$ and hence $p \in (ab) \cdot
+\typeP$. Let $p' \le_{\typeP} p$, then $[b].p' \le_{\delta_a \typeP} [b].p \in x
+\in \widehat{\delta_a \typeP}$ so that $[b].p' \in x$ and hence $p' \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr)@b$.  Therefore
+$\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b \in (ab) \cdot \widehat{\typeP}$ so
+that $\theta^{-1}_{\typeP}(x) \in \delta_a \widehat{\typeP}$ as required.
 
 To see that $\theta^{-1}_{\typeP}$ is supported by $s$, let $\sigma$ be a
 permutation that fixes $s$, let $x \in \widehat{\delta_a\typeP}$, let $b$ be a
