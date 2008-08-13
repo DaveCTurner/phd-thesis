@@ -82,7 +82,7 @@ $\mathcal{D}$ define $G^+f = h_B \circ Gf$.  Then there is an adjunction $F^+
 \begin{proof}
 The proof proceeds by unwinding definitions and diagram-chasing as follows.
 
-\paragraph{$F^+$ is a functor $\mathrm{Kl}(T) \to \mathrm{Kl}(S)$:} Let $A$ be
+\paragraph{$F^+ : \mathrm{Kl}(T) \to \mathrm{Kl}(S)$ is a functor:} Let $A$ be
 an object of $\mathrm{Kl}(T)$, then the identity on $A$ is given by $\eta_A$ in
 $\mathcal{C}$. Then by (a), $F^+\eta_A = k_A \circ F \eta_A =
 \theta_{FA}$ which is the identity on $FA = F^+A$ in $\mathrm{Kl}(S)$ as
@@ -121,7 +121,7 @@ In $\mathrm{Kl}(S)$, the compositions along the top and bottom of this diagram
 are the arrows $F^+(g \circ f)$ and $F^+g \circ F^+f$ respectively, which shows
 that $F^+$ is a functor.
 
-\paragraph{$G^+$ is a functor $\mathrm{Kl}(S) \to \mathrm{Kl}(T)$:} Let $A$ be
+\paragraph{$G^+:\mathrm{Kl}(S) \to \mathrm{Kl}(T)$ is a functor:} Let $A$ be
 an object of $\mathrm{Kl}(S)$, then the identity on $A$ is given by $\theta_A$
 in $\mathcal{D}$. Then by (d), $G^+\theta_A = h_A \circ G \theta_A
 = \eta_{GA}$ which is the identity on $GA = G^+A$ in $\mathrm{Kl}(T)$ as
@@ -160,7 +160,7 @@ In $\mathrm{Kl}(T)$ the compositions along the top and bottom of this diagram
 are the arrows $G^+(g \circ f)$ and $G^+g \circ G^+f$ respectively, which shows
 that $G^+$ is a functor.
 
-\paragraph{$\xi^+$ is a natural transformation $\mathbf{1} \to G^+F^+$:}
+\paragraph{$\xi^+: \mathbf{1} \to G^+F^+$ is a natural transformation:}
 Let $f : A \to B$ be an arrow of $\mathrm{Kl}(T)$. The following diagram
 commutes in $\mathcal{C}$ by naturality of $\eta$ and $\xi$, the monad laws for $T$,
 and (c).
@@ -209,7 +209,7 @@ In $\mathrm{Kl}(T)$ the compositions along the top and bottom of this diagram
 are the arrows $\xi^+_B \circ f$ and $G^+F^+f \circ \xi^+_A$ respectively, which shows
 that $\xi^+$ is natural.
 
-\paragraph{$\epsilon^+$ is a natural transformation $F^+G^+ \to \mathbf{1}$:}
+\paragraph{$\epsilon^+: F^+G^+ \to \mathbf{1}$ is a natural transformation:}
 Let $f : A \to B$ be an arrow of $\mathrm{Kl}(S)$. The following diagram
 commutes in $\mathcal{D}$ by naturality of $\epsilon$ and $\theta$, the monad
 laws for $S$ and (f).
