@@ -637,7 +637,7 @@ follows that $\new{a}{a} \in \bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A}
 \mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}} \linj{b_n}{\bang{\inactive}}}.\]
 %
 Again, note that substitution under a $\new{a}{(-)}$ ensures that $a$ is a fresh
-name in new-HOPLA. In particular we may choose $a'$ so that it is distinct from
+name in new-HOPLA. In particular $a'$ may be chosen so that it is distinct from
 the $b_i$ and rewrite $\new{a}{\termvar{x}}$ as $\new{a'}{\termvar{x}}$ since
 $\termvar{x}$ has empty support.  Therefore \[\sem{\new{a}{\termvar{x}}} \circ
 \sem{\linj{b_1}{\bang{\inactive}} \mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}}
