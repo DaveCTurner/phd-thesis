@@ -643,7 +643,7 @@ commute.
 \end{array}\]
 
 Let $p \in \typeP^{\freshfor a}$ and let $p' \in \{\cdot\}_{\typeP^{\freshfor
-a}} p$, then $p' \le_{\typeP^{\freshfor a}}$ and hence $p' \le_{\typeP} p$ and
+a}} p$, then $p' \le_{\typeP^{\freshfor a}} p$ and hence $p' \le_{\typeP} p$ and
 $a \freshfor p'$ so that $p' \in \phi_{\typeP} \circ
 \{\cdot\}_{\typeP}^{\freshfor a} p$. The converse case is similar.
 
