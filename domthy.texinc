@@ -1019,8 +1019,29 @@ The operation $!$ is part of a comonad
 on $\mathbf{FMLin}_s$.
 \end{lemma}
 
-\begin{proof}
-Firstly it is necessary to define
+\begin{proof} Firstly it is necessary to define the operation $!$ as a functor,
+and also to define candidates for the counit and comultiplication of the
+comonad.  As mentioned above, if $\typeP$ is an object of $\mathbf{FMLin}_s$
+then $\typelift\typeP$ is defined as the preorder of isolated elements of
+$\widehat{\typeP}$.  Concretely, $\typelift\typeP = \{\finelt{F}{s'} \mid F
+\subseteq_{\mathrm{fin}} \typeP \wedge \supp{\typeP} \subseteq s'\}$.  If $f :
+\typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then define ${!}f :
+\typelift\typeP \to \typelift\typeQ$ by \[({!}f)X = \{ y \in \typelift\typeQ
+\mid \exists x \in X. y \subseteq f(x)\}.\] It is not hard to show that this
+operation is a functor $\mathbf{FMLin}_s \to \mathbf{FMLin}_s$. If $\typeP$ is
+an object of $\mathbf{FMLin}_s$ then define a linear map
+$\mathord{\cup}_{\typeP} : \typelift\typeP \to \typeP$ by
+$\mathord{\cup}_{\typeP}X = \bigcup X$.  It is not hard to see that this map is
+linear and that its definition is natural in $\typeP$.  Define also $W_{\typeP}
+: \typelift\typeP \to \typelift{\typelift\typeP}$ by \[W_{\typeP} X = \bigl\{Y
+\in \typelift{\typelift\typeP} \mid \exists x \in X. \bigcup Y \subseteq x
+\bigr\}.\] It is not hard to see that this map is linear and that
+its definition is natural in $\typeP$.
+
+It is not hard to see that the structure $\langle {!}, \mathord{\cup}, W
+\rangle$ forms a comonad on $\mathbf{FMLin}_s$ for each s.
+
+TODO This isn't a proof, it's just definitions. Does it need expansion?
 \end{proof}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
