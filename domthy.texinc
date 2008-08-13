@@ -998,6 +998,29 @@ such that $p \le_{\typeP} \sigma \cdot p'$. Also, $F \subseteq x$ so that $p'
 \le_{\typeP} \sigma \cdot p' \in x \in \widehat{\typeP}$ so that $p \in x$.
 Therefore $x = \finelt{F}{s}$ as required.  \end{proof}
 
+\subsubsection{FM-Continuous Maps}
 
+The discussion of the previous section indicates that `continuous' should mean
+`preserves joins uniformly-supported directed sets' or equivalently `preserves
+joins of increasing sequences'. Following (something?  TODO) such maps are those
+whose domain is under an exponential $!$ where $\typelift\typeP$ is defined as
+the preorder of isolated elements of $\widehat{\typeP}$. It has also been shown
+that these isolated elements have a particularly neat characterisation as sets
+of the form $\finelt{F}{s}$.
+
+The operation $!$ may be considered a comonad on each $\mathbf{FMLin}_s$, and
+continuous maps will arise as the co-Kleisli category of this comonad.
+Furthermore, it will be possible to lift the adjunction $(-)^{\freshfor a+}
+\dashv \delta_a^+$ from lemma \ref{deltafreshadjlin} into an adjunction of
+continuous maps, which will be used to provide the semantics for name-binding.
+
+\begin{lemma}
+The operation $!$ is part of a comonad
+on $\mathbf{FMLin}_s$.
+\end{lemma}
+
+\begin{proof}
+Firstly it is necessary to define
+\end{proof}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
