@@ -638,10 +638,38 @@ commute.
 \widehat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\epsilon_{\typeP}}}}
 \end{array}\]
 
-Let $p \in \typeP^{\freshfor a}$ and let $p' \in \{\cdot\}_{\typeP^{\freshfor
-a}} p$, then $p' \le_{\typeP^{\freshfor a}} p$ and hence $p' \le_{\typeP} p$ and
-$a \freshfor p'$ so that $p' \in \phi_{\typeP} \circ
-\{\cdot\}_{\typeP}^{\freshfor a} p$. The converse case is similar.
+To see that the triangle containing the $(-)^{\freshfor a}$ functor commutes,
+let $p \in \typeP^{\freshfor a}$, then \[\begin{array}{rcl}
+\bigl(\{\cdot\}_{\typeP^{\freshfor a}}\bigr)p 
+%
+&=& \{p' \in \typeP^{\freshfor a} \mid p' \le_{\typeP^{\freshfor a}} p\} \\
+%
+&=& \{p' \in \typeP \mid a \freshfor p' \wedge p' \le_{\typeP} p\} \\
+%
+&=& \phi_{\typeP} \{p' \in \typeP \mid p' \le_{\typeP} p\} \\
+%
+&=& \bigl( \phi_{\typeP} \circ \{\cdot\}_{\typeP}^{\freshfor a} \bigr) p.
+\end{array}\]
+
+To see that the triangle containing the $\delta_a$ functor commutes, let $p \in
+\delta_a\typeP$, then \[\begin{array}{rcl}
+\bigl(\{\cdot\}_{\delta_a\typeP}\bigr)p
+%
+&=& \{p' \in \delta_a\typeP \mid p' \le_{\delta_a\typeP} p\} \\
+%
+&=& \{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \le_{(ab) \cdot \typeP} p@b}\}
+\\
+%
+&=& \{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \in \{p@b\}_\downarrow}\} \\
+%
+&=& \bigl\{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \in
+([b].\{p@b\}_\downarrow)@b}\bigr\} \\
+%
+&=& \theta_{\typeP} \bigl(\freshin{b}{[b].\{p@b\}_\downarrow)}\bigr) \\
+%
+&=& \bigl( \theta_{\typeP} \circ \delta_a\{\cdot\}_{\typeP}\bigr) p.
+\end{array}\]
+
 
 TODO blimey this is tedious.
 \end{proof}
