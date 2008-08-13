@@ -651,6 +651,41 @@ let $p \in \typeP^{\freshfor a}$, then \[\begin{array}{rcl}
 &=& \bigl( \phi_{\typeP} \circ \{\cdot\}_{\typeP}^{\freshfor a} \bigr) p.
 \end{array}\]
 
+To see that the pentagon containing the $(-)^{\freshfor a}$ functor commutes,
+let $X \in \widehat{\widehat{\typeP}}^{\freshfor a}$.  First, let $p \in
+\bigl(\phi_{\typeP} \circ \mathord{\cup}_{\typeP}^{\freshfor a}\bigr)X$, then $a
+\freshfor p$ and there exists $x \in X$ such that $p \in x$.  Let $b$ be a fresh
+name, then $p = (ab) \cdot p \in (ab) \cdot x \in (ab) \cdot X = X$ and $a
+\freshfor (ab) \cdot x$. Therefore $(ab) \cdot x \in \phi_{\widehat\typeP} X$
+and $p \in \phi_{\typeP} (ab) \cdot x$ so that $p \in
+\bigl(\mathord{\cup}_{\typeP^{\freshfor a}} \circ \widehat{\phi_\typeP} \circ
+\phi_{\widehat\typeP} \bigr) X$. Conversely, let $p \in
+\bigl(\mathord{\cup}_{\typeP^{\freshfor a}} \circ \widehat{\phi_\typeP} \circ
+\phi_{\widehat\typeP} \bigr) X$, then $a \freshfor p$ and there exists $x \in X$
+such that $a \freshfor x$ and $p \in x$ so that $p \in \bigl(\phi_{\typeP} \circ
+\mathord{\cup}_{\typeP}^{\freshfor a}\bigr)X$ as required.
+
+To see that the square containing the unit $\xi$ commutes, let $x \in
+\widehat{\typeP}$, then \[\begin{array}{rcl} \bigl(\theta_{\typeP^{\freshfor a}}
+\circ \delta_a \phi_{\typeP} \circ \xi_{\widehat{\typeP}}\bigr) x 
+%
+&=& \bigl(\theta_{\typeP^{\freshfor a}} \circ \delta_a \phi_{\typeP}\bigr)
+\freshin{b}{[b].x} \\
+%
+&=& \theta_{\typeP^{\freshfor a}} \freshin{b}{[b].\bigl(((ab) \cdot \phi)
+x\bigr)} \\
+%
+&=& \theta_{\typeP^{\freshfor a}} \freshin{b}{[b].\{p \in x \mid b \freshfor
+p\}} \\
+%
+&=& \{p' \mid \freshin{b}{p' @ b \in \{p \in x \mid b \freshfor p\}}\} \\
+%
+&=& \{p' \mid \freshin{b}{p' @ b \in x \wedge b \freshfor p'@b}\} \\
+%
+&=& \widehat{\xi_\typeP} x.
+%
+\end{array}\]
+
 To see that the triangle containing the $\delta_a$ functor commutes, let $p \in
 \delta_a\typeP$, then \[\begin{array}{rcl}
 \bigl(\{\cdot\}_{\delta_a\typeP}\bigr)p
@@ -670,8 +705,43 @@ To see that the triangle containing the $\delta_a$ functor commutes, let $p \in
 &=& \bigl( \theta_{\typeP} \circ \delta_a\{\cdot\}_{\typeP}\bigr) p.
 \end{array}\]
 
+To see that the pentagon containing the $\delta_a$ functor commutes, let $X' \in
+\delta_a \widehat{\widehat{\typeP}}$. First, let $p' \in \bigl(\theta_\typeP
+\circ \delta_a \mathord{\cup}_{\typeP}\bigr) X'$ and let $b$ be a fresh name,
+then \[p' @ b \in \bigl(\delta_a \mathord{\cup}_{\typeP} X'\bigr) @ b = \bigcup
+(X'@b)\] and hence there exists $x \in X'@b$ such that $p'@b \in x$.  It follows
+that $([b].x)@b \in X'@b$ and $p'@b \in ([b].x)@b$ and hence $[b].x \in
+\theta_{\widehat{\typeP}} X'$ and $p' \in \theta_{\typeP} [b].x$ so that $p' \in
+\bigl(\mathord{\cup}_{\delta_a\typeP} \circ \widehat{\theta_{\typeP}} \circ
+\theta_{\widehat{\typeP}}\bigr) X'$. Conversely, let $p' \in
+\bigl(\mathord{\cup}_{\delta_a\typeP} \circ \widehat{\theta_{\typeP}} \circ
+\theta_{\widehat{\typeP}}\bigr) X'$, then there exists $x'$ such that for a
+fresh name $b$ it is the case that $p' @ b \in x' @ b$ and $x' @ b \in X' @ b$
+so that $p' @ b \in \bigcup(X'@b) = \bigl(\delta_a \mathord{\cup}_{\typeP}
+X'\bigr) @ b$ and hence $p' \in \bigl(\theta_\typeP \circ \delta_a
+\mathord{\cup}_{\typeP}\bigr) X'$ as required.
 
-TODO blimey this is tedious.
+To see that the square containing the counit $\epsilon$ commutes, let $x' \in
+(\delta_a \widehat{\typeP})^{\freshfor a}$, then \[\begin{array}{rcl}
+\bigl(\widehat{\epsilon_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
+\theta_{\typeP}^{\freshfor a}\bigr) x'
+%
+&=& \bigl(\widehat{\epsilon_{\typeP}} \circ \phi_{\delta_a \typeP}\bigr) \{p'
+\mid
+\freshin{b}{p'@b \in x'@b}\} \\
+%
+&=& \widehat{\epsilon_{\typeP}} \{p' \mid a \freshfor p' \wedge 
+\freshin{b}{p'@b \in x'@b}\} \\
+%
+&=& \{p'@a \mid a \freshfor p' \wedge 
+\freshin{b}{p'@b \in x'@b}\} \\
+%
+&=& \{p'@a \mid a \freshfor p' \wedge 
+p'@a \in x'@a\} \\
+%
+&=& x'@a = \epsilon_{\widehat{\typeP}} x'.
+%
+\end{array}\]
 \end{proof}
 
 \subsection{Categories of FM-Continuous Maps}
