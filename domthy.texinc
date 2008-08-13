@@ -581,7 +581,8 @@ Furthermore, the isomorphisms $\phi$ and $\theta$ defined above can be used to
 lift the adjunction $(-)^{\freshfor a} \dashv \delta_a$ to an adjunction
 $\mathbf{FMLin}_{s} \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$.  Firstly
 from the freeness property above (TODO?) each $\mathbf{FMLin}_s$ is equivalent
-to the Kleisli category of the monad $\langle \widehat{(-)}, \{\cdot\},
+to the Kleisli category of the monad $\langle \widehat{(-)},
+\{\cdot\}_\downarrow,
 \mathord{\cup}\rangle$ on $\mathbf{FMPre}_{s}$. Therefore it is enough to show
 the following.
 
