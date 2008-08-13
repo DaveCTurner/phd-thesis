@@ -582,11 +582,12 @@ to the Kleisli category of the monad $\langle \widehat{(-)},
 \mathord{\cup}\rangle$ on $\mathbf{FMPre}_{s}$. Therefore it is enough to show
 the following.
 
-\begin{lemma} There is an adjunction \[(-)^{\freshfor a+} \dashv \delta_a^+ :
-\mathrm{Kl}\bigl(\widehat{(-)} \text{ on } \mathbf{FMPre}_s\bigr)
-\leftrightarrows \mathrm{Kl}\bigl(\widehat{(-)} \text{ on } \mathbf{FMPre}_{s
-\udot \{a\}}\bigr),\] where $(-)^{\freshfor a+}$ and $\delta_a^+$ are defined as
-in the statement of lemma \ref{adjunctionlift}.  \end{lemma}
+\begin{lemma}\label{deltafreshadjlin} There is an adjunction \[(-)^{\freshfor
+a+} \dashv \delta_a^+ : \mathrm{Kl}\bigl(\widehat{(-)} \text{ on }
+\mathbf{FMPre}_s\bigr) \leftrightarrows \mathrm{Kl}\bigl(\widehat{(-)} \text{ on
+} \mathbf{FMPre}_{s \udot \{a\}}\bigr),\] where $(-)^{\freshfor a+}$ and
+$\delta_a^+$ are defined as in the statement of lemma \ref{adjunctionlift}.
+\end{lemma}
 
 \begin{proof}
 By lemma \ref{adjunctionlift} it is sufficient to show that the diagrams below
