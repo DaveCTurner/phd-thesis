@@ -1026,14 +1026,54 @@ is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
 \ar[d]^{f^{\ddagger}} \\& C}\] The function $f^{\ddagger}$ is given by
 $f^{\ddagger}x = \bigvee\{f y \mid y \in \typelift\typeP \wedge y \subseteq x
 \wedge \supp{y} \subseteq \supp{x} \}$. Note that this is well-defined since the
-join is taken over a directed set that is uniformly supported by $\supp{x}$.
+join is taken over a directed set that is uniformly supported by $\supp{x} \cup
+\supp{f}$.
 
 \vfill\pagebreak%TODO
 \begin{lemma}
 The map $f^{\ddagger}$ is FM-continuous.
 \end{lemma}
 
-\begin{proof}
+\begin{proof} Firstly, it is necessary to show that $f^{\ddagger}$ is monotone.
+Let $x, x' \in \widehat{\typeP}$ be such that $x \subseteq x'$. It is sufficient
+to show that for all $y \in \typelift\typeP$ such that $y \subseteq x$ and
+$\supp{y} \subseteq \supp{x}$ there exists $y' \in \typelift\typeP$ such that $y
+\subseteq y' \subseteq x'$ and $\supp{y'} \subseteq \supp{x'}$, so let $y \in
+\typelift\typeP$ be such that $y \subseteq x$ and without loss of generality
+write $y = \finelt{F}{\supp{x}}$. Define $y' = \finelt{F}{\supp{x} \cap
+\supp{x'}}$. It is certainly the case that $y \subseteq y'$ and $\supp{y'}
+\subseteq \supp{x'}$ so it remains to show that $y' \subseteq x'$. Let $p' \in
+y'$, then there exists $p \in F$ and $\sigma \freshfor \supp{x} \cap \supp{x'}$
+such that $p' \le_{\typeP} \sigma \cdot p$.
+
+However, since $y = \finelt{F}{\supp{x}} \subseteq x \subseteq x'$, it must be
+that $p \in x'$.  Since $\sigma \freshfor x'$ ARGH, NO IT ISN'T , $\sigma \cdot
+p \in x'$ too, and $x' \in \widehat{\typeP}$ so that $p' \in x'$ as required.
+
+
+
+
+It is hard to see that $f^{\ddagger}$ is even monotone. Let $x
+\subseteq x'$ and aim to show $f^{\ddagger} x \le f^{\ddagger} x'$. For this it
+is sufficient that $f^{\ddagger} x'$ is an upper bound for $\{f y \mid y \in
+\typelift\typeP \wedge y \subseteq x \wedge \supp{y} \subseteq \supp{x} \}$, as
+$f^{\ddagger} x$ is the least such. Therefore, let $y \in \typelift\typeP$ be
+such that $y \subseteq x$ and $\supp{y} \subseteq \supp{x}$. Say that $y =
+\finelt{F}{s}$.
+Want to show that $f y \le f^{\ddagger} x' = \{f y' \mid y' \in
+\typelift\typeP \wedge y' \subseteq x' \wedge \supp{y'} \subseteq \supp{x'} \}$,
+so it is sufficient to find $y'$ such that $y \subseteq y'$ and $y' \subseteq
+x'$ and $\supp{y'} \subseteq \supp{x'}$.
+
+Let $y' = \finelt{F}{s \cap \supp{x'}}$, then it is certainly the case that
+$\supp{y'} \subseteq \supp{x'}$ and $y \subseteq y'$. It remains to show that
+$y' \subseteq x'$, so let $p' \in y'$. Then there exists $p \in F$ and $\sigma
+\freshfor s \cap \supp{x'}$ such that $p' \le_{\typeP} \sigma \cdot p$. However,
+since $y = \finelt{F}{s} \subseteq x \subseteq x'$, it must be that
+$p \in x'$. Since $\sigma \freshfor x'$, $\sigma \cdot p \in x'$ too, and $x'
+\in \widehat{\typeP}$ so that $p' \in x'$ as required.
+
+
 Let $X \subseteq \widehat{\typeP}$ be uniformly-supported and directed and 
 aim to show that $f^{\ddagger} \bigl(\bigcup X\bigr) = \bigvee \{f^{\ddagger} x
 \mid x \in X \}$. For this it is sufficient to show that
@@ -1044,6 +1084,20 @@ aim to show that $f^{\ddagger} \bigl(\bigcup X\bigr) = \bigvee \{f^{\ddagger} x
 for any $U$ such that $\forall x \in X. f^{\ddagger} x \le U$, $f^{\ddagger}
 \bigl(\bigcup X\bigr) \le U$.
 \end{enumerate}
+
+To show (1), let $x \in X$. Then \[f^{\ddagger} x = \bigvee\{f y \mid y \in
+\typelift\typeP \wedge y \subseteq x \wedge \supp{y} \subseteq \supp{x} \}\] so
+it is sufficient that $f^{\ddagger}\bigl(\bigcup X\bigr)$ is an upper bound for
+$\{f y \mid y \in \typelift\typeP \wedge y \subseteq x \wedge \supp{y} \subseteq
+\supp{x} \}$.  Therefore let $y \in \typelift\typeP$ be such that $y \subseteq
+x$ and $\supp{y} \subseteq \supp{x}$ and aim to show that \[fy \le
+f^{\ddagger}\bigl({\textstyle\bigcup X}\bigr) = \bigvee\{f y \mid y \in
+\typelift\typeP \wedge y \subseteq {\textstyle\bigcup X} \wedge \supp{y}
+\subseteq \supp{\textstyle\bigcup X} \}.\] Therefore it is sufficient to find
+$y' \in \typelift\typeP$ such that $y' \subseteq {\textstyle\bigcup X}$ and
+$\supp{y'} \subseteq \supp{\textstyle\bigcup X}$ and $y \subseteq y'$.
+
+Write $y = \finelt{F}{s}$, and try $y' = \finelt{F}{s \cup \supp{\bigcup X}}$.
 
 
 \end{proof}
