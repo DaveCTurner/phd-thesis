@@ -327,4 +327,77 @@ respectively, which demonstrates the triangular identity for $F^+$. This
 completes the proof.
 \end{proof}
 
+\begin{lemma}
+Suppose that there is an adjunction
+\[
+\xymatrix{
+\mathcal{C}
+\ar@/_2ex/@<-2pt>@{^{(}->}[rr]_{G}
+&
+\bot
+&
+\mathcal{D}
+\ar@/_2ex/@<-2pt>[ll]_{F}
+}
+\]
+with unit $\eta$ and counit $\epsilon$, where the right adjoint $G$ is an
+inclusion and the categories have the same collections of objects. Then
+$\mathcal{D}$ is isomorphic to the coKleisli category of the comonad $FG$.
+\end{lemma}
+
+\begin{proof} Let $\mathcal{E}$ be the coKleisli category of $FG$. Define $L :
+\mathcal{E} \to \mathcal{D}$ to be the unique such map that preserves the
+adjunction. In detail, if $A$ is an object of $\mathcal{E}$ then $LA = GA$ and
+if $f : A \to B$ is an arrow of $\mathcal{E}$ then $Lf = Gf \circ \eta_{GA}$.
+
+Define $K : \mathcal{D} \to \mathcal{E}$ as follows. If $A$ is an object of
+$\mathcal{D}$ then define $KA = A$ and if $f : A \to B$ is an arrow of
+$\mathcal{D}$ then define $Kf = \epsilon_B \circ Ff$.
+
+To see that $K$ is a functor, note that $K\mathbf{1}_A = \epsilon_A$ which is
+the identity on $A$ in $\mathcal{E}$, and if $f : A \to B$ and $g : B \to C$
+are arrows of $\mathcal{D}$ then \[\begin{array}{rcl} K(g \circ f) &=&
+\epsilon_C \circ F(g \circ f) \\
+%
+&=& \epsilon_C \circ Fg \circ Ff \\
+%
+&=& \epsilon_C \circ Fg \circ FG\epsilon_B \circ F\eta_{GB} \circ Ff
+\quad\text{by triangular identity}\\
+%
+&=& \epsilon_C \circ Fg \circ FG\epsilon_B \circ FGFf \circ F\eta_{GA} 
+\quad\text{by naturality of $\eta$}\\
+%
+&=& \epsilon_C \circ Fg \circ FG(\epsilon_B \circ Ff) \circ F\eta_{GA} \\
+%
+&=& Kg \circ FGKf \circ F\eta_{GA} \\
+%
+\end{array}\] which is the composition of $Kg$ and $Kf$ in $\mathcal{E}$ as
+required.
+
+Let $f : A \to B$ in $\mathcal{D}$, then \[\begin{array}{rcl} LKf
+%
+&=& L\bigl(\epsilon_B \circ Ff\bigr) \\
+%
+&=& G\epsilon_B \circ GFf \circ \eta_{GA} \\
+%
+&=& G\epsilon_B \circ \eta_{GB} \circ f \quad\text{by naturality of $\eta$}\\
+%
+&=& f \quad \text{by triangular identity}
+%
+\end{array}\]
+Conversely, let $f : A \to B$ in $\mathcal{E}$, then \[\begin{array}{rcl} KLF
+%
+&=& K\bigl(Gf \circ \eta_{GA}\bigr) \\
+%
+&=& \epsilon_{B} \circ FGf \circ F\eta_{GA} \\
+%
+&=& f \circ \epsilon_{FGA} \circ F\eta_{GA} \quad\text{by naturality of
+$\epsilon$} \\
+%
+&=& f \quad\text{by triangular identity}
+%
+\end{array}\]
+Therefore $L$ and $K$ are mutual inverses, which completes the proof.
+\end{proof}
+
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
