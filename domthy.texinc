@@ -1013,26 +1013,40 @@ Following the development of HOPLA, it will be possible to characterise
 FM-continuous maps in terms of FM-linear maps whose domain is under an
 exponential ${!}$ which captures the appropriate notion of approximation.  Here,
 $\typelift\typeP$ will consist of the isolated elements of $\widehat\typeP$
-ordered by inclusion, and if $f : \typeP \to \typeQ$ is an arrow of
-$\mathbf{FMLin}_s$ then ${!}f : \typelift\typeP \to \typelift\typeQ$ will be
-$\widehat{f}$ restricted to isolated elements. More precisely, if $X \in
-\widehat{\typelift\typeP}$ then define \[({!}f) X = \{y \in \typelift\typeQ \mid
-\exists x \in X.\ y \subseteq f x\}.\]
+ordered by inclusion.
 
 Each $\widehat{\typeP}$ is the free uniformly-supported-directed-join completion
-of $\typelift\typeP$. In detail, $\widehat{\typeP}$ has all uniformly-supported
-directed joins and if $C$ is a poset that also has all uniformly-supported
-directed joins and $f : \typelift\typeP \to C$ is a monotone finitely-supported
-function then there is a unique finitely-supported $f^{\ddagger} :
-\widehat{\typeP} \to C$ that preserves all uniformly-supported directed joins
-and such that the following diagram commutes.  \[\xymatrix{ \typelift\typeP\
-\ar@<-4pt>@{^{(}->}[r] \ar[dr]_f & \widehat{\typeP} \ar[d]^{f^{\ddagger}} \\&
-C}\] The function $f^{\ddagger}$ is given by $f^{\ddagger}x = \bigcup\{f y \mid
-y \subseteq x \text{ and $y$ is isolated in $\widehat{\typeP}$}\}$.
+of $\typelift\typeP$. In detail, this means that $\widehat{\typeP}$ has all
+uniformly-supported directed joins (indeed, it has all finitely-supported joins)
+and if $C$ is a poset that also has all uniformly-supported directed joins and
+$f : \typelift\typeP \to C$ is a monotone finitely-supported function then there
+is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
+\to C$ that such that the following diagram commutes.  \[\xymatrix{
+\typelift\typeP\ \ar@<-4pt>@{^{(}->}[r] \ar[dr]_f & \widehat{\typeP}
+\ar[d]^{f^{\ddagger}} \\& C}\] The function $f^{\ddagger}$ is given by
+$f^{\ddagger}x = \bigvee\{f y \mid y \in \typelift\typeP \wedge y \subseteq x
+\wedge \supp{y} \subseteq \supp{x} \}$. Note that this is well-defined since the
+join is taken over a directed set that is uniformly supported by $\supp{x}$.
 
+\vfill\pagebreak%TODO
 \begin{lemma}
-The map $f^{\ddagger}$ is FM-continuous and supported by $\supp{f}$.
+The map $f^{\ddagger}$ is FM-continuous.
 \end{lemma}
+
+\begin{proof}
+Let $X \subseteq \widehat{\typeP}$ be uniformly-supported and directed and 
+aim to show that $f^{\ddagger} \bigl(\bigcup X\bigr) = \bigvee \{f^{\ddagger} x
+\mid x \in X \}$. For this it is sufficient to show that
+\begin{enumerate}
+\item $f^{\ddagger} \bigl(\bigcup X\bigr)$ is an upper bound for $\{f^{\ddagger} x
+\mid x \in X \}$, i.e. for each $x \in X$, $f^{\ddagger} x \le f^{\ddagger} \bigl(\bigcup X\bigr)$, and
+\item $f^{\ddagger} \bigl(\bigcup X\bigr)$ is the least such upper bound, i.e.
+for any $U$ such that $\forall x \in X. f^{\ddagger} x \le U$, $f^{\ddagger}
+\bigl(\bigcup X\bigr) \le U$.
+\end{enumerate}
+
+
+\end{proof}
 
 Notice that
 any $x \in \widehat{\typeP}$ is the uniformly-supported-directed join of certain isolated elements
@@ -1051,6 +1065,11 @@ and $\typeQ$ and therefore forms an adjunction with the inclusion
 $\mathbf{FMLin}_s \hookrightarrow \mathbf{FMCts}_s$ as right adjoint to the
 functor ${!}$.
 
+TODO Need the definition of $!$ on arrows: ... and if $f : \typeP \to \typeQ$ is
+an arrow of $\mathbf{FMLin}_s$ then ${!}f : \typelift\typeP \to \typelift\typeQ$
+will be $\widehat{f}$ restricted to isolated elements. More precisely, if $X \in
+\widehat{\typelift\typeP}$ then define \[({!}f) X = \{y \in \typelift\typeQ \mid
+\exists x \in X.\ y \subseteq f x\}.\]
 
 TODO Delete rest of this section.
 
