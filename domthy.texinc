@@ -1065,11 +1065,10 @@ exists $x \in X$ such that $y \subseteq x$. It is clear that $f^{\ddagger} y = f
 y$, so by monotonicity $f y \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so
 that $f y \le U$ as required.  \end{proof}
 
-Notice that
-any $x \in \widehat{\typeP}$ is the uniformly-supported-directed join of certain isolated elements
-beneath it: \[x = \bigcup \{y \in \typelift\typeP \mid y \subseteq x \wedge
-\supp{y} \subseteq \supp{x} \} \] which
-ensures the uniqueness of $f^{\ddagger}$. As before, if $C$ is of the form
+Notice that any $x \in \widehat{\typeP}$ is the uniformly-supported-directed
+join of certain isolated elements beneath it: \[x = \bigcup \{y \in
+\typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x} \} \]
+which ensures the uniqueness of $f^{\ddagger}$. As before, if $C$ is of the form
 $\widehat{\typeQ}$ then this shows that finitely-supported monotone maps
 $\typelift\typeP \to \widehat{\typeQ}$ are in bijective correspondence with
 FM-continuous maps $\widehat{\typeP} \to \widehat{\typeQ}$. From earlier
@@ -1077,54 +1076,40 @@ discussion, finitely-supported monotone maps $\typelift\typeP \to
 \widehat{\typeQ}$ are also in bijective correspondence with FM-linear maps
 $\widehat{\typelift\typeP} \to \widehat{\typeQ}$ so that there is an isomorphism
 \[\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong \mathbf{FMCts}_s (\typeP,
-\typeQ).\] It is not hard to see that this isomorphism is natural in $\typeP$
-and $\typeQ$ and therefore forms an adjunction with the inclusion
-$\mathbf{FMLin}_s \hookrightarrow \mathbf{FMCts}_s$ as right adjoint to the
-functor ${!}$.
-
-TODO Need the definition of $!$ on arrows: ... and if $f : \typeP \to \typeQ$ is
-an arrow of $\mathbf{FMLin}_s$ then ${!}f : \typelift\typeP \to \typelift\typeQ$
-will be $\widehat{f}$ restricted to isolated elements. More precisely, if $X \in
-\widehat{\typelift\typeP}$ then define \[({!}f) X = \{y \in \typelift\typeQ \mid
-\exists x \in X.\ y \subseteq f x\}.\]
-
-TODO Delete rest of this section.
-
-
-The operation $!$ may be considered a comonad on each $\mathbf{FMLin}_s$, and
-continuous maps will arise as the co-Kleisli category of this comonad.
-Furthermore, it will be possible to lift the adjunction $(-)^{\freshfor a+}
-\dashv \delta_a^+$ from lemma \ref{deltafreshadjlin} into an adjunction of
-continuous maps, which will be used to provide the semantics for name-binding.
+\typeQ).\] Furthermore, it is possible to extend the operation $!$ to a functor
+$\mathbf{FMCts}_s \to \mathbf{FMLin}_s$ where if $f : \typeP \to \typeQ$ is an
+arrow of $\mathbf{FMCts}_s$ and $X \in \widehat{\typelift\typeP}$ then \[({!}f)
+X = \{y \in \typelift\typeQ \mid \exists x \in X.\ y \subseteq f x\}.\]
 
 \begin{lemma}
-The operation $!$ is part of a comonad
-on $\mathbf{FMLin}_s$.
+The operation ${!}$ defined above is a functor $\mathbf{FMCts}_s \to
+\mathbf{FMLin}_s$.
 \end{lemma}
 
-\begin{proof} Firstly it is necessary to define the operation $!$ as a functor,
-and also to define candidates for the counit and comultiplication of the
-comonad.  As mentioned above, if $\typeP$ is an object of $\mathbf{FMLin}_s$
-then $\typelift\typeP$ is defined as the preorder of isolated elements of
-$\widehat{\typeP}$.  Concretely, $\typelift\typeP = \{\finelt{F}{s'} \mid F
-\subseteq_{\mathrm{fin}} \typeP \wedge \supp{\typeP} \subseteq s'\}$.  If $f :
-\typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then define ${!}f :
-\typelift\typeP \to \typelift\typeQ$ by \[({!}f)X = \{ y \in \typelift\typeQ
-\mid \exists x \in X. y \subseteq f(x)\}.\] It is not hard to show that this
-operation is a functor $\mathbf{FMLin}_s \to \mathbf{FMLin}_s$. If $\typeP$ is
-an object of $\mathbf{FMLin}_s$ then define a linear map
-$\mathord{\cup}_{\typeP} : \typelift\typeP \to \typeP$ by
-$\mathord{\cup}_{\typeP}X = \bigcup X$.  It is not hard to see that this map is
-linear and that its definition is natural in $\typeP$.  Define also $W_{\typeP}
-: \typelift\typeP \to \typelift{\typelift\typeP}$ by \[W_{\typeP} X = \bigl\{Y
-\in \typelift{\typelift\typeP} \mid \exists x \in X. \bigcup Y \subseteq x
-\bigr\}.\] It is not hard to see that this map is linear and that
-its definition is natural in $\typeP$.
+\begin{proof} Let $f : \typeP \to \typeQ$ be FM-continuous and let $\mathcal{X}
+\subseteq \widehat{\typelift\typeP}$, then it must be shown that
+$({!}f)\bigl(\bigcup \mathcal{X}\bigr) = \bigcup \{({!}f) X \mid X \in
+\mathcal{X}\}$. 
 
-It is not hard to see that the structure $\langle {!}, \mathord{\cup}, W
-\rangle$ forms a comonad on $\mathbf{FMLin}_s$ for each s.
+Let $y \in ({!}f)\bigl(\bigcup \mathcal{X}\bigr)$, then $y \in \typelift\typeQ$
+and there exists $x \in \bigcup \mathcal{X}$ such that $y \subseteq f x$, and
+hence there exists $X \in \mathcal{X}$ such that $x \in X$. Therefore $y \in
+({!}f) X$ so that $y \in \bigcup \{({!}f) x \mid x \in \mathcal{X}\}$. 
 
-TODO This isn't a proof, it's just definitions. Does it need expansion?
-\end{proof}
+Conversely let $y \in \bigcup \{({!}f) X \mid X \in \mathcal{X}\}$, then there
+exists $X \in \mathcal{X}$ such that $y \in ({!}f)X$, and hence there exists $x
+\in X$ such that $y \subseteq f x$. Therefore $x \in \bigcup \mathcal{X}$ so
+that $y \in ({!}f)\bigl(\bigcup \mathcal{X}\bigr)$ as required. TODO that seemed
+far too easy! Check Isabelle proof to see if I've missed any complications.
+
+Therefore ${!}$ is well-defined, and it is now straightforward to see that it is
+a functor as required. \end{proof}
+
+It is not hard to see that this isomorphism $\mathbf{FMLin}_s (\typelift\typeP,
+\typeQ) \cong \mathbf{FMCts}_s (\typeP, \typeQ)$ is natural in $\typeP$ and
+$\typeQ$ and therefore forms an adjunction with the inclusion $\mathbf{FMLin}_s
+\hookrightarrow \mathbf{FMCts}_s$ as right adjoint to the functor ${!}$. By
+lemma \ref{??} it follows that $\mathbf{FMCts}_s$ is isomorphic to the coKleisli
+category of the induced comonad $!$ on $\mathbf{FMLin}_s$.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
