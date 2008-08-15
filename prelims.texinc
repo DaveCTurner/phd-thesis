@@ -328,6 +328,7 @@ completes the proof.
 \end{proof}
 
 \begin{lemma}
+\label{adjunctioninclusion}
 Suppose that there is an adjunction
 \[
 \xymatrix{
