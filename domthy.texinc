@@ -1029,37 +1029,41 @@ $f^{\ddagger}x = \bigvee\{f y \mid y \in \typelift\typeP \wedge y \subseteq x
 join is taken over a directed set that is uniformly supported by $\supp{x} \cup
 \supp{f}$.
 
-\vfill\pagebreak%TODO
 \begin{lemma}
 The map $f^{\ddagger}$ is FM-continuous.
 \end{lemma}
 
-\begin{proof} Firstly, it is necessary to show that $f^{\ddagger}$ is monotone.
-Let $x, x' \in \widehat{\typeP}$ be such that $x \subseteq x'$. It is sufficient
-to show that for all $y \in \typelift\typeP$ such that $y \subseteq x$ and
-$\supp{y} \subseteq \supp{x}$ there exists $y' \in \typelift\typeP$ such that $y
-\subseteq y'$ and $y' \subseteq x'$ and $\supp{y'} \subseteq \supp{x'}$, so let
-$y \in \typelift\typeP$ be such that $y \subseteq x$ and without loss of
-generality write $y = \finelt{F}{\supp{x} \cup \supp{x'}}$. Define $y' =
-\finelt{F}{\supp{x'}}$. It is certainly the case that $y \subseteq y'$ and
-$\supp{y'} \subseteq \supp{x'}$ so it remains to show that $y' \subseteq x'$.
-Let $p' \in y'$, then there exists $p \in F$ and $\sigma \freshfor x'$ such that
-$p' \le_{\typeP} \sigma \cdot p$.  However, since $y = \finelt{F}{\supp{x} \cup
-\supp{x'}} \subseteq x \subseteq x'$, it must be that $p \in x'$.  Since $\sigma
-\freshfor x'$, $\sigma \cdot p \in x'$ too, and $x' \in \widehat{\typeP}$ so
-that $p' \in x'$ as required.
+\begin{proof} It is hard to show that $f^{\ddagger}$ is even monotone.  Let $x,
+x' \in \widehat{\typeP}$ be such that $x \subseteq x'$. By the monotonicity of
+$f$ it is sufficient to show that for all $y \in \typelift\typeP$ such that $y
+\subseteq x$ and $\supp{y} \subseteq \supp{x}$ there exists $y' \in
+\typelift\typeP$ such that $y \subseteq y'$ and $y' \subseteq x'$ and $\supp{y'}
+\subseteq \supp{x'}$, so let $y \in \typelift\typeP$ be such that $y \subseteq
+x$ and without loss of generality write $y = \finelt{F}{\supp{x} \cup
+\supp{x'}}$. Define $y' = \finelt{F}{\supp{x'}}$. It is certainly the case that
+$y \subseteq y'$ and $\supp{y'} \subseteq \supp{x'}$ so it remains to show that
+$y' \subseteq x'$.  Let $p' \in y'$, then there exists $p \in F$ and $\sigma
+\freshfor x'$ such that $p' \le_{\typeP} \sigma \cdot p$.  However, since $y =
+\finelt{F}{\supp{x} \cup \supp{x'}} \subseteq x \subseteq x'$, it must be that
+$p \in x'$.  Since $\sigma \freshfor x'$, $\sigma \cdot p \in x'$ too, and $x'
+\in \widehat{\typeP}$ so that $p' \in x'$ as required.
 
-Let $X \subseteq \widehat{\typeP}$ be uniformly-supported and directed and aim
-to show that $f^{\ddagger} \bigl(\bigcup X\bigr) = \bigvee \{f^{\ddagger} x \mid
-x \in X \}$. For all $x \in X$ it is the case that $f^{\ddagger} x \le
-f^{\ddagger} \bigl(\bigcup X \bigr)$ by monotonicity, so $f^{\ddagger}
-\bigl(\bigcup X\bigr)$ is an upper bound for $\{f^{\ddagger} x \mid x \in X \}$.
-It remains to show that $f^{\ddagger} \bigl(\bigcup X\bigr)$ is the least such
-upper bound, i.e.  for any $U$ such that $\forall x \in X. f^{\ddagger} x \le
-U$, $f^{\ddagger} \bigl(\bigcup X\bigr) \le U$.
-
-
-\end{proof}
+Having shown that $f^{\ddagger}$ is monotone, the proof of its continuity is
+standard.  Let $X \subseteq \widehat{\typeP}$ be uniformly-supported and
+directed. For all $x \in X$ it is the case that $f^{\ddagger} x \le f^{\ddagger}
+\bigl(\bigcup X \bigr)$ by monotonicity, so $f^{\ddagger} \bigl(\bigcup X\bigr)$
+is an upper bound for $\{f^{\ddagger} x \mid x \in X \}$.  It remains to show
+that it is the least such upper bound, i.e.  for any $U$ such that $f^{\ddagger}
+x \le U$ for all $x \in X$ it is the case that $f^{\ddagger} \bigl(\bigcup
+X\bigr) \le U$. For this, it is sufficient to show that $U$ is an upper bound
+for $\{f y \mid y \in \typelift\typeP \wedge y \subseteq \bigcup X \wedge
+\supp{y} \subseteq \supp{\bigcup X} \}$ since $f^{\ddagger} \bigl(\bigcup X
+\bigr)$ is the least such. Therefore, suppose that $y \in \typelift\typeP$ is
+such that $y \subseteq \bigcup X$ and $\supp{y} \subseteq \supp{\bigcup X}$.
+Then $y$ is isolated, and $X$ is uniformly-supported and directed, so there
+exists $x \in X$ such that $y \subseteq x$. It is clear that $f^{\ddagger} y = f
+y$, so by monotonicity $f y \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so
+that $f y \le U$ as required.  \end{proof}
 
 Notice that
 any $x \in \widehat{\typeP}$ is the uniformly-supported-directed join of certain isolated elements
