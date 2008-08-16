@@ -1,0 +1,89 @@
+#!/bin/bash
+
+if [ -d /media/usbdisk ]
+then
+	# We're on alport
+	host=alport
+	usbstick=/media/usbdisk
+	thesis=$HOME/phd/thesis
+elif [ -d /mnt/jenadisk ]
+then
+	# We're on grisedale
+	host=grisedale
+	usbstick=/mnt/jenadisk
+	thesis=$HOME/phd/thesis-git
+else
+	echo "Cannot determine host"
+	exit 1
+fi
+
+timestamp=`date +%Y%m%dT%H%M%S`
+
+if cd $thesis 
+then
+	echo "Changing to $thesis"
+else
+	echo "Cannot cd $thesis"
+	exit 1
+fi
+
+if git clone --bare --quiet . thesis-git--$timestamp
+then
+	echo "Cloned git repo"
+else
+	echo "Cannot run git clone"
+	exit 1
+fi
+
+if tar jcf thesis-git--$timestamp.tar.bz2 thesis-git--$timestamp/
+then
+	echo "Tarred git repo"
+else
+	echo "Cannot tar thesis-git--$timestamp"
+	exit 1
+fi
+
+if rm -rf thesis-git--$timestamp
+then
+	echo "Removed clone"
+else
+	echo "Cannot rm thesis-git--$timestamp"
+	exit 1
+fi
+
+if [ -f $usbstick/readme.txt ]
+then
+	# USB stick is mounted
+	premounted=1
+else
+	premounted=0
+	echo "Mounting $usbstick"
+	if mount $usbstick
+	then
+		echo "Mounting $usbstick"
+	else
+		echo "Cannot mount $usbstick"
+		exit 1
+	fi
+fi
+
+if cp thesis-git--$timestamp.tar.bz2 $usbstick
+then
+	echo "Copied tarball to usbstick"
+else
+	echo "Cannot cp thesis-git--$timestamp"
+	exit 1
+fi
+
+if [ $premounted ]
+then
+	sync
+else
+	if umount $usbstick
+	then
+		echo "Unmounted $usbstick"
+	else
+		echo "WARNING: Cannot unmount $usbstick"
+		exit 1
+	fi
+fi
