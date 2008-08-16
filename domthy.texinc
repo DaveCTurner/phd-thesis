@@ -349,9 +349,10 @@ $\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.
 \subsubsection{Relationship between $\widehat{(-)}$, $(-)^{\freshfor a}$ and
 $\delta_a$ }
 
-\begin{lemma} Let $a \notin s$. The functors $\widehat{(-)}^{\freshfor a},
-\widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s \rightrightarrows
-\mathbf{FMPre}_{s \udot \{a\}}$ are naturally isomorphic.  \end{lemma}
+\begin{lemma}\label{freshhatiso} Let $a \notin s$. The functors
+$\widehat{(-)}^{\freshfor a}, \widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s
+\rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}$ are naturally isomorphic.
+\end{lemma}
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_s$ define
 $\phi_{\typeP} : \widehat{\typeP}^{\freshfor a} \to \widehat{\typeP^{\freshfor
@@ -467,9 +468,9 @@ immediately that $\phi^{-1}_{\typeP}$ is natural in $\typeP$, and hence that
 $\phi$ is a natural isomorphism with inverse given by $\phi^{-1}$ as required.
 \end{proof}
 
-\begin{lemma} Let $a \notin s$. The functors $\delta_a \widehat{(-)},
-\widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows
-\mathbf{FMPre}_s$ are naturally isomorphic. \end{lemma}
+\begin{lemma}\label{deltahatiso} Let $a \notin s$. The functors $\delta_a
+\widehat{(-)}, \widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}}
+\rightrightarrows \mathbf{FMPre}_s$ are naturally isomorphic. \end{lemma}
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$
 define $\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a
@@ -590,8 +591,9 @@ $\delta_a^+$ are defined as in the statement of lemma \ref{adjunctionlift}.
 \end{lemma}
 
 \begin{proof}
-By lemma \ref{adjunctionlift} it is sufficient to show that the diagrams below
-commute.
+Let $\phi$ and $\theta$ be as in lemma \ref{freshhatiso} and \ref{deltahatiso}
+respectively, then by lemmas \ref{adjunctionlift} it is sufficient to show that
+the diagrams below commute.
 \[\begin{array}{ccc}
 \xymatrix{
 \typeP^{\freshfor a} \ar[r]^{\{\cdot\}_{\typeP}^{\freshfor a}} 
