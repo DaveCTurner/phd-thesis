@@ -1203,7 +1203,41 @@ The proof of lemma \ref{freshhatiso} now demonstrates that $\phi^{!}$ and
 ${\phi^{!}}^{-1}$ are natural and mutual inverses, which completes the proof.
 \end{proof}
 
+\begin{lemma}\label{deltabangiso} Let $a \notin s$. The functors \[\delta_a{!},
+{!}\delta_a : \mathbf{FMPre}_{s \udot\{a\}} \rightrightarrows \mathbf{FMPre}_s\]
+are naturally isomorphic.\end{lemma}
 
+\begin{proof}
+The natural isomorphism detailed in lemma \ref{deltahatiso}
+restricts to the desired isomorphism here. It is only unclear that this
+restriction has the correct range on the restricted domain. Let $\theta$ and
+$\theta^{-1}$ be as in the proof of lemma \ref{deltahatiso}.
+
+For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
+$\theta^{!}_{\typeP} : \delta_a \typelift\typeP \to \typelift{\delta_a \typeP}$
+by \[\theta^{!}_{\typeP}(x') = \{p' \mid \freshin{b}{ p' @ b \in x' @ b\}} =
+\theta_{\typeP} (x').\] Any element of $\delta_a \typelift\typeP$ can be written
+in the form $[b].\finelt{F}{s'}$ where $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \in
+s' \supseteq s$. Under these conditions it is also the case that
+$\finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}} \in
+\typelift{\delta_a\typeP}$, so to show that $\theta^{!}$ has the correct range
+it is sufficient to show that $\theta^{!}_{\typeP} [b].\finelt{F}{s'} =
+\finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}}$.
+
+TODO
+
+Define also ${\theta^{!}_{\typeP}}^{-1} : \typelift{\delta_a \typeP} \to
+\delta_a \typelift\typeP$ by \[{\theta^{!}}^{-1}_{\typeP}(x) = \freshin{b}{
+[b].\{p \mid [b].p \in x\}} = \theta^{-1}{\typeP}(x).\] Any element of
+$\typelift{\delta_a\typeP}$ can be written in the form $\finelt{\{[b].p \mid p
+\in F\}}{s'}$ where $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab) \cdot
+\typeP$ and $b \notin s' \supseteq s$. Under these conditions it is also the
+case that $[b].\finelt{F}{s' \udot \{b\}} \in \delta_a\typelift\typeP$, so to
+show that ${\theta^{!}}^{-1}$ has the correct range it is sufficient to show
+that ${\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'} =
+[b].\finelt{F}{s' \udot \{b\}}$
+
+TODO\end{proof}
 
 The situation
 \[
