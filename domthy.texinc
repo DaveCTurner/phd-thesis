@@ -1034,19 +1034,20 @@ The map $f^{\ddagger}$ is FM-continuous.
 \end{lemma}
 
 \begin{proof} It not clear that $f^{\ddagger}$ is even monotone.  Let $x, x' \in
-\widehat{\typeP}$ be such that $x \subseteq x'$. By the monotonicity of $f$ it
-is sufficient to show that for all $y \in \typelift\typeP$ such that $y
-\subseteq x$ and $\supp{y} \subseteq \supp{x}$ there exists $y' \in
-\typelift\typeP$ such that $y \subseteq y'$ and $y' \subseteq x'$ and $\supp{y'}
-\subseteq \supp{x'}$, so let $y \in \typelift\typeP$ be such that $y \subseteq
-x$ and without loss of generality write $y = \finelt{F}{\supp{x} \cup
-\supp{x'}}$. Define $y' = \finelt{F}{\supp{x'}}$. It is certainly the case that
-$y \subseteq y'$ and $\supp{y'} \subseteq \supp{x'}$ so it remains to show that
-$y' \subseteq x'$.  Let $p' \in y'$, then there exists $p \in F$ and $\sigma
-\freshfor x'$ such that $p' \le_{\typeP} \sigma \cdot p$.  However, since $y =
-\finelt{F}{\supp{x} \cup \supp{x'}} \subseteq x \subseteq x'$, it must be that
-$p \in x'$.  Since $\sigma \freshfor x'$, $\sigma \cdot p \in x'$ too, and $x'
-\in \widehat{\typeP}$ so that $p' \in x'$ as required.
+\widehat{\typeP}$ be such that $x \subseteq x'$ and show that $f^{\ddagger} x
+\le f^{\ddagger} x'$ as follows. By the monotonicity of $f$ it is sufficient to
+show that for all $y \in \typelift\typeP$ such that $y \subseteq x$ and
+$\supp{y} \subseteq \supp{x}$ there exists $y' \in \typelift\typeP$ such that $y
+\subseteq y'$ and $y' \subseteq x'$ and $\supp{y'} \subseteq \supp{x'}$, so let
+$y \in \typelift\typeP$ be such that $y \subseteq x$ and without loss of
+generality write $y = \finelt{F}{\supp{x} \cup \supp{x'}}$. Define $y' =
+\finelt{F}{\supp{x'}}$. It is certainly the case that $y \subseteq y'$ and
+$\supp{y'} \subseteq \supp{x'}$ so it remains to show that $y' \subseteq x'$.
+Let $p' \in y'$, then there exists $p \in F$ and $\sigma \freshfor x'$ such that
+$p' \le_{\typeP} \sigma \cdot p$.  However, since $y = \finelt{F}{\supp{x} \cup
+\supp{x'}} \subseteq x \subseteq x'$, it must be that $p \in x'$.  Since $\sigma
+\freshfor x'$, $\sigma \cdot p \in x'$ too, and $x' \in \widehat{\typeP}$ so
+that $p' \in x'$ as required.
 
 Having shown that $f^{\ddagger}$ is monotone, the proof of its continuity is
 standard.  Let $X \subseteq \widehat{\typeP}$ be uniformly-supported and
@@ -1080,36 +1081,12 @@ $\widehat{\typelift\typeP} \to \widehat{\typeQ}$ so that there is an isomorphism
 $\mathbf{FMCts}_s \to \mathbf{FMLin}_s$ where if $f : \typeP \to \typeQ$ is an
 arrow of $\mathbf{FMCts}_s$ and $X \in \widehat{\typelift\typeP}$ then \[({!}f)
 X = \{y \in \typelift\typeQ \mid \exists x \in X.\ y \subseteq f x\}.\]
+It is straightforward to show that if $f$ is continuous then ${!}f$ is linear,
+and hence that ${!}$ is a functor $\mathbf{FMCts}_s \to \mathbf{FMLin}_s$.
 
-\begin{lemma}
-The operation ${!}$ defined above is a functor $\mathbf{FMCts}_s \to
-\mathbf{FMLin}_s$.
-\end{lemma}
-
-\begin{proof} Let $f : \typeP \to \typeQ$ be FM-continuous and let $\mathcal{X}
-\subseteq \widehat{\typelift\typeP}$, then it must be shown that
-$({!}f)\bigl(\bigcup \mathcal{X}\bigr) = \bigcup \{({!}f) X \mid X \in
-\mathcal{X}\}$. 
-
-Let $y \in ({!}f)\bigl(\bigcup \mathcal{X}\bigr)$, then $y \in \typelift\typeQ$
-and there exists $x \in \bigcup \mathcal{X}$ such that $y \subseteq f x$, and
-hence there exists $X \in \mathcal{X}$ such that $x \in X$. Therefore $y \in
-({!}f) X$ so that $y \in \bigcup \{({!}f) x \mid x \in \mathcal{X}\}$. 
-
-Conversely let $y \in \bigcup \{({!}f) X \mid X \in \mathcal{X}\}$, then there
-exists $X \in \mathcal{X}$ such that $y \in ({!}f)X$, and hence there exists $x
-\in X$ such that $y \subseteq f x$. Therefore $x \in \bigcup \mathcal{X}$ so
-that $y \in ({!}f)\bigl(\bigcup \mathcal{X}\bigr)$ as required. TODO that seemed
-far too easy! Check Isabelle proof to see if I've missed any complications.
-
-Therefore ${!}$ is well-defined, and it is now straightforward to see that it is
-a functor as required. \end{proof}
-
-It is not hard to see that this isomorphism $\mathbf{FMLin}_s (\typelift\typeP,
-\typeQ) \cong \mathbf{FMCts}_s (\typeP, \typeQ)$ is natural in $\typeP$ and
-$\typeQ$ and therefore forms an adjunction with the inclusion $\mathbf{FMLin}_s
-\hookrightarrow \mathbf{FMCts}_s$ as right adjoint to the functor ${!}$. By
-lemma \ref{adjunctioninclusion} it follows that $\mathbf{FMCts}_s$ is isomorphic
-to the coKleisli category of the induced comonad $!$ on $\mathbf{FMLin}_s$.
+The isomorphism $\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong
+\mathbf{FMCts}_s (\typeP, \typeQ)$ above is natural in $\typeP$ and $\typeQ$ and
+therefore forms an adjunction with the inclusion $\mathbf{FMLin}_s
+\hookrightarrow \mathbf{FMCts}_s$ as right adjoint. 
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
