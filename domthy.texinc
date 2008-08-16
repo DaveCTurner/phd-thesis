@@ -1033,9 +1033,9 @@ join is taken over a directed set that is uniformly supported by $\supp{x} \cup
 The map $f^{\ddagger}$ is FM-continuous.
 \end{lemma}
 
-\begin{proof} It is hard to show that $f^{\ddagger}$ is even monotone.  Let $x,
-x' \in \widehat{\typeP}$ be such that $x \subseteq x'$. By the monotonicity of
-$f$ it is sufficient to show that for all $y \in \typelift\typeP$ such that $y
+\begin{proof} It not clear that $f^{\ddagger}$ is even monotone.  Let $x, x' \in
+\widehat{\typeP}$ be such that $x \subseteq x'$. By the monotonicity of $f$ it
+is sufficient to show that for all $y \in \typelift\typeP$ such that $y
 \subseteq x$ and $\supp{y} \subseteq \supp{x}$ there exists $y' \in
 \typelift\typeP$ such that $y \subseteq y'$ and $y' \subseteq x'$ and $\supp{y'}
 \subseteq \supp{x'}$, so let $y \in \typelift\typeP$ be such that $y \subseteq
