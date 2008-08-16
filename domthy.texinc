@@ -1000,6 +1000,19 @@ such that $p \le_{\typeP} \sigma \cdot p'$. Also, $F \subseteq x$ so that $p'
 \le_{\typeP} \sigma \cdot p' \in x \in \widehat{\typeP}$ so that $p \in x$.
 Therefore $x = \finelt{F}{s}$ as required.  \end{proof}
 
+\begin{lemma}
+\label{fineltminsupp} \[\finelt{F}{s} = \finelt{F}{\supp{\finelt{F}{s}}}.\]
+\end{lemma}
+
+\begin{proof}TODO\end{proof}
+
+\begin{lemma}
+\label{fineltmineqvt} If $\sigma$ is a permutation then
+\[\sigma \cdot \finelt{F}{s} = \finelt{\sigma \cdot F}{\sigma \cdot s}.\]
+\end{lemma}
+
+\begin{proof}TODO\end{proof}
+
 \subsubsection{FM-Continuous Maps}
 
 The discussion of the previous section indicates that `continuous' should mean
@@ -1090,5 +1103,133 @@ The isomorphism $\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong
 \mathbf{FMCts}_s (\typeP, \typeQ)$ above is natural in $\typeP$ and $\typeQ$ and
 therefore forms an adjunction with the inclusion $\mathbf{FMLin}_s
 \hookrightarrow \mathbf{FMCts}_s$ as right adjoint. 
+
+Via the freeness properties above, the identity $\mathbf{1}_{\typelift\typeP} :
+\typelift\typeP \to \typelift\typeP$ in $\mathbf{FMLin}_s$ corresponds to a
+monotone map $\typelift\typeP \to \widehat{\typelift\typeP}$, which in turn is a
+continuous map $\widehat{\typeP} \to \widehat{\typelift\typeP}$ and therefore an
+arrow $\eta_{\typeP} : \typeP \to \typelift\typeP$ in $\mathbf{FMCts}_s$. Also,
+the inclusion $\typelift\typeP \hookrightarrow \widehat{\typeP}$ is monotone, so
+corresponds to a linear map $\widehat{\typelift\typeP} \to \widehat{\typeP}$ and
+hence an arrow $\epsilon_{\typeP} : \typelift\typeP \to \typeP$ in
+$\mathbf{FMLin}_s$. The maps $\eta_{\typeP}$ and $\epsilon_{\typeP}$
+respectively form the unit and counit of the adjunction, and concretely
+\[\eta_{\typeP} x = \{ y \in \typelift\typeP \mid y \subseteq x\}
+\qquad\text{and}\qquad \epsilon_{\typeP} X = \bigcup X.\]
+
+\subsubsection{Relationship between ${!}$, $(-)^{\freshfor a}$ and $\delta_a$}
+
+In fact, ${!}$ may also be seen as an endofunctor on $\mathbf{FMPre}_s$, where
+if $f : \typeP \to \typeQ$ is monotone and $x \in \typelift\typeP$ then
+$({!}f)(x) = \widehat{f}(x)$. To see that ${!}f$ is well-defined, it is
+necessary to show that $\widehat{f}(x) \in \typelift\typeQ$. Without loss of
+generality, write $x = \finelt{F}{s'}$ where $F$ is finite and $s \subseteq s'$,
+then it will be shown that $\widehat{f}(x) = \finelt{\{f p \mid p \in F\}}{s'}$
+which is indeed isolated in $\widehat\typeQ$ as required.
+
+Firstly, let $q \in \widehat{f}(x)$, then there exists $p' \in x$ such that $q
+\le_{\typeQ} f p'$, and hence there exists $p \in F$ and $\sigma \freshfor s'$
+such that $p' \le_{\typeP} \sigma \cdot p$. Therefore $q \le_{\typeQ} f (\sigma
+\cdot p) = \sigma \cdot (f p)$ and hence $q \in \finelt{\{f p \mid p \in
+F\}}{s'}$. Conversely, let $q \in \finelt{\{f p \mid p \in F\}}{s'}$, then there
+exists $p \in F$ and $\sigma \freshfor s'$ such that $q \le_{\typeQ} \sigma
+\cdot (f p) = f (\sigma \cdot p)$.  Therefore $\sigma \cdot p \in x$ and hence
+$q \in \widehat{f}(x)$ as required.
+
+\begin{lemma}\label{freshbangiso} Let $a \notin s$. The functors
+\[({!}-)^{\freshfor a}, {!}(-)^{\freshfor a} : \mathbf{FMPre}_s
+\rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}\] are naturally isomorphic.
+\end{lemma}
+
+\begin{proof} The natural isomorphism detailed in lemma \ref{freshhatiso}
+restricts to the desired isomorphism here. It is only unclear that this
+restriction has the correct range on the restricted domain. Let $\phi$ and
+$\phi^{-1}$ be as in the proof of lemma \ref{freshhatiso}.
+
+For each object $\typeP$ of $\mathbf{FMPre}_s$ define $\phi^{!}_{\typeP} :
+(\typelift\typeP)^{\freshfor a} \to \typelift{(\typeP^{\freshfor a})}$ by
+\[\phi^{!}_{\typeP} (x) = \{ p \in x \mid a \freshfor p \} = \phi_{\typeP}
+(x).\] Any element of $(\typelift\typeP)^{\freshfor a}$ can be written in the
+form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$
+and $a \notin s' \supseteq s$. Under these conditions it is also the case that
+$\finelt{F}{s' \cup \{a\}} \in \typelift{(\typeP^{\freshfor a})}$, so to show
+that $\phi^{!}_{\typeP}$ has the correct range, it is sufficient to show that
+$\phi^{!}_{\typeP} \finelt{F}{s'} = \finelt{F}{s' \cup \{a\}}$.
+
+Let $p' \in \phi^{!}_{\typeP} \finelt{F}{s'}$, then $a
+\freshfor p'$ and there exists $p \in F$ and $\sigma \freshfor s'$ such that $p'
+\le_{\typeP} \sigma \cdot p$. Let $b$ be a fresh name, then $p = (ab) \cdot p$
+and $p' = (ab) \cdot p'$ so that $p' \le_{\typeP} (ab) \cdot \sigma \cdot (ab)
+\cdot p$. However, $(ab) \cdot \sigma \cdot (ab) \cdot a = a$ and $(ab) \cdot
+\sigma \cdot (ab) \cdot a' = \sigma \cdot a' = a'$ for all $a' \in s'$ since $b$
+is fresh and $\sigma \freshfor s'$, so that $(ab) \cdot \sigma \cdot (ab)
+\freshfor s' \udot\{a\}$ and hence $p' \in \finelt{F}{s' \udot \{a\}}$ as
+required. Conversely, let $p' \in \finelt{F}{s' \udot \{a\}}$, then 
+there exists $p \in F$ and $\sigma \freshfor s' \udot \{a\}$ such that
+$p' \le_{\typeP^{\freshfor a}} \sigma \cdot p$. Therefore $\sigma \freshfor s'$
+and $p' \le_{\typeP} \sigma \cdot p$ and $a \freshfor p$ so that
+$p' \in \phi^{!}_{\typeP} \finelt{F}{s'}$ as required.
+
+Define also ${\phi^{!}_{\typeP}}^{-1} : \typelift{(\typeP^{\freshfor a})} \to
+(\typelift\typeP)^{\freshfor a}$ by \[{\phi^{!}_{\typeP}}^{-1}(x) = x \cup
+\bigcup_{b \freshfor x} (ab) \cdot x = \phi^{-1}_{\typeP}(x).\] 
+Any element of $\typelift{(\typeP^{\freshfor a})}$ may be written in the form
+$\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}}
+\typeP^{\freshfor a}$ and $a \in s' \supseteq s$, and under these conditions
+$\finelt{F}{s' \setminus \{a\}} \in (\typelift\typeP)^{\freshfor a}$ so to show
+that ${\phi^{!}_{\typeP}}^{-1}$ has the correct range it is sufficient to show
+that ${\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'} = \finelt{F}{s' \setminus \{a\}}$.
+
+Firstly, note that as in lemma \ref{freshhatiso}, $p \in
+{\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ iff $\freshin{b}{p \in (ab) \cdot
+\finelt{F}{s'}}$. Let $p' \in {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ and let
+$b$ be a fresh name, then $p' \in (ab) \cdot \finelt{F}{s'} = \finelt{(ab) \cdot
+F}{(ab) \cdot s'}$ so that there exists $p \in (ab) \cdot F$ and $\sigma
+\freshfor (ab) \cdot s'$ such that $p' \le_{\typeP^{\freshfor a}} \sigma \cdot
+p$. Therefore $p' \le_{\typeP} \sigma \cdot (ab) \cdot (ab) \cdot p$ and $(ab)
+\cdot p \in F$. Furthermore if $a' \in s' \setminus \{a\}$ then $\sigma \cdot
+(ab) \cdot a' = a'$ as $b$ is fresh and $\sigma \freshfor (ab) \cdot s'
+\supseteq s' \setminus \{a\}$ so that $p' \in \finelt{F}{s \setminus \{a\}}$.
+Conversely, suppose that $p' \in \finelt{F}{s \setminus \{a\}}$, then there
+exists $p \in F$ and $\sigma \freshfor s \setminus \{a\}$ such that $p'
+\le_{\typeP} \sigma \cdot p$. Let $b$ be a fresh name. Since $p \in F$, $a
+\freshfor p$ and hence $(ab) \cdot p = p$. Therefore $(ab) \cdot p' \le (ab)
+\cdot \sigma \cdot (ab) \cdot p$ and $(ab) \cdot \sigma \cdot (ab) \freshfor s'$
+since $(ab) \cdot \sigma \cdot (ab) \freshfor (ab) \cdot (s' \setminus \{a\}) =
+s' \setminus \{b\} = s'$. Hence $(ab) \cdot p' \in \finelt{F}{s'}$ so that $p'
+\in {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ as required.
+
+The proof of lemma \ref{freshhatiso} now demonstrates that $\phi^{!}$ and
+${\phi^{!}}^{-1}$ are natural and mutual inverses, which completes the proof.
+\end{proof}
+
+
+
+The situation
+\[
+\xymatrix{
+\mathbf{FMLin}_s\ \ 
+\ar@/_2ex/@<-2pt>@{^{(}->}[rr]_{\ }
+&
+\bot
+&
+\ \ \mathbf{FMCts}_s
+\ar@/_2ex/@<-2pt>[ll]_{!}
+}
+\]
+satisfies the premises of lemma \ref{adjunctioninclusion} so that
+$\mathbf{FMCts}_s$ is isomorphic to the coKleisli category of the comonad ${!}$
+so that we may apply the dual of lemma \ref{adjunctionlift} to raise the
+adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ to an adjunction
+$(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows
+\mathbf{FMCts}_{s \udot \{a\}}$.
+
+\begin{lemma}\label{deltafreshadjcts} There is an adjunction \[(-)^{\freshfor
+a++} \dashv \delta_a^{++} : \mathrm{coKl}\bigl({!} \text{ on }
+\mathbf{FMLin}_s\bigr) \leftrightarrows \mathrm{coKl}\bigl({!} \text{ on }
+\mathbf{FMLin}_{s \udot \{a\}}\bigr),\] where $(-)^{\freshfor a++}$ and
+$\delta_a^{++}$ are defined as in the categorical dual of the statement of lemma
+\ref{adjunctionlift}.\end{lemma}
+
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
