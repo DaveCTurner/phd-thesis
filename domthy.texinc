@@ -1162,7 +1162,7 @@ Let $p' \in \phi^{!}_{\typeP} \finelt{F}{s'}$, then $a
 and $p' = (ab) \cdot p'$ so that $p' \le_{\typeP} (ab) \cdot \sigma \cdot (ab)
 \cdot p$. However, $(ab) \cdot \sigma \cdot (ab) \cdot a = a$ and $(ab) \cdot
 \sigma \cdot (ab) \cdot a' = \sigma \cdot a' = a'$ for all $a' \in s'$ since $b$
-is fresh and $\sigma \freshfor s'$, so that $(ab) \cdot \sigma \cdot (ab)
+is fresh and $\sigma \freshfor s'$, so that $(ab)\sigma(ab)
 \freshfor s' \udot\{a\}$ and hence $p' \in \finelt{F}{s' \udot \{a\}}$ as
 required. Conversely, let $p' \in \finelt{F}{s' \udot \{a\}}$, then 
 there exists $p \in F$ and $\sigma \freshfor s' \udot \{a\}$ such that
@@ -1194,8 +1194,8 @@ Conversely, suppose that $p' \in \finelt{F}{s \setminus \{a\}}$, then there
 exists $p \in F$ and $\sigma \freshfor s \setminus \{a\}$ such that $p'
 \le_{\typeP} \sigma \cdot p$. Let $b$ be a fresh name. Since $p \in F$, $a
 \freshfor p$ and hence $(ab) \cdot p = p$. Therefore $(ab) \cdot p' \le (ab)
-\cdot \sigma \cdot (ab) \cdot p$ and $(ab) \cdot \sigma \cdot (ab) \freshfor s'$
-since $(ab) \cdot \sigma \cdot (ab) \freshfor (ab) \cdot (s' \setminus \{a\}) =
+\cdot \sigma \cdot (ab) \cdot p$ and $(ab)\sigma(ab) \freshfor s'$
+since $(ab)\sigma(ab) \freshfor (ab) \cdot (s' \setminus \{a\}) =
 s' \setminus \{b\} = s'$. Hence $(ab) \cdot p' \in \finelt{F}{s'}$ so that $p'
 \in {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ as required.
 
@@ -1239,7 +1239,7 @@ b$ so $[b].(\sigma \cdot p) = \sigma \cdot ([b].p)$ and hence $p' \le_{\delta_a
 F$ and $\sigma \freshfor s' \setminus \{b\}$ such that $p' \le_{\delta_a \typeP}
 \sigma \cdot ([b].p)$. Let $c$ be a fresh name, then $p'@c \le_{(ac) \cdot
 \typeP} \sigma \cdot (bc) \cdot p = (bc) \cdot (bc) \cdot \sigma \cdot (bc)
-\cdot p$. Furthermore, $(bc) \cdot \sigma \cdot (bc) \freshfor s'$ so that $p'@c
+\cdot p$. Furthermore, $(bc)\sigma(bc) \freshfor s'$ so that $p'@c
 \in (bc) \cdot \finelt{F}{s'}$ and hence $p' \in \theta^{!}_{\typeP}
 \bigl([b].\finelt{F}{s'}\bigr)$ as required.
 
@@ -1261,14 +1261,13 @@ such that $[c].p' \le_{\delta_a \typeP} \sigma \cdot [b].p$. Let $d$ be a fresh
 name, then $(cd) \cdot p' \le_{(ad) \cdot \typeP} (\sigma \cdot [b].p)@d =
 \sigma \cdot (bd) \cdot p$ and hence $p' \le_{(ac) \cdot \typeP} (cd) \cdot
 \sigma \cdot (bd) \cdot p$. Since $c \freshfor F$ and $F$ is finite $c \freshfor
-p$ so that $p = (cd) \cdot p$; furthermore $(cd) = (bc) \cdot (cd) \cdot (bd)$,
-so that $(cd) \cdot \sigma \cdot (bd) \cdot p = (bc) \cdot (cd) \cdot (bd) \cdot
-\sigma \cdot (bd) \cdot (cd) \cdot p$. Also, $s' \cup \{d\} \freshfor \sigma$ so
-that $s' \cup \{b\} \freshfor (cd) \cdot (bd) \cdot \sigma \cdot (bd) \cdot
-(cd)$, which shows that $p' \in (bc) \cdot \finelt{F}{s' \udot \{b\}} =
-([b].\finelt{F}{s' \udot\{b\}})@c$. Conversely, let $c$ be a fresh name and let
-$p' \in ([b].\finelt{F}{s' \udot\{b\}})@c = (bc) \cdot \finelt{F}{s' \udot
-\{b\}}$, then there exists 
+p$ so that $p = (cd) \cdot p$; furthermore $(cd) = (bc)(cd)(bd)$, so that $(cd)
+\cdot \sigma \cdot (bd) \cdot p = (bc) \cdot (cd) \cdot (bd) \cdot \sigma \cdot
+(bd) \cdot (cd) \cdot p$. Also, $s' \cup \{d\} \freshfor \sigma$ so that $s'
+\cup \{b\} \freshfor (cd)(bd)\sigma(bd)(cd)$, which shows that $p' \in (bc)
+\cdot \finelt{F}{s' \udot \{b\}} = ([b].\finelt{F}{s' \udot\{b\}})@c$.
+Conversely, let $c$ be a fresh name and let $p' \in ([b].\finelt{F}{s'
+\udot\{b\}})@c = (bc) \cdot \finelt{F}{s' \udot \{b\}}$, then there exists 
 
 
 TODO\end{proof}
