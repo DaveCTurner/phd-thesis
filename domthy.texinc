@@ -1203,7 +1203,6 @@ The proof of lemma \ref{freshhatiso} now demonstrates that $\phi^{!}$ and
 ${\phi^{!}}^{-1}$ are natural and mutual inverses, which completes the proof.
 \end{proof}
 
-\vfill\pagebreak%TODO
 \begin{lemma}\label{deltabangiso} Let $a \notin s$. The functors \[\delta_a{!},
 {!}\delta_a : \mathbf{FMPre}_{s \udot\{a\}} \rightrightarrows \mathbf{FMPre}_s\]
 are naturally isomorphic.\end{lemma}
@@ -1223,7 +1222,7 @@ in the form $[b].\finelt{F}{s'}$ where $b$ is a fresh name, $F
 these conditions it is also the case that $\finelt{\{[b].p \mid p \in F\}}{s'
 \setminus \{b\}} \in \typelift{\delta_a\typeP}$, so to show that $\theta^{!}$
 has the correct range it is sufficient to show that $\theta^{!}_{\typeP}
-\bigl([b].\finelt{F}{s'}\bigr) = \finelt{\{[b].p \mid p \in F\}}{s' \setminus
+\bigl([b].\finelt{f}{s'}\bigr) = \finelt{\{[b].p \mid p \in f\}}{s' \setminus
 \{b\}}$.
 
 Let $p' \in \theta^{!}_{\typeP} \bigl([b].\finelt{F}{s'}\bigr)$ and let $c$ be a
@@ -1252,25 +1251,49 @@ $\typelift{\delta_a\typeP}$ can be written in the form $\finelt{\{[b].p \mid p
 case that $[b].\finelt{F}{s' \udot \{b\}} \in \delta_a\typelift\typeP$, so to
 show that ${\theta^{!}}^{-1}$ has the correct range it is sufficient to show
 that ${\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'} =
-[b].\finelt{F}{s' \udot \{b\}}$
+[b].\finelt{F}{s' \udot \{b\}}$ or equivalently that 
+$\bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c =
+\bigl([b].\finelt{F}{s' \udot \{b\}}\bigr)@c$ for a fresh name $c$.
 
-Let $c$ be a fresh name and let $p' \in \bigl({\theta^{!}}^{-1}_{\typeP}
-\finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c$, then $[c].p' \in \finelt{\{[b].p
-\mid p \in F\}}{s'}$ so that there exists $p \in F$ and $\sigma \freshfor s'$
-such that $[c].p' \le_{\delta_a \typeP} \sigma \cdot [b].p$. Let $d$ be a fresh
-name, then $(cd) \cdot p' \le_{(ad) \cdot \typeP} (\sigma \cdot [b].p)@d =
-\sigma \cdot (bd) \cdot p$ and hence $p' \le_{(ac) \cdot \typeP} (cd) \cdot
-\sigma \cdot (bd) \cdot p$. Since $c \freshfor F$ and $F$ is finite $c \freshfor
-p$ so that $p = (cd) \cdot p$; furthermore $(cd) = (bc)(cd)(bd)$, so that $(cd)
-\cdot \sigma \cdot (bd) \cdot p = (bc) \cdot (cd) \cdot (bd) \cdot \sigma \cdot
-(bd) \cdot (cd) \cdot p$. Also, $s' \cup \{d\} \freshfor \sigma$ so that $s'
-\cup \{b\} \freshfor (cd)(bd)\sigma(bd)(cd)$, which shows that $p' \in (bc)
-\cdot \finelt{F}{s' \udot \{b\}} = ([b].\finelt{F}{s' \udot\{b\}})@c$.
-Conversely, let $c$ be a fresh name and let $p' \in ([b].\finelt{F}{s'
-\udot\{b\}})@c = (bc) \cdot \finelt{F}{s' \udot \{b\}}$, then there exists 
+Let $p' \in \bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
+F\}}{s'}\bigr)@c$, then $[c].p' \in \finelt{\{[b].p \mid p \in F\}}{s'}$ so that
+there exists $p \in F$ and $\sigma \freshfor s'$ such that $[c].p' \le_{\delta_a
+\typeP} \sigma \cdot [b].p$. Let $d$ be a fresh name, then $(cd) \cdot p'
+\le_{(ad) \cdot \typeP} (\sigma \cdot [b].p)@d = \sigma \cdot (bd) \cdot p$ and
+hence $p' \le_{(ac) \cdot \typeP} (cd) \cdot \sigma \cdot (bd) \cdot p$. Since
+$c \freshfor F$ and $F$ is finite $c \freshfor p$ so that $p = (cd) \cdot p$;
+furthermore $(cd) = (bc)(cd)(bd)$, so that $(cd) \cdot \sigma \cdot (bd) \cdot p
+= (bc) \cdot (cd) \cdot (bd) \cdot \sigma \cdot (bd) \cdot (cd) \cdot p$. Also,
+$s' \cup \{d\} \freshfor \sigma$ so that $s' \cup \{b\} \freshfor
+(cd)(bd)\sigma(bd)(cd)$, which shows that $p' \in (bc) \cdot \finelt{F}{s' \udot
+\{b\}} = ([b].\finelt{F}{s' \udot\{b\}})@c$.  Conversely, let $p' \in
+([b].\finelt{F}{s' \udot\{b\}})@c = (bc) \cdot \finelt{F}{s' \udot \{b\}}$, then
+there exists $p \in F$ and $\sigma \freshfor s' \udot \{b\}$ such that $p'
+\le_{(ac) \cdot \typeP} (bc) \cdot \sigma \cdot p$. Therefore $[c].p'
+\le_{\delta_a\typeP} [c].\bigl((bc) \cdot \sigma \cdot p\bigr) = (bc) \cdot
+\sigma \cdot [b].p$ and $(bc)\sigma \freshfor s'$ so that $[c].p' \in
+\finelt{\{[b].p \mid p \in F\}}{s'}$ and hence $p' \in
+\bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c$ as
+required.  \end{proof}
 
-
-TODO\end{proof}
+\[\begin{array}{c}
+\typeP \to \typeQ \qquad \in \mathbf{FMLin}_{s} \\
+\widehat{\typeP} \to_{\mathrm{lin}} \widehat{\typeQ} \\
+\typeP \to_{\mathrm{mono}} \widehat{\typeQ} \\
+\mapsto \typelift\typeP \to_{\mathrm{mono}} \typelift{\widehat{\typeQ}} \\
+\vdots \\
+\typelift\typeP \to_{\mathrm{mono}} \widehat{\typelift\typeQ} \\
+\widehat{\typelift\typeP} \to_{\mathrm{lin}} \widehat{\typelift\typeQ} \\
+\typelift\typeP \to \typelift\typeQ \qquad \in \mathbf{FMLin}_{s} \\
+\end{array}\]
+need
+\[\begin{array}{c}
+\typelift{\widehat{\typeQ}} \to_{\mathrm{mono}} \widehat{\typelift\typeQ} \\
+\end{array}\]
+have
+\[\begin{array}{c}
+\typelift\typeQ \to_{\mathrm{mono}} \widehat{\typelift\typeQ} \\
+\end{array}\]
 
 The situation
 \[
