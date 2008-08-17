@@ -1254,26 +1254,27 @@ there exists $p \in F$ and $\sigma \freshfor s' \udot \{b\}$ such that $p'
 \bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c$ as
 required.  \end{proof}
 
-\begin{lemma}
-There is a natural transformation $\psi : \typelift{\widehat{(-)}} \to
-\widehat{(\typelift-)}$ given by $\psi_{\typeP} X = \{ x \in \typelift\typeP
-\mid x \subseteq \cup X\}$.
-\end{lemma}
+There is also a natural transformation $\psi : \typelift{\widehat{(-)}} \to
+\widehat{(\typelift-)}$ of endofunctors of $\mathbf{FMPre}_s$ given by
+\[\psi_{\typeP} X = \{ x \in \typelift\typeP \mid x \subseteq \bigcup X\}.\] It
+is not hard to see that this is well-defined and natural. This transformation
+can be used to extend $!$ to an endofunctor ${!}^+$ on $\mathbf{FMLin}_s$ as
+follows. The action of ${!}^+$ on objects is the same as that of ${!}$ and if $f
+: \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then $f$ may be
+considered a monotone map $\typeP \to \widehat{\typeQ}$ and hence ${!}^+f =
+\psi_{\typeQ} \circ \typelift{f} : \typelift\typeP \to
+\widehat{\typelift\typeQ}$. Concretely, if $X \in \widehat{\typelift\typeP}$
+then \[({!}^+f) X = \{y \in \typelift\typeQ \mid \exists x \in X.\ y \subseteq f
+x\}.\] It is not hard to see that the action of ${!}^+$ is functorial.
+Furthermore, if if $f$ is continuous then ${!}^+f$ is linear too, so that
+${!}^+$ is a functor $\mathbf{FMCts}_s \to \mathbf{FMLin}_s$.
 
-\subsubsection{$!$ as a functor on $\mathbf{FMLin}_s$}
 
-TODO This is cut from above - probably need to reword.
+\subsubsection{An Adjunction}
 
-Furthermore, it is possible to extend the operation $!$ to a functor
-$\mathbf{FMCts}_s \to \mathbf{FMLin}_s$ where if $f : \typeP \to \typeQ$ is an
-arrow of $\mathbf{FMCts}_s$ and $X \in \widehat{\typelift\typeP}$ then \[({!}f)
-X = \{y \in \typelift\typeQ \mid \exists x \in X.\ y \subseteq f x\}.\]
-It is straightforward to show that if $f$ is continuous then ${!}f$ is linear,
-and hence that ${!}$ is a functor $\mathbf{FMCts}_s \to \mathbf{FMLin}_s$.
-
-The isomorphism $\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong
-\mathbf{FMCts}_s (\typeP, \typeQ)$ above is natural in $\typeP$ and $\typeQ$ and
-therefore forms an adjunction with the inclusion $\mathbf{FMLin}_s
+The isomorphism $\mathbf{FMLin}_s (!\typeP, \typeQ) \cong \mathbf{FMCts}_s
+(\typeP, \typeQ)$ above is natural in $\typeP$ and $\typeQ$ (where ${!}$ means
+${!}^+$) and therefore forms an adjunction with the inclusion $\mathbf{FMLin}_s
 \hookrightarrow \mathbf{FMCts}_s$ as right adjoint. 
 
 Via the freeness properties above, the identity $\mathbf{1}_{\typelift\typeP} :
