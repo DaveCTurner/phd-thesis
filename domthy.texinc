@@ -1203,6 +1203,7 @@ The proof of lemma \ref{freshhatiso} now demonstrates that $\phi^{!}$ and
 ${\phi^{!}}^{-1}$ are natural and mutual inverses, which completes the proof.
 \end{proof}
 
+\vfill\pagebreak%TODO
 \begin{lemma}\label{deltabangiso} Let $a \notin s$. The functors \[\delta_a{!},
 {!}\delta_a : \mathbf{FMPre}_{s \udot\{a\}} \rightrightarrows \mathbf{FMPre}_s\]
 are naturally isomorphic.\end{lemma}
@@ -1217,14 +1218,30 @@ For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
 $\theta^{!}_{\typeP} : \delta_a \typelift\typeP \to \typelift{\delta_a \typeP}$
 by \[\theta^{!}_{\typeP}(x') = \{p' \mid \freshin{b}{ p' @ b \in x' @ b\}} =
 \theta_{\typeP} (x').\] Any element of $\delta_a \typelift\typeP$ can be written
-in the form $[b].\finelt{F}{s'}$ where $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \in
-s' \supseteq s$. Under these conditions it is also the case that
-$\finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}} \in
-\typelift{\delta_a\typeP}$, so to show that $\theta^{!}$ has the correct range
-it is sufficient to show that $\theta^{!}_{\typeP} [b].\finelt{F}{s'} =
-\finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}}$.
+in the form $[b].\finelt{F}{s'}$ where $b$ is a fresh name, $F
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \in s' \supseteq s$. Under
+these conditions it is also the case that $\finelt{\{[b].p \mid p \in F\}}{s'
+\setminus \{b\}} \in \typelift{\delta_a\typeP}$, so to show that $\theta^{!}$
+has the correct range it is sufficient to show that $\theta^{!}_{\typeP}
+\bigl([b].\finelt{F}{s'}\bigr) = \finelt{\{[b].p \mid p \in F\}}{s' \setminus
+\{b\}}$.
 
-TODO
+Let $p' \in \theta^{!}_{\typeP} \bigl([b].\finelt{F}{s'}\bigr)$ and let $c$ be a
+fresh name, then $p'@c \in (bc) \cdot \finelt{F}{s'}$ so that there exists $p
+\in F$ and $\sigma \freshfor s'$ so that $(bc) \cdot (p'@c) \le_{(ab) \cdot
+\typeP} \sigma \cdot p$. Therefore $\big((bc) \cdot p') @ b \le_{(ab) \cdot
+\typeP} \sigma \cdot p = \bigl([b].(\sigma \cdot p)\bigr)@b$ so that $(bc) \cdot
+p' \le_{\delta_a \typeP} [b].(\sigma \cdot p)$. However $\sigma \freshfor s' \ni
+b$ so $[b].(\sigma \cdot p) = \sigma \cdot ([b].p)$ and hence $p' \le_{\delta_a
+\typeP} (bc) \cdot \sigma \cdot ([b].p)$ so that $p' \in \finelt{\{[b].p \mid p
+\in F\}}{s' \setminus \{b\}}$ as required. Conversely, let $p' \in
+\finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}}$, then there exists $p \in
+F$ and $\sigma \freshfor s' \setminus \{b\}$ such that $p' \le_{\delta_a \typeP}
+\sigma \cdot ([b].p)$. Let $c$ be a fresh name, then $p'@c \le_{(ac) \cdot
+\typeP} \sigma \cdot (bc) \cdot p = (bc) \cdot (bc) \cdot \sigma \cdot (bc)
+\cdot p$. Furthermore, $(bc) \cdot \sigma \cdot (bc) \freshfor s'$ so that $p'@c
+\in (bc) \cdot \finelt{F}{s'}$ and hence $p' \in \theta^{!}_{\typeP}
+\bigl([b].\finelt{F}{s'}\bigr)$ as required.
 
 Define also ${\theta^{!}_{\typeP}}^{-1} : \typelift{\delta_a \typeP} \to
 \delta_a \typelift\typeP$ by \[{\theta^{!}}^{-1}_{\typeP}(x) = \freshin{b}{
@@ -1236,6 +1253,23 @@ case that $[b].\finelt{F}{s' \udot \{b\}} \in \delta_a\typelift\typeP$, so to
 show that ${\theta^{!}}^{-1}$ has the correct range it is sufficient to show
 that ${\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'} =
 [b].\finelt{F}{s' \udot \{b\}}$
+
+Let $c$ be a fresh name and let $p' \in \bigl({\theta^{!}}^{-1}_{\typeP}
+\finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c$, then $[c].p' \in \finelt{\{[b].p
+\mid p \in F\}}{s'}$ so that there exists $p \in F$ and $\sigma \freshfor s'$
+such that $[c].p' \le_{\delta_a \typeP} \sigma \cdot [b].p$. Let $d$ be a fresh
+name, then $(cd) \cdot p' \le_{(ad) \cdot \typeP} (\sigma \cdot [b].p)@d =
+\sigma \cdot (bd) \cdot p$ and hence $p' \le_{(ac) \cdot \typeP} (cd) \cdot
+\sigma \cdot (bd) \cdot p$. Since $c \freshfor F$ and $F$ is finite $c \freshfor
+p$ so that $p = (cd) \cdot p$; furthermore $(cd) = (bc) \cdot (cd) \cdot (bd)$,
+so that $(cd) \cdot \sigma \cdot (bd) \cdot p = (bc) \cdot (cd) \cdot (bd) \cdot
+\sigma \cdot (bd) \cdot (cd) \cdot p$. Also, $s' \cup \{d\} \freshfor \sigma$ so
+that $s' \cup \{b\} \freshfor (cd) \cdot (bd) \cdot \sigma \cdot (bd) \cdot
+(cd)$, which shows that $p' \in (bc) \cdot \finelt{F}{s' \udot \{b\}} =
+([b].\finelt{F}{s' \udot\{b\}})@c$. Conversely, let $c$ be a fresh name and let
+$p' \in ([b].\finelt{F}{s' \udot\{b\}})@c = (bc) \cdot \finelt{F}{s' \udot
+\{b\}}$, then there exists 
+
 
 TODO\end{proof}
 
