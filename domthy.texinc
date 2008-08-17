@@ -1228,7 +1228,7 @@ TODO
 
 Define also ${\theta^{!}_{\typeP}}^{-1} : \typelift{\delta_a \typeP} \to
 \delta_a \typelift\typeP$ by \[{\theta^{!}}^{-1}_{\typeP}(x) = \freshin{b}{
-[b].\{p \mid [b].p \in x\}} = \theta^{-1}{\typeP}(x).\] Any element of
+[b].\{p \mid [b].p \in x\}} = \theta^{-1}_{\typeP}(x).\] Any element of
 $\typelift{\delta_a\typeP}$ can be written in the form $\finelt{\{[b].p \mid p
 \in F\}}{s'}$ where $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab) \cdot
 \typeP$ and $b \notin s' \supseteq s$. Under these conditions it is also the
