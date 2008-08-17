@@ -1,7 +1,52 @@
 \section{Nominal Domain Theory}
 \label{domthy}
 
+This section (TODO chapter? part?) develops a domain theory for nondeterministic
+processes with names.  Roughly speaking, this development takes the construction
+of the domain theory for concurrency that underpins HOPLA\cite{nygaardwinskel1}
+and follows a parallel path within the theory of nominal sets.
+
+In slightly greater detail, the development of the domain theory behind HOPLA
+runs as follows. Firstly, processes are typed by the computation paths that they
+may follow, and these paths may be ordered by a kind of information ordering.
+To incorporate nondeterminism, these `path orders' are freely closed under
+joins, and this free construction draws attention to a rich category of `linear'
+maps which preserve all joins. Computationally speaking, these linear maps use
+their input precisely once which is a severe restriction on their expressivity,
+so it is desirable to turn to `continuous' maps which preserve only directed
+joins and so can express discarding or limited copying of inputs. The category
+of path orders and continuous maps is then rich enough to support a natural
+domain theory for concurrency, with many computational features given by
+universal properties.
+
+A similar story unfolds within nominal set theory, but this story is complicated
+by a number of factors. Firstly, following the usual pattern of nominal sets,
+everything in sight must be finitely-supported: linear maps need only preserve
+finitely-supported joins, for example. As may be expected this involves little
+real alteration to the narrative. Secondly, if the domain theory is to make use
+of the name-binding constructions of nominal sets then the key adjunction $(-)
+\otimes \mathbb A \dashv \delta$ must be woven into the tale somehow. This is
+simple enough when dealing with basic path orders, but it takes care to ensure
+that this adjunction meshes properly with the free constructions mentioned
+above.  Thirdly, and perhaps most surprisingly, the appropriate notion of
+`continuous' here is not simply the preservation of (finitely-supported)
+directed joins, but of directed joins with more stringent constraints on
+supports. This is the price to be paid for working in a universe without the
+Axiom of Choice.
+
+In \ref{npre} the theory of nominal preorders is introduced, and is shown to be
+a straightforward combination of the theories of nominal sets and of classical
+preorders. In \ref{fmpre} this theory is generalised to include objects and
+arrows that have nontrivial finite supports, because the domain theory will need
+to make use of such structure. Then \ref{nominalpathsemantics} gives a
+construction of particular preorders that support a path-based semantics. In
+\ref{nominalnondeterministicdomains} these `path orders' are freely completed to
+incorporate nondeterminism and the induced linear maps are studied in
+\ref{fmlin}. As mentioned above, linearity is too restrictive a condition on the
+maps and in \ref{fmcts} an appropriate notion of continuity is developed.
+
 \subsection{Nominal Preorders}
+\label{npre}
 
 A nominal preorder is a pair $\langle X, \mathord{\le_X} \rangle$ where $X$ is a
 nominal set and $\mathord{\le_X}$ is a subset of $X \times X$ which is reflexive
@@ -27,6 +72,7 @@ TODO Alternative presentation of $\mathbf{NPre}$ as sheaves in
 $\mathbf{Pre}^{\mathbb{I}}$?
 
 \subsection{FM Preorders}
+\label{fmpre}
 
 It will be necessary to apply certain freshness constraints to the paths
 received as input by a process, such as forbidding all input that makes use of a
@@ -212,6 +258,7 @@ Let $y' \in \delta_a Y$ and let $b$ be fresh, then \[ \begin{array}{rcl}
 
 
 \subsection{Alternative Presentations of $\mathbf{FMPre}_s$.}
+\label{fmpre:alternative}
 
 It is a little unappealing to construct $\mathbf{FMPre}_s$ by carving up
 $\mathcal{V}_{\mathrm{FM}}$ in this way. After all, $\mathbf{Nom}$ can be
@@ -280,12 +327,14 @@ _{\kappa^{s_0; s \hookrightarrow s'}}
 TODO $\delta_a$ functor as $\delta$, and adjunction with $(-)^{\freshfor a}$.
 
 \subsection{Nominal Path Semantics}
+\label{nominalpathsemantics}
 
 TODO Motivate subsets of nominal path orders as representing processes.
 
 TODO Notation: $X_{\downarrow} = \{x' \mid \exists x \in X. x' \le x \}$.
 
 \subsection{Nominal Nondeterministic Domains}
+\label{nominalnondeterministicdomains}
 
 The collection of path sets over a nominal path order $\typeP$ may be ordered by
 inclusion to form the nominal partial order $\widehat{\typeP}$, which will be
@@ -333,6 +382,7 @@ finitely-supported-join-preserving maps $\widehat{\typeP} \to \widehat{\typeQ}$.
 For brevity, call such maps `FM-linear'.
 
 \subsection{Categories of FM-Linear Maps}
+\label{fmlin}
 
 Let $\mathbf{FMLin}_s$ be the category whose objects are FM-preorders $\typeP$,
 $\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \to \typeQ$ are
@@ -748,6 +798,7 @@ p'@a \in x'@a\} \\
 \end{proof}
 
 \subsection{Categories of FM-Continuous Maps}
+\label{fmcts}
 
 As in the development of HOPLA, linear maps are too restrictive to give a
 semantics for concurrent processes: it is desirable for a process to be able to
