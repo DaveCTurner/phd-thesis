@@ -1324,8 +1324,8 @@ The situation
 \]
 satisfies the premises of lemma \ref{adjunctioninclusion} so that
 $\mathbf{FMCts}_s$ is isomorphic to the coKleisli category of the comonad ${!}$
-so that we may apply the dual of lemma \ref{adjunctionlift} to raise the
-adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ to an adjunction
+so that it is possible to apply the dual of lemma \ref{adjunctionlift} to raise
+the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ to an adjunction
 $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows
 \mathbf{FMCts}_{s \udot \{a\}}$.
 
