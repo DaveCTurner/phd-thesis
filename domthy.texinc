@@ -1092,40 +1092,18 @@ discussion, finitely-supported monotone maps $\typelift\typeP \to
 \widehat{\typeQ}$ are also in bijective correspondence with FM-linear maps
 $\widehat{\typelift\typeP} \to \widehat{\typeQ}$ so that there is an isomorphism
 \[\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong \mathbf{FMCts}_s (\typeP,
-\typeQ).\] Furthermore, it is possible to extend the operation $!$ to a functor
-$\mathbf{FMCts}_s \to \mathbf{FMLin}_s$ where if $f : \typeP \to \typeQ$ is an
-arrow of $\mathbf{FMCts}_s$ and $X \in \widehat{\typelift\typeP}$ then \[({!}f)
-X = \{y \in \typelift\typeQ \mid \exists x \in X.\ y \subseteq f x\}.\]
-It is straightforward to show that if $f$ is continuous then ${!}f$ is linear,
-and hence that ${!}$ is a functor $\mathbf{FMCts}_s \to \mathbf{FMLin}_s$.
+\typeQ).\]
 
-The isomorphism $\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong
-\mathbf{FMCts}_s (\typeP, \typeQ)$ above is natural in $\typeP$ and $\typeQ$ and
-therefore forms an adjunction with the inclusion $\mathbf{FMLin}_s
-\hookrightarrow \mathbf{FMCts}_s$ as right adjoint. 
+\subsubsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
+and $\delta_a$}
 
-Via the freeness properties above, the identity $\mathbf{1}_{\typelift\typeP} :
-\typelift\typeP \to \typelift\typeP$ in $\mathbf{FMLin}_s$ corresponds to a
-monotone map $\typelift\typeP \to \widehat{\typelift\typeP}$, which in turn is a
-continuous map $\widehat{\typeP} \to \widehat{\typelift\typeP}$ and therefore an
-arrow $\eta_{\typeP} : \typeP \to \typelift\typeP$ in $\mathbf{FMCts}_s$. Also,
-the inclusion $\typelift\typeP \hookrightarrow \widehat{\typeP}$ is monotone, so
-corresponds to a linear map $\widehat{\typelift\typeP} \to \widehat{\typeP}$ and
-hence an arrow $\epsilon_{\typeP} : \typelift\typeP \to \typeP$ in
-$\mathbf{FMLin}_s$. The maps $\eta_{\typeP}$ and $\epsilon_{\typeP}$
-respectively form the unit and counit of the adjunction, and concretely
-\[\eta_{\typeP} x = \{ y \in \typelift\typeP \mid y \subseteq x\}
-\qquad\text{and}\qquad \epsilon_{\typeP} X = \bigcup X.\]
-
-\subsubsection{Relationship between ${!}$, $(-)^{\freshfor a}$ and $\delta_a$}
-
-In fact, ${!}$ may also be seen as an endofunctor on $\mathbf{FMPre}_s$, where
-if $f : \typeP \to \typeQ$ is monotone and $x \in \typelift\typeP$ then
-$({!}f)(x) = \widehat{f}(x)$. To see that ${!}f$ is well-defined, it is
-necessary to show that $\widehat{f}(x) \in \typelift\typeQ$. Without loss of
-generality, write $x = \finelt{F}{s'}$ where $F$ is finite and $s \subseteq s'$,
-then it will be shown that $\widehat{f}(x) = \finelt{\{f p \mid p \in F\}}{s'}$
-which is indeed isolated in $\widehat\typeQ$ as required.
+In fact, ${!}$ may be seen as an endofunctor on $\mathbf{FMPre}_s$, where if $f
+: \typeP \to \typeQ$ is an arrow of $\mathbf{FMPre}_s$ and $x \in
+\typelift\typeP$ then $({!}f)(x) = \widehat{f}(x)$.  To see that ${!}f$ is
+well-defined, it is necessary to show that $\widehat{f}(x) \in \typelift\typeQ$.
+Without loss of generality, write $x = \finelt{F}{s'}$ where $F$ is finite and
+$s \subseteq s'$, then it will be shown that $\widehat{f}(x) = \finelt{\{f p
+\mid p \in F\}}{s'}$ which is indeed isolated in $\widehat\typeQ$ as required.
 
 Firstly, let $q \in \widehat{f}(x)$, then there exists $p' \in x$ such that $q
 \le_{\typeQ} f p'$, and hence there exists $p \in F$ and $\sigma \freshfor s'$
@@ -1275,6 +1253,42 @@ there exists $p \in F$ and $\sigma \freshfor s' \udot \{b\}$ such that $p'
 \finelt{\{[b].p \mid p \in F\}}{s'}$ and hence $p' \in
 \bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c$ as
 required.  \end{proof}
+
+\begin{lemma}
+There is a natural transformation $\psi : \typelift{\widehat{(-)}} \to
+\widehat{(\typelift-)}$ given by $\psi_{\typeP} X = \{ x \in \typelift\typeP
+\mid x \subseteq \cup X\}$.
+\end{lemma}
+
+\subsubsection{$!$ as a functor on $\mathbf{FMLin}_s$}
+
+TODO This is cut from above - probably need to reword.
+
+Furthermore, it is possible to extend the operation $!$ to a functor
+$\mathbf{FMCts}_s \to \mathbf{FMLin}_s$ where if $f : \typeP \to \typeQ$ is an
+arrow of $\mathbf{FMCts}_s$ and $X \in \widehat{\typelift\typeP}$ then \[({!}f)
+X = \{y \in \typelift\typeQ \mid \exists x \in X.\ y \subseteq f x\}.\]
+It is straightforward to show that if $f$ is continuous then ${!}f$ is linear,
+and hence that ${!}$ is a functor $\mathbf{FMCts}_s \to \mathbf{FMLin}_s$.
+
+The isomorphism $\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong
+\mathbf{FMCts}_s (\typeP, \typeQ)$ above is natural in $\typeP$ and $\typeQ$ and
+therefore forms an adjunction with the inclusion $\mathbf{FMLin}_s
+\hookrightarrow \mathbf{FMCts}_s$ as right adjoint. 
+
+Via the freeness properties above, the identity $\mathbf{1}_{\typelift\typeP} :
+\typelift\typeP \to \typelift\typeP$ in $\mathbf{FMLin}_s$ corresponds to a
+monotone map $\typelift\typeP \to \widehat{\typelift\typeP}$, which in turn is a
+continuous map $\widehat{\typeP} \to \widehat{\typelift\typeP}$ and therefore an
+arrow $\eta_{\typeP} : \typeP \to \typelift\typeP$ in $\mathbf{FMCts}_s$. Also,
+the inclusion $\typelift\typeP \hookrightarrow \widehat{\typeP}$ is monotone, so
+corresponds to a linear map $\widehat{\typelift\typeP} \to \widehat{\typeP}$ and
+hence an arrow $\epsilon_{\typeP} : \typelift\typeP \to \typeP$ in
+$\mathbf{FMLin}_s$. The maps $\eta_{\typeP}$ and $\epsilon_{\typeP}$
+respectively form the unit and counit of the adjunction, and concretely
+\[\eta_{\typeP} x = \{ y \in \typelift\typeP \mid y \subseteq x\}
+\qquad\text{and}\qquad \epsilon_{\typeP} X = \bigcup X.\]
+
 
 \[\begin{array}{c}
 \typeP \to \typeQ \qquad \in \mathbf{FMLin}_{s} \\
