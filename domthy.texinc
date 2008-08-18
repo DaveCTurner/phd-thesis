@@ -1115,17 +1115,30 @@ such that $p \le_{\typeP} \sigma \cdot p'$. Also, $F \subseteq x$ so that $p'
 Therefore $x = \finelt{F}{s}$ as required.  \end{proof}
 
 \begin{lemma}
+\label{fineltmineqvt} If $\sigma$ is a permutation and $\sigma \freshfor \typeP$
+then \[\sigma \cdot \finelt{F}{s} = \finelt{\sigma \cdot F}{\sigma \cdot s}.\]
+\end{lemma}
+
+\begin{proof} Let $p' \in \sigma \cdot \finelt{F}{s}$ then there exists $p \in
+F$ and $\sigma' \freshfor s$ such that $p' \le_{\typeP} \sigma \cdot \sigma'
+\cdot p = \sigma \cdot \sigma' \cdot \sigma^{-1} \cdot \sigma \cdot p$, and
+$\sigma \cdot p \in \sigma \cdot F$ and $\sigma \sigma' \sigma^{-1} \freshfor
+\sigma \cdot s$ so that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s}$. The
+converse case is similar.  \end{proof}
+
+\begin{lemma}
 \label{fineltminsupp} \[\finelt{F}{s} = \finelt{F}{\supp{\finelt{F}{s}}}.\]
 \end{lemma}
 
-\begin{proof}TODO\end{proof}
-
-\begin{lemma}
-\label{fineltmineqvt} If $\sigma$ is a permutation then
-\[\sigma \cdot \finelt{F}{s} = \finelt{\sigma \cdot F}{\sigma \cdot s}.\]
-\end{lemma}
-
-\begin{proof}TODO\end{proof}
+\begin{proof} Let $p' \in \finelt{F}{s}$ then there exists $p \in F$ and $\sigma
+\freshfor s$ such that $p' \le_{\typeP} \sigma \cdot p$.  By lemma
+\ref{fineltsupport}, $\supp{\finelt{F}{s}} \subseteq s$ so that $\sigma
+\freshfor \finelt{F}{s}$ and hence $p' \in \finelt{F}{\supp{\finelt{F}{s}}}$.
+Conversely, let $p' \in \finelt{F}{\supp{\finelt{F}{s}}}$ then there exists $p
+\in F$ and $\sigma \freshfor \finelt{F}{s}$ such that $p' \le_{\typeP} \sigma
+\cdot p = \iota \cdot \sigma \cdot p$ and $\iota \freshfor \sigma \cdot s$ so
+that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma \cdot
+\finelt{F}{s} = \finelt{F}{s}$ as required.  \end{proof}
 
 \subsubsection{FM-Continuous Maps}
 
