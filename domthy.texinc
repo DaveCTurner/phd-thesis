@@ -182,15 +182,16 @@ It is certainly possible to define a category $\mathbf{FMPre}$ of FM-preorders
 and finitely-supported monotone functions within FM set theory, and for any
 FM-preorder $\typeP$ it is the case that $\typeP^{\freshfor a}$ is also a
 FM-preorder (where $p_1 \le_{\typeP^{\freshfor a}} p_2$ is defined to be $p_1
-\le_X p_2 \wedge p_1, p_2 \in \typeP^{\freshfor a}$) since $\typeP^{\freshfor
-a}$ is supported by the finite set $\supp{\typeP} \cup \{a\}$. It would be
-convenient that $(-)^{\freshfor a}$ can be made into a functor, but this is not
-possible on $\mathbf{FMPre}$. To see this, let $\typeP$ be any FM-preorder and
-consider the unique map $f : \typeP \to \{a\}$ which is necessarily monotone and
-finitely-supported, and hence an arrow of $\mathbf{FMPre}$: however if $\typeP$
-contains an element without $a$ in its support then $\typeP^{\freshfor a} \neq
-\varnothing$ so there are no possible candidates for the arrow $f^{\freshfor a}
-: \typeP^{\freshfor a} \to \{a\}^{\freshfor a} = \varnothing$.
+\le_\typeP p_2 \wedge p_1, p_2 \in \typeP^{\freshfor a}$) since
+$\typeP^{\freshfor a}$ is supported by the finite set $\supp{\typeP} \cup
+\{a\}$. It would be convenient that $(-)^{\freshfor a}$ can be made into a
+functor, but this is not possible on $\mathbf{FMPre}$. To see this, let $\typeP$
+be any FM-preorder and consider the unique map $f : \typeP \to \{a\}$ which is
+necessarily monotone and finitely-supported, and hence an arrow of
+$\mathbf{FMPre}$: however if $\typeP$ contains an element without $a$ in its
+support then $\typeP^{\freshfor a} \neq \varnothing$ so there are no possible
+candidates for the arrow $f^{\freshfor a} : \typeP^{\freshfor a} \to
+\{a\}^{\freshfor a} = \varnothing$.
 
 In some sense therefore $\mathbf{NPre}$ is too small to define $(-)^{\freshfor
 a}$ on objects but $\mathbf{FMPre}$ is too large to define $(-)^{\freshfor a}$
