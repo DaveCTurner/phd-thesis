@@ -154,10 +154,10 @@ on arrows. Fortunately there is a middle ground:
 finitely-supported monotone functions whose supports are all contained in $s$.
 \end{definition}
 
-If it is unsatisfying to base the definition in the universe of FM sets, with
-all the foundational baggage that that entails, see \ref{fmpre:alternative} for
-an alternative, more universal definition. The categories $\mathbf{FMPre}_s$ are
-appropriate for defining a functor $(-)^{\freshfor a}$ as follows.
+If it is foundationally unsatisfying to base the definition in the universe of
+FM sets, see \ref{fmpre:alternative} for an alternative, more universal
+definition. The categories $\mathbf{FMPre}_s$ are appropriate for defining a
+functor $(-)^{\freshfor a}$ as follows.
 
 \begin{definition}\label{def:freshfor} If $X$ is a FM-preorder then define the
 FM-preorder \begin{equation} X^{\freshfor a} \defeq \{x \in X \mid a \freshfor
