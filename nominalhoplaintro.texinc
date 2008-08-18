@@ -1,7 +1,7 @@
-\section{Nominal HOPLA}
+\chapter{Nominal HOPLA}
 \label{nomhopla}
 
-\subsection{Introduction}
+\section{Introduction}
 
 Nominal HOPLA is an expressive calculus for higher-order processes with
 nondeterminism and name-binding which will now be used to illustrate the

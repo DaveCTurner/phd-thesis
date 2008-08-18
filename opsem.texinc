@@ -1,4 +1,4 @@
-\subsection{Operational Semantics}
+\section{Operational Semantics}
 \label{opsem}
 
 Nominal HOPLA is given an operational semantics in the style of a labelled

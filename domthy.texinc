@@ -85,41 +85,51 @@ is equivariant.
 
 TODO Structures on $\mathbf{NPre}$? Fresh-tensor and $\delta$ functor.
 
-\subsection{A canonical construction of $\mathbf{NPre}$}
-
-Necessary? The definition in terms of nominal sets does seem to sidestep the
-foundational issues.
-
-TODO Possible alternative presentation of $\mathbf{NPre}$ as sheaves in
-$\mathbf{Pre}^{\mathbb{I}}$?
-
 \section{FM Preorders}
 \label{fmpre}
 
-It will be necessary to apply certain freshness constraints to the paths
-received as input by a process, such as forbidding all input that makes use of a
-name $a$. This can be achieved by means of an operation $(-)^{\freshfor a}$
-which essentially deletes from the type of the input the paths which contain the
-name $a$ in their respective supports. However, this operation cannot be defined
-within $\mathbf{NPre}$: for example, the preorder $\mathbb A$ is the set of all
-names with the discrete order (and the obvious permutation action), but $\mathbb
-A ^{\freshfor a} = \mathbb A \setminus \{a\}$ is not even a nominal set, as $b
-\in \mathbb A ^{\freshfor a}$ but $a = (ab) \cdot b \notin \mathbb A ^{\freshfor
-a}$ so $\mathbb A^{\freshfor a}$ is not closed under the permutation action.
+As demonstrated in \ref{??}, nominal sets can be thought of as sheaves over
+$\mathbb{I}$, and in the language of sheaves the global elements of a nominal
+set are those (set-theoretic) elements that have empty support. In some sense
+the interesting elements of nominal sets are precisely those that do not have
+empty support, because it is these elements that have a nontrivial permutation
+action.
 
-Fraenkel-Mostowski (FM) set theory is closely related to the theory of nominal
-sets. For now it is worth ignoring the deep foundational issues embedded in this
-assertion, but they will be addressed in \ref{fmpre:alternative}. The universe
-of FM sets $\mathcal{V}_{\mathrm{FM}}$ is constructed similarly to the the von
-Neumann hierarchy $\mathcal{V}_{\mathrm{ZF}}$ of ZF set theory, with the
-following differences.  Firstly, the starting point includes an infinite
-collection of atoms as well as the empty set. The permutation action on this
-collection of atoms gives rise to a permutation action on all of
-$\mathcal{V}_{\mathrm{FM}}$ by $\mathord{\in}$-recursion, which gives rise to
-the notion of `support' for arbitrary elements of $\mathcal{V}_{\mathrm{FM}}$.
-The process of the construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in
-such a way as to only include elements that have finite supports. Each nominal
-set is then (isomorphic to) a FM set which has empty support.
+Similarly, nominal sets (and preorders) can be seen as the emptily-supported
+`global' elements of a wider class of gadgets that are a little like nominal
+sets (and preorders respectively) but which also have a nontrivial permutation
+action. 
+
+For example, consider a simple type theory that uses nominal sets to interpret
+types. If a computation cannot produce a result with a particular name $a$ in
+its support then it might be desirable to record this information in the type of
+that computation. This could be achieved by means of an operation
+$(-)^{\freshfor a}$ which essentially deletes all elements with $a$ in their
+supports from the denotation of the type. This operation certainly does not
+result in a nominal set in general: for example, recall that $\mathbb A$ is the
+nominal set of all names (with the obvious permutation action) but $\mathbb A
+^{\freshfor a} = \mathbb A \setminus \{a\}$ is not a nominal set, as $b \in
+\mathbb A ^{\freshfor a}$ but $a = (ab) \cdot b \notin \mathbb A ^{\freshfor a}$
+so $\mathbb A^{\freshfor a}$ is not closed under the permutation action.
+
+It will turn out that it is worth being able to manipulate sets  such as
+$\mathbb A^{\freshfor a}$ as first-class objects. This is possible within
+Fraenkel-Mostowski (FM) set theory.
+
+\subsection{Fraenkel-Mostowski Set Theory}
+
+Setting foundational issues aside for a moment, FM set theory is closely related
+to the theory of nominal sets.  The universe of FM sets
+$\mathcal{V}_{\mathrm{FM}}$ is constructed similarly to the the von Neumann
+hierarchy $\mathcal{V}_{\mathrm{ZF}}$ of ZF set theory, with the following
+differences.  Firstly, the starting point includes an infinite collection of
+atoms as well as the empty set. The permutation action on this collection of
+atoms gives rise to a permutation action on all of $\mathcal{V}_{\mathrm{FM}}$
+by $\mathord{\in}$-recursion, which gives rise to the notion of `support' for
+arbitrary elements of $\mathcal{V}_{\mathrm{FM}}$.  The process of the
+construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in such a way as to
+only include elements that have finite supports. Each nominal set is then
+(isomorphic to) a FM set which has empty support.
 
 It is certainly possible to define a category $\mathbf{FMPre}$ of FM-preorders
 and finitely-supported monotone functions within FM set theory, and for any
@@ -137,40 +147,60 @@ the arrow $f^{\freshfor a} : X^{\freshfor a} \to \{a\}^{\freshfor a} =
 
 In some sense therefore $\mathbf{NPre}$ is too small to define $(-)^{\freshfor
 a}$ on objects but $\mathbf{FMPre}$ is too large to define $(-)^{\freshfor a}$
-on arrows. Fortunately there is a middle ground: for any finite set of names $s$
-let $\mathbf{FMPre}_s$ be the category of FM-preorders and finitely-supported
-monotone functions whose supports are all contained in $s$. In particular, If $a
-\notin s$ then $(-)^{\freshfor a} : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s \udot
-\{a\}}$ is a functor, where $X^{\freshfor a} = \{x \in X \mid a \freshfor x\}$
-with order given by the restriction of the order on $X$, and if $f : X \to Y$ in
-$\mathbf{FMPre}_s$ then for all $x \in X^{\freshfor a}$, $f^{\freshfor a}(x) =
-f(x)$. This is well-defined since if $x \in X^{\freshfor a}$ then $a \freshfor
-x$, and if $f$ is an arrow of $\mathbf{FMPre}_s$ and $a \notin s$ then $a
-\freshfor f$ and hence $a \freshfor f(x)$ so that $f(x) \in Y^{\freshfor a}$ as
-required. It is not hard to see that $(-)^{\freshfor a}$ is a functor.
+on arrows. Fortunately there is a middle ground:
 
-The collection of categories $\mathbf{FMPre}_s$ is rich in structure. Firstly,
-if $s \subseteq s'$ then there is an obvious functor $J^{s \hookrightarrow s'} :
-\mathbf{FMPre}_s \hookrightarrow \mathbf{FMPre}_{s'}$ given simply by inclusion.
-Also each permutation $\sigma$ and each $s$ gives rise to a permutation functor
-$\sigma^{s} : \mathbf{FMPre}_{s} \to \mathbf{FMPre}_{\sigma \cdot s}$ given by
-the usual action of $\sigma$ on each object and arrow. Combining these two facts
-shows that for any injection $j : s \rightarrowtail s'$ there is a corresponding
-functor $j^* : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$.
+\begin{definition} For any finite set of names $s$ let
+\define{$\mathbf{FMPre}_s$} be the category of FM-preorders and
+finitely-supported monotone functions whose supports are all contained in $s$.
+\end{definition}
 
-For all $s$ and $a \notin s$ there is a functor $\delta_a : \mathbf{FMPre}_{s
-\udot a} \to  \mathbf{FMPre}_s$ defined as follows. If $X$ is an object of
-$\mathbf{FMPre}_{s \udot \{a\}}$ then \[\delta_a X = \{x' \mid \freshin{b}{x' @
-b \in (ab) \cdot X \}},\] and if $x'_1$ and $x'_2$ are elements of $\delta_a X$
-then \[x'_1 \le_{\delta_a X} x'_2 \qquad \Leftrightarrow \qquad \freshin{b}{x'_1
-@ b \le_{(ab) \cdot X} x'_2 @ b}.\] If $f : X \to Y$ is an arrow of
-$\mathbf{FMPre}_{s \udot \{a\}}$ and $x' \in \delta_a X$ then define \[\delta_a
-f (x') = \freshin{b}{[b].\bigl((ab) \cdot f) (x' @ b)}.\]
+If it is unsatisfying to base the definition in the universe of FM sets, with
+all the foundational baggage that that entails, see \ref{fmpre:alternative} for
+an alternative, more universal definition. The categories $\mathbf{FMPre}_s$ are
+appropriate for defining a functor $(-)^{\freshfor a}$ as follows.
 
-\begin{lemma}The operation $\delta_a$ defined above is a functor.\end{lemma}
+\begin{definition}\label{def:freshfor} If $X$ is a FM-preorder then define the
+FM-preorder \begin{equation} X^{\freshfor a} \defeq \{x \in X \mid a \freshfor
+x\} \end{equation} ordered given by the restriction of the order on $X$, and if
+$f : X \to Y$ is a finitely-supported monotone function then for all $x \in
+X^{\freshfor a}$ define \begin{equation} f^{\freshfor a}(x) \defeq
+f(x).\end{equation}\end{definition}
+
+\begin{lemma} If $a \notin s$ then the operation $(-)^{\freshfor a}$ defined in
+\ref{def:freshfor} is a functor $\mathbf{FMPre}_s \to \mathbf{FMPre}_{s \udot
+\{a\}}$.\end{lemma}
+
+\begin{proof} It is only unclear that if $x \in X^{\freshfor a}$ then
+$f^{\freshfor a} (x) \in Y^{\freshfor a}$. To see this, note that if $x \in
+X^{\freshfor a}$ then $a \freshfor x$, and if $f$ is an arrow of
+$\mathbf{FMPre}_s$ and $a \notin s$ then $a \freshfor f$ and hence $a \freshfor
+f(x)$ so that $f(x) \in Y^{\freshfor a}$ as required.  It is now straightforward
+to see that $(-)^{\freshfor a}$ sends objects and arrows of $\mathbf{FMPre}_s$
+to those of $\mathbf{FMPre}_{s \udot \{a\}}$ and that its action on arrows is
+functorial.\end{proof}
+
+The discussion in \ref{fmpre:alternative} demonstrates that this functor arises
+naturally from the tensor operation $(-) \otimes \mathbb A$ in $\mathbf{NPre}$.
+Furthermore, the right adjoint $\delta$ to the tensor operation in
+$\mathbf{NPre}$ gives rise to a right adjoint to $(-)^{\freshfor a}$ which is
+given a concrete description here.
+
+\begin{definition}\label{def:deltaa} If $X$ is a FM-preorder then define the
+FM-preorder \begin{equation}\delta_a X \defeq \{x' \mid \freshin{b}{x' @ b \in
+(ab) \cdot X \}},\end{equation} where if $x'_1$ and $x'_2$ are elements of
+$\delta_a X$ then \begin{equation} x'_1 \le_{\delta_a X} x'_2 \qquad
+\Leftrightarrow_{\mathrm{def}} \qquad \freshin{b}{x'_1 @ b \le_{(ab) \cdot X}
+x'_2 @ b}.\end{equation} If $f : X \to Y$ is a finitely-supported monotone
+function then for all $x' \in \delta_a X$ define \begin{equation} \delta_a f
+(x') \defeq \freshin{b}{[b].\bigl((ab) \cdot f) (x' @
+b)}.\end{equation}\end{definition}
+
+\begin{lemma} If $a \notin s$ then the operation $\delta_a$ defined in
+\ref{def:deltaa} is a functor $\mathbf{FMPre}_{s \udot a} \to
+\mathbf{FMPre}_s$.\end{lemma}
 
 \begin{proof}
-Let $X$ be an object of $\mathbf{ChCts}_{s \udot \{a\}}$. Suppose that $\sigma$
+Let $X$ be an object of $\mathbf{FMPre}_{s \udot \{a\}}$. Suppose that $\sigma$
 is a permutation that fixes $s$, let $x' \in \delta_a X$ and let $b$ be a fresh
 name, then $x' @ b \in (ab) \cdot X$ and hence $(\sigma \cdot x') @ b = \sigma
 \cdot (x' @ b) \in \sigma \cdot (ab) \cdot X$.  However, $\supp{(ab) \cdot X} =
@@ -182,10 +212,10 @@ $\sigma \cdot x' \in \delta_a X$ and hence $\sigma \cdot \delta_a X \subseteq
 Therefore $s$ supports $\delta_a X$ so that the action of $\delta_a$ on objects
 is well-defined.
 
-Now let $f : X \to Y$ be an arrow of $\mathbf{ChCts}_{s \udot \{a\}}$, let $x'
+Now let $f : X \to Y$ be an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$, let $x'
 \in \delta_a X$ and let $b$ be a fresh name.  Therefore $x'@b \in (ab) \cdot X$
-so that \[\bigl((ab) \cdot f\bigr)(x'@b) = \bigl([b].\bigl((ab) \cdot
-f\bigr)(x'@b)\bigr)@b \in (ab) \cdot Y\] and hence $[b].\bigl((ab) \cdot
+so that \begin{equation}\bigl((ab) \cdot f\bigr)(x'@b) = \bigl([b].\bigl((ab) \cdot
+f\bigr)(x'@b)\bigr)@b \in (ab) \cdot Y\end{equation} and hence $[b].\bigl((ab) \cdot
 f\bigr)(x'@b) \in \delta_a Y$ so that $\delta_a f$ is well-defined.
 
 Let $x_1' \le_{\delta_a X} x_2'$ and let $b$ be fresh. Therefore $x_1'@b
@@ -195,8 +225,8 @@ Let $x_1' \le_{\delta_a X} x_2'$ and let $b$ be fresh. Therefore $x_1'@b
 
 Let $\sigma$ be a permutation that fixes $s$ and suppose that $b$ is fresh.  The
 support of $(ab) \cdot f$ is contained in $s \udot \{b\}$ so that $\sigma \cdot
-(ab) \cdot f = (ab) \cdot f$. Therefore \[\begin{array}{rcl} \sigma \cdot
-(\delta_a f(x'))
+(ab) \cdot f = (ab) \cdot f$. Therefore \begin{equation}\begin{array}{rcl}
+\sigma \cdot (\delta_a f(x'))
 %
 &=& \sigma \cdot [b].\bigl((ab) \cdot f\bigr) (x' @ b) \\
 %
@@ -205,33 +235,34 @@ b)) \\
 %
 &=& [b].\bigl((ab) \cdot f\bigr) ((\sigma \cdot x') @ b) \\
 %
-&=& \delta_a f (\sigma \cdot x') \end{array}\] so that $s$ supports $\delta_a f$
-so that the action of $\delta_a$ on arrows is also well-defined. It is not hard
-to see that the action of $\delta_a$ is functorial.  \end{proof}
+&=& \delta_a f (\sigma \cdot x') \end{array}\end{equation} so that $s$ supports
+$\delta_a f$ so that the action of $\delta_a$ on arrows is also well-defined. It
+is not hard to see that the action of $\delta_a$ is functorial.  \end{proof}
 
-\begin{lemma} There is an adjunction \[(-)^{\freshfor a} \dashv \delta_a :
-\mathbf{FMPre}_s \leftrightarrows \mathbf{FMPre}_{s \udot \{a\}}.\] \end{lemma}
+\begin{lemma} If $a \notin s$ then there is an adjunction \[(-)^{\freshfor a}
+\dashv \delta_a : \mathbf{FMPre}_s \leftrightarrows \mathbf{FMPre}_{s \udot
+\{a\}}.\] \end{lemma}
 
 \begin{proof} For each object $X$ of $\mathbf{FMPre}_s$ define $\xi_X : X \to
-\delta_a(X^{\freshfor a})$ as an arrow of $\mathbf{FMPre}_s$ by \[\xi_X(x) =
-\freshin{b}{[b].x]}.\] Let $x \in X$ and let $b$ be a fresh name. Since $s$
-supports $X$, $(ab) \cdot X = X$ so that $(ab) \cdot x \in X$. Furthermore $b$
-is fresh for $x$ so that $a$ is fresh for $(ab) \cdot x$ and hence $(ab) \cdot x
-\in X^{\freshfor a}$, so that $([b].x)@b = x \in (ab) \cdot (X^{\freshfor a})$.
-Therefore $\xi_X(x) = [b].x \in \delta_a (X^{\freshfor a})$ so that $\xi_X$ is
-well-defined. It is not hard to see that $\xi_X$ is supported by $s$ and that it
-is monotone.
+\delta_a(X^{\freshfor a})$ as an arrow of $\mathbf{FMPre}_s$ by
+\begin{equation}\xi_X(x) \defeq \freshin{b}{[b].x}.\end{equation} Let $x \in X$
+and let $b$ be a fresh name. Since $s$ supports $X$, $(ab) \cdot X = X$ so that
+$(ab) \cdot x \in X$. Furthermore $b \freshfor x$ so that $a \freshfor (ab)
+\cdot x$ and hence $(ab) \cdot x \in X^{\freshfor a}$, so that $([b].x)@b = x
+\in (ab) \cdot (X^{\freshfor a})$.  Therefore $\xi_X(x) = [b].x \in \delta_a
+(X^{\freshfor a})$ so that $\xi_X$ is well-defined. It is not hard to see that
+$\xi_X$ is supported by $s$ and that it is monotone.
 
 For each object $Y$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define $\epsilon_Y :
 (\delta_a Y)^{\freshfor a} \to Y$ as an arrow of $\mathbf{FMPre}_{s \udot
-\{a\}}$ by \[\epsilon_Y(y') = y'@a.\] Let $y' \in (\delta_a Y)^{\freshfor a}$ so
-that $a \freshfor y'$. Also let $b$ be fresh, then $y'@b \in (ab) \cdot Y$ and
-hence $(ab) \cdot (y'@b) = y' @ a \in Y$ so that $\epsilon_Y$ is well-defined.
-It is not hard to see that $\epsilon_Y$ is supported by $s \udot \{a\}$ and that
-it is monotone.
+\{a\}}$ by \begin{equation}\epsilon_Y(y') \defeq y'@a.\end{equation} Let $y' \in
+(\delta_a Y)^{\freshfor a}$ so that $a \freshfor y'$. Also let $b$ be fresh,
+then $y'@b \in (ab) \cdot Y$ and hence $(ab) \cdot (y'@b) = y' @ a \in Y$ so
+that $\epsilon_Y$ is well-defined.  It is not hard to see that $\epsilon_Y$ is
+supported by $s \udot \{a\}$ and that it is monotone.
 
 Let $f : X \to X'$ be an arrow of $\mathbf{FMPre}_s$, let $x \in X$ and let $b$
-be a fresh name. Then \[\begin{array}{rcl} 
+be a fresh name. Then \begin{equation}\begin{array}{rcl} 
 %
 (\delta_a (f^{\freshfor a}) \circ \xi_X) (x)
 %
@@ -243,10 +274,11 @@ be a fresh name. Then \[\begin{array}{rcl}
 %
 &=& [b].f (x) \qquad\text{as $a \freshfor f$ and $b \freshfor f$}\\
 %
-&=& (\xi_{X'} \circ f)(x) \\ \end{array}\] so that $\xi_X$ is natural in $X$.
-Let $g : Y \to Y'$ be an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$, let $y' \in
-(\delta_a Y)^{\freshfor a}$ and let $b$ be a fresh name. Then
-\[\begin{array}{rcl} (\epsilon_Y' \circ (\delta_a g)^{\freshfor a}) (y')
+&=& (\xi_{X'} \circ f)(x) \\ \end{array}\end{equation} so that $\xi_X$ is
+natural in $X$.  Let $g : Y \to Y'$ be an arrow of $\mathbf{FMPre}_{s \udot
+\{a\}}$, let $y' \in (\delta_a Y)^{\freshfor a}$ and let $b$ be a fresh name.
+Then \begin{equation}\begin{array}{rcl} (\epsilon_Y' \circ (\delta_a
+g)^{\freshfor a}) (y')
 %
 &=& \bigl([b].\bigl((ab) \cdot g\bigr) (y'@b)\bigr) @ a \\
 %
@@ -256,8 +288,8 @@ Let $g : Y \to Y'$ be an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$, let $y' \in
 %
 &=& g \bigl(y'@a)\bigr) \qquad\text{as $a \freshfor y'$}\\
 %
-&=& (g \circ \epsilon_Y)(y') \\ \end{array}\] so that $\epsilon_Y$ is natural in
-$Y$.
+&=& (g \circ \epsilon_Y)(y') \\ \end{array}\end{equation} so that $\epsilon_Y$
+is natural in $Y$.
 
 It remains to show that $\xi$ and $\epsilon$ satisfy the triangle identities.
 Let $x \in X^{\freshfor a}$ and let $b$ be fresh, then $(\epsilon_{X^{\freshfor
@@ -265,7 +297,7 @@ a}} \circ \xi_X^{\freshfor a}) (x) = ([b].x)@a = (ab) \cdot x = x$ as $a
 \freshfor x$ so that $\epsilon_{(-)^{\freshfor a}} \circ \xi^{\freshfor a} =
 \mathbf{1}_{(-)^{\freshfor a}}$.
 
-Let $y' \in \delta_a Y$ and let $b$ be fresh, then \[ \begin{array}{rcl}
+Let $y' \in \delta_a Y$ and let $b$ be fresh, then \begin{equation}\begin{array}{rcl}
 (\delta_a \epsilon_Y \circ \xi_{\delta_a Y}) (y') 
 %
 &=& \delta_a \epsilon_Y ([b].y') \\
@@ -278,11 +310,11 @@ Let $y' \in \delta_a Y$ and let $b$ be fresh, then \[ \begin{array}{rcl}
 %
 &=& [b].(y' @ b) = y'\\
 %
-\end{array}\] so that $ \delta_a \epsilon \circ \xi_{\delta_a} =
+\end{array}\end{equation} so that $ \delta_a \epsilon \circ \xi_{\delta_a} =
 \mathbf{1}_{\delta_a}$ as required.  \end{proof}
 
 
-\subsection{Alternative Presentations of $\mathbf{FMPre}_s$.}
+\section{Alternative Presentations of $\mathbf{FMPre}_s$.}
 \label{fmpre:alternative}
 
 It is a little unappealing to construct $\mathbf{FMPre}_s$ by carving up
@@ -299,7 +331,7 @@ two alternative constructions for $\mathbf{FMPre}_s$, both performed directly
 within $\mathbf{Nom}$ and therefore independent of the choice of equivalence of
 categories $\mathbf{NPre} \to \mathbf{FMPre}_{\varnothing}$.
 
-\subsubsection{An Elementary Presentation of $\mathbf{FMPre}_s$.}
+\subsection{An Elementary Presentation of $\mathbf{FMPre}_s$.}
 
 Let $\mathbf{SubNPre}_s$ be the category described as follows. Its objects are
 pairs $\langle X, X_0 \rangle$ where $X_0$ is a nominal preorder and $X$ is a
@@ -326,7 +358,7 @@ $X_1$ really only serve to specify the (partial) permutation action on $X$.
 Following the style of nominal sets, write $X$ instead of $\langle X, X_0
 \rangle$ and assume that the permutation action is understood.
 
-\subsubsection{A Fibred Presentation of $\mathbf{FMPre}_s$.}
+\subsection{A Fibred Presentation of $\mathbf{FMPre}_s$.}
 
 TODO
 
@@ -351,30 +383,31 @@ _{\kappa^{s_0; s \hookrightarrow s'}}
 
 TODO $\delta_a$ functor as $\delta$, and adjunction with $(-)^{\freshfor a}$.
 
-\subsection{Nominal Path Semantics}
+\section{Nominal Path Semantics}
 \label{nominalpathsemantics}
 
 TODO Motivate subsets of nominal path orders as representing processes.
 
 TODO Notation: $X_{\downarrow} = \{x' \mid \exists x \in X. x' \le x \}$.
 
-\subsection{Nominal Nondeterministic Domains}
+\section{Nominal Nondeterministic Domains}
 \label{nominalnondeterministicdomains}
 
 The collection of path sets over a nominal path order $\typeP$ may be ordered by
 inclusion to form the nominal partial order $\widehat{\typeP}$, which will be
 interpreted as a domain of the meanings of processs of type $\typeP$. More
-generally, if $\typeP$ is any FM-preorder then define $\widehat{\typeP} =
-\{x_\downarrow \mid x \subseteq_{\mathrm{fs}} \typeP\}$. Such a poset is a
-FM-complete join-semilattice: every finitely-supported subset of
+generally, if $\typeP$ is any FM-preorder then define \begin{equation}
+\widehat{\typeP} \defeq \{x_\downarrow \mid x \subseteq_{\mathrm{fs}}
+\typeP\},\end{equation} ordered by inclusion. Such a poset is a FM-complete
+join-semilattice in the sense that every finitely-supported subset of
 $\widehat{\typeP}$ has a join in $\widehat{\typeP}$ given by its union.
 
 Alternatively, $\widehat{\typeP}$ may be viewed as the monotone function space
 $\typeP^{\mathrm{op}} \to_{\mathrm{fs}} \mathbf{2}$ where $\mathbf{2}$ is the
 nontrivial poset on $\{\top, \bot\}$. Elements $x \in \widehat{\typeP}$
-correspond to their characteristic functions $\chi_x$ such that \[\chi_x(p) =
+correspond to their characteristic functions $\chi_x$ such that \begin{equation}\chi_x(p) =
 \begin{cases} \top & \text{if $p \in x$} \\ \bot & \text{otherwise.}
-\end{cases}\]
+\end{cases}\end{equation}
 
 The order $\widehat{\typeP}$ contains elements of the form $\{p\}_{\downarrow}$
 for each $p \in \typeP$. These elements are (completely) prime: if $X \subseteq
@@ -385,9 +418,9 @@ form: certainly $x \subseteq \bigcup \{\{p\}_{\downarrow} \mid p \in x\}$ so if
 $x$ is prime then there exists $p \in x$ such that $x \subseteq
 \{p\}_{\downarrow}$ and hence $x = \{p\}_{\downarrow}$ as required.
 
-Furthermore, each $x \in \widehat{\typeP}$ is the join of the prime elements
-below it so that $\widehat{\typeP}$ is a completely prime algebraic lattice: $x
-= \bigcup \{\{p\}_{\downarrow} \mid p \in x\}$.
+Furthermore, if $x \in \widehat{\typeP}$ then \begin{equation} x = \bigcup
+\{\{p\}_{\downarrow} \mid p \in x\}.\end{equation} so that $\widehat{\typeP}$ is
+completely prime algebraic.
 
 Finally, $\widehat{\typeP}$ is the free finitely-supported join completion of
 $\typeP$. In other words, $\widehat{\typeP}$ has all finitely-supported joins
@@ -395,16 +428,17 @@ and if $C$ is a poset that also has all finitely supported joins and $f : \typeP
 \to C$ is a monotone finitely-supported function then there is a unique
 finitely-supported $f^{\dagger} : \widehat{\typeP} \to C$ that preserves all
 finitely supported joins and such that the following diagram commutes.
-\[\xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\downarrow}} \ar[dr]_f & \widehat{\typeP}
-\ar[d]^{f^{\dagger}} \\& C}\] The function $f^{\dagger}$ is given by
-$f^{\dagger}X = \bigcup\{f p \mid p \in X\}$. The uniqueness of $f^{\dagger}$
-follows from the algebraicity of $\widehat{\typeP}$, and it is not hard to show
-that it preserves finitely-supported joins and that it is itself
-finitely-supported. In particular, if $C$ is of the form $\widehat{\typeQ}$ then
-this shows that finitely-supported monotone maps $\typeP \to \widehat{\typeQ}$
-are in bijective correspondence with finitely-supported
-finitely-supported-join-preserving maps $\widehat{\typeP} \to \widehat{\typeQ}$.
-For brevity, call such maps `FM-linear'.
+\begin{equation}\xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\downarrow}} \ar[dr]_f &
+\widehat{\typeP} \ar[d]^{f^{\dagger}} \\& C}\end{equation} The function
+$f^{\dagger}$ is given by \begin{equation}f^{\dagger}X \defeq \bigcup\{f p \mid
+p \in X\}.\end{equation} The uniqueness of $f^{\dagger}$ follows from the
+algebraicity of $\widehat{\typeP}$, and it is not hard to show that it preserves
+finitely-supported joins and that it is itself finitely-supported. In
+particular, if $C$ is of the form $\widehat{\typeQ}$ then this shows that
+finitely-supported monotone maps $\typeP \to \widehat{\typeQ}$ are in bijective
+correspondence with finitely-supported finitely-supported-join-preserving maps
+$\widehat{\typeP} \to \widehat{\typeQ}$.  For brevity, call such maps
+`FM-linear'.
 
 \subsection{Categories of FM-Linear Maps}
 \label{fmlin}
@@ -951,52 +985,6 @@ Every $x \in \widehat{\mathbb A}$ is of this form: either $x$ is finite and
 hence $x = \finelt{x}{\supp{x}}$ or else $x$ is cofinite and hence $x =
 \finelt{\{a\}}{\supp{x}}$ for any $a \in x$. It will turn out that sets of this
 form are precisely the isolated elements of $\widehat{\typeP}$.
-
-TODO Move this lemma somewhere more appropriate - early discussion on nominal
-sets?  \begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
-mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
-permutations $\sigma$ such that $\sigma \freshfor A$ there exist permutations
-$\sigma_1$, $\sigma_2$, $\sigma_3$ such that $\sigma_1 \freshfor A \cup B$,
-$\sigma_3 \freshfor A \cup B$, $\supp{\sigma_2} \subseteq (B \cup D) \setminus
-A$ and $\sigma = \sigma_1 \sigma_2 \sigma_3$.  \end{lemma}
-
-\begin{proof} Represent $\sigma$ as a finite list of transpositions of names not
-in $A$ and proceed by induction on the length of the list.  \begin{itemize}
-%
-\item If the list is empty then $\sigma = \iota$ and $\sigma_1 = \sigma_2 =
-\sigma_3 = \iota$ is a factorisation in the desired form.
-%
-\item If the list is nonempty then write $\sigma = \sigma' \cdot (ab)$ where $a
-\notin A$ and $b \notin A$ and $\sigma' \freshfor A$. By induction there exist
-$\sigma_1$, $\sigma_2$ and $\sigma_3$ such that $\sigma' = \sigma_1 \sigma_2
-\sigma_3$ and $\sigma_1 \freshfor A \cup B$, $\sigma_3 \freshfor A \cup B$ and
-$\supp{\sigma_2} \subseteq (B \cup D) \setminus A$.  \begin{itemize}
-%
-\item If $a \notin B$ and $b \notin B$ then $\sigma'_3 = \sigma_3(ab) \freshfor
-A \cup B$ and $\sigma = \sigma_1 \sigma_2 \sigma'_3$ is a factorisation in the
-desired form. 
-%
-\item If $a \in B$ and $b \in B$ then $\sigma_3(ab) = (ab)\sigma_3$ so let
-$\sigma'_2 = \sigma_2(ab)$ which has $\supp{\sigma'_2} \subseteq (B \cup D)
-\setminus A$, so that $\sigma = \sigma_1 \sigma'_2 \sigma_3$ is a factorisation
-in the desired form.
-%
-\item Otherwise without loss of generality let $a \notin B$ and $b \in B$. Then
-$\sigma_3(ab) = (a'b)\sigma_3$ where $a' = \sigma_3 \cdot a \notin A \cup B$ since $a
-\notin A \cup B$ and $\sigma_3 \freshfor A \cup B$.  \begin{itemize}
-%
-\item If $a' \in D$ then let $\sigma'_2 = \sigma_2(a'b)$ which has
-$\supp{\sigma'_2} \subseteq (B \cup D) \setminus A$ so that $\sigma = \sigma_1
-\sigma'_2 \sigma_3$ is a factorisation in the desired form.
-%
-\item If $a' \notin D$ then let $c \in D$ be such that $\sigma_2 \cdot c \in D$,
-which exists since by assumption $|D| > |B|$. Then $(a'b) = (a'c)(bc)(a'c)$.
-Writing $c' = \sigma_2 \cdot c \in D$, then $\sigma = \sigma_1 (a'c') \sigma_2 (bc)
-(a'c) \sigma_3$. Let $\sigma'_1 = \sigma_1 (a'c')$, $\sigma'_2 = \sigma_2 (bc)$
-and $\sigma'_3 = (a'c) \sigma_3$, then $\sigma = \sigma'_1 \sigma'_2 \sigma'_3$
-is a factorisation in the desired form.
-%
-\end{itemize} \end{itemize} \end{itemize} \end{proof}
 
 \begin{lemma}\label{fineltextension} If $\supp{\typeP} \subseteq s \subseteq s'$
 and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq

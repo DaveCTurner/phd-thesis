@@ -11,3 +11,4 @@ thesis-git--*T*.tar.bz2
 *.bbl
 *.blg
 .*.swp
+*.toc

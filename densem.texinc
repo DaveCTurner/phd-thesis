@@ -1,12 +1,12 @@
-\subsection{Denotational Semantics}
+\section{Denotational Semantics}
 \label{densem}
 
-\subsubsection{Types}
+\subsection{Types}
 
 Closed types $\typeP$ denote the corresponding objects $\typeP$ of
 $\mathbf{ChCts_\varnothing}$.  TODO More detail on the paths in each type.
 
-\subsubsection{Environments}
+\subsection{Environments}
 
 Environments $\Gamma$ (with freshness contraints contained in $s_0$) denote
 objects of $\mathbf{ChCts}_{s_0}$ as follows.
@@ -83,7 +83,7 @@ it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 %\end{proof}
 
 
-\subsubsection{Terms and Actions}
+\subsection{Terms and Actions}
 
 Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
 \[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} : \sem{\Gamma} \to \typeP\] in

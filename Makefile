@@ -5,6 +5,7 @@
 
 TEXES:=$(wildcard *.tex)
 TEXINCS:=$(wildcard *.texinc)
+TOCS:=$(patsubst %.tex,%.toc,$(TEXES))
 DVIS:=$(patsubst %.tex,%.dvi,$(TEXES))
 PDFS:=$(patsubst %.tex,%.pdf,$(TEXES))
 PSES:=$(patsubst %.tex,%.ps,$(TEXES))
@@ -39,7 +40,7 @@ distclean: clean
 
 clean:
 	rm -f $(PSTEXES) $(PSTEX_TS) $(AUXES) $(BBLS) $(BLGS) $(DVIS) $(LOGS) \
-		$(FIGBAKS)
+		$(FIGBAKS) $(TOCS)
 
 %.pstex: %.fig
 	fig2dev -L pstex -F $< $@

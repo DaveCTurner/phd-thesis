@@ -13,6 +13,51 @@ Blah blah TODO.
 
 Blah blah TODO.
 
+\begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
+mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
+permutations $\sigma$ such that $\sigma \freshfor A$ there exist permutations
+$\sigma_1$, $\sigma_2$, $\sigma_3$ such that $\sigma_1 \freshfor A \cup B$,
+$\sigma_3 \freshfor A \cup B$, $\supp{\sigma_2} \subseteq (B \cup D) \setminus
+A$ and $\sigma = \sigma_1 \sigma_2 \sigma_3$.  \end{lemma}
+
+\begin{proof} Represent $\sigma$ as a finite list of transpositions of names not
+in $A$ and proceed by induction on the length of the list.  \begin{itemize}
+%
+\item If the list is empty then $\sigma = \iota$ and $\sigma_1 = \sigma_2 =
+\sigma_3 = \iota$ is a factorisation in the desired form.
+%
+\item If the list is nonempty then write $\sigma = \sigma' \cdot (ab)$ where $a
+\notin A$ and $b \notin A$ and $\sigma' \freshfor A$. By induction there exist
+$\sigma_1$, $\sigma_2$ and $\sigma_3$ such that $\sigma' = \sigma_1 \sigma_2
+\sigma_3$ and $\sigma_1 \freshfor A \cup B$, $\sigma_3 \freshfor A \cup B$ and
+$\supp{\sigma_2} \subseteq (B \cup D) \setminus A$.  \begin{itemize}
+%
+\item If $a \notin B$ and $b \notin B$ then $\sigma'_3 = \sigma_3(ab) \freshfor
+A \cup B$ and $\sigma = \sigma_1 \sigma_2 \sigma'_3$ is a factorisation in the
+desired form. 
+%
+\item If $a \in B$ and $b \in B$ then $\sigma_3(ab) = (ab)\sigma_3$ so let
+$\sigma'_2 = \sigma_2(ab)$ which has $\supp{\sigma'_2} \subseteq (B \cup D)
+\setminus A$, so that $\sigma = \sigma_1 \sigma'_2 \sigma_3$ is a factorisation
+in the desired form.
+%
+\item Otherwise without loss of generality let $a \notin B$ and $b \in B$. Then
+$\sigma_3(ab) = (a'b)\sigma_3$ where $a' = \sigma_3 \cdot a \notin A \cup B$
+since $a \notin A \cup B$ and $\sigma_3 \freshfor A \cup B$.  \begin{itemize}
+%
+\item If $a' \in D$ then let $\sigma'_2 = \sigma_2(a'b)$ which has
+$\supp{\sigma'_2} \subseteq (B \cup D) \setminus A$ so that $\sigma = \sigma_1
+\sigma'_2 \sigma_3$ is a factorisation in the desired form.
+%
+\item If $a' \notin D$ then let $c \in D$ be such that $\sigma_2 \cdot c \in D$,
+which exists since by assumption $|D| > |B|$. Then $(a'b) = (a'c)(bc)(a'c)$.
+Writing $c' = \sigma_2 \cdot c \in D$, then $\sigma = \sigma_1 (a'c') \sigma_2
+(bc) (a'c) \sigma_3$. Let $\sigma'_1 = \sigma_1 (a'c')$, $\sigma'_2 = \sigma_2
+(bc)$ and $\sigma'_3 = (a'c) \sigma_3$, then $\sigma = \sigma'_1 \sigma'_2
+\sigma'_3$ is a factorisation in the desired form.
+%
+\end{itemize} \end{itemize} \end{itemize} \end{proof}
+
 \section{Adjunctions and Kleisli Categories}
 
 It can be seen from sections \ref{dtfc} and \ref{nsets} that a key feature of
@@ -353,6 +398,14 @@ completes the proof.
 \end{proof}
 
 \subsection{Adjoints to Inclusions}
+
+Lemma \ref{adjunctionlift} demonstrates that an adjunction between the base
+categories of a pair of monads may be `lifted' to the Kleisli categories of
+those monads. Working within a Kleisli category is difficult because composition
+is cumbersome, but fortunately the Kleisli categories that arise in this
+dissertation are isomorphic to categories where composition is given more
+conventionally. This isomorphism is a general abstract result, reproduced below
+(in the coKleisli case, for the sake of variety).
 
 \begin{lemma}
 \label{adjunctioninclusion}

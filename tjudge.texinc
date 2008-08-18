@@ -1,7 +1,7 @@
-\subsection{Typing Rules}
+\section{Typing Rules}
 \label{tjudge}
 
-\subsubsection{Typing Rules for Terms}
+\subsection{Typing Rules for Terms}
 
 Terms of Nominal HOPLA are typed with judgements of the form
 $\tjudge{s}{\Gamma}{t}{\typeP}$, where $\Gamma$ is an environment, $s$ is a
@@ -218,7 +218,7 @@ s_2 \setminus \{a\}$ and $\tjudge{s_1 \setminus \{a\}}{}{t}{\typedelta\typeP}$,
 so that $\tjudge{s_2 \setminus \{a\}}{}{t}{\typedelta\typeP}$ as required.
 \end{proof}
 
-\subsubsection{Typing Rules for Actions}
+\subsection{Typing Rules for Actions}
 
 Actions are typed with judgements of the form $\atjudge{s}{\typeP}{p}{\typePp}$
 where $s$ is a finite set of names and $\typeP$ and $\typePp$ are types.

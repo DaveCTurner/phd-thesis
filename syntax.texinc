@@ -1,7 +1,7 @@
-\subsection{Syntax}
+\section{Syntax}
 \label{syntax}
 
-\subsubsection{Preliminaries}
+\subsection{Preliminaries}
 
 Fix a set of (term) variables $\termvar{x}, \termvar{y}, \ldots$ and a set of
 type variables $P, \ldots$, each with a discrete permutation action.  Also fix
@@ -11,7 +11,7 @@ the discrete permutation action. Labels will be written $\ell, \ell_0, \ldots
 permutation action, so that for some labels $\ell$ and some permutations $\sigma$
 it may be the case that $\sigma \cdot \ell \neq \ell$.
 
-\subsubsection{Syntax of Types}
+\subsection{Syntax of Types}
 
 Types are given by the grammar \[\typeP, \typeQ ::= \typevar{P} \mid
 \typelift{\typeP} \mid \typemap{\typeQ}{\typeP} \mid \typedelta{\typeP} \mid
@@ -22,7 +22,7 @@ following, closed types will normally simply be called `types'. The permutation
 action on types is the discrete action: for all types $\typeP$ and permutations
 $\sigma$, $\sigma \cdot \typeP = \typeP$.
 
-\subsubsection{Syntax of Environments}
+\subsection{Syntax of Environments}
 
 Environments are given by the grammar \[ \Gamma ::= \envempty \mid
 \envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}}\] where $\termvar{x}$ ranges
@@ -57,7 +57,7 @@ environment $\envcombine{()}{\envvarfresh{x}{\typeP}{s}}$.
 
 \vfill\pagebreak
 
-\subsubsection{Syntax of Terms}
+\subsection{Syntax of Terms}
 
 Terms are given by the following grammar, where $\termvar{x}$ ranges over
 variables, $a$ ranges over names, $s$ over finite sets of names, $p$ over
@@ -102,7 +102,7 @@ literally equality, not simply equality-up-to-$\alpha$.
 TODO Chicken-and-egg problem here: can't say $b \freshfor t$ without defining
 the permutation action on $t$.
 
-\subsubsection{Syntax of Actions}
+\subsection{Syntax of Actions}
 
 Actions are given by the following grammar, where $t$ ranges over closed terms
 (i.e. those terms $t$ with $\fv{t} = \varnothing$), $a$ ranges over names and
