@@ -421,48 +421,48 @@ Suppose that there is an adjunction
 \ar@/_2ex/@<-2pt>[ll]_{F}
 }
 \end{equation*}
-with unit $\eta$ and counit $\epsilon$, where the right adjoint $G$ is an
-inclusion and the categories have the same collections of objects. Then
-$\mathcal{D}$ is isomorphic to the coKleisli category of the comonad $FG$.
+with unit $\eta$ and counit $\epsilon$, where the right adjoint $G$ is a
+bijection on objects. Then $\mathcal{D}$ is isomorphic to the coKleisli category
+of the comonad $(FG, \epsilon, F\eta_G)$.
 \end{lemma}
 
 \begin{proof} Let $\mathcal{E}$ be the coKleisli category of $FG$. Define $L :
-\mathcal{E} \to \mathcal{D}$ to be the unique such map that preserves the
-adjunction. In detail, if $A$ is an object of $\mathcal{E}$ then $LA = GA$ and
-if $f : A \to B$ is an arrow of $\mathcal{E}$ then $Lf = Gf \circ \eta_{GA}$.
+\mathcal{E} \to \mathcal{D}$ as the (unique) coKleisli comparison functor.  In
+detail, if $A$ is an object of $\mathcal{E}$ then $LA \defeq GA$ and if $f : A \to B$
+is an arrow of $\mathcal{E}$ then $Lf \defeq Gf \circ \eta_{GA}$.
 
 Define $K : \mathcal{D} \to \mathcal{E}$ as follows. If $A$ is an object of
-$\mathcal{D}$ then define $KA = A$ and if $f : A \to B$ is an arrow of
-$\mathcal{D}$ then define $Kf = \epsilon_B \circ Ff$.
+$\mathcal{D}$ then define $KA \defeq G^{-1}A$ and if $f : A \to B$ is an arrow
+of $\mathcal{D}$ then define $Kf \defeq \epsilon_{G^{-1}B} \circ Ff$.
 
-To see that $K$ is a functor, note that $K\mathbf{1}_A = \epsilon_A$ which is
-the identity on $A$ in $\mathcal{E}$, and if $f : A \to B$ and $g : B \to C$
-are arrows of $\mathcal{D}$ then \begin{equation}
-\begin{array}{rcl} K(g \circ f) &=&
-\epsilon_C \circ F(g \circ f) \\
+To see that $K$ is a functor, note that $K\mathbf{1}_A = \epsilon_{G^{-1}A}$
+which is the identity on $KA$ in $\mathcal{E}$, and if $f : A \to B$ and $g : B
+\to C$ are arrows of $\mathcal{D}$ then \begin{equation} \begin{array}{rcl} K(g
+\circ f) &=& \epsilon_{G^{-1}C} \circ F(g \circ f) \\
 %
-&=& \epsilon_C \circ Fg \circ Ff \\
+&=& \epsilon_{G^{-1}C} \circ Fg \circ Ff \\
 %
-&=& \epsilon_C \circ Fg \circ FG\epsilon_B \circ F\eta_{GB} \circ Ff
-\quad\text{by triangular identity}\\
+&=& \epsilon_{G^{-1}C} \circ Fg \circ FG\epsilon_{G^{-1}B} \circ
+F\eta_{GG^{-1}B} \circ Ff \quad\text{by triangle identity at $G^{-1}B$}\\
 %
-&=& \epsilon_C \circ Fg \circ FG\epsilon_B \circ FGFf \circ F\eta_{GA} 
-\quad\text{by naturality of $\eta$}\\
+&=& \epsilon_{G^{-1}C} \circ Fg \circ FG\epsilon_{G^{-1}B} \circ FGFf \circ
+F\eta_{GG^{-1}A} \quad\text{by naturality of $\eta$}\\
 %
-&=& \epsilon_C \circ Fg \circ FG(\epsilon_B \circ Ff) \circ F\eta_{GA} \\
+&=& \epsilon_{G^{-1}C} \circ Fg \circ FG(\epsilon_{G^{-1}B} \circ Ff) \circ
+F\eta_{GG^{-1}A} \\
 %
-&=& Kg \circ FGKf \circ F\eta_{GA} \\
+&=& Kg \circ FGKf \circ F\eta_{GKA} \\
 %
-\end{array}\end{equation} which is the composition of $Kg$ and $Kf$ in $\mathcal{E}$ as
-required.
+\end{array}\end{equation} which is the composition of $Kg$ and $Kf$ in
+$\mathcal{E}$ as required.
 
 Let $f : A \to B$ in $\mathcal{D}$, then \begin{equation}\begin{array}{rcl} LKf
 %
-&=& L\bigl(\epsilon_B \circ Ff\bigr) \\
+&=& L\bigl(\epsilon_{G^{-1}B} \circ Ff\bigr) \\
 %
-&=& G\epsilon_B \circ GFf \circ \eta_{GA} \\
+&=& G\epsilon_{G^{-1}B} \circ GFf \circ \eta_{GG^{-1}A} \\
 %
-&=& G\epsilon_B \circ \eta_{GB} \circ f \quad\text{by naturality of $\eta$}\\
+&=& G\epsilon_{G^{-1}B} \circ \eta_{GG^{-1}B} \circ f \quad\text{by naturality of $\eta$}\\
 %
 &=& f \quad \text{by triangular identity}
 %
@@ -470,6 +470,8 @@ Let $f : A \to B$ in $\mathcal{D}$, then \begin{equation}\begin{array}{rcl} LKf
 Conversely, let $f : A \to B$ in $\mathcal{E}$, then \begin{equation}\begin{array}{rcl} KLF
 %
 &=& K\bigl(Gf \circ \eta_{GA}\bigr) \\
+%
+&=& \epsilon_{G^{-1}GB} \circ FGf \circ F\eta_{GA} \\
 %
 &=& \epsilon_{B} \circ FGf \circ F\eta_{GA} \\
 %
