@@ -84,7 +84,53 @@ is equivariant.
 
 \subsection{The structure of $\mathbf{NPre}$}
 
-TODO Structures on $\mathbf{NPre}$? Fresh-tensor and $\delta$ functor.
+The category $\mathbf{NPre}$ has products and coproducts, given as in
+$\mathbf{Pre}$. In detail, if $\typeP$ and $\typeQ$ are nominal preorders then
+their product is the order $\langle \typeP \times \typeQ, \le_{\typeP
+\times\typeQ} \rangle$ where $\typeP \times \typeQ$ is the cartesian product of
+the underlying nominal sets with permutation action given by $\sigma \cdot
+\langle p, q \rangle \defeq \langle \sigma \cdot p , \sigma \cdot q \rangle$,
+and $\langle p_1, q_1 \rangle \le_{\typeP\times\typeQ} \langle p_2, q_2 \rangle$
+iff $p_1 \le_{\typeP} p_2$ and $q_1 \le_{\typeQ} q_2$.
+
+The coproduct of $\typeP$ and $\typeQ$ is given by $\langle \typeP + \typeQ,
+\le_{\typeP +\typeQ} \rangle$ where $\typeP + \typeQ \defeq \typeP \uplus
+\typeQ$ with the permutation action given componentwise, and
+$\mathord{\le_{\typeP + \typeQ}} = \mathord{\le_{\typeP}} \uplus
+\mathord{\le_{\typeQ}}$.
+
+The category $\mathbf{NPre}$ is also cartesian closed, where the function space
+$\typeP \to \typeQ$ consists of finitely-supported monotone functions from
+$\typeP$ to $\typeQ$, ordered pointwise.
+
+Furthermore, $\mathbf{NPre}$ contains an object of names, $\mathbb A$, with the
+discrete ordering. It also inherits the `fresh' tensor product of nominal sets,
+and concretely \begin{equation} \label{def:freshtensor} \typeP \otimes \mathbb A
+\defeq \{\langle p, a \rangle \in \typeP \times \mathbb A \mid a \freshfor
+p\}\end{equation} where \begin{equation} \label{def:freshtensor:order} \langle
+p_1, a_1 \rangle \le_{\typeP \otimes \mathbb A} \langle p_2, a_2 \rangle
+\Leftrightarrow_{\mathrm{def}} a_1 = a_2 \wedge p_1 \le_{\typeP}
+p_2.\end{equation}
+
+Finally, $\mathbf{NPre}$ is monoidal closed with respect to this tensor.
+Concretely, the right adjoint to $(-) \otimes \mathbb A$ is given in terms of
+the $\alpha$-equivalence relation on $\mathbb A \times \typeP$ where
+\begin{equation} \label{def:alphaequiv} \langle a_1, p_1 \rangle  \sim_{\alpha}
+\langle a_2, p_2 \rangle \Leftrightarrow_{\mathrm{def}} \freshin{b}{(a_1 b)
+\cdot p_1 = (a_2 b) \cdot p_2}. \end{equation} The $\alpha$-equivalence classes
+are denoted $[a].p$ where \begin{equation} \label{def:alphaclass} [a].p =
+[\langle a, p\rangle]_{\sim_{\alpha}}\end{equation} and the right adjoint to
+$(-) \otimes \mathbb A$ is given by the functor $\delta$ where \begin{equation}
+\label{def:delta} \delta\typeP \defeq \{ [a].p \mid \langle a, p \rangle \in
+\mathbb A \times \typeP \} \end{equation} and \begin{equation}
+\label{def:deltaorder} [a_1].p_1 \le_{\typedelta\typeP} [a_2].p_2
+\Leftrightarrow_{\mathrm{def}} \freshin{b}{(a_1 b) \cdot p_1 \le_{\typeP} (a_2
+b) \cdot p_2}. \end{equation} On arrows, if $f : \typeP \to \typeQ$ is an arrow
+of $\mathbf{NPre}$ then $\delta f$ is defined for all $p' \in \typedelta\typeP$
+by \begin{equation} \label{def:deltafunction} \delta f (p') =
+\freshin{b}{[b].f(p'@b)}. \end{equation} It is not hard to see that $\delta f$
+is monotone if $f$ is, and otherwise the functoriality of $\delta$ follows from
+the same argument as in $\mathbf{NSet}$.
 
 \section{FM Preorders}
 \label{fmpre}
