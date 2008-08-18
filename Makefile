@@ -1,7 +1,5 @@
 #
 # Makefile for LaTeX document with figures
-#
-# $Id: Makefile 1986 2008-03-10 10:33:26Z dct25 $
 
 TEXES:=$(wildcard *.tex)
 TEXINCS:=$(wildcard *.texinc)
