@@ -404,8 +404,9 @@ categories of a pair of monads may be `lifted' to the Kleisli categories of
 those monads. Working within a Kleisli category is difficult because composition
 is cumbersome, but fortunately the Kleisli categories that arise in this
 dissertation are isomorphic to categories where composition is given more
-conventionally. This isomorphism is a general abstract result, reproduced below
-(in the coKleisli case, for the sake of variety).
+conventionally. Abstractly, this isomorphism follows if the categories in
+question have the same collections of objects and one of the adjoints preserves
+objects.
 
 \begin{lemma}
 \label{adjunctioninclusion}
@@ -413,7 +414,7 @@ Suppose that there is an adjunction
 \begin{equation*}
 \xymatrix{
 \mathcal{C}
-\ar@/_2ex/@<-2pt>@{^{(}->}[rr]_{G}
+\ar@/_2ex/@<-2pt>[rr]_{G}
 &
 \bot
 &
@@ -483,5 +484,27 @@ $\epsilon$} \\
 \end{array}\end{equation}
 Therefore $L$ and $K$ are mutual inverses, which completes the proof.
 \end{proof}
+
+\begin{lemma}
+\label{adjunctioninclusion:dual}
+Suppose that there is an adjunction
+\begin{equation*}
+\xymatrix{
+\mathcal{C}
+\ar@/_2ex/@<-2pt>[rr]_{G}
+&
+\bot
+&
+\mathcal{D}
+\ar@/_2ex/@<-2pt>[ll]_{F}
+}
+\end{equation*}
+with unit $\eta$ and counit $\epsilon$, where the left adjoint $F$ is a
+bijection on objects. Then $\mathcal{C}$ is isomorphic to the Kleisli category
+of the monad $(GF, \eta, G\epsilon_F)$.
+\end{lemma}
+
+\begin{proof} This lemma is the categorical dual of lemma
+\ref{adjunctioninclusion}, so the result follows immediately.  \end{proof}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
