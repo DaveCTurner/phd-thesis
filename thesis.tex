@@ -1,4 +1,4 @@
-\documentclass[oneside,draft,titlepage,a4paper]{article}
+\documentclass[oneside,draft,titlepage,a4paper]{book}
 % vim: set foldlevel=0 cms=\%%s:
 
 \usepackage{amsfonts}
@@ -11,6 +11,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{enumerate}
+\usepackage{chngcntr}
 \usepackage[all,2cell]{xy}
 \UseAllTwocells
 
@@ -21,14 +22,13 @@
 
 \input{macros.texinc}
 
-\usepackage{fancyheadings}
-\pagestyle{fancy}
-\rfoot[]{\revisionnumber}
-\lfoot[\revisionnumber]{}
-
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{definition}[equation]{Definition}
+\newcommand{\define}[1]{\textbf{#1}}
+%\def\equation{$$\refstepcounter{theorem}}
+\counterwithin{equation}{subsection}
 
 \title{Nominal Domain Theory for Concurrency}
 \date{\revisionnumber}
@@ -36,7 +36,9 @@
 
 
 \begin{document}
-%\maketitle
+\maketitle
+
+\input{intro.texinc}
 
 \input{prelims.texinc}
 

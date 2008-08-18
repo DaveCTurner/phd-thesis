@@ -1,5 +1,7 @@
+%% vim: ft=tex:
+%% This is file `thesis.cls',
 %%
-%% This is file `book.cls',
+%% Modified from book.cls which was
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
@@ -52,9 +54,9 @@
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{book}
-              [2004/02/16 v1.4f
- Standard LaTeX document class]
+\ProvidesClass{thesis}
+              [2008/08/18 v0.1f
+ Dave Turner's thesis class]
 \newcommand\@ptsize{}
 \newif\if@restonecol
 \newif\if@titlepage
@@ -751,4 +753,4 @@
 \fi
 \endinput
 %%
-%% End of file `book.cls'.
+%% End of file `thesis.cls'.

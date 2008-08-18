@@ -1,10 +1,10 @@
-\section{Nominal Domain Theory}
+\chapter{Nominal Domain Theory}
 \label{domthy}
 
-This section (TODO chapter? part?) develops a domain theory for nondeterministic
-processes with names.  Roughly speaking, this development takes the construction
-of the domain theory for concurrency that underpins HOPLA\cite{nygaardwinskel1}
-and follows a parallel path within the theory of nominal sets.
+This chapter develops a domain theory for nondeterministic processes with names.
+Roughly speaking, this development takes the construction of the domain theory
+for concurrency that underpins HOPLA\cite{nygaardwinskel1} and follows a
+parallel path within the theory of nominal sets.
 
 In slightly greater detail, the development of the domain theory behind HOPLA
 runs as follows. Firstly, processes are typed by the computation paths that they
@@ -45,33 +45,55 @@ incorporate nondeterminism and the induced linear maps are studied in
 \ref{fmlin}. As mentioned above, linearity is too restrictive a condition on the
 maps and in \ref{fmcts} an appropriate notion of continuity is developed.
 
-\subsection{Nominal Preorders}
+\section{Nominal Preorders}
 \label{npre}
 
-A nominal preorder is a pair $\langle X, \mathord{\le_X} \rangle$ where $X$ is a
-nominal set and $\mathord{\le_X}$ is a subset of $X \times X$ which is reflexive
-and transitive as a binary relation on $X$, and which is closed under the
-permutation action given by \[\sigma \cdot \langle x_1, x_2 \rangle = \langle
-\sigma \cdot x_1, \sigma \cdot x_2 \rangle.\] As a consequence, if $x_1$ and
-$x_2$ are elements of a nominal preorder $X$ and $\sigma$ is any permutation
-then $x_1 \le_X x_2$ if and only if $(\sigma \cdot x_1) \le_X (\sigma \cdot
-x_2)$.
+The theory of nominal preorders is a straighforward reinterpretation of the
+classical theory of preorders within nominal set theory. In some sense, the
+nominal structure and the order structure are orthogonal, so that many of the
+results of these two base theories carry through into the combined theory.
 
-A nominal monotone function is a function $f : X \to Y$ between nominal
-preorders $\langle X, \le_X \rangle$ and $\langle Y, \le_Y \rangle$ such that
-$f(x_1) \le_Y f(x_2)$ whenever $x_1 \le_X x_2$ (i.e. it is monotone) and such
-that for any permutation $\sigma$, $\sigma \cdot f(x) = f(\sigma \cdot x)$ (i.e.
-it is equivariant).
+\subsection{Definitions}
+\label{npre:defs}
 
-The collection of nominal preorders and nominal monotone functions forms a
-category, $\mathbf{NPre}$.
+\begin{definition} A \define{nominal preorder} is a pair $\langle X,
+\mathord{\le_X} \rangle$ where $X$ is a nominal set and $\mathord{\le_X}$ is a
+subset of $X \times X$ which is reflexive and transitive as a binary relation on
+$X$, and which is closed under the permutation action given by $\sigma \cdot
+\langle x_1, x_2 \rangle \defeq \langle \sigma \cdot x_1, \sigma \cdot x_2
+\rangle.$ \end{definition}
 
-TODO Structures on $\mathbf{NPre}$? Fresh-tensor and $\delta$ functor?
+As a consequence, if $x_1$ and $x_2$ are elements of a nominal preorder $X$ and
+$\sigma$ is any permutation then $x_1 \le_X x_2$ if and only if $(\sigma \cdot
+x_1) \le_X (\sigma \cdot x_2)$.
 
-TODO Alternative presentation of $\mathbf{NPre}$ as sheaves in
+\begin{definition} A \define{nominal monotone function} is a function $f : X \to
+Y$ between nominal preorders $\langle X, \le_X \rangle$ and $\langle Y, \le_Y
+\rangle$ such that $f(x_1) \le_Y f(x_2)$ whenever $x_1 \le_X x_2$ (i.e. it is
+monotone) and such that for any permutation $\sigma$, $\sigma \cdot f(x) =
+f(\sigma \cdot x)$ (i.e.  it is equivariant).\end{definition}
+
+\begin{definition} The category \define{$\mathbf{NPre}$} has nominal preorders
+for objects and nominal monotone functions between them for
+arrows.\end{definition}
+
+It is not hard to see that this structure really is a category: the composition
+of monotone functions is monotone and the composition of equivariant functions
+is equivariant.
+
+\subsection{The structure of $\mathbf{NPre}$}
+
+TODO Structures on $\mathbf{NPre}$? Fresh-tensor and $\delta$ functor.
+
+\subsection{A canonical construction of $\mathbf{NPre}$}
+
+Necessary? The definition in terms of nominal sets does seem to sidestep the
+foundational issues.
+
+TODO Possible alternative presentation of $\mathbf{NPre}$ as sheaves in
 $\mathbf{Pre}^{\mathbb{I}}$?
 
-\subsection{FM Preorders}
+\section{FM Preorders}
 \label{fmpre}
 
 It will be necessary to apply certain freshness constraints to the paths
@@ -86,11 +108,13 @@ A ^{\freshfor a} = \mathbb A \setminus \{a\}$ is not even a nominal set, as $b
 a}$ so $\mathbb A^{\freshfor a}$ is not closed under the permutation action.
 
 Fraenkel-Mostowski (FM) set theory is closely related to the theory of nominal
-sets. The universe of FM sets $\mathcal{V}_{\mathrm{FM}}$ is constructed
-similarly to the the von Neumann hierarchy $\mathcal{V}_{\mathrm{ZF}}$ of ZF set
-theory, with the following differences.  Firstly, the starting point includes an
-infinite collection of atoms as well as the empty set. The permutation action on
-this collection of atoms gives rise to a permutation action on all of
+sets. For now it is worth ignoring the deep foundational issues embedded in this
+assertion, but they will be addressed in \ref{fmpre:alternative}. The universe
+of FM sets $\mathcal{V}_{\mathrm{FM}}$ is constructed similarly to the the von
+Neumann hierarchy $\mathcal{V}_{\mathrm{ZF}}$ of ZF set theory, with the
+following differences.  Firstly, the starting point includes an infinite
+collection of atoms as well as the empty set. The permutation action on this
+collection of atoms gives rise to a permutation action on all of
 $\mathcal{V}_{\mathrm{FM}}$ by $\mathord{\in}$-recursion, which gives rise to
 the notion of `support' for arbitrary elements of $\mathcal{V}_{\mathrm{FM}}$.
 The process of the construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in

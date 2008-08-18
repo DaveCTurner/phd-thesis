@@ -1,0 +1,11 @@
+\chapter{Introduction}
+\label{intro}
+
+Nominal sets blah blah.
+
+HOPLA/DTfC blah blah.
+
+The aim of this dissertation is to elegantly combine the theories of nominal
+sets and Winskel's Domain Theory for Concurrency.
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
