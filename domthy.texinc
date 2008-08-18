@@ -134,16 +134,16 @@ only include elements that have finite supports. Each nominal set is then
 It is certainly possible to define a category $\mathbf{FMPre}$ of FM-preorders
 and finitely-supported monotone functions within FM set theory, and for any
 FM-preorder $X$ it is the case that $X^{\freshfor a}$ is also a FM-preorder
-(where $x_1 \le_{X^{\freshfor a}} x_2$ is defined to be $x1 \le_X x_2$ and $x1,
-x2 \in X^{\freshfor a}$) since $X^{\freshfor a}$ is supported by the finite set
-$\supp{X} \cup \{a\}$. It would be convenient that $(-)^{\freshfor a}$ can be
-made into a functor, but this is not possible on $\mathbf{FMPre}$. To see this,
-let $X$ be any FM-preorder and consider the unique map $f : X \to \{a\}$ which
-is necessarily monotone and finitely-supported, and hence an arrow of
-$\mathbf{FMPre}$: however if $X$ contains an element without $a$ in its support
-then $X^{\freshfor a} \neq \varnothing$ so there are no possible candidates for
-the arrow $f^{\freshfor a} : X^{\freshfor a} \to \{a\}^{\freshfor a} =
-\varnothing$.
+(where $x_1 \le_{X^{\freshfor a}} x_2$ is defined to be $x_1 \le_X x_2 \wedge
+x_1, x_2 \in X^{\freshfor a}$) since $X^{\freshfor a}$ is supported by the
+finite set $\supp{X} \cup \{a\}$. It would be convenient that $(-)^{\freshfor
+a}$ can be made into a functor, but this is not possible on $\mathbf{FMPre}$. To
+see this, let $X$ be any FM-preorder and consider the unique map $f : X \to
+\{a\}$ which is necessarily monotone and finitely-supported, and hence an arrow
+of $\mathbf{FMPre}$: however if $X$ contains an element without $a$ in its
+support then $X^{\freshfor a} \neq \varnothing$ so there are no possible
+candidates for the arrow $f^{\freshfor a} : X^{\freshfor a} \to \{a\}^{\freshfor
+a} = \varnothing$.
 
 In some sense therefore $\mathbf{NPre}$ is too small to define $(-)^{\freshfor
 a}$ on objects but $\mathbf{FMPre}$ is too large to define $(-)^{\freshfor a}$
