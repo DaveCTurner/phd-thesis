@@ -443,21 +443,31 @@ TODO Notation: $\typeP_{\downarrow} = \{p' \mid \exists p \in \typeP. p' \le p \
 \section{Nominal Nondeterministic Domains}
 \label{nominalnondeterministicdomains}
 
+\subsection{Free Completions of Path Orders}
+
 The collection of path sets over a nominal path order $\typeP$ may be ordered by
 inclusion to form the nominal partial order $\widehat{\typeP}$, which will be
 interpreted as a domain of the meanings of processs of type $\typeP$. More
 generally, if $\typeP$ is any FM-preorder then define \begin{equation}
-\widehat{\typeP} \defeq \{x_\downarrow \mid x \subseteq_{\mathrm{fs}}
-\typeP\},\end{equation} ordered by inclusion. Such a poset is a FM-complete
-join-semilattice in the sense that every finitely-supported subset of
-$\widehat{\typeP}$ has a join in $\widehat{\typeP}$ given by its union.
+\label{hat:objects} \widehat{\typeP} \defeq \{x_\downarrow \mid x
+\subseteq_{\mathrm{fs}} \typeP\},\end{equation} ordered by inclusion. Such a
+poset is a FM-complete join-semilattice in the sense that every
+finitely-supported subset of $\widehat{\typeP}$ has a join in $\widehat{\typeP}$
+given by its union.
 
 Alternatively, $\widehat{\typeP}$ may be viewed as the monotone function space
 $\typeP^{\mathrm{op}} \to_{\mathrm{fs}} \mathbf{2}$ where $\mathbf{2}$ is the
 nontrivial poset on $\{\top, \bot\}$. Elements $x \in \widehat{\typeP}$
-correspond to their characteristic functions $\chi_x$ such that \begin{equation}\chi_x(p) =
-\begin{cases} \top & \text{if $p \in x$} \\ \bot & \text{otherwise.}
-\end{cases}\end{equation}
+correspond to their characteristic functions $\chi_x$ such that
+\begin{equation}\chi_x(p) = \begin{cases} \top & \text{if $p \in x$} \\ \bot &
+\text{otherwise.} \end{cases}\end{equation}
+
+The operation $\widehat{(-)}$ may be extended to a functor $\mathbf{FMPre}_s \to
+\mathbf{FMPre}_s$. where if $f : \typeP \to \typeQ$ is an arrow of
+$\mathbf{FMPre}_s$ then for all $x \in \widehat{\typeP}$ define \begin{equation}
+\label{hat:arrows} \widehat{f}x \defeq \{ q \in \typeQ \mid \exists p \in x. q
+\le_{\typeQ} f p \}.\end{equation} It is not hard to see that this defines a
+functor. 
 
 The order $\widehat{\typeP}$ contains elements of the form $\{p\}_{\downarrow}$
 for each $p \in \typeP$. These elements are (completely) prime: if $X \subseteq
@@ -472,13 +482,14 @@ Furthermore, if $x \in \widehat{\typeP}$ then \begin{equation} x = \bigcup
 \{\{p\}_{\downarrow} \mid p \in x\}.\end{equation} so that $\widehat{\typeP}$ is
 completely prime algebraic.
 
-Finally, $\widehat{\typeP}$ is the free finitely-supported join completion of
-$\typeP$. In other words, $\widehat{\typeP}$ has all finitely-supported joins
-and if $C$ is a poset that also has all finitely supported joins and $f : \typeP
-\to C$ is a monotone finitely-supported function then there is a unique
-finitely-supported $f^{\dagger} : \widehat{\typeP} \to C$ that preserves all
-finitely supported joins and such that the following diagram commutes.
-\begin{equation}\xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\downarrow}} \ar[dr]_f &
+Finally, $\widehat{\typeP}$ can be characterised abstractly as the free
+finitely-supported join completion of $\typeP$. In other words,
+$\widehat{\typeP}$ has all finitely-supported joins and if $C$ is a poset that
+also has all finitely supported joins and $f : \typeP \to C$ is a monotone
+finitely-supported function then there is a unique finitely-supported
+$f^{\dagger} : \widehat{\typeP} \to C$ that preserves all finitely supported
+joins and such that the following diagram commutes.  \begin{equation} \label
+{hat:freeness} \xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\downarrow}} \ar[dr]_f &
 \widehat{\typeP} \ar[d]^{f^{\dagger}} \\& C}\end{equation} The function
 $f^{\dagger}$ is given by \begin{equation}f^{\dagger}X \defeq \bigcup\{f p \mid
 p \in X\}.\end{equation} The uniqueness of $f^{\dagger}$ follows from the
@@ -495,17 +506,34 @@ $\widehat{\typeP} \to \widehat{\typeQ}$.  For brevity, call such maps
 
 Let $\mathbf{FMLin}_s$ be the category whose objects are FM-preorders $\typeP$,
 $\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \to \typeQ$ are
-FM-linear maps $\widehat{\typeP} \to \widehat{\typeQ}$ supported by $s$.  The
-discussion at the end of the previous section shows that this category is
-isomorphic to the Kleisli category of the monad $\langle \widehat{(\cdot)},
-\{\cdot\}_{\downarrow}, \bigcup \rangle$ on $\mathbf{FMPre}_s$.
+FM-linear maps $\widehat{\typeP} \to \widehat{\typeQ}$ supported by $s$.
 
-TODO Definition of this monad in more detail?
+If $f$ is an arrow of $\mathbf{FMPre}_s$ then it is straightforward to see that
+$\widehat{f}$ is FM-linear not merely monotone, so that $\widehat{(-)}$ defines
+a functor $\mathbf{FMPre}_s \to \mathbf{FMLin}_s$.  On the other hand, FM-linear
+maps are necessarily monotone, since if $a \le b$ then $a \vee b = b$ so that if
+$f$ preserves joins then $f a \vee f b = f (a \vee b) = f b$ and hence $f a \le
+f b$. Therefore there is an inclusion $\mathbf{FMLin}_s \hookrightarrow
+\mathbf{FMPre}_s$. The discussion at the end of the previous section shows that
+there is an isomorphism \begin{equation} \label{hat:adj}
+\mathbf{FMPre}_s(\typeP, \widehat{\typeQ}) \cong \mathbf{FMLin}_s(\typeP,
+\typeQ)\end{equation} and it is not hard to see that this is natural in $\typeP$
+and $\typeQ$, and hence an adjunction with the inclusion as left adjoint.  In
+detail, the unit of this adjunction is given by the transpose of the identity in
+\ref{hat:adj} and by \ref{hat:freeness} it is therefore $\{\cdot\}_\downarrow$.
+Conversely the counit is given by $\mathord{\cup} \defeq
+\mathbf{1}_{\widehat{(-)}}^\dagger$, and in detail if $X \in
+\widehat{\widehat{\typeP}}$ then \begin{equation} \mathord{\cup}_{\typeP} X =
+\mathbf{1}_{\widehat{\typeP}}^\dagger X = \bigcup X. \end{equation} Since the
+inclusion functor is a bijection on objects, by lemma
+\ref{adjunctioninclusion:dual} the Kleisli category of the monad
+$(\widehat{(-)}, \{\cdot\}_{\downarrow}, \mathord{\cup})$ is isomorphic to
+$\mathbf{FMLin}_s$.
 
 TODO Copy across discussion of structures in $\mathbf{FMLin}_s$ from
 $\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.
 
-\subsubsection{Relationship between $\widehat{(-)}$, $(-)^{\freshfor a}$ and
+\subsection{Relationship between $\widehat{(-)}$, $(-)^{\freshfor a}$ and
 $\delta_a$ }
 
 \begin{lemma}\label{freshhatiso} Let $a \notin s$. The functors
@@ -906,7 +934,7 @@ p'@a \in x'@a\} \\
 \end{array}\]
 \end{proof}
 
-\subsection{Categories of FM-Continuous Maps}
+\section{Categories of FM-Continuous Maps}
 \label{fmcts}
 
 As in the development of HOPLA, linear maps are too restrictive to give a
@@ -921,7 +949,7 @@ development of HOPLA\cite{nygaardwinskel1}, continuity was chosen to mean
 `preserves directed joins' but it will be shown that this is not a suitable
 choice in $\mathbf{FMLin}_s$.
 
-\subsubsection{Name-Binding is Discontinuous}
+\subsection{Name-Binding is Discontinuous}
 
 It is now necessary to speculate a little on what a nominal extension to the
 process calculus HOPLA may look like. This speculation is motivated by the
@@ -984,7 +1012,7 @@ any $i$ as $a'$ was chosen to be fresh. Therefore if the map
 $\sem{\new{a}{\termvar{x}}}$ is to have the properties ascribed to it in
 new-HOPLA, it cannot be that it preserves directed joins.
 
-\subsubsection{FM-Continuity}
+\subsection{FM-Continuity}
 
 In some sense the notion of limits of directed sets is the intuituionistic ---
 and therefore computational --- analogue of a limit of a (transfinite) sequence
@@ -1011,7 +1039,7 @@ set are always finitely supported so the (external) Axiom of Choice gives rise
 to an (internal) well-ordering and the remainder of the proof is as in the
 classical case.
 
-\subsubsection{FM-Isolated Elements}
+\subsection{FM-Isolated Elements}
 
 Considering $\widehat{\typeP}$ as a domain of meanings for processes of type
 $\typeP$, it is now sensible to investigate the structure of the isolated (or
@@ -1140,7 +1168,7 @@ Conversely, let $p' \in \finelt{F}{\supp{\finelt{F}{s}}}$ then there exists $p
 that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma \cdot
 \finelt{F}{s} = \finelt{F}{s}$ as required.  \end{proof}
 
-\subsubsection{FM-Continuous Maps}
+\subsection{FM-Continuous Maps}
 
 The discussion of the previous section indicates that `continuous' should mean
 `preserves joins of uniformly-supported directed sets' or equivalently
@@ -1221,7 +1249,7 @@ $\widehat{\typelift\typeP} \to \widehat{\typeQ}$ so that there is an isomorphism
 \[\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong \mathbf{FMCts}_s (\typeP,
 \typeQ).\]
 
-\subsubsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
+\subsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
 and $\delta_a$}
 
 In fact, ${!}$ may be seen as an endofunctor on $\mathbf{FMPre}_s$, where if $f
@@ -1397,7 +1425,7 @@ Furthermore, if if $f$ is continuous then ${!}^+f$ is linear too, so that
 ${!}^+$ is a functor $\mathbf{FMCts}_s \to \mathbf{FMLin}_s$.
 
 
-\subsubsection{An Adjunction}
+\subsection{An Adjunction}
 
 The isomorphism $\mathbf{FMLin}_s (!\typeP, \typeQ) \cong \mathbf{FMCts}_s
 (\typeP, \typeQ)$ above is natural in $\typeP$ and $\typeQ$ (where ${!}$ means
