@@ -142,13 +142,16 @@ S &
 SFG \ar[l]_{S\epsilon}}
 \end{array}\end{equation*}
 
-For all objects $A$ of $\mathcal{C}$ define $F^+A = FA$ and for all arrows $f :
-A \to TB$ of $\mathcal{C}$ define $F^+f = k_B \circ Ff$.  For all objects $A$ of
-$\mathcal{D}$ define $G^+A = GA$ and for all arrows $g : A \to SB$ of
-$\mathcal{D}$ define $G^+f = h_B \circ Gf$.  Then there is an adjunction $F^+
-\dashv G^+ : \mathrm{Kl}(T) \leftrightarrows \mathrm{Kl}(S)$ with unit $\xi^+ =
-\eta_{GF} \circ \xi$ and counit $\epsilon^+ = \theta \circ \epsilon$.
-\end{lemma}
+For all objects $A$ and all arrows $f : A \to TB$ of $\mathcal{C}$ define
+\begin{equation} \label{def:Fplus} F^+A \defeq FA \quad\text{and}\quad F^+f
+\defeq k_B \circ Ff.\end{equation} Similarly, for all objects $A$ and all arrows
+$g : A \to B$ of $\mathcal{D}$ define \begin{equation} \label{def:Gplus} G^+A
+\defeq GA \quad\text{and}\quad G^+f \defeq h_B \circ Gf.\end{equation}  Then
+$F^+$ and $G^+$ are functors and there is an adjunction \begin{equation}
+\label{adjplus} F^+ \dashv G^+ : \mathrm{Kl}(T) \leftrightarrows \mathrm{Kl}(S)
+\end{equation} with unit $\xi^+$ and counit $\epsilon^+$ where \begin{equation}
+\label{def:adjplus} \xi^+ \defeq \eta_{GF} \circ \xi \quad\text{and}\quad
+\epsilon^+ \defeq \theta \circ \epsilon.  \end{equation} \end{lemma}
 
 \begin{proof}
 The proof proceeds by unwinding definitions and diagram-chasing as follows.
