@@ -934,6 +934,7 @@ p'@a \in x'@a\} \\
 &=& x'@a = \epsilon_{\widehat{\typeP}} x'.
 %
 \end{array}\]
+This completes the proof.
 \end{proof}
 
 \section{Categories of FM-Continuous Maps}
