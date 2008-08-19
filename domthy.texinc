@@ -939,6 +939,115 @@ p'@a \in x'@a\} \\
 This completes the proof.
 \end{proof}
 
+By unwinding the isomorphism given in lemma \ref{adjunctioninclusion} and the
+definitions of $\phi$ and $\theta$ and those in lemma \ref{adjunctionlift}, this
+adjunction is concretely described as follows. If $f : \typeP \to \typeQ$ is an
+arrow of $\mathbf{FMLin}_s$ then \begin{equation} \label{def:freshlin}
+\begin{array}{rcl} f^{\freshfor a+} 
+%
+&=& \bigl(\phi_\typeQ \circ f^{\freshfor a} \circ \{\cdot\}_{\typeP}^{\freshfor
+a}\bigr)^{\dagger} \\
+%
+&=& \bigl(\phi_\typeQ \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP} \circ
+\{\cdot\}_{\typeP^{\freshfor a}}\bigr)^{\dagger} \quad \text{by
+\ref{comm:freshtriangle}}\\
+%
+&=& \bigl( \phi_\typeQ \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP} \bigr)
+\quad\text{by the adjunction \ref{hat:adj}.}
+%
+\end{array} \end{equation} If $f : \typeP \to \typeQ$ is an arrow of
+$\mathbf{FMLin}_{s \udot \{a\}}$ then \begin{equation} \label{def:deltalin}
+\begin{array}{rcl} \delta_a^+ f  
+%
+&=& \bigl(\theta_\typeQ \circ \delta_a f \circ \delta_a
+\{\cdot\}_{\typeP}\bigr)^{\dagger} \\
+%
+&=& \bigl(\theta_\typeQ \circ \delta_a f \circ \theta_{\typeP}^{-1} \circ
+\{\cdot\}_{\delta_a \typeP}\bigr)^{\dagger} \quad \text{by
+\ref{comm:deltatriangle}}\\
+%
+&=& \bigl(\theta_\typeQ \circ \delta_a f \circ \theta_{\typeP}^{-1}\bigr)
+\quad\text{by the adjunction \ref{hat:adj}.}
+%
+\end{array} \end{equation} 
+
+To construct the unit $\xi^+$, first note that the
+following diagram commutes by naturality of $\xi$, \ref{comm:freshtriangle} and
+\ref{comm:deltatriangle}.  \begin{equation} \label{comm:xiplus} \xymatrix{
+%
+\mathbf{1}
+	\ar[r]^{\xi}
+	\ar[d]_{\{\cdot\}_{\downarrow}}
+&
+\delta_a ((-)^{\freshfor a})
+	\ar[r]^{\{\cdot\}_{\delta_a ((-)^{\freshfor a})}}
+	\ar[dr]^{\delta_a \{\cdot\}_{(-)^{\freshfor a}}}
+	\ar[d]_{\delta_a \{\cdot\}_\downarrow^{\freshfor a}}
+&
+\widehat{\delta_a ((-)^{\freshfor a})}
+\\
+\widehat{(-)}
+	\ar[r]_{\xi_{\widehat{(-)}}}
+&
+\delta_a\widehat{(-)}^{\freshfor a}
+	\ar[r]_{\delta_a \phi}
+&
+\delta_a\widehat{(-)^{\freshfor a}}
+	\ar[u]_{\theta_{(-)^{\freshfor a}}}
+}\end{equation}
+Then $\xi^+ : \mathbf{1} \to \delta^+_a((-)^{\freshfor a+})$ is given by
+\begin{equation} \label{def:xilin} \begin{array}{rcl} \xi^+
+%
+&=& \bigl(\{\cdot\}_{\delta_a((-)^{\freshfor a})} \circ \xi\bigr)^{\dagger} \\
+%
+&=& \bigl(\theta_{(-)^{\freshfor a}} \circ \delta_a \phi \circ
+\xi_{\widehat{(-)}} \circ \{\cdot\}_\downarrow \bigr)^{\dagger} \quad \text{by
+\ref{comm:xiplus}}\\
+%
+&=& \theta_{(-)^{\freshfor a}} \circ \delta_a \phi \circ \xi_{\widehat{(-)}}.
+%
+\end{array} \end{equation}
+
+Similarly, to construct the counit $\epsilon^+$, note that the following diagram
+commutes by naturality of $\epsilon$, \ref{comm:freshtriangle} and
+\ref{comm:deltatriangle}.  \begin{equation} \label{comm:epsilonplus} \xymatrix{
+%
+\widehat{(\delta_a-)^{\freshfor a}}
+	\ar[d]_{\phi^{-1}_{\delta_a}}
+&
+(\delta_a(-))^{\freshfor a}
+	\ar[l]_{\{\cdot\}_{(\delta_a(-))^{\freshfor a}}}
+	\ar[dl]_{\{\cdot\}_{\delta_a}^{\freshfor a}}
+	\ar[d]^{(\delta_a\{\cdot\})^{\freshfor a}}
+	\ar[r]^{\epsilon}
+&
+\mathbf{1}
+	\ar[d]^{\{\cdot\}_\downarrow}
+\\
+\widehat{\delta_a(-)}^{\freshfor a}
+	\ar[r]_{{\theta^{-1}}^{\freshfor a}}
+&
+(\delta_a\widehat{(-)})^{\freshfor a}
+	\ar[r]_{\epsilon_{\widehat{(-)}}}
+&
+\widehat{(-)}
+%
+}\end{equation} Then $\epsilon^+ : (\delta^+_a(-))^{\freshfor a+} \to
+\mathbf{1}$ is given by \begin{equation} \label{def:epsilonlin}
+\begin{array}{rcl} \epsilon^+
+%
+&=& \bigl(\{\cdot\}_{\downarrow} \circ \epsilon\bigr)^{\dagger} \\
+%
+&=& \bigl(\epsilon_{\widehat{(-)}} \circ {\theta^{-1}}^{\freshfor a} \circ
+\phi^{-1}_{\delta_a} \circ \{\cdot\}_{(\delta_a(-))^{\freshfor
+a}}\bigr)^{\dagger} \quad \text{by \ref{comm:epsilonplus}}\\
+%
+&=& \epsilon_{\widehat{(-)}} \circ {\theta^{-1}}^{\freshfor a} \circ
+\phi^{-1}_{\delta_a}.
+%
+\end{array} \end{equation}
+
+
 \section{Categories of FM-Continuous Maps}
 \label{fmcts}
 
