@@ -767,10 +767,10 @@ Furthermore, the isomorphisms $\phi$ and $\theta$ defined in \ref{def:phi} and
 \ref{def:theta} can be used to lift the adjunction $(-)^{\freshfor a} \dashv
 \delta_a$ to an adjunction $\mathbf{FMLin}_{s} \leftrightarrows
 \mathbf{FMLin}_{s \udot \{a\}}$.  Firstly, since the inclusion functor is a
-bijection on objects, by lemma \ref{adjunctioninclusion:dual} the Kleisli
-category of the monad $(\widehat{(-)}, \{\cdot\}_{\downarrow}, \mathord{\cup})$
-on $\mathbf{FMPre}_s$ is isomorphic to $\mathbf{FMLin}_s$.  Therefore it is
-enough to show the following.
+bijection on objects, by lemma \ref{adjunctioninclusion} the Kleisli category of
+the monad $(\widehat{(-)}, \{\cdot\}_{\downarrow}, \mathord{\cup})$ on
+$\mathbf{FMPre}_s$ is isomorphic to $\mathbf{FMLin}_s$.  Therefore it is enough
+to show the following.
 
 \begin{lemma}\label{deltafreshadjlin} There is an adjunction \[(-)^{\freshfor
 a+} \dashv \delta_a^+ : \mathrm{Kl}\bigl(\widehat{(-)} \text{ on }

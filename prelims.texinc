@@ -425,15 +425,20 @@ Suppose that there is an adjunction
 \ar@/_2ex/@<-2pt>[ll]_{F}
 }
 \end{equation*}
-with unit $\eta$ and counit $\epsilon$, where the right adjoint $G$ is a
-bijection on objects. Then $\mathcal{D}$ is isomorphic to the coKleisli category
-of the comonad $(FG, \epsilon, F\eta_G)$.
+with unit $\eta$ and counit $\epsilon$.
+If the left adjoint $F$ is a bijection on objects then $\mathcal{C}$ is
+isomorphic to the Kleisli category of the monad $(GF, \eta, G\epsilon_F)$.
+Dually, if the right adjoint $G$ is a bijection on objects then $\mathcal{D}$ is
+isomorphic to the coKleisli category of the comonad $(FG, \epsilon, F\eta_G)$.
 \end{lemma}
 
-\begin{proof} Let $\mathcal{E}$ be the coKleisli category of $FG$. Define $L :
-\mathcal{E} \to \mathcal{D}$ as the (unique) coKleisli comparison functor.  In
-detail, if $A$ is an object of $\mathcal{E}$ then $LA \defeq GA$ and if $f : A \to B$
-is an arrow of $\mathcal{E}$ then $Lf \defeq Gf \circ \eta_{GA}$.
+\begin{proof} The finaly two sentences of the statement of this lemma are dual
+to each other, so by duality it is sufficient to show just one.  Therefore,
+suppose that the right adjoint $G$ is a bijection on objects. Let $\mathcal{E}$
+be the coKleisli category of $FG$. Define $L : \mathcal{E} \to \mathcal{D}$ as
+the (unique) coKleisli comparison functor.  In detail, if $A$ is an object of
+$\mathcal{E}$ then $LA \defeq GA$ and if $f : A \to B$ is an arrow of
+$\mathcal{E}$ then $Lf \defeq Gf \circ \eta_{GA}$.
 
 Define $K : \mathcal{D} \to \mathcal{E}$ as follows. If $A$ is an object of
 $\mathcal{D}$ then define $KA \defeq G^{-1}A$ and if $f : A \to B$ is an arrow
@@ -487,27 +492,5 @@ $\epsilon$} \\
 \end{array}\end{equation}
 Therefore $L$ and $K$ are mutual inverses, which completes the proof.
 \end{proof}
-
-\begin{lemma}
-\label{adjunctioninclusion:dual}
-Suppose that there is an adjunction
-\begin{equation*}
-\xymatrix{
-\mathcal{C}
-\ar@/_2ex/@<-2pt>[rr]_{G}
-&
-\bot
-&
-\mathcal{D}
-\ar@/_2ex/@<-2pt>[ll]_{F}
-}
-\end{equation*}
-with unit $\eta$ and counit $\epsilon$, where the left adjoint $F$ is a
-bijection on objects. Then $\mathcal{C}$ is isomorphic to the Kleisli category
-of the monad $(GF, \eta, G\epsilon_F)$.
-\end{lemma}
-
-\begin{proof} This lemma is the categorical dual of lemma
-\ref{adjunctioninclusion}, so the result follows immediately.  \end{proof}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
