@@ -524,11 +524,7 @@ detail, the unit of this adjunction is given by the transpose of the identity in
 Conversely the counit is given by $\mathord{\cup} \defeq
 \mathbf{1}_{\widehat{(-)}}^\dagger$, and in detail if $X \in
 \widehat{\widehat{\typeP}}$ then \begin{equation} \mathord{\cup}_{\typeP} X =
-\mathbf{1}_{\widehat{\typeP}}^\dagger X = \bigcup X. \end{equation} Since the
-inclusion functor is a bijection on objects, by lemma
-\ref{adjunctioninclusion:dual} the Kleisli category of the monad
-$(\widehat{(-)}, \{\cdot\}_{\downarrow}, \mathord{\cup})$ is isomorphic to
-$\mathbf{FMLin}_s$.
+\mathbf{1}_{\widehat{\typeP}}^\dagger X = \bigcup X. \end{equation}
 
 TODO Copy across discussion of structures in $\mathbf{FMLin}_s$ from
 $\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.
@@ -543,8 +539,8 @@ $\delta_a$ }
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_s$ define
 $\phi_{\typeP} : \widehat{\typeP}^{\freshfor a} \to \widehat{\typeP^{\freshfor
-a}}$ by \begin{equation}\phi_{\typeP} (x) \defeq \{ p \in x \mid a \freshfor p
-\}.\end{equation}
+a}}$ by \begin{equation} \label{def:phi} \phi_{\typeP} (x) \defeq \{ p \in x
+\mid a \freshfor p \}.\end{equation}
 %
 % Well-defined
 Then it is clear that $\phi_{\typeP}$ is an arrow of $\mathbf{FMPre}_{s \udot
@@ -575,8 +571,9 @@ $\phi_{\typeP}$ is natural in $\typeP$.
 %
 % Definition of inverse
 Define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
-\widehat{\typeP}^{\freshfor a} $ by \begin{equation}\phi^{-1}_{\typeP} (x)
-\defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot x.\end{equation}
+\widehat{\typeP}^{\freshfor a} $ by \begin{equation} \label{def:phiinv}
+\phi^{-1}_{\typeP} (x) \defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot
+x.\end{equation}
 %
 It will simplify the remainder of this discussion to show that if $x \in
 \widehat{\typeP^{\freshfor a}}$ then $p \in \phi^{-1}_{\typeP} (x)$ if and only
@@ -664,8 +661,8 @@ $\phi$ is a natural isomorphism with inverse given by $\phi^{-1}$ as required.
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$
 define $\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a
-\typeP}$ by \begin{equation}\theta_{\typeP}(x') \defeq \{p' \mid \freshin{b}{ p'
-@ b \in x' @ b\}}.\end{equation}
+\typeP}$ by \begin{equation} \label{def:theta} \theta_{\typeP}(x') \defeq \{p'
+\mid \freshin{b}{ p' @ b \in x' @ b\}}.\end{equation}
 %
 % Well-defined
 It is necessary to show that $\theta_{\typeP}$ is well-defined, so let $x' \in
@@ -711,8 +708,8 @@ $q' \in (\theta_{\typeQ} \circ \delta_a \widehat{f})(x')$ as required.
 
 Now for each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
 $\theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \delta_a\widehat{\typeP}$
-by \begin{equation}\theta^{-1}_{\typeP}(x) \defeq \freshin{b}{ [b].\{p \mid
-[b].p \in x\}}.\end{equation}
+by \begin{equation} \label{def:thetainv} \theta^{-1}_{\typeP}(x) \defeq
+\freshin{b}{ [b].\{p \mid [b].p \in x\}}.\end{equation}
 %
 It is necessary to show that $\theta^{-1}_{\typeP}$ is well-defined, so let $x
 \in \widehat{\delta_a \typeP}$ and show that $\theta^{-1}_{\typeP}(x) \in
@@ -766,14 +763,14 @@ required.  It follows immediately that $\theta^{-1}_{\typeP}$ is natural in
 $\typeP$, and hence $\theta$ is a natural isomorphism with inverse given by
 $\theta^{-1}$ as required.  \end{proof}
 
-Furthermore, the isomorphisms $\phi$ and $\theta$ defined above can be used to
-lift the adjunction $(-)^{\freshfor a} \dashv \delta_a$ to an adjunction
-$\mathbf{FMLin}_{s} \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$.  Firstly
-from the freeness property above (TODO?) each $\mathbf{FMLin}_s$ is equivalent
-to the Kleisli category of the monad $\langle \widehat{(-)},
-\{\cdot\}_\downarrow,
-\mathord{\cup}\rangle$ on $\mathbf{FMPre}_{s}$. Therefore it is enough to show
-the following.
+Furthermore, the isomorphisms $\phi$ and $\theta$ defined in \ref{def:phi} and
+\ref{def:theta} can be used to lift the adjunction $(-)^{\freshfor a} \dashv
+\delta_a$ to an adjunction $\mathbf{FMLin}_{s} \leftrightarrows
+\mathbf{FMLin}_{s \udot \{a\}}$.  Firstly, since the inclusion functor is a
+bijection on objects, by lemma \ref{adjunctioninclusion:dual} the Kleisli
+category of the monad $(\widehat{(-)}, \{\cdot\}_{\downarrow}, \mathord{\cup})$
+on $\mathbf{FMPre}_s$ is isomorphic to $\mathbf{FMLin}_s$.  Therefore it is
+enough to show the following.
 
 \begin{lemma}\label{deltafreshadjlin} There is an adjunction \[(-)^{\freshfor
 a+} \dashv \delta_a^+ : \mathrm{Kl}\bigl(\widehat{(-)} \text{ on }
@@ -783,9 +780,9 @@ $\delta_a^+$ are defined as in the statement of lemma \ref{adjunctionlift}.
 \end{lemma}
 
 \begin{proof}
-Let $\phi$ and $\theta$ be as in lemma \ref{freshhatiso} and \ref{deltahatiso}
-respectively, then by lemmas \ref{adjunctionlift} it is sufficient to show that
-the diagrams below commute.
+Let $\phi$ and $\theta$ be as defined in \ref{def:phi} and \ref{def:theta}, then
+by lemmas \ref{adjunctionlift} it is sufficient to show that the diagrams below
+commute.
 \[\begin{array}{ccc}
 \xymatrix{
 \typeP^{\freshfor a} \ar[r]^{\{\cdot\}_{\typeP}^{\freshfor a}} 
