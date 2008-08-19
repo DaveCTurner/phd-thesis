@@ -543,7 +543,8 @@ $\delta_a$ }
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_s$ define
 $\phi_{\typeP} : \widehat{\typeP}^{\freshfor a} \to \widehat{\typeP^{\freshfor
-a}}$ by \[\phi_{\typeP} (x) = \{ p \in x \mid a \freshfor p \}.\]
+a}}$ by \begin{equation}\phi_{\typeP} (x) = \{ p \in x \mid a \freshfor p
+\}.\end{equation}
 %
 % Well-defined
 Then it is clear that $\phi_{\typeP}$ is an arrow of $\mathbf{FMPre}_{s \udot
@@ -574,19 +575,20 @@ $\phi_{\typeP}$ is natural in $\typeP$.
 %
 % Definition of inverse
 Define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
-\widehat{\typeP}^{\freshfor a} $ by \[\phi^{-1}_{\typeP} (x) = x \cup \bigcup_{b
-\freshfor x} (ab) \cdot x.\] It will simplify the remainder of this discussion
-to show that if $x \in \widehat{\typeP^{\freshfor a}}$ then $p \in
-\phi^{-1}_{\typeP} (x)$ if and only if $\freshin{c}{p \in (ac) \cdot x}$. To see
-this, suppose that $p \in \phi^{-1}_{\typeP} (x)$, then either $p \in x$ or
-there exists $b$ such that $b \freshfor x$ and $p \in (ab) \cdot x$. If $p \in
-x$ then $a \freshfor p$.  Let $c$ be fresh, then $p = (ac) \cdot p \in (ac)
-\cdot x$ as required. On the other hand, let $b$ be such that $b \freshfor x$
-and $p \in (ab) \cdot x$, then $b \freshfor p$. If $a = b$ then this reduces to
-the previous case, so suppose that $a \neq b$. Let $c$ be fresh, then \[p = (bc)
-\cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x\]
-as required. Conversely, suppose that $c$ is fresh and $p \in (ac) \cdot x$,
-then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
+\widehat{\typeP}^{\freshfor a} $ by \begin{equation}\phi^{-1}_{\typeP} (x) = x
+\cup \bigcup_{b \freshfor x} (ab) \cdot x.\end{equation} It will simplify the
+remainder of this discussion to show that if $x \in \widehat{\typeP^{\freshfor
+a}}$ then $p \in \phi^{-1}_{\typeP} (x)$ if and only if $\freshin{c}{p \in (ac)
+\cdot x}$. To see this, suppose that $p \in \phi^{-1}_{\typeP} (x)$, then either
+$p \in x$ or there exists $b$ such that $b \freshfor x$ and $p \in (ab) \cdot
+x$. If $p \in x$ then $a \freshfor p$.  Let $c$ be fresh, then $p = (ac) \cdot p
+\in (ac) \cdot x$ as required. On the other hand, let $b$ be such that $b
+\freshfor x$ and $p \in (ab) \cdot x$, then $b \freshfor p$. If $a = b$ then
+this reduces to the previous case, so suppose that $a \neq b$. Let $c$ be fresh,
+then \[p = (bc) \cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc) \cdot x =
+(ac) \cdot x\] as required. Conversely, suppose that $c$ is fresh and $p \in
+(ac) \cdot x$, then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as
+required.
 
 Now it is necessary to show that $\phi^{-1}_{\typeP}$ is well-defined, so let $x
 \in \widehat{\typeP^{\freshfor a}}$. Let $p \in \phi^{-1}_{\typeP} (x)$ and let
