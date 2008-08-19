@@ -207,12 +207,12 @@ FM sets, see \ref{fmpre:alternative} for an alternative, more universal
 definition. The categories $\mathbf{FMPre}_s$ are appropriate for defining a
 functor $(-)^{\freshfor a}$ as follows.
 
-\begin{definition}\label{def:freshfor} If $\typeP$ is a FM-preorder then define the
-FM-preorder \begin{equation} \typeP^{\freshfor a} \defeq \{p \in \typeP \mid a \freshfor
-p\} \end{equation} ordered given by the restriction of the order on $\typeP$, and if
-$f : \typeP \to \typeQ$ is a finitely-supported monotone function then for all $p \in
-\typeP^{\freshfor a}$ define \begin{equation} f^{\freshfor a}(p) \defeq
-f(p).\end{equation}\end{definition}
+\begin{definition}\label{def:freshfor} If $\typeP$ is a FM-preorder then define
+the FM-preorder \begin{equation} \typeP^{\freshfor a} \defeq \{p \in \typeP \mid
+a \freshfor p\} \end{equation} ordered by the restriction of the order on
+$\typeP$, and if $f : \typeP \to \typeQ$ is a finitely-supported monotone
+function then for all $p \in \typeP^{\freshfor a}$ define \begin{equation}
+f^{\freshfor a}(p) \defeq f(p).\end{equation}\end{definition}
 
 \begin{lemma} If $a \notin s$ then the operation $(-)^{\freshfor a}$ defined in
 \ref{def:freshfor} is a functor $\mathbf{FMPre}_s \to \mathbf{FMPre}_{s \udot

@@ -444,10 +444,10 @@ which is the identity on $KA$ in $\mathcal{E}$, and if $f : A \to B$ and $g : B
 &=& \epsilon_{G^{-1}C} \circ Fg \circ Ff \\
 %
 &=& \epsilon_{G^{-1}C} \circ Fg \circ FG\epsilon_{G^{-1}B} \circ
-F\eta_{GG^{-1}B} \circ Ff \quad\text{by triangle identity at $G^{-1}B$}\\
+F\eta_{GG^{-1}B} \circ Ff \quad\text{by triangle identity}\\
 %
 &=& \epsilon_{G^{-1}C} \circ Fg \circ FG\epsilon_{G^{-1}B} \circ FGFf \circ
-F\eta_{GG^{-1}A} \quad\text{by naturality of $\eta$}\\
+F\eta_{GG^{-1}A} \quad\text{by nat. of $\eta$}\\
 %
 &=& \epsilon_{G^{-1}C} \circ Fg \circ FG(\epsilon_{G^{-1}B} \circ Ff) \circ
 F\eta_{GG^{-1}A} \\
