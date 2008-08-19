@@ -537,8 +537,8 @@ $\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.
 $\delta_a$ }
 
 \begin{lemma}\label{freshhatiso} Let $a \notin s$. The functors
-$\widehat{(-)}^{\freshfor a}, \widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s
-\rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}$ are naturally isomorphic.
+\[\widehat{(-)}^{\freshfor a}, \widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s
+\rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}\] are naturally isomorphic.
 \end{lemma}
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_s$ define
