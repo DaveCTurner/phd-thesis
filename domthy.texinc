@@ -1085,46 +1085,51 @@ types of HOPLA terms correspond to the actions that it can do, so the type of
 this process will be (isomorphic to) $\mathbb A$ since its actions are
 (essentially) outputs of elements of $\mathbb A$. Furthermore, it is closed so
 its denotation will simply be a subset of $\mathbb A$, and since it can output
-any name it must be that \[ \sem{\ndsum{b}{\mathbb
-A}{\labelaction{b}{\bang{\inactive}}}} = \mathbb A.\]
+any name it must be that \begin{equation} \label{allnamesum}
+\sem{\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}}} = \mathbb A.
+\end{equation}
 
 The term $\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
 }\bigr)}$ should be able to output a bound name $\newaction{a}{a}$ if it is to
-satisfy the same operational semantics as new-HOPLA, and therefore \[\new{a}{a}
-\in \sem{\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
-}\bigr)}}.\]
+satisfy the same operational semantics as new-HOPLA, and therefore
+\begin{equation} \label{boundnameout} \new{a}{a} \in
+\sem{\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
+}\bigr)}}. \end{equation}
 
 Recall that in HOPLA substitution is given by composition of denotations. In
 new-HOPLA, substitution under a $\new{a}{(-)}$ ensures that $a$ is a fresh name
 before proceeding, but any $a$ is fresh here since $\ndsum{b}{\mathbb
 A}{\labelaction{b}{\bang{\inactive}} }$ has empty support. Therefore
-\[\sem{\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
-}\bigr)}} = \sem{\new{a}{\termvar{x}}} \circ \sem{\ndsum{b}{\mathbb
-A}{\labelaction{b}{\bang{\inactive}} }} = \sem{\new{a}{\termvar{x}}} (\mathbb
-A).\]
+\begin{equation} \label{allnamecomp} \sem{\new{a}{\bigl(\ndsum{b}{\mathbb
+A}{\labelaction{b}{\bang{\inactive}} }\bigr)}} = \sem{\new{a}{\termvar{x}}}
+\circ \sem{\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}} }} =
+\sem{\new{a}{\termvar{x}}} (\mathbb A). \end{equation}
 
 Now $\mathbb A = \bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A} B$ is a directed
-join, so if $\sem{\new{a}{\termvar{x}}}$ is continuous then
-\[\sem{\new{a}{\termvar{x}}} (\mathbb A) = \sem{\new{a}{\termvar{x}}}
-\left(\bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A} B \right) = \bigcup_{B
-\subseteq_{\mathrm{fin}} \mathbb A} \sem{\new{a}{\termvar{x}} } B,\] so it
-follows that $\new{a}{a} \in \bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A}
-\sem{\new{a}{\termvar{x}} } B$. Let $\{b_1, \ldots, b_n\}$ be such that
-\[\newaction{a}{a} \in \sem{\new{a}{\termvar{x}}} \{b_1, \ldots, b_n\} =
+join, so if $\sem{\new{a}{\termvar{x}}}$ is continuous then \begin{equation}
+\label{allnamejoin} \sem{\new{a}{\termvar{x}}} (\mathbb A) =
+\sem{\new{a}{\termvar{x}}} \left(\bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A}
+B \right) = \bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A}
+\sem{\new{a}{\termvar{x}} } B, \end{equation} so it follows that $\new{a}{a} \in
+\bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A} \sem{\new{a}{\termvar{x}} } B$.
+Let $\{b_1, \ldots, b_n\}$ be such that \begin{equation} \label{boundnamein}
+\newaction{a}{a} \in \sem{\new{a}{\termvar{x}}} \{b_1, \ldots, b_n\} =
 \sem{\new{a}{\termvar{x}}} \circ \sem{\linj{b_1}{\bang{\inactive}}
-\mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}} \linj{b_n}{\bang{\inactive}}}.\]
+\mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}} \linj{b_n}{\bang{\inactive}}}.
+\end{equation}
 
 Again, note that substitution under a $\new{a}{(-)}$ ensures that $a$ is a fresh
 name in new-HOPLA. In particular $a'$ may be chosen so that it is distinct from
 the $b_i$ and rewrite $\new{a}{\termvar{x}}$ as $\new{a'}{\termvar{x}}$ since
 the term $\termvar{x}$ is unaffected by permutations of names and therefore has
-empty support.  Therefore \[\sem{\new{a}{\termvar{x}}} \circ
-\sem{\linj{b_1}{\bang{\inactive}} \mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}}
-\linj{b_n}{\bang{\inactive}}} = \{ \new{a'}{b_1}, \ldots, \new{a'}{b_n} \}.\]
-But this is a contradiction: $\new{a}{a} = \new{a'}{a'} \neq \new{a'}{b_i}$ for
-any $i$ as $a'$ was chosen to be fresh. Therefore if the map
-$\sem{\new{a}{\termvar{x}}}$ is to have the properties ascribed to it in
-new-HOPLA, it cannot be that it preserves directed joins.
+empty support.  Therefore \begin{equation} \label{allnamecomp:finite}
+\sem{\new{a}{\termvar{x}}} \circ \sem{\linj{b_1}{\bang{\inactive}}
+\mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}} \linj{b_n}{\bang{\inactive}}} =
+\{ \new{a'}{b_1}, \ldots, \new{a'}{b_n} \}.  \end{equation} But this is a
+contradiction: $\new{a}{a} = \new{a'}{a'} \neq \new{a'}{b_i}$ for any $i$ as
+$a'$ was chosen to be fresh. Therefore if the map $\sem{\new{a}{\termvar{x}}}$
+is to have the properties ascribed to it in new-HOPLA, it cannot be that it
+preserves directed joins.
 
 \subsection{FM-Continuity}
 
