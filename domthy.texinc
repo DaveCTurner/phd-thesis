@@ -1177,11 +1177,12 @@ s$. Therefore $X$ is finite, and since it is also directed there must exist $x'
 
 More generally, if $\typeP$ is a FM-preorder, $F$ a finite subset of $\typeP$
 and $s$ a finite set of names that contains $\supp{\typeP}$ then define
-\[\finelt{F}{s} = \bigcup_{\sigma \freshfor s} \sigma \cdot F_\downarrow.\]
-Every $x \in \widehat{\mathbb A}$ is of this form: either $x$ is finite and
-hence $x = \finelt{x}{\supp{x}}$ or else $x$ is cofinite and hence $x =
-\finelt{\{a\}}{\supp{x}}$ for any $a \in x$. It will turn out that sets of this
-form are precisely the isolated elements of $\widehat{\typeP}$.
+\begin{equation} \label{def:finelt} \finelt{F}{s} = \bigcup_{\sigma \freshfor s}
+\sigma \cdot F_\downarrow. \end{equation} Every $x \in \widehat{\mathbb A}$ is
+of this form: either $x$ is finite and hence $x = \finelt{x}{\supp{x}}$ or else
+$x$ is cofinite and hence $x = \finelt{\{a\}}{\supp{x}}$ for any $a \in x$. It
+will turn out that sets of this form are precisely the isolated elements of
+$\widehat{\typeP}$.
 
 \begin{lemma}\label{fineltextension} If $\supp{\typeP} \subseteq s \subseteq s'$
 and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq
