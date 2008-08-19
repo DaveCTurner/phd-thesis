@@ -657,9 +657,9 @@ immediately that $\phi^{-1}_{\typeP}$ is natural in $\typeP$, and hence that
 $\phi$ is a natural isomorphism with inverse given by $\phi^{-1}$ as required.
 \end{proof}
 
-\begin{lemma}\label{deltahatiso} Let $a \notin s$. The functors $\delta_a
+\begin{lemma}\label{deltahatiso} Let $a \notin s$. The functors \[\delta_a
 \widehat{(-)}, \widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}}
-\rightrightarrows \mathbf{FMPre}_s$ are naturally isomorphic. \end{lemma}
+\rightrightarrows \mathbf{FMPre}_s\] are naturally isomorphic. \end{lemma}
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$
 define $\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a
