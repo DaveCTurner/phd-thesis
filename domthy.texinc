@@ -543,7 +543,7 @@ $\delta_a$ }
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_s$ define
 $\phi_{\typeP} : \widehat{\typeP}^{\freshfor a} \to \widehat{\typeP^{\freshfor
-a}}$ by \begin{equation}\phi_{\typeP} (x) = \{ p \in x \mid a \freshfor p
+a}}$ by \begin{equation}\phi_{\typeP} (x) \defeq \{ p \in x \mid a \freshfor p
 \}.\end{equation}
 %
 % Well-defined
@@ -575,20 +575,21 @@ $\phi_{\typeP}$ is natural in $\typeP$.
 %
 % Definition of inverse
 Define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
-\widehat{\typeP}^{\freshfor a} $ by \begin{equation}\phi^{-1}_{\typeP} (x) = x
-\cup \bigcup_{b \freshfor x} (ab) \cdot x.\end{equation} It will simplify the
-remainder of this discussion to show that if $x \in \widehat{\typeP^{\freshfor
-a}}$ then $p \in \phi^{-1}_{\typeP} (x)$ if and only if $\freshin{c}{p \in (ac)
-\cdot x}$. To see this, suppose that $p \in \phi^{-1}_{\typeP} (x)$, then either
-$p \in x$ or there exists $b$ such that $b \freshfor x$ and $p \in (ab) \cdot
-x$. If $p \in x$ then $a \freshfor p$.  Let $c$ be fresh, then $p = (ac) \cdot p
-\in (ac) \cdot x$ as required. On the other hand, let $b$ be such that $b
-\freshfor x$ and $p \in (ab) \cdot x$, then $b \freshfor p$. If $a = b$ then
-this reduces to the previous case, so suppose that $a \neq b$. Let $c$ be fresh,
-then \[p = (bc) \cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc) \cdot x =
-(ac) \cdot x\] as required. Conversely, suppose that $c$ is fresh and $p \in
-(ac) \cdot x$, then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as
-required.
+\widehat{\typeP}^{\freshfor a} $ by \begin{equation}\phi^{-1}_{\typeP} (x)
+\defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot x.\end{equation}
+%
+It will simplify the remainder of this discussion to show that if $x \in
+\widehat{\typeP^{\freshfor a}}$ then $p \in \phi^{-1}_{\typeP} (x)$ if and only
+if $\freshin{c}{p \in (ac) \cdot x}$. To see this, suppose that $p \in
+\phi^{-1}_{\typeP} (x)$, then either $p \in x$ or there exists $b$ such that $b
+\freshfor x$ and $p \in (ab) \cdot x$. If $p \in x$ then $a \freshfor p$.  Let
+$c$ be fresh, then $p = (ac) \cdot p \in (ac) \cdot x$ as required. On the other
+hand, let $b$ be such that $b \freshfor x$ and $p \in (ab) \cdot x$, then $b
+\freshfor p$. If $a = b$ then this reduces to the previous case, so suppose that
+$a \neq b$. Let $c$ be fresh, then \[p = (bc) \cdot p \in (bc) \cdot (ab) \cdot
+x = (ac) \cdot (bc) \cdot x = (ac) \cdot x\] as required. Conversely, suppose
+that $c$ is fresh and $p \in (ac) \cdot x$, then $c \freshfor x$ so that $p \in
+\phi^{-1}_{\typeP}(x)$ as required.
 
 Now it is necessary to show that $\phi^{-1}_{\typeP}$ is well-defined, so let $x
 \in \widehat{\typeP^{\freshfor a}}$. Let $p \in \phi^{-1}_{\typeP} (x)$ and let
@@ -663,8 +664,8 @@ $\phi$ is a natural isomorphism with inverse given by $\phi^{-1}$ as required.
 
 \begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$
 define $\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a
-\typeP}$ by \begin{equation}\theta_{\typeP}(x') = \{p' \mid \freshin{b}{ p' @ b \in x' @
-b\}}.\end{equation}
+\typeP}$ by \begin{equation}\theta_{\typeP}(x') \defeq \{p' \mid \freshin{b}{ p'
+@ b \in x' @ b\}}.\end{equation}
 %
 % Well-defined
 It is necessary to show that $\theta_{\typeP}$ is well-defined, so let $x' \in
@@ -710,15 +711,17 @@ $q' \in (\theta_{\typeQ} \circ \delta_a \widehat{f})(x')$ as required.
 
 Now for each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
 $\theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \delta_a\widehat{\typeP}$
-by \begin{equation}\theta^{-1}_{\typeP}(x) = \freshin{b}{ [b].\{p \mid [b].p \in
-x\}}.\end{equation} It is necessary to show that $\theta^{-1}_{\typeP}$ is
-well-defined, so let $x \in \widehat{\delta_a \typeP}$ and show that
-$\theta^{-1}_{\typeP}(x) \in \delta_a\widehat{\typeP}$ as follows.  Let $b$ be a
-fresh name, and let $p \in \bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b$, then $[b].p
-\in x \subseteq{\delta_a \typeP}$ so that $[b].p \in \delta_a \typeP$ and hence
-$p \in (ab) \cdot \typeP$. Let $p' \le_{\typeP} p$, then $[b].p' \le_{\delta_a
-\typeP} [b].p \in x \in \widehat{\delta_a \typeP}$ so that $[b].p' \in x$ and
-hence $p' \in \bigl(\theta^{-1}_{\typeP}(x)\bigr)@b$.  Therefore
+by \begin{equation}\theta^{-1}_{\typeP}(x) \defeq \freshin{b}{ [b].\{p \mid
+[b].p \in x\}}.\end{equation}
+%
+It is necessary to show that $\theta^{-1}_{\typeP}$ is well-defined, so let $x
+\in \widehat{\delta_a \typeP}$ and show that $\theta^{-1}_{\typeP}(x) \in
+\delta_a\widehat{\typeP}$ as follows.  Let $b$ be a fresh name, and let $p \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b$, then $[b].p \in x \subseteq{\delta_a
+\typeP}$ so that $[b].p \in \delta_a \typeP$ and hence $p \in (ab) \cdot
+\typeP$. Let $p' \le_{\typeP} p$, then $[b].p' \le_{\delta_a \typeP} [b].p \in x
+\in \widehat{\delta_a \typeP}$ so that $[b].p' \in x$ and hence $p' \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr)@b$.  Therefore
 $\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b \in (ab) \cdot \widehat{\typeP}$ so
 that $\theta^{-1}_{\typeP}(x) \in \delta_a \widehat{\typeP}$ as required.
 
