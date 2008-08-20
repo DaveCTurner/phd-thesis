@@ -1068,13 +1068,22 @@ perform actions spontaneously and without having received any input, but linear
 maps are join-preserving so that they preserve empty joins in particular and
 hence a linear process with no input can generate no output.
 
-The solution to this issue could be to consider maps which are continuous (with
+The solution to this issue is be to consider maps which are continuous (with
 respect to some notion of approximation) rather than merely linear. In the
 development of HOPLA\cite{nygaardwinskel1}, continuity was chosen to mean
-`preserves directed joins' but it will be shown that this is not a suitable
-choice in $\mathbf{FMLin}_s$.
+`preserves directed joins' but the discussion of \ref{bindingdiscts}
+demonstrates that this is not a suitable choice in $\mathbf{FMLin}_s$.
+Reconsidering directed sets as generalised sequences in \ref{fm:continuity}
+suggests a more satisfactory definition of continuity. Section \ref{fm:isolated}
+demonstrates that it is simple to characterise the elements that are isolated
+with respect to this notion of approximation, and this gives rise to an
+appropriate exponential ${!}$ that captures the continuity in much the same way
+that the finite-join-completion exponential does in HOPLA.
+
+TODO Complete this intro when this section is complete.
 
 \subsection{Name-Binding is Discontinuous}
+\label{bindingdiscts}
 
 It is now necessary to speculate a little on what a nominal extension to the
 process calculus HOPLA may look like. This speculation is motivated by the
@@ -1143,6 +1152,7 @@ is to have the properties ascribed to it in new-HOPLA, it cannot be that it
 preserves directed joins.
 
 \subsection{FM-Continuity}
+\label{fm:continuity}
 
 In some sense the notion of limits of directed sets is the intuituionistic ---
 and therefore computational --- analogue of a limit of a (transfinite) sequence
@@ -1170,6 +1180,7 @@ to an (internal) well-ordering and the remainder of the proof is as in the
 classical case.
 
 \subsection{FM-Isolated Elements}
+\label{fm:isolated}
 
 Considering $\widehat{\typeP}$ as a domain of meanings for processes of type
 $\typeP$, it is now sensible to investigate the structure of the isolated (or
@@ -1300,6 +1311,7 @@ that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma \cdot
 \finelt{F}{s} = \finelt{F}{s}$ as required.  \end{proof}
 
 \subsection{FM-Continuous Maps}
+\label{fmcts:maps}
 
 The discussion of the previous section indicates that `continuous' should mean
 `preserves joins of uniformly-supported directed sets' or equivalently
