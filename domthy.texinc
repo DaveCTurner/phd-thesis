@@ -1015,7 +1015,9 @@ Then $\xi^+ : \mathbf{1} \to \delta^+_a((-)^{\freshfor a+})$ is given by
 \xi_{\widehat{(-)}} \circ \{\cdot\}_\downarrow \bigr)^{\dagger} \quad \text{by
 \ref{comm:xiplus}}\\
 %
-&=& \theta_{(-)^{\freshfor a}} \circ \delta_a \phi \circ \xi_{\widehat{(-)}}.
+&=& \theta_{(-)^{\freshfor a}} \circ \delta_a \phi \circ \xi_{\widehat{(-)}} \\
+%
+&=& \widehat{\xi} \quad\text{by \ref{comm:xisquare}.}
 %
 \end{array} \end{equation}
 
@@ -1054,7 +1056,9 @@ commutes by naturality of $\epsilon$, \ref{comm:freshtriangle} and
 a}}\bigr)^{\dagger} \quad \text{by \ref{comm:epsilonplus}}\\
 %
 &=& \epsilon_{\widehat{(-)}} \circ {\theta^{-1}}^{\freshfor a} \circ
-\phi^{-1}_{\delta_a}.
+\phi^{-1}_{\delta_a} \\
+%
+&=& \widehat{\epsilon} \quad \text{by \ref{comm:epsilonsquare}.}
 %
 \end{array} \end{equation}
 
