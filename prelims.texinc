@@ -188,9 +188,9 @@ SSFC
 &
 SFC
 }\end{equation}
-In $\mathrm{Kl}(S)$, the compositions along the top and bottom of this diagram
-are the arrows $F^+(g \circ f)$ and $F^+g \circ F^+f$ respectively, which shows
-that $F^+$ is a functor.
+In $\mathrm{Kl}(S)$ the compositions clockwise and anticlockwise around the
+outside of this diagram are the arrows $F^+(g \circ f)$ and $F^+g \circ F^+f$
+respectively, which shows that $F^+$ is a functor.
 
 \paragraph{$G^+:\mathrm{Kl}(S) \to \mathrm{Kl}(T)$ is a functor:} Let $A$ be an
 object of $\mathrm{Kl}(S)$, then the identity on $A$ is given by $\theta_A$ in
@@ -224,9 +224,9 @@ TTGC
 &
 TGC
 }\end{equation}
-In $\mathrm{Kl}(T)$ the compositions along the top and bottom of this diagram
-are the arrows $G^+(g \circ f)$ and $G^+g \circ G^+f$ respectively, which shows
-that $G^+$ is a functor.
+In $\mathrm{Kl}(T)$ the compositions clockwise and anticlockwise around the
+outside of this diagram are the arrows $G^+(g \circ f)$ and $G^+g \circ G^+f$
+respectively, which shows that $G^+$ is a functor.
 
 \paragraph{$\xi^+: \mathbf{1} \to G^+F^+$ is a natural transformation:}
 Let $f : A \to B$ be an arrow of $\mathrm{Kl}(T)$. The following diagram
@@ -273,9 +273,9 @@ TTGFB
 &
 TGFB
 }\end{equation}
-In $\mathrm{Kl}(T)$ the compositions along the top and bottom of this diagram
-are the arrows $\xi^+_B \circ f$ and $G^+F^+f \circ \xi^+_A$ respectively, which shows
-that $\xi^+$ is natural.
+In $\mathrm{Kl}(T)$ the compositions clockwise and anticlockwise around the
+outside of this diagram are the arrows $\xi^+_B \circ f$ and $G^+F^+f \circ
+\xi^+_A$ respectively, which shows that $\xi^+$ is natural.
 
 \paragraph{$\epsilon^+: F^+G^+ \to \mathbf{1}$ is a natural transformation:}
 Let $f : A \to B$ be an arrow of $\mathrm{Kl}(S)$. The following diagram
@@ -317,9 +317,8 @@ SSB
 SB
 }\end{equation}
 In $\mathrm{Kl}(S)$ the compositions around the outside of this diagram
-clockwise and anticlockwise 
-are the arrows $\epsilon^+_B \circ F^+G^+ f$ and $f \circ \epsilon^+_A$ respectively, which shows
-that $\epsilon^+$ is natural.
+clockwise and anticlockwise are the arrows $\epsilon^+_B \circ F^+G^+ f$ and $f
+\circ \epsilon^+_A$ respectively, which shows that $\epsilon^+$ is natural.
 
 \paragraph{$\xi^+$ and $\epsilon^+$ satisfy the triangular identities:}
 The following diagram commutes in $\mathcal{C}$ by naturality of $\eta$, the
@@ -359,9 +358,10 @@ TGA
 	\ar@{=}[ur]
 	\ar[u]^{\eta_{TGA}}
 }\end{equation}
-In $\mathrm{Kl}(T)$ the compositions along the top and bottom of this diagram
-are the arrows $G^+\epsilon^+_A \circ \xi_{G^+A}$ and the identity on $GA$
-respectively, which demonstrates the triangular identity for $G^+$.
+In $\mathrm{Kl}(T)$ the compositions clockwise and anticlockwise around the
+outside of this diagram are the arrows $G^+\epsilon^+_A \circ \xi_{G^+A}$ and
+the identity on $GA$ respectively, which demonstrates the triangular identity
+for $G^+$.
 
 The following diagram commutes in $\mathcal{D}$ by the naturality of $\theta$, 
 the monad laws for $S$, the triangular identity for $F$ and (a).
@@ -394,10 +394,10 @@ FA
 &
 SFA
 }\end{equation}
-In $\mathrm{Kl}(S)$ the compositions along the top and bottom of this diagram
-are the arrows $\epsilon^+_{F^+A} \circ F^+ \xi_{A}$ and the identity on $FA$
-respectively, which demonstrates the triangular identity for $F^+$. This
-completes the proof.
+In $\mathrm{Kl}(S)$ the compositions clockwise and anticlockwise around the
+outside of this diagram are the arrows $\epsilon^+_{F^+A} \circ F^+ \xi_{A}$ and
+the identity on $FA$ respectively, which demonstrates the triangular identity
+for $F^+$. This completes the proof.
 \end{proof}
 
 \subsection{Adjoints to Inclusions}
