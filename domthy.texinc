@@ -1179,7 +1179,7 @@ s$. Therefore $X$ is finite, and since it is also directed there must exist $x'
 
 More generally, if $\typeP$ is a FM-preorder, $F$ a finite subset of $\typeP$
 and $s$ a finite set of names that contains $\supp{\typeP}$ then define
-\begin{equation} \label{def:finelt} \finelt{F}{s} = \bigcup_{\sigma \freshfor s}
+\begin{equation} \label{def:finelt} \finelt{F}{s} \defeq \bigcup_{\sigma \freshfor s}
 \sigma \cdot F_\downarrow. \end{equation} Every $x \in \widehat{\mathbb A}$ is
 of this form: either $x$ is finite and hence $x = \finelt{x}{\supp{x}}$ or else
 $x$ is cofinite and hence $x = \finelt{\{a\}}{\supp{x}}$ for any $a \in x$. It
@@ -1406,7 +1406,7 @@ $\phi^{-1}$ be as in the proof of lemma \ref{freshhatiso}.
 
 For each object $\typeP$ of $\mathbf{FMPre}_s$ define $\phi^{!}_{\typeP} :
 (\typelift\typeP)^{\freshfor a} \to \typelift{(\typeP^{\freshfor a})}$ by
-\begin{equation} \label{def:phibang} \phi^{!}_{\typeP} (x) = \{ p \in x \mid a
+\begin{equation} \label{def:phibang} \phi^{!}_{\typeP} (x) \defeq \{ p \in x \mid a
 \freshfor p \} = \phi_{\typeP} (x).\end{equation}
 %
 Any element of $(\typelift\typeP)^{\freshfor a}$ can be written in the form
@@ -1433,7 +1433,7 @@ Therefore $\sigma \freshfor s'$ and $p' \le_{\typeP} \sigma \cdot p$ and $a
 
 Define also ${\phi^{!}_{\typeP}}^{-1} : \typelift{(\typeP^{\freshfor a})} \to
 (\typelift\typeP)^{\freshfor a}$ by \begin{equation} \label{def:phibanginv}
-{\phi^{!}_{\typeP}}^{-1}(x) = x \cup \bigcup_{b \freshfor x} (ab) \cdot x =
+{\phi^{!}_{\typeP}}^{-1}(x) \defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot x =
 \phi^{-1}_{\typeP}(x).\end{equation}
 %
 Any element of $\typelift{(\typeP^{\freshfor a})}$ may be written in the form
@@ -1490,15 +1490,18 @@ $\theta^{-1}$ be as in the proof of lemma \ref{deltahatiso}.
 
 For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
 $\theta^{!}_{\typeP} : \delta_a \typelift\typeP \to \typelift{\delta_a \typeP}$
-by \[\theta^{!}_{\typeP}(x') = \{p' \mid \freshin{b}{ p' @ b \in x' @ b\}} =
-\theta_{\typeP} (x').\] Any element of $\delta_a \typelift\typeP$ can be written
-in the form $[b].\finelt{F}{s'}$ where $b$ is a fresh name, $F
-\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \in s' \supseteq s$. Under
-these conditions it is also the case that $\finelt{\{[b].p \mid p \in F\}}{s'
-\setminus \{b\}} \in \typelift{\delta_a\typeP}$, so to show that $\theta^{!}$
-has the correct range it is sufficient to show that $\theta^{!}_{\typeP}
-\bigl([b].\finelt{f}{s'}\bigr) = \finelt{\{[b].p \mid p \in f\}}{s' \setminus
-\{b\}}$.
+by \begin{equation} \label{def:thetabang} \theta^{!}_{\typeP}(x') \defeq \{p'
+\mid \freshin{b}{ p' @ b \in x' @ b\}} = \theta_{\typeP} (x'). \end{equation}
+%
+Any element of $\delta_a \typelift\typeP$ can be written in the form
+$[b].\finelt{F}{s'}$ where $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab)
+\cdot \typeP$ and $b \in s' \supseteq s$.
+%
+Under these conditions it is also the case that $\finelt{\{[b].p \mid p \in
+F\}}{s' \setminus \{b\}} \in \typelift{\delta_a\typeP}$, so to show that
+$\theta^{!}$ has the correct range it is sufficient to show that
+$\theta^{!}_{\typeP} \bigl([b].\finelt{f}{s'}\bigr) = \finelt{\{[b].p \mid p \in
+f\}}{s' \setminus \{b\}}$.
 
 Let $p' \in \theta^{!}_{\typeP} \bigl([b].\finelt{F}{s'}\bigr)$ and let $c$ be a
 fresh name, then $p'@c \in (bc) \cdot \finelt{F}{s'}$ so that there exists $p
@@ -1518,17 +1521,21 @@ F$ and $\sigma \freshfor s' \setminus \{b\}$ such that $p' \le_{\delta_a \typeP}
 \bigl([b].\finelt{F}{s'}\bigr)$ as required.
 
 Define also ${\theta^{!}_{\typeP}}^{-1} : \typelift{\delta_a \typeP} \to
-\delta_a \typelift\typeP$ by \[{\theta^{!}}^{-1}_{\typeP}(x) = \freshin{b}{
-[b].\{p \mid [b].p \in x\}} = \theta^{-1}_{\typeP}(x).\] Any element of
-$\typelift{\delta_a\typeP}$ can be written in the form $\finelt{\{[b].p \mid p
-\in F\}}{s'}$ where $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab) \cdot
-\typeP$ and $b \notin s' \supseteq s$. Under these conditions it is also the
-case that $[b].\finelt{F}{s' \udot \{b\}} \in \delta_a\typelift\typeP$, so to
-show that ${\theta^{!}}^{-1}$ has the correct range it is sufficient to show
-that ${\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'} =
-[b].\finelt{F}{s' \udot \{b\}}$ or equivalently that 
-$\bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c =
-\bigl([b].\finelt{F}{s' \udot \{b\}}\bigr)@c$ for a fresh name $c$.
+\delta_a \typelift\typeP$ by \begin{equation} \label{def:thetabanginv}
+{\theta^{!}}^{-1}_{\typeP}(x) \defeq \freshin{b}{ [b].\{p \mid [b].p \in x\}} =
+\theta^{-1}_{\typeP}(x). \end{equation}
+%
+Any element of $\typelift{\delta_a\typeP}$ can be written in the form
+$\finelt{\{[b].p \mid p \in F\}}{s'}$ where $b$ is a fresh name, $F
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \notin s' \supseteq s$.
+%
+Under these conditions it is also the case that $[b].\finelt{F}{s' \udot \{b\}}
+\in \delta_a\typelift\typeP$, so to show that ${\theta^{!}}^{-1}$ has the
+correct range it is sufficient to show that ${\theta^{!}}^{-1}_{\typeP}
+\finelt{\{[b].p \mid p \in F\}}{s'} = [b].\finelt{F}{s' \udot \{b\}}$ or
+equivalently that $\bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
+F\}}{s'}\bigr)@c = \bigl([b].\finelt{F}{s' \udot \{b\}}\bigr)@c$ for a fresh
+name $c$.
 
 Let $p' \in \bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
 F\}}{s'}\bigr)@c$, then $[c].p' \in \finelt{\{[b].p \mid p \in F\}}{s'}$ so that
@@ -1553,16 +1560,24 @@ required.  \end{proof}
 
 There is also a natural transformation $\psi : \typelift{\widehat{(-)}} \to
 \widehat{(\typelift-)}$ of endofunctors of $\mathbf{FMPre}_s$ given by
-\[\psi_{\typeP} X = \{ x \in \typelift\typeP \mid x \subseteq \bigcup X\}.\] It
-is not hard to see that this is well-defined and natural. This transformation
+\begin{equation} \label{def:psi} \psi_{\typeP} X \defeq \bigl\{ x \in \typelift\typeP
+\mid x \subseteq \bigcup X\bigr\}. \end{equation} 
+%
+It is not hard to see that this is well-defined and natural. This transformation
 can be used to extend $!$ to an endofunctor ${!}^+$ on $\mathbf{FMLin}_s$ as
-follows. The action of ${!}^+$ on objects is the same as that of ${!}$ and if $f
-: \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then $f$ may be
-considered a monotone map $\typeP \to \widehat{\typeQ}$ and hence ${!}^+f =
-\psi_{\typeQ} \circ \typelift{f} : \typelift\typeP \to
-\widehat{\typelift\typeQ}$. Concretely, if $X \in \widehat{\typelift\typeP}$
-then \[({!}^+f) X = \{y \in \typelift\typeQ \mid \exists x \in X.\ y \subseteq f
-x\}.\] It is not hard to see that the action of ${!}^+$ is functorial.
+follows.
+%
+The action of ${!}^+$ on objects is the same as that of ${!}$ and if $f : \typeP
+\to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then $f$ may be considered a
+monotone map $\typeP \to \widehat{\typeQ}$ and hence ${!}^+f = \psi_{\typeQ}
+\circ \typelift{f} : \typelift\typeP \to \widehat{\typelift\typeQ}$.
+%
+Concretely, if $X \in \widehat{\typelift\typeP}$ then \begin{equation}
+\label{def:bangplus} ({!}^+f) X \defeq \{y \in \typelift\typeQ \mid \exists x
+\in X.\ y \subseteq f x\}. \end{equation}
+%
+It is not hard to see that the action of ${!}^+$ is functorial.
+%
 Furthermore, if if $f$ is continuous then ${!}^+f$ is linear too, so that
 ${!}^+$ is a functor $\mathbf{FMCts}_s \to \mathbf{FMLin}_s$.
 
