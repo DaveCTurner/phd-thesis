@@ -792,7 +792,7 @@ $\delta_a^+$ are defined as in the statement of lemma \ref{adjunctionlift}.
 
 \begin{proof}
 Let $\phi$ and $\theta$ be as defined in \ref{def:phi} and \ref{def:theta}, then
-by lemmas \ref{adjunctionlift} it is sufficient to show that the diagrams below
+by lemma \ref{adjunctionlift} it is sufficient to show that the diagrams below
 commute.
 \[\begin{array}{ccc}
 \xymatrix{
