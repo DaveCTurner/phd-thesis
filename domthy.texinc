@@ -1458,18 +1458,18 @@ p \in F$.
 %
 Furthermore if $a' \in s' \setminus \{a\}$ then $\sigma \cdot (ab) \cdot a' =
 a'$ as $b$ is fresh and $\sigma \freshfor (ab) \cdot s' \supseteq s' \setminus
-\{a\}$ so that $p' \in \finelt{F}{s \setminus \{a\}}$. 
+\{a\}$ so that $p' \in \finelt{F}{s' \setminus \{a\}}$. 
 %
-Conversely, suppose that $p' \in \finelt{F}{s \setminus \{a\}}$, then there
-exists $p \in F$ and $\sigma \freshfor s \setminus \{a\}$ such that $p'
+Conversely, suppose that $p' \in \finelt{F}{s' \setminus \{a\}}$, then there
+exists $p \in F$ and $\sigma \freshfor s' \setminus \{a\}$ such that $p'
 \le_{\typeP} \sigma \cdot p$.
 %
 Let $b$ be a fresh name.  Since $p \in F$, $a \freshfor p$ and hence $(ab) \cdot
 p = p$.
 %
 Therefore $(ab) \cdot p' \le (ab) \cdot \sigma \cdot (ab) \cdot p$ and
-$(ab)\sigma(ab) \freshfor s'$ since $(ab)\sigma(ab) \freshfor (ab) \cdot (s'
-\setminus \{a\}) = s' \setminus \{b\} = s'$.
+$(ab)\sigma(ab) \freshfor s'$ since $\sigma \freshfor (s' \setminus a) \udot
+\{b\}$.
 %
 Hence $(ab) \cdot p' \in \finelt{F}{s'}$ so that $p' \in
 {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ as required.
