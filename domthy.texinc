@@ -576,17 +576,19 @@ Define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
 x.\end{equation}
 %
 It will simplify the remainder of this discussion to show that if $x \in
-\widehat{\typeP^{\freshfor a}}$ then $p \in \phi^{-1}_{\typeP} (x)$ if and only
-if $\freshin{c}{p \in (ac) \cdot x}$. To see this, suppose that $p \in
-\phi^{-1}_{\typeP} (x)$, then either $p \in x$ or there exists $b$ such that $b
-\freshfor x$ and $p \in (ab) \cdot x$. If $p \in x$ then $a \freshfor p$.  Let
-$c$ be fresh, then $p = (ac) \cdot p \in (ac) \cdot x$ as required. On the other
-hand, let $b$ be such that $b \freshfor x$ and $p \in (ab) \cdot x$, then $b
-\freshfor p$. If $a = b$ then this reduces to the previous case, so suppose that
-$a \neq b$. Let $c$ be fresh, then \[p = (bc) \cdot p \in (bc) \cdot (ab) \cdot
-x = (ac) \cdot (bc) \cdot x = (ac) \cdot x\] as required. Conversely, suppose
-that $c$ is fresh and $p \in (ac) \cdot x$, then $c \freshfor x$ so that $p \in
-\phi^{-1}_{\typeP}(x)$ as required.
+\widehat{\typeP^{\freshfor a}}$ then \begin{equation}
+\label{characterisation:phiinv} p \in \phi^{-1}_{\typeP} (x) \quad
+\Leftrightarrow\quad \freshin{c}{p \in (ac) \cdot x}.\end{equation}
+%
+To see this, suppose that $p \in \phi^{-1}_{\typeP} (x)$, then either $p \in x$
+or there exists $b$ such that $b \freshfor x$ and $p \in (ab) \cdot x$. If $p
+\in x$ then $a \freshfor p$.  Let $c$ be fresh, then $p = (ac) \cdot p \in (ac)
+\cdot x$ as required. On the other hand, let $b$ be such that $b \freshfor x$
+and $p \in (ab) \cdot x$, then $b \freshfor p$. If $a = b$ then this reduces to
+the previous case, so suppose that $a \neq b$. Let $c$ be fresh, then \[p = (bc)
+\cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x\]
+as required. Conversely, suppose that $c$ is fresh and $p \in (ac) \cdot x$,
+then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
 
 Now it is necessary to show that $\phi^{-1}_{\typeP}$ is well-defined, so let $x
 \in \widehat{\typeP^{\freshfor a}}$. Let $p \in \phi^{-1}_{\typeP} (x)$ and let
@@ -1263,7 +1265,7 @@ such that $p \le_{\typeP} \sigma \cdot p'$. Also, $F \subseteq x$ so that $p'
 Therefore $x = \finelt{F}{s}$ as required.  \end{proof}
 
 \begin{lemma}
-\label{fineltmineqvt} If $\sigma$ is a permutation and $\sigma \freshfor \typeP$
+\label{finelteqvt} If $\sigma$ is a permutation and $\sigma \freshfor \typeP$
 then \[\sigma \cdot \finelt{F}{s} = \finelt{\sigma \cdot F}{\sigma \cdot s}.\]
 \end{lemma}
 
@@ -1311,13 +1313,15 @@ uniformly-supported directed joins (indeed, it has all finitely-supported joins)
 and if $C$ is a poset that also has all uniformly-supported directed joins and
 $f : \typelift\typeP \to C$ is a monotone finitely-supported function then there
 is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
-\to C$ that such that the following diagram commutes.  \[\xymatrix{
-\typelift\typeP\ \ar@<-4pt>@{^{(}->}[r] \ar[dr]_f & \widehat{\typeP}
-\ar[d]^{f^{\ddagger}} \\& C}\] The function $f^{\ddagger}$ is given by
-$f^{\ddagger}x = \bigvee\{f y \mid y \in \typelift\typeP \wedge y \subseteq x
-\wedge \supp{y} \subseteq \supp{x} \}$. Note that this is well-defined since the
-join is taken over a directed set that is uniformly supported by $\supp{x} \cup
-\supp{f}$.
+\to C$ that such that the following diagram commutes.  \begin{equation}
+\label{bang:freeness} \xymatrix{ \typelift\typeP\ \ar@<-4pt>@{^{(}->}[r]
+\ar[dr]_f & \widehat{\typeP} \ar[d]^{f^{\ddagger}} \\& C} \end{equation} The
+function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x = \bigvee\{f
+y \mid y \in \typelift\typeP \wedge y \subseteq x \wedge \supp{y} \subseteq
+\supp{x} \}.\end{equation} Note that this is well-defined since the join is
+taken over a directed set that is uniformly supported by $\supp{x} \cup
+\supp{f}$, which exists in $C$. It is also clear that $f^\ddagger$ is
+finitely-supported.
 
 \begin{lemma}
 The map $f^{\ddagger}$ is FM-continuous.
@@ -1357,17 +1361,18 @@ y$, so by monotonicity $f y \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so
 that $f y \le U$ as required.  \end{proof}
 
 Notice that any $x \in \widehat{\typeP}$ is the uniformly-supported-directed
-join of certain isolated elements beneath it: \[x = \bigcup \{y \in
-\typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x} \} \]
-which ensures the uniqueness of $f^{\ddagger}$. As before, if $C$ is of the form
-$\widehat{\typeQ}$ then this shows that finitely-supported monotone maps
-$\typelift\typeP \to \widehat{\typeQ}$ are in bijective correspondence with
-FM-continuous maps $\widehat{\typeP} \to \widehat{\typeQ}$. From earlier
-discussion, finitely-supported monotone maps $\typelift\typeP \to
+join of certain isolated elements beneath it: \begin{equation} x = \bigcup \{y
+\in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x} \}
+\end{equation} which ensures the uniqueness of $f^{\ddagger}$.
+As before, if $C$ is of the form $\widehat{\typeQ}$ then this shows that
+finitely-supported monotone maps $\typelift\typeP \to \widehat{\typeQ}$ are in
+bijective correspondence with FM-continuous maps $\widehat{\typeP} \to
+\widehat{\typeQ}$.
+From earlier discussion, finitely-supported monotone maps $\typelift\typeP \to
 \widehat{\typeQ}$ are also in bijective correspondence with FM-linear maps
 $\widehat{\typelift\typeP} \to \widehat{\typeQ}$ so that there is an isomorphism
-\[\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong \mathbf{FMCts}_s (\typeP,
-\typeQ).\]
+\begin{equation} \label{bang:adj} \mathbf{FMLin}_s (\typelift\typeP, \typeQ)
+\cong \mathbf{FMCts}_s (\typeP, \typeQ).\end{equation}
 
 \subsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
 and $\delta_a$}
@@ -1401,59 +1406,76 @@ $\phi^{-1}$ be as in the proof of lemma \ref{freshhatiso}.
 
 For each object $\typeP$ of $\mathbf{FMPre}_s$ define $\phi^{!}_{\typeP} :
 (\typelift\typeP)^{\freshfor a} \to \typelift{(\typeP^{\freshfor a})}$ by
-\[\phi^{!}_{\typeP} (x) = \{ p \in x \mid a \freshfor p \} = \phi_{\typeP}
-(x).\] Any element of $(\typelift\typeP)^{\freshfor a}$ can be written in the
-form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$
-and $a \notin s' \supseteq s$. Under these conditions it is also the case that
-$\finelt{F}{s' \cup \{a\}} \in \typelift{(\typeP^{\freshfor a})}$, so to show
-that $\phi^{!}_{\typeP}$ has the correct range, it is sufficient to show that
-$\phi^{!}_{\typeP} \finelt{F}{s'} = \finelt{F}{s' \cup \{a\}}$.
+\begin{equation} \label{def:phibang} \phi^{!}_{\typeP} (x) = \{ p \in x \mid a
+\freshfor p \} = \phi_{\typeP} (x).\end{equation}
+%
+Any element of $(\typelift\typeP)^{\freshfor a}$ can be written in the form
+$\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$ and $a
+\notin s' \supseteq s$.
+%
+Under these conditions it is also the case that $\finelt{F}{s' \cup \{a\}} \in
+\typelift{(\typeP^{\freshfor a})}$, so to show that $\phi^{!}_{\typeP}$ has the
+correct range, it is sufficient to show that $\phi^{!}_{\typeP} \finelt{F}{s'} =
+\finelt{F}{s' \cup \{a\}}$.
 
-Let $p' \in \phi^{!}_{\typeP} \finelt{F}{s'}$, then $a
-\freshfor p'$ and there exists $p \in F$ and $\sigma \freshfor s'$ such that $p'
-\le_{\typeP} \sigma \cdot p$. Let $b$ be a fresh name, then $p = (ab) \cdot p$
-and $p' = (ab) \cdot p'$ so that $p' \le_{\typeP} (ab) \cdot \sigma \cdot (ab)
-\cdot p$. However, $(ab) \cdot \sigma \cdot (ab) \cdot a = a$ and $(ab) \cdot
-\sigma \cdot (ab) \cdot a' = \sigma \cdot a' = a'$ for all $a' \in s'$ since $b$
-is fresh and $\sigma \freshfor s'$, so that $(ab)\sigma(ab)
-\freshfor s' \udot\{a\}$ and hence $p' \in \finelt{F}{s' \udot \{a\}}$ as
-required. Conversely, let $p' \in \finelt{F}{s' \udot \{a\}}$, then 
-there exists $p \in F$ and $\sigma \freshfor s' \udot \{a\}$ such that
-$p' \le_{\typeP^{\freshfor a}} \sigma \cdot p$. Therefore $\sigma \freshfor s'$
-and $p' \le_{\typeP} \sigma \cdot p$ and $a \freshfor p$ so that
-$p' \in \phi^{!}_{\typeP} \finelt{F}{s'}$ as required.
+Let $p' \in \phi^{!}_{\typeP} \finelt{F}{s'}$, then $a \freshfor p'$ and there
+exists $p \in F$ and $\sigma \freshfor s'$ such that $p' \le_{\typeP} \sigma
+\cdot p$. Let $b$ be a fresh name, then $p = (ab) \cdot p$ and $p' = (ab) \cdot
+p'$ so that $p' \le_{\typeP} (ab) \cdot \sigma \cdot (ab) \cdot p$. However,
+$(ab) \cdot \sigma \cdot (ab) \cdot a = a$ and $(ab) \cdot \sigma \cdot (ab)
+\cdot a' = \sigma \cdot a' = a'$ for all $a' \in s'$ since $b$ is fresh and
+$\sigma \freshfor s'$, so that $(ab)\sigma(ab) \freshfor s' \udot\{a\}$ and
+hence $p' \in \finelt{F}{s' \udot \{a\}}$ as required. Conversely, let $p' \in
+\finelt{F}{s' \udot \{a\}}$, then there exists $p \in F$ and $\sigma \freshfor
+s' \udot \{a\}$ such that $p' \le_{\typeP^{\freshfor a}} \sigma \cdot p$.
+Therefore $\sigma \freshfor s'$ and $p' \le_{\typeP} \sigma \cdot p$ and $a
+\freshfor p$ so that $p' \in \phi^{!}_{\typeP} \finelt{F}{s'}$ as required.
 
 Define also ${\phi^{!}_{\typeP}}^{-1} : \typelift{(\typeP^{\freshfor a})} \to
-(\typelift\typeP)^{\freshfor a}$ by \[{\phi^{!}_{\typeP}}^{-1}(x) = x \cup
-\bigcup_{b \freshfor x} (ab) \cdot x = \phi^{-1}_{\typeP}(x).\] 
+(\typelift\typeP)^{\freshfor a}$ by \begin{equation} \label{def:phibanginv}
+{\phi^{!}_{\typeP}}^{-1}(x) = x \cup \bigcup_{b \freshfor x} (ab) \cdot x =
+\phi^{-1}_{\typeP}(x).\end{equation}
+%
 Any element of $\typelift{(\typeP^{\freshfor a})}$ may be written in the form
-$\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}}
-\typeP^{\freshfor a}$ and $a \in s' \supseteq s$, and under these conditions
-$\finelt{F}{s' \setminus \{a\}} \in (\typelift\typeP)^{\freshfor a}$ so to show
-that ${\phi^{!}_{\typeP}}^{-1}$ has the correct range it is sufficient to show
-that ${\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'} = \finelt{F}{s' \setminus \{a\}}$.
+$\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$ and $a
+\in s' \supseteq s$, and under these conditions $\finelt{F}{s' \setminus \{a\}}
+\in (\typelift\typeP)^{\freshfor a}$ so to show that ${\phi^{!}_{\typeP}}^{-1}$
+has the correct range it is sufficient to show that
+${\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'} = \finelt{F}{s' \setminus \{a\}}$.
 
-Firstly, note that as in lemma \ref{freshhatiso}, $p \in
-{\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ iff $\freshin{b}{p \in (ab) \cdot
-\finelt{F}{s'}}$. Let $p' \in {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ and let
-$b$ be a fresh name, then $p' \in (ab) \cdot \finelt{F}{s'} = \finelt{(ab) \cdot
-F}{(ab) \cdot s'}$ so that there exists $p \in (ab) \cdot F$ and $\sigma
-\freshfor (ab) \cdot s'$ such that $p' \le_{\typeP^{\freshfor a}} \sigma \cdot
-p$. Therefore $p' \le_{\typeP} \sigma \cdot (ab) \cdot (ab) \cdot p$ and $(ab)
-\cdot p \in F$. Furthermore if $a' \in s' \setminus \{a\}$ then $\sigma \cdot
-(ab) \cdot a' = a'$ as $b$ is fresh and $\sigma \freshfor (ab) \cdot s'
-\supseteq s' \setminus \{a\}$ so that $p' \in \finelt{F}{s \setminus \{a\}}$.
+Firstly, note that the justification for statement \ref{characterisation:phiinv}
+also holds here, so that \begin{equation} \label{characterisation:phibanginv} p
+\in {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'} \quad\Leftrightarrow \quad
+\freshin{b}{p \in (ab) \cdot \finelt{F}{s'}}.\end{equation}
+%
+Let $p' \in {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ and let $b$ be a fresh name,
+then $p' \in (ab) \cdot \finelt{F}{s'}$ so that by \ref{finelteqvt} there exists
+$p \in (ab) \cdot F$ and $\sigma \freshfor (ab) \cdot s'$ such that $p'
+\le_{\typeP^{\freshfor a}} \sigma \cdot p$. 
+%
+Therefore $p' \le_{\typeP} \sigma \cdot (ab) \cdot (ab) \cdot p$ and $(ab) \cdot
+p \in F$.
+%
+Furthermore if $a' \in s' \setminus \{a\}$ then $\sigma \cdot (ab) \cdot a' =
+a'$ as $b$ is fresh and $\sigma \freshfor (ab) \cdot s' \supseteq s' \setminus
+\{a\}$ so that $p' \in \finelt{F}{s \setminus \{a\}}$. 
+%
 Conversely, suppose that $p' \in \finelt{F}{s \setminus \{a\}}$, then there
 exists $p \in F$ and $\sigma \freshfor s \setminus \{a\}$ such that $p'
-\le_{\typeP} \sigma \cdot p$. Let $b$ be a fresh name. Since $p \in F$, $a
-\freshfor p$ and hence $(ab) \cdot p = p$. Therefore $(ab) \cdot p' \le (ab)
-\cdot \sigma \cdot (ab) \cdot p$ and $(ab)\sigma(ab) \freshfor s'$
-since $(ab)\sigma(ab) \freshfor (ab) \cdot (s' \setminus \{a\}) =
-s' \setminus \{b\} = s'$. Hence $(ab) \cdot p' \in \finelt{F}{s'}$ so that $p'
-\in {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ as required.
+\le_{\typeP} \sigma \cdot p$.
+%
+Let $b$ be a fresh name.  Since $p \in F$, $a \freshfor p$ and hence $(ab) \cdot
+p = p$.
+%
+Therefore $(ab) \cdot p' \le (ab) \cdot \sigma \cdot (ab) \cdot p$ and
+$(ab)\sigma(ab) \freshfor s'$ since $(ab)\sigma(ab) \freshfor (ab) \cdot (s'
+\setminus \{a\}) = s' \setminus \{b\} = s'$.
+%
+Hence $(ab) \cdot p' \in \finelt{F}{s'}$ so that $p' \in
+{\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ as required.
 
 The proof of lemma \ref{freshhatiso} now demonstrates that $\phi^{!}$ and
-${\phi^{!}}^{-1}$ are natural and mutual inverses, which completes the proof.
+${\phi^{!}}^{-1}$ are natural and mutual inverses, which completes the argument.
 \end{proof}
 
 \begin{lemma}\label{deltabangiso} Let $a \notin s$. The functors \[\delta_a{!},
