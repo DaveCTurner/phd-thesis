@@ -1689,24 +1689,37 @@ TODO fix these diagrams - they were copy-pasted from lemma
 \typeP^{\freshfor a+}
 \\
 ({!^+}\typeP)^{\freshfor a+}
-	\ar[ur]^{?}}
+	\ar[ur]_{?}}
+%
 %
 &\xymatrix{
-\widehat{\widehat{\typeP}}^{\freshfor a} \ar[r]^{\mathord{\cup}_\typeP^{\freshfor a}}
-\ar[d]^{\phi_{\widehat{\typeP}}} &
-\widehat{\typeP}^{\freshfor a} \ar[dd]^{\phi_\typeP} \\
-\widehat{\widehat{\typeP}^{\freshfor a}} \ar[d]^{\widehat{\phi_\typeP}} \\
-\widehat{\widehat{\typeP^{\freshfor a}}} \ar[r]^{\mathord{\cup}_{\typeP^{\freshfor a}}} &
-\widehat{\typeP^{\freshfor a}}}
-%
-&\xymatrix{
-\widehat{\typeP} \ar[r]^{\widehat{\xi}} 
-\ar[d]^{\xi_{\widehat{\typeP}}} & 
-\widehat{\delta_a(\typeP^{\freshfor a})}
+{!^+}(\typeP^{\freshfor a+})
+	\ar[r]^{?}
+	\ar[d]^{?} 
+&
+({!^+}\typeP)^{\freshfor a+}
+	\ar[dd]^{?}
 \\
-\delta_a(\widehat{\typeP}^{\freshfor a})
-\ar[r]^{\delta_a \phi_\typeP} & 
-\delta_a \widehat{\typeP^{\freshfor a}} \ar[u]_{\theta_{\typeP^{\freshfor a}}}}
+{!^+}{!^+}{(\typeP^{\freshfor a+})}
+	\ar[d]^{?}
+\\
+{!^+}(({!^+}\typeP)^{\freshfor a+})
+	\ar[r]^{?}
+	&
+({!^+}{!^+}\typeP)^{\freshfor a+}}
+%
+&\xymatrix{
+{!^+}\typeP
+	\ar[r]^{?} 
+	\ar[d]^{?}
+& 
+{!^+}\delta^+_a(\typeP^{\freshfor a+})
+	\ar[d]^{?}
+\\
+\delta^+_a(({!^+}\typeP)^{\freshfor a})
+& 
+\delta^+_a {!^+} (\typeP^{\freshfor a+})
+	\ar[l]^{?}}
 %
 \\
 %
@@ -1718,22 +1731,37 @@ TODO fix these diagrams - they were copy-pasted from lemma
 \delta_a^+\typeP
 \\
 \delta_a^+{!^+}\typeP
-	\ar[ur]^{?}}
+	\ar[ur]_{?}}
 %
 &\xymatrix{
-\delta_a \widehat{\widehat{\typeP}} \ar[r]^{\delta_a\mathord{\cup}_{\typeP}}
-\ar[d]^{\theta_{\widehat\typeP}} &
-\delta_a\widehat{\typeP} \ar[dd]^{\theta_{\typeP}} \\
-\widehat{\delta_a \widehat{\typeP}} \ar[d]^{\widehat{\theta_{\typeP}}} \\
-\widehat{\widehat{\delta_a\typeP}} \ar[r]^{\mathord{\cup}_{\delta_a\typeP}} &
-\widehat{\delta_a\typeP}}
+{!^+}\delta_a^+\typeP
+	\ar[r]^{?}
+	\ar[d]^{?} 
+&
+\delta_a^+{!^+}\typeP
+	\ar[dd]^{?}
+\\
+{!^+}{!^+}\delta_a^+\typeP
+	\ar[d]^{?}
+\\
+{!^+}\delta_a^+{!^+}\typeP
+	\ar[r]^{?}
+	&
+\delta_a^+{!^+}{!^+}\typeP}
 %
 &\xymatrix{
-(\delta_a\widehat{\typeP})^{\freshfor a} \ar[r]^{\theta_{\typeP}^{\freshfor a}} 
-\ar[d]^{\epsilon_{\widehat{\typeP}}} & 
-\widehat{\delta_a\typeP}^{\freshfor a} \ar[d]^{\phi_{\delta_a\typeP}} \\
-\widehat{\typeP} &
-\widehat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\epsilon_{\typeP}}}}
+{!^+}((\delta^+_a\typeP)^{\freshfor a+})
+	\ar[r]^{?} 
+	\ar[d]^{?}
+& 
+{!^+}\typeP
+\\
+({!^+}\delta^+_a\typeP)^{\freshfor a+}
+	\ar[r]^{?}
+&
+(\delta^+_a{!^+}\typeP)^{\freshfor a+}
+	\ar[u]_{?}
+}
 \end{array}\]
 
 \end{proof}
