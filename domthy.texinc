@@ -1732,10 +1732,11 @@ of $\{\cdot\}_{\downarrow}$, definition of $\phi^{!}$, \ref{comm:freshtriangle},
 \widehat{\typeQ^{\freshfor a}}
 }\end{equation}
 %
-Therefore \begin{equation} \label{def:freshcts} f^{\freshfor a++} =
-(\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi_{\typeP}^{-1} \circ
-i_{\typeP^{\freshfor a}})^{\ddagger} = \phi_{\typeQ} \circ f^{\freshfor a} \circ
-\phi_{\typeP}^{-1} = f^{\freshfor a+}. \end{equation}
+Therefore by \ref{bang:freeness} and \ref{def:freshlin} \begin{equation}
+\label{def:freshcts} f^{\freshfor a++} = (\phi_{\typeQ} \circ f^{\freshfor a}
+\circ \phi_{\typeP}^{-1} \circ i_{\typeP^{\freshfor a}})^{\ddagger} =
+\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi_{\typeP}^{-1} = f^{\freshfor a+}.
+\end{equation}
 
 Similarly, if $\typeP$ is an object of $\mathbf{FMCts}_{s \udot \{a\}}$ then
 $\delta_a^{++}\typeP = \delta_a^+\typeP$. Suppose that $f : \typeP \to \typeQ$
@@ -1784,110 +1785,53 @@ $\{\cdot\}_{\downarrow}$, definition of $\theta^{!}$, \ref{comm:deltatriangle},
 \widehat{\delta_a \typeQ}
 }\end{equation}
 %
-Therefore \begin{equation} \label{def:deltacts} \delta_a^{++} f =
-(\theta_{\typeQ} \circ \delta_a f \circ \theta_{\typeP}^{-1} \circ i_{\delta_a
-\typeP})^{\ddagger} = \theta_{\typeQ} \circ \delta_a f \circ
-\theta_{\typeP}^{-1} = \delta_a^+ f. \end{equation}
+Therefore by \ref{bang:freeness} and \ref{def:deltalin} \begin{equation}
+\label{def:deltacts} \delta_a^{++} f = (\theta_{\typeQ} \circ \delta_a f \circ
+\theta_{\typeP}^{-1} \circ i_{\delta_a \typeP})^{\ddagger} = \theta_{\typeQ}
+\circ \delta_a f \circ \theta_{\typeP}^{-1} = \delta_a^+ f. \end{equation}
 
+Recall that the counit $\epsilon$ of the adjunction \ref{bang:adj} is given by
+$\epsilon = i^{\dagger}$.
+%
+Therefore \begin{equation} \label{def:xicts} \begin{array}{rcl} \xi^{++} 
+%
+&=& (\xi^+_{\typeP} \circ \epsilon_{\typeP} \circ
+\{\cdot\}_{\typelift\typeP})^{\ddagger} \quad\text{by \ref{def:adjplus}} \\
+%
+&=& (\xi^+_{\typeP} \circ i_{\typeP}^\dagger \circ
+\{\cdot\}_{\typelift\typeP})^{\ddagger} \\
+%
+&=& (\xi^+_{\typeP} \circ i_{\typeP})^{\ddagger} \quad\text{by
+\ref{hat:freeness}} \\
+%
+&=& \xi^+_{\typeP} \quad\text{by \ref{bang:freeness}} \\
+%
+&=& \widehat{\xi_{\typeP}} \quad\text{by \ref{def:xilin}}
+%
+\end{array} \end{equation} and \begin{equation} \label{def:zetacts}
+\begin{array}{rcl} \zeta^{++} 
+%
+&=& (\zeta^+_{\typeP} \circ \epsilon_{(\delta_a\typeP)^{\freshfor a}} \circ
+\{\cdot\}_{\typelift{((\delta_a\typeP)^{\freshfor a})}})^{\ddagger}
+\quad\text{by \ref{def:adjplus}} \\
+%
+&=& (\zeta^+_{\typeP} \circ i_{(\delta_a\typeP)^{\freshfor a}}^\dagger \circ
+\{\cdot\}_{\typelift{((\delta_a\typeP)^{\freshfor a})}})^{\ddagger} \\
+%
+&=& (\zeta^+_{\typeP} \circ i_{(\delta_a\typeP)^{\freshfor a}})^{\ddagger}
+\quad\text{by \ref{hat:freeness}} \\
+%
+&=& \zeta^+_{\typeP} \quad\text{by \ref{bang:freeness}} \\
+%
+&=& \widehat{\zeta_{\typeP}} \quad\text{by \ref{def:zetalin}}
+%
+\end{array} \end{equation}
 
-\begin{lemma}\label{deltafreshadjcokl} There is an adjunction \[(-)^{\freshfor
-a++} \dashv \delta_a^{++} : \mathrm{coKl}\bigl({!} \text{ on }
-\mathbf{FMLin}_s\bigr) \leftrightarrows \mathrm{coKl}\bigl({!} \text{ on }
-\mathbf{FMLin}_{s \udot \{a\}}\bigr),\] where $(-)^{\freshfor a++}$ and
-$\delta_a^{++}$ are defined as in the dual of the statement of lemma
-\ref{adjunctionlift}.\end{lemma}
+In summary, therefore, $(-)^{\freshfor a+}$ and $\delta_a^+$ preserve continuous
+maps, and $\xi^+$ and $\zeta^+$ are themselves continuous. It has already been
+shown that these form an adjunction on the linear categories, so it is now clear
+that they give a corresponding adjunction \ref{deltafreshadjcts} on the
+continuous categories too.
 
-\begin{proof} Let $\phi^+$ and $\theta^+$ be as defined in \ref{def:phiplus} and
-\ref{def:thetaplus}, then by the dual of lemma \ref{adjunctionlift} it is
-sufficient to show that the diagrams below commute.
-
-TODO fix these diagrams - they were copy-pasted from lemma
-\texttt{deltafreshadjlin}.
-
-\[\begin{array}{ccc}
-\xymatrix{
-{!^+}{(\typeP^{\freshfor a+})}
-	\ar[r]^{?} 
-	\ar[d]_{?}
-& 
-\typeP^{\freshfor a+}
-\\
-({!^+}\typeP)^{\freshfor a+}
-	\ar[ur]_{?}}
-%
-%
-&\xymatrix{
-{!^+}(\typeP^{\freshfor a+})
-	\ar[r]^{?}
-	\ar[d]^{?} 
-&
-({!^+}\typeP)^{\freshfor a+}
-	\ar[dd]^{?}
-\\
-{!^+}{!^+}{(\typeP^{\freshfor a+})}
-	\ar[d]^{?}
-\\
-{!^+}(({!^+}\typeP)^{\freshfor a+})
-	\ar[r]^{?}
-	&
-({!^+}{!^+}\typeP)^{\freshfor a+}}
-%
-&\xymatrix{
-{!^+}\typeP
-	\ar[r]^{?} 
-	\ar[d]^{?}
-& 
-{!^+}\delta^+_a(\typeP^{\freshfor a+})
-	\ar[d]^{?}
-\\
-\delta^+_a(({!^+}\typeP)^{\freshfor a})
-& 
-\delta^+_a {!^+} (\typeP^{\freshfor a+})
-	\ar[l]^{?}}
-%
-\\
-%
-\xymatrix{
-{!^+}\delta_a^+\typeP
-	\ar[r]^{?} 
-	\ar[d]_{?}
-& 
-\delta_a^+\typeP
-\\
-\delta_a^+{!^+}\typeP
-	\ar[ur]_{?}}
-%
-&\xymatrix{
-{!^+}\delta_a^+\typeP
-	\ar[r]^{?}
-	\ar[d]^{?} 
-&
-\delta_a^+{!^+}\typeP
-	\ar[dd]^{?}
-\\
-{!^+}{!^+}\delta_a^+\typeP
-	\ar[d]^{?}
-\\
-{!^+}\delta_a^+{!^+}\typeP
-	\ar[r]^{?}
-	&
-\delta_a^+{!^+}{!^+}\typeP}
-%
-&\xymatrix{
-{!^+}((\delta^+_a\typeP)^{\freshfor a+})
-	\ar[r]^{?} 
-	\ar[d]^{?}
-& 
-{!^+}\typeP
-\\
-({!^+}\delta^+_a\typeP)^{\freshfor a+}
-	\ar[r]^{?}
-&
-(\delta^+_a{!^+}\typeP)^{\freshfor a+}
-	\ar[u]_{?}
-}
-\end{array}\]
-
-\end{proof}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
