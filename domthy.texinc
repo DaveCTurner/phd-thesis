@@ -303,12 +303,12 @@ a})$.  Therefore $\xi_\typeP(p) = [b].p \in \delta_a (\typeP^{\freshfor a})$ so
 that $\xi_\typeP$ is well-defined. It is not hard to see that $\xi_\typeP$ is
 supported by $s$ and that it is monotone.
 
-For each object $\typeQ$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define $\epsilon_\typeQ :
+For each object $\typeQ$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define $\zeta_\typeQ :
 (\delta_a \typeQ)^{\freshfor a} \to \typeQ$ as an arrow of $\mathbf{FMPre}_{s \udot
-\{a\}}$ by \begin{equation}\epsilon_\typeQ(q') \defeq q'@a.\end{equation} Let $q' \in
+\{a\}}$ by \begin{equation}\zeta_\typeQ(q') \defeq q'@a.\end{equation} Let $q' \in
 (\delta_a \typeQ)^{\freshfor a}$ so that $a \freshfor q'$. Also let $b$ be fresh,
 then $q'@b \in (ab) \cdot \typeQ$ and hence $(ab) \cdot (q'@b) = q' @ a \in \typeQ$ so
-that $\epsilon_\typeQ$ is well-defined.  It is not hard to see that $\epsilon_\typeQ$ is
+that $\zeta_\typeQ$ is well-defined.  It is not hard to see that $\zeta_\typeQ$ is
 supported by $s \udot \{a\}$ and that it is monotone.
 
 Let $f : \typeP \to \typeP'$ be an arrow of $\mathbf{FMPre}_s$, let $p \in \typeP$ and let $b$
@@ -327,7 +327,7 @@ be a fresh name. Then \begin{equation}\begin{array}{rcl}
 &=& (\xi_{\typeP'} \circ f)(p) \\ \end{array}\end{equation} so that $\xi_\typeP$ is
 natural in $\typeP$.  Let $g : \typeQ \to \typeQ'$ be an arrow of $\mathbf{FMPre}_{s \udot
 \{a\}}$, let $q' \in (\delta_a \typeQ)^{\freshfor a}$ and let $b$ be a fresh name.
-Then \begin{equation}\begin{array}{rcl} (\epsilon_\typeQ' \circ (\delta_a
+Then \begin{equation}\begin{array}{rcl} (\zeta_\typeQ' \circ (\delta_a
 g)^{\freshfor a}) (q')
 %
 &=& \bigl([b].\bigl((ab) \cdot g\bigr) (q'@b)\bigr) @ a \\
@@ -338,29 +338,29 @@ g)^{\freshfor a}) (q')
 %
 &=& g \bigl(q'@a)\bigr) \qquad\text{as $a \freshfor q'$}\\
 %
-&=& (g \circ \epsilon_\typeQ)(q') \\ \end{array}\end{equation} so that $\epsilon_\typeQ$
+&=& (g \circ \zeta_\typeQ)(q') \\ \end{array}\end{equation} so that $\zeta_\typeQ$
 is natural in $\typeQ$.
 
-It remains to show that $\xi$ and $\epsilon$ satisfy the triangle identities.
-Let $p \in \typeP^{\freshfor a}$ and let $b$ be fresh, then $(\epsilon_{\typeP^{\freshfor
+It remains to show that $\xi$ and $\zeta$ satisfy the triangle identities.
+Let $p \in \typeP^{\freshfor a}$ and let $b$ be fresh, then $(\zeta_{\typeP^{\freshfor
 a}} \circ \xi_\typeP^{\freshfor a}) (p) = ([b].p)@a = (ab) \cdot p = p$ as $a
-\freshfor p$ so that $\epsilon_{(-)^{\freshfor a}} \circ \xi^{\freshfor a} =
+\freshfor p$ so that $\zeta_{(-)^{\freshfor a}} \circ \xi^{\freshfor a} =
 \mathbf{1}_{(-)^{\freshfor a}}$.
 
 Let $q' \in \delta_a \typeQ$ and let $b$ be fresh, then \begin{equation}\begin{array}{rcl}
-(\delta_a \epsilon_\typeQ \circ \xi_{\delta_a \typeQ}) (q') 
+(\delta_a \zeta_\typeQ \circ \xi_{\delta_a \typeQ}) (q') 
 %
-&=& \delta_a \epsilon_\typeQ ([b].q') \\
+&=& \delta_a \zeta_\typeQ ([b].q') \\
 %
-&=& [b].\bigl((ab) \cdot \epsilon_\typeQ) (([b].q')@b) \\
+&=& [b].\bigl((ab) \cdot \zeta_\typeQ) (([b].q')@b) \\
 %
-&=& [b].(ab) \cdot \epsilon_\typeQ ((ab) \cdot q') \\
+&=& [b].(ab) \cdot \zeta_\typeQ ((ab) \cdot q') \\
 %
 &=& [b].(ab) \cdot \bigl(((ab) \cdot q') @ a\bigr) \\
 %
 &=& [b].(q' @ b) = q'\\
 %
-\end{array}\end{equation} so that $ \delta_a \epsilon \circ \xi_{\delta_a} =
+\end{array}\end{equation} so that $ \delta_a \zeta \circ \xi_{\delta_a} =
 \mathbf{1}_{\delta_a}$ as required.  \end{proof}
 
 
@@ -837,10 +837,10 @@ commute.
 %
 &\xymatrix{
 (\delta_a\widehat{\typeP})^{\freshfor a} \ar[r]^{\theta_{\typeP}^{\freshfor a}} 
-\ar[d]^{\epsilon_{\widehat{\typeP}}} & 
+\ar[d]^{\zeta_{\widehat{\typeP}}} & 
 \widehat{\delta_a\typeP}^{\freshfor a} \ar[d]^{\phi_{\delta_a\typeP}} \\
 \widehat{\typeP} &
-\widehat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\epsilon_{\typeP}}}}
+\widehat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\zeta_{\typeP}}}}
 \end{array}\]
 
 To see that the triangle containing the $(-)^{\freshfor a}$ functor commutes,
@@ -927,17 +927,17 @@ so that $p' @ b \in \bigcup(X'@b) = \bigl(\delta_a \mathord{\cup}_{\typeP}
 X'\bigr) @ b$ and hence $p' \in \bigl(\theta_\typeP \circ \delta_a
 \mathord{\cup}_{\typeP}\bigr) X'$ as required.
 
-To see that the square containing the counit $\epsilon$ commutes, let $x' \in
+To see that the square containing the counit $\zeta$ commutes, let $x' \in
 (\delta_a \widehat{\typeP})^{\freshfor a}$, then \begin{equation}
-\label{comm:epsilonsquare} \begin{array}{rcl}
-\bigl(\widehat{\epsilon_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
+\label{comm:zetasquare} \begin{array}{rcl}
+\bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
 \theta_{\typeP}^{\freshfor a}\bigr) x'
 %
-&=& \bigl(\widehat{\epsilon_{\typeP}} \circ \phi_{\delta_a \typeP}\bigr) \{p'
+&=& \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP}\bigr) \{p'
 \mid
 \freshin{b}{p'@b \in x'@b}\} \\
 %
-&=& \widehat{\epsilon_{\typeP}} \{p' \mid a \freshfor p' \wedge 
+&=& \widehat{\zeta_{\typeP}} \{p' \mid a \freshfor p' \wedge 
 \freshin{b}{p'@b \in x'@b}\} \\
 %
 &=& \{p'@a \mid a \freshfor p' \wedge 
@@ -946,7 +946,7 @@ To see that the square containing the counit $\epsilon$ commutes, let $x' \in
 &=& \{p'@a \mid a \freshfor p' \wedge 
 p'@a \in x'@a\} \\
 %
-&=& x'@a = \epsilon_{\widehat{\typeP}} x'.
+&=& x'@a = \zeta_{\widehat{\typeP}} x'.
 %
 \end{array} \end{equation}
 This completes the proof.
@@ -1023,9 +1023,9 @@ Then $\xi^+ : \mathbf{1} \to \delta^+_a((-)^{\freshfor a+})$ is given by
 %
 \end{array} \end{equation}
 
-Similarly, to construct the counit $\epsilon^+$, note that the following diagram
-commutes by naturality of $\epsilon$, \ref{comm:freshtriangle} and
-\ref{comm:deltatriangle}.  \begin{equation} \label{comm:epsilonplus} \xymatrix{
+Similarly, to construct the counit $\zeta^+$, note that the following diagram
+commutes by naturality of $\zeta$, \ref{comm:freshtriangle} and
+\ref{comm:deltatriangle}.  \begin{equation} \label{comm:zetaplus} \xymatrix{
 %
 \widehat{(\delta_a-)^{\freshfor a}}
 	\ar[d]_{\phi^{-1}_{\delta_a}}
@@ -1034,7 +1034,7 @@ commutes by naturality of $\epsilon$, \ref{comm:freshtriangle} and
 	\ar[l]_{\{\cdot\}_{(\delta_a(-))^{\freshfor a}}}
 	\ar[dl]_{\{\cdot\}_{\delta_a}^{\freshfor a}}
 	\ar[d]^{(\delta_a\{\cdot\})^{\freshfor a}}
-	\ar[r]^{\epsilon}
+	\ar[r]^{\zeta}
 &
 \mathbf{1}
 	\ar[d]^{\{\cdot\}_\downarrow}
@@ -1043,24 +1043,24 @@ commutes by naturality of $\epsilon$, \ref{comm:freshtriangle} and
 	\ar[r]_{{\theta^{-1}}^{\freshfor a}}
 &
 (\delta_a\widehat{(-)})^{\freshfor a}
-	\ar[r]_{\epsilon_{\widehat{(-)}}}
+	\ar[r]_{\zeta_{\widehat{(-)}}}
 &
 \widehat{(-)}
 %
-}\end{equation} Then $\epsilon^+ : (\delta^+_a(-))^{\freshfor a+} \to
-\mathbf{1}$ is given by \begin{equation} \label{def:epsilonlin}
-\begin{array}{rcl} \epsilon^+
+}\end{equation} Then $\zeta^+ : (\delta^+_a(-))^{\freshfor a+} \to
+\mathbf{1}$ is given by \begin{equation} \label{def:zetalin}
+\begin{array}{rcl} \zeta^+
 %
-&=& \bigl(\{\cdot\}_{\downarrow} \circ \epsilon\bigr)^{\dagger} \\
+&=& \bigl(\{\cdot\}_{\downarrow} \circ \zeta\bigr)^{\dagger} \\
 %
-&=& \bigl(\epsilon_{\widehat{(-)}} \circ {\theta^{-1}}^{\freshfor a} \circ
+&=& \bigl(\zeta_{\widehat{(-)}} \circ {\theta^{-1}}^{\freshfor a} \circ
 \phi^{-1}_{\delta_a} \circ \{\cdot\}_{(\delta_a(-))^{\freshfor
-a}}\bigr)^{\dagger} \quad \text{by \ref{comm:epsilonplus}}\\
+a}}\bigr)^{\dagger} \quad \text{by \ref{comm:zetaplus}}\\
 %
-&=& \epsilon_{\widehat{(-)}} \circ {\theta^{-1}}^{\freshfor a} \circ
+&=& \zeta_{\widehat{(-)}} \circ {\theta^{-1}}^{\freshfor a} \circ
 \phi^{-1}_{\delta_a} \\
 %
-&=& \widehat{\epsilon} \quad \text{by \ref{comm:epsilonsquare}.}
+&=& \widehat{\zeta} \quad \text{by \ref{comm:zetasquare}.}
 %
 \end{array} \end{equation}
 
@@ -1682,7 +1682,7 @@ $(-)^{\freshfor a+}$ and $\delta_a^+$ to functors with the same action on the
 continuous categories, and preserves the unit and counit too.
 %
 Let $(-)^{\freshfor a++}$ and $\delta_a^{++}$ be the lifted functors and
-$\xi^{++}$ and $\epsilon^{++}$ the lifted unit and counit.
+$\xi^{++}$ and $\zeta^{++}$ the lifted unit and counit.
 
 If $\typeP$ is an object of $\mathbf{FMCts}_s$ then certainly $\typeP^{\freshfor a++} =
 \typeP^{\freshfor a+}$. 
