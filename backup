@@ -75,7 +75,7 @@ else
 	exit 1
 fi
 
-if [ $premounted ]
+if [ $premounted -ne 0 ]
 then
 	sync
 else
