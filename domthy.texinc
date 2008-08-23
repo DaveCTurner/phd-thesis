@@ -776,18 +776,20 @@ $\theta^{-1}$ as required.  \end{proof}
 
 Furthermore, the isomorphisms $\phi$ and $\theta$ defined in \ref{def:phi} and
 \ref{def:theta} can be used to lift the adjunction $(-)^{\freshfor a} \dashv
-\delta_a$ to an adjunction $\mathbf{FMLin}_{s} \leftrightarrows
-\mathbf{FMLin}_{s \udot \{a\}}$.  Firstly, since the inclusion functor is a
-bijection on objects, by lemma \ref{adjunctioninclusion} the Kleisli category of
-the monad $(\widehat{(-)}, \{\cdot\}_{\downarrow}, \mathord{\cup})$ on
-$\mathbf{FMPre}_s$ is isomorphic to $\mathbf{FMLin}_s$.  Therefore it is enough
-to show the following.
+\delta_a$ to an adjunction \begin{equation} \label{deltafreshadjlin}
+(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_{s} \leftrightarrows
+\mathbf{FMLin}_{s \udot \{a\}}.\end{equation} 
+%
+Firstly, since the inclusion functor is a bijection on objects, by lemma
+\ref{adjunctioninclusion} the Kleisli category of the monad $(\widehat{(-)},
+\{\cdot\}_{\downarrow}, \mathord{\cup})$ on $\mathbf{FMPre}_s$ is isomorphic to
+$\mathbf{FMLin}_s$.  Therefore it is enough to show the following.
 
-\begin{lemma}\label{deltafreshadjlin} There is an adjunction \[(-)^{\freshfor
-a+} \dashv \delta_a^+ : \mathrm{Kl}\bigl(\widehat{(-)} \text{ on }
-\mathbf{FMPre}_s\bigr) \leftrightarrows \mathrm{Kl}\bigl(\widehat{(-)} \text{ on
-} \mathbf{FMPre}_{s \udot \{a\}}\bigr),\] where $(-)^{\freshfor a+}$ and
-$\delta_a^+$ are defined as in the statement of lemma \ref{adjunctionlift}.
+\begin{lemma}\label{deltafreshadjhatkleisli} There is an adjunction
+\[(-)^{\freshfor a+} \dashv \delta_a^+ : \mathrm{Kl}\bigl(\widehat{(-)} \text{
+on } \mathbf{FMPre}_s\bigr) \leftrightarrows \mathrm{Kl}\bigl(\widehat{(-)}
+\text{ on } \mathbf{FMPre}_{s \udot \{a\}}\bigr),\] where $(-)^{\freshfor a+}$
+and $\delta_a^+$ are defined as in the statement of lemma \ref{adjunctionlift}.
 \end{lemma}
 
 \begin{proof}
