@@ -1341,14 +1341,18 @@ and if $C$ is a poset that also has all uniformly-supported directed joins and
 $f : \typelift\typeP \to C$ is a monotone finitely-supported function then there
 is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
 \to C$ that such that the following diagram commutes.  \begin{equation}
-\label{bang:freeness} \xymatrix{ \typelift\typeP\ \ar@<-4pt>@{^{(}->}[r]
-\ar[dr]_f & \widehat{\typeP} \ar[d]^{f^{\ddagger}} \\& C} \end{equation} The
-function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x = \bigvee\{f
-y \mid y \in \typelift\typeP \wedge y \subseteq x \wedge \supp{y} \subseteq
-\supp{x} \}.\end{equation} Note that this is well-defined since the join is
-taken over a directed set that is uniformly supported by $\supp{x} \cup
-\supp{f}$, which exists in $C$. It is also clear that $f^\ddagger$ is
-finitely-supported.
+\label{bang:freeness} \xymatrix{ \typelift\typeP\
+\ar@<-4pt>@{^{(}->}[r]^{i_{\typeP}} \ar[dr]_f & \widehat{\typeP}
+\ar[d]^{f^{\ddagger}} \\& C} \end{equation} 
+%
+The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x =
+\bigvee\{f y \mid y \in \typelift\typeP \wedge y \subseteq x \wedge \supp{y}
+\subseteq \supp{x} \}.\end{equation}
+%
+Note that this is well-defined since the join is taken over a directed set that
+is uniformly supported by $\supp{x} \cup \supp{f}$, which exists in $C$.
+%
+It is also clear that $f^\ddagger$ is finitely-supported.
 
 \begin{lemma}
 The map $f^{\ddagger}$ is FM-continuous.
