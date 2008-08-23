@@ -1669,10 +1669,77 @@ satisfies the premises of lemma \ref{adjunctioninclusion} so that
 $\mathbf{FMCts}_s$ is isomorphic to the coKleisli category of the comonad ${!}$
 so that it is possible to apply the dual of lemma \ref{adjunctionlift} to raise
 the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ to an adjunction
-$(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows
-\mathbf{FMCts}_{s \udot \{a\}}$.
+\begin{equation} \label{deltafreshadjcts} (-)^{\freshfor a++} \dashv
+\delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot
+\{a\}}. \end{equation}
+%
+However, there is a much simpler approach to this adjunction, since the rest of
+this section shows that it is the same as the adjunction \ref{deltafreshadjlin}
+on the linear categories. 
+%
+More precisely, the `lifting' process of lemma \ref{adjunctionlift} lifts
+$(-)^{\freshfor a+}$ and $\delta_a^+$ to functors with the same action on the
+continuous categories, and preserves the unit and counit too.
+%
+Let $(-)^{\freshfor a++}$ and $\delta_a^{++}$ be the lifted functors and
+$\xi^{++}$ and $\epsilon^{++}$ the lifted unit and counit.
 
-\begin{lemma}\label{deltafreshadjcts} There is an adjunction \[(-)^{\freshfor
+If $\typeP$ is an object of $\mathbf{FMCts}_s$ then certainly $\typeP^{\freshfor a++} =
+\typeP^{\freshfor a+}$. 
+%
+Suppose that $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$, then $(f
+\circ i_{\typeP})^{\dagger}$ is the corresponding arrow of the coKleisli
+category on $\mathbf{FMLin}_s$ and hence $f^{\freshfor a++}$ corresponds to the
+linear map ${(f \circ i_{\typeP})^{\dagger}}^{\freshfor a+} \circ
+\widehat{{\phi^{!}_{\typeP}}^{-1}}$, which in turn corresponds to the monotone
+map ${(f \circ i_{\typeP})^{\dagger}}^{\freshfor a+} \circ
+\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}(\typeP^{\freshfor a})}$.
+%
+The following diagram commutes in $\mathbf{FMPre}_{s \udot \{a\}}$ by naturality
+of $\{\cdot\}_{\downarrow}$, definition of $\phi^{!}$, \ref{comm:freshtriangle},
+\ref{def:freshlin} and the freeness property \ref{bang:freeness}.
+\begin{equation} \label{freshplusplus}
+\xymatrix{
+\widehat{{!}(\typeP^{\freshfor a})}
+	\ar[r]^{\widehat{{\phi^{!}_{\typeP}}^{-1}}}
+&
+\widehat{({!}\typeP)^{\freshfor a}}
+	\ar[dr]^{\phi^{-1}_{\typelift\typeP}}
+	\ar`r[ddrr] [ddrr]^{{(f \circ i_{\typeP})^{\dagger}}^{\freshfor a+}}
+\\
+{!}(\typeP^{\freshfor a})
+	\ar[r]_{{\phi^{!}_{\typeP}}^{-1}}
+	\ar[u]^{\{\cdot\}_{{!}(\typeP^{\freshfor a})}}
+	\ar[d]_{i_{\typeP^{\freshfor a}}}
+&
+(\typelift\typeP)^{\freshfor a}
+	\ar[u]^{\{\cdot\}_{(\typelift\typeP)^{\freshfor a}}}
+	\ar[r]_{\{\cdot\}_{\typelift\typeP}^{\freshfor a}}
+	\ar[d]_{i_{\typeP}^{\freshfor a}}
+&
+\widehat{\typelift\typeP}^{\freshfor a}
+	\ar[d]^{{(f \circ i_{\typeP})^\dagger}^{\freshfor a}}
+\\
+\widehat{\typeP^{\freshfor a}}
+	\ar[r]_{\phi_{\typeP}^{-1}}
+&
+\widehat{\typeP}^{\freshfor a}
+	\ar[r]_{f^{\freshfor a}}
+&
+\widehat{\typeQ}^{\freshfor a}
+	\ar[r]_{\phi_{\typeQ}}
+&
+\widehat{\typeQ^{\freshfor a}}
+}\end{equation}
+%
+Therefore \begin{equation} \label{def:freshcts} f^{\freshfor a++} =
+(\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi_{\typeP}^{-1} \circ
+i_{\typeP^{\freshfor a}})^{\ddagger} = \phi_{\typeQ} \circ f^{\freshfor a} \circ
+\phi_{\typeP}^{-1} = f^{\freshfor a+}. \end{equation}
+
+
+
+\begin{lemma}\label{deltafreshadjcokl} There is an adjunction \[(-)^{\freshfor
 a++} \dashv \delta_a^{++} : \mathrm{coKl}\bigl({!} \text{ on }
 \mathbf{FMLin}_s\bigr) \leftrightarrows \mathrm{coKl}\bigl({!} \text{ on }
 \mathbf{FMLin}_{s \udot \{a\}}\bigr),\] where $(-)^{\freshfor a++}$ and
