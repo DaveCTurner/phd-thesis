@@ -1697,7 +1697,7 @@ map ${(f \circ i_{\typeP})^{\dagger}}^{\freshfor a+} \circ
 %
 The following diagram commutes in $\mathbf{FMPre}_{s \udot \{a\}}$ by naturality
 of $\{\cdot\}_{\downarrow}$, definition of $\phi^{!}$, \ref{comm:freshtriangle},
-\ref{def:freshlin} and the freeness property \ref{bang:freeness}.
+\ref{def:freshlin} and the freeness property \ref{hat:freeness}.
 \begin{equation} \label{freshplusplus}
 \xymatrix{
 \widehat{{!}(\typeP^{\freshfor a})}
@@ -1737,6 +1737,57 @@ Therefore \begin{equation} \label{def:freshcts} f^{\freshfor a++} =
 i_{\typeP^{\freshfor a}})^{\ddagger} = \phi_{\typeQ} \circ f^{\freshfor a} \circ
 \phi_{\typeP}^{-1} = f^{\freshfor a+}. \end{equation}
 
+Similarly, if $\typeP$ is an object of $\mathbf{FMCts}_{s \udot \{a\}}$ then
+$\delta_a^{++}\typeP = \delta_a^+\typeP$. Suppose that $f : \typeP \to \typeQ$
+is an arrow of $\mathbf{FMCts}_{s \udot\{a\}}$, then $(f \circ
+i_{\typeP})^{\dagger}$ is the corresponding arrow of the coKleisli category on
+$\mathbf{FMCts}_{s \udot \{a\}}$ and hence $\delta_a^{++} f$ corresponds to the
+linear map $\delta_a^+ (f \circ i_{\typeP})^{\dagger} \circ
+\widehat{{\theta^{!}_{\typeP}}^{-1}}$ which in turn corresponds to the monotone
+map $\delta_a^+ (f \circ i_{\typeP})^{\dagger} \circ
+\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}\delta_a\typeP}$.
+%
+The following diagram commutes in $\mathbf{FMPre}_{s}$ by naturality of
+$\{\cdot\}_{\downarrow}$, definition of $\theta^{!}$, \ref{comm:deltatriangle},
+\ref{def:deltalin} and the freeness property \ref{hat:freeness}.
+\begin{equation} \label{deltaplusplus}
+\xymatrix{
+\widehat{{!}\delta_a\typeP}
+	\ar[r]^{\widehat{{\theta^{!}_{\typeP}}^{-1}}}
+&
+\widehat{\delta_a{!}\typeP}
+	\ar[dr]^{\theta^{-1}_{\typelift\typeP}}
+	\ar`r[ddrr] [ddrr]^{\delta_a^+ {(f \circ i_{\typeP})^{\dagger}}}
+\\
+{!}\delta_a\typeP
+	\ar[r]_{{\theta^{!}_{\typeP}}^{-1}}
+	\ar[u]^{\{\cdot\}_{{!}\delta_a\typeP}}
+	\ar[d]_{i_{\delta_a\typeP}}
+&
+\delta_a\typelift\typeP
+	\ar[u]^{\{\cdot\}_{\delta_a\typelift\typeP}}
+	\ar[r]_{\delta_a \{\cdot\}_{\typelift\typeP}}
+	\ar[d]_{\delta_a i_{\typeP}}
+&
+\delta_a \widehat{\typelift\typeP}
+	\ar[d]^{\delta_a (f \circ i_{\typeP})^\dagger}
+\\
+\widehat{\delta_a \typeP}
+	\ar[r]_{\theta_{\typeP}^{-1}}
+&
+\delta_a \widehat{\typeP}
+	\ar[r]_{\delta_a f}
+&
+\delta_a \widehat{\typeQ}
+	\ar[r]_{\theta_{\typeQ}}
+&
+\widehat{\delta_a \typeQ}
+}\end{equation}
+%
+Therefore \begin{equation} \label{def:deltacts} \delta_a^{++} f =
+(\theta_{\typeQ} \circ \delta_a f \circ \theta_{\typeP}^{-1} \circ i_{\delta_a
+\typeP})^{\ddagger} = \theta_{\typeQ} \circ \delta_a f \circ
+\theta_{\typeP}^{-1} = \delta_a^+ f. \end{equation}
 
 
 \begin{lemma}\label{deltafreshadjcokl} There is an adjunction \[(-)^{\freshfor
