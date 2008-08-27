@@ -1,0 +1,770 @@
+\section{Categories of FM-Continuous Maps}
+\label{fmcts}
+
+As in the development of HOPLA, linear maps are too restrictive to give a
+semantics for concurrent processes: it is desirable for a process to be able to
+perform actions spontaneously and without having received any input, but linear
+maps are join-preserving so that they preserve empty joins in particular and
+hence a linear process with no input can generate no output.
+
+The solution to this issue is be to consider maps which are continuous (with
+respect to some notion of approximation) rather than merely linear. In the
+development of HOPLA\cite{nygaardwinskel1}, continuity was chosen to mean
+`preserves directed joins' but the discussion of \ref{bindingdiscts}
+demonstrates that this is not a suitable choice in $\mathbf{FMLin}_s$.
+Reconsidering directed sets as generalised sequences in \ref{fm:continuity}
+suggests a more satisfactory definition of continuity. Section \ref{fm:isolated}
+demonstrates that it is simple to characterise the elements that are isolated
+with respect to this notion of approximation, and this gives rise to an
+appropriate exponential ${!}$ that captures the continuity in much the same way
+that the finite-join-completion exponential does in HOPLA.
+
+TODO Complete this intro when this section is complete.
+
+\subsection{Name-Binding is Discontinuous}
+\label{bindingdiscts}
+
+It is now necessary to speculate a little on what a nominal extension to the
+process calculus HOPLA may look like. This speculation is motivated by the
+development of new-HOPLA\cite{zappanardelliwinskel}.
+
+A key feature of a nominal extension to HOPLA would be terms of the form
+$\new{a}{t}$ whose intended meaning is to bind the name $a$ in the outputs of
+$t$. In particular there will be a term $\new{a}{\termvar{x}}$ (where
+$\termvar{x}$ is a free variable) which receives a process as input and binds
+the name $a$ in its output. As the effect of $\new{a}{t}$ is to bind $a$, if $b$
+is a fresh name then it should be the case that $\new{a}{t} = \new{b}{\bigl((ab)
+\cdot t\bigr)}$, and in particular the name $a$ should not be in the support of
+$\new{a}{t}$. The semantics of $\new{a}{t}$ are motivated by the semantics of
+$\new{\alpha}{t}$ from new-HOPLA.
+
+Now consider the term $\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}}$
+which nondeterministically chooses a name $b$ and outputs it. Recall that the
+types of HOPLA terms correspond to the actions that it can do, so the type of
+this process will be (isomorphic to) $\mathbb A$ since its actions are
+(essentially) outputs of elements of $\mathbb A$. Furthermore, it is closed so
+its denotation will simply be a subset of $\mathbb A$, and since it can output
+any name it must be that \begin{equation} \label{allnamesum}
+\sem{\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}}} = \mathbb A.
+\end{equation}
+
+The term $\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
+}\bigr)}$ should be able to output a bound name $\newaction{a}{a}$ if it is to
+satisfy the same operational semantics as new-HOPLA, and therefore
+\begin{equation} \label{boundnameout} \new{a}{a} \in
+\sem{\new{a}{\bigl(\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}
+}\bigr)}}. \end{equation}
+
+Recall that in HOPLA substitution is given by composition of denotations. In
+new-HOPLA, substitution under a $\new{a}{(-)}$ ensures that $a$ is a fresh name
+before proceeding, but any $a$ is fresh here since $\ndsum{b}{\mathbb
+A}{\labelaction{b}{\bang{\inactive}} }$ has empty support. Therefore
+\begin{equation} \label{allnamecomp} \sem{\new{a}{\bigl(\ndsum{b}{\mathbb
+A}{\labelaction{b}{\bang{\inactive}} }\bigr)}} = \sem{\new{a}{\termvar{x}}}
+\circ \sem{\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}} }} =
+\sem{\new{a}{\termvar{x}}} (\mathbb A). \end{equation}
+
+Now $\mathbb A = \bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A} B$ is a directed
+join, so if $\sem{\new{a}{\termvar{x}}}$ is continuous then \begin{equation}
+\label{allnamejoin} \sem{\new{a}{\termvar{x}}} (\mathbb A) =
+\sem{\new{a}{\termvar{x}}} \left(\bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A}
+B \right) = \bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A}
+\sem{\new{a}{\termvar{x}} } B, \end{equation} so it follows that $\new{a}{a} \in
+\bigcup_{B \subseteq_{\mathrm{fin}} \mathbb A} \sem{\new{a}{\termvar{x}} } B$.
+Let $\{b_1, \ldots, b_n\}$ be such that \begin{equation} \label{boundnamein}
+\newaction{a}{a} \in \sem{\new{a}{\termvar{x}}} \{b_1, \ldots, b_n\} =
+\sem{\new{a}{\termvar{x}}} \circ \sem{\linj{b_1}{\bang{\inactive}}
+\mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}} \linj{b_n}{\bang{\inactive}}}.
+\end{equation}
+
+Again, note that substitution under a $\new{a}{(-)}$ ensures that $a$ is a fresh
+name in new-HOPLA. In particular $a'$ may be chosen so that it is distinct from
+the $b_i$ and rewrite $\new{a}{\termvar{x}}$ as $\new{a'}{\termvar{x}}$ since
+the term $\termvar{x}$ is unaffected by permutations of names and therefore has
+empty support.  Therefore \begin{equation} \label{allnamecomp:finite}
+\sem{\new{a}{\termvar{x}}} \circ \sem{\linj{b_1}{\bang{\inactive}}
+\mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}} \linj{b_n}{\bang{\inactive}}} =
+\{ \new{a'}{b_1}, \ldots, \new{a'}{b_n} \}.  \end{equation} But this is a
+contradiction: $\new{a}{a} = \new{a'}{a'} \neq \new{a'}{b_i}$ for any $i$ as
+$a'$ was chosen to be fresh. Therefore if the map $\sem{\new{a}{\termvar{x}}}$
+is to have the properties ascribed to it in new-HOPLA, it cannot be that it
+preserves directed joins.
+
+\subsection{FM-Continuity}
+\label{fm:continuity}
+
+In some sense the notion of limits of directed sets is the intuituionistic ---
+and therefore computational --- analogue of a limit of a (transfinite) sequence
+in point-set topology. Classically, a domain has limits of all increasing
+sequences iff it has limits of all directed sets: increasing sequences give rise
+to directed sets, and conversely given a well-ordered directed set the
+well-ordering gives rise to an increasing sequence. The Axiom of Choice ensures
+that all directed sets have well-orderings.
+
+However, the Axiom of Choice does not hold in the theory of FM sets, so the
+analogy between sequences and directed sets breaks down. An FM-sequence in a
+domain $D$ is a sequence (i.e. a function from some ordinal $\alpha$ to $D$)
+that is additionally finitely-supported. If the sequence is supported by $s$
+then each element must also be supported by $s$ since ordinals have empty
+support: this support is said to be \textit{uniform} since it applies uniformly
+to all of the elements of the sequence.  Furthermore any uniformly supported
+sequence is an FM-sequence.
+
+Classical sequences are to directed sets as uniformly supported sequences are to
+directed sets that are also uniformly supported. More precisely, A FM preorder
+has limits of all increasing uniformly supported sequences iff it has limits of
+all uniformly supported directed sets: well-orderings of a uniformly supported
+set are always finitely supported so the (external) Axiom of Choice gives rise
+to an (internal) well-ordering and the remainder of the proof is as in the
+classical case.
+
+\subsection{FM-Isolated Elements}
+\label{fm:isolated}
+
+Considering $\widehat{\typeP}$ as a domain of meanings for processes of type
+$\typeP$, it is now sensible to investigate the structure of the isolated (or
+compact or finite) elements of this domain with respect to FM-continuity.  An
+element $x$ is compact in this sense iff for all uniformly supported directed
+sets $X \subseteq \widehat{\typeP}$, if $x \subseteq \bigcup X$ then there
+exists $x' \in X$ such that $x \subseteq x'$.
+
+For example, all finitely-supported subsets of $\mathbb A$ are isolated in
+$\widehat{\mathbb A}$. To see this, let $x \subseteq \mathbb A$ be
+finitely-supported and such that $x \subseteq \bigcup X$ where $X \subseteq
+\widehat{\mathbb A}$ is directed and uniformly supported by $s$, then every
+element of $X$ is either a subset of $s$ or a superset of $\mathbb A \setminus
+s$. Therefore $X$ is finite, and since it is also directed there must exist $x'
+\in X$ such that $x \subseteq x'$.
+
+More generally, if $\typeP$ is a FM-preorder, $F$ a finite subset of $\typeP$
+and $s$ a finite set of names that contains $\supp{\typeP}$ then define
+\begin{equation} \label{def:finelt} \finelt{F}{s} \defeq \bigcup_{\sigma \freshfor s}
+\sigma \cdot F_\downarrow. \end{equation} Every $x \in \widehat{\mathbb A}$ is
+of this form: either $x$ is finite and hence $x = \finelt{x}{\supp{x}}$ or else
+$x$ is cofinite and hence $x = \finelt{\{a\}}{\supp{x}}$ for any $a \in x$. It
+will turn out that sets of this form are precisely the isolated elements of
+$\widehat{\typeP}$.
+
+\begin{lemma}\label{fineltextension} If $\supp{\typeP} \subseteq s \subseteq s'$
+and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq
+\typeP$ such that $\finelt{F}{s} = \finelt{F'}{s'}$.  \end{lemma}
+
+\begin{proof} Let $\bar{s} = s' \cup \bigcup_{p \in F} \supp{p}$ and note that
+since $F$ is finite, $\bar{s}$ is finite and $\supp{F} \subseteq \bar{s}$.  Let
+$s''$ be a finite set of fresh names of greater cardinality that $\bar{s}$ and
+let $\Sigma = \{\sigma \mid \supp{\sigma} \subseteq (\bar{s} \cup s'') \setminus
+s \}$.  Let $F' = \bigcup_{\sigma \in \Sigma} \sigma \cdot F$ and note that
+$\Sigma$ is finite, so that $F'$ is also finite. Show that $\finelt{F}{s} =
+\finelt{F'}{s'}$ as follows.
+
+Let $p \in \finelt{F}{s}$, then by definition there exists $\sigma$ and $p'$
+where $\sigma \freshfor s$, $p' \in F$ and $p \le_{\typeP} \sigma \cdot p'$.  By
+lemma \ref{footprint} there exists $\sigma_1$, $\sigma_2$, $\sigma_3$ such that
+$\sigma = \sigma_1 \sigma_2 \sigma_3$ where $\sigma_1 \freshfor \bar{s}$ and
+$\sigma_3 \freshfor \bar{s}$ and $\supp{\sigma_2} \subseteq (\bar{s} \cup s'')
+\setminus s$.
+
+Firstly, $\supp{F} \subseteq \bar{s}$ so that $\sigma_3 \cdot F = F$ and hence
+$\sigma_3 \cdot p' \in F$.  Also, since $\sigma_2 \in \Sigma$, $\sigma_2 \cdot
+\sigma_3 \cdot p' \in F'$.  Also, since $p \le_{\typeP} \sigma_1 \cdot \sigma_2
+\cdot \sigma_3 \cdot p'$ it follows that $\sigma_1^{-1} \cdot p \le_{\typeP} \sigma_2 \cdot
+\sigma_3 \cdot p' \in F'$ and hence $p \in \sigma_1 \cdot F'_{\downarrow}$.
+Finally, $\sigma_1 \freshfor s'$ so that $p \in \finelt{F'}{s'}$ as required.
+
+Conversely, let $p \in \finelt{F'}{s'}$, then there exists $\sigma$ and $p'$
+where $\sigma \freshfor s'$, $p' \in F'$ and $p \le_{\typeP} \sigma \cdot p'$.
+By definition of $F'$, there exists $\sigma'$ such that $p' \in \sigma' \cdot F$
+and $\sigma' \freshfor s$. Therefore $p \le_{\typeP} \sigma \cdot p' = \sigma
+\cdot \sigma' \cdot \sigma'^{-1} \cdot p' \in \sigma \cdot \sigma' \cdot F$.
+Furthermore, $s \subseteq s'$ so that $\sigma \sigma' \freshfor s$ and hence $p
+\in \finelt{F}{s}$ as required.
+\end{proof}
+
+\begin{lemma}
+\label{fineltsupport}The support of $\finelt{F}{s}$ is contained in $s$.
+\end{lemma}
+
+\begin{proof} It is sufficient to show that if $\sigma \freshfor s$ then $\sigma
+\cdot \finelt{F}{s} = \finelt{F}{s}$.  Let $p \in \finelt{F}{s}$, then there
+exists $\sigma' \freshfor s$ and $p' \in F$ such that $p \le \sigma' \cdot p'$.
+Then $\sigma \cdot p \le \sigma \cdot \sigma' \cdot p'$ and $\sigma\sigma'
+\freshfor s$ so that $\sigma \cdot p \in \finelt{F}{s}$ and hence $\sigma \cdot
+\finelt{F}{s} \subseteq \finelt{F}{s}$. The converse is similar.  \end{proof}
+
+\begin{lemma}\label{finelts} An element $x \in \widehat{\typeP}$ is isolated iff
+it is of the form $\finelt{F}{s}$ where $F$ is a finite subset of $\typeP$ and
+$s$ is a finite set of names that contains the support of $\typeP$.  \end{lemma}
+
+\begin{proof} Suppose that $\finelt{F}{s} \subseteq \bigcup X$ where $X
+\subseteq \widehat{\typeP}$ is uniformly supported and directed.  In the light
+of lemma \ref{fineltextension} suppose without loss of generality that $s$ is
+large enough to be a uniform support for $X$. Let $F = \{p_1, \ldots, p_n\}$,
+then for each $i \in \{1, \ldots, n\}$, $p_i \in \finelt{F}{s} \subseteq \bigcup
+X$ so there exists $x_i \in X$ such that $p_i \in x_i$. Since $X$ is directed,
+it contains an upper bound $\bar{x}$ for the $x_i$.  If $p \in \finelt{F}{s}$
+then $p \le_{\typeP} \sigma \cdot p_i$ for some $i \in \{1, \ldots, n\}$ and
+some $\sigma \freshfor s$. Therefore $p \in \sigma \cdot x_i \subseteq \sigma
+\cdot \bar{x}$, but $s$ is a uniform support for $X$ so that $\sigma \cdot
+\bar{x} = \bar{x}$ and hence $p \in \bar{x}$. Therefore $\finelt{F}{s}$ is
+isolated.
+
+Conversely, let $x \in \widehat{\typeP}$ be isolated, let $s = \supp{x} \cup
+\supp{\typeP}$ and define $X \subseteq \widehat{\typeP}$ by $X = \{\finelt{F}{s}
+\mid F \subseteq_{\mathrm{fin}} x\}$. From lemma \ref{fineltsupport} it follows
+that $X$ is uniformly supported by $s$, and it is clear that if $F_1
+\subseteq_{\mathrm{fin}} x$ and $F_2 \subseteq_{\mathrm{fin}} x$ then $F_1 \cup
+F_2 \subseteq_{\mathrm{fin}} x$ and $\finelt{F_1 \cup F_2}{s}$ is an upper bound
+for $\finelt{F_1}{s}$ and $\finelt{F_2}{s}$ so that $X$ is directed.  Therefore
+by the isolation of $x$ there exists $F \subseteq_{\mathrm{fin}} x$ such that $x
+\subseteq \finelt{F}{s}$. Furthermore, $\finelt{F}{s} \subseteq x$ as follows.
+Let $p \in \finelt{F}{s}$, then there exists $\sigma \freshfor s$ and $p' \in F$
+such that $p \le_{\typeP} \sigma \cdot p'$. Also, $F \subseteq x$ so that $p'
+\in x$, and $\sigma \freshfor s$ so that $\sigma \cdot x = x$ and hence $p
+\le_{\typeP} \sigma \cdot p' \in x \in \widehat{\typeP}$ so that $p \in x$.
+Therefore $x = \finelt{F}{s}$ as required.  \end{proof}
+
+\begin{lemma}
+\label{finelteqvt} If $\sigma$ is a permutation and $\sigma \freshfor \typeP$
+then \[\sigma \cdot \finelt{F}{s} = \finelt{\sigma \cdot F}{\sigma \cdot s}.\]
+\end{lemma}
+
+\begin{proof} Let $p' \in \sigma \cdot \finelt{F}{s}$ then there exists $p \in
+F$ and $\sigma' \freshfor s$ such that $p' \le_{\typeP} \sigma \cdot \sigma'
+\cdot p = \sigma \cdot \sigma' \cdot \sigma^{-1} \cdot \sigma \cdot p$, and
+$\sigma \cdot p \in \sigma \cdot F$ and $\sigma \sigma' \sigma^{-1} \freshfor
+\sigma \cdot s$ so that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s}$. The
+converse case is similar.  \end{proof}
+
+\begin{lemma}
+\label{fineltminsupp} \[\finelt{F}{s} = \finelt{F}{\supp{\finelt{F}{s}}}.\]
+\end{lemma}
+
+\begin{proof} Let $p' \in \finelt{F}{s}$ then there exists $p \in F$ and $\sigma
+\freshfor s$ such that $p' \le_{\typeP} \sigma \cdot p$.  By lemma
+\ref{fineltsupport}, $\supp{\finelt{F}{s}} \subseteq s$ so that $\sigma
+\freshfor \finelt{F}{s}$ and hence $p' \in \finelt{F}{\supp{\finelt{F}{s}}}$.
+Conversely, let $p' \in \finelt{F}{\supp{\finelt{F}{s}}}$ then there exists $p
+\in F$ and $\sigma \freshfor \finelt{F}{s}$ such that $p' \le_{\typeP} \sigma
+\cdot p = \iota \cdot \sigma \cdot p$ and $\iota \freshfor \sigma \cdot s$ so
+that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma \cdot
+\finelt{F}{s} = \finelt{F}{s}$ as required.  \end{proof}
+
+\subsection{FM-Continuous Maps}
+\label{fmcts:maps}
+
+The discussion of the previous section indicates that `continuous' should mean
+`preserves joins of uniformly-supported directed sets' or equivalently
+`preserves joins of increasing sequences' - for brevity this will be called
+`FM-continuous'. Let $\mathbf{FMCts}_s$ be the category whose objects are
+FM-preorders $\typeP$, $\typeQ$, $\ldots$ supported by $s$ and whose arrows
+$\typeP \to \typeQ$ are maps $\widehat{\typeP} \to \widehat{\typeQ}$ that are
+FM-continuous and supported by $s$. Note that in particular FM-linear maps are
+FM-continuous so that $\mathbf{FMLin}_s$ is a subcategory of $\mathbf{FMCts}_s$.
+
+Following the development of HOPLA, it will be possible to characterise
+FM-continuous maps in terms of FM-linear maps whose domain is under an
+exponential ${!}$ which captures the appropriate notion of approximation.  Here,
+$\typelift\typeP$ will consist of the isolated elements of $\widehat\typeP$
+ordered by inclusion.
+
+Each $\widehat{\typeP}$ is the free uniformly-supported-directed-join completion
+of $\typelift\typeP$. In detail, this means that $\widehat{\typeP}$ has all
+uniformly-supported directed joins (indeed, it has all finitely-supported joins)
+and if $C$ is a poset that also has all uniformly-supported directed joins and
+$f : \typelift\typeP \to C$ is a monotone finitely-supported function then there
+is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
+\to C$ that such that the following diagram commutes.  \begin{equation}
+\label{bang:freeness} \xymatrix{ \typelift\typeP\
+\ar@<-4pt>@{^{(}->}[r]^{i_{\typeP}} \ar[dr]_f & \widehat{\typeP}
+\ar[d]^{f^{\ddagger}} \\& C} \end{equation} 
+%
+The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x =
+\bigvee\{f y \mid y \in \typelift\typeP \wedge y \subseteq x \wedge \supp{y}
+\subseteq \supp{x} \}.\end{equation}
+%
+Note that this is well-defined since the join is taken over a directed set that
+is uniformly supported by $\supp{x} \cup \supp{f}$, which exists in $C$.
+%
+It is also clear that $f^\ddagger$ is finitely-supported.
+
+\begin{lemma}
+The map $f^{\ddagger}$ is FM-continuous.
+\end{lemma}
+
+\begin{proof} It not clear that $f^{\ddagger}$ is even monotone.  Let $x, x' \in
+\widehat{\typeP}$ be such that $x \subseteq x'$ and show that $f^{\ddagger} x
+\le f^{\ddagger} x'$ as follows. By the monotonicity of $f$ it is sufficient to
+show that for all $y \in \typelift\typeP$ such that $y \subseteq x$ and
+$\supp{y} \subseteq \supp{x}$ there exists $y' \in \typelift\typeP$ such that $y
+\subseteq y'$ and $y' \subseteq x'$ and $\supp{y'} \subseteq \supp{x'}$, so let
+$y \in \typelift\typeP$ be such that $y \subseteq x$ and without loss of
+generality write $y = \finelt{F}{\supp{x} \cup \supp{x'}}$. Define $y' =
+\finelt{F}{\supp{x'}}$. It is certainly the case that $y \subseteq y'$ and
+$\supp{y'} \subseteq \supp{x'}$ so it remains to show that $y' \subseteq x'$.
+Let $p' \in y'$, then there exists $p \in F$ and $\sigma \freshfor x'$ such that
+$p' \le_{\typeP} \sigma \cdot p$.  However, since $y = \finelt{F}{\supp{x} \cup
+\supp{x'}} \subseteq x \subseteq x'$, it must be that $p \in x'$.  Since $\sigma
+\freshfor x'$, $\sigma \cdot p \in x'$ too, and $x' \in \widehat{\typeP}$ so
+that $p' \in x'$ as required.
+
+Having shown that $f^{\ddagger}$ is monotone, the proof of its continuity is
+standard.  Let $X \subseteq \widehat{\typeP}$ be uniformly-supported and
+directed. For all $x \in X$ it is the case that $f^{\ddagger} x \le f^{\ddagger}
+\bigl(\bigcup X \bigr)$ by monotonicity, so $f^{\ddagger} \bigl(\bigcup X\bigr)$
+is an upper bound for $\{f^{\ddagger} x \mid x \in X \}$.  It remains to show
+that it is the least such upper bound, i.e.  for any $U$ such that $f^{\ddagger}
+x \le U$ for all $x \in X$ it is the case that $f^{\ddagger} \bigl(\bigcup
+X\bigr) \le U$. For this, it is sufficient to show that $U$ is an upper bound
+for $\{f y \mid y \in \typelift\typeP \wedge y \subseteq \bigcup X \wedge
+\supp{y} \subseteq \supp{\bigcup X} \}$ since $f^{\ddagger} \bigl(\bigcup X
+\bigr)$ is the least such. Therefore, suppose that $y \in \typelift\typeP$ is
+such that $y \subseteq \bigcup X$ and $\supp{y} \subseteq \supp{\bigcup X}$.
+Then $y$ is isolated, and $X$ is uniformly-supported and directed, so there
+exists $x \in X$ such that $y \subseteq x$. It is clear that $f^{\ddagger} y = f
+y$, so by monotonicity $f y \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so
+that $f y \le U$ as required.  \end{proof}
+
+Notice that any $x \in \widehat{\typeP}$ is the uniformly-supported-directed
+join of certain isolated elements beneath it: \begin{equation} x = \bigcup \{y
+\in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x} \}
+\end{equation} which ensures the uniqueness of $f^{\ddagger}$.
+As before, if $C$ is of the form $\widehat{\typeQ}$ then this shows that
+finitely-supported monotone maps $\typelift\typeP \to \widehat{\typeQ}$ are in
+bijective correspondence with FM-continuous maps $\widehat{\typeP} \to
+\widehat{\typeQ}$.
+From earlier discussion, finitely-supported monotone maps $\typelift\typeP \to
+\widehat{\typeQ}$ are also in bijective correspondence with FM-linear maps
+$\widehat{\typelift\typeP} \to \widehat{\typeQ}$ so that there is an isomorphism
+\begin{equation} \label{bang:adj} \mathbf{FMLin}_s (\typelift\typeP, \typeQ)
+\cong \mathbf{FMCts}_s (\typeP, \typeQ).\end{equation}
+
+\subsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
+and $\delta_a$}
+
+In fact, ${!}$ may be seen as an endofunctor on $\mathbf{FMPre}_s$, where if $f
+: \typeP \to \typeQ$ is an arrow of $\mathbf{FMPre}_s$ and $x \in
+\typelift\typeP$ then $({!}f)(x) = \widehat{f}(x)$.  To see that ${!}f$ is
+well-defined, it is necessary to show that $\widehat{f}(x) \in \typelift\typeQ$.
+Without loss of generality, write $x = \finelt{F}{s'}$ where $F$ is finite and
+$s \subseteq s'$, then it will be shown that $\widehat{f}(x) = \finelt{\{f p
+\mid p \in F\}}{s'}$ which is indeed isolated in $\widehat\typeQ$ as required.
+
+Firstly, let $q \in \widehat{f}(x)$, then there exists $p' \in x$ such that $q
+\le_{\typeQ} f p'$, and hence there exists $p \in F$ and $\sigma \freshfor s'$
+such that $p' \le_{\typeP} \sigma \cdot p$. Therefore $q \le_{\typeQ} f (\sigma
+\cdot p) = \sigma \cdot (f p)$ and hence $q \in \finelt{\{f p \mid p \in
+F\}}{s'}$. Conversely, let $q \in \finelt{\{f p \mid p \in F\}}{s'}$, then there
+exists $p \in F$ and $\sigma \freshfor s'$ such that $q \le_{\typeQ} \sigma
+\cdot (f p) = f (\sigma \cdot p)$.  Therefore $\sigma \cdot p \in x$ and hence
+$q \in \widehat{f}(x)$ as required.
+
+\begin{lemma}\label{freshbangiso} Let $a \notin s$. The functors
+\[({!}-)^{\freshfor a}, {!}(-)^{\freshfor a} : \mathbf{FMPre}_s
+\rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}\] are naturally isomorphic.
+\end{lemma}
+
+\begin{proof} The natural isomorphism detailed in lemma \ref{freshhatiso}
+restricts to the desired isomorphism here. It is only unclear that this
+restriction has the correct range on the restricted domain. Let $\phi$ and
+$\phi^{-1}$ be as in the proof of lemma \ref{freshhatiso}.
+
+For each object $\typeP$ of $\mathbf{FMPre}_s$ define $\phi^{!}_{\typeP} :
+(\typelift\typeP)^{\freshfor a} \to \typelift{(\typeP^{\freshfor a})}$ by
+\begin{equation} \label{def:phibang} \phi^{!}_{\typeP} (x) \defeq \{ p \in x \mid a
+\freshfor p \} = \phi_{\typeP} (x).\end{equation}
+%
+Any element of $(\typelift\typeP)^{\freshfor a}$ can be written in the form
+$\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$ and $a
+\notin s' \supseteq s$.
+%
+Under these conditions it is also the case that $\finelt{F}{s' \cup \{a\}} \in
+\typelift{(\typeP^{\freshfor a})}$, so to show that $\phi^{!}_{\typeP}$ has the
+correct range, it is sufficient to show that $\phi^{!}_{\typeP} \finelt{F}{s'} =
+\finelt{F}{s' \cup \{a\}}$.
+
+Let $p' \in \phi^{!}_{\typeP} \finelt{F}{s'}$, then $a \freshfor p'$ and there
+exists $p \in F$ and $\sigma \freshfor s'$ such that $p' \le_{\typeP} \sigma
+\cdot p$. Let $b$ be a fresh name, then $p = (ab) \cdot p$ and $p' = (ab) \cdot
+p'$ so that $p' \le_{\typeP} (ab) \cdot \sigma \cdot (ab) \cdot p$. However,
+$(ab) \cdot \sigma \cdot (ab) \cdot a = a$ and $(ab) \cdot \sigma \cdot (ab)
+\cdot a' = \sigma \cdot a' = a'$ for all $a' \in s'$ since $b$ is fresh and
+$\sigma \freshfor s'$, so that $(ab)\sigma(ab) \freshfor s' \udot\{a\}$ and
+hence $p' \in \finelt{F}{s' \udot \{a\}}$ as required. Conversely, let $p' \in
+\finelt{F}{s' \udot \{a\}}$, then there exists $p \in F$ and $\sigma \freshfor
+s' \udot \{a\}$ such that $p' \le_{\typeP^{\freshfor a}} \sigma \cdot p$.
+Therefore $\sigma \freshfor s'$ and $p' \le_{\typeP} \sigma \cdot p$ and $a
+\freshfor p$ so that $p' \in \phi^{!}_{\typeP} \finelt{F}{s'}$ as required.
+
+Define also ${\phi^{!}_{\typeP}}^{-1} : \typelift{(\typeP^{\freshfor a})} \to
+(\typelift\typeP)^{\freshfor a}$ by \begin{equation} \label{def:phibanginv}
+{\phi^{!}_{\typeP}}^{-1}(x) \defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot x =
+\phi^{-1}_{\typeP}(x).\end{equation}
+%
+Any element of $\typelift{(\typeP^{\freshfor a})}$ may be written in the form
+$\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$ and $a
+\in s' \supseteq s$, and under these conditions $\finelt{F}{s' \setminus \{a\}}
+\in (\typelift\typeP)^{\freshfor a}$ so to show that ${\phi^{!}_{\typeP}}^{-1}$
+has the correct range it is sufficient to show that
+${\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'} = \finelt{F}{s' \setminus \{a\}}$.
+
+Firstly, note that the justification for statement \ref{characterisation:phiinv}
+also holds here, so that \begin{equation} \label{characterisation:phibanginv} p
+\in {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'} \quad\Leftrightarrow \quad
+\freshin{b}{p \in (ab) \cdot \finelt{F}{s'}}.\end{equation}
+%
+Let $p' \in {\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ and let $b$ be a fresh name,
+then $p' \in (ab) \cdot \finelt{F}{s'}$ so that by \ref{finelteqvt} there exists
+$p \in (ab) \cdot F$ and $\sigma \freshfor (ab) \cdot s'$ such that $p'
+\le_{\typeP^{\freshfor a}} \sigma \cdot p$. 
+%
+Therefore $p' \le_{\typeP} \sigma \cdot (ab) \cdot (ab) \cdot p$ and $(ab) \cdot
+p \in F$.
+%
+Furthermore if $a' \in s' \setminus \{a\}$ then $\sigma \cdot (ab) \cdot a' =
+a'$ as $b$ is fresh and $\sigma \freshfor (ab) \cdot s' \supseteq s' \setminus
+\{a\}$ so that $p' \in \finelt{F}{s' \setminus \{a\}}$. 
+%
+Conversely, suppose that $p' \in \finelt{F}{s' \setminus \{a\}}$, then there
+exists $p \in F$ and $\sigma \freshfor s' \setminus \{a\}$ such that $p'
+\le_{\typeP} \sigma \cdot p$.
+%
+Let $b$ be a fresh name.  Since $p \in F$, $a \freshfor p$ and hence $(ab) \cdot
+p = p$.
+%
+Therefore $(ab) \cdot p' \le (ab) \cdot \sigma \cdot (ab) \cdot p$ and
+$(ab)\sigma(ab) \freshfor s'$ since $\sigma \freshfor (s' \setminus a) \udot
+\{b\}$.
+%
+Hence $(ab) \cdot p' \in \finelt{F}{s'}$ so that $p' \in
+{\phi^{!}_{\typeP}}^{-1}\finelt{F}{s'}$ as required.
+
+The proof of lemma \ref{freshhatiso} now demonstrates that $\phi^{!}$ and
+${\phi^{!}}^{-1}$ are natural and mutual inverses, which completes the argument.
+\end{proof}
+
+\begin{lemma}\label{deltabangiso} Let $a \notin s$. The functors \[\delta_a{!},
+{!}\delta_a : \mathbf{FMPre}_{s \udot\{a\}} \rightrightarrows \mathbf{FMPre}_s\]
+are naturally isomorphic.\end{lemma}
+
+\begin{proof}
+The natural isomorphism detailed in lemma \ref{deltahatiso}
+restricts to the desired isomorphism here. It is only unclear that this
+restriction has the correct range on the restricted domain. Let $\theta$ and
+$\theta^{-1}$ be as in the proof of lemma \ref{deltahatiso}.
+
+For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
+$\theta^{!}_{\typeP} : \delta_a \typelift\typeP \to \typelift{\delta_a \typeP}$
+by \begin{equation} \label{def:thetabang} \theta^{!}_{\typeP}(x') \defeq \{p'
+\mid \freshin{b}{ p' @ b \in x' @ b\}} = \theta_{\typeP} (x'). \end{equation}
+%
+Any element of $\delta_a \typelift\typeP$ can be written in the form
+$[b].\finelt{F}{s'}$ where $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab)
+\cdot \typeP$ and $b \in s' \supseteq s$.
+%
+Under these conditions it is also the case that $\finelt{\{[b].p \mid p \in
+F\}}{s' \setminus \{b\}} \in \typelift{\delta_a\typeP}$, so to show that
+$\theta^{!}$ has the correct range it is sufficient to show that
+$\theta^{!}_{\typeP} \bigl([b].\finelt{f}{s'}\bigr) = \finelt{\{[b].p \mid p \in
+f\}}{s' \setminus \{b\}}$.
+
+Let $p' \in \theta^{!}_{\typeP} \bigl([b].\finelt{F}{s'}\bigr)$ and let $c$ be a
+fresh name, then $p'@c \in (bc) \cdot \finelt{F}{s'}$ so that there exists $p
+\in F$ and $\sigma \freshfor s'$ so that $(bc) \cdot (p'@c) \le_{(ab) \cdot
+\typeP} \sigma \cdot p$. Therefore $\big((bc) \cdot p') @ b \le_{(ab) \cdot
+\typeP} \sigma \cdot p = \bigl([b].(\sigma \cdot p)\bigr)@b$ so that $(bc) \cdot
+p' \le_{\delta_a \typeP} [b].(\sigma \cdot p)$. However $\sigma \freshfor s' \ni
+b$ so $[b].(\sigma \cdot p) = \sigma \cdot ([b].p)$ and hence $p' \le_{\delta_a
+\typeP} (bc) \cdot \sigma \cdot ([b].p)$ so that $p' \in \finelt{\{[b].p \mid p
+\in F\}}{s' \setminus \{b\}}$ as required. Conversely, let $p' \in
+\finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}}$, then there exists $p \in
+F$ and $\sigma \freshfor s' \setminus \{b\}$ such that $p' \le_{\delta_a \typeP}
+\sigma \cdot ([b].p)$. Let $c$ be a fresh name, then $p'@c \le_{(ac) \cdot
+\typeP} \sigma \cdot (bc) \cdot p = (bc) \cdot (bc) \cdot \sigma \cdot (bc)
+\cdot p$. Furthermore, $(bc)\sigma(bc) \freshfor s'$ so that $p'@c
+\in (bc) \cdot \finelt{F}{s'}$ and hence $p' \in \theta^{!}_{\typeP}
+\bigl([b].\finelt{F}{s'}\bigr)$ as required.
+
+Define also ${\theta^{!}_{\typeP}}^{-1} : \typelift{\delta_a \typeP} \to
+\delta_a \typelift\typeP$ by \begin{equation} \label{def:thetabanginv}
+{\theta^{!}}^{-1}_{\typeP}(x) \defeq \freshin{b}{ [b].\{p \mid [b].p \in x\}} =
+\theta^{-1}_{\typeP}(x). \end{equation}
+%
+Any element of $\typelift{\delta_a\typeP}$ can be written in the form
+$\finelt{\{[b].p \mid p \in F\}}{s'}$ where $b$ is a fresh name, $F
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \notin s' \supseteq s$.
+%
+Under these conditions it is also the case that $[b].\finelt{F}{s' \udot \{b\}}
+\in \delta_a\typelift\typeP$, so to show that ${\theta^{!}}^{-1}$ has the
+correct range it is sufficient to show that ${\theta^{!}}^{-1}_{\typeP}
+\finelt{\{[b].p \mid p \in F\}}{s'} = [b].\finelt{F}{s' \udot \{b\}}$ or
+equivalently that $\bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
+F\}}{s'}\bigr)@c = \bigl([b].\finelt{F}{s' \udot \{b\}}\bigr)@c$ for a fresh
+name $c$.
+
+Let $p' \in \bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
+F\}}{s'}\bigr)@c$, then $[c].p' \in \finelt{\{[b].p \mid p \in F\}}{s'}$ so that
+there exists $p \in F$ and $\sigma \freshfor s'$ such that $[c].p' \le_{\delta_a
+\typeP} \sigma \cdot [b].p$. Let $d$ be a fresh name, then $(cd) \cdot p'
+\le_{(ad) \cdot \typeP} (\sigma \cdot [b].p)@d = \sigma \cdot (bd) \cdot p$ and
+hence $p' \le_{(ac) \cdot \typeP} (cd) \cdot \sigma \cdot (bd) \cdot p$. Since
+$c \freshfor F$ and $F$ is finite $c \freshfor p$ so that $p = (cd) \cdot p$;
+furthermore $(cd) = (bc)(cd)(bd)$, so that $(cd) \cdot \sigma \cdot (bd) \cdot p
+= (bc) \cdot (cd) \cdot (bd) \cdot \sigma \cdot (bd) \cdot (cd) \cdot p$. Also,
+$s' \cup \{d\} \freshfor \sigma$ so that $s' \cup \{b\} \freshfor
+(cd)(bd)\sigma(bd)(cd)$, which shows that $p' \in (bc) \cdot \finelt{F}{s' \udot
+\{b\}} = ([b].\finelt{F}{s' \udot\{b\}})@c$.  Conversely, let $p' \in
+([b].\finelt{F}{s' \udot\{b\}})@c = (bc) \cdot \finelt{F}{s' \udot \{b\}}$, then
+there exists $p \in F$ and $\sigma \freshfor s' \udot \{b\}$ such that $p'
+\le_{(ac) \cdot \typeP} (bc) \cdot \sigma \cdot p$. Therefore $[c].p'
+\le_{\delta_a\typeP} [c].\bigl((bc) \cdot \sigma \cdot p\bigr) = (bc) \cdot
+\sigma \cdot [b].p$ and $(bc)\sigma \freshfor s'$ so that $[c].p' \in
+\finelt{\{[b].p \mid p \in F\}}{s'}$ and hence $p' \in
+\bigl({\theta^{!}}^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c$ as
+required.  \end{proof}
+
+There is also a natural transformation $\psi : \typelift{\widehat{(-)}} \to
+\widehat{(\typelift-)}$ of endofunctors of $\mathbf{FMPre}_s$ given by
+\begin{equation} \label{def:psi} \psi_{\typeP} X \defeq \bigl\{ x \in \typelift\typeP
+\mid x \subseteq \bigcup X\bigr\}. \end{equation} 
+%
+It is not hard to see that this is well-defined and natural. This transformation
+can be used to extend $!$ to an endofunctor ${!}^+$ on $\mathbf{FMLin}_s$ as
+follows.
+%
+The action of ${!}^+$ on objects is the same as that of ${!}$ and if $f : \typeP
+\to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then $f$ may be considered a
+monotone map $\typeP \to \widehat{\typeQ}$ and hence ${!}^+f = \psi_{\typeQ}
+\circ \typelift{f} : \typelift\typeP \to \widehat{\typelift\typeQ}$.
+%
+Concretely, if $X \in \widehat{\typelift\typeP}$ then \begin{equation}
+\label{def:bangplus} ({!}^+f) X \defeq \{y \in \typelift\typeQ \mid \exists x
+\in X.\ y \subseteq f x\}. \end{equation}
+%
+It is not hard to see that the action of ${!}^+$ is functorial.
+%
+Furthermore, if if $f$ is continuous then ${!}^+f$ is linear too, so that
+${!}^+$ is a functor $\mathbf{FMCts}_s \to \mathbf{FMLin}_s$.
+
+
+\subsection{An Adjunction}
+
+The isomorphism $\mathbf{FMLin}_s (!\typeP, \typeQ) \cong \mathbf{FMCts}_s
+(\typeP, \typeQ)$ above is natural in $\typeP$ and $\typeQ$ (where ${!}$ means
+${!}^+$) and therefore forms an adjunction with the inclusion $\mathbf{FMLin}_s
+\hookrightarrow \mathbf{FMCts}_s$ as right adjoint. 
+
+Via the freeness properties above, the identity $\mathbf{1}_{\typelift\typeP} :
+\typelift\typeP \to \typelift\typeP$ in $\mathbf{FMLin}_s$ corresponds to a
+monotone map $\typelift\typeP \to \widehat{\typelift\typeP}$, which in turn is a
+continuous map $\widehat{\typeP} \to \widehat{\typelift\typeP}$ and therefore an
+arrow $\eta_{\typeP} : \typeP \to \typelift\typeP$ in $\mathbf{FMCts}_s$. Also,
+the inclusion $\typelift\typeP \hookrightarrow \widehat{\typeP}$ is monotone, so
+corresponds to a linear map $\widehat{\typelift\typeP} \to \widehat{\typeP}$ and
+hence an arrow $\epsilon_{\typeP} : \typelift\typeP \to \typeP$ in
+$\mathbf{FMLin}_s$. The maps $\eta_{\typeP}$ and $\epsilon_{\typeP}$
+respectively form the unit and counit of the adjunction, and concretely
+\[\eta_{\typeP} x = \{ y \in \typelift\typeP \mid y \subseteq x\}
+\qquad\text{and}\qquad \epsilon_{\typeP} X = \bigcup X.\]
+
+
+\[\begin{array}{c}
+\typeP \to \typeQ \qquad \in \mathbf{FMLin}_{s} \\
+\widehat{\typeP} \to_{\mathrm{lin}} \widehat{\typeQ} \\
+\typeP \to_{\mathrm{mono}} \widehat{\typeQ} \\
+\mapsto \typelift\typeP \to_{\mathrm{mono}} \typelift{\widehat{\typeQ}} \\
+\vdots \\
+\typelift\typeP \to_{\mathrm{mono}} \widehat{\typelift\typeQ} \\
+\widehat{\typelift\typeP} \to_{\mathrm{lin}} \widehat{\typelift\typeQ} \\
+\typelift\typeP \to \typelift\typeQ \qquad \in \mathbf{FMLin}_{s} \\
+\end{array}\]
+need
+\[\begin{array}{c}
+\typelift{\widehat{\typeQ}} \to_{\mathrm{mono}} \widehat{\typelift\typeQ} \\
+\end{array}\]
+have
+\[\begin{array}{c}
+\typelift\typeQ \to_{\mathrm{mono}} \widehat{\typelift\typeQ} \\
+\end{array}\]
+
+The situation
+\[
+\xymatrix{
+\mathbf{FMLin}_s\ \ 
+\ar@/_2ex/@<-2pt>@{^{(}->}[rr]_{\ }
+&
+\bot
+&
+\ \ \mathbf{FMCts}_s
+\ar@/_2ex/@<-2pt>[ll]_{!}
+}
+\]
+satisfies the premises of lemma \ref{adjunctioninclusion} so that
+$\mathbf{FMCts}_s$ is isomorphic to the coKleisli category of the comonad ${!}$
+so that it is possible to apply the dual of lemma \ref{adjunctionlift} to raise
+the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ to an adjunction
+\begin{equation} \label{deltafreshadjcts} (-)^{\freshfor a++} \dashv
+\delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot
+\{a\}}. \end{equation}
+%
+However, there is a much simpler approach to this adjunction, since the rest of
+this section shows that it is the same as the adjunction \ref{deltafreshadjlin}
+on the linear categories. 
+%
+More precisely, the `lifting' process of lemma \ref{adjunctionlift} lifts
+$(-)^{\freshfor a+}$ and $\delta_a^+$ to functors with the same action on the
+continuous categories, and preserves the unit and counit too.
+%
+Let $(-)^{\freshfor a++}$ and $\delta_a^{++}$ be the lifted functors and
+$\xi^{++}$ and $\zeta^{++}$ the lifted unit and counit.
+
+If $\typeP$ is an object of $\mathbf{FMCts}_s$ then certainly $\typeP^{\freshfor a++} =
+\typeP^{\freshfor a+}$. 
+%
+Suppose that $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$, then $(f
+\circ i_{\typeP})^{\dagger}$ is the corresponding arrow of the coKleisli
+category on $\mathbf{FMLin}_s$ and hence $f^{\freshfor a++}$ corresponds to the
+linear map ${(f \circ i_{\typeP})^{\dagger}}^{\freshfor a+} \circ
+\widehat{{\phi^{!}_{\typeP}}^{-1}}$, which in turn corresponds to the monotone
+map ${(f \circ i_{\typeP})^{\dagger}}^{\freshfor a+} \circ
+\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}(\typeP^{\freshfor a})}$.
+%
+The following diagram commutes in $\mathbf{FMPre}_{s \udot \{a\}}$ by naturality
+of $\{\cdot\}_{\downarrow}$, definition of $\phi^{!}$, \ref{comm:freshtriangle},
+\ref{def:freshlin} and the freeness property \ref{hat:freeness}.
+\begin{equation} \label{freshplusplus}
+\xymatrix{
+\widehat{{!}(\typeP^{\freshfor a})}
+	\ar[r]^{\widehat{{\phi^{!}_{\typeP}}^{-1}}}
+&
+\widehat{({!}\typeP)^{\freshfor a}}
+	\ar[dr]^{\phi^{-1}_{\typelift\typeP}}
+	\ar`r[ddrr] [ddrr]^{{(f \circ i_{\typeP})^{\dagger}}^{\freshfor a+}}
+\\
+{!}(\typeP^{\freshfor a})
+	\ar[r]_{{\phi^{!}_{\typeP}}^{-1}}
+	\ar[u]^{\{\cdot\}_{{!}(\typeP^{\freshfor a})}}
+	\ar[d]_{i_{\typeP^{\freshfor a}}}
+&
+(\typelift\typeP)^{\freshfor a}
+	\ar[u]^{\{\cdot\}_{(\typelift\typeP)^{\freshfor a}}}
+	\ar[r]_{\{\cdot\}_{\typelift\typeP}^{\freshfor a}}
+	\ar[d]_{i_{\typeP}^{\freshfor a}}
+&
+\widehat{\typelift\typeP}^{\freshfor a}
+	\ar[d]^{{(f \circ i_{\typeP})^\dagger}^{\freshfor a}}
+\\
+\widehat{\typeP^{\freshfor a}}
+	\ar[r]_{\phi_{\typeP}^{-1}}
+&
+\widehat{\typeP}^{\freshfor a}
+	\ar[r]_{f^{\freshfor a}}
+&
+\widehat{\typeQ}^{\freshfor a}
+	\ar[r]_{\phi_{\typeQ}}
+&
+\widehat{\typeQ^{\freshfor a}}
+}\end{equation}
+%
+Therefore by \ref{bang:freeness} and \ref{def:freshlin} \begin{equation}
+\label{def:freshcts} f^{\freshfor a++} = (\phi_{\typeQ} \circ f^{\freshfor a}
+\circ \phi_{\typeP}^{-1} \circ i_{\typeP^{\freshfor a}})^{\ddagger} =
+\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi_{\typeP}^{-1} = f^{\freshfor a+}.
+\end{equation}
+
+Similarly, if $\typeP$ is an object of $\mathbf{FMCts}_{s \udot \{a\}}$ then
+$\delta_a^{++}\typeP = \delta_a^+\typeP$. Suppose that $f : \typeP \to \typeQ$
+is an arrow of $\mathbf{FMCts}_{s \udot\{a\}}$, then $(f \circ
+i_{\typeP})^{\dagger}$ is the corresponding arrow of the coKleisli category on
+$\mathbf{FMCts}_{s \udot \{a\}}$ and hence $\delta_a^{++} f$ corresponds to the
+linear map $\delta_a^+ (f \circ i_{\typeP})^{\dagger} \circ
+\widehat{{\theta^{!}_{\typeP}}^{-1}}$ which in turn corresponds to the monotone
+map $\delta_a^+ (f \circ i_{\typeP})^{\dagger} \circ
+\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}\delta_a\typeP}$.
+%
+The following diagram commutes in $\mathbf{FMPre}_{s}$ by naturality of
+$\{\cdot\}_{\downarrow}$, definition of $\theta^{!}$, \ref{comm:deltatriangle},
+\ref{def:deltalin} and the freeness property \ref{hat:freeness}.
+\begin{equation} \label{deltaplusplus}
+\xymatrix{
+\widehat{{!}\delta_a\typeP}
+	\ar[r]^{\widehat{{\theta^{!}_{\typeP}}^{-1}}}
+&
+\widehat{\delta_a{!}\typeP}
+	\ar[dr]^{\theta^{-1}_{\typelift\typeP}}
+	\ar`r[ddrr] [ddrr]^{\delta_a^+ {(f \circ i_{\typeP})^{\dagger}}}
+\\
+{!}\delta_a\typeP
+	\ar[r]_{{\theta^{!}_{\typeP}}^{-1}}
+	\ar[u]^{\{\cdot\}_{{!}\delta_a\typeP}}
+	\ar[d]_{i_{\delta_a\typeP}}
+&
+\delta_a\typelift\typeP
+	\ar[u]^{\{\cdot\}_{\delta_a\typelift\typeP}}
+	\ar[r]_{\delta_a \{\cdot\}_{\typelift\typeP}}
+	\ar[d]_{\delta_a i_{\typeP}}
+&
+\delta_a \widehat{\typelift\typeP}
+	\ar[d]^{\delta_a (f \circ i_{\typeP})^\dagger}
+\\
+\widehat{\delta_a \typeP}
+	\ar[r]_{\theta_{\typeP}^{-1}}
+&
+\delta_a \widehat{\typeP}
+	\ar[r]_{\delta_a f}
+&
+\delta_a \widehat{\typeQ}
+	\ar[r]_{\theta_{\typeQ}}
+&
+\widehat{\delta_a \typeQ}
+}\end{equation}
+%
+Therefore by \ref{bang:freeness} and \ref{def:deltalin} \begin{equation}
+\label{def:deltacts} \delta_a^{++} f = (\theta_{\typeQ} \circ \delta_a f \circ
+\theta_{\typeP}^{-1} \circ i_{\delta_a \typeP})^{\ddagger} = \theta_{\typeQ}
+\circ \delta_a f \circ \theta_{\typeP}^{-1} = \delta_a^+ f. \end{equation}
+
+Recall that the counit $\epsilon$ of the adjunction \ref{bang:adj} is given by
+$\epsilon = i^{\dagger}$.
+%
+Therefore \begin{equation} \label{def:xicts} \begin{array}{rcl} \xi^{++} 
+%
+&=& (\xi^+_{\typeP} \circ \epsilon_{\typeP} \circ
+\{\cdot\}_{\typelift\typeP})^{\ddagger} \quad\text{by \ref{def:adjplus}} \\
+%
+&=& (\xi^+_{\typeP} \circ i_{\typeP}^\dagger \circ
+\{\cdot\}_{\typelift\typeP})^{\ddagger} \\
+%
+&=& (\xi^+_{\typeP} \circ i_{\typeP})^{\ddagger} \quad\text{by
+\ref{hat:freeness}} \\
+%
+&=& \xi^+_{\typeP} \quad\text{by \ref{bang:freeness}} \\
+%
+&=& \widehat{\xi_{\typeP}} \quad\text{by \ref{def:xilin}}
+%
+\end{array} \end{equation} and \begin{equation} \label{def:zetacts}
+\begin{array}{rcl} \zeta^{++} 
+%
+&=& (\zeta^+_{\typeP} \circ \epsilon_{(\delta_a\typeP)^{\freshfor a}} \circ
+\{\cdot\}_{\typelift{((\delta_a\typeP)^{\freshfor a})}})^{\ddagger}
+\quad\text{by \ref{def:adjplus}} \\
+%
+&=& (\zeta^+_{\typeP} \circ i_{(\delta_a\typeP)^{\freshfor a}}^\dagger \circ
+\{\cdot\}_{\typelift{((\delta_a\typeP)^{\freshfor a})}})^{\ddagger} \\
+%
+&=& (\zeta^+_{\typeP} \circ i_{(\delta_a\typeP)^{\freshfor a}})^{\ddagger}
+\quad\text{by \ref{hat:freeness}} \\
+%
+&=& \zeta^+_{\typeP} \quad\text{by \ref{bang:freeness}} \\
+%
+&=& \widehat{\zeta_{\typeP}} \quad\text{by \ref{def:zetalin}}
+%
+\end{array} \end{equation}
+
+In summary, therefore, $(-)^{\freshfor a+}$ and $\delta_a^+$ preserve continuous
+maps, and $\xi^+$ and $\zeta^+$ are themselves continuous. It has already been
+shown that these form an adjunction on the linear categories, so it is now clear
+that they give a corresponding adjunction \ref{deltafreshadjcts} on the
+continuous categories too.
+
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:

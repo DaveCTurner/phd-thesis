@@ -1,0 +1,633 @@
+\section{Nominal Path Semantics}
+\label{nominalpathsemantics}
+
+TODO Motivate subsets of nominal path orders as representing processes.
+
+TODO Notation: $\typeP_{\downarrow} = \{p' \mid \exists p \in \typeP. p' \le p \}$.
+
+\section{Nominal Nondeterministic Domains}
+\label{nominalnondeterministicdomains}
+
+\subsection{Free Completions of Path Orders}
+
+The collection of path sets over a nominal path order $\typeP$ may be ordered by
+inclusion to form the nominal partial order $\widehat{\typeP}$, which will be
+interpreted as a domain of the meanings of processs of type $\typeP$. More
+generally, if $\typeP$ is any FM-preorder then define \begin{equation}
+\label{hat:objects} \widehat{\typeP} \defeq \{x_\downarrow \mid x
+\subseteq_{\mathrm{fs}} \typeP\},\end{equation} ordered by inclusion. Such a
+poset is a FM-complete join-semilattice in the sense that every
+finitely-supported subset of $\widehat{\typeP}$ has a join in $\widehat{\typeP}$
+given by its union.
+
+Alternatively, $\widehat{\typeP}$ may be viewed as the monotone function space
+$\typeP^{\mathrm{op}} \to_{\mathrm{fs}} \mathbf{2}$ where $\mathbf{2}$ is the
+nontrivial poset on $\{\top, \bot\}$. Elements $x \in \widehat{\typeP}$
+correspond to their characteristic functions $\chi_x$ such that
+\begin{equation}\chi_x(p) = \begin{cases} \top & \text{if $p \in x$} \\ \bot &
+\text{otherwise.} \end{cases}\end{equation}
+
+The operation $\widehat{(-)}$ may be extended to a functor $\mathbf{FMPre}_s \to
+\mathbf{FMPre}_s$. where if $f : \typeP \to \typeQ$ is an arrow of
+$\mathbf{FMPre}_s$ then for all $x \in \widehat{\typeP}$ define \begin{equation}
+\label{hat:arrows} \widehat{f}x \defeq \{ q \in \typeQ \mid \exists p \in x. q
+\le_{\typeQ} f p \}.\end{equation} It is not hard to see that this defines a
+functor. 
+
+The order $\widehat{\typeP}$ contains elements of the form $\{p\}_{\downarrow}$
+for each $p \in \typeP$. These elements are (completely) prime: if $X \subseteq
+\widehat{\typeP}$ and $\{p\}_{\downarrow} \subseteq \bigcup X$ then $p \in
+\bigcup X$ so there exists $x \in X$ such that $p \in x$ and hence
+$\{p\}_{\downarrow} \subseteq x$. Conversely, every prime element is of this
+form: certainly $x \subseteq \bigcup \{\{p\}_{\downarrow} \mid p \in x\}$ so if
+$x$ is prime then there exists $p \in x$ such that $x \subseteq
+\{p\}_{\downarrow}$ and hence $x = \{p\}_{\downarrow}$ as required.
+
+Furthermore, if $x \in \widehat{\typeP}$ then \begin{equation} x = \bigcup
+\{\{p\}_{\downarrow} \mid p \in x\}.\end{equation} so that $\widehat{\typeP}$ is
+completely prime algebraic.
+
+Finally, $\widehat{\typeP}$ can be characterised abstractly as the free
+finitely-supported join completion of $\typeP$. In other words,
+$\widehat{\typeP}$ has all finitely-supported joins and if $C$ is a poset that
+also has all finitely supported joins and $f : \typeP \to C$ is a monotone
+finitely-supported function then there is a unique finitely-supported
+$f^{\dagger} : \widehat{\typeP} \to C$ that preserves all finitely supported
+joins and such that the following diagram commutes.  \begin{equation} \label
+{hat:freeness} \xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\downarrow}} \ar[dr]_f &
+\widehat{\typeP} \ar[d]^{f^{\dagger}} \\& C}\end{equation} The function
+$f^{\dagger}$ is given by \begin{equation}f^{\dagger}X \defeq \bigcup\{f p \mid
+p \in X\}.\end{equation} The uniqueness of $f^{\dagger}$ follows from the
+algebraicity of $\widehat{\typeP}$, and it is not hard to show that it preserves
+finitely-supported joins and that it is itself finitely-supported. In
+particular, if $C$ is of the form $\widehat{\typeQ}$ then this shows that
+finitely-supported monotone maps $\typeP \to \widehat{\typeQ}$ are in bijective
+correspondence with finitely-supported finitely-supported-join-preserving maps
+$\widehat{\typeP} \to \widehat{\typeQ}$.  For brevity, call such maps
+`FM-linear'.
+
+\subsection{Categories of FM-Linear Maps}
+\label{fmlin}
+
+Let $\mathbf{FMLin}_s$ be the category whose objects are FM-preorders $\typeP$,
+$\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \to \typeQ$ are
+FM-linear maps $\widehat{\typeP} \to \widehat{\typeQ}$ supported by $s$.
+
+If $f$ is an arrow of $\mathbf{FMPre}_s$ then it is straightforward to see that
+$\widehat{f}$ is FM-linear not merely monotone, so that $\widehat{(-)}$ defines
+a functor $\mathbf{FMPre}_s \to \mathbf{FMLin}_s$.  On the other hand, FM-linear
+maps are necessarily monotone, since if $a \le b$ then $a \vee b = b$ so that if
+$f$ preserves joins then $f a \vee f b = f (a \vee b) = f b$ and hence $f a \le
+f b$. Therefore there is an inclusion $\mathbf{FMLin}_s \hookrightarrow
+\mathbf{FMPre}_s$. The discussion at the end of the previous section shows that
+there is an isomorphism \begin{equation} \label{hat:adj}
+\mathbf{FMPre}_s(\typeP, \widehat{\typeQ}) \cong \mathbf{FMLin}_s(\typeP,
+\typeQ)\end{equation} and it is not hard to see that this is natural in $\typeP$
+and $\typeQ$, and hence an adjunction with the inclusion as left adjoint.  In
+detail, the unit of this adjunction is given by the transpose of the identity in
+\ref{hat:adj} and by \ref{hat:freeness} it is therefore $\{\cdot\}_\downarrow$.
+Conversely the counit is given by $\mathord{\cup} \defeq
+\mathbf{1}_{\widehat{(-)}}^\dagger$, and in detail if $X \in
+\widehat{\widehat{\typeP}}$ then \begin{equation} \mathord{\cup}_{\typeP} X =
+\mathbf{1}_{\widehat{\typeP}}^\dagger X = \bigcup X. \end{equation}
+
+TODO Copy across discussion of structures in $\mathbf{FMLin}_s$ from
+$\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.
+
+\subsection{Relationship between $\widehat{(-)}$, $(-)^{\freshfor a}$ and
+$\delta_a$ }
+
+The key result of this section is that there is an adjunction on the FM-linear
+categories that is analogous to the adjunction $(-)^{\freshfor a} \dashv
+\delta_a$ described in lemma \ref{deltafreshadj}. The path to this result is via
+lemma \ref{adjunctionlift}, which requires natural transformations
+$\widehat{(-)}^{\freshfor a} \to \widehat{(-)}^{\freshfor a}$ and $ \delta_a
+\widehat{(-)} \to \widehat{\delta_a (-)}$.  It turns out that, perhaps
+surprisingly, these functors are naturally isomorphic and the isomorphisms
+satisfy the appropriate coherence conditions.
+
+\begin{lemma}\label{freshhatiso} Let $a \notin s$. The functors
+\[\widehat{(-)}^{\freshfor a}, \widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s
+\rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}\] are naturally isomorphic.
+\end{lemma}
+
+\begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_s$ define
+$\phi_{\typeP} : \widehat{\typeP}^{\freshfor a} \to \widehat{\typeP^{\freshfor
+a}}$ by \begin{equation} \label{def:phi} \phi_{\typeP} (x) \defeq \{ p \in x
+\mid a \freshfor p \}.\end{equation}
+%
+% Well-defined
+Then it is clear that $\phi_{\typeP}$ is an arrow of $\mathbf{FMPre}_{s \udot
+\{a\}}$. 
+%
+% Naturality
+To see that $\phi_{\typeP}$ is natural in $\typeP$, let $f : \typeP \to \typeQ$
+be an arrow of $\mathbf{FMPre}_s$ and let $x \in \widehat{\typeP}^{\freshfor
+a}$.
+%
+% Naturality (1)
+Let $q \in \bigl(\widehat{f^{\freshfor a}} \circ \phi_{\typeP}\bigr) (x)$, then
+there is some $p \in x$ such that $a \freshfor p$ and $q \le f p$, and also $a
+\freshfor q$. However if $a \freshfor p$ then $a \freshfor f p$ since $a
+\freshfor f$ by assumption, so that $q \in \bigl(\phi_{\typeQ} \circ
+\widehat{f}^{\freshfor a} \bigr)(x)$.
+%
+% Naturality(2)
+Conversely let $q \in \bigl(\phi_{\typeQ} \circ \widehat{f}^{\freshfor a}
+\bigr)(x)$, then $a \freshfor q$ and $q \le f p$ for some $p \in x$. Let $b$ be
+a fresh name, then $q = (ab) \cdot q \le (ab) \cdot (f p) = f ((ab) \cdot p)$,
+and $b \freshfor p$ so that $a \freshfor (ab) \cdot p$. Therefore $q \le f((ab)
+\cdot p) \in \bigl(\widehat{f^{\freshfor a}} \circ \phi_{\typeP}\bigr) (x)$ and
+hence $\bigl(\widehat{f^{\freshfor a}} \circ \phi_{\typeP}\bigr) =
+\bigl(\phi_{\typeQ} \circ \widehat{f}^{\freshfor a} \bigr)(x)$ so that
+$\phi_{\typeP}$ is natural in $\typeP$.
+
+%
+% Definition of inverse
+Define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
+\widehat{\typeP}^{\freshfor a} $ by \begin{equation} \label{def:phiinv}
+\phi^{-1}_{\typeP} (x) \defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot
+x.\end{equation}
+%
+It will simplify the remainder of this discussion to show that if $x \in
+\widehat{\typeP^{\freshfor a}}$ then \begin{equation}
+\label{characterisation:phiinv} p \in \phi^{-1}_{\typeP} (x) \quad
+\Leftrightarrow\quad \freshin{c}{p \in (ac) \cdot x}.\end{equation}
+%
+To see this, suppose that $p \in \phi^{-1}_{\typeP} (x)$, then either $p \in x$
+or there exists $b$ such that $b \freshfor x$ and $p \in (ab) \cdot x$. If $p
+\in x$ then $a \freshfor p$.  Let $c$ be fresh, then $p = (ac) \cdot p \in (ac)
+\cdot x$ as required. On the other hand, let $b$ be such that $b \freshfor x$
+and $p \in (ab) \cdot x$, then $b \freshfor p$. If $a = b$ then this reduces to
+the previous case, so suppose that $a \neq b$. Let $c$ be fresh, then \[p = (bc)
+\cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x\]
+as required. Conversely, suppose that $c$ is fresh and $p \in (ac) \cdot x$,
+then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
+
+Now it is necessary to show that $\phi^{-1}_{\typeP}$ is well-defined, so let $x
+\in \widehat{\typeP^{\freshfor a}}$. Let $p \in \phi^{-1}_{\typeP} (x)$ and let
+$b$ be a fresh name, then $p \in (ab) \cdot x \subseteq (ab) \cdot \typeP =
+\typeP$ so that $\phi^{-1}_{\typeP} (x) \subseteq \typeP$. Now let $p'
+\le_{\typeP} p$, and let $b'$ be fresh, then $a \freshfor (ab') \cdot p'$ so
+that $(ab') \cdot p' \le_{\typeP^{\freshfor a}} (ab') \cdot p \in x \in
+\widehat{\typeP^{\freshfor a}}$ so that $(ab') \cdot p' \in x$ and hence $p' \in
+\phi^{-1}_{\typeP} (x)$. Therefore $\phi^{-1}_{\typeP} (x) \in
+\widehat{\typeP}$. It remains to show that $a \freshfor \phi^{-1}_{\typeP} (x)$,
+so let $b$ be a fresh name and aim to prove that $\phi^{-1}_{\typeP} (x) = (ab)
+\cdot \phi^{-1}_{\typeP} (x)$. Let $p \in \phi^{-1}_{\typeP} (x)$ and let $c$ be
+a fresh name, then $p \in (ac) \cdot x$ and hence $(ab) \cdot p \in (ab) \cdot
+(ac) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x$ so that $(ab) \cdot p \in
+\phi^{-1}_{\typeP} (x)$. Therefore $\phi^{-1}_{\typeP} (x) \subseteq (ab) \cdot
+\phi^{-1}_{\typeP} (x)$ so that by equivariance $\phi^{-1}_{\typeP} (x) = (ab)
+\cdot \phi^{-1}_{\typeP} (x)$ and hence $\phi^{-1}_{\typeP} (x) \in
+\widehat{\typeP}^{\freshfor a}$.
+%
+% Supported by s+a
+Now to see that $\phi^{-1}_{\typeP}$ is supported by $s \udot \{a\}$ let $x \in
+\widehat{\typeP^{\freshfor a}}$ and let $\sigma$ be a permutation that fixes $s
+\udot \{a\}$.
+%
+% Supported by s+a (1)
+Let $p \in \sigma \cdot (\phi^{-1}_{\typeP} (x))$ and let $b$ be a fresh name,
+then $p \in \sigma \cdot (ab) \cdot x = (ab) \cdot \sigma \cdot x$ and hence $p
+\in \phi^{-1}_{\typeP} (\sigma \cdot x)$.
+%
+% Supported by s+a (2)
+Conversely let $p \in \phi^{-1}_{\typeP} (\sigma \cdot x)$ and let $b$ be a
+fresh name, then $p \in (ab) \cdot \sigma \cdot x = \sigma \cdot (ab) \cdot x$
+and hence $p \in \sigma \cdot \phi^{-1}_{\typeP} (x)$ as required.  Therefore
+$\sigma \cdot \phi^{-1}_{\typeP}(x) = \phi^{-1}_{\typeP} (\sigma \cdot x)$.  It
+is clear that $\phi^{-1}_{\typeP}$ is monotone, so this has shown that
+$\phi^{-1}_{\typeP}$ is indeed an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$.
+
+%
+% Inverses (1)
+To see that $\phi^{-1}_{\typeP} \circ \phi_{\typeP} =
+\mathbf{1}_{\widehat{\typeP}^{\freshfor a}}$, let $x \in
+\widehat{\typeP}^{\freshfor a}$ and show that $(\phi^{-1}_\typeP \circ
+\phi_{\typeP})(x) = x$ as follows. Let $p \in x$ and let $b$ be a fresh name. By
+assumption, $a \freshfor x$ so that $(ab) \cdot p \in x$.  Also $b \freshfor p$
+so that $a \freshfor (ab) \cdot p$ and hence $(ab) \cdot p \in
+\phi_{\typeP}(x)$. Therefore $p \in (ab) \cdot \phi_{\typeP}(x)$ and $b$ is
+fresh so that $p \in (\phi^{-1}_{\typeP} \circ \phi_{\typeP}) (x)$.  Conversely
+let $p \in (\phi^{-1}_{\typeP} \circ \phi_{\typeP}) (x)$ and let $b$ be a fresh
+name, then $p \in (ab) \cdot \phi_{\typeP}(x)$ so that $p \in (ab) \cdot x = x$.
+Therefore $\phi^{-1}_{\typeP} \circ \phi_{\typeP} =
+\mathbf{1}_{\widehat{\typeP}^{\freshfor a}}$.
+
+%
+% Inverses (2)
+To see that $\phi_{\typeP} \circ \phi^{-1}_{\typeP} =
+\mathbf{1}_{\widehat{\typeP^{\freshfor a}}}$, let $x \in
+\widehat{\typeP^{\freshfor a}}$ and show that $(\phi_{\typeP} \circ
+\phi^{-1}_\typeP) (x) = x$ as follows. Let $p \in x$, then $p \in
+\phi^{-1}_{\typeP}(x)$ and furthermore $a \freshfor p$ so that $p \in
+(\phi_{\typeP} \circ \phi^{-1}_{\typeP}) (x)$. Conversely, let $p \in
+(\phi_{\typeP} \circ \phi^{-1}_{\typeP}) (x)$, then $a \freshfor p$ and $p \in
+\phi^{-1}_{\typeP} (x)$ so that for a fresh name $b$, $p \in (ab) \cdot x$ and
+hence $p = (ab) \cdot p \in x$.  Therefore $\phi_{\typeP} \circ
+\phi_{\typeP}^{-1} = \mathbf{1}_{\widehat{\typeP^{\freshfor a}}}$. It follows
+immediately that $\phi^{-1}_{\typeP}$ is natural in $\typeP$, and hence that
+$\phi$ is a natural isomorphism with inverse given by $\phi^{-1}$ as required.
+\end{proof}
+
+\begin{lemma}\label{deltahatiso} Let $a \notin s$. The functors \[\delta_a
+\widehat{(-)}, \widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}}
+\rightrightarrows \mathbf{FMPre}_s\] are naturally isomorphic. \end{lemma}
+
+\begin{proof} For each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$
+define $\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a
+\typeP}$ by \begin{equation} \label{def:theta} \theta_{\typeP}(x') \defeq \{p'
+\mid \freshin{b}{ p' @ b \in x' @ b\}}.\end{equation}
+%
+% Well-defined
+It is necessary to show that $\theta_{\typeP}$ is well-defined, so let $x' \in
+\delta_a\widehat{\typeP}$ and show that $\theta_{\typeP}(x') \in
+\widehat{\delta_a \typeP}$ as follows.  Let $p' \in \theta_{\typeP}(x')$ and let
+$b$ be a fresh name, then $p' @ b \in x' @ b \in (ab) \cdot \widehat{\typeP}$ so
+that $p' @ b \in (ab) \cdot \typeP$ and hence $p' \in \delta_a\typeP$. Let $p''
+\le_{\delta_a\typeP} p'$ and let $b'$ be a fresh name, then $p'' @ b' \le_{(ab')
+\cdot \typeP} p' @ b' \in x' @ b' \in (ab') \cdot \widehat{\typeP}$ so that $p''
+@ b' \in x' @ b'$ and hence $p'' \in x'$. Therefore $\theta_{\typeP}(x) \in
+\widehat{\delta_a\typeP}$ as required.
+
+To see that $\theta_{\typeP}$ is supported by $s$ let $\sigma$ be a permutation
+that fixes $s$, let $x' \in \delta_a\widehat{\typeP}$ and show that $\sigma
+\cdot \theta_{\typeP}(x') = \theta_{\typeP} (\sigma \cdot x')$ as follows.  Let
+$p' \in \sigma \cdot \theta_{\typeP}(x')$ and let $b$ be a fresh name, then
+$(\sigma \cdot p') @ b \in x' @ b$ and hence $p' @ b \in (\sigma \cdot x') @ b$
+as $\sigma \cdot b = b$ so that $p' \in \theta_{\typeP}(\sigma \cdot x')$.
+Conversely, let $p' \in \theta_{\typeP}(\sigma \cdot x')$ and let $b$ be a fresh
+name, then $p' @ b \in (\sigma \cdot x') @ b$ and hence $(\sigma \cdot p') @ b
+\in x' @ b$ as $\sigma \cdot b = b$ so that $p' \in \sigma \cdot \theta_{\typeP}
+(x')$ as required. It is clear that $\theta_{\typeP}$ is monotone, so this has
+shown that $\theta_{\typeP}$ is an arrow of $\mathbf{FMPre}_{s}$.
+
+To see that $\theta_{\typeP}$ is natural in $\typeP$, let $f : \typeP \to
+\typeQ$ be an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$, let $x' \in \delta_a
+\widehat{\typeP}$ and show that $(\theta_{\typeQ} \circ \delta_a
+\widehat{f})(x') = (\widehat{\delta_a f} \circ \theta_{\typeP}) (x')$ as
+follows.  Let $q' \in (\theta_{\typeQ} \circ \delta_a \widehat{f})(x')$ and let
+$b$ be a fresh name, then \[q' @ b \in (\delta_a \widehat{f}(x')) @ b =
+\bigl((ab) \cdot \widehat{f}\bigr) (x'@b)\] so that there exists $p \in x'@b$
+such that $q'@b \le_{\typeQ} ((ab) \cdot f)(p)$.  Therefore \[q' \le_{\delta_a
+\typeQ} [b].((ab) \cdot f)(p) = [b].\bigl((ab) \cdot
+f\bigr)\bigl(([b].p)@b\bigr) = \delta_a f ([b].p)\] and $[b].p \in
+\theta_{\typeP} (x')$ so that $q' \in (\widehat{\delta_a f} \circ
+\theta_{\typeP}) (x')$. Conversely, let $q' \in (\widehat{\delta_a f} \circ
+\theta_{\typeP}) (x')$ so that there is $p' \in \theta_{\typeP} (x')$ such that
+$q' \le_{\delta_a\typeQ} \delta_a f (p')$. Let $b$ be a fresh name, then $p' @ b
+\in x' @ b$ and $q' @ b \le_{\typeQ} \bigl(\delta_a f (p')\bigr) @ b =
+\bigl((ab) \cdot f\bigr)(p' @ b)$. Therefore $q' @ b \in \bigl((ab) \cdot
+\widehat{f}\bigr)(x'@b) = \bigl(\delta_a \widehat{f} (x')\bigr) @ b$ and hence
+$q' \in (\theta_{\typeQ} \circ \delta_a \widehat{f})(x')$ as required.
+
+Now for each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
+$\theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \delta_a\widehat{\typeP}$
+by \begin{equation} \label{def:thetainv} \theta^{-1}_{\typeP}(x) \defeq
+\freshin{b}{ [b].\{p \mid [b].p \in x\}}.\end{equation}
+%
+It is necessary to show that $\theta^{-1}_{\typeP}$ is well-defined, so let $x
+\in \widehat{\delta_a \typeP}$ and show that $\theta^{-1}_{\typeP}(x) \in
+\delta_a\widehat{\typeP}$ as follows.  Let $b$ be a fresh name, and let $p \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b$, then $[b].p \in x \subseteq{\delta_a
+\typeP}$ so that $[b].p \in \delta_a \typeP$ and hence $p \in (ab) \cdot
+\typeP$. Let $p' \le_{\typeP} p$, then $[b].p' \le_{\delta_a \typeP} [b].p \in x
+\in \widehat{\delta_a \typeP}$ so that $[b].p' \in x$ and hence $p' \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr)@b$.  Therefore
+$\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b \in (ab) \cdot \widehat{\typeP}$ so
+that $\theta^{-1}_{\typeP}(x) \in \delta_a \widehat{\typeP}$ as required.
+
+To see that $\theta^{-1}_{\typeP}$ is supported by $s$, let $\sigma$ be a
+permutation that fixes $s$, let $x \in \widehat{\delta_a\typeP}$, let $b$ be a
+fresh name and show that $\sigma \cdot \theta^{-1}_{\typeP}(x) =
+\theta^{-1}_{\typeP} (\sigma \cdot x)$ as follows.  Let $p \in \bigl(\sigma
+\cdot \theta^{-1}_{\typeP}(x)\bigr) @ b$ then $[b].(\sigma^{-1} \cdot p) \in x$
+and hence $[b].p \in \sigma \cdot x$ since $\sigma \cdot b = b$. Therefore $p
+\in \bigl(\theta^{-1}_{\typeP}(\sigma \cdot x)\bigr) @ b$. Conversely let $p \in
+\bigl(\theta^{-1}_{\typeP}(\sigma \cdot x)\bigr) @ b$ then $[b].p \in \sigma
+\cdot x$ and hence $[b].(\sigma^{-1} \cdot p) \in x$ since $\sigma \cdot b = b$.
+Therefore $p \in \bigl(\sigma \cdot \theta^{-1}_{\typeP}(x)\bigr) @ b$ so that
+$\bigl(\sigma \cdot \theta^{-1}_{\typeP}(x)\bigr) @ b =
+\bigl(\theta^{-1}_{\typeP}(\sigma \cdot x)\bigr) @ b$ and hence $\sigma \cdot
+\theta^{-1}_{\typeP}(x) = \theta^{-1}_{\typeP} (\sigma \cdot x)$ as required. It
+is not hard to see that $\theta^{-1}_{\typeP}$ is monotone, so this has shown
+that $\theta^{-1}_{\typeP}$ is an arrow of $\mathbf{FMPre}_{s}$.
+
+To see that $\theta^{-1}_{\typeP} \circ \theta_{\typeP} =
+\mathbf{1}_{\delta_a\widehat{\typeP}}$, let $x' \in \delta_a\widehat{\typeP}$
+and show that $(\theta^{-1}_{\typeP} \circ \theta_{\typeP}) (x') = x'$ as
+follows. Let $b$ be a fresh name, then it suffices to show that
+$\bigl((\theta^{-1}_{\typeP} \circ \theta_{\typeP}) (x')\bigr) @ b = x' @ b$.
+Let $p \in x'@b$, then $([b].p)@b \in x'@b$ and hence $[b].p \in
+\theta_{\typeP}(x')$ so that finally $p \in \bigl(\theta^{-1}_{\typeP}
+(\theta_{\typeP}(x'))\bigr) @b$.  Conversely, let $p \in
+\bigl(\theta^{-1}_{\typeP} (\theta_{\typeP}(x'))\bigr) @b$, then $[b].p \in
+\theta_{\typeP}(x')$ so that if $c$ is a fresh name then $(bc) \cdot p \in x' @
+c$ and as $b$ and $c$ were fresh this means that $p \in ((bc) \cdot x') @ b = x'
+@ b$ as required.
+
+To see that $\theta_{\typeP} \circ \theta^{-1}_{\typeP} =
+\mathbf{1}_{\widehat{\delta_a \typeP}}$, let $x \in \widehat{\delta_a\typeP}$
+and show that $(\theta_{\typeP} \circ \theta^{-1}_{\typeP}) (x) = x$ as follows.
+Let $p' \in x$ and let $b$ be a fresh name, then $p'@b \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b$ so that $p' \in (\theta_{\typeP} \circ
+\theta^{-1}_{\typeP}) (x)$.  Conversely, let $p' \in (\theta_{\typeP} \circ
+\theta^{-1}_{\typeP}) (x)$ and let $b$ be a fresh name, then $p'@b \in
+\bigl(\theta^{-1}_{\typeP}(x)\bigr) @ b$ so that $p' = [b].(p'@b) \in x$ as
+required.  It follows immediately that $\theta^{-1}_{\typeP}$ is natural in
+$\typeP$, and hence $\theta$ is a natural isomorphism with inverse given by
+$\theta^{-1}$ as required.  \end{proof}
+
+Furthermore, the isomorphisms $\phi$ and $\theta$ defined in \ref{def:phi} and
+\ref{def:theta} can be used to lift the adjunction $(-)^{\freshfor a} \dashv
+\delta_a$ to an adjunction \begin{equation} \label{deltafreshadjlin}
+(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_{s} \leftrightarrows
+\mathbf{FMLin}_{s \udot \{a\}}.\end{equation} 
+%
+Firstly, since the inclusion functor is a bijection on objects, by lemma
+\ref{adjunctioninclusion} the Kleisli category of the monad $(\widehat{(-)},
+\{\cdot\}_{\downarrow}, \mathord{\cup})$ on $\mathbf{FMPre}_s$ is isomorphic to
+$\mathbf{FMLin}_s$.  Therefore it is enough to show the following.
+
+\begin{lemma}\label{deltafreshadjhatkleisli} There is an adjunction
+\[(-)^{\freshfor a+} \dashv \delta_a^+ : \mathrm{Kl}\bigl(\widehat{(-)} \text{
+on } \mathbf{FMPre}_s\bigr) \leftrightarrows \mathrm{Kl}\bigl(\widehat{(-)}
+\text{ on } \mathbf{FMPre}_{s \udot \{a\}}\bigr),\] where $(-)^{\freshfor a+}$
+and $\delta_a^+$ are defined as in the statement of lemma \ref{adjunctionlift}.
+\end{lemma}
+
+\begin{proof}
+Let $\phi$ and $\theta$ be as defined in \ref{def:phi} and \ref{def:theta}, then
+by lemma \ref{adjunctionlift} it is sufficient to show that the diagrams below
+commute.
+\[\begin{array}{ccc}
+\xymatrix{
+\typeP^{\freshfor a} \ar[r]^{\{\cdot\}_{\typeP}^{\freshfor a}} 
+\ar[dr]_{\{\cdot\}_{\typeP^{\freshfor a}}} & 
+\widehat{\typeP}^{\freshfor a} \ar[d]^{\phi_\typeP} \\ & \widehat{\typeP^{\freshfor a}}}
+%
+&\xymatrix{
+\widehat{\widehat{\typeP}}^{\freshfor a} \ar[r]^{\mathord{\cup}_\typeP^{\freshfor a}}
+\ar[d]^{\phi_{\widehat{\typeP}}} &
+\widehat{\typeP}^{\freshfor a} \ar[dd]^{\phi_\typeP} \\
+\widehat{\widehat{\typeP}^{\freshfor a}} \ar[d]^{\widehat{\phi_\typeP}} \\
+\widehat{\widehat{\typeP^{\freshfor a}}} \ar[r]^{\mathord{\cup}_{\typeP^{\freshfor a}}} &
+\widehat{\typeP^{\freshfor a}}}
+%
+&\xymatrix{
+\widehat{\typeP} \ar[r]^{\widehat{\xi}} 
+\ar[d]^{\xi_{\widehat{\typeP}}} & 
+\widehat{\delta_a(\typeP^{\freshfor a})}
+\\
+\delta_a(\widehat{\typeP}^{\freshfor a})
+\ar[r]^{\delta_a \phi_\typeP} & 
+\delta_a \widehat{\typeP^{\freshfor a}} \ar[u]_{\theta_{\typeP^{\freshfor a}}}}
+%
+\\
+%
+\xymatrix{
+\delta_a\typeP \ar[r]^{\delta_a\{\cdot\}_\typeP} 
+\ar[dr]_{\{\cdot\}_{\delta_a\typeP}} & 
+\delta_a\widehat{\typeP} \ar[d]^{\theta_{\typeP}} \\ & 
+\widehat{\delta_a\typeP}}
+%
+&\xymatrix{
+\delta_a \widehat{\widehat{\typeP}} \ar[r]^{\delta_a\mathord{\cup}_{\typeP}}
+\ar[d]^{\theta_{\widehat\typeP}} &
+\delta_a\widehat{\typeP} \ar[dd]^{\theta_{\typeP}} \\
+\widehat{\delta_a \widehat{\typeP}} \ar[d]^{\widehat{\theta_{\typeP}}} \\
+\widehat{\widehat{\delta_a\typeP}} \ar[r]^{\mathord{\cup}_{\delta_a\typeP}} &
+\widehat{\delta_a\typeP}}
+%
+&\xymatrix{
+(\delta_a\widehat{\typeP})^{\freshfor a} \ar[r]^{\theta_{\typeP}^{\freshfor a}} 
+\ar[d]^{\zeta_{\widehat{\typeP}}} & 
+\widehat{\delta_a\typeP}^{\freshfor a} \ar[d]^{\phi_{\delta_a\typeP}} \\
+\widehat{\typeP} &
+\widehat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\zeta_{\typeP}}}}
+\end{array}\]
+
+To see that the triangle containing the $(-)^{\freshfor a}$ functor commutes,
+let $p \in \typeP^{\freshfor a}$, then \begin{equation}
+\label{comm:freshtriangle} \begin{array}{rcl}
+\bigl(\{\cdot\}_{\typeP^{\freshfor a}}\bigr)p 
+%
+&=& \{p' \in \typeP^{\freshfor a} \mid p' \le_{\typeP^{\freshfor a}} p\} \\
+%
+&=& \{p' \in \typeP \mid a \freshfor p' \wedge p' \le_{\typeP} p\} \\
+%
+&=& \phi_{\typeP} \{p' \in \typeP \mid p' \le_{\typeP} p\} \\
+%
+&=& \bigl( \phi_{\typeP} \circ \{\cdot\}_{\typeP}^{\freshfor a} \bigr) p.
+\end{array} \end{equation}
+
+To see that the pentagon containing the $(-)^{\freshfor a}$ functor commutes,
+let $X \in \widehat{\widehat{\typeP}}^{\freshfor a}$.  First, let $p \in
+\bigl(\phi_{\typeP} \circ \mathord{\cup}_{\typeP}^{\freshfor a}\bigr)X$, then $a
+\freshfor p$ and there exists $x \in X$ such that $p \in x$.  Let $b$ be a fresh
+name, then $p = (ab) \cdot p \in (ab) \cdot x \in (ab) \cdot X = X$ and $a
+\freshfor (ab) \cdot x$. Therefore $(ab) \cdot x \in \phi_{\widehat\typeP} X$
+and $p \in \phi_{\typeP} (ab) \cdot x$ so that $p \in
+\bigl(\mathord{\cup}_{\typeP^{\freshfor a}} \circ \widehat{\phi_\typeP} \circ
+\phi_{\widehat\typeP} \bigr) X$. Conversely, let $p \in
+\bigl(\mathord{\cup}_{\typeP^{\freshfor a}} \circ \widehat{\phi_\typeP} \circ
+\phi_{\widehat\typeP} \bigr) X$, then $a \freshfor p$ and there exists $x \in X$
+such that $a \freshfor x$ and $p \in x$ so that $p \in \bigl(\phi_{\typeP} \circ
+\mathord{\cup}_{\typeP}^{\freshfor a}\bigr)X$ as required.
+
+To see that the square containing the unit $\xi$ commutes, let $x \in
+\widehat{\typeP}$, then \begin{equation} \label{comm:xisquare} \begin{array}{rcl} \bigl(\theta_{\typeP^{\freshfor a}}
+\circ \delta_a \phi_{\typeP} \circ \xi_{\widehat{\typeP}}\bigr) x 
+%
+&=& \bigl(\theta_{\typeP^{\freshfor a}} \circ \delta_a \phi_{\typeP}\bigr)
+\freshin{b}{[b].x} \\
+%
+&=& \theta_{\typeP^{\freshfor a}} \freshin{b}{[b].\bigl(((ab) \cdot \phi)
+x\bigr)} \\
+%
+&=& \theta_{\typeP^{\freshfor a}} \freshin{b}{[b].\{p \in x \mid b \freshfor
+p\}} \\
+%
+&=& \{p' \mid \freshin{b}{p' @ b \in \{p \in x \mid b \freshfor p\}}\} \\
+%
+&=& \{p' \mid \freshin{b}{p' @ b \in x \wedge b \freshfor p'@b}\} \\
+%
+&=& \widehat{\xi_\typeP} x.
+%
+\end{array} \end{equation}
+
+To see that the triangle containing the $\delta_a$ functor commutes, let $p \in
+\delta_a\typeP$, then \begin{equation} \label{comm:deltatriangle} \begin{array}{rcl}
+\bigl(\{\cdot\}_{\delta_a\typeP}\bigr)p
+%
+&=& \{p' \in \delta_a\typeP \mid p' \le_{\delta_a\typeP} p\} \\
+%
+&=& \{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \le_{(ab) \cdot \typeP} p@b}\}
+\\
+%
+&=& \{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \in \{p@b\}_\downarrow}\} \\
+%
+&=& \bigl\{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \in
+([b].\{p@b\}_\downarrow)@b}\bigr\} \\
+%
+&=& \theta_{\typeP} \bigl(\freshin{b}{[b].\{p@b\}_\downarrow)}\bigr) \\
+%
+&=& \bigl( \theta_{\typeP} \circ \delta_a\{\cdot\}_{\typeP}\bigr) p.
+\end{array} \end{equation}
+
+To see that the pentagon containing the $\delta_a$ functor commutes, let $X' \in
+\delta_a \widehat{\widehat{\typeP}}$. First, let $p' \in \bigl(\theta_\typeP
+\circ \delta_a \mathord{\cup}_{\typeP}\bigr) X'$ and let $b$ be a fresh name,
+then \[p' @ b \in \bigl(\delta_a \mathord{\cup}_{\typeP} X'\bigr) @ b = \bigcup
+(X'@b)\] and hence there exists $x \in X'@b$ such that $p'@b \in x$.  It follows
+that $([b].x)@b \in X'@b$ and $p'@b \in ([b].x)@b$ and hence $[b].x \in
+\theta_{\widehat{\typeP}} X'$ and $p' \in \theta_{\typeP} [b].x$ so that $p' \in
+\bigl(\mathord{\cup}_{\delta_a\typeP} \circ \widehat{\theta_{\typeP}} \circ
+\theta_{\widehat{\typeP}}\bigr) X'$. Conversely, let $p' \in
+\bigl(\mathord{\cup}_{\delta_a\typeP} \circ \widehat{\theta_{\typeP}} \circ
+\theta_{\widehat{\typeP}}\bigr) X'$, then there exists $x'$ such that for a
+fresh name $b$ it is the case that $p' @ b \in x' @ b$ and $x' @ b \in X' @ b$
+so that $p' @ b \in \bigcup(X'@b) = \bigl(\delta_a \mathord{\cup}_{\typeP}
+X'\bigr) @ b$ and hence $p' \in \bigl(\theta_\typeP \circ \delta_a
+\mathord{\cup}_{\typeP}\bigr) X'$ as required.
+
+To see that the square containing the counit $\zeta$ commutes, let $x' \in
+(\delta_a \widehat{\typeP})^{\freshfor a}$, then \begin{equation}
+\label{comm:zetasquare} \begin{array}{rcl}
+\bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
+\theta_{\typeP}^{\freshfor a}\bigr) x'
+%
+&=& \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP}\bigr) \{p'
+\mid
+\freshin{b}{p'@b \in x'@b}\} \\
+%
+&=& \widehat{\zeta_{\typeP}} \{p' \mid a \freshfor p' \wedge 
+\freshin{b}{p'@b \in x'@b}\} \\
+%
+&=& \{p'@a \mid a \freshfor p' \wedge 
+\freshin{b}{p'@b \in x'@b}\} \\
+%
+&=& \{p'@a \mid a \freshfor p' \wedge 
+p'@a \in x'@a\} \\
+%
+&=& x'@a = \zeta_{\widehat{\typeP}} x'.
+%
+\end{array} \end{equation}
+This completes the proof.
+\end{proof}
+
+By unwinding the isomorphism given in lemma \ref{adjunctioninclusion} and the
+definitions of $\phi$ and $\theta$ and those in lemma \ref{adjunctionlift}, this
+adjunction is concretely described as follows. If $f : \typeP \to \typeQ$ is an
+arrow of $\mathbf{FMLin}_s$ then \begin{equation} \label{def:freshlin}
+\begin{array}{rcl} f^{\freshfor a+} 
+%
+&=& \bigl(\phi_\typeQ \circ f^{\freshfor a} \circ \{\cdot\}_{\typeP}^{\freshfor
+a}\bigr)^{\dagger} \\
+%
+&=& \bigl(\phi_\typeQ \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP} \circ
+\{\cdot\}_{\typeP^{\freshfor a}}\bigr)^{\dagger} \quad \text{by
+\ref{comm:freshtriangle}}\\
+%
+&=& \bigl( \phi_\typeQ \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP} \bigr)
+\quad\text{by the adjunction \ref{hat:adj}.}
+%
+\end{array} \end{equation} If $f : \typeP \to \typeQ$ is an arrow of
+$\mathbf{FMLin}_{s \udot \{a\}}$ then \begin{equation} \label{def:deltalin}
+\begin{array}{rcl} \delta_a^+ f  
+%
+&=& \bigl(\theta_\typeQ \circ \delta_a f \circ \delta_a
+\{\cdot\}_{\typeP}\bigr)^{\dagger} \\
+%
+&=& \bigl(\theta_\typeQ \circ \delta_a f \circ \theta_{\typeP}^{-1} \circ
+\{\cdot\}_{\delta_a \typeP}\bigr)^{\dagger} \quad \text{by
+\ref{comm:deltatriangle}}\\
+%
+&=& \bigl(\theta_\typeQ \circ \delta_a f \circ \theta_{\typeP}^{-1}\bigr)
+\quad\text{by the adjunction \ref{hat:adj}.}
+%
+\end{array} \end{equation} 
+
+To construct the unit $\xi^+$, first note that the
+following diagram commutes by naturality of $\xi$, \ref{comm:freshtriangle} and
+\ref{comm:deltatriangle}.  \begin{equation} \label{comm:xiplus} \xymatrix{
+%
+\mathbf{1}
+	\ar[r]^{\xi}
+	\ar[d]_{\{\cdot\}_{\downarrow}}
+&
+\delta_a ((-)^{\freshfor a})
+	\ar[r]^{\{\cdot\}_{\delta_a ((-)^{\freshfor a})}}
+	\ar[dr]^{\delta_a \{\cdot\}_{(-)^{\freshfor a}}}
+	\ar[d]_{\delta_a \{\cdot\}_\downarrow^{\freshfor a}}
+&
+\widehat{\delta_a ((-)^{\freshfor a})}
+\\
+\widehat{(-)}
+	\ar[r]_{\xi_{\widehat{(-)}}}
+&
+\delta_a\widehat{(-)}^{\freshfor a}
+	\ar[r]_{\delta_a \phi}
+&
+\delta_a\widehat{(-)^{\freshfor a}}
+	\ar[u]_{\theta_{(-)^{\freshfor a}}}
+}\end{equation}
+Then $\xi^+ : \mathbf{1} \to \delta^+_a((-)^{\freshfor a+})$ is given by
+\begin{equation} \label{def:xilin} \begin{array}{rcl} \xi^+
+%
+&=& \bigl(\{\cdot\}_{\delta_a((-)^{\freshfor a})} \circ \xi\bigr)^{\dagger} \\
+%
+&=& \bigl(\theta_{(-)^{\freshfor a}} \circ \delta_a \phi \circ
+\xi_{\widehat{(-)}} \circ \{\cdot\}_\downarrow \bigr)^{\dagger} \quad \text{by
+\ref{comm:xiplus}}\\
+%
+&=& \theta_{(-)^{\freshfor a}} \circ \delta_a \phi \circ \xi_{\widehat{(-)}} \\
+%
+&=& \widehat{\xi} \quad\text{by \ref{comm:xisquare}.}
+%
+\end{array} \end{equation}
+
+Similarly, to construct the counit $\zeta^+$, note that the following diagram
+commutes by naturality of $\zeta$, \ref{comm:freshtriangle} and
+\ref{comm:deltatriangle}.  \begin{equation} \label{comm:zetaplus} \xymatrix{
+%
+\widehat{(\delta_a-)^{\freshfor a}}
+	\ar[d]_{\phi^{-1}_{\delta_a}}
+&
+(\delta_a(-))^{\freshfor a}
+	\ar[l]_{\{\cdot\}_{(\delta_a(-))^{\freshfor a}}}
+	\ar[dl]_{\{\cdot\}_{\delta_a}^{\freshfor a}}
+	\ar[d]^{(\delta_a\{\cdot\})^{\freshfor a}}
+	\ar[r]^{\zeta}
+&
+\mathbf{1}
+	\ar[d]^{\{\cdot\}_\downarrow}
+\\
+\widehat{\delta_a(-)}^{\freshfor a}
+	\ar[r]_{{\theta^{-1}}^{\freshfor a}}
+&
+(\delta_a\widehat{(-)})^{\freshfor a}
+	\ar[r]_{\zeta_{\widehat{(-)}}}
+&
+\widehat{(-)}
+%
+}\end{equation} Then $\zeta^+ : (\delta^+_a(-))^{\freshfor a+} \to
+\mathbf{1}$ is given by \begin{equation} \label{def:zetalin}
+\begin{array}{rcl} \zeta^+
+%
+&=& \bigl(\{\cdot\}_{\downarrow} \circ \zeta\bigr)^{\dagger} \\
+%
+&=& \bigl(\zeta_{\widehat{(-)}} \circ {\theta^{-1}}^{\freshfor a} \circ
+\phi^{-1}_{\delta_a} \circ \{\cdot\}_{(\delta_a(-))^{\freshfor
+a}}\bigr)^{\dagger} \quad \text{by \ref{comm:zetaplus}}\\
+%
+&=& \zeta_{\widehat{(-)}} \circ {\theta^{-1}}^{\freshfor a} \circ
+\phi^{-1}_{\delta_a} \\
+%
+&=& \widehat{\zeta} \quad \text{by \ref{comm:zetasquare}.}
+%
+\end{array} \end{equation}
+
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
