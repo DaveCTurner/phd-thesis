@@ -410,6 +410,34 @@ Following the style of nominal sets, write $X$ instead of $\langle X, X_0
 
 \subsection{A Fibred Presentation of $\mathbf{FMPre}_s$.}
 
+TODO rewrite this para?
+
+This section demonstrates a more canonical presentation of $\mathbf{FMPre}_s$ in
+terms of a dependent type theory based in nominal sets. 
+%
+It is inspired by the work of Ulrich Sch\"opp\cite{schoppthesis}. 
+%
+Recall from \ref{??} that each nominal preorder can be seen as a
+pullback-preserving functor from $\mathbb{I}^{\mathrm{op}}$ to $\mathbf{Pre}$.
+%
+In particular, for each object $s$ of $\mathbb{I}$ the Yoneda embedding gives
+rise to a functor $ys = \mathbb{I}(s, -) : \mathbb{I}^{\mathrm{op}} \to
+\mathbf{Pre}$ that does indeed preserve pullbacks (TODO?).
+%
+Following through the equivalence of \ref{??}, the nominal preorder $ys$
+consists of all injections $s \rightarrowtail \mathbb{A}$ ordered with the
+discrete order, but note carefully that the permutation action is given by
+post-composition and not conjugation.
+%
+Isomorphically, $ys$ consists of all $s$-ary tuples of distinct names, i.e.
+\begin{equation} \label{def:ys} ys \cong \underbrace{\mathbb A \otimes \ldots
+\otimes \mathbb A}_{\text{$|s|$ times}} \end{equation} where the isomorphism is
+specified by the choice of an order of the names in $s$.
+%
+In general there are many such isomorphisms. 
+
+Consider the slice category $\mathbf{NPre}/ys$...
+
 TODO
 
 TODO Proof that this is equivalent to the elementary presentation above.
