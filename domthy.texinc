@@ -415,7 +415,8 @@ TODO rewrite this para?
 This section demonstrates a more canonical presentation of $\mathbf{FMPre}_s$ in
 terms of a dependent type theory based in nominal sets. 
 %
-It is inspired by the work of Ulrich Sch\"opp\cite{schoppthesis}. 
+It is inspired by the work of Ulrich Sch\"opp\cite{schoppthesis}, although this
+discussion takes a less abstract approach.
 %
 Recall from \ref{??} that each nominal preorder can be seen as a
 pullback-preserving functor from $\mathbb{I}^{\mathrm{op}}$ to $\mathbf{Pre}$.
@@ -429,14 +430,70 @@ consists of all injections $s \rightarrowtail \mathbb{A}$ ordered with the
 discrete order, but note carefully that the permutation action is given by
 post-composition and not conjugation.
 %
+Therefore each element $i : s \rightarrowtail \mathbb{A}$ of $ys$ has support
+given by $\{ i a \mid a \in s \}$.
+%
 Isomorphically, $ys$ consists of all $s$-ary tuples of distinct names, i.e.
 \begin{equation} \label{def:ys} ys \cong \underbrace{\mathbb A \otimes \ldots
 \otimes \mathbb A}_{\text{$|s|$ times}} \end{equation} where the isomorphism is
 specified by the choice of an order of the names in $s$.
 %
-In general there are many such isomorphisms. 
+In general there are many such isomorphisms, and none are equivariant.
 
-Consider the slice category $\mathbf{NPre}/ys$...
+There is an important distinguished element of $ys$: the inclusion $i_s : s
+\hookrightarrow \mathbb A$, which has support $s$.
+%
+Furthermore $ys$ has just one orbit under its permutation action so that every
+element is of the form $\sigma \cdot i_s$ for some permutation $\sigma$.
+
+Consider the slice category $\mathbf{NPre}/ys$.
+%
+Its objects are pairs $\langle X,f \rangle$ where $X$ is a nominal set and $f :
+X \to ys$ is an equivariant function.
+%
+The pre-image $f^{-1}(i_s)$ is an element of $\mathcal{P}_{\mathrm{fs}}(X)$ and
+this induces a permutation action.
+%
+Let $\sigma$ be a permutation that fixes $s$, then $\sigma \cdot (f^{-1}(i_s)) =
+f^{-1} (\sigma \cdot i_s) = f^{-1} (i_s)$ so that $f^{-1}(i_s)$ is supported by
+$s$.
+
+\begin{lemma}
+Let $F : \mathbf{FMPre}_{\varnothing} \leftrightarrows \mathbf{NPre} : G$ be an
+equivalence of categories. Then for all finite sets of names $s$ there are
+equivalences of categories $\mathbf{FMPre}_s \simeq \mathbf{NPre}/ys$.
+\end{lemma}
+
+\begin{proof} Let $X$ be an object of $\mathbf{FMPre}_s$ and define
+\begin{equation} F_s X \defeq \left\langle F \left(\bigcup_{i \in Gys} \{i\}
+\times (\sigma_i \cdot X) \right), F\pi_1 \right\rangle, \end{equation} where
+$\sigma_i$ is any permutation extending $i$. 
+%
+This is well-defined: if $\sigma_i$ and $\sigma'_i$ both extend $i$ then
+$\sigma^{-1}_i \sigma'_i \freshfor s$ and since $X$ is supported by $s$ it
+follows that $X = \sigma^{-1}_i \cdot \sigma'_i \cdot X$ so that $\sigma_i \cdot
+X = \sigma'_i \cdot X$ as required.
+%
+The permutation action on $\bigcup_{i \in ys} \{i\} \times (\sigma_i \cdot X)$
+is defined by \begin{equation} \sigma \cdot \langle i, x \rangle \defeq \langle
+\sigma \circ i, \sigma \cdot x \rangle.\end{equation}
+%
+This is well-defined: if $\langle i, x \rangle \in \bigcup_{i \in ys} \{i\}
+\times (\sigma_i \cdot X)$ then $x \in \sigma_i \cdot X$ so that $\sigma \cdot x
+\in \sigma \cdot \sigma_i \cdot X = \sigma_{\sigma \circ i} \cdot X$ as
+required.
+%
+Therefore $\bigcup_{i \in ys} \{i\} \times (\sigma_i \cdot X)$ is an object of
+$\mathbf{FMPre}_{\varnothing}$ nominal set
+and hence $F_s X$ is an object of $\mathbf{NPre}/ys$.
+
+Let $f : X \to Y$ be an arrow of $\mathbf{FMPre}_s$ and define $F_s f : F_s X
+\to F_s Y$ by \begin{equation} F_s f \langle i, x \rangle \defeq
+\langle i, f(x) \rangle.\end{equation}
+%
+
+
+\end{proof}
 
 TODO
 
