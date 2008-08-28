@@ -540,18 +540,20 @@ Let $h : \langle X, f \rangle \to \langle Y, g \rangle$ be an arrow of
 $\mathbf{FMPre}_{\varnothing}/ys$, then $h : X \to Y$ is an arrow of
 $\mathbf{FMPre}_{\varnothing}$ such that $f = g \circ h$.
 %
-Define \begin{equation} G_s h = h \mathord{\bigmid}_{G_s \langle X, f \rangle.}
-\end{equation}
+Define \begin{equation} G_s h \defeq h \mathord{\bigmid}_{G_s \langle X, f
+\rangle.} \end{equation}
 %
 If $x \in G_s \langle X, f \rangle$ then $f(x) = i_s$ and $G_s h(x) = h(x)$, but
 $(g \circ G_s h)(x) = (g \circ h) (x) = f(x) = i_s$ so that $G_s h(x) \in G_s
-\langle Y, g \rangle$ and hence $G_s f : G_s \langle X, f \rangle \to G_s
+\langle Y, g \rangle$ and hence $G_s h : G_s \langle X, f \rangle \to G_s
 \langle Y, f \rangle$.
 %
 If $\sigma \freshfor s$ is a permutation and $x \in G_s \langle X, f \rangle$
 then $\sigma \cdot (G_s h(x)) = \sigma \cdot (h(x)) = h (\sigma \cdot x) = G_s h
-(\sigma \cdot x)$ so that $s$ supports $G_s h$. It is clear that $G_s h$ is
-monotone too, and hence that $G_s h$ is an arrow of $\mathbf{FMPre}_s$.
+(\sigma \cdot x)$ so that $s$ supports $G_s h$.
+%
+It is clear that $G_s h$ is monotone too, and hence that $G_s h$ is an arrow of
+$\mathbf{FMPre}_s$.
 %
 It is not hard to see that $G_s$ so defined is a functor
 $\mathbf{FMPre}_{\varnothing}/ys \to \mathbf{FMPre}_s$.
