@@ -13,8 +13,9 @@ then
 	usbstick=/mnt/jenadisk
 	thesis=$HOME/phd/thesis-git
 else
-	echo "Cannot determine host"
-	exit 1
+	echo "WARNING: cannot determine host"
+	usbstick=
+	thesis=$PWD
 fi
 
 timestamp=`date +%Y%m%dT%H%M%S`
@@ -51,39 +52,42 @@ else
 	exit 1
 fi
 
-if [ -f $usbstick/readme.txt ]
+if [ ! -z $usbstick ]
 then
-	# USB stick is mounted
-	premounted=1
-else
-	premounted=0
-	echo "Mounting $usbstick"
-	if mount $usbstick
+	if [ -f $usbstick/readme.txt ]
 	then
-		echo "Mounting $usbstick"
+		# USB stick is mounted
+		premounted=1
 	else
-		echo "Cannot mount $usbstick"
+		premounted=0
+		echo "Mounting $usbstick"
+		if mount $usbstick
+		then
+			echo "Mounting $usbstick"
+		else
+			echo "Cannot mount $usbstick"
+			exit 1
+		fi
+	fi
+
+	if cp thesis-git--$timestamp.tar.bz2 $usbstick
+	then
+		echo "Copied tarball to usbstick"
+	else
+		echo "Cannot cp thesis-git--$timestamp"
 		exit 1
 	fi
-fi
 
-if cp thesis-git--$timestamp.tar.bz2 $usbstick
-then
-	echo "Copied tarball to usbstick"
-else
-	echo "Cannot cp thesis-git--$timestamp"
-	exit 1
-fi
-
-if [ $premounted -ne 0 ]
-then
-	sync
-else
-	if umount $usbstick
+	if [ $premounted -ne 0 ]
 	then
-		echo "Unmounted $usbstick"
+		sync
 	else
-		echo "WARNING: Cannot unmount $usbstick"
-		exit 1
+		if umount $usbstick
+		then
+			echo "Unmounted $usbstick"
+		else
+			echo "WARNING: Cannot unmount $usbstick"
+			exit 1
+		fi
 	fi
 fi
