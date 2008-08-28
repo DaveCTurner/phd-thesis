@@ -410,20 +410,43 @@ Following the style of nominal sets, write $X$ instead of $\langle X, X_0
 
 \subsection{A Fibred Presentation of $\mathbf{FMPre}_s$.}
 
-TODO rewrite this para?
+The purist may wonder whether it is necessary that the foundations of this
+dissertation need to be as precisely specified as the cumulative hierarchy of FM
+sets.
+%
+After all, conventional domain theory certainly does not really require all the
+fiddly details of ZF set theory, since it can be phrased in a much more
+universal fashion than by talking of sets and elements.
+%
+Such concerns are justified.
+%
+The use of FM set theory here is solely to give a semantics to a rich enough
+type theory for the purposes of this discussion.
+%
+A further advantage is that the language of FM set theory is close enough to
+that of conventional set theories that the presentation given in this
+dissertation should be accessible to conventional domain theorists.
 
-This section demonstrates a more canonical presentation of $\mathbf{FMPre}_s$ in
-terms of a dependent type theory based in nominal sets. 
+In fact, this discussion ought to take place in a dependent type theory, along
+similar lines to the work of Ulrich Sch\"opp\cite{schoppthesis}.
 %
-It is inspired by the work of Ulrich Sch\"opp\cite{schoppthesis}, although this
-discussion takes a less abstract approach.
+Roughly speaking, if the `current' set of names is $s$ then the available types
+are sets in $\mathbf{FMPre}_s$. 
 %
+The `current' set of names can change, by inserting a new name or by permuting
+the `current' names, and in general if $s \rightarrowtail s'$ is an arrow of
+$\mathbb I$ then the `current' set of names can be changed from $s$ to $s'$.
+%
+In order to give this account in terms of dependent type theory, this indicates
+that a fibration over $\mathbb I$ should be sought.
+%
+Fortunately, the appropriate fibration has a particularly simple form.
+
 Recall from \ref{??} that each nominal preorder can be seen as a
 pullback-preserving functor from $\mathbb{I}^{\mathrm{op}}$ to $\mathbf{Pre}$.
 %
-In particular, for each object $s$ of $\mathbb{I}$ the Yoneda embedding gives
-rise to a functor $ys = \mathbb{I}(s, -) : \mathbb{I}^{\mathrm{op}} \to
-\mathbf{Pre}$ that does indeed preserve pullbacks (TODO?).
+The Yoneda lemma therefore embeds a copy of $\mathbb I$ in $\mathbf{NPre}$,
+taking each finite set $s$ to the functor $ys \defeq \mathbb{I}(s, -)$.
 %
 Following through the equivalence of \ref{??}, the nominal preorder $ys$
 consists of all injections $s \rightarrowtail \mathbb{A}$ ordered with the
@@ -439,6 +462,8 @@ Isomorphically, $ys$ consists of all $s$-ary tuples of distinct names, i.e.
 specified by the choice of an order of the names in $s$.
 %
 If $|s| > 1$ then there are many such isomorphisms, and none are equivariant.
+
+TODO Motivate codomain-restricted-to-s fibration here.
 
 There is an important distinguished element of $ys$: the inclusion $i_s : s
 \hookrightarrow \mathbb A$, which has support $s$.
