@@ -636,6 +636,55 @@ It is straightforward to see that the action of $(-) \otimes \mathbb A$ on
 arrows gives rise to the action of $(-)^{\freshfor a}$ on arrows in the same
 fashion.
 
+Now consider the object $\langle X, f \rangle$ of
+$\mathbf{FMPre}_{\varnothing}/y(s \udot \{a\})$.
+%
+The action of $\delta$ takes it to the arrow $\delta f : \delta X \to \delta(y(s
+\udot \{a\}))$, and using the isomorphism \ref{def:ys} this corresponds to an
+arrow $\delta X \to \delta(ys \otimes \mathbb A)$.
+%
+Form the pullback against the unit $\xi_{ys} : ys \to \delta (ys \otimes \mathbb
+A)$ as follows: \begin{equation} \xymatrix{
+\delta X \times_{\delta(ys \otimes \mathbb A)} ys
+	\ar[r]^(0.65){\pi_1}
+	\ar[d]_{\pi_2}
+&
+\delta X
+	\ar[d]^{\delta f}
+\\
+ys
+	\ar[r]_(0.35){\xi_{ys}}
+&
+\delta (ys \otimes \mathbb A)
+} \end{equation}
+%
+Via the equivalence of lemma \ref{lemma:slice} the object $\langle \delta X
+\times_{\delta(ys \otimes \mathbb A)} ys, \pi_2 \rangle$ of
+$\mathbf{FMPre}_{\varnothing}/ys$ corresponds to \begin{equation}
+\begin{array}{rcl}
+%
+\multicolumn{3}{l}{G_s \langle \delta X \times_{\delta(ys \otimes \mathbb A)}
+ys, \pi_2 \rangle} \\
+%
+&=& \{ \langle x, i \rangle \in \delta X \times ys \mid \delta f(x) = \xi_{ys}
+(i) \wedge i = i_s \} \\
+%
+&=& \{ \langle x, i_s \rangle \in \delta X \times ys \mid
+\freshin{b}{[b].f(x@b)} = \freshin{b}{[b].\langle i_s, b \rangle} \} \\
+%
+&\cong& \{ x \in \delta X \mid \freshin{b}{f(x@b) = \langle i_s, b \rangle} \}
+\\
+%
+&=& \{ x \in \delta X \mid \freshin{b}{f(x@b) = (ab) \cdot \langle i_s, a
+\rangle} \} \\
+%
+&=& \{ x \in \delta X \mid \freshin{b}{ x@b \in (ab) \cdot G_{s \udot \{a\}}
+\langle X, f \rangle} \} \\
+%
+&=& \delta_a G_{s \udot \{a\}} \langle X, f \rangle \\
+%
+\end{array} \end{equation}
+
 
 
 TODO
