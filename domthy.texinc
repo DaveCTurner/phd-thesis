@@ -381,33 +381,6 @@ two alternative constructions for $\mathbf{FMPre}_s$, both performed directly
 within $\mathbf{Nom}$ and therefore independent of the choice of equivalence of
 categories $\mathbf{NPre} \to \mathbf{FMPre}_{\varnothing}$.
 
-\subsection{An Elementary Presentation of $\mathbf{FMPre}_s$.}
-
-Let $\mathbf{SubNPre}_s$ be the category described as follows. Its objects are
-pairs $\langle X, X_0 \rangle$ where $X_0$ is a nominal preorder and $X$ is a
-subset of $X_0$ that is supported by $s$. Its arrows $f : \langle X, X_0 \rangle
-\to \langle Y, Y_0 \rangle$ are partial monotone functions $f : X_0
-\rightharpoonup Y_0$ that are supported by $s$ and that have domain $X$ and
-range contained in $Y$.
-
-Let $H : \mathbf{NPre} \leftrightarrows \mathbf{FMPre}_{\varnothing} : K$ be the
-equivalence of categories asserted above. Therefore,
-\begin{lemma}
-$\mathbf{SubNPre}_s \simeq \mathbf{FMPre}_s$.
-\end{lemma}
-
-\begin{proof}
-TODO
-\end{proof}
-
-It is immediate that if $\langle X, X_0 \rangle$ and $\langle X, X_1 \rangle$
-are objects of $\mathbf{SubNPre}_s$ then they are isomorphic if the permutation
-action on $X_0$ restricted to $X_0 \cap X_1$ is the same as the permutation
-action on $X_1$ restricted to $X_0 \cap X_1$, so the nominal sets $X_0$ and
-$X_1$ really only serve to specify the (partial) permutation action on $X$.
-Following the style of nominal sets, write $X$ instead of $\langle X, X_0
-\rangle$ and assume that the permutation action is understood.
-
 \subsection{A Dependently-Typed Presentation of $\mathbf{FMPre}_s$}
 
 The purist may wonder whether it is necessary that the foundations of this
@@ -651,6 +624,33 @@ _{\kappa^{s_0; s \hookrightarrow s'}}
 
 TODO $\delta_a$ functor as $\delta$, and adjunction with $(-)^{\freshfor a}$.
 
+
+\subsection{An Elementary Presentation of $\mathbf{FMPre}_s$.}
+
+Let $\mathbf{SubNPre}_s$ be the category described as follows. Its objects are
+pairs $\langle X, X_0 \rangle$ where $X_0$ is a nominal preorder and $X$ is a
+subset of $X_0$ that is supported by $s$. Its arrows $f : \langle X, X_0 \rangle
+\to \langle Y, Y_0 \rangle$ are partial monotone functions $f : X_0
+\rightharpoonup Y_0$ that are supported by $s$ and that have domain $X$ and
+range contained in $Y$.
+
+Let $H : \mathbf{NPre} \leftrightarrows \mathbf{FMPre}_{\varnothing} : K$ be the
+equivalence of categories asserted above. Therefore,
+\begin{lemma}
+$\mathbf{SubNPre}_s \simeq \mathbf{FMPre}_s$.
+\end{lemma}
+
+\begin{proof}
+TODO
+\end{proof}
+
+It is immediate that if $\langle X, X_0 \rangle$ and $\langle X, X_1 \rangle$
+are objects of $\mathbf{SubNPre}_s$ then they are isomorphic if the permutation
+action on $X_0$ restricted to $X_0 \cap X_1$ is the same as the permutation
+action on $X_1$ restricted to $X_0 \cap X_1$, so the nominal sets $X_0$ and
+$X_1$ really only serve to specify the (partial) permutation action on $X$.
+Following the style of nominal sets, write $X$ instead of $\langle X, X_0
+\rangle$ and assume that the permutation action is understood.
 
 
 \input{fmlin.texinc}
