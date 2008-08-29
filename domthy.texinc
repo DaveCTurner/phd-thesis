@@ -448,14 +448,14 @@ There is a similarly-defined embedding $y : \mathbb I \to
 $\mathbf{FMPre}_{\varnothing}/y$ gives rise to the desired dependent type theory
 as follows.
 
-\begin{lemma} For all finite sets of names $s$ there is an equivalence of
-categories $\mathbf{FMPre}_s \simeq \mathbf{FMPre}_{\varnothing}/ys$.
-\end{lemma}
+\begin{lemma} \label{lemma:slice} For all finite sets of names $s$ there is an
+equivalence of categories $\mathbf{FMPre}_s \simeq
+\mathbf{FMPre}_{\varnothing}/ys$.  \end{lemma}
 
 \begin{proof}Let $X$ be an object of $\mathbf{FMPre}_s$ and define
-\begin{equation} \overline{X} \defeq \bigcup_{i \in ys} \{i\} \times (\sigma_i
-\cdot X), \end{equation} with the product order, where $\sigma_i$ is any
-permutation extending $i$. 
+\begin{equation} \label{def:overline:ob} \overline{X} \defeq \bigcup_{i \in ys}
+\{i\} \times (\sigma_i \cdot X), \end{equation} with the product order, where
+$\sigma_i$ is any permutation extending $i$. 
 %
 This is well-defined: if $\sigma_i$ and $\sigma'_i$ both extend $i$ then
 $\sigma^{-1}_i \sigma'_i \freshfor s$ and since $X$ is supported by $s$ it
@@ -472,16 +472,16 @@ However, $\sigma \cdot x \in \sigma \cdot \sigma_i \cdot X = \sigma_{\sigma
 Therefore $\overline{X} = \sigma \cdot \overline{X}$ and hence $\overline{X}$ is
 an object of $\mathbf{FMPre}_{\varnothing}$.
 
-Define \begin{equation} F_s X \defeq \langle \overline{X}, \pi_1 \rangle.
-\end{equation}
+Define \begin{equation} \label{def:Fs:ob} F_s X \defeq \langle \overline{X},
+\pi_1 \rangle.  \end{equation}
 %
 Note that $\pi_1 : \overline{X} \to ys$ is equivariant and monotone so that $F_s
 X$ is an object of $\mathbf{FMPre}_{\varnothing}/ys$.
 
 Let $f : X \to Y$ be an arrow of $\mathbf{FMPre}_s$ and define $\overline{f} :
-\overline{X} \to \overline{Y}$ by \begin{equation} \overline{f} \langle i, x
-\rangle \defeq \langle i, (\sigma_i \cdot f) x \rangle, \end{equation} where
-$\sigma_i$ is any permutation extending $i$.
+\overline{X} \to \overline{Y}$ by \begin{equation} \label{def:overline:ar}
+\overline{f} \langle i, x \rangle \defeq \langle i, (\sigma_i \cdot f) x
+\rangle, \end{equation} where $\sigma_i$ is any permutation extending $i$.
 %
 This is well-defined: if $\sigma_i$ and $\sigma'_i$ both extend $i$ then
 $\sigma^{-1}_i \sigma'_i \freshfor s$ and since $f$ is supported by $s$ it
@@ -512,15 +512,15 @@ $\overline{f}$ is monotone, so that $\overline{f}$ is an arrow of
 $\mathbf{FMPre}_{\varnothing}$.
 %
 Furthermore, $\pi_1 \circ \overline{f} = \pi_1$ so that it is possible to define
-\begin{equation} F_s f \defeq \overline{f} : F_s X \to F_s Y  \end{equation} as
-an arrow of $\mathbf{FMPre}_{\varnothing}/ys$.
+\begin{equation} \label{def:Fs:ar} F_s f \defeq \overline{f} : F_s X \to F_s Y
+\end{equation} as an arrow of $\mathbf{FMPre}_{\varnothing}/ys$.
 %
 It is now not hard to see that $F_s$ so defined is a functor $\mathbf{FMPre}_s
 \to \mathbf{FMPre}_{\varnothing}/ys$.
 
 Let $\langle X, f \rangle$ be an object of $\mathbf{FMPre}_{\varnothing}/ys$ and
-define \begin{equation} G_s \langle X, f \rangle \defeq \{ x \in X \mid f(x) =
-i_s \} = f^{-1} \{ i_s \}.  \end{equation}
+define \begin{equation} \label{def:Gs:ob} G_s \langle X, f \rangle \defeq \{ x
+\in X \mid f(x) = i_s \} = f^{-1} \{ i_s \}.  \end{equation}
 %
 If $\sigma \freshfor s$ is a permutation then $\sigma \cdot f^{-1} \{ i_s \} =
 f^{-1} \{ \sigma \circ i_s \} = f^{-1} \{ i_s \}$ so that $s$ supports $G_s
@@ -531,8 +531,8 @@ Let $h : \langle X, f \rangle \to \langle Y, g \rangle$ be an arrow of
 $\mathbf{FMPre}_{\varnothing}/ys$, then $h : X \to Y$ is an arrow of
 $\mathbf{FMPre}_{\varnothing}$ such that $f = g \circ h$.
 %
-Define \begin{equation} G_s h \defeq h \mathord{\bigmid}_{G_s \langle X, f
-\rangle.} \end{equation}
+Define \begin{equation} \label{def:Gs:ar} G_s h \defeq h \mathord{\bigmid}_{G_s
+\langle X, f \rangle.} \end{equation}
 %
 If $x \in G_s \langle X, f \rangle$ then $f(x) = i_s$ and $G_s h(x) = h(x)$, but
 $(g \circ G_s h)(x) = (g \circ h) (x) = f(x) = i_s$ so that $G_s h(x) \in G_s
@@ -560,13 +560,13 @@ hard to see that this relationship is monotone, supported by $s$, and natural in
 $X$.
 
 If $\langle X, f \rangle$ is an object of $\mathbf{FMPre}_{\varnothing}/ys$ then
-define $\beta : F_s G_s \langle X, f \rangle \to \langle X, f \rangle$ by
-$\beta \langle i, x \rangle \defeq x$.
+define $\beta : F_s G_s \langle X, f \rangle \to \langle X, f \rangle$ by $\beta
+\langle i, x \rangle \defeq x$.
 %
 If $\langle i, x \rangle \in \overline{G_s \langle X, f \rangle}$ then $x \in
 \sigma_i \cdot G_s \langle X, f \rangle = \sigma_i \cdot f^{-1} \{i_s\} = f^{-1}
-\{ \sigma_i \circ i_s \}$ and hence $(f \circ \beta)\langle i, x \rangle =
-f(x) = \sigma_i \circ i_s = i = \pi_1 \langle i, x \rangle$.
+\{ \sigma_i \circ i_s \}$ and hence $(f \circ \beta)\langle i, x \rangle = f(x)
+= \sigma_i \circ i_s = i = \pi_1 \langle i, x \rangle$.
 %
 Also, $\beta$ is clearly an equivariant monotone map, so it is an arrow of
 $\mathbf{FMPre}_{\varnothing}/ys$ as required.
