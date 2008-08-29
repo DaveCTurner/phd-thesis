@@ -438,7 +438,7 @@ Isomorphically, $ys$ consists of all $s$-ary tuples of distinct names, i.e.
 \otimes \mathbb A}_{\text{$|s|$ times}} \end{equation} where the isomorphism is
 specified by the choice of an order of the names in $s$.
 %
-If $|s| > 1$ then there are many such isomorphisms, and none are equivariant.
+If $|s| > 1$ then there are many such isomorphisms.
 %
 There is also an important distinguished element of $ys$: the inclusion $i_s : s
 \hookrightarrow \mathbb A$, which has support $s$.
