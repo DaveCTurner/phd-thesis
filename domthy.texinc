@@ -616,6 +616,18 @@ their definitions are natural in $\langle X, f \rangle$, which completes the
 equivalence of $\mathbf{FMPre}_{\varnothing}/ys$ and $\mathbf{FMPre}_s$ as
 required.  \end{proof}
 
+A parallel construction in the codomain fibration on $\mathbf{NPre}/y$ gives
+rise to a more universal setting for the remainder of this discussion. It is
+beyond the scope of this thesis to develop the details of this construction.
+However, it is worth highlighting how some aspects of the structure of
+$\mathbf{NPre}$ manifest themselves within the dependent type theory. In
+particular, the functor $(-) \otimes \mathbb A$ and its right adjoint $\delta$
+effectively give rise to the operation $(-)^{\freshfor a}$ and its right adjoint
+$\delta_a$ as follows.
+
+
+
+
 TODO
 
 TODO Proof that this is equivalent to the elementary presentation above.
