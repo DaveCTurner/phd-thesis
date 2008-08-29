@@ -602,6 +602,39 @@ In particular, the functor $(-) \otimes \mathbb A$ and its right adjoint
 $\delta$ effectively give rise to the operation $(-)^{\freshfor a}$ and its
 right adjoint $\delta_a$ as follows.
 
+Consider the object $\langle X, f \rangle$ of $\mathbf{FMPre}_{\varnothing}/ys$.
+%
+The action of $(-) \otimes \mathbb A$ takes it to the arrow $f \otimes
+\mathbf{1}_{\mathbb A} : X \otimes \mathbb A \to ys \otimes \mathbb A$.
+%
+Subject to a choice of a new name $a \notin s$, $ys \otimes \mathbb A \cong y(s
+\udot \{a\})$ by \ref{def:ys}.
+%
+Via this isomorphism, the distinguished element $i_{s \udot \{a\}}$ corresponds
+to the pair $\langle i_s, a \rangle$, and from the equivalence in lemma
+\ref{lemma:slice} the object $\langle X \otimes \mathbb A, f \otimes
+\mathbf{1}_{\mathbb A} \rangle$ corresponds to the FM set \begin{equation}
+\begin{array}{rcl}
+%
+\multicolumn{3}{l}{G_{s \udot \{a\}} \langle X \otimes \mathbb A, f \otimes
+\mathbf{1}_{\mathbb A} \rangle} \\
+%
+&=& \{ \langle x, a' \rangle \in X \otimes \mathbb A \mid (f \otimes
+\mathbf{1}_{\mathbb A}) \langle x, a' \rangle = \langle i_s, a \rangle \} \\
+%
+&=& \{ \langle x, a \rangle \in X \otimes \mathbb A \mid f(x) = i_s \} \\
+%
+&\cong& \{ x \in X \mid f(x) = i_s \wedge a \freshfor x \} \\
+%
+&=& \{ x \in X \mid f(x) = i_s \}^{\freshfor a} \\
+%
+&=& (G_s \langle X, f \rangle)^{\freshfor a}. \\
+%
+\end{array} \end{equation} 
+%
+It is straightforward to see that the action of $(-) \otimes \mathbb A$ on
+arrows gives rise to the action of $(-)^{\freshfor a}$ on arrows in the same
+fashion.
 
 
 
