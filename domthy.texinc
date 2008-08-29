@@ -536,7 +536,8 @@ $\overline{f}$ is monotone, so that $\overline{f}$ is an arrow of
 $\mathbf{FMPre}_{\varnothing}$.
 %
 Furthermore, $\pi_1 \circ \overline{f} = \pi_1$ so that it is possible to define
-\begin{equation} F_s f \defeq \overline{f} : F_s X \to F_s Y.  \end{equation}
+\begin{equation} F_s f \defeq \overline{f} : F_s X \to F_s Y  \end{equation} as
+an arrow of $\mathbf{FMPre}_{\varnothing}/ys$.
 %
 It is now not hard to see that $F_s$ so defined is a functor $\mathbf{FMPre}_s
 \to \mathbf{FMPre}_{\varnothing}/ys$.
