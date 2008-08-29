@@ -472,9 +472,9 @@ There is a similarly-defined embedding $y : \mathbb I \to
 $\mathbf{FMPre}_{\varnothing}/y$ gives rise to the desired dependent type theory
 as follows.
 
-\begin{lemma} For all finite sets of names $s$ there is an equivalence of
-categories $\mathbf{FMPre}_s \simeq \mathbf{FMPre}_{\varnothing}/ys$.
-\end{lemma}
+\begin{lemma} \label{lemma:slice} For all finite sets of names $s$ there is an
+equivalence of categories $\mathbf{FMPre}_s \simeq
+\mathbf{FMPre}_{\varnothing}/ys$.  \end{lemma}
 
 \begin{proof}Let $X$ be an object of $\mathbf{FMPre}_s$ and define
 \begin{equation} \label{def:overline:ob} \overline{X} \defeq \bigcup_{i \in ys}
