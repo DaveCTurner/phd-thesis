@@ -547,7 +547,7 @@ define \begin{equation} G_s \langle X, f \rangle \defeq \{ x \in X \mid f(x) =
 i_s \} = f^{-1} \{ i_s \}.  \end{equation}
 %
 If $\sigma \freshfor s$ is a permutation then $\sigma \cdot f^{-1} \{ i_s \} =
-f^{-1} \{ \sigma \cdot i_s \} = f^{-1} \{ i_s \}$ so that $s$ supports $G_s
+f^{-1} \{ \sigma \circ i_s \} = f^{-1} \{ i_s \}$ so that $s$ supports $G_s
 \langle X, f \rangle$ and hence $G_s \langle X, f \rangle$ is an object of
 $\mathbf{FMPre}_s$.
 
