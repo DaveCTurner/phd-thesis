@@ -367,27 +367,21 @@ Let $q' \in \delta_a \typeQ$ and let $b$ be fresh, then \begin{equation}\begin{a
 \section{Alternative Presentations of $\mathbf{FMPre}_s$.}
 \label{fmpre:alternative}
 
-It is a little unappealing to construct $\mathbf{FMPre}_s$ by carving up
-$\mathcal{V}_{\mathrm{FM}}$ in this way. After all, $\mathbf{Nom}$ can be
-constructed as $Sh(\mathbf{Set}^{\mathbb I})$ where $\mathbf{Set}$ is some
-category of sets, not necessarily one with a cumulative hierarchy out of which
-one can construct $\mathcal{V}_{\mathrm{FM}}$. Nor does $\mathbf{Nom}$ insist
-that the permutation action on any particular set is given by
-$\mathord{\in}$-recursion: strictly speaking, one must specify the isomorphism
-between each nominal set and its corresponding FM set in order to set up the
-equivalence of categories between $\mathbf{NPre}$ and
-$\mathbf{FMPre}_{\varnothing}$ that was asserted above.  In the following are
-two alternative constructions for $\mathbf{FMPre}_s$, both performed directly
-within $\mathbf{Nom}$ and therefore independent of the choice of equivalence of
-categories $\mathbf{NPre} \to \mathbf{FMPre}_{\varnothing}$.
-
-\subsection{A Dependently-Typed Presentation of $\mathbf{FMPre}_s$}
-
 The purist may wonder whether it is necessary that the foundations of this
 dissertation need to be as precisely specified as the cumulative hierarchy of FM
 sets.
 %
-After all, conventional domain theory certainly does not really require all the
+After all, $\mathbf{Nom}$ can be constructed as $Sh(\mathbf{Set}^{\mathbb I})$
+where $\mathbf{Set}$ is some category of sets, not necessarily one with a
+cumulative hierarchy out of which one can construct $\mathcal{V}_{\mathrm{FM}}$. 
+%
+Nor does $\mathbf{Nom}$ insist that the permutation action on any particular set
+is given by $\mathord{\in}$-recursion: strictly speaking, one must specify the
+isomorphism between each nominal set and its corresponding FM set in order to
+set up the equivalence of categories between $\mathbf{NPre}$ and
+$\mathbf{FMPre}_{\varnothing}$ that was asserted above.
+%
+More practically, conventional domain theory does not really require all the
 fiddly details of ZF set theory, since it can be phrased in a much more
 universal fashion than by talking of sets and elements.
 %
@@ -400,8 +394,17 @@ A further advantage is that the language of FM set theory is close enough to
 that of conventional set theories that the presentation given in this
 dissertation should be accessible to conventional domain theorists.
 
-In fact, this discussion ought to take place in a dependent type theory, along
-similar lines to the work of Ulrich Sch\"opp\cite{schoppthesis}.
+This section gives a flavour of a less prescriptive foundational basis for this
+thesis than $\mathcal{V}_{\mathrm{FM}}$.
+%
+The theory is not developed fully here as to do so is beyond the scope of this
+discussion, but it is intended that there is enough information here to persuade
+the purist that this work is applicable more generally it might first appear.
+
+\subsection{A Dependently-Typed Presentation of $\mathbf{FMPre}_s$}
+
+Secretly, this discussion has been taking place in a dependent type theory,
+along similar lines to the work of Ulrich Sch\"opp\cite{schoppthesis}.
 %
 Roughly speaking, the available types are dependent on a `current' set of names:
 if the current set of names is $s$ then the available types are objects of
@@ -590,13 +593,14 @@ equivalence of $\mathbf{FMPre}_{\varnothing}/ys$ and $\mathbf{FMPre}_s$ as
 required.  \end{proof}
 
 A parallel construction in the codomain fibration on $\mathbf{NPre}/y$ gives
-rise to a more universal setting for the remainder of this discussion. It is
-beyond the scope of this thesis to develop the details of this construction.
+rise to a more universal setting for the remainder of this discussion.
+%
 However, it is worth highlighting how some aspects of the structure of
-$\mathbf{NPre}$ manifest themselves within the dependent type theory. In
-particular, the functor $(-) \otimes \mathbb A$ and its right adjoint $\delta$
-effectively give rise to the operation $(-)^{\freshfor a}$ and its right adjoint
-$\delta_a$ as follows.
+$\mathbf{NPre}$ manifest themselves within the dependent type theory.
+%
+In particular, the functor $(-) \otimes \mathbb A$ and its right adjoint
+$\delta$ effectively give rise to the operation $(-)^{\freshfor a}$ and its
+right adjoint $\delta_a$ as follows.
 
 
 
