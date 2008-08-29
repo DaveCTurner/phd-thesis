@@ -408,7 +408,7 @@ $X_1$ really only serve to specify the (partial) permutation action on $X$.
 Following the style of nominal sets, write $X$ instead of $\langle X, X_0
 \rangle$ and assume that the permutation action is understood.
 
-\subsection{A Fibred Presentation of $\mathbf{FMPre}_s$.}
+\subsection{A Dependently-Typed Presentation of $\mathbf{FMPre}_s$}
 
 The purist may wonder whether it is necessary that the foundations of this
 dissertation need to be as precisely specified as the cumulative hierarchy of FM
@@ -430,12 +430,13 @@ dissertation should be accessible to conventional domain theorists.
 In fact, this discussion ought to take place in a dependent type theory, along
 similar lines to the work of Ulrich Sch\"opp\cite{schoppthesis}.
 %
-Roughly speaking, if the `current' set of names is $s$ then the available types
-are sets in $\mathbf{FMPre}_s$. 
+Roughly speaking, the available types are dependent on a `current' set of names:
+if the current set of names is $s$ then the available types are objects of
+$\mathbf{FMPre}_s$. 
 %
-The `current' set of names can change, by inserting a new name or by permuting
-the `current' names, and in general if $s \rightarrowtail s'$ is an arrow of
-$\mathbb I$ then the `current' set of names can be changed from $s$ to $s'$.
+The current set of names can change, by inserting a new name or by permuting the
+current names, and in general if $s \rightarrowtail s'$ is an arrow of $\mathbb
+I$ then the `current' set of names can be changed from $s$ to $s'$.
 %
 In order to give this account in terms of dependent type theory, this indicates
 that a fibration over $\mathbb I$ should be sought.
@@ -462,26 +463,14 @@ Isomorphically, $ys$ consists of all $s$-ary tuples of distinct names, i.e.
 specified by the choice of an order of the names in $s$.
 %
 If $|s| > 1$ then there are many such isomorphisms, and none are equivariant.
-
-TODO Motivate codomain-restricted-to-s fibration here.
-
-There is an important distinguished element of $ys$: the inclusion $i_s : s
+%
+There is also an important distinguished element of $ys$: the inclusion $i_s : s
 \hookrightarrow \mathbb A$, which has support $s$.
-%
-Furthermore $ys$ has just one orbit under its permutation action so that every
-element is of the form $\sigma \cdot i_s$ for some permutation $\sigma$.
 
-Consider the slice category $\mathbf{NPre}/ys$.
-%
-Its objects are pairs $\langle X,f \rangle$ where $X$ is a nominal set and $f :
-X \to ys$ is an equivariant function.
-%
-The pre-image $f^{-1}(i_s)$ is an element of $\mathcal{P}_{\mathrm{fs}}(X)$ and
-this induces a permutation action.
-%
-Let $\sigma$ be a permutation that fixes $s$, then $\sigma \cdot (f^{-1}(i_s)) =
-f^{-1} (\sigma \cdot i_s) = f^{-1} (i_s)$ so that $f^{-1}(i_s)$ is supported by
-$s$.
+There is a similarly-defined embedding $y : \mathbb I \to
+\mathbf{FMPre}_{\varnothing}$, and the codomain fibration on
+$\mathbf{FMPre}_{\varnothing}/y$ gives rise to the desired dependent type theory
+as follows.
 
 \begin{lemma} For all finite sets of names $s$ there is an equivalence of
 categories $\mathbf{FMPre}_s \simeq \mathbf{FMPre}_{\varnothing}/ys$.
