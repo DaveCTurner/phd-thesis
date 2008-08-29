@@ -543,8 +543,8 @@ It is now not hard to see that $F_s$ so defined is a functor $\mathbf{FMPre}_s
 \to \mathbf{FMPre}_{\varnothing}/ys$.
 
 Let $\langle X, f \rangle$ be an object of $\mathbf{FMPre}_{\varnothing}/ys$ and
-define \begin{equation} G_s \langle X, f \rangle \defeq f^{-1} \{ i_s \}.
-\end{equation}
+define \begin{equation} G_s \langle X, f \rangle \defeq \{ x \in X \mid f(x) =
+i_s \} = f^{-1} \{ i_s \}.  \end{equation}
 %
 If $\sigma \freshfor s$ is a permutation then $\sigma \cdot f^{-1} \{ i_s \} =
 f^{-1} \{ \sigma \cdot i_s \} = f^{-1} \{ i_s \}$ so that $s$ supports $G_s
