@@ -590,6 +590,15 @@ their definitions are natural in $\langle X, f \rangle$, which completes the
 equivalence of $\mathbf{FMPre}_{\varnothing}/ys$ and $\mathbf{FMPre}_s$ as
 required.  \end{proof}
 
+\begin{lemma}
+Injections $i: s \rightarrowtail s'$ in $\mathbb I$ give rise to functors
+$\sigma_i : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$ via change-of-base (TODO
+right name?). In particular, inclusions $s \hookrightarrow s'$ give rise to
+inclusions $\mathbf{FMPre}_s \hookrightarrow \mathbf{FMPre}_{s'}$.
+\end{lemma}
+
+\begin{proof} TODO \end{proof}
+
 A parallel construction in the codomain fibration on $\mathbf{NPre}/y$ gives
 rise to a more universal setting for the remainder of this discussion.
 %
@@ -699,6 +708,18 @@ ys, \pi_2 \rangle} \\
 &=& \delta_a G_{s \udot \{a\}} \langle X, f \rangle \\
 %
 \end{array} \end{equation}
+
+As mentioned above, ignoring the dependence of $(-)^{\freshfor a}$ and
+$\delta_a$ on the name $a$ does not tell the full story. In particular, the
+adjunction $(-)^{\freshfor a} \dashv \delta_a$ is not a fibred adjunction
+because the functors are not everywhere defined. However, the following result
+suggests that a more careful treatment would yield a fibred adjunction in some
+appropriate sense.
+
+\begin{lemma} The adjunction $(-)^{\freshfor a} \dashv \delta_a$ satisfies the
+Beck-Chevally condition (TODO reword?) wherever it is defined.  \end{lemma}
+
+\begin{proof} TODO \end{proof}
 
 
 
