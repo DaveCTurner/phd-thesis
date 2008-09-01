@@ -416,8 +416,6 @@ I$ then the `current' set of names can be changed from $s$ to $s'$.
 %
 In order to give this account in terms of dependent type theory, this indicates
 that a fibration over $\mathbb I$ should be sought.
-%
-Fortunately, the appropriate fibration has a particularly simple form.
 
 Recall from \ref{??} that each nominal preorder can be seen as a
 pullback-preserving functor from $\mathbb{I}^{\mathrm{op}}$ to $\mathbf{Pre}$.
