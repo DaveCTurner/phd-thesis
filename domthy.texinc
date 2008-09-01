@@ -607,16 +607,16 @@ In fact, this latter pair of functors are themselves dependent (on the name $a$)
 and it is hard to capture this fact in full generality without going into far
 too much detail for the purposes of this section.
 %
-For the sake of clarity, it is simpler here to notice that \begin{equation}
-\label{def:ysa} y(s \udot \{a\}) \cong ys \otimes \mathbb A \end{equation} by
-the isomorphism \ref{def:ys}.
+For the sake of clarity, it is simpler here to notice that the isomorphism
+\ref{def:ys} gives rise to an isomorphism \begin{equation} \label{def:ysa} \nu :
+y(s \udot \{a\}) \cong ys \otimes \mathbb A. \end{equation}
 %
-In detail, this isomorphism maps $i : s \udot \{a\} \rightarrowtail \mathbb A$
-to the pair $\langle i|_{s}, i(a) \rangle$.
+In detail, $\nu$ maps $i : s \udot \{a\} \rightarrowtail \mathbb A$ to the pair
+$\langle i|_{s}, i(a) \rangle$.
 %
-Importantly, this isomorphism is equivariant, and hence an arrow of
-$\mathbf{FMPre}_{\varnothing}$, and it relates the distinguished element $i_{s
-\udot \{a\}}$ to the pair $\langle i_s, a \rangle$.
+Importantly, $\nu$ is equivariant, and hence an arrow of
+$\mathbf{FMPre}_{\varnothing}$, and $\nu (i_{s \udot \{a\}}) = \langle i_s, a
+\rangle$.
 
 Consider the object $\langle X, f \rangle$ of $\mathbf{FMPre}_{\varnothing}/ys$.
 %
@@ -624,14 +624,17 @@ The action of $(-) \otimes \mathbb A$ takes it to the arrow $f \otimes
 \mathbf{1}_{\mathbb A} : X \otimes \mathbb A \to ys \otimes \mathbb A$.
 %
 From the equivalence in lemma \ref{lemma:slice} the object $\langle X \otimes
-\mathbb A, f \otimes \mathbf{1}_{\mathbb A} \rangle$ corresponds to the FM set
-\begin{equation} \begin{array}{rcl}
+\mathbb A, \nu^{-1} \circ (f \otimes \mathbf{1}_{\mathbb A}) \rangle$
+corresponds to the FM set \begin{equation} \begin{array}{rcl}
 %
-\multicolumn{3}{l}{G_{s \udot \{a\}} \langle X \otimes \mathbb A, f \otimes
-\mathbf{1}_{\mathbb A} \rangle} \\
+\multicolumn{3}{l}{G_{s \udot \{a\}} \langle X \otimes \mathbb A, \nu^{-1} \circ
+(f \otimes \mathbf{1}_{\mathbb A}) \rangle} \\
 %
-&=& \{ \langle x, a' \rangle \in X \otimes \mathbb A \mid (f \otimes
-\mathbf{1}_{\mathbb A}) \langle x, a' \rangle = \langle i_s, a \rangle \} \\
+&=& \{ \langle x, a' \rangle \in X \otimes \mathbb A \mid \nu^{-1} ((f \otimes
+\mathbf{1}_{\mathbb A}) \langle x, a' \rangle) = i_{s \udot \{a\}} \} \\
+%
+&=& \{ \langle x, a' \rangle \in X \otimes \mathbb A \mid \langle f(x), a'
+\rangle = \langle i_s, a \rangle  \} \\
 %
 &=& \{ \langle x, a \rangle \in X \otimes \mathbb A \mid f(x) = i_s \} \\
 %
