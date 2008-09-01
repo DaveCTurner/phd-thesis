@@ -364,7 +364,7 @@ Let $q' \in \delta_a \typeQ$ and let $b$ be fresh, then \begin{equation}\begin{a
 \mathbf{1}_{\delta_a}$ as required.  \end{proof}
 
 
-\section{Alternative Presentations of $\mathbf{FMPre}_s$.}
+\section{Alternative Presentations of $\mathbf{FMPre}_s$}
 \label{fmpre:alternative}
 
 The purist may wonder whether it is necessary that the foundations of this
@@ -726,7 +726,7 @@ _{\kappa^{s_0; s \hookrightarrow s'}}
 TODO $\delta_a$ functor as $\delta$, and adjunction with $(-)^{\freshfor a}$.
 
 
-\subsection{An Elementary Presentation of $\mathbf{FMPre}_s$.}
+\subsection{An Elementary Presentation of $\mathbf{FMPre}_s$}
 
 Let $\mathbf{SubNPre}_s$ be the category described as follows. Its objects are
 pairs $\langle X, X_0 \rangle$ where $X_0$ is a nominal preorder and $X$ is a
