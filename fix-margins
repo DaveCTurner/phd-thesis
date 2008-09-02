@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+if [ -f $HOME/.this_is_alport ]
+then
+	cat > margins <<EOF
+\\setlength\\textheight{165mm}
+\\setlength\\paperwidth{250mm}
+\\setlength\\textwidth{210mm}
+EOF
+else if [ -f $HOME/.this_is_grisedale ]
+then
+	cat > margins <<EOF
+\\setlength\\textheight{165mm}
+\\setlength\\paperwidth{250mm}
+\\setlength\\textwidth{210mm}
+EOF
+else
+	echo > margins
+fi
+fi

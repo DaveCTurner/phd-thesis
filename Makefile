@@ -38,7 +38,7 @@ distclean: clean
 
 clean:
 	rm -f $(PSTEXES) $(PSTEX_TS) $(AUXES) $(BBLS) $(BLGS) $(DVIS) $(LOGS) \
-		$(FIGBAKS) $(TOCS)
+		$(FIGBAKS) $(TOCS) margins
 
 %.pstex: %.fig
 	fig2dev -L pstex -F $< $@
@@ -49,7 +49,7 @@ clean:
 # This is necessary to stop the inbuilt rule for running TeX from taking over.
 %.dvi: %.tex
 
-%.dvi: %.tex $(BIBS) $(PSTEX_TS) $(PSTEXES) $(TEXINCS)
+%.dvi: %.tex $(BIBS) $(PSTEX_TS) $(PSTEXES) $(TEXINCS) margins
 	latex $< && \
 	if (grep `echo "$@" | sed -e "s/\.dvi$$/\.log/"` -e "Citation.*undefined"); \
 	then \
@@ -73,9 +73,26 @@ clean:
 
 
 %.ps: %.dvi $(PSTEXES)
+ifeq ($(PRINTABLE),0)
+ifdef BOUNDING_BOX
+	dvips -Ppdf $< -o $@ && \
+	sed -i "s/^%%BoundingBox: .*$$/%%BoundingBox: $(BOUNDING_BOX)/" $@
+else
+	dvips -Ppdf $< -o $@ && \
+	sed -i "s/^%%BoundingBox: .*$$/%%BoundingBox: 110 186 729 675/" $@
+endif
+else
 	dvips -Ppdf $< -o $@
+endif
 
 %.pdf: %.ps
 	ps2pdf $< $@
 
 .PRECIOUS: $(PSTEXES) $(PSTEX_TS) $(DVIS)
+
+margins: fix-margins
+ifeq ($(PRINTABLE),0)
+	./fix-margins
+else
+	echo > margins
+endif
