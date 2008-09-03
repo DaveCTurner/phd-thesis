@@ -590,14 +590,65 @@ their definitions are natural in $\langle X, f \rangle$, which completes the
 equivalence of $\mathbf{FMPre}_{\varnothing}/ys$ and $\mathbf{FMPre}_s$ as
 required.  \end{proof}
 
-\begin{lemma}
-Injections $i: s \rightarrowtail s'$ in $\mathbb I$ give rise to functors
-$\sigma_i : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$ via change-of-base (TODO
-right name?). In particular, inclusions $s \hookrightarrow s'$ give rise to
-inclusions $\mathbf{FMPre}_s \hookrightarrow \mathbf{FMPre}_{s'}$.
+Define a functor (TODO better word than 'cod') $\mathrm{cod} :
+(\mathbf{FMPre}_{\varnothing} \downarrow y) \to \mathbb{I}^{\mathrm{op}}$.
+
+\begin{lemma} \label{lemma:cartesian} An arrow $\langle h, i \rangle : \langle
+X, f \rangle \to \langle Y, g \rangle$ of $(\mathbf{FMPre}_{\varnothing}
+\downarrow y)$ is Cartesian over $i : s \rightarrowtail s'$ (with respect to
+$\mathrm{cod}$) if the following diagram is a pullback square.  \[\xymatrix{
+X
+	\ar[r]^{h}
+	\ar[d]_{f}
+&
+Y
+	\ar[d]^{g}
+\\
+ys'
+	\ar[r]_{\mathord{-} \circ i}
+&
+ys
+}\]
 \end{lemma}
 
-\begin{proof} TODO \end{proof}
+\begin{proof}
+By definition of Cartesianness.
+\end{proof}
+
+\begin{lemma} The functor $\mathrm{cod} : (\mathbf{FMPre}_{\varnothing}
+\downarrow y) \to \mathbb{I}^{\mathrm{op}}$ is a cloven fibration, with cleavage
+given by the usual choice of pullbacks.\end{lemma}
+
+\begin{proof} Using lemma \ref{lemma:cartesian} and the fact that
+$\mathbf{FMPre}_{\varnothing}$ has pullbacks.\end{proof}
+
+If $i : s \rightarrowtail s'$ is an arrow of $\mathbb I$ then there is a
+corresponding reindexing functor $i^* : \mathbf{FMPre}_{\varnothing}/ys \to
+\mathbf{FMPre}_{\varnothing}/ys'$ given by pullback. If $\sigma_i$ is a
+permutation that extends $i$ then $i^*$ gives rise to the permutation functor
+$\sigma_i : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$ via the equivalence of
+lemma \ref{lemma:slice} as follows. Let $\langle X, f \rangle$ be an object of
+$\mathbf{FMPre}_{\varnothing}$, then \begin{equation} \begin{array}{rcl} G_s'
+i^* \langle X, f \rangle
+%
+&=& G_s' \langle X \times_{ys} ys', \pi_2\rangle \\
+%
+&=& \{ \langle x, i' \rangle \in X \times ys' \mid f(x) = i' \circ i \wedge i' =
+i_{s'}\} \\
+%
+&\cong& \{ x \in X \mid f(x) = i_{s'} \circ i \} \\
+%
+&=& \sigma_i \cdot \{ x \in X \mid f(\sigma_i \cdot x) = i_{s'} \circ i \} \\
+%
+&=& \sigma_i \cdot \{ x \in X \mid f(x) = \sigma_i^{-1} \circ i_{s'} \circ i \}
+\\
+%
+&=& \sigma_i \cdot \{ x \in X \mid f(x) = i_s \} \\
+%
+&=& \sigma_i \cdot G_s \langle X, f \rangle, \end{array}\end{equation} and the
+action on arrows is straightforward. In particular, the inclusion $s
+\hookrightarrow s'$ gives rise to the inclusion $\mathbf{FMPre}_s
+\hookrightarrow \mathbf{FMPre}_{s'}$.
 
 A parallel construction in the codomain fibration on $\mathbf{NPre}/y$ gives
 rise to a more universal setting for the remainder of this discussion.
