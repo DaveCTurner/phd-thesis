@@ -289,7 +289,7 @@ is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
 \ar@<-4pt>@{^{(}->}[r]^{i_{\typeP}} \ar[dr]_f & \widehat{\typeP}
 \ar[d]^{f^{\ddagger}} \\& C} \end{equation} 
 %
-The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x =
+The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x \defeq
 \bigvee\{f y \mid y \in \typelift\typeP \wedge y \subseteq x \wedge \supp{y}
 \subseteq \supp{x} \}.\end{equation}
 %
