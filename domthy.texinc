@@ -770,7 +770,7 @@ suggests that a more careful treatment would yield a fibred adjunction in some
 appropriate sense.
 
 \begin{lemma} The adjunction $(-)^{\freshfor a} \dashv \delta_a$ satisfies the
-Beck-Chevally condition (TODO reword?) wherever it is defined.  \end{lemma}
+Beck-Chevalley condition (TODO reword?) wherever it is defined.  \end{lemma}
 
 \begin{proof} TODO \end{proof}
 
