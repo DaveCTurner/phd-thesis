@@ -649,8 +649,8 @@ action on arrows is straightforward. In particular, the inclusion $s
 \hookrightarrow s'$ gives rise to the inclusion $\mathbf{FMPre}_s
 \hookrightarrow \mathbf{FMPre}_{s'}$.
 
-A parallel construction in the codomain fibration on $\mathbf{NPre}/y$ gives
-rise to a more universal setting for the remainder of this discussion.
+A parallel construction in the codomain fibration on $(\mathbf{NPre} \downarrow
+y)$ gives rise to a more universal setting for the remainder of this discussion.
 %
 As mentioned above, the details of this construction are outside the scope of
 this thesis, but it is worth highlighting how some aspects of the structure of
