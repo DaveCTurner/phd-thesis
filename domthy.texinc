@@ -598,6 +598,7 @@ X, f \rangle \to \langle Y, g \rangle$ of $(\mathbf{FMPre}_{\varnothing}
 \downarrow y)$ is Cartesian over $i : s \rightarrowtail s'$ (with respect to
 $\mathrm{cod}$) if the following diagram is a pullback square.  \[\xymatrix{
 X
+	\pb{315}
 	\ar[r]^{h}
 	\ar[d]_{f}
 &
@@ -718,6 +719,7 @@ arrow $\delta\nu \circ \delta f : \delta X \to \delta(ys \otimes \mathbb A)$.
 Form the pullback against the unit $\xi_{ys} : ys \to \delta (ys \otimes \mathbb
 A)$ as follows: \begin{equation} \xymatrix{
 \delta X \times_{\delta(ys \otimes \mathbb A)} ys
+	\pb{315}
 	\ar[d]_{\pi_1}
 	\ar[rr]^{\pi_2}
 &&
