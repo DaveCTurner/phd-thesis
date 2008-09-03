@@ -629,10 +629,10 @@ corresponding reindexing functor $i^* : \mathbf{FMPre}_{\varnothing}/ys \to
 permutation that extends $i$ then $i^*$ gives rise to the permutation functor
 $\sigma_i : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$ via the equivalence of
 lemma \ref{lemma:slice} as follows. Let $\langle X, f \rangle$ be an object of
-$\mathbf{FMPre}_{\varnothing}$, then \begin{equation} \begin{array}{rcl} G_s'
+$\mathbf{FMPre}_{\varnothing}$, then \begin{equation} \begin{array}{rcl} G_{s'}
 i^* \langle X, f \rangle
 %
-&=& G_s' \langle X \times_{ys} ys', \pi_2\rangle \\
+&=& G_{s'} \langle X \times_{ys} ys', \pi_2\rangle \\
 %
 &=& \{ \langle x, i' \rangle \in X \times ys' \mid f(x) = i' \circ i \wedge i' =
 i_{s'}\} \\
