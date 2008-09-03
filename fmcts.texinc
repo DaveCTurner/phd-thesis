@@ -100,18 +100,25 @@ sequences iff it has limits of all directed sets: increasing sequences give rise
 to directed sets, and conversely given a well-ordered directed set the
 well-ordering gives rise to an increasing sequence. The Axiom of Choice ensures
 that all directed sets have well-orderings.
-
+%
 However, the Axiom of Choice does not hold in the theory of FM sets, so the
-analogy between sequences and directed sets breaks down. An FM-sequence in a
-domain $D$ is a sequence (i.e. a function from some ordinal $\alpha$ to $D$)
-that is additionally finitely-supported. If the sequence is supported by $s$
-then each element must also be supported by $s$ since ordinals have empty
-support: this support is said to be \textit{uniform} since it applies uniformly
-to all of the elements of the sequence.  Furthermore any uniformly supported
-sequence is an FM-sequence.
+analogy between sequences and directed sets breaks down. 
+
+\begin{definition} An \define{FM-sequence} in a domain $D$ is a sequence (i.e. a
+function from some ordinal $\alpha$ to $D$) that is additionally
+finitely-supported.  \end{definition} 
+
+If the sequence is supported by $s$ then each element must also be supported by
+$s$ since ordinals have empty support: this support is said to be
+\textit{uniform} since it applies uniformly to all of the elements of the
+sequence. Furthermore any uniformly supported sequence is an FM-sequence.
+
+\begin{definition} An FM set $X$ is \define{uniformly supported} by $s$ if every
+element $x \in X$ is supported by $s$. An FM set \define{has uniform support} if
+there exists a finite set $s$ that uniformly supports it. \end{definition}
 
 Classical sequences are to directed sets as uniformly supported sequences are to
-directed sets that are also uniformly supported. More precisely, A FM preorder
+directed sets that are also uniformly supported. More precisely, an FM preorder
 has limits of all increasing uniformly supported sequences iff it has limits of
 all uniformly supported directed sets: well-orderings of a uniformly supported
 set are always finitely supported so the (external) Axiom of Choice gives rise
@@ -123,10 +130,12 @@ classical case.
 
 Considering $\widehat{\typeP}$ as a domain of meanings for processes of type
 $\typeP$, it is now sensible to investigate the structure of the isolated (or
-compact or finite) elements of this domain with respect to FM-continuity.  An
-element $x$ is compact in this sense iff for all uniformly supported directed
-sets $X \subseteq \widehat{\typeP}$, if $x \subseteq \bigcup X$ then there
-exists $x' \in X$ such that $x \subseteq x'$.
+compact or finite) elements of this domain with respect to FM-continuity. 
+
+\begin{definition} An element $x \in \widehat{\typeP}$ is \define{compact} in
+this sense iff for all uniformly supported directed sets $X \subseteq
+\widehat{\typeP}$, if $x \subseteq \bigcup X$ then there exists $x' \in X$ such
+that $x \subseteq x'$.  \end{definition}
 
 For example, all finitely-supported subsets of $\mathbb A$ are isolated in
 $\widehat{\mathbb A}$. To see this, let $x \subseteq \mathbb A$ be
@@ -135,15 +144,17 @@ finitely-supported and such that $x \subseteq \bigcup X$ where $X \subseteq
 element of $X$ is either a subset of $s$ or a superset of $\mathbb A \setminus
 s$. Therefore $X$ is finite, and since it is also directed there must exist $x'
 \in X$ such that $x \subseteq x'$.
+%
+More generally, \begin{definition} If $\typeP$ is a FM-preorder, $F$ a finite
+subset of $\typeP$ and $s$ a finite set of names that contains $\supp{\typeP}$
+then define \begin{equation} \label{def:finelt} \finelt{F}{s} \defeq
+\bigcup_{\sigma \freshfor s} \sigma \cdot F_\downarrow. \end{equation}
+\end{definition}
 
-More generally, if $\typeP$ is a FM-preorder, $F$ a finite subset of $\typeP$
-and $s$ a finite set of names that contains $\supp{\typeP}$ then define
-\begin{equation} \label{def:finelt} \finelt{F}{s} \defeq \bigcup_{\sigma \freshfor s}
-\sigma \cdot F_\downarrow. \end{equation} Every $x \in \widehat{\mathbb A}$ is
-of this form: either $x$ is finite and hence $x = \finelt{x}{\supp{x}}$ or else
-$x$ is cofinite and hence $x = \finelt{\{a\}}{\supp{x}}$ for any $a \in x$. It
-will turn out that sets of this form are precisely the isolated elements of
-$\widehat{\typeP}$.
+Every $x \in \widehat{\mathbb A}$ is of this form: either $x$ is finite and
+hence $x = \finelt{x}{\supp{x}}$ or else $x$ is cofinite and hence $x =
+\finelt{\{a\}}{\supp{x}}$ for any $a \in x$. It will turn out that sets of this
+form are precisely the isolated elements of $\widehat{\typeP}$.
 
 \begin{lemma}\label{fineltextension} If $\supp{\typeP} \subseteq s \subseteq s'$
 and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq
