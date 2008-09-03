@@ -14,6 +14,8 @@
 \usepackage{chngcntr}
 \usepackage[all,2cell]{xy}
 \UseAllTwocells
+\newdir{pb}{:(1,-1)@^{|-}}
+\def\pb#1{\save[]+<16 pt,0 pt>:a(#1)\ar@{pb{}}[]\restore}
 
 %\renewcommand\baselinestretch{1.2}% -- 'Double'-spacing
 \setlength\parskip{2ex}
