@@ -364,7 +364,7 @@ Let $q' \in \delta_a \typeQ$ and let $b$ be fresh, then \begin{equation}\begin{a
 \mathbf{1}_{\delta_a}$ as required.  \end{proof}
 
 
-\section{Alternative Presentations of $\mathbf{FMPre}_s$}
+\subsection{A Dependently-Typed Presentation of $\mathbf{FMPre}_s$}
 \label{fmpre:alternative}
 
 The purist may wonder whether it is necessary that the foundations of this
@@ -400,8 +400,6 @@ thesis than $\mathcal{V}_{\mathrm{FM}}$.
 The theory is not developed fully here as to do so is beyond the scope of this
 discussion, but it is intended that there is enough information here to persuade
 the purist that this work is applicable more generally it might first appear.
-
-\subsection{A Dependently-Typed Presentation of $\mathbf{FMPre}_s$}
 
 Secretly, this discussion has been taking place in a dependent type theory,
 along similar lines to the work of Ulrich Sch\"opp\cite{schoppthesis}.
