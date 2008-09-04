@@ -19,7 +19,7 @@ The Roman empire ran its course without adopting a sensible system for doing
 integer arithmetic.
 %
 Even the humble equals sign was not seen before the 14th century AD
-\cite{recorde:witte}.
+\ref{recorde:witte}.
 %
 In fact, the first serious attempts to study mathematical syntax in its own
 right did not happen before the end of the 19th century when a prevailing spirit
@@ -56,7 +56,7 @@ something to which a later reference needs to be made.
 %
 In particular, the name $x$ or $y$ itself is unimportant: it is `bound'.
 
-Even Frege\cite{frege:begriffsschrift} skims over this observation in his
+Even Frege\ref{frege:begriffsschrift} skims over this observation in his
 otherwise careful work. It was not until people started to represent
 mathematical statements on computer systems that it was realised that binding of
 names in a syntax is difficult to handle correctly. The problem is illustrated
@@ -84,13 +84,124 @@ Blah blah TODO.
 
 The basis for the theory of nominal sets is that of a finite automorphism of the
 set of names $\mathbb A$, i.e. a bijection $\sigma : \mathbb A \to \mathbb A$
-such that $\sigma a \neq a$ for finitely many $a \in \mathbb A$.
+such that $\sigma a \neq a$ for only finitely many $a \in \mathbb A$.
+%
+In particular this includes permutations of $\mathbb A$, which are represented
+as finite lists of transpositions of pairs of names $(a_1 b_1) \ldots (a_n b_n)$
+and whose action is defined by recursion on $n$ as $\iota a \defeq a$ and
+\begin{equation} (a_1 b_1) \ldots (a_n b_n) (a_{n+1} b_{n+1}) a \defeq
+\begin{cases} (a_1 b_1) \ldots (a_n b_n)  b_{n+1} & a = a_{n+1} \\ (a_1 b_1)
+\ldots (a_n b_n) a_{n+1} & a = b_{n+1} \\ (a_1 b_1) \ldots (a_n b_n)  a &
+\text{otherwise.} \end{cases} \end{equation}
+
+In fact, any finite automorphism may be represented as a permutation, as the
+following lemma shows.
 
 \begin{lemma} Any finite automorphism $\sigma : \mathbb A \to \mathbb A$ may be
-represented as a list of transpositions of pairs of names $(a_1 b_1) \ldots (a_n
-b_n)$ where either $\sigma = \mathbf{1}_{\mathbb A}$ (and $n = 0$) or $n < |\{a
-\in \mathbb A \mid \sigma a \neq a\}|$ and for each $i$, $\sigma a_i \neq a_i$
-and $\sigma b_i \neq b_i$.  \end{lemma}
+represented as a sequence of transpositions of pairs of names $(a_1 b_1) \ldots
+(a_n b_n)$ where either $\sigma = \mathbf{1}_{\mathbb A}$ (and $n = 0$) or $n <
+|\{a \in \mathbb A \mid \sigma a \neq a\}|$ and for each $i$, $\sigma a_i \neq
+a_i$ and $\sigma b_i \neq b_i$.  \end{lemma}
+
+\begin{proof} The proof proceeds by strong induction on $|\{a \in \mathbb A \mid
+\sigma a \neq a\}|$.
+%
+If $|\{a \in \mathbb A \mid \sigma a \neq a\}| = 0$ then $\sigma =
+\mathbf{1}_{\mathbb A}$.
+%
+Suppose that $|\{a \in \mathbb A \mid \sigma a \neq a\}| > 0$ and let $a \in
+\mathbb A$ be such that $\sigma a \neq a$.
+%
+In order to use the induction hypothesis, it is necessary to find an
+automorphism that moves strictly fewer names.
+%
+It will turn out that $\sigma \circ (a\ \sigma^{-1} a)$ is such an automorphism.
+%
+To see this, notice firstly that $\sigma \bigl((a\ \sigma^{-1} a) a\bigr) = a$.
+%
+Furthermore, suppose that $b$ is such that $\sigma \bigl((a\ \sigma^{-1} a)
+b\bigr) \neq b$, then $\sigma b \neq b$ as follows.
+%
+Clearly $b \neq a$; also if $b = \sigma^{-1} a$ then $\sigma b = a \neq b$;
+finally if $b \neq \sigma^{-1} a$ then $(a\ \sigma^{-1} a) b = b$ so that $b
+\neq \sigma \bigl((a\ \sigma^{-1} a) b\bigr) = \sigma b$ as required.
+%
+Therefore $\{b \in \mathbb A \mid \sigma \bigl((a\ \sigma^{-1} a) b\bigr) \neq
+b\} \varsubsetneq \{a \in \mathbb A \mid \sigma a \neq a \}$ so the induction
+hypothesis applies to $\sigma \circ (a\ \sigma^{-1} a)$ to give a sequence
+$\vec{\tau}$ of transpositions.
+%
+Note that $\sigma^{-1} a \neq a$ since $a \neq \sigma a$, so that $\vec{\tau}
+(a\ \sigma^{-1}a)$ is as desired.  \end{proof}
+
+The permutations on $\mathbb A$ form a group, $\mathcal G$.
+
+\subsection{Definitions}
+
+\begin{definition} A \define{$\mathcal G$-set} is a set $X$ together with an
+$\mathcal G$-action, written as the infix operator $\cdot$. \end{definition}
+
+\begin{definition} A set $s \subseteq \mathbb A$ is said to \define{support} $x
+\in X$ (and $x$ is said to \define{have support} $s$) if for any permutation
+$\sigma$ such that $\sigma a = a$ for all $a \in s$ it is the case that $\sigma
+\cdot x = x$. \end{definition}
+
+\begin{lemma} \label{lemma:smallestsupport} If $x \in X$ has a finite support then
+it has a smallest such.  \end{lemma}
+
+\begin{proof} TODO \end{proof}
+
+\begin{definition} A $\mathcal G$-set $X$ is a \define{nominal set} if every $x
+\in X$ has a finite support.  \end{definition}
+
+\begin{definition} In the light of lemma \ref{lemma:smallestsupport} if $X$ is a
+nominal set and $x \in X$ then define $\supp{x}$ to be the smallest support of
+$x$. \end{definition}
+
+\begin{definition} If $X$ and $Y$ are nominal sets and $x \in X$ and $y \in Y$
+then say $x$ \define{is fresh for} $y$ and write `$x \freshfor y$' iff $\supp{x}
+\cap \supp{y} = \varnothing$.\end{definition}
+
+It is worth discussing some examples of nominal sets. Firstly, $\mathbb A$ is a
+nominal set, with permutation action given by $\sigma \cdot a \defeq \sigma a$.
+This is clearly a group action, and it is straightforward to show that every $a
+\in \mathbb A$ is supported by the finite set $\{a\}$. Therefore $\supp{a} = a$
+and $a \freshfor b$ iff $a \neq b$.
+
+Also $\mathcal G$ is a nominal set, with permutation action given by $\sigma
+\cdot \sigma' \defeq \sigma \sigma' \sigma^{-1}$.
+%
+It is not hard to see that this is a group action.
+%
+Furthermore, $\supp{\sigma} = \{ a \in \mathbb A \mid \sigma a \neq a \}$ as
+follows.
+%
+Suppose that $\sigma' a = a$ for all $a \in \mathbb A$ such that $\sigma a \neq
+a$, then it is required to show that $\sigma' \cdot \sigma \defeq \sigma' \sigma
+{\sigma'}^{-1} = \sigma$.
+%
+Let $a \in \mathbb A$ and suppose that $\sigma' a \neq a$, then ${\sigma'}^{-1}
+a \neq a = \sigma' {\sigma'}^{-1} a$ so that ${\sigma'}^{-1} a = \sigma
+{\sigma'}^{-1} a$.
+%
+Therefore $(\sigma' \cdot \sigma) a = \sigma' {\sigma'}^{-1} a = a$. Also if
+$\sigma' a \neq a$ then $\sigma a = a$ so that $(\sigma' \cdot \sigma) a =
+\sigma a$ as required.
+%
+On the other hand suppose that $\sigma' a = a$, then ${\sigma'}^{-1} a = a$ too.
+%
+If $\sigma a = a$ then $(\sigma' \cdot \sigma) a = a = \sigma a$, and if $\sigma
+a \neq a$ then $\sigma \sigma a \neq \sigma a$ so that $\sigma' \sigma a =
+\sigma a$ and hence $(\sigma' \cdot \sigma) a = a = \sigma a$ as required.
+%
+Therefore $\sigma$ is supported by $\{a \in \mathbb A \mid \sigma a \neq a \}$.
+%
+Furthermore, this is the smallest support: pick any $a$ and $b$ such that
+$\sigma a \neq a$ and $\sigma b = b$ then it is certainly the case that $(ab)
+\cdot \sigma \neq \sigma$ so that $a \in \supp{\sigma}$.
+
+
+
 
 Blah blah TODO.
 
