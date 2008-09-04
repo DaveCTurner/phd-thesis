@@ -162,11 +162,15 @@ $x$. \end{definition}
 then say $x$ \define{is fresh for} $y$ and write `$x \freshfor y$' iff $\supp{x}
 \cap \supp{y} = \varnothing$.\end{definition}
 
-It is worth discussing some examples of nominal sets. Firstly, $\mathbb A$ is a
-nominal set, with permutation action given by $\sigma \cdot a \defeq \sigma a$.
-This is clearly a group action, and it is straightforward to show that every $a
-\in \mathbb A$ is supported by the finite set $\{a\}$. Therefore $\supp{a} = a$
-and $a \freshfor b$ iff $a \neq b$.
+It is worth discussing some examples of nominal sets. Firstly, any set may be
+given the trivial $\mathcal G$-action $\sigma \cdot x = x$ and with respect to
+this action every element has empty support. A set with the trivial $\mathcal
+G$-action is called a discrete nominal set.
+
+Secondly, $\mathbb A$ is a nominal set with permutation action given by $\sigma
+\cdot a \defeq \sigma a$.  This is clearly a group action, and it is
+straightforward to show that every $a \in \mathbb A$ is supported by the finite
+set $\{a\}$. Therefore $\supp{a} = a$ and $a \freshfor b$ iff $a \neq b$.
 
 Also $\mathcal G$ is a nominal set, with permutation action given by $\sigma
 \cdot \sigma' \defeq \sigma \sigma' \sigma^{-1}$.
@@ -200,8 +204,109 @@ Furthermore, this is the smallest support: pick any $a$ and $b$ such that
 $\sigma a \neq a$ and $\sigma b = b$ then it is certainly the case that $(ab)
 \cdot \sigma \neq \sigma$ so that $a \in \supp{\sigma}$.
 
+If $X$ and $Y$ are nominal sets then their product $X \times Y$ and their sum $X
++ Y$ are both nominal sets, with permutation actions given componentwise. The
+support of a pair $\langle x, y \rangle \in X \times Y$ is $\supp{x} \cup
+\supp{y}$.
 
+If $X$ is a nominal set and $Y \subseteq X$ is closed under the action of
+$\mathcal G$ then $Y$ is also a nominal set with respect to this action.
 
+If $X$ is a nominal set then its powerset $\mathcal P X$ has a natural $\mathcal
+G$-action given by \begin{equation} \sigma \cdot A \defeq \{ \sigma \cdot x \mid
+x \in A \}. \end{equation}
+%
+However in general not every subset of $X$ has finite support with respect to
+this action.
+%
+For example, consider some $A \subseteq \mathbb A$ which is neither finite nor
+has finite complement, then $A$ does not have a finite support.
+%
+To see this, suppose that $A$ is supported by a set $s \subseteq \mathbb A$. If
+there exists $a \in A \setminus s$ and $b \in \mathbb A \setminus (A \cup s)$
+then $(ab) \cdot A \neq A$ which contradicts that $s$ supports $A$, so either $A
+\setminus s = \varnothing$ or $\mathbb A \setminus (A \cup s) = \varnothing$. If
+$A \setminus s = \varnothing$ then $A \subseteq s$ and hence $s$ is infinite,
+whereas if $\mathbb A \setminus (A \cup s) = \varnothing$ then $A \cup s =
+\mathbb A$ and hence $\mathbb A \setminus A \subseteq s$ so that $s$ is infinite
+in this case as well.
+
+However, $\mathcal P X$ does contain a nominal set, \begin{equation}
+\mathcal{P}_{\mathrm{fs}}(X) \defeq \{ A \subseteq X \mid \text{$A$ has finite
+support} \}. \end{equation} It is not hard to see that if $A \subseteq X$ is
+supported by $s$ then $\sigma \cdot A$ is supported by $\{ \sigma a \mid a \in
+s\} = \sigma \cdot s$ so that $\mathcal{P}_{\mathrm{fs}} X$ does have a
+$\mathcal{G}$-action.
+
+If $X$ and $Y$ are nominal sets then the function space $X \to Y$ is a subset of
+$\mathcal P(X \times Y)$, where the derived $\mathcal{G}$-action becomes
+\begin{equation} (\sigma \cdot f)x \defeq \sigma \cdot \bigl( f(\sigma^{-1}
+\cdot x) \bigr). \end{equation} In general a function $f : X \to Y$ does not
+have finite support: if $A \subseteq \mathbb A$ is infinite and has infinite
+complement then its characteristic function $\chi_A : \mathbb A \to \mathbf{2}$
+has no finite support by the same argument as before. Again, $X \to Y$ does
+contain a nominal set, \begin{equation} X \to_{\mathrm{fs}} Y \defeq \{ f : X
+\to Y \mid \text{$f$ has finite support} \}. \end{equation} It is not hard to
+see that if $s$ supports $f$ then $\sigma \cdot s$ supports $\sigma \cdot f$ so
+that $X \to_{\mathrm{fs}} Y$ does have a well-defined $\mathcal{G}$-action.
+
+\begin{definition} A function $f : X \to Y$ between nominal sets is
+\define{equivariant} iff it has empty support. \end{definition}
+
+If $f$ is equivariant then $\sigma^{-1} \cdot f = f$ so that for all $x \in X$,
+$f x = (\sigma^{-1} \cdot f) x = \sigma^{-1} \cdot \bigl( f (\sigma x) \bigr)$
+and hence \begin{equation} \label{def:eqvt} \sigma \cdot (f x) = f (\sigma \cdot
+x). \end{equation}
+%
+The converse also holds.
+%
+There are many equivariant functions. It is not hard to see that the support
+function $\mathrm{supp} : X \to \mathcal{P}_{\mathrm{fs}} \mathbb A$ is
+equivariant: $\sigma \cdot \supp{x} = \supp{\sigma \cdot x}$. The identity
+function $\mathbf{1}_{X}$ is equivariant.  Composition is equivariant: $\sigma
+\cdot (g \circ f) = (\sigma \cdot g) \circ (\sigma \cdot f)$. The projections $X
+\times Y \to X$ and injections $X \to X + Y$ are equivariant. Function
+application is equivariant: $\sigma \cdot (f x) = (\sigma \cdot f) (\sigma \cdot
+x)$. 
+
+Certain predicates also exhibit an equivariance property. For example, freshness
+and set membership are equivariant: $x \freshfor y$ iff $(\sigma \cdot x)
+\freshfor (\sigma \cdot y)$ and $x \in A$ iff $\sigma \cdot x \in \sigma \cdot
+A$.
+
+\begin{definition} The category \define{$\mathbf{NSet}$} has nominal sets for
+objects and equivariant functions for arrows. \end{definition}
+
+It is reasonably clear that the composition of equivariant functions is
+equivariant, so this does define a category.  Furthermore, it has products
+$\times$, coproducts $+$ and exponentials $\to_{\mathrm{fs}}$ given as above,
+and to cut a long story short it is also a Boolean topos.
+
+\begin{lemma} Let $\mathbb I$ be the category whose objects are finite subsets
+of $\mathbb A$ and whose arrows are injections between them. Then the category
+$\mathbf{NSet}$ is equivalent to the full subcategory $\mathbf{Sch}$ of
+$\mathbf{Set}^{\mathbb I}$ consisting of those presheaves that preserve
+pullbacks.\end{lemma}
+
+\begin{proof}[Sketch Proof] A functor $F: \mathbf{NSet} \to \mathbf{Sch}$ is
+defined by \begin{equation} F X s \defeq \{ x \in X \mid \text{$s$ supports $x$}
+\}, \end{equation} where if $i : s \rightarrowtail s'$ then there is some
+permutation $\sigma_i$ that extends $i$, so define $F i x \defeq \sigma_i \cdot
+x$.  Note that there are many choices for $\sigma_i$ but this definition is
+independent of this choice, because if $\sigma_i$ and $\sigma'_i$ both extend
+$i$ then $\sigma_i^{-1} \sigma'_i \freshfor s$ and $s$ supports $x$ so that
+$\sigma_i^{-1} \cdot \sigma'_i \cdot x = x$ and hence $\sigma_i \cdot x =
+\sigma'_i \cdot x$.
+
+A functor $G : \mathbf{Sch} \to \mathbf{NSet}$ is defined by \begin{equation} G
+X \defeq \mathrm{colim} X |_{\mathbb J} \end{equation} where the colimit is
+taken over the restriction of $X$ to a diagram of shape $\mathbb J$, which is
+the category whose objects are finite subsets of $\mathbb A$ but whose arrows
+are just the inclusions between them. The action of $G$ on morphisms is given by
+the universal property of this colimit.
+
+It is left as an exercise to check that $F$ and $G$ define an equivalence of
+categories.\end{proof}
 
 Blah blah TODO.
 
