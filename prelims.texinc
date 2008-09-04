@@ -11,6 +11,87 @@ Blah blah TODO.
 \section{Nominal Sets}
 \label{nsets}
 
+It has taken thousands of years to develop the modern language of mathematics.
+%
+Early Greek mathematicians wrote their mathematics in prose.
+%
+The Roman empire ran its course without adopting a sensible system for doing
+integer arithmetic.
+%
+Even the humble equals sign was not seen before the 14th century AD
+\cite{recorde:witte}.
+%
+In fact, the first serious attempts to study mathematical syntax in its own
+right did not happen before the end of the 19th century when a prevailing spirit
+of reductionism led the philosophers of the day to realise that it was even a
+subject worth studying.
+
+The conclusion to be drawn from this is that mathematical syntax is relatively
+unimportant to mathematicians: syntax is simply there to represent ideas, and
+the ability to translate between ideas and their representations is tacitly
+assumed.
+%
+It was not until the advent of programmable computers that the importance of
+this translation became apparent.
+%
+A computer programme is represented by some piece of syntax, but the meaning of
+that syntax is captured by its translation into the sequence of operations
+performed by the computer, and ultimately by the output of those operations
+which is also represented by some piece of syntax.
+%
+
+
+
+The first steps of an algebra student might be proving theorems such as
+\begin{equation} \label{algthm1} \forall x. (5x+2 = 12 \Rightarrow x = 2)
+\end{equation} although of course its discussion would not involve the words
+`theorem' or `proof' and would not feature the symbols $\forall$ or
+$\Rightarrow$.
+%
+Regardless of the language used, even the dullest of students would agree that
+there's no difference between theorem \ref{algthm1} and \begin{equation}
+\label{algthm2} \forall y. (5y+2 = 12 \Rightarrow y = 2) \end{equation} once
+they have grasped the concept that the symbols $x$ and $y$ are just used to name
+something to which a later reference needs to be made.
+%
+In particular, the name $x$ or $y$ itself is unimportant: it is `bound'.
+
+Even Frege\cite{frege:begriffsschrift} skims over this observation in his
+otherwise careful work. It was not until people started to represent
+mathematical statements on computer systems that it was realised that binding of
+names in a syntax is difficult to handle correctly. The problem is illustrated
+as follows. In the theorem \begin{equation} \label{algthm3} \forall x. \left( x
+= \int_0^1 x\ \mathrm{d}y \right) \end{equation} if $x$ were blindly renamed to
+$y$ as before, the resulting statement is \begin{equation} \label{algthm4}
+\forall y.  \left( y = \int_0^1 y\ \mathrm{d}y \right) \end{equation} which is
+false. The intended result is of course \begin{equation} \label{algthm5} \forall
+y.  \left( y = \int_0^1 y\ \mathrm{d}z \right) \end{equation} where the bound
+variable $y$ is also quietly renamed to avoid its `capture'. Explaining this
+idea to a primary school student is trivial, but explaining it to a computer
+
+The study of syntax, particularly mathematical syntax, is a relatively new
+field.
+
+It is perhaps surprising that the study of syntax is so hard.
+
+TODO What a load of rubbish
+
+
+
+Blah blah TODO.
+
+\subsection{Finite Automorphisms on Names}
+
+The basis for the theory of nominal sets is that of a finite automorphism of the
+set of names $\mathbb A$, i.e. a bijection $\sigma : \mathbb A \to \mathbb A$
+such that $\sigma a \neq a$ for finitely many $a \in \mathbb A$.
+
+\begin{lemma} Any finite automorphism $\sigma : \mathbb A \to \mathbb A$ may be
+represented as a list of transpositions of pairs of names $(a_1 b_1) \ldots (a_n
+b_n)$ where either $\sigma = \mathbf{1}_{\mathbb A}$ (and $n = 0$) or $n < |\{a
+\in \mathbb A \mid \sigma a \neq a\}|$ and for each $i$, $\sigma a_i \neq a_i$
+and $\sigma b_i \neq b_i$.  \end{lemma}
+
 Blah blah TODO.
 
 \begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
