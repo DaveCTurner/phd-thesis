@@ -698,7 +698,7 @@ The action of $(-) \otimes \mathbb A$ takes it to the arrow $f \otimes
 %
 From the equivalence in lemma \ref{lemma:slice} the object $\langle X \otimes
 \mathbb A, \nu^{-1} \circ (f \otimes \mathbf{1}_{\mathbb A}) \rangle$
-corresponds to the FM set \begin{equation} \begin{array}{rcl}
+corresponds to the FM set \begin{equation} \label{deptype:fresh} \begin{array}{rcl}
 %
 \multicolumn{3}{l}{G_{s \udot \{a\}} \langle X \otimes \mathbb A, \nu^{-1} \circ
 (f \otimes \mathbf{1}_{\mathbb A}) \rangle} \\
@@ -776,22 +776,41 @@ ys, \pi_2 \rangle} \\
 %
 \end{array} \end{equation}
 
-TODO: Projection from $\otimes$ makes a nat trans $(-)^{\freshfor a} \to
-\mathbf{1}$ (?)
-
-TODO Inclusions $s \hookrightarrow s'$
-give rise to natural transformations \[\xymatrix{
-\mathbf{FMPre}_{s_0} 
-\ar[ddrr]_{(-)^{\freshfor s'}}
-\ar[rr]^{(-)^{\freshfor s}}
-&&
-\mathbf{FMPre}_{s_0 \udot s} \ar[dd]^{J^{s_0 \udot s \hookrightarrow s_0 \udot
-s'}}
-\ar@{=>}[dl]
-_{\kappa^{s_0; s \hookrightarrow s'}}
-\\ &{}\\ &&
-\mathbf{FMPre}_{s_0 \udot s'}
-}\]
+Let $i : s \hookrightarrow s \udot \{a\}$ and consider the following situation.
+\begin{equation} \label{tau:projection} \xymatrix{
+X \otimes \mathbb A
+	\ar@/^4ex/[drr]^{\pi_1}
+	\ar@/_4ex/[ddr]_{\nu^{-1} \circ (f \otimes \mathbf{1}_{\mathbb A})}
+	\ar@{.>}[dr]^{\tau}
+\\&
+i^* X
+	\pb{315}
+	\ar[r]
+	\ar[d]
+&
+	X
+	\ar[d]^{f}
+\\&
+y(s \udot \{a\})
+	\ar[r]_(0.65){yi}
+&
+ys
+} \end{equation}
+As $i^*X$ is formed by pullback, there is a unique map $\tau : X \otimes \mathbb
+A \to i^* X$ which is an arrow of $\mathbf{FMPre}_{\varnothing} / y(s \udot
+\{a\})$.
+%
+By \ref{reindexing} the object $i^* X$ corresponds to $G_s \langle X, f \rangle$
+as an object of $\mathbf{FMPre}_{s \udot \{a\}}$, and by \ref{deptype:fresh} the
+object $\langle X \otimes \mathbb A, \nu^{-1} \circ (f \otimes
+\mathbf{1}_{\mathbb A} \rangle$ corresponds to $(G_s \langle X, f
+\rangle)^{\freshfor a}$. Therefore by lemma \ref{lemma:slice} the arrow $\tau$
+corresponds to an arrow $(G_s \langle X, f \rangle)^{\freshfor a} \to G_s
+\langle X, f \rangle$ defined for all $x \in (G_s \langle X, f
+\rangle)^{\freshfor a}$ by \begin{equation} \label{deptype:tau} (G_{s \udot a}
+\tau) x \defeq x. \end{equation} In other words, the $\tau^a$ from
+\ref{lemma:freshinclusion} is the dependently-typed analogue of the projection
+$\pi_1: X \otimes \mathbb A \to X$.
 
 \input{fmlin.texinc}
 \input{fmcts.texinc}
