@@ -248,6 +248,9 @@ finitely-supported monotone function then for all $p' \in \delta_a \typeP$
 define \begin{equation} \delta_a f (p') \defeq \freshin{b}{[b].\bigl((ab) \cdot
 f) (p' @ b)}.\end{equation}\end{definition}
 
+TODO Care more precisely about what the equivalence classes are. Where do they
+live?
+
 \begin{lemma} If $a \notin s$ then the operation $\delta_a$ defined in
 \ref{def:deltaa} is a functor $\mathbf{FMPre}_{s \udot a} \to
 \mathbf{FMPre}_s$.\end{lemma}
