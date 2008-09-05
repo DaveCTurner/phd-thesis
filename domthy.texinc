@@ -762,6 +762,8 @@ ys, \pi_2 \rangle} \\
 %
 \end{array} \end{equation}
 
+TODO: Projection from $\otimes$ makes a nat trans $(-)^{\freshfor a} \to
+\mathbf{1}$ (?)
 
 TODO Inclusions $s \hookrightarrow s'$
 give rise to natural transformations \[\xymatrix{
