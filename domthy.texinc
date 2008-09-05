@@ -180,6 +180,9 @@ construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in such a way as to
 only include elements that have finite supports. Each nominal set is then
 (isomorphic to) a FM set which has empty support.
 
+TODO refer to Jamie's thesis. Note that ${\mathcal{V}_{\mathrm{FM}}}_\alpha$ are
+all nominal sets.
+
 It is certainly possible to define a category $\mathbf{FMPre}$ of FM-preorders
 and finitely-supported monotone functions within FM set theory, and for any
 FM-preorder $\typeP$ it is the case that $\typeP^{\freshfor a}$ is also a
