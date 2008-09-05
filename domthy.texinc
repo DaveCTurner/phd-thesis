@@ -132,6 +132,8 @@ by \begin{equation} \label{def:deltafunction} \delta f (p') =
 is monotone if $f$ is, and otherwise the functoriality of $\delta$ follows from
 the same argument as in $\mathbf{NSet}$.
 
+TODO: Unit and counit.
+
 \section{FM Preorders}
 \label{fmpre}
 
