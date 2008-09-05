@@ -118,7 +118,7 @@ the $\alpha$-equivalence relation on $\mathbb A \times \typeP$ where
 \begin{equation} \label{def:alphaequiv} \langle a_1, p_1 \rangle  \sim_{\alpha}
 \langle a_2, p_2 \rangle \Leftrightarrow_{\mathrm{def}} \freshin{b}{(a_1 b)
 \cdot p_1 = (a_2 b) \cdot p_2}. \end{equation} The $\alpha$-equivalence classes
-are denoted $[a].p$ where \begin{equation} \label{def:alphaclass} [a].p =
+are denoted $[a].p$ where \begin{equation} \label{def:alphaclass} [a].p \defeq
 [\langle a, p\rangle]_{\sim_{\alpha}}\end{equation} and the right adjoint to
 $(-) \otimes \mathbb A$ is given by the functor $\delta$ where \begin{equation}
 \label{def:delta} \delta\typeP \defeq \{ [a].p \mid \langle a, p \rangle \in
@@ -127,7 +127,7 @@ $(-) \otimes \mathbb A$ is given by the functor $\delta$ where \begin{equation}
 \Leftrightarrow_{\mathrm{def}} \freshin{b}{(a_1 b) \cdot p_1 \le_{\typeP} (a_2
 b) \cdot p_2}. \end{equation} On arrows, if $f : \typeP \to \typeQ$ is an arrow
 of $\mathbf{NPre}$ then $\delta f$ is defined for all $p' \in \typedelta\typeP$
-by \begin{equation} \label{def:deltafunction} \delta f (p') =
+by \begin{equation} \label{def:deltafunction} \delta f (p') \defeq
 \freshin{b}{[b].f(p'@b)}. \end{equation} It is not hard to see that $\delta f$
 is monotone if $f$ is, and otherwise the functoriality of $\delta$ follows from
 the same argument as in $\mathbf{NSet}$.
