@@ -378,7 +378,7 @@ cumulative hierarchy out of which one can construct $\mathcal{V}_{\mathrm{FM}}$.
 Nor does $\mathbf{Nom}$ insist that the permutation action on any particular set
 is given by $\mathord{\in}$-recursion: strictly speaking, one must specify the
 isomorphism between each nominal set and its corresponding FM set in order to
-set up the equivalence of categories between $\mathbf{NPre}$ and
+set up the equivalence between $\mathbf{NPre}$ and
 $\mathbf{FMPre}_{\varnothing}$ that was asserted above.
 %
 More practically, conventional domain theory does not really require all the
