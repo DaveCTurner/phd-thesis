@@ -425,17 +425,19 @@ if the current set of names is $s$ then the available types are objects of
 $\mathbf{FMPre}_s$. 
 %
 The current set of names can change, by inserting a new name or by permuting the
-current names, and in general if $s \rightarrowtail s'$ is an arrow of $\mathbb
-I$ then the `current' set of names can be changed from $s$ to $s'$.
+current names, and in general if $i: s \rightarrowtail s'$ is an arrow of
+$\mathbb I$ then the `current' set of names can be changed from $s$ to $s'$
+using $i$.
 %
 In order to give this account in terms of dependent type theory, this indicates
-that a fibration over $\mathbb I$ should be sought.
+that a fibration over $\mathbb I^{\mathrm{op}}$ should be sought.
 
 Recall from \ref{??} that each nominal preorder can be seen as a
-pullback-preserving functor from $\mathbb{I}^{\mathrm{op}}$ to $\mathbf{Pre}$.
+pullback-preserving functor from $\mathbb{I}$ to $\mathbf{Pre}$.
 %
-The Yoneda lemma therefore embeds a copy of $\mathbb I$ in $\mathbf{NPre}$,
-taking each finite set $s$ to the functor $ys \defeq \mathbb{I}(s, -)$.
+The Yoneda lemma therefore embeds a copy of $\mathbb I^{\mathrm{op}}$ in
+$\mathbf{NPre}$, taking each finite set $s$ to the functor $ys \defeq
+\mathbb{I}(s, -)$.
 %
 Following through the equivalence of \ref{??}, the nominal preorder $ys$
 consists of all injections $s \rightarrowtail \mathbb{A}$ ordered with the
@@ -455,7 +457,7 @@ If $|s| > 1$ then there are many such isomorphisms.
 There is also an important distinguished element of $ys$: the inclusion $i_s : s
 \hookrightarrow \mathbb A$, which has support $s$.
 
-There is a similarly-defined embedding $y : \mathbb I \to
+There is a similarly-defined embedding $y : \mathbb I^{\mathrm{op}} \to
 \mathbf{FMPre}_{\varnothing}$, and the codomain fibration on
 $\mathbf{FMPre}_{\varnothing} \downarrow y$ gives rise to the desired dependent
 type theory as follows.
