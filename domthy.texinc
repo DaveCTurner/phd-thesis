@@ -371,6 +371,14 @@ Let $q' \in \delta_a \typeQ$ and let $b$ be fresh, then \begin{equation}\begin{a
 \end{array}\end{equation} so that $ \delta_a \zeta \circ \xi_{\delta_a} =
 \mathbf{1}_{\delta_a}$ as required.  \end{proof}
 
+\begin{lemma} \label{lemma:freshinclusion} If $a \notin s$ and $J$ is the
+inclusion of categories $\mathbf{FMPre}_{s} \hookrightarrow \mathbf{FMPre}_{s
+\udot \{a\}}$ then there is a natural transformation \[ \tau^a : (-)^{\freshfor
+a} \Rightarrow J : \mathbf{FMPre}_{s} \rightrightarrows \mathbf{FMPre}_{s \udot
+\{a\}} \] given by $\tau^a_X(x) \defeq x$  for all $x \in X^{\freshfor a}$.
+\end{lemma}
+
+\begin{proof} Trivial. \end{proof}
 
 \subsection{A Dependently-Typed Presentation of $\mathbf{FMPre}_s$}
 \label{fmpre:alternative}
