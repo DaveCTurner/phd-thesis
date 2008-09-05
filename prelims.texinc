@@ -103,6 +103,8 @@ represented as a sequence of transpositions of pairs of names $(a_1 b_1) \ldots
 |\{a \in \mathbb A \mid \sigma a \neq a\}|$ and for each $i$, $\sigma a_i \neq
 a_i$ and $\sigma b_i \neq b_i$.  \end{lemma}
 
+The permutations on $\mathbb A$ form a group, $\mathcal G$.
+
 \begin{proof} The proof proceeds by strong induction on $|\{a \in \mathbb A \mid
 \sigma a \neq a\}|$.
 %
@@ -134,7 +136,83 @@ $\vec{\tau}$ of transpositions.
 Note that $\sigma^{-1} a \neq a$ since $a \neq \sigma a$, so that $\vec{\tau}
 (a\ \sigma^{-1}a)$ is as desired.  \end{proof}
 
-The permutations on $\mathbb A$ form a group, $\mathcal G$.
+It will be useful to be able to characterise a permutation $\sigma$ in terms of
+its `footprint' on a particular set $B$ of names.
+%
+Conceptually, if $B$ is the set of known names then $\sigma$ may move some
+unknown names into $B$ (but all unknown names are equally unknown so it does not
+matter which names move into $B$), may move some known names out of $B$ (but
+similarly it does not matter where they go), may permute the names outside $B$
+(but they are unknown so this is unimportant) and may permute the names
+remaining in $B$.
+%
+In particular, if $B$ is a finite set then there are only finitely many possible
+footprints.
+%
+The following lemma captures this idea of a `footprint' in terms of a
+factorisation property for permutations.
+
+\begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
+mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
+permutations $\sigma$ such that $\sigma a = a$ for all $a \in A$ there exist
+permutations $\sigma_1$, $\sigma_2$, $\sigma_3$ such that \begin{enumerate}
+\item $\sigma = \sigma_1 \sigma_2 \sigma_3$, and \item $\sigma_1 a = a$ and
+$\sigma_3 a = a$ for all $a \in A \cup B$, and \item $\sigma_2 a \neq a$ only if
+$a \in (B \cup D) \setminus A$ \end{enumerate} \end{lemma}
+
+The resulting middle factor $\sigma_2$ is a description of the footprint of
+$\sigma$.
+%
+Note that there are only $|(B \cup D) \setminus A|!$ possible values for
+$\sigma_2$.
+
+\begin{proof} Represent $\sigma$ as a finite list of transpositions of names not
+in $A$ and proceed by induction on the length of the list.
+%
+If the list is empty then $\sigma = \iota$ and $\sigma_1 = \sigma_2 = \sigma_3 =
+\iota$ is a factorisation in the desired form. On the other hand, if the list is
+nonempty then write $\sigma = \sigma' (ab)$ where $a \notin A$ and $b \notin A$
+and $\sigma' c = c$ for all $c \in A$. 
+%
+By induction there exist $\sigma_1$, $\sigma_2$ and $\sigma_3$ such that
+$\sigma' = \sigma_1 \sigma_2 \sigma_3$ and $\sigma_1 c = c$ and $\sigma_3 c = c$
+for all $c \in A \cup B$ and $\sigma_2 c \neq c$ only if $c \in (B \cup D)
+\setminus A$.
+
+If $a \notin B$ and $b \notin B$ then define $\sigma'_3 = \sigma_3(ab)$.  Since
+$\sigma'_3 c = c$ for all $c \in A \cup B$, $\sigma = \sigma_1 \sigma_2
+\sigma'_3$ is a factorisation in the desired form. 
+%
+If $a \in B$ and $b \in B$ then $\sigma_3(ab) = (ab)\sigma_3$ so let $\sigma'_2
+= \sigma_2(ab)$ which has $\sigma'_2 c \neq c$ only if $c \in (B \cup D)
+\setminus A$, so that $\sigma = \sigma_1 \sigma'_2 \sigma_3$ is a factorisation
+in the desired form.
+
+Otherwise without loss of generality let $a \notin B$ and $b \in B$. Then
+$\sigma_3(ab) = (a'b)\sigma_3$ where $a' = \sigma_3 a$.
+%
+Note that $a' \notin A \cup B$ since otherwise $a' = \sigma_3 a'$ and hence $a'
+= \sigma_3^{-1} a' = a \notin A \cup B$ which is a contradiction. There are two
+cases to consider, depending on whether $a' \in D$ as follows.
+
+If $a' \in D$ then let $\sigma'_2 = \sigma_2(a'b)$.
+%
+Then $\sigma'_2 c \neq c$ only if $c \in (B \cup D) \setminus A$, so that
+$\sigma = \sigma_1 \sigma'_2 \sigma_3$ is a factorisation in the desired form.
+%
+On the other hand $a' \notin D$ then let $c \in D$ be such that $\sigma_2 \cdot
+c \in D$, which exists since by assumption $|D| > |B|$.
+%
+Then $(a'b) = (a'c)(bc)(a'c)$.
+%
+Writing $c' = \sigma_2 \cdot c \in D$, then $\sigma = \sigma_1 (a'c') \sigma_2
+(bc) (a'c) \sigma_3$.
+%
+Let $\sigma'_1 = \sigma_1 (a'c')$, $\sigma'_2 = \sigma_2 (bc)$ and $\sigma'_3 =
+(a'c) \sigma_3$, then $\sigma = \sigma'_1 \sigma'_2 \sigma'_3$ is a
+factorisation in the desired form.
+%
+\end{proof}
 
 \subsection{Definitions}
 
@@ -310,50 +388,6 @@ categories.\end{proof}
 
 Blah blah TODO.
 
-\begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
-mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
-permutations $\sigma$ such that $\sigma \freshfor A$ there exist permutations
-$\sigma_1$, $\sigma_2$, $\sigma_3$ such that $\sigma_1 \freshfor A \cup B$,
-$\sigma_3 \freshfor A \cup B$, $\supp{\sigma_2} \subseteq (B \cup D) \setminus
-A$ and $\sigma = \sigma_1 \sigma_2 \sigma_3$.  \end{lemma}
-
-\begin{proof} Represent $\sigma$ as a finite list of transpositions of names not
-in $A$ and proceed by induction on the length of the list.  \begin{itemize}
-%
-\item If the list is empty then $\sigma = \iota$ and $\sigma_1 = \sigma_2 =
-\sigma_3 = \iota$ is a factorisation in the desired form.
-%
-\item If the list is nonempty then write $\sigma = \sigma' \cdot (ab)$ where $a
-\notin A$ and $b \notin A$ and $\sigma' \freshfor A$. By induction there exist
-$\sigma_1$, $\sigma_2$ and $\sigma_3$ such that $\sigma' = \sigma_1 \sigma_2
-\sigma_3$ and $\sigma_1 \freshfor A \cup B$, $\sigma_3 \freshfor A \cup B$ and
-$\supp{\sigma_2} \subseteq (B \cup D) \setminus A$.  \begin{itemize}
-%
-\item If $a \notin B$ and $b \notin B$ then $\sigma'_3 = \sigma_3(ab) \freshfor
-A \cup B$ and $\sigma = \sigma_1 \sigma_2 \sigma'_3$ is a factorisation in the
-desired form. 
-%
-\item If $a \in B$ and $b \in B$ then $\sigma_3(ab) = (ab)\sigma_3$ so let
-$\sigma'_2 = \sigma_2(ab)$ which has $\supp{\sigma'_2} \subseteq (B \cup D)
-\setminus A$, so that $\sigma = \sigma_1 \sigma'_2 \sigma_3$ is a factorisation
-in the desired form.
-%
-\item Otherwise without loss of generality let $a \notin B$ and $b \in B$. Then
-$\sigma_3(ab) = (a'b)\sigma_3$ where $a' = \sigma_3 \cdot a \notin A \cup B$
-since $a \notin A \cup B$ and $\sigma_3 \freshfor A \cup B$.  \begin{itemize}
-%
-\item If $a' \in D$ then let $\sigma'_2 = \sigma_2(a'b)$ which has
-$\supp{\sigma'_2} \subseteq (B \cup D) \setminus A$ so that $\sigma = \sigma_1
-\sigma'_2 \sigma_3$ is a factorisation in the desired form.
-%
-\item If $a' \notin D$ then let $c \in D$ be such that $\sigma_2 \cdot c \in D$,
-which exists since by assumption $|D| > |B|$. Then $(a'b) = (a'c)(bc)(a'c)$.
-Writing $c' = \sigma_2 \cdot c \in D$, then $\sigma = \sigma_1 (a'c') \sigma_2
-(bc) (a'c) \sigma_3$. Let $\sigma'_1 = \sigma_1 (a'c')$, $\sigma'_2 = \sigma_2
-(bc)$ and $\sigma'_3 = (a'c) \sigma_3$, then $\sigma = \sigma'_1 \sigma'_2
-\sigma'_3$ is a factorisation in the desired form.
-%
-\end{itemize} \end{itemize} \end{itemize} \end{proof}
 
 TODO: Adjunction $(-) \otimes \mathbb A \dashv \delta$, unit and counit. $@$
 syntax.
