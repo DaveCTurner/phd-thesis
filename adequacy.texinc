@@ -22,7 +22,7 @@ terms such that $\tjudge{}{}{t}{\typeP}$.
 \forall u.\ (\logrel{Q}{\typeQ}{u} \Rightarrow \login{p}{\typeP}{\apply{t}{u}}) \\
 
 \login{\newpath{a}{p}}{\typedelta{\typeP}}{t}       & \Longleftrightarrow & 
-\login{p}{\typeP}{\newapply{t}{a}} \quad\text{where $a$ is fresh}\\
+\freshin{a}{\login{p}{\typeP}{\newapply{t}{a}}} \\
 
 \login{\ell_0:p}{\stdtypesum}{t}                      & \Longleftrightarrow & 
 \login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}} \\

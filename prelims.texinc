@@ -355,6 +355,16 @@ Writing $c' = \sigma_2 \cdot c \in D$, then $\sigma = \sigma_1 (a'c') \sigma_2
 %
 \end{itemize} \end{itemize} \end{itemize} \end{proof}
 
+TODO: Adjunction $(-) \otimes \mathbb A \dashv \delta$, unit and counit. $@$
+syntax.
+
+TODO: $\freshin{b}{f b}$. Combining double-fresh functions.
+
+TODO: Permutations extending injections.
+
+TODO: Equivariance of subsets.
+
+
 \section{Adjunctions and Kleisli Categories}
 
 It can be seen from sections \ref{dtfc} and \ref{nsets} that a key feature of

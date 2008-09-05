@@ -118,7 +118,7 @@ the $\alpha$-equivalence relation on $\mathbb A \times \typeP$ where
 \begin{equation} \label{def:alphaequiv} \langle a_1, p_1 \rangle  \sim_{\alpha}
 \langle a_2, p_2 \rangle \Leftrightarrow_{\mathrm{def}} \freshin{b}{(a_1 b)
 \cdot p_1 = (a_2 b) \cdot p_2}. \end{equation} The $\alpha$-equivalence classes
-are denoted $[a].p$ where \begin{equation} \label{def:alphaclass} [a].p =
+are denoted $[a].p$ where \begin{equation} \label{def:alphaclass} [a].p \defeq
 [\langle a, p\rangle]_{\sim_{\alpha}}\end{equation} and the right adjoint to
 $(-) \otimes \mathbb A$ is given by the functor $\delta$ where \begin{equation}
 \label{def:delta} \delta\typeP \defeq \{ [a].p \mid \langle a, p \rangle \in
@@ -127,10 +127,12 @@ $(-) \otimes \mathbb A$ is given by the functor $\delta$ where \begin{equation}
 \Leftrightarrow_{\mathrm{def}} \freshin{b}{(a_1 b) \cdot p_1 \le_{\typeP} (a_2
 b) \cdot p_2}. \end{equation} On arrows, if $f : \typeP \to \typeQ$ is an arrow
 of $\mathbf{NPre}$ then $\delta f$ is defined for all $p' \in \typedelta\typeP$
-by \begin{equation} \label{def:deltafunction} \delta f (p') =
+by \begin{equation} \label{def:deltafunction} \delta f (p') \defeq
 \freshin{b}{[b].f(p'@b)}. \end{equation} It is not hard to see that $\delta f$
 is monotone if $f$ is, and otherwise the functoriality of $\delta$ follows from
 the same argument as in $\mathbf{NSet}$.
+
+TODO: Unit and counit.
 
 \section{FM Preorders}
 \label{fmpre}
@@ -177,6 +179,9 @@ arbitrary elements of $\mathcal{V}_{\mathrm{FM}}$.  The process of the
 construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in such a way as to
 only include elements that have finite supports. Each nominal set is then
 (isomorphic to) a FM set which has empty support.
+
+TODO refer to Jamie's thesis. Note that ${\mathcal{V}_{\mathrm{FM}}}_\alpha$ are
+all nominal sets.
 
 It is certainly possible to define a category $\mathbf{FMPre}$ of FM-preorders
 and finitely-supported monotone functions within FM set theory, and for any
@@ -242,6 +247,9 @@ p'_2 \qquad \Leftrightarrow_{\mathrm{def}} \qquad \freshin{b}{p'_1 @ b \le_{(ab)
 finitely-supported monotone function then for all $p' \in \delta_a \typeP$
 define \begin{equation} \delta_a f (p') \defeq \freshin{b}{[b].\bigl((ab) \cdot
 f) (p' @ b)}.\end{equation}\end{definition}
+
+TODO Care more precisely about what the equivalence classes are. Where do they
+live?
 
 \begin{lemma} If $a \notin s$ then the operation $\delta_a$ defined in
 \ref{def:deltaa} is a functor $\mathbf{FMPre}_{s \udot a} \to
@@ -378,7 +386,7 @@ cumulative hierarchy out of which one can construct $\mathcal{V}_{\mathrm{FM}}$.
 Nor does $\mathbf{Nom}$ insist that the permutation action on any particular set
 is given by $\mathord{\in}$-recursion: strictly speaking, one must specify the
 isomorphism between each nominal set and its corresponding FM set in order to
-set up the equivalence of categories between $\mathbf{NPre}$ and
+set up the equivalence between $\mathbf{NPre}$ and
 $\mathbf{FMPre}_{\varnothing}$ that was asserted above.
 %
 More practically, conventional domain theory does not really require all the
@@ -441,8 +449,8 @@ There is also an important distinguished element of $ys$: the inclusion $i_s : s
 
 There is a similarly-defined embedding $y : \mathbb I \to
 \mathbf{FMPre}_{\varnothing}$, and the codomain fibration on
-$\mathbf{FMPre}_{\varnothing}/y$ gives rise to the desired dependent type theory
-as follows.
+$\mathbf{FMPre}_{\varnothing} \downarrow y$ gives rise to the desired dependent
+type theory as follows.
 
 \begin{lemma} \label{lemma:slice} For all finite sets of names $s$ there is an
 equivalence of categories $\mathbf{FMPre}_s \simeq
@@ -760,6 +768,8 @@ ys, \pi_2 \rangle} \\
 %
 \end{array} \end{equation}
 
+TODO: Projection from $\otimes$ makes a nat trans $(-)^{\freshfor a} \to
+\mathbf{1}$ (?)
 
 TODO Inclusions $s \hookrightarrow s'$
 give rise to natural transformations \[\xymatrix{

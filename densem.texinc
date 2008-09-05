@@ -147,25 +147,24 @@ follows that
 
 \vfill\pagebreak
 
-\paragraph{Fresh-Weakening} If $s'' \subseteq s' \subseteq s$ then let
-\[\begin{array}{rcrcl} j^{\mathbf{C}} &:& \mathbf{ChCts}_{s \setminus (s'
-\setminus s'')} &\hookrightarrow& \mathbf{ChCts}_{s} \\ j^{\mathbf{P}} &:&
-\mathbf{FMPre}_{s \setminus (s' \setminus s'')} &\hookrightarrow&
-\mathbf{FMPre}_{s} \end{array}\] be the canonical functors induced by the
-inclusion $s \setminus (s' \setminus s'') \hookrightarrow s$. Furthermore let $\tau :
-(-)^{\freshfor s'} \hookrightarrow j^{\mathbf{P}}\bigl((-)^{\freshfor
-s''}\bigr)$ be the natural transformation of functors $\mathbf{FMPre}_{s \setminus
-s'} \to \mathbf{FMPre}_s$ given by $\tau_{X} (x) = x$ for all $x \in X$ such
-that $x \freshfor s'$.
-Let \[\begin{array}{rcrcl}
-\phi^{s'} &:& \widehat{(-)}^{\freshfor s'} &\cong& \widehat{(-)^{\freshfor
-s'}}
-\\ \phi^{s''} &:& \widehat{(-)}^{\freshfor s''} &\cong& \widehat{(-)^{\freshfor s''}}
-\end{array}\]
-be the natural isomorphisms from TODO, given by $\phi^{s'}_X(p) = \{x \in p \mid
-x \freshfor s'\}$ and similarly for $\phi^{s''}$. Finally, notice that for all
-$X$, $j^{\mathbf{P}} (\widehat{X}) = \widehat{j^{\mathbf{C}} X}$ naturally in
-$X$.
+\paragraph{Fresh-Weakening} TODO Messy! And get $\tau$ from projections from
+$\otimes$.
+
+If $s'' \subseteq s' \subseteq s$ then let \[\begin{array}{rcrcl} j^{\mathbf{C}}
+&:& \mathbf{ChCts}_{s \setminus (s' \setminus s'')} &\hookrightarrow&
+\mathbf{ChCts}_{s} \\ j^{\mathbf{P}} &:& \mathbf{FMPre}_{s \setminus (s'
+\setminus s'')} &\hookrightarrow& \mathbf{FMPre}_{s} \end{array}\] be the
+canonical functors induced by the inclusion $s \setminus (s' \setminus s'')
+\hookrightarrow s$. Furthermore let $\tau : (-)^{\freshfor s'} \hookrightarrow
+j^{\mathbf{P}}\bigl((-)^{\freshfor s''}\bigr)$ be the natural transformation of
+functors $\mathbf{FMPre}_{s \setminus s'} \to \mathbf{FMPre}_s$ given by
+$\tau_{X} (x) = x$ for all $x \in X$ such that $x \freshfor s'$.  Let
+\[\begin{array}{rcrcl} \phi^{s'} &:& \widehat{(-)}^{\freshfor s'} &\cong&
+\widehat{(-)^{\freshfor s'}} \\ \phi^{s''} &:& \widehat{(-)}^{\freshfor s''}
+&\cong& \widehat{(-)^{\freshfor s''}} \end{array}\] be the natural isomorphisms
+from TODO, given by $\phi^{s'}_X(p) = \{x \in p \mid x \freshfor s'\}$ and
+similarly for $\phi^{s''}$. Finally, notice that for all $X$, $j^{\mathbf{P}}
+(\widehat{X}) = \widehat{j^{\mathbf{C}} X}$ naturally in $X$.
 
 If $\typeP$ is an object of $\mathbf{ChCts}_{s \setminus s'}$ then let
 $k_\typeP$ be the following composition in $\mathbf{FMPre}_s$.
