@@ -34,8 +34,11 @@ $s$.  The set of environments may be equipped with a permutation action which
 simply permutes the freshness assumptions: \[ \sigma \cdot \envempty =
 \envempty \qquad\text{and}\qquad \sigma \cdot
 (\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}}) = \envcombine{(\sigma \cdot
-\Gamma)}{\envvarfresh{x}{\typeP}{(\sigma \cdot s)}},\] and is therefore a
-nominal set.
+\Gamma)}{\envvarfresh{x}{\typeP}{(\sigma \cdot s)}},\] so that the support of
+an environment is the union of its freshness constraints.
+%
+This is a finite support, so the collection of environments forms a nominal
+set.
 
 Define $\envcombine{\Gamma}{\Lambda}$ is defined by the obvious recursion \[
 \envcombine{\Gamma}{\envempty} = \Gamma \qquad\text{and}\qquad
