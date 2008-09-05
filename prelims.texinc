@@ -214,6 +214,36 @@ factorisation in the desired form.
 %
 \end{proof}
 
+It will sometimes be useful to be able to extend an injection $i : s
+\rightarrowtail \mathbb A$ into a permutation $\sigma_i : \mathbb A \to \mathbb
+A$. This is always possible if $s$ is finite, although there will be many
+possible choices for $\sigma_i$.
+
+\begin{lemma} \label{lemma:injextension} If $s \subseteq_{\mathrm{fin}} \mathbb
+A$ and $i : s \rightarrowtail \mathbb A$ is an injection then there exists a
+permutation $\sigma_i$ such that that the restriction of $\sigma_i$ to $s$ is
+$i$.  \end{lemma}
+
+\begin{proof} The proof proceeds by induction on $|s|$.
+%
+If $s = \varnothing$ then any permutation will do for $\sigma_i$.
+%
+Now suppose that $a \notin s$ and $i : s \udot \{a\} \rightarrowtail \mathbb A$,
+and let $i' = i|_s : s \rightarrowtail \mathbb A$.
+%
+By induction, there is a permutation $\sigma_{i'}$ extending $i'$ so define
+$\sigma_i = (ia\ \sigma_{i'}a) \sigma_{i'}$.
+%
+It is immediate that $\sigma_i a = ia$.
+%
+Let $b \in s$, then $\sigma_i b = (ia\ \sigma_{i'} a) (i' b) = (ia\ \sigma_{i'}
+a) (i b)$.
+%
+Certainly $ia \neq ib$ as $i$ is an injection, and $ib = i'b = \sigma_{i'} b$ so
+that $\sigma_{i'} a \neq ib$ and hence $\sigma_i b = ib$ as required.
+\end{proof}
+
+
 \subsection{Definitions}
 
 \begin{definition} A \define{$\mathcal G$-set} is a set $X$ together with an
