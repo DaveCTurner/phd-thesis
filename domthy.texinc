@@ -443,8 +443,8 @@ There is also an important distinguished element of $ys$: the inclusion $i_s : s
 
 There is a similarly-defined embedding $y : \mathbb I \to
 \mathbf{FMPre}_{\varnothing}$, and the codomain fibration on
-$\mathbf{FMPre}_{\varnothing}/y$ gives rise to the desired dependent type theory
-as follows.
+$\mathbf{FMPre}_{\varnothing} \downarrow y$ gives rise to the desired dependent
+type theory as follows.
 
 \begin{lemma} \label{lemma:slice} For all finite sets of names $s$ there is an
 equivalence of categories $\mathbf{FMPre}_s \simeq
