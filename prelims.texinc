@@ -255,10 +255,34 @@ $\mathcal G$-action, written as the infix operator $\cdot$. \end{definition}
 $\sigma$ such that $\sigma a = a$ for all $a \in s$ it is the case that $\sigma
 \cdot x = x$. \end{definition}
 
-\begin{lemma} \label{lemma:smallestsupport} If $x \in X$ has a finite support then
-it has a smallest such.  \end{lemma}
+\begin{lemma} \label{lemma:smallestsupport} If $x \in X$ has a finite support
+then $\bigcap \{ s \subseteq_{\mathrm{fin}} \mathbb A \mid \text{$s$ supports
+$x$} \}$ supports $x$.  \end{lemma}
 
-\begin{proof} TODO \end{proof}
+\begin{proof} It is sufficient to show that if $s$ and $s'$ are finite supports
+of $x$ then $s \cap s'$ also supports $x$.
+%
+Let $a, b \in \mathbb A \setminus (s \cap s')$.
+%
+If $a, b \in \mathbb A \setminus s$ then $(ab) \cdot x = x$ since $s$ supports
+$x$.
+%
+Similarly if $a, b \in \mathbb A \setminus s'$ then $(ab) \cdot x = x$ too.
+%
+Therefore without loss of generality suppose that $a \in s \setminus s'$ and $b
+\in s' \setminus s$.
+%
+Let $c \in \mathbb A \setminus (s \cup s')$, then $(ac) \cdot x = x$ and $(bc)
+\cdot x = x$, so that $(ab) \cdot x = (ac) \cdot (bc) \cdot (ac) \cdot x = x$ as
+required.
+%
+More generally, let $\sigma$ be a permutation such that $\sigma a = a$ for all
+$a \in s \cap s'$, then by lemma \ref{lemma:automorphism:permutation} $\sigma$
+may be represented as a string of transpositions $(a b)$ where $a, b \notin s
+\cap s'$.
+%
+By induction, using the argument above, $\sigma \cdot x = x$ and hence $s \cap
+s'$ supports $x$ as required.  \end{proof}
 
 \begin{definition} A $\mathcal G$-set $X$ is a \define{nominal set} if every $x
 \in X$ has a finite support.  \end{definition}
