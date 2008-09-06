@@ -288,8 +288,9 @@ s'$ supports $x$ as required.  \end{proof}
 \in X$ has a finite support.  \end{definition}
 
 \begin{definition} In the light of lemma \ref{lemma:smallestsupport} if $X$ is a
-nominal set and $x \in X$ then define $\supp{x}$ to be the smallest support of
-$x$. \end{definition}
+nominal set and $x \in X$ then define $\supp{x}$ to be the smallest finite
+support of $x$, that is, \[\supp{x} \defeq \bigcap \{ s \subseteq_{\mathrm{fin}}
+\mathbb A \mid \text{$s$ supports $x$} \}.\] \end{definition}
 
 \begin{definition} If $X$ and $Y$ are nominal sets and $x \in X$ and $y \in Y$
 then say $x$ \define{is fresh for} $y$ and write `$x \freshfor y$' iff $\supp{x}
