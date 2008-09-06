@@ -495,12 +495,12 @@ $\freshin{\ldots}{\ldots}$.
 
 \begin{lemma} \label{lemma:freshfresh} Let $f : \mathbb A \to X$, $g : \mathbb A
 \to Y$ and $h : X \to Y \to Z$ be finitely-supported functions such that $f$ and
-$g$ satisfy the FCB.  Then \[h (\freshin{a}{f a}) (\freshin{b}{g b}) =
-\freshin{c}{h (f c) (g c)}. \] \end{lemma}
+$g$ satisfy the FCB.  Then \[h\ (\freshin{a}{f a})\ (\freshin{b}{g b}) =
+\freshin{c}{\bigl(h\ (f c)\ (g c)\bigr)}. \] \end{lemma}
 
 \begin{proof} Let $d$ be a fresh name (i.e. $d \freshfor f, g, h$). Then
-$\freshin{a}{f a} = f d$ and $\freshin{b}{g b} = g d$, and $\freshin{c}{h (f c)
-(g c)} = h (f d) (g d)$ as required.  \end{proof}
+$\freshin{a}{f a} = f d$ and $\freshin{b}{g b} = g d$, and $\freshin{c}{\bigl(h\
+(f c) \ (g c)\bigr)} = h\ (f d)\ (g d)$ as required.  \end{proof}
 
 Note that if $X$ is a discrete nominal set then any finitely-supported $f$
 satisfies the FCB. In particular if $f$ is a finitely-supported predicate on
