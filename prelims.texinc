@@ -417,11 +417,11 @@ equivariant, so this does define a category.  Furthermore, it has products
 $\times$, coproducts $+$ and exponentials $\to_{\mathrm{fs}}$ given as above,
 and to cut a long story short it is also a Boolean topos.
 
-\begin{lemma} Let $\mathbb I$ be the category whose objects are finite subsets
-of $\mathbb A$ and whose arrows are injections between them. Then the category
-$\mathbf{NSet}$ is equivalent to the full subcategory $\mathbf{Sch}$ of
-$\mathbf{Set}^{\mathbb I}$ consisting of those presheaves that preserve
-pullbacks.\end{lemma}
+\begin{lemma} \label{lemma:schequiv} Let $\mathbb I$ be the category whose
+objects are finite subsets of $\mathbb A$ and whose arrows are injections
+between them. Then the category $\mathbf{NSet}$ is equivalent to the full
+subcategory $\mathbf{Sch}$ of $\mathbf{Set}^{\mathbb I}$ consisting of those
+presheaves that preserve pullbacks.\end{lemma}
 
 \begin{proof}[Sketch Proof] A functor $F: \mathbf{NSet} \to \mathbf{Sch}$ is
 defined by \begin{equation} F X s \defeq \{ x \in X \mid \text{$s$ supports $x$}
