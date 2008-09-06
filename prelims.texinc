@@ -97,11 +97,12 @@ and whose action is defined by recursion on $n$ as $\iota a \defeq a$ and
 In fact, any finite automorphism may be represented as a permutation, as the
 following lemma shows.
 
-\begin{lemma} Any finite automorphism $\sigma : \mathbb A \to \mathbb A$ may be
-represented as a sequence of transpositions of pairs of names $(a_1 b_1) \ldots
-(a_n b_n)$ where either $\sigma = \mathbf{1}_{\mathbb A}$ (and $n = 0$) or $n <
-|\{a \in \mathbb A \mid \sigma a \neq a\}|$ and for each $i$, $\sigma a_i \neq
-a_i$ and $\sigma b_i \neq b_i$.  \end{lemma}
+\begin{lemma} \label{lemma:automorphism:permutation} Any finite automorphism
+$\sigma : \mathbb A \to \mathbb A$ may be represented as a sequence of
+transpositions of pairs of names $(a_1 b_1) \ldots (a_n b_n)$ where either
+$\sigma = \mathbf{1}_{\mathbb A}$ (and $n = 0$) or $n < |\{a \in \mathbb A \mid
+\sigma a \neq a\}|$ and for each $i$, $\sigma a_i \neq a_i$ and $\sigma b_i \neq
+b_i$.  \end{lemma}
 
 The permutations on $\mathbb A$ form a group, $\mathcal G$.
 
