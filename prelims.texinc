@@ -511,12 +511,65 @@ the FCB. In this case, $\freshin{a}{fa} =
 ${\reflectbox{\ensuremath{\mathsf{N}}}}$ is the `new' quantifier of Pitts and
 Gabbay\ref{cite:??}.
 
-\[{\reflectbox{\ensuremath{\mathsf{N}}}} \ \forall \ \exists \]
 
+TODO Use numbered definitions below.
 
-TODO: Adjunction $(-) \otimes \mathbb A \dashv \delta$, unit and counit. $@$
-syntax.
+There is a symmetric monoidal structure $\otimes$ on $\mathbf{NPre}$. 
+%
+Via the equivalence of lemma \ref{lemma:schequiv} it can be characterised
+abstractly as the Day tensor\ref{cite:??} of functors $\mathbb I \to
+\mathbf{Set}$.
+%
+Concretely, if $X$ and $Y$ are nominal sets then \begin{equation}
+\label{def:otimes} X \otimes Y \defeq \{ \langle x, y \rangle \in X \times Y
+\mid x \freshfor y \}.  \end{equation}
+%
+Since $\otimes$ is the Day tensor, $\mathbf{NPre}$ is closed with respect to it.
+%
+In fact this discussion will only use this tensor as part of the functor $(-)
+\otimes \mathbb A$ and it is possible to characterise its right adjoint, written
+$\delta$, as follows.
+%
+There is an equivalence relation $\sim_{\alpha}$ on $X \otimes \mathbb A$ that
+captures the notion of $\alpha$-equivalence as \begin{equation}
+\label{def:simalpha} \langle x, a \rangle \sim_{\alpha} \langle x', a' \rangle
+\quad \Leftrightarrow_{\mathrm{def}} \quad \freshin{b}{(ab)\cdot x = (a'b) \cdot
+x'}.  \end{equation}
+%
+Write the equivalence classes as $[a].x \defeq [\langle x, a
+\rangle]_{\sim_{\alpha}}$, then \begin{equation} \label{def:deltanom:obj} \delta
+X \defeq X/{\sim_\alpha} = \{ [a].x \mid a \in \mathbb A \wedge x \in X \}
+\end{equation}
+%
+Notice that $\supp{[a].x} = \supp{x} \setminus \{a\}$ and therefore $\delta X$
+is a nominal set.
 
+If $x' \in \delta X$ and $a \freshfor x'$ then define the \define{concretion}
+$x'@a$ as the unique $x \in X$ such that $x' = [a].x$.
+%
+To see that there exists such an $x$ note that $x' = [b].y$ for some $b \in
+\mathbb A$ and some $y \in X$, so if $c$ is a fresh name then $(ac) \cdot (ab)
+\cdot y = (bc) \cdot y$ and hence $[a].((ac) \cdot y) = [b].y$
+
+If $f : X \to Y$ is an equivariant function and $x' \in \delta X$ then
+\begin{equation} \label{def:deltanom:arrow} (\delta f) x' \defeq
+\freshin{b}{[b].(f(x'@b))}. \end{equation}
+%
+It is straightforward to check that $\delta$ so defined is a functor on
+$\mathbf{NSet}$.
+
+The unit of the adjunction $(-)\otimes \mathbb A \dashv \delta$ is the natural
+transformation $\xi : \mathbf{1} \to \delta ((-) \otimes \mathbb A)$ defined by
+\begin{equation} \xi_X(x) \defeq \freshin{a}{[a].\langle x, a \rangle}.
+\end{equation}
+%
+The counit is the concretion operator $\mathord{@} : (\delta-) \otimes \mathbb A
+\to \mathbf{1}$ defined in \ref{def:concretion}.
+%
+That the triangular identities are satisfied amounts to saying that $([a].x)@a =
+x$ for any name $a$, and $[b].(x'@b) = x'$ for a fresh name $b$.
+
+TODO Conclude this section.
 
 \section{Adjunctions and Kleisli Categories}
 
