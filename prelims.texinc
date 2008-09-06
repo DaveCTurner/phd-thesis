@@ -403,10 +403,11 @@ function $\mathbf{1}_{X}$ is equivariant.  Composition is equivariant: $\sigma
 application is equivariant: $\sigma \cdot (f x) = (\sigma \cdot f) (\sigma \cdot
 x)$. 
 
-Certain predicates also exhibit an equivariance property. For example, freshness
-and set membership are equivariant: $x \freshfor y$ iff $(\sigma \cdot x)
-\freshfor (\sigma \cdot y)$ and $x \in A$ iff $\sigma \cdot x \in \sigma \cdot
-A$.
+Certain predicates also exhibit an equivariance property. For example,
+freshness, set membership and the subset relation are equivariant: $x \freshfor
+y$ iff $(\sigma \cdot x) \freshfor (\sigma \cdot y)$, $x \in A$ iff $\sigma
+\cdot x \in \sigma \cdot A$ and $A \subseteq A'$ iff $\sigma \cdot A \subseteq
+\sigma \cdot A'$.
 
 \begin{definition} The category \define{$\mathbf{NSet}$} has nominal sets for
 objects and equivariant functions for arrows. \end{definition}
@@ -519,8 +520,6 @@ syntax.
 TODO: $\freshin{b}{f b}$. Combining double-fresh functions.
 
 TODO: Permutations extending injections.
-
-TODO: Equivariance of subsets.
 
 
 \section{Adjunctions and Kleisli Categories}
