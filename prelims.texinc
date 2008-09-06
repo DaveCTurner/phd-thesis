@@ -517,10 +517,6 @@ Gabbay\ref{cite:??}.
 TODO: Adjunction $(-) \otimes \mathbb A \dashv \delta$, unit and counit. $@$
 syntax.
 
-TODO: $\freshin{b}{f b}$. Combining double-fresh functions.
-
-TODO: Permutations extending injections.
-
 
 \section{Adjunctions and Kleisli Categories}
 
