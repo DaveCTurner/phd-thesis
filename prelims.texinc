@@ -225,15 +225,37 @@ that $\sigma_{i'} a \neq ib$ and hence $\sigma_i b = ib$ as required.
 \end{proof}
 
 
-\subsection{Definitions}
+\subsection{The Theory of Nominal Sets}
+
+This section is a very short introduction to the theory of nominal sets.
+%
+More details and longer discussions are available elsewhere\ref{cite:??}.
+
+\begin{definition} Write \define{$\mathcal G$} for the group of finite
+permutations of $\mathbb A$. \end{definition}
 
 \begin{definition} A \define{$\mathcal G$-set} is a set $X$ together with an
-$\mathcal G$-action, written as the infix operator $\cdot$. \end{definition}
+$\mathcal G$-action, written as the infix operator $\cdot_X$ or more commonly
+simply $\cdot$ where the ambient set is clear from the context. \end{definition}
+
+A $\mathcal G$-set is conceptually a set whose elements `use names'.
+%
+The action of a particular permutation on an element $x$ of a $\mathcal G$-set
+is therefore the action of permuting the names that $x$ uses.
+%
+A $\mathcal G$-action is enough to capture the concept of `using' names without
+needing to refer to syntax as follows.
 
 \begin{definition} A set $s \subseteq \mathbb A$ is said to \define{support} $x
 \in X$ (and $x$ is said to \define{have support} $s$) if for any permutation
 $\sigma$ such that $\sigma a = a$ for all $a \in s$ it is the case that $\sigma
 \cdot x = x$. \end{definition}
+
+Conceptually, $s$ supports $x$ if $s$ is an upper bound for the set of names
+that $x$ uses.
+%
+The elements of interest use only finitely many names and in this case it is
+possible to find a smallest possible support.
 
 \begin{lemma} \label{lemma:smallestsupport} If $x \in X$ has a finite support
 then $\bigcap \{ s \subseteq_{\mathrm{fin}} \mathbb A \mid \text{$s$ supports
