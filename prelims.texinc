@@ -11,80 +11,62 @@ Blah blah TODO.
 \section{Nominal Sets}
 \label{nsets}
 
-It has taken thousands of years to develop the modern language of mathematics.
+The principle of `binding' of a variable is easy to understand.
 %
-Early Greek mathematicians wrote their mathematics in prose.
+Even the dullest of algebra students would agree that the theorems \[
+\label{algthm1} \forall x. (5x+2 = 12 \Rightarrow x = 2) \quad \text{and} \quad
+\forall y.  (5y+2 = 12 \Rightarrow y = 2) \] express precisely the same concept,
+as the symbols $x$ and $y$ are just used to name something to which a later
+reference needs to be made.
 %
-The Roman empire ran its course without adopting a sensible system for doing
-integer arithmetic.
+In some sense, it seems to be an innate ability to give something a name and
+later refer to that `something' using just its name.
 %
-Even the humble equals sign was not seen before the 14th century AD
-\ref{recorde:witte}.
+Furthermore, such a name may only make sense in a particular context.
+
+This concept can be seen to be surprisingly subtle when working fully formally.
 %
-In fact, the first serious attempts to study mathematical syntax in its own
-right did not happen before the end of the 19th century when a prevailing spirit
-of reductionism led the philosophers of the day to realise that it was even a
-subject worth studying.
-
-The conclusion to be drawn from this is that mathematical syntax is relatively
-unimportant to mathematicians: syntax is simply there to represent ideas, and
-the ability to translate between ideas and their representations is tacitly
-assumed.
+Computers (and the formal systems that they implement) have no innate ability to
+deal with locally-scoped names, so this ability must be carefully implemented by
+hand.
 %
-It was not until the advent of programmable computers that the importance of
-this translation became apparent.
+Over the years a variety of ways to deal with locally-scoped names have been
+created.
 %
-A computer programme is represented by some piece of syntax, but the meaning of
-that syntax is captured by its translation into the sequence of operations
-performed by the computer, and ultimately by the output of those operations
-which is also represented by some piece of syntax.
+This discussion will concentrate on a recently developed method based on a
+non-standard set theory: the theory of nominal sets.
 %
-
-
-
-The first steps of an algebra student might be proving theorems such as
-\begin{equation} \label{algthm1} \forall x. (5x+2 = 12 \Rightarrow x = 2)
-\end{equation} although of course its discussion would not involve the words
-`theorem' or `proof' and would not feature the symbols $\forall$ or
-$\Rightarrow$.
+This theory rests on two key observations about names.
 %
-Regardless of the language used, even the dullest of students would agree that
-there's no difference between theorem \ref{algthm1} and \begin{equation}
-\label{algthm2} \forall y. (5y+2 = 12 \Rightarrow y = 2) \end{equation} once
-they have grasped the concept that the symbols $x$ and $y$ are just used to name
-something to which a later reference needs to be made.
+The first is that the concrete names used by any piece of syntax are not
+relevant outside of their scope.
 %
-In particular, the name $x$ or $y$ itself is unimportant: it is `bound'.
+The second is that any piece of syntax can only explicitly mention finitely many
+names.
 
-Even Frege\ref{frege:begriffsschrift} skims over this observation in his
-otherwise careful work. It was not until people started to represent
-mathematical statements on computer systems that it was realised that binding of
-names in a syntax is difficult to handle correctly. The problem is illustrated
-as follows. In the theorem \begin{equation} \label{algthm3} \forall x. \left( x
-= \int_0^1 x\ \mathrm{d}y \right) \end{equation} if $x$ were blindly renamed to
-$y$ as before, the resulting statement is \begin{equation} \label{algthm4}
-\forall y.  \left( y = \int_0^1 y\ \mathrm{d}y \right) \end{equation} which is
-false. The intended result is of course \begin{equation} \label{algthm5} \forall
-y.  \left( y = \int_0^1 y\ \mathrm{d}z \right) \end{equation} where the bound
-variable $y$ is also quietly renamed to avoid its `capture'. Explaining this
-idea to a primary school student is trivial, but explaining it to a computer
-
-The study of syntax, particularly mathematical syntax, is a relatively new
-field.
-
-It is perhaps surprising that the study of syntax is so hard.
-
-TODO What a load of rubbish
-
-
-
-Blah blah TODO.
+From the first observation, the names used by any piece of syntax can therefore
+be injectively renamed to some other collection of names without changing the
+underlying meaning of the syntax.
+%
+Unlike the collection of injective renamings, the collection of bijective
+renamings forms a group, and the group structure simplifies the theory.
+%
+The restriction of attention to bijective renamings is not a severe restriction.
+%
+Also, since each piece of syntax only mentions finitely many names it is
+possible to turn attention to those bijective renamings that fix all but
+finitely many names.
 
 \subsection{Finite Automorphisms on Names}
 
-The basis for the theory of nominal sets is that of a finite automorphism of the
-set of names $\mathbb A$, i.e. a bijection $\sigma : \mathbb A \to \mathbb A$
-such that $\sigma a \neq a$ for only finitely many $a \in \mathbb A$.
+Let $\mathbb A$ be an infinite set of names.
+%
+The letter $\mathbb A$ is chosen as names are also known as `atoms': they are
+atomic in the sense that they have no internal structure.
+%
+From the discussion above, the basis for the theory of nominal sets is that of a
+finite automorphism of $\mathbb A$, i.e. a bijection $\sigma : \mathbb A \to
+\mathbb A$ such that $\sigma a \neq a$ for only finitely many $a \in \mathbb A$.
 %
 In particular this includes permutations of $\mathbb A$, which are represented
 as finite lists of transpositions of pairs of names $(a_1 b_1) \ldots (a_n b_n)$
