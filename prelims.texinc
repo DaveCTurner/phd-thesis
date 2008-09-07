@@ -36,7 +36,33 @@ created.
 This discussion will concentrate on a recently developed method based on a
 non-standard set theory: the theory of nominal sets.
 %
-This theory rests on two key observations about names.
+This theory is relevant to this thesis because it gives a purely semantic
+account of the idea of names and binding.
+%
+This will be very important for giving an account of a compositional
+denotational semantics.
+%
+For example, the denotation of the $\pi$-calculus term $\nu a. P$ should be
+built from the denotation of $P$ via some kind of binding operator: the name $a$
+should appear `free' in $\sem{P}$ but must not be `free' in $\sem{\nu a. P}$.
+%
+The theory of nominal sets makes sense of the idea of a name appearing `free' in
+a semantic object such as $\sem{P}$ in a fashion that smoothly extends the
+syntactic definition of `free' names.
+%
+It also allows the construction of the kind of binding operator that takes
+$\sem{P}$ to $\sem{\nu a. P}$.
+%
+Importantly, the internal language of the theory of nominal sets is very close
+to that of standard set theory, so the development of a domain theory for
+concurrency within nominal set theory is accessible to conventional domain
+theorists as the name-theoretic details can be ignored when they are not
+relevant.
+
+The roots of nominal set theory lie in the study of syntax, so it will be
+introduced from this viewpoint.
+%
+The theory rests on two key observations about names.
 %
 The first is that the concrete names used by any piece of syntax are not
 relevant outside of their scope.
