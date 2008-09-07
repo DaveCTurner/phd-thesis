@@ -476,7 +476,7 @@ presheaves that preserve pullbacks.\end{lemma}
 \begin{proof}[Sketch Proof] A functor $F: \mathbf{NSet} \to \mathbf{Sch}$ is
 defined by \begin{equation} F X s \defeq \{ x \in X \mid \text{$s$ supports $x$}
 \}, \end{equation} where if $i : s \rightarrowtail s'$ then there is some
-permutation $\sigma_i$ that extends $i$, so define $F i x \defeq \sigma_i \cdot
+permutation $\sigma_i$ that extends $i$, so define $F i(x) \defeq \sigma_i \cdot
 x$.  Note that there are many choices for $\sigma_i$ but this definition is
 independent of this choice, because if $\sigma_i$ and $\sigma'_i$ both extend
 $i$ then $\sigma_i^{-1} \sigma'_i \freshfor s$ and $s$ supports $x$ so that
