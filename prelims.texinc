@@ -44,8 +44,8 @@ relevant outside of their scope.
 The second is that any piece of syntax can only explicitly mention finitely many
 names.
 
-From the first observation, the names used by any piece of syntax can therefore
-be injectively renamed to some other collection of names without changing the
+From the first observation, the names used by any piece of syntax can be
+injectively renamed to some other collection of names without changing the
 underlying meaning of the syntax.
 %
 Unlike the collection of injective renamings, the collection of bijective
