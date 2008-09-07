@@ -56,8 +56,18 @@ The restriction of attention to bijective renamings is not a severe constraint.
 Also, since each piece of syntax only mentions finitely many names it is
 possible to turn attention to those bijective renamings that fix all but
 finitely many names.
+%
+A few lemmas about such bijective renamings are developed in
+\ref{subsect:nset:finaut}, then \ref{subsect:nset:theory} introduces the theory
+of nominal sets and \ref{subsect:nset:examples} shows some examples and
+constructions for building new ones.
+%
+The category of nominal sets is briefly explored in \ref{subsect:nset:category}
+and finally \ref{subsect:nset:binding} demonstrates how the theory can be used
+to capture the idea of `binding' a name.
 
 \subsection{Finite Automorphisms on Names}
+\label{subsect:nset:finaut}
 
 Let $\mathbb A$ be an infinite set of names.
 %
@@ -226,6 +236,7 @@ that $\sigma_{i'} a \neq ib$ and hence $\sigma_i b = ib$ as required.
 
 
 \subsection{The Theory of Nominal Sets}
+\label{subsect:nset:theory}
 
 This section is a very short introduction to the theory of nominal sets.
 %
@@ -297,6 +308,9 @@ support of $x$, that is, \[\supp{x} \defeq \bigcap \{ s \subseteq_{\mathrm{fin}}
 \begin{definition} If $X$ and $Y$ are nominal sets and $x \in X$ and $y \in Y$
 then say $x$ \define{is fresh for} $y$ and write `$x \freshfor y$' iff $\supp{x}
 \cap \supp{y} = \varnothing$.\end{definition}
+
+\subsection{Constructing Nominal Sets}
+\label{subsect:nset:examples}
 
 It is worth discussing some examples of nominal sets. Firstly, any set may be
 given the trivial $\mathcal G$-action $\sigma \cdot x = x$ and with respect to
@@ -411,6 +425,9 @@ y$ iff $(\sigma \cdot x) \freshfor (\sigma \cdot y)$, $x \in A$ iff $\sigma
 \cdot x \in \sigma \cdot A$ and $A \subseteq A'$ iff $\sigma \cdot A \subseteq
 \sigma \cdot A'$.
 
+\subsection{A Category of Nominal Sets}
+\label{subsect:nset:category}
+
 \begin{definition} The category \define{$\mathbf{NSet}$} has nominal sets for
 objects and equivariant functions for arrows. \end{definition}
 
@@ -444,6 +461,9 @@ the universal property of this colimit.
 
 It is left as an exercise to check that $F$ and $G$ define an equivalence of
 categories.\end{proof}
+
+\subsection{Binding in Nominal Sets}
+\label{subsect:nset:binding}
 
 TODO refer to Pitts: Alpha Structural Recursion and Induction
 
