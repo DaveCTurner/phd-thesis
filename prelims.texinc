@@ -104,8 +104,6 @@ $\sigma = \mathbf{1}_{\mathbb A}$ (and $n = 0$) or $n < |\{a \in \mathbb A \mid
 \sigma a \neq a\}|$ and for each $i$, $\sigma a_i \neq a_i$ and $\sigma b_i \neq
 b_i$.  \end{lemma}
 
-The permutations on $\mathbb A$ form a group, $\mathcal G$.
-
 \begin{proof} The proof proceeds by strong induction on $|\{a \in \mathbb A \mid
 \sigma a \neq a\}|$.
 %
