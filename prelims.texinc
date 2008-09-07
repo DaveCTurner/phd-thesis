@@ -51,7 +51,7 @@ underlying meaning of the syntax.
 Unlike the collection of injective renamings, the collection of bijective
 renamings forms a group, and the group structure simplifies the theory.
 %
-The restriction of attention to bijective renamings is not a severe restriction.
+The restriction of attention to bijective renamings is not a severe constraint.
 %
 Also, since each piece of syntax only mentions finitely many names it is
 possible to turn attention to those bijective renamings that fix all but
