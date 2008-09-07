@@ -11,7 +11,7 @@ Blah blah TODO.
 \section{Nominal Sets}
 \label{nsets}
 
-The principle of `binding' of a variable is easy to understand.
+The syntactic principle of `binding' of a variable is easy to understand.
 %
 Even the dullest of algebra students would agree that the theorems \[
 \label{algthm1} \forall x. (5x+2 = 12 \Rightarrow x = 2) \quad \text{and} \quad
