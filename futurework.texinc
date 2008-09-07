@@ -17,5 +17,11 @@ TODO In particular, the $!$ comonad here is not the same as the $!$ comonad of
 type functors. For example, $\mathcal{P}\mathbb{A}$ is finite at every stage,
 but certainly not chain-finite.
 
+\section{Presheaf Semantics}
+
+TODO
+
+TODO Development of 'Nominal Category Theory' a prerequisite.
+
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
