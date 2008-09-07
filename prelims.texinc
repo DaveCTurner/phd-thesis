@@ -162,7 +162,7 @@ $\sigma_3 a = a$ for all $a \in A \cup B$, and \item $\sigma_2 a \neq a$ only if
 $a \in (B \cup D) \setminus A$ \end{enumerate} \end{lemma}
 
 The resulting middle factor $\sigma_2$ is a description of the footprint of
-$\sigma$.
+$\sigma$ on $B$.
 %
 Note that there are only $|(B \cup D) \setminus A|!$ possible values for
 $\sigma_2$.
