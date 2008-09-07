@@ -413,6 +413,10 @@ support} \}. \end{equation} It is not hard to see that if $A \subseteq X$ is
 supported by $s$ then $\sigma \cdot A$ is supported by $\{ \sigma a \mid a \in
 s\} = \sigma \cdot s$ so that $\mathcal{P}_{\mathrm{fs}} X$ does have a
 $\mathcal{G}$-action.
+%
+Notice that any finite subset of $X$ is supported by the union of the supports
+of its elements (which is finite) and therefore $\mathcal P_{\mathrm{fin}} X$ is
+also a nominal set.
 
 If $X$ and $Y$ are nominal sets then the function space $X \to Y$ is a subset of
 $\mathcal P(X \times Y)$, where the derived $\mathcal{G}$-action becomes
