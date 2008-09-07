@@ -64,7 +64,7 @@ induction on $u$} \\
 %
 &\sqsupseteq& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
 \eta_{\typeQp^{\freshfor s'}} \circ \sem{u'}^{\freshfor s'} &\text{by lemma
-TODO} \\
+\TODO{hat-fresh-eta triangle lemma}} \\
 %
 &=& \sem{p} \circ  \epsilon_{\typeP} \circ \eta_{\typeP} \circ \sem{t} \circ
 \sem{u'}^{\freshfor s'} &\text{by naturality of $\eta$} \\
@@ -102,7 +102,7 @@ derived from $\ajudge{\typeP}{t}{p}{t'}$, then \[\begin{array}{rcll}
 & \text{by naturality of the adjunction}\\
 %
 &=& \eta_{\delta_a\typePp} \circ \sem{t'}^{\vee}
-& \text{by lemma TODO}\\
+& \text{by lemma \TODO{delta-theta-hat triangle lemma}}\\
 %
 &=& \sem{\tjudge{s}{}{\bang{\new{a}{t'}}}{\typelift{\typedelta\typePp}}}
 & \text{by the denotational semantics}\\
@@ -130,13 +130,13 @@ so that
 \delta_a \sem{p} \circ \sem{t} & \sqsupseteq & \widehat{{\theta^{!}_{\typePp}}^{-1}}
 \circ \eta_{\typePp} \circ \sem{t'}^{\vee} \\
 %
-&=& \delta_a \eta_{\typePp} \circ \sem{t'}^{\vee} & \text{by lemma TODO} \\
+&=& \delta_a \eta_{\typePp} \circ \sem{t'}^{\vee} & \text{by lemma \TODO{delta-theta-hat lemma}} \\
 %
 &=& \bigl( \eta_{\typePp} \circ \sem{t'} \bigr)^{\vee} & \text{by naturality of the adjunction} \\
 %
 \end{array}\]
 and hence $\bigl(\delta_a \sem{p} \circ \sem{t}\bigr)^{\wedge} \sqsupseteq  \eta_{\typePp} \circ \sem{t'}$
-by lemma TODO. Therefore
+by lemma \TODO{monotonicity of delta-fresh adjunction}. Therefore
 \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{ \sem{\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}} \circ

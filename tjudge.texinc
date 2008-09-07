@@ -123,8 +123,8 @@ term.  The structural rules make this difficult to do in general, but for the
 purposes of this discussion it will be enough to be able to derive type
 information about subterms of a closed term.
 
-TODO don't seem to need all of these cases - can they be rationalised? They are
-used in the opsem.
+\TODO{Don't seem to need all of these cases - can they be rationalised? They are
+used in the opsem.}
 
 \begin{lemma} 
 \label{closedtermtypebackwards}

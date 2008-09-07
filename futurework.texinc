@@ -3,25 +3,25 @@
 
 \section{Full Abstraction}
 
-TODO
+\TODO{Write this}
 
 \section{Relationship of Nominal HOPLA with New HOPLA}
 
-TODO
+\TODO{Write this}
 
 \section{Relationship of Nominal Domain Theory with Type Functors}
 
-TODO
+\TODO{Write this}
 
-TODO In particular, the $!$ comonad here is not the same as the $!$ comonad of
+\TODO{In particular, the $!$ comonad here is not the same as the $!$ comonad of
 type functors. For example, $\mathcal{P}\mathbb{A}$ is finite at every stage,
-but certainly not chain-finite.
+but certainly not chain-finite.}
 
 \section{Presheaf Semantics}
 
-TODO
+\TODO{Write this}
 
-TODO Development of 'Nominal Category Theory' a prerequisite.
+\TODO{Development of 'Nominal Category Theory' a prerequisite?}
 
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:

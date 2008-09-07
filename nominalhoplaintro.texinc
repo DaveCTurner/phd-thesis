@@ -9,7 +9,8 @@ domain theory of the previous section. Nominal HOPLA follows closely the
 development of HOPLA (Higher-Order Process LAnguage) \cite{nygaardwinskel1}
 and is inspired by the language New-HOPLA \cite{zappanardelliwinskel}.
 
-Recall from section TODO that it is possible to add name-binding to set
+Recall from section \TODO{Cross-ref?}
+that it is possible to add name-binding to set
 theory by the use of presheaves or sheaves over $\mathbb{I}$, and that the
 sheaf approach gives rise to the theory of nominal sets. Roughly speaking,
 HOPLA, New-HOPLA and Nominal HOPLA are related to each other in the same way

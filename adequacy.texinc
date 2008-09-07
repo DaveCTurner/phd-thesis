@@ -42,7 +42,8 @@ If $\login{p_0}{\typeP}{t}$ and $p_1 \le_{\mathbb P} p_0$ then $\login{p_1}{\typ
 % Proof of triangleleftandsyntacticpreorder {{{
 \begin{proof}
 The proof is by induction on the path $p_0$.
-TODO Names of the cases are rubbish - think of better ones.
+\TODO{Names of the cases in the proof of lemma
+\ref{triangleleftandsyntacticpreorder} are rubbish - think of better ones.}
 
 \paragraph{Finite Path Set} By assumption, $\login{P_0}{\typelift\typeP}{t}$
 and $P_1 \le_{\typelift\typeP} P_0$, so that $P_1 \subseteq P_0 \subseteq
@@ -108,7 +109,8 @@ $\oprel{t_0}{\typeP}{t_1}$ then $\login{p}{\typeP}{t_1}$.  \end{lemma}
 
 \begin{proof}
 The proof is by induction on the path $p$.
-TODO Names of the cases are rubbish - think of better ones.
+\TODO{Names of the cases in the proof of lemma \ref{ctxle1} are rubbish - think
+of better ones.}
 
 \paragraph{Finite Path Set} By assumption, $\login{P}{\typelift\typeP}{t_0}$, so
 there exists $t'$ such that $\logrel{P}{\typeP}{t'}$ and
@@ -122,7 +124,9 @@ $\login{p}{\typeP}{\apply{t_0}{u}}$. Also
 $\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ implies that
 $\oprel{\apply{t_0}{u}}{\typeP}{\apply{t_1}{u}}$ as follows.
 Suppose that
-$\ajudge{\typeP}{\apply{t_0}{u}}{p'}{t'}$, then by lemma TODO
+$\ajudge{\typeP}{\apply{t_0}{u}}{p'}{t'}$, then by lemma \TODO{Opsem backwards
+lemma}
+%
 $\ajudge{\typemap{\typeQ}{\typeP}}{t_0}{\mapaction{u}{p'}}{t'}$ and hence
 $\ajudge{\typemap{\typeQ}{\typeP}}{t_1}{\mapaction{u}{p'}}{t'}$ so that
 finally $\ajudge{\typeP}{\apply{t_1}{u}}{p'}{t'}$. Thus by induction
@@ -134,7 +138,9 @@ By assumpton, $\login{\newpath{b}{p}}{\typedelta\typeP}{t_0}$ where $b$ is a
 fresh name, so that $\login{p}{\typeP}{\newapply{t_0}{b}}$. Also
 $\oprel{t_0}{\typedelta\typeP}{t_1}$ implies that
 $\oprel{\newapply{t_0}{b}}{\typeP}{\newapply{t_1}{b}}$ as follows. Suppose that
-$\ajudge{\typeP}{\newapply{t_0}{b}}{p'}{t'}$, then by lemma TODO
+$\ajudge{\typeP}{\newapply{t_0}{b}}{p'}{t'}$, then by lemma \TODO{Opsem
+backwards lemma}
+%
 $\ajudge{\typedelta\typeP}{t_0}{\newaction{b}{p'}}{\new{b}{t'}}$ and hence
 $\ajudge{\typedelta\typeP}{t_1}{\newaction{b}{p'}}{\new{b}{t'}}$ so that finally
 $\ajudge{\typeP}{\newapply{t_1}{b}}{p'}{t'}$. Thus by induction
@@ -148,7 +154,9 @@ $\oprel{t_0}{\stdtypesum}{t_1}$ implies that
 $\oprel{\lproj{\ell_0}{t_0}}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}$ as
 follows. Suppose that
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}{p'}{t'}$, then by lemma
-TODO $\ajudge{\stdtypesum}{t_0}{\labelaction{\ell_0}{p'}}{t'}$ and hence
+\TODO{Opsem backwards lemma}
+%
+$\ajudge{\stdtypesum}{t_0}{\labelaction{\ell_0}{p'}}{t'}$ and hence
 $\ajudge{\stdtypesum}{t_1}{\labelaction{\ell_0}{p'}}{t'}$ so that finally
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}{p'}{t'}$. Thus by induction
 $\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}$, so that
@@ -161,7 +169,9 @@ $\oprel{t_0}{\typerec{j}{P}{\typeP}}{t_1}$ implies that
 $\oprel{\rep{t_0}}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}$ as
 follows. Suppose that
 $\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}{p'}{t'}$, then by
-lemma TODO $\ajudge{\typerec{j}{P}{\typeP}}{t_0}{\absaction{p'}}{t'}$ and hence
+lemma \TODO{Opsem backwards lemma}
+%
+$\ajudge{\typerec{j}{P}{\typeP}}{t_0}{\absaction{p'}}{t'}$ and hence
 $\ajudge{\typerec{j}{P}{\typeP}}{t_1}{\absaction{p'}}{t'}$ so that finally
 $\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}{p'}{t'}$.  Thus by
 induction $\login{p}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}$, so
@@ -217,7 +227,7 @@ $\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
 \end{array}\]
 where $[v']$ is the simultaneous substitution of $v_i$ for $x_i$ for $i \in
 \{1, \ldots, n\}$ only. However $t[v'] = t[v]$ since $x_{n+1}$ does not appear
-free in $t$ (TODO by induction) which yields the desired result.
+free in $t$ (\TODO{weakening does not add free variables - by induction}) which yields the desired result.
 
 \paragraph{Exchange} 
 \[\begin{array}{rcll} \multicolumn{4}{l}{
@@ -437,7 +447,9 @@ $\logrel{X'}{\typeP}{\apply{t}{u}}$. Thus by induction if $P \in
 \sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}X =
 \sem{\atjudge{s}{\typeP}{p}{\typePp}}X'$ then there exists $t'$ such that
 $\ajudge{\typeP}{\apply{t}{u}}{p}{t'}$ and $\logrel{P}{\typePp}{t'}$ and so by
-lemma TODO $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$ as
+lemma \TODO{Opsem backwards lemma -- is it even true here??}
+%
+$\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$ as
 required.
 
 \paragraph{Labelled Action} Let $X' = \{ p' \mid \labelpath{\ell_0}{p'}
@@ -447,7 +459,7 @@ $\logrel{X}{\stdtypesum}{t}$ then
 $\logrel{X'}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$. Therefore by induction
 there exists $t'$ such that
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}$ and
-$\logrel{P}{\typePp}{t'}$ and hence by lemma TODO
+$\logrel{P}{\typePp}{t'}$ and hence by lemma \TODO{Opsem backwards lemma}
 $\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$ as required.
 
 \paragraph{New Name Action} The induction premises are that
@@ -467,7 +479,7 @@ $\logrel{X'}{\typeP}{\newapply{t}{b}}$; also $P' @ b \in
 \sem{\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}} X'$
 and $\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}$ so that by
 induction there exists $t'$ such that $\ajudge{\typeP}{\newapply{t}{b}}{(ab) \cdot p}{t'}$ and
-$\logrel{P'@b}{\typePp}{t'}$. By lemma TODO,
+$\logrel{P'@b}{\typePp}{t'}$. By lemma \TODO{Opsem backwards lemma},
 $\ajudge{\typeP}{t}{\newaction{b}{(ab) \cdot p}}{\new{b}{t'}}$, and by
 $\alpha$-equivalence $\newaction{b}{(ab) \cdot p} = \newaction{a}{p}$ so that
 finally $\ajudge{\typeP}{t}{\newaction{a}{p}}{\new{b}{t'}}$.
@@ -487,11 +499,11 @@ $\logrel{X}{\typerec{j}{P}{\typeP}}{t}$ then
 $\logrel{X'}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$. Therefore by
 induction there exists $t'$ such that
 $\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}{p}{t'}$ and
-$\logrel{P}{\typePp}{t'}$ and hence by lemma TODO
+$\logrel{P}{\typePp}{t'}$ and hence by lemma \TODO{Opsem backwards lemma}
 $\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$ as required.
 
 \paragraph{Support-Weakening (Actions)}
-TODO
+\TODO{Support-Weakening (Actions) case}
 %
 \end{proof}
 

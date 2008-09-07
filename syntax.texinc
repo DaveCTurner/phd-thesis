@@ -102,8 +102,8 @@ terms that contains $(a, t)$ under the usual $\alpha$-equivalence relation
 t'). (ab) \cdot t = (a'b) \cdot t'.\] Therefore for any fresh name $b$,
 $\new{a}{t} = \new{b}{(ab) \cdot t}$, where the equality in this statement is
 literally equality, not simply equality-up-to-$\alpha$.
-TODO Chicken-and-egg problem here: can't say $b \freshfor t$ without defining
-the permutation action on $t$.
+\TODO{Chicken-and-egg problem here: can't say $b \freshfor t$ without defining
+the permutation action on $t$.}
 
 \subsection{Syntax of Actions}
 

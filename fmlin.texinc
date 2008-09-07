@@ -1,9 +1,9 @@
 \section{Nominal Path Semantics}
 \label{nominalpathsemantics}
 
-TODO Motivate subsets of nominal path orders as representing processes.
+\TODO{Motivate subsets of nominal path orders as representing processes.}
 
-TODO Notation: $\typeP_{\downarrow} = \{p' \mid \exists p \in \typeP. p' \le p \}$.
+\TODO{Notation: $\typeP_{\downarrow} = \{p' \mid \exists p \in \typeP. p' \le p \}$.}
 
 \section{Nominal Nondeterministic Domains}
 \label{nominalnondeterministicdomains}
@@ -91,8 +91,8 @@ Conversely the counit is given by $\mathord{\cup} \defeq
 \widehat{\widehat{\typeP}}$ then \begin{equation} \mathord{\cup}_{\typeP} X =
 \mathbf{1}_{\widehat{\typeP}}^\dagger X = \bigcup X. \end{equation}
 
-TODO Copy across discussion of structures in $\mathbf{FMLin}_s$ from
-$\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.
+\TODO{Copy across discussion of structures in $\mathbf{FMLin}_s$ from
+$\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.}
 
 \subsection{Relationship between $\widehat{(-)}$, $(-)^{\freshfor a}$ and
 $\delta_a$ }

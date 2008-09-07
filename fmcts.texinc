@@ -19,7 +19,7 @@ with respect to this notion of approximation, and this gives rise to an
 appropriate exponential ${!}$ that captures the continuity in much the same way
 that the finite-join-completion exponential does in HOPLA.
 
-TODO Complete this intro when this section is complete.
+\TODO{Complete this intro when this section is complete.}
 
 \subsection{Name-Binding is Discontinuous}
 \label{bindingdiscts}
@@ -777,6 +777,6 @@ shown that these form an adjunction on the linear categories, so it is now clear
 that they give a corresponding adjunction \ref{deltafreshadjcts} on the
 continuous categories too.
 
-TODO Structure of FMCts.
+\TODO{Structure of FMCts.}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:

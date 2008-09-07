@@ -190,8 +190,8 @@ boolean.
 \end{proof}
 
 So $\mathbf{FM}_s$ is a category rather like $\mathbf{Nom}$; in particular,
-$\mathbf{Nom} = \mathbf{FM}_\varnothing$. TODO: Present $\mathbf{FM}_s$ as the
-slice $\mathbf{Nom}/ys$.
+$\mathbf{Nom} = \mathbf{FM}_\varnothing$. \TODO{Present $\mathbf{FM}_s$ as the
+slice $\mathbf{Nom}/ys$.}
 
 Let $\mathbf{FMPre}_s$ be the category whose objects are FM preorders
 supported by $s$ and whose arrows are monotone FM functions supported by $s$.

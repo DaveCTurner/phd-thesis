@@ -4,7 +4,7 @@
 \subsection{Types}
 
 Closed types $\typeP$ denote the corresponding objects $\typeP$ of
-$\mathbf{ChCts_\varnothing}$.  TODO More detail on the paths in each type.
+$\mathbf{ChCts_\varnothing}$.  \TODO{More detail on the paths in each type.}
 
 \subsection{Environments}
 
@@ -147,8 +147,8 @@ follows that
 
 \vfill\pagebreak
 
-\paragraph{Fresh-Weakening} TODO Messy! And get $\tau$ from projections from
-$\otimes$.
+\paragraph{Fresh-Weakening} \TODO{Messy! And get $\tau$ from projections from
+$\otimes$.}
 
 If $s'' \subseteq s' \subseteq s$ then let \[\begin{array}{rcrcl} j^{\mathbf{C}}
 &:& \mathbf{ChCts}_{s \setminus (s' \setminus s'')} &\hookrightarrow&
@@ -162,7 +162,7 @@ $\tau_{X} (x) = x$ for all $x \in X$ such that $x \freshfor s'$.  Let
 \[\begin{array}{rcrcl} \phi^{s'} &:& \widehat{(-)}^{\freshfor s'} &\cong&
 \widehat{(-)^{\freshfor s'}} \\ \phi^{s''} &:& \widehat{(-)}^{\freshfor s''}
 &\cong& \widehat{(-)^{\freshfor s''}} \end{array}\] be the natural isomorphisms
-from TODO, given by $\phi^{s'}_X(p) = \{x \in p \mid x \freshfor s'\}$ and
+from \TODO{cross-ref?}, given by $\phi^{s'}_X(p) = \{x \in p \mid x \freshfor s'\}$ and
 similarly for $\phi^{s''}$. Finally, notice that for all $X$, $j^{\mathbf{P}}
 (\widehat{X}) = \widehat{j^{\mathbf{C}} X}$ naturally in $X$.
 
@@ -191,7 +191,7 @@ so that if $X \in \widehat{\typeP}^{\freshfor s'}$ then
 
 To see that $k_{\typeP} : \typeP^{\freshfor
 s'} \to j^{\mathbf{C}}(\typeP^{\freshfor s''})$ is an arrow of
-$\mathbf{ChCts}_s$, TODO
+$\mathbf{ChCts}_s$, \TODO{$k_\typeP$ is continuous?}
 
 Now define \[
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
@@ -228,7 +228,7 @@ from which it follows that \[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
 \Leftrightarrow \quad P \subseteq \sem{\tjudge{s}{\Gamma}{t}{\typeP}}
 \langle\gamma\rangle \text{ and $P$ is chain-finite}\]
 
-\paragraph{Recursion} (TODO Some bold assertions here!) The hom-set
+\paragraph{Recursion} \TODO{Some bold assertions here!} The hom-set
 $\mathbf{ChCts}_s(\sem{\Gamma}, \typeP)$ is a chain-complete poset with the
 ordering given pointwise. Let $f =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
@@ -347,7 +347,8 @@ $\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
 
 Suppose that $\gamma \in \semp{\Gamma}$ and that $\mappath{Q}{p} \in
 \sem{\abstract{x}{t}}\langle \gamma \rangle \subseteq \typemap{\typeQ}{\typeP} =
-{\typelift\typeQ}^{\mathrm{op}} \amp \typeP$, then (TODO) by definition of the
+{\typelift\typeQ}^{\mathrm{op}} \amp \typeP$, then \TODO{exponential adjunction
+cross-ref} by definition of the
 exponential adjunction in $\mathbf{ChCts}_s$, $p \in \sem{t} \langle \gamma, Q
 \rangle$.
 
@@ -374,18 +375,18 @@ p &\in&
 \end{array}\]
 then there exists $Q \in \typelift\typeQ$ such that $Q \subseteq \sem{u}\langle
 \lambda \rangle$ and $\mappath{Q}{p} \in \sem{t}\langle \gamma \rangle$ by
-(TODO) definition of $\mathbf{apply}$.
+(\TODO{exponential adjunction cross-ref}) definition of $\mathbf{apply}$.
 
-\paragraph{Name Abstraction Discussion TODO Most of this to be moved}
-We know from (TODO) of the adjunction $(-)^{\freshfor a} \dashv \delta_a :
+\paragraph{Name Abstraction Discussion} \TODO{Most of this to be moved}
+We know from (\TODO{Remove}) of the adjunction $(-)^{\freshfor a} \dashv \delta_a :
 \mathbf{FMPre}_s \leftrightarrows \mathbf{FMPre}_{s \udot \{a\}}$ with unit
-$\xi$ and counit $\epsilon$. Recall from (TODO) that $\mathbf{FMLin}_s$ is
+$\xi$ and counit $\epsilon$. Recall from (\TODO{Remove}) that $\mathbf{FMLin}_s$ is
 (equivalent to) the Kleisli category of the monad $(\widehat{(-)}, \{\cdot\},
 \mathord{\cup})$ on $\mathbf{FMPre}_s$.  Furthermore there are natural
 isomorphisms $\theta : \delta_a \widehat{(-)} \to \widehat{\delta_a -}$ and
 $\phi : \widehat{(-)}^{\freshfor a} \to \widehat{(-)^{\freshfor a}}$, and these
 natural transformations satisfy the commuting diagrams required by theorem
-(TODO), so the adjunction above lifts to $(-)^{\freshfor a+} \dashv
+(\TODO{Remove}), so the adjunction above lifts to $(-)^{\freshfor a+} \dashv
 \delta^+_a : \mathbf{FMLin}_s \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$
 with unit $\xi^+$ and counit $\epsilon^+$ as follows. If $A$ is an object of
 $\mathbf{FMLin}_s$ then define $A^{\freshfor a+} = A^{\freshfor a}$.  If $f : A
@@ -438,7 +439,7 @@ $\{\cdot\}$ these lift to isomorphisms $\theta^{{!}+} : \delta^+_a{!} \to
 {!}\delta^+_a$ and $\phi^{{!}+} : {!}\bigl((-)^{\freshfor a+}\bigr) \to
 ({!}-)^{\freshfor a+}$.  Now recall that $\mathbf{ChCts}_s$ is (equivalent to)
 the co-Kleisli category of the comonad $({!}, \mathord{\cup}^{!}, \zeta)$ on
-$\mathbf{FMLin}_s$. Using the dual of theorem (TODO) the adjunction
+$\mathbf{FMLin}_s$. Using the dual of theorem (\TODO{Remove?}) the adjunction
 $(-)^{\freshfor a+} \dashv \delta^+_a : \mathbf{FMLin}_s \leftrightarrows
 \mathbf{FMLin}_{s \udot \{a\}}$ lifts further to $(-)^{\freshfor a++} \dashv
 \delta^{++}_a : \mathbf{ChCts}_s \leftrightarrows \mathbf{ChCts}_{s \udot
@@ -799,7 +800,7 @@ of the preceding diagram is the composition along the top of the following diagr
 \widehat{\delta_a B}
 }\]
 which commutes by the monad laws, the naturality of $\{\cdot\}$ and the
-distributive law (TODO) $k : {!}\widehat{(-)} \to \widehat{{!}(-)}$. In short,
+distributive law (\TODO{Remove?}) $k : {!}\widehat{(-)} \to \widehat{{!}(-)}$. In short,
 therefore, $f^{\vee} : A \to \delta_a B$ is given by the following
 composition in $\mathbf{FMPre}_s$:
 \[\xymatrix{
@@ -842,7 +843,7 @@ a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma
 \rangle_\Gamma \right) \mathop{@}b \right) \\
 &=& \sem{(ab) \cdot t} \bigl\{ x \mid [b].x \in \widehat{\xi_{\sem{\Gamma}}} \langle \gamma
 \rangle_\Gamma \bigr\} \\
-TODO &=& \sem{(ab) \cdot t} \bigl\{ x \in \langle \gamma \rangle \mid x \freshfor b \bigr\} \\
+\text{\TODO{Check calculation}} &=& \sem{(ab) \cdot t} \bigl\{ x \in \langle \gamma \rangle \mid x \freshfor b \bigr\} \\
 &=& \sem{(ab) \cdot t} \langle \gamma \rangle_{\envfresh{\Gamma}{b}}
 \end{array}\]
 
@@ -868,7 +869,7 @@ p &\in& \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\type
 \Rightarrow \qquad \newpath{a}{p} &\in& \bigl(\sem{t}^{\freshfor a} 
 \circ {\phi^{!}_{\sem{\Gamma}}}^{-1}\bigr) \langle \gamma
 \rangle_{\envfresh{\Gamma}{a}}\qquad\text{as $a \freshfor \newpath{a}{p}$}\\
-TODO &=& \sem{t} \langle \gamma \rangle_{\Gamma}
+\text{\TODO{Check calculation}} &=& \sem{t} \langle \gamma \rangle_{\Gamma}
 \end{array}\]
 
 \vfill\pagebreak %TODO
@@ -877,7 +878,8 @@ TODO &=& \sem{t} \langle \gamma \rangle_{\Gamma}
 Define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} =
 \mathbf{in}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}},\]
 where $\mathbf{in}_{\ell_0}$ is the $\ell_0$th injection of the biproduct
-$\stdtypesum$, which (TODO) is an arrow of $\mathbf{ChCts}_s$ since $s$ supports
+$\stdtypesum$, which (\TODO{Injections into biproducts in correct category})
+is an arrow of $\mathbf{ChCts}_s$ since $s$ supports
 $\ell_0$. Consequently $\labelpath{\ell}{p} \in
 \sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle\gamma\rangle$ iff $\ell = \ell_0$
 and $p \in \sem{t} \langle\gamma\rangle$.
@@ -886,7 +888,7 @@ and $p \in \sem{t} \langle\gamma\rangle$.
 Define \[\sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} } =
 \mathbf{out}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}},\] where
 $\mathbf{out}_{\ell_0}$ is the $\ell_0$th projection of the biproduct
-$\stdtypesum$, which (TODO) is an arrow of $\mathbf{ChCts}_s$ since $s$ supports
+$\stdtypesum$, which (\TODO{Projections from biproducts in correct category}) is an arrow of $\mathbf{ChCts}_s$ since $s$ supports
 $\ell_0$. Consequently $p \in
 \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} }
 \langle\gamma\rangle$ iff
@@ -896,7 +898,8 @@ $\labelpath{\ell_0}{p} \in \sem{t} \langle\gamma\rangle$.
 %{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
 %{\tjudge{s_i}{\Gamma}{t_i}{\typeP} \qquad\text{each $i \in I$}} \\
 Define \[\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
-= \sum_{i \in I} \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}},\] which (TODO) is an
+= \sum_{i \in I} \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}},\] which (\TODO{Sum
+in correct category}) is an
 arrow of $\mathbf{ChCts}_s$ since $s$ supports the mapping $i \mapsto
 \tjudge{s_i}{\Gamma}{t_i}{\typeP}$. Consequently $p \in
 \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle\gamma\rangle$ iff $p \in

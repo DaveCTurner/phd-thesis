@@ -132,7 +132,7 @@ by \begin{equation} \label{def:deltafunction} \delta f (p') \defeq
 is monotone if $f$ is, and otherwise the functoriality of $\delta$ follows from
 the same argument as in $\mathbf{NSet}$.
 
-TODO: Unit and counit.
+\TODO{Unit and counit.}
 
 \section{FM Preorders}
 \label{fmpre}
@@ -180,8 +180,8 @@ construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in such a way as to
 only include elements that have finite supports. Each nominal set is then
 (isomorphic to) a FM set which has empty support.
 
-TODO refer to Jamie's thesis. Note that ${\mathcal{V}_{\mathrm{FM}}}_\alpha$ are
-all nominal sets.
+\TODO{refer to Jamie's thesis. Note that ${\mathcal{V}_{\mathrm{FM}}}_\alpha$ are
+all nominal sets.}
 
 It is certainly possible to define a category $\mathbf{FMPre}$ of FM-preorders
 and finitely-supported monotone functions within FM set theory, and for any
@@ -248,8 +248,8 @@ finitely-supported monotone function then for all $p' \in \delta_a \typeP$
 define \begin{equation} \delta_a f (p') \defeq \freshin{b}{[b].\bigl((ab) \cdot
 f) (p' @ b)}.\end{equation}\end{definition}
 
-TODO Care more precisely about what the equivalence classes are. Where do they
-live?
+\TODO{Care more precisely about what the equivalence classes are. Where do they
+live?}
 
 \begin{lemma} If $a \notin s$ then the operation $\delta_a$ defined in
 \ref{def:deltaa} is a functor $\mathbf{FMPre}_{s \udot a} \to
@@ -606,7 +606,7 @@ their definitions are natural in $\langle X, f \rangle$, which completes the
 equivalence of $\mathbf{FMPre}_{\varnothing}/ys$ and $\mathbf{FMPre}_s$ as
 required.  \end{proof}
 
-Define a functor (TODO better word than 'cod') $\mathrm{cod} :
+Define a functor (\TODO{better word than 'cod'}) $\mathrm{cod} :
 (\mathbf{FMPre}_{\varnothing} \downarrow y) \to \mathbb{I}^{\mathrm{op}}$.
 
 \begin{lemma} \label{lemma:cartesian} An arrow $\langle h, i \rangle : \langle

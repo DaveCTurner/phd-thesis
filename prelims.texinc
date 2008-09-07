@@ -6,7 +6,7 @@ This chapter discusses some prerequisites of the remainder of this dissertation.
 \section{Domain Theory for Concurrency}
 \label{dtfc}
 
-Blah blah TODO.
+\TODO{Write section introducing Domain Theory for Concurrency}
 
 \section{Nominal Sets}
 \label{nsets}
@@ -496,7 +496,7 @@ categories.\end{proof}
 \subsection{Binding in Nominal Sets}
 \label{subsect:nset:binding}
 
-TODO refer to Pitts: Alpha Structural Recursion and Induction
+\TODO{Refer to Pitts: Alpha Structural Recursion and Induction}
 
 \begin{definition} \label{def:FCB} If $X$ is a nominal set and $f : \mathbb A
 \to X$ is a finitely supported function then $f$ satisfies the \define{freshness
@@ -565,7 +565,7 @@ ${\reflectbox{\ensuremath{\mathsf{N}}}}$ is the `new' quantifier of Pitts and
 Gabbay\ref{cite:??}.
 
 
-TODO Use numbered definitions below.
+\TODO{Use numbered definitions here}
 
 There is a symmetric monoidal structure $\otimes$ on $\mathbf{NPre}$. 
 %
@@ -623,7 +623,7 @@ The counit is the concretion operator $\mathord{@} : (\delta-) \otimes \mathbb A
 That the triangular identities are satisfied amounts to saying that $([a].x)@a =
 x$ for any name $a$, and $[b].(x'@b) = x'$ for a fresh name $b$.
 
-TODO Conclude this section.
+\TODO{Conclude this section.}
 
 \section{Adjunctions and Kleisli Categories}
 
