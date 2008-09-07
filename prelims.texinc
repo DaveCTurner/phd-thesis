@@ -574,7 +574,8 @@ abstractly as the Day tensor\ref{cite:??} of functors $\mathbb I \to
 %
 Concretely, if $X$ and $Y$ are nominal sets then \begin{equation}
 \label{def:otimes} X \otimes Y \defeq \{ \langle x, y \rangle \in X \times Y
-\mid x \freshfor y \}.  \end{equation}
+\mid x \freshfor y \}  \end{equation} with the action on arrows given
+componentwise.
 %
 Since $\otimes$ is the Day tensor, $\mathbf{NPre}$ is closed with respect to it.
 %
