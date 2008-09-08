@@ -867,9 +867,9 @@ p &\in& \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\type
 \Rightarrow \qquad \newpath{a}{p} &\in& \bigl(\phi_{\delta_a \typeP} \circ
 \sem{t}^{\freshfor a} \circ {\phi^{!}_{\sem{\Gamma}}}^{-1}\bigr) \langle \gamma
 \rangle_{\envfresh{\Gamma}{a}}\\
-\Rightarrow \qquad \newpath{a}{p} &\in& \bigl(\sem{t}^{\freshfor a} 
+&\subseteq& \bigl(\sem{t}^{\freshfor a} 
 \circ {\phi^{!}_{\sem{\Gamma}}}^{-1}\bigr) \langle \gamma
-\rangle_{\envfresh{\Gamma}{a}}\qquad\text{as $a \freshfor \newpath{a}{p}$}\\
+\rangle_{\envfresh{\Gamma}{a}}\\
 \text{\TODO{Check calculation}} &=& \sem{t} \langle \gamma \rangle_{\Gamma}
 \end{array}\]
 
