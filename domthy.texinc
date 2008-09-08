@@ -130,9 +130,10 @@ of $\mathbf{NPre}$ then $\delta f$ is defined for all $p' \in \typedelta\typeP$
 by \begin{equation} \label{def:deltafunction} \delta f (p') \defeq
 \freshin{b}{[b].f(p'@b)}. \end{equation} It is not hard to see that $\delta f$
 is monotone if $f$ is, and otherwise the functoriality of $\delta$ follows from
-the same argument as in $\mathbf{NSet}$.
-
-\TODO{Unit and counit.}
+the same argument as in $\mathbf{NSet}$. Also, just as in $\mathbf{NSet}$, the
+unit of the adjunction is given by the function that takes $x \in X$ to
+$\freshin{a}{[a].\langle x, a \rangle}$ and the counit is the concretion
+operator $@$ as defined in \ref{subsect:nset:binding}.
 
 \section{FM Preorders}
 \label{fmpre}
