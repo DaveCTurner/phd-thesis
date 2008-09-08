@@ -266,7 +266,7 @@ that $\sigma_{i'} a \neq ib$ and hence $\sigma_i b = ib$ as required.
 
 This section is a very short introduction to the theory of nominal sets.
 %
-More details and longer discussions are available elsewhere\ref{cite:??}.
+More details and longer discussions are available elsewhere\ref{PittsAM:alpsri}.
 
 \begin{definition} Write \define{$\mathcal G$} for the group of finite
 permutations of $\mathbb A$. \end{definition}
@@ -455,6 +455,17 @@ y$ iff $(\sigma \cdot x) \freshfor (\sigma \cdot y)$, $x \in A$ iff $\sigma
 \cdot x \in \sigma \cdot A$ and $A \subseteq A'$ iff $\sigma \cdot A \subseteq
 \sigma \cdot A'$.
 
+The remainder of this discussion will barely mention the fact that any
+particular object that has been constructed is finitely supported.
+%
+This is justified by the following principle.
+
+\begin{theorem}[Finite Support Principle, cf. {\cite[Theorem
+3.5]{PittsAM:alpsri}}] \label{finitesupport} Any function or relation that is
+defined from finitely supported functions and relations using higher-order,
+classical logic without choice principles, is itself finitely supported.
+\end{theorem}
+
 \subsection{A Category of Nominal Sets}
 \label{subsect:nset:category}
 
@@ -496,7 +507,12 @@ categories.\end{proof}
 \subsection{Binding in Nominal Sets}
 \label{subsect:nset:binding}
 
-\TODO{Refer to Pitts: Alpha Structural Recursion and Induction}
+The syntactic notion of a binding operator is captured semantically by the
+following condition.
+%
+Pitts\cite{PittsAM:alpsri} demonstrates that this is effectively the condition
+that is needed to be able to define functions by purely structural recursion
+over a syntactic signature with binding.
 
 \begin{definition} \label{def:FCB} If $X$ is a nominal set and $f : \mathbb A
 \to X$ is a finitely supported function then $f$ satisfies the \define{freshness
@@ -562,8 +578,7 @@ $\mathbb A$ and hence a function $\mathbb A \to \mathbf{2}$ then it satisfies
 the FCB. In this case, $\freshin{a}{fa} =
 {\reflectbox{\ensuremath{\mathsf{N}}}}a. f a$ where
 ${\reflectbox{\ensuremath{\mathsf{N}}}}$ is the `new' quantifier of Pitts and
-Gabbay\ref{cite:??}.
-
+Gabbay\cite{PittsAM:newaas-jv}.
 
 \TODO{Use numbered definitions here}
 
