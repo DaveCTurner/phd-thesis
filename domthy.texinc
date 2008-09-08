@@ -138,7 +138,7 @@ operator $@$ as defined in \ref{subsect:nset:binding}.
 \section{FM Preorders}
 \label{fmpre}
 
-As demonstrated in \ref{??}, nominal sets can be thought of as sheaves over
+As demonstrated in \TODO{citation}, nominal sets can be thought of as sheaves over
 $\mathbb{I}$, and in the language of sheaves the global elements of a nominal
 set are those (set-theoretic) elements that have empty support. In some sense
 the interesting elements of nominal sets are precisely those that do not have
@@ -454,14 +454,14 @@ using $i$.
 In order to give this account in terms of dependent type theory, this indicates
 that a fibration over $\mathbb I^{\mathrm{op}}$ should be sought.
 
-Recall from \ref{??} that each nominal preorder can be seen as a
+Recall from \TODO{Cross-ref} that each nominal preorder can be seen as a
 pullback-preserving functor from $\mathbb{I}$ to $\mathbf{Pre}$.
 %
 The Yoneda lemma therefore embeds a copy of $\mathbb I^{\mathrm{op}}$ in
 $\mathbf{NPre}$, taking each finite set $s$ to the functor $ys \defeq
 \mathbb{I}(s, -)$.
 %
-Following through the equivalence of \ref{??}, the nominal preorder $ys$
+Following through the equivalence of \TODO{Cross-ref}, the nominal preorder $ys$
 consists of all injections $s \rightarrowtail \mathbb{A}$ ordered with the
 discrete order, but note carefully that the permutation action is given by
 post-composition and not conjugation.
