@@ -9,15 +9,26 @@ domain theory of the previous section. Nominal HOPLA follows closely the
 development of HOPLA (Higher-Order Process LAnguage) \cite{nygaardwinskel1}
 and is inspired by the language New-HOPLA \cite{zappanardelliwinskel}.
 
-Recall from section \TODO{Cross-ref?}
-that it is possible to add name-binding to set
-theory by the use of presheaves or sheaves over $\mathbb{I}$, and that the
-sheaf approach gives rise to the theory of nominal sets. Roughly speaking,
-HOPLA, New-HOPLA and Nominal HOPLA are related to each other in the same way
-that respectively set theory, presheaves over $\mathbb{I}$ and sheaves over
-$\mathbb{I}$ are related: HOPLA has no names, New-HOPLA treats names
-explicitly in its syntax, whereas the treatment of names in Nominal HOPLA is
-much more implicit.
+Section \ref{subsect:nset:category} shows that the category $\mathbf{NSet}$ is
+equivalent to the Schanuel topos $\mathbf{Sch}$ of pullback-preserving
+presheaves over $\mathbb I^{\mathrm{op}}$.
+%
+In fact, Johnstone\cite[Examples A2.1.11(g)]{johnstone:elephant:i} comments that
+$\mathbf{Sch}$ is precisely the category of sheaves over $\mathbb
+I^{\mathrm{op}}$.
+%
+Others\cite{fiore:picalc,stark:picalc} have made sense of binding operators in a
+more general functor category $[\mathbb I, \mathcal{C}]$ for some suitable
+$\mathcal{C}$.
+%
+Note that if $\mathcal{C} = \mathbf{Set}$ then this draws attention to the
+category of presheaves over $\mathbb{I}^{\mathrm{op}}$.
+%
+Roughly speaking, HOPLA, New-HOPLA and Nominal HOPLA are related to each other
+in the same way that respectively set theory, presheaves over
+$\mathbb{I}^{\mathrm{op}}$ and sheaves over $\mathbb{I}^{\mathrm{op}}$ are
+related: HOPLA has no names, New-HOPLA treats names explicitly in its syntax,
+whereas the treatment of names in Nominal HOPLA is much more implicit.
 
 In order to present Nominal HOPLA it is necessary to give the language an
 abstract syntax, and this syntax will include some binding operators such as
