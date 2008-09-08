@@ -454,17 +454,17 @@ using $i$.
 In order to give this account in terms of dependent type theory, this indicates
 that a fibration over $\mathbb I^{\mathrm{op}}$ should be sought.
 
-Recall from \TODO{Cross-ref} that each nominal preorder can be seen as a
-pullback-preserving functor from $\mathbb{I}$ to $\mathbf{Pre}$.
+Recall from lemma \ref{lemma:schequiv} that each nominal preorder can be seen as
+a pullback-preserving functor from $\mathbb{I}$ to $\mathbf{Pre}$.
 %
 The Yoneda lemma therefore embeds a copy of $\mathbb I^{\mathrm{op}}$ in
 $\mathbf{NPre}$, taking each finite set $s$ to the functor $ys \defeq
 \mathbb{I}(s, -)$.
 %
-Following through the equivalence of \TODO{Cross-ref}, the nominal preorder $ys$
-consists of all injections $s \rightarrowtail \mathbb{A}$ ordered with the
-discrete order, but note carefully that the permutation action is given by
-post-composition and not conjugation.
+Following through the equivalence of lemma \ref{lemma:schequiv}, the nominal
+preorder $ys$ consists of all injections $s \rightarrowtail \mathbb{A}$ ordered
+with the discrete order, but note carefully that the permutation action is given
+by post-composition and not conjugation.
 %
 Therefore each element $i : s \rightarrowtail \mathbb{A}$ of $ys$ has support
 given by $\{ i a \mid a \in s \}$.
