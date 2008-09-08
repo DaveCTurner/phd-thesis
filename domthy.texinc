@@ -138,12 +138,14 @@ operator $@$ as defined in \ref{subsect:nset:binding}.
 \section{FM Preorders}
 \label{fmpre}
 
-As demonstrated in \TODO{citation}, nominal sets can be thought of as sheaves over
-$\mathbb{I}$, and in the language of sheaves the global elements of a nominal
-set are those (set-theoretic) elements that have empty support. In some sense
-the interesting elements of nominal sets are precisely those that do not have
-empty support, because it is these elements that have a nontrivial permutation
-action.
+As demonstrated in \ref{subsect:nset:category}, nominal sets can be thought of
+as certain presheaves over $\mathbb{I}^{\mathrm{op}}$, and in the language of
+presheaves the global elements of a nominal set are those (set-theoretic)
+elements that have empty support.
+%
+In some sense the interesting elements of nominal sets are precisely those that
+do not have empty support, because it is these elements that have a nontrivial
+permutation action.
 
 Similarly, nominal sets (and preorders) can be seen as the emptily-supported
 `global' elements of a wider class of gadgets that are a little like nominal
