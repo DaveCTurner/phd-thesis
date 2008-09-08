@@ -538,7 +538,8 @@ x'}.  \end{equation}
 %
 Write the equivalence classes as $[a].x \defeq [\langle x, a
 \rangle]_{\sim_{\alpha}}$, then \begin{equation} \label{def:deltanom:obj} \delta
-X \defeq X/{\sim_\alpha} = \{ [a].x \mid a \in \mathbb A \wedge x \in X \}
+X \defeq (X \times \mathbb A)/{\sim_\alpha} = \{ [a].x \mid a \in \mathbb A
+\wedge x \in X \}
 \end{equation}
 %
 Notice that $\supp{[a].x} = \supp{x} \setminus \{a\}$ and therefore $\delta X$
