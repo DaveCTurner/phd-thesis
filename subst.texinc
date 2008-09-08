@@ -28,8 +28,8 @@ $\termvar{y}$ in a term $t$ is defined by recursion on $t$ as follows.
 %
 \termsubst{(\abstract{x}{t})}{v}{y} = \abstract{x}{(\termsubst{t}{v}{y})} &&
 %
-\termsubst{(\apply{t}{u})}{v}{y} =
-	\apply{(\termsubst{t}{v}{y})}{\termsubst{u}{v}{y}} \\
+\termsubst{(\apply{t}{u}{\typeP})}{v}{y} =
+	\apply{(\termsubst{t}{v}{y})}{\termsubst{u}{v}{y}}{\typeP} \\
 %
 \rule{0pt}{3ex}
 \termsubst{(\new{a}{t})}{v}{y} = \new{a}{(\termsubst{t}{v}{y})} &&

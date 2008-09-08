@@ -179,12 +179,12 @@ derived from $\ajudge{\typeP}{\termsubst{t}{u}{x}}{p}{t'}$, then
 as required.
 
 \paragraph{Function Application}
-Suppose that $\ajudge{\typeP}{\apply{t}{u}}{p}{t'}$
+Suppose that $\ajudge{\typeP}{\apply{t}{u}{\typeQ}}{p}{t'}$
 is derived from $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$, then
 \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{\sem{\atjudge{s}{\typeP}{p}{\typePp}}
-\circ \sem{\tjudge{s}{}{\apply{t}{u}}{\typeP}}} \\
+\circ \sem{\tjudge{s}{}{\apply{t}{u}{\typeQ}}{\typeP}}} \\
 %
 &=& \sem{p} \circ \mathbf{apply} \circ
 \bigl(\sem{t} \amp \sem{u} \bigr) & \text{by the denotational semantics}\\

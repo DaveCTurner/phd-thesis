@@ -72,7 +72,7 @@ the rule for terms of the form $\ndsum{i}{I}{t_i}$, the mapping $i \mapsto
 \infer{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }}
 {\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}} &&
 %
-\infer{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}}{\typeP}}
+\infer{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}}
 {\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}} & 
 \tjudge{s}{\Lambda}{u}{\typeQ}} \\
 %
@@ -151,8 +151,7 @@ If $\tjudge{s}{}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }$ then
 $\tjudge{s}{\envvarfresh{x}{\typeQ}{\varnothing} }{t}{\typeP}$.
 %
 \item \label{closedtermtypebackwardsapply}
-If $\tjudge{s}{}{\apply{t}{u}}{\typeP}$ then
-there exists a type $\typeQ$ such that
+If $\tjudge{s}{}{\apply{t}{u}{\typeQ}}{\typeP}$ then
 $\tjudge{s}{}{t}{\typemap{\typeQ}{\typeP}}$ and $\tjudge{s}{}{u}{\typeQ}$.
 %
 \item \label{closedtermtypebackwardsnew}
@@ -424,13 +423,13 @@ $\tjudge{\supp{\abstract{x}{t}}}{\envrestrict{\Gamma}{\supp{\abstract{x}{t}}}}
 {\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }$ as required.
 
 \paragraph{Function Application}
-Suppose that $\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}}{\typeP}$
+Suppose that $\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}$
 is derived from the judgements $\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}$ and $\tjudge{s}{\Lambda}{u}{\typeQ}$,
 then by induction followed by support-weakening and fresh-weakening
 $\tjudge{\supp{t,u}}{\envrestrict{\Gamma}{\supp{t,u}}}{t}{\typemap{\typeQ}{\typeP}}$
-and $\tjudge{\supp{t,u}}{\envrestrict{\Lambda}{\supp{t,u}}}{u}{\typeQ}$, and $\supp{\apply{t}{u}} =
-\supp{t,u}$ so it follows that $\tjudge{\supp{\apply{t}{u}}}
-{\envcombine{\envrestrict{\Gamma}{\supp{t,u}}}{\envrestrict{\Lambda}{\supp{t,u}}}}{\apply{t}{u}}{\typeP}$ as required.
+and $\tjudge{\supp{t,u}}{\envrestrict{\Lambda}{\supp{t,u}}}{u}{\typeQ}$, and $\supp{\apply{t}{u}{\typeQ}} =
+\supp{t,u}$ so it follows that $\tjudge{\supp{\apply{t}{u}{\typeQ}}}
+{\envcombine{\envrestrict{\Gamma}{\supp{t,u}}}{\envrestrict{\Lambda}{\supp{t,u}}}}{\apply{t}{u}{\typeQ}}{\typeP}$ as required.
 
 \paragraph{Name Abstraction} Suppose that
 $\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}$ is derived from the judgement $\tjudge{s

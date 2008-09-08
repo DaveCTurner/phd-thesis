@@ -19,7 +19,7 @@ terms such that $\tjudge{}{}{t}{\typeP}$.
 \text{ and } \logrel{P}{\typeP}{t'} \\
 
 \login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t}      & \Longleftrightarrow & 
-\forall u.\ (\logrel{Q}{\typeQ}{u} \Rightarrow \login{p}{\typeP}{\apply{t}{u}}) \\
+\forall u.\ (\logrel{Q}{\typeQ}{u} \Rightarrow \login{p}{\typeP}{\apply{t}{u}{\typeQ}}) \\
 
 \login{\newpath{a}{p}}{\typedelta{\typeP}}{t}       & \Longleftrightarrow & 
 \freshin{a}{\login{p}{\typeP}{\newapply{t}{a}}} \\
@@ -63,8 +63,8 @@ to show that $\login{\mappath{Q_1}{p_1}}{\typemap{\typeQ}{\typeP}}{t}$, so
 let $u$ be such that $\logrel{Q_1}{\typeQ}{u}$.
 Since $Q_0 \subseteq Q_1$, this means that $\logrel{Q_0}{\typeQ}{u}$ too,
 and since $\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ it must
-be the case that $\login{p_0}{\typeP}{\apply{t}{u}}$ and hence by induction
-$\login{p_1}{\typeP}{\apply{t}{u}}$ as required.
+be the case that $\login{p_0}{\typeP}{\apply{t}{u}{\typeQ}}$ and hence by induction
+$\login{p_1}{\typeP}{\apply{t}{u}{\typeQ}}$ as required.
 
 \paragraph{New Name Path}
 By assumption, $\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$ and
@@ -120,17 +120,17 @@ too, so that $\login{P}{\typelift\typeP}{t_1}$ as required.
 
 \paragraph{Function Space Path} By assumption,
 $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_0}$, so that for all $u$ such that $\logrel{Q}{\typeQ}{u}$,
-$\login{p}{\typeP}{\apply{t_0}{u}}$. Also
+$\login{p}{\typeP}{\apply{t_0}{u}{\typeQ}}$. Also
 $\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ implies that
-$\oprel{\apply{t_0}{u}}{\typeP}{\apply{t_1}{u}}$ as follows.
+$\oprel{\apply{t_0}{u}{\typeQ}}{\typeP}{\apply{t_1}{u}{\typeQ}}$ as follows.
 Suppose that
-$\ajudge{\typeP}{\apply{t_0}{u}}{p'}{t'}$, then by lemma \TODO{Opsem backwards
+$\ajudge{\typeP}{\apply{t_0}{u}{\typeQ}}{p'}{t'}$, then by lemma \TODO{Opsem backwards
 lemma}
 %
 $\ajudge{\typemap{\typeQ}{\typeP}}{t_0}{\mapaction{u}{p'}}{t'}$ and hence
 $\ajudge{\typemap{\typeQ}{\typeP}}{t_1}{\mapaction{u}{p'}}{t'}$ so that
-finally $\ajudge{\typeP}{\apply{t_1}{u}}{p'}{t'}$. Thus by induction
-$\login{p}{\typeP}{\apply{t_1}{u}}$, so that
+finally $\ajudge{\typeP}{\apply{t_1}{u}{\typeQ}}{p'}{t'}$. Thus by induction
+$\login{p}{\typeP}{\apply{t_1}{u}{\typeQ}}$, so that
 $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_1}$ as required.
 
 \paragraph{New Name Path}
@@ -332,13 +332,13 @@ $\logrel{Q}{\typeQ}{u}$. Then
 {t}{\typeP}} \langle \gamma, Q \rangle & \text{by the denotational semantics} \\
 &\trianglelefteq_{\typeP} &
 \termsubst{t[v]}{u}{x} & \text{by induction}\\ &\ctxle_{\typeP}&
-\apply{\abstract{x}{t[v]}}{u} \end{array}\] so that
-$\login{p}{\typeP}{\apply{\abstract{x}{t[v]}}{u}}$ and hence
+\apply{\abstract{x}{t[v]}}{u}{\typeQ} \end{array}\] so that
+$\login{p}{\typeP}{\apply{\abstract{x}{t[v]}}{u}{\typeQ}}$ and hence
 $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{\abstract{x}{t[v]}}$ as
 required.
 
 \paragraph{Function Application} Let $p \in
-\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}}{\typeP}} \langle
+\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}} \langle
 \gamma, \lambda \rangle$, then by the denotational semantics there is $Q \in
 \typelift\typeQ$ such that $\mappath{Q}{p} \in
 \sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}} \langle \gamma \rangle $
@@ -348,7 +348,7 @@ By induction on $u$, $\logrel{\sem{\tjudge{s}{\Lambda}{u}{\typeQ}}
 By induction on $t$,
 $\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}}\langle\gamma\rangle}{\typemap{\typeQ}{\typeP}}{t[v]}$
 so that $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t[v]}$ and hence
-$\login{p}{\typeP} {\apply{t[v]}{u[v]} = \apply{t}{u}[v]}$ as required.
+$\login{p}{\typeP} {\apply{t[v]}{u[v]}{\typeQ} = \apply{t}{u}{\typeQ}[v]}$ as required.
 
 \paragraph{Name Abstraction} Let $\newpath{b}{p} \in
 \sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta\typeP}} \langle \gamma
@@ -442,11 +442,11 @@ $\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}X =
 induction, $Q \subseteq \sem{\tjudge{s}{}{u}{\typeQ}}$ implies that
 $\logrel{Q}{\typeQ}{u}$, and $\logrel{X}{\typemap{\typeQ}{\typeP}}{t}$ by
 hypothesis so $\login{\mapaction{Q}{p'}}{\typemap{\typeQ}{\typeP}}{t}$ and hence
-$\login{p'}{\typeP}{\apply{t}{u}}$. Therefore
-$\logrel{X'}{\typeP}{\apply{t}{u}}$. Thus by induction if $P \in
+$\login{p'}{\typeP}{\apply{t}{u}{\typeQ}}$. Therefore
+$\logrel{X'}{\typeP}{\apply{t}{u}{\typeQ}}$. Thus by induction if $P \in
 \sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}X =
 \sem{\atjudge{s}{\typeP}{p}{\typePp}}X'$ then there exists $t'$ such that
-$\ajudge{\typeP}{\apply{t}{u}}{p}{t'}$ and $\logrel{P}{\typePp}{t'}$ and so by
+$\ajudge{\typeP}{\apply{t}{u}{\typeQ}}{p}{t'}$ and $\logrel{P}{\typePp}{t'}$ and so by
 lemma \TODO{Opsem backwards lemma -- is it even true here??}
 %
 $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$ as

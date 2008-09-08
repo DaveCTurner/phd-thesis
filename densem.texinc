@@ -356,7 +356,7 @@ exponential adjunction in $\mathbf{ChCts}_s$, $p \in \sem{t} \langle \gamma, Q
 
 
 \paragraph{Function Application}
-Define $\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}}{\typeP}}$ to
+Define $\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}}$ to
 be \[\mathbf{apply} \circ (
 \sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}} \amp
 \sem{\tjudge{s}{\Lambda}{u}{\typeQ}}),\] where $\mathbf{apply}$ is the counit of
@@ -365,7 +365,7 @@ the exponential adjunction in $\mathbf{ChCts}_s$.
 Suppose that $\gamma \in \semp{\Gamma}$, $\lambda \in \semp{\Lambda}$ and 
 \[\begin{array}{rcl}
 p &\in& 
-\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}}{\typeP}} \langle
+\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}} \langle
 \gamma, \lambda \rangle \\
 &=& \bigl(\mathbf{apply} \circ (
 \sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}} \amp

@@ -200,7 +200,7 @@ hence $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 }}{\abstract{x}{(t[v])} = (\abstract{x}{t}) [v]}{\typemap{\typeQ}{\typeP}}$ as required.
 
 \paragraph{Function Application} Suppose that
-$\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}}{\typeP}$ is derived
+$\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}{\typeQ}}{\typeP}$ is derived
 from $\tjudge{s}{\Gamma'}{t}{\typemap{\typeQ}{\typeP}}$ and
 $\tjudge{s}{\Lambda'}{u}{\typeQ}$.  Suppose that $\Gamma'$ is a reordering of
 the environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
@@ -212,12 +212,12 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{t[v]}{\typemap{\typeQ}{\typeP}}
 and $\tjudge{s \cup
 s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}$ so that
 $\tjudge{s \cup s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }
-{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}} }}{\apply{(t[v])}{(u[v'])}
+{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}} }}{\apply{(t[v])}{(u[v'])}{\typeQ}
 }{\typeP}$ where $\Delta'$ and $v'$ are $\Delta$ and $v$ with freshly-named
 variables. Therefore by contraction and exchange and fresh-weakening,
 $\tjudge{s \cup s_1}{\envcombine{\Gamma}
-{\envcombine{\Lambda}{\envfresh{\Delta}{r \cup r'}} }}{\apply{(t[v])}{(u[v])}
-= (\apply{t}{u})[v]}{\typeP}$ as required.
+{\envcombine{\Lambda}{\envfresh{\Delta}{r \cup r'}} }}{\apply{(t[v])}{(u[v])}{\typeQ}
+= (\apply{t}{u}{\typeQ})[v]}{\typeP}$ as required.
 
 \vfill\pagebreak
 

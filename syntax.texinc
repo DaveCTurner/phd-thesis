@@ -71,7 +71,7 @@ actions, $\ell$ over labels and $\typeP$ over types.
 %
 &&\bigmid \bang{t} \bigmid \matchz{s}{u}{p}{x}{t}{\typeP} && \text{prefixing}\\
 %
-&&\bigmid \abstract{x}{t} \bigmid \apply{t}{u} &&\text{abstraction and
+&&\bigmid \abstract{x}{t} \bigmid \apply{t}{u}{\typeP} &&\text{abstraction and
 application} \\
 %
 &&\bigmid \new{a}{t} \bigmid \newapply{t}{a} && \text{binding and concretion}\\
@@ -140,7 +140,7 @@ t_i)} \\
 p)}{x}{(\sigma \cdot t)}{\typeP}} \\ \sigma \cdot (\abstract{x}{t}) &=&
 \abstract{x}{(\sigma \cdot t)} &&
 %
-\sigma \cdot (\apply{t}{u}) &=& \apply{(\sigma \cdot t)}{(\sigma \cdot u)} \\
+\sigma \cdot (\apply{t}{u}{\typeP}) &=& \apply{(\sigma \cdot t)}{(\sigma \cdot u)}{\typeP} \\
 %
 \sigma \cdot (\new{a}{t}) &=& \new{(\sigma \cdot a)}{(\sigma \cdot t)} &&
 %

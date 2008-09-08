@@ -491,7 +491,7 @@ $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQ}{\varnothing}
 as required.
 
 \paragraph{Function Application} Suppose that
-$\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}}{\typeP}$ is derived
+$\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}{\typeQ}}{\typeP}$ is derived
 from $\tjudge{s}{\Gamma'}{t}{\typemap{\typeQ}{\typeP}}$ and
 $\tjudge{s}{\Lambda'}{u}{\typeQ}$.  Suppose that $\Gamma'$ is a reordering of
 the environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
@@ -501,12 +501,12 @@ environment $\Lambda, \envvarfresh{z1}{\typeR}{r'_1}, \ldots,
 r'_1 \cup \ldots \cup r'_m$. Then \[\begin{array}{rcl} \multicolumn{3}{l}{
 %
 \sem{ \tjudge{s \cup s_1}{\envcombine{\Gamma}
-{\envcombine{\Lambda}{\envfresh{\Delta}{r \cup r'}} }}{ (\apply{t}{u})[v] =
-\apply{(t[v])}{(u[v])} }{\typeP}}}\\
+{\envcombine{\Lambda}{\envfresh{\Delta}{r \cup r'}} }}{ (\apply{t}{u}{\typeQ})[v] =
+\apply{(t[v])}{(u[v])}{\typeQ} }{\typeP}}}\\
 %
 &=& \sem{\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }
-{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}} }}{\apply{(t[v])}{(u[v'])}
+{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}} }}{\apply{(t[v])}{(u[v'])}{\typeQ}
 }{\typeP}} \\&&{} \circ \bigl( \mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda}
 \amp ((k^{(1)}_\Delta \amp k^{(2)}_\Delta) \circ \Delta_{\Delta}) \\
 %
@@ -527,7 +527,7 @@ s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}} \bigr)
 \amp \sem{\tjudge{s}{\Lambda'}{u}{\typeQ}} \bigr)
 \circ \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda} \amp \sem{v}^{n+m} \bigr)  \\
 %
-&=& \sem{\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}}{\typeP}}
+&=& \sem{\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}{\typeQ}}{\typeP}}
 \circ \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda} \amp \sem{v}^{n+m} \bigr)  \\
 \end{array}\]
 as required.

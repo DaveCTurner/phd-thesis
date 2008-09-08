@@ -61,7 +61,7 @@ the transition in the conclusion has the correct type.
 % ===========================================================================
 %                                      APPLY
 \infer 
-{\ajudge{\typeP}{\apply{t}{u}}{p}{t'}}
+{\ajudge{\typeP}{\apply{t}{u}{\typeQ}}{p}{t'}}
 {\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}}
 % ===========================================================================
 \\ \rule{0pt}{8ex}
