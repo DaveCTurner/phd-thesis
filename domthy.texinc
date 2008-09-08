@@ -299,7 +299,7 @@ let $p' \in \delta_a \typeP$ and let $b$ be a fresh name.  Therefore $p'@b \in
 Let $p_1' \le_{\delta_a \typeP} p_2'$ and let $b$ be fresh. Therefore $p_1'@b
 \le_{(ab) \cdot \typeP} p_2'@b$ so that by monotonicity $((ab) \cdot f) (p_1'@b)
 \le_{(ab) \cdot \typeQ} ((ab) \cdot f) (p_2'@b)$ and hence $\delta_a f (p_1')
-\le_{\delta_a \typeQ} \delta_a f (p_2')$ so thta $\delta_a f$ is monotonic.
+\le_{\delta_a \typeQ} \delta_a f (p_2')$ so that $\delta_a f$ is monotonic.
 
 Let $\sigma$ be a permutation that fixes $s$ and suppose that $b$ is fresh.  The
 support of $(ab) \cdot f$ is contained in $s \udot \{b\}$ so that $\sigma \cdot
