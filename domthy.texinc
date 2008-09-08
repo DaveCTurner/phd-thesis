@@ -123,7 +123,7 @@ f\bigr)(x'@b) \in \delta_a Y$ so that $\delta_a f$ is well-defined.
 Let $x_1' \le_{\delta_a X} x_2'$ and let $b$ be fresh. Therefore $x_1'@b
 \le_{(ab) \cdot X} x_2'@b$ so that by monotonicity $((ab) \cdot f) (x_1'@b)
 \le_{(ab) \cdot Y} ((ab) \cdot f) (x_2'@b)$ and hence $\delta_a f (x_1')
-\le_{\delta_a Y} \delta_a f (x_2')$ so thta $\delta_a f$ is monotonic.
+\le_{\delta_a Y} \delta_a f (x_2')$ so that $\delta_a f$ is monotonic.
 
 Let $\sigma$ be a permutation that fixes $s$ and suppose that $b$ is fresh.  The
 support of $(ab) \cdot f$ is contained in $s \udot \{b\}$ so that $\sigma \cdot
