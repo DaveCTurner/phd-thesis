@@ -377,453 +377,15 @@ then there exists $Q \in \typelift\typeQ$ such that $Q \subseteq \sem{u}\langle
 \lambda \rangle$ and $\mappath{Q}{p} \in \sem{t}\langle \gamma \rangle$ by
 (\TODO{exponential adjunction cross-ref}) definition of $\mathbf{apply}$.
 
-\paragraph{Name Abstraction Discussion} \TODO{Most of this to be moved}
-We know from (\TODO{Remove}) of the adjunction $(-)^{\freshfor a} \dashv \delta_a :
-\mathbf{FMPre}_s \leftrightarrows \mathbf{FMPre}_{s \udot \{a\}}$ with unit
-$\xi$ and counit $\epsilon$. Recall from (\TODO{Remove}) that $\mathbf{FMLin}_s$ is
-(equivalent to) the Kleisli category of the monad $(\widehat{(-)}, \{\cdot\},
-\mathord{\cup})$ on $\mathbf{FMPre}_s$.  Furthermore there are natural
-isomorphisms $\theta : \delta_a \widehat{(-)} \to \widehat{\delta_a -}$ and
-$\phi : \widehat{(-)}^{\freshfor a} \to \widehat{(-)^{\freshfor a}}$, and these
-natural transformations satisfy the commuting diagrams required by theorem
-(\TODO{Remove}), so the adjunction above lifts to $(-)^{\freshfor a+} \dashv
-\delta^+_a : \mathbf{FMLin}_s \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$
-with unit $\xi^+$ and counit $\epsilon^+$ as follows. If $A$ is an object of
-$\mathbf{FMLin}_s$ then define $A^{\freshfor a+} = A^{\freshfor a}$.  If $f : A
-\to B$ is an arrow of $\mathbf{FMLin}_s$ then define $f^{\freshfor a+}$ to be
-the following composition in $\mathbf{FMPre}_{s \udot \{a\}}$:
-\[\xymatrix{
-A^{\freshfor a}
-\ar[r]^{f^{\freshfor a}} &
-\widehat{B}^{\freshfor a}
-\ar[r]^{\phi_B} &
-\widehat{B^{\freshfor a}}.
-}\]
-Similarly if $A$ is an object of $\mathbf{FMLin}_{s \udot \{a\}}$ then define
-$\delta^+_a A = \delta_a A$, and if $f : A \to B$ is an arrow of
-$\mathbf{FMLin}_{s \udot \{a\}}$ then define $\delta^+_a f$ to be the following
-composition in $\mathbf{FMPre}_s$:
-\[\xymatrix{
-\delta_a A
-\ar[r]^{\delta_a f} &
-\delta_a \widehat{B}
-\ar[r]^{\theta_B} &
-\widehat{\delta_a B}.
-}\]
-The unit $\xi^+ : \mathbf{1} \to \delta^+_a \bigl((-)^{\freshfor a+}\bigr)$
-is defined as the composition
-\[\xymatrix{
-\mathbf{1}
-\ar[r]^(0.35){\xi} &
-\delta_a \bigl((-)^{\freshfor a}\bigr)
-\ar[rr]^{\{\cdot\}_{\delta_a ((-)^{\freshfor a})}} &&
-\widehat{\delta_a \bigl((-)^{\freshfor a}\bigr)}
-}\]
-and finally the counit $\epsilon^+ : (\delta^+_a -)^{\freshfor a+} \to
-\mathbf{1}$ is defined as the
-composition
-\[\xymatrix{
-(\delta_a -)^{\freshfor a} 
-\ar[r]^(0.65){\epsilon} &
-\mathbf{1}
-\ar[r]^{\{\cdot\}} &
-\widehat{(-)}
-}.\]
-
-\vfill\TODO{Remove page break}\pagebreak
-
-The natural isomorphisms $\theta$ and $\phi$ restrict to natural isomorphisms
-$\theta^{!} : \delta_a{!} \to {!}\delta_a$ and $\phi^{!} : ({!}-)^{\freshfor a}
-\to {!}\bigl((-)^{\freshfor a}\bigr)$. Furthermore, by composing with
-$\{\cdot\}$ these lift to isomorphisms $\theta^{{!}+} : \delta^+_a{!} \to
-{!}\delta^+_a$ and $\phi^{{!}+} : {!}\bigl((-)^{\freshfor a+}\bigr) \to
-({!}-)^{\freshfor a+}$.  Now recall that $\mathbf{ChCts}_s$ is (equivalent to)
-the co-Kleisli category of the comonad $({!}, \mathord{\cup}^{!}, \zeta)$ on
-$\mathbf{FMLin}_s$. Using the dual of theorem (\TODO{Remove?}) the adjunction
-$(-)^{\freshfor a+} \dashv \delta^+_a : \mathbf{FMLin}_s \leftrightarrows
-\mathbf{FMLin}_{s \udot \{a\}}$ lifts further to $(-)^{\freshfor a++} \dashv
-\delta^{++}_a : \mathbf{ChCts}_s \leftrightarrows \mathbf{ChCts}_{s \udot
-\{a\}}$ as follows.  If $A$ is an object of $\mathbf{ChCts}_s$ then define
-$A^{\freshfor a++} = A^{\freshfor a+} = A^{\freshfor a}$.  If $f : A \to B$ is
-an arrow of $\mathbf{ChCts}_s$ then define $f^{\freshfor a++}$ to be the
-following composition in $\mathbf{FMLin}_{s \udot \{a\}}$:
-\[\xymatrix{
-{!}(A^{\freshfor a})
-\ar[r]^{{\phi^{{!}+}_A}^{-1}} &
-({!}A)^{\freshfor a}
-\ar[r]^{f^{\freshfor a+}} &
-B^{\freshfor a}.
-}\]
-Similarly if $A$ is an object of $\mathbf{ChCts}_{s \udot \{a\}}$ then define
-$\delta^{++}_a A = \delta^+_a A = \delta_a A$, and if $f : A \to B$ is an arrow of
-$\mathbf{ChCts}_{s \udot \{a\}}$ then define $\delta^{++}_a f$ to be the following
-composition in $\mathbf{FMLin}_s$:
-\[\xymatrix{
-{!}\delta_a A
-\ar[r]^{{\theta^{{!}+}_A}^{-1}} &
-\delta_a{!} A
-\ar[r]^{\delta^+_a f} &
-\delta_a B
-}\]
-The unit $\xi^{++} : \mathbf{1} \to \delta^{++}_a \bigl((-)^{\freshfor a++}\bigr)$
-is defined as the composition
-\[\xymatrix{
-{!}
-\ar[r]^{\mathord{\cup}^{!}} &
-\mathbf{1}
-\ar[r]^(0.35){\xi^+} &
-\delta_a \bigl((-)^{\freshfor a}\bigr)
-}\]
-and finally the counit $\epsilon^{++} : (\delta^{++}_a -)^{\freshfor a++} \to
-\mathbf{1}$ is defined as the composition
-\[\xymatrix{
-{!}\bigl((\delta_a -)^{\freshfor a}\bigr)
-\ar[rr]^{\mathord{\cup}^{!}_{(\delta_a -)^{\freshfor a}}} &&
-(\delta_a -)^{\freshfor a}
-\ar[r]^(0.65){\epsilon^+} &
-\mathbf{1}.
-}\]
-
-Now let us unwind some definitions a little. Let $f : A \to B$ be an arrow of
-$\mathbf{ChCts}_s$, so that $f : {!}A \to B$ is an arrow of $\mathbf{FMLin}_s$
-and hence $f : {!}A \to \widehat{B}$ is an arrow of $\mathbf{FMPre}_s$. Then
-$f^{\freshfor a++}$, as defined above, is the following composition in
-$\mathbf{FMPre}_s$:
-\[\xymatrix{
-{!}(A^{\freshfor a})
-\ar[r]^{{\phi^{{!}+}_A}^{-1}} &
-\widehat{({!}A)^{\freshfor a}}
-\ar[r]^{\widehat{f^{\freshfor a+}}} &
-\widehat{\widehat{B^{\freshfor a}}}
-\ar[r]^{\mathord{\cup}_{B^{\freshfor a}}} &
-\widehat{B^{\freshfor a}}.
-}\]
-Expanding the definitions of $\phi^{{!}+}$ and $(-)^{\freshfor a+}$, this shows
-that $f^{\freshfor a++}$ is the composition along the top of the following
-diagram.
-\[\xymatrix{
-&
-\widehat{({!}A)^{\freshfor a}}
-\ar[r]^{\widehat{f^{\freshfor a}}} &
-\widehat{{\widehat{B}}^{\freshfor a}}
-\ar[r]^{\widehat{\phi_B}} &
-\widehat{\widehat{B^{\freshfor a}}}
-\ar[r]^{\mathord{\cup}_{B^{\freshfor a}}} &
-\widehat{B^{\freshfor a}} \\
-{!}(A^{\freshfor a})
-\ar[r]_{{\phi^{{!}}_A}^{-1}} &
-({!}A)^{\freshfor a}
-\ar[u]^{\{\cdot\}_{({!}A)^{\freshfor a}}}
-\ar[r]_{f^{\freshfor a}} &
-\widehat{B}^{\freshfor a}
-\ar[u]^{\{\cdot\}_{{\widehat B}^{\freshfor a}}}
-\ar[r]_{\phi_B} &
-\widehat{B^{\freshfor a}}.
-\ar[u]^{\{\cdot\}_{\widehat{B^{\freshfor a}}}}
-\ar@{=}[ur]
-}\]
-This diagram commutes by the naturality of $\{\cdot\}$ (for the two squares) and
-the appropriate monad law (for the triangle) and shows that $f^{\freshfor a++}$
-is given simply by the composition $\phi_B \circ f^{\freshfor a} \circ
-{\phi^{!}_A}^{-1}$ in $\mathbf{FMPre}_{s \udot \{a\}}$.
-
-Now let $f : A \to B$ be an arrow of $\mathbf{ChCts}_{s \udot \{a\}}$, so that $f : {!}A \to
-\widehat{B}$ is an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$. From the
-definitions above, $\delta^{++}_a f$ is the following composition in
-$\mathbf{FMPre}_s$:
-\[\xymatrix{
-{!}\delta_a A
-\ar[r]^{{\theta^{{!}+}_A}^{-1}} &
-\widehat{\delta_a{!} A}
-\ar[r]^{\widehat{\delta^+_a f}} &
-\widehat{\widehat{\delta_a B}} 
-\ar[r]^{\mathord{\cup}_{\delta_a B}} &
-\widehat{\delta_a B}.
-}\]
-Unwinding the definitions again, $\delta^{++}_a f$ is the composition along the
-top of the following diagram.
-\[\xymatrix{
-&
-\widehat{\delta_a{!} A}
-\ar[r]^{\widehat{\delta_a f}} &
-\widehat{\delta_a \widehat{B}}
-\ar[r]^{\widehat{\theta_B}} &
-\widehat{\widehat{\delta_a B}}
-\ar[r]^{\mathord{\cup}_{\delta_a B}} &
-\widehat{\delta_a B} \\
-{!}\delta_a A
-\ar[r]_{{\theta^{{!}}_A}^{-1}} &
-\delta_a{!} A
-\ar[u]^{\{\cdot\}_{\delta_a{!} A}}
-\ar[r]_{\delta_a f} &
-\delta_a \widehat{B}
-\ar[u]^{\{\cdot\}_{\delta_a \widehat{B}}}
-\ar[r]_{\theta_B} &
-\widehat{\delta_a B}.
-\ar[u]^{\{\cdot\}_{\widehat{\delta_a B}}}
-\ar@{=}[ur]
-}\]
-This diagram also commutes by the naturality of $\{\cdot\}$ (for the two
-squares) and the appropriate monad law (for the triangle) and shows that
-$\delta^{++}_a f$ is given simply by the composition $\theta_B \circ \delta_a f
-\circ {\theta^{!}_A}^{-1}$ in $\mathbf{FMPre}_s$.
-
-\vfill\TODO{Remove page break}\pagebreak
-
-The unit $\xi^{++}$ is given by the following composition in $\mathbf{FMPre}_s$:
-\[\xymatrix{
-{!}
-\ar[r]^{\mathord{\cup}^{!}} &
-\widehat{(-)}
-\ar[r]^(0.35){\widehat{\xi^+}} &
-\widehat{\widehat{\delta_a \bigl((-)^{\freshfor a}\bigr)}}
-\ar[rr]^{\mathord{\cup}_{\delta_a ((-)^{\freshfor a})}} &&
-\widehat{\delta_a \bigl((-)^{\freshfor a}\bigr)}
-}\]
-which is the composition along the top of the following diagram.
-\[\xymatrix{
-&&
-\widehat{\widehat{\delta_a \bigl((-)^{\freshfor a}\bigr)}}
-\ar[rr]^{\mathord{\cup}_{\delta_a ((-)^{\freshfor a})}} 
-&&
-\widehat{\delta_a \bigl((-)^{\freshfor a}\bigr)}
-\\
-{!}
-\ar[r]^(0.4){\mathord{\cup}^{!}} &
-\widehat{(-)} 
-\ar[r]^(0.35){\widehat{\xi}} &
-\widehat{\delta_a \bigl((-)^{\freshfor a}\bigr)}
-\ar[u]^{\widehat{\{\cdot\}_{\delta_a ((-)^{\freshfor a})}}}
-\ar@{=}[urr]
-}\]
-which commutes by the monad law, so that $\xi^{++} = \widehat{\xi} \circ
-\mathord{\cup}^{!}$.
-
-The counit $\epsilon^{++}$ is given by the following composition in $\mathbf{FMPre}_s$:
-\[\xymatrix{
-{!}\bigl((\delta_a -)^{\freshfor a}\bigr)
-\ar[rr]^{\mathord{\cup}^{!}_{(\delta_a -)^{\freshfor a}}} &&
-\widehat{(\delta_a -)^{\freshfor a}}
-\ar[r]^(0.55){\widehat{\epsilon^+}} &
-\widehat{\widehat{(-)}}
-\ar[r]^{\mathord{\cup}} &
-\widehat{(-)}
-}\]
-which is the composition along the top of the following diagram.
-\[\xymatrix{
-&&&
-\widehat{\widehat{(-)}}
-\ar[r]^{\mathord{\cup}} &
-\widehat{(-)}
-\\
-{!}\bigl((\delta_a -)^{\freshfor a}\bigr)
-\ar[rr]^{\mathord{\cup}^{!}_{(\delta_a -)^{\freshfor a}}} &&
-\widehat{(\delta_a -)^{\freshfor a}}
-\ar[r]^(0.55){\widehat{\epsilon}} &
-\widehat{(-)}
-\ar[u]^{\widehat{\{\cdot\}}}
-\ar@{=}[ur]
-}\]
-which commutes by the monad law, so that $\epsilon^{++} = \widehat{\epsilon} \circ
-\mathord{\cup}^{!}_{(\delta_a -)^{\freshfor a}}$.
-
-\vfill\TODO{Remove page break}\pagebreak
-
-Now consider $f : A \to \delta_a B$ in $\mathbf{ChCts}_s$. Its transpose,
-$f^{\wedge} : A^{\freshfor a} \to B$ is given in $\mathbf{ChCts}_{s \udot
-\{a\}}$ by the composition
-\[\xymatrix{
-A^{\freshfor a}
-\ar[r]^{f^{\freshfor a++}} &
-(\delta_a B)^{\freshfor a} 
-\ar[r]^{\epsilon^{++}_B} &
-B,}\]
-which in $\mathbf{FMLin}_{s \udot \{a\}}$ is the composition along the top of
-the following diagram
-\[\xymatrix{
-{!}(A^{\freshfor a})
-\ar[r]^{\zeta_{A^{\freshfor a}}}
-\ar@{=}[dr]
-&
-{!!}(A^{\freshfor a})
-\ar[d]^{\mathord{\cup}^{!}_{{!}(A^{\freshfor a})}}
-\ar[r]^{{!}{\phi^{{!}+}_{A}}^{-1}}
-&
-{!}\bigl(({!}A)^{\freshfor a}\bigr)
-\ar[d]^{\mathord{\cup}^{!}_{({!}A)^{\freshfor a}}}
-\ar[r]^{{!}(f^{\freshfor a+})}
-&
-{!}\bigl((\delta_a B)^{\freshfor a}\bigr)
-\ar[d]^{\mathord{\cup}^{!}_{(\delta_a B)^{\freshfor a}}}
-\\
-&
-{!}(A^{\freshfor a})
-\ar[r]_{{\phi^{{!}+}_{A}}^{-1}}
-&
-({!}A)^{\freshfor a}
-\ar[r]_{f^{\freshfor a+}}
-&
-(\delta_a B)^{\freshfor a}
-\ar[r]_{\epsilon_B^+}
-&
-B,
-}\]
-which commutes by the comonad laws and the naturality of $\mathord{\cup}^{!}$.
-In turn, in $\mathbf{FMPre}_{s \udot \{a\}}$ the composition along the bottom
-of the preceding diagram is the composition along the top of the following diagram
-\[\xymatrix{
-&
-\widehat{({!}A)^{\freshfor a}}
-\ar[r]^{\widehat{f^{\freshfor a}}} &
-\widehat{\widehat{\delta_a B}^{\freshfor a}}
-\ar[r]^{\widehat{\phi_{\delta_a B}}} &
-\widehat{\widehat{(\delta_a B)^{\freshfor a}}}
-\ar[r]^{\mathord{\cup}_{(\delta_a B)^{\freshfor a}}} &
-\widehat{(\delta_a B)^{\freshfor a}}
-\ar[d]^{\widehat{\epsilon_B}}
-\\
-{!}(A^{\freshfor a})
-\ar[r]_{{\phi^{!}_A}^{-1}} &
-({!}A)^{\freshfor a}
-\ar[u]^{\{\cdot\}_{({!}A)^{\freshfor a}}}
-\ar[r]_{f^{\freshfor a}} &
-\widehat{\delta_a B}^{\freshfor a}
-\ar[u]^{\{\cdot\}_{\widehat{\delta_a B}^{\freshfor a}}}
-\ar[r]_{\phi_{\delta_a B}} &
-\widehat{(\delta_a B)^{\freshfor a}}
-\ar[u]^{\{\cdot\}_{\widehat{(\delta_a B)^{\freshfor a}}}}
-\ar@{=}[ur] &
-\widehat{B}
-\ar@{=}[dr]
-\ar[r]^{\widehat{\{\cdot\}_{B}}} &
-\widehat{\widehat B} 
-\ar[d]^{\mathord{\cup}_B}
-\\
-&&&&&
-\widehat{B}
-}\]
-which commutes by the monad laws and the naturality of $\{\cdot\}$. In short,
-therefore, $f^{\wedge} : A^{\freshfor a} \to B$ is given by the following
-composition in $\mathbf{FMPre}_{s \udot \{a\}}$:
-\[\xymatrix{
-{!}(A^{\freshfor a})
-\ar[r]^{{\phi^{!}_A}^{-1}} &
-({!}A)^{\freshfor a}
-\ar[r]^{f^{\freshfor a}} &
-\widehat{\delta_a B}^{\freshfor a}
-\ar[r]^{\phi_{\delta_a B}} &
-\widehat{(\delta_a B)^{\freshfor a}}
-\ar[r]^{\widehat{\epsilon_B}} &
-\widehat{B}.
-}\]
-
-Now consider $f : A^{\freshfor a} \to B$ in $\mathbf{ChCts}_{s \udot \{a\}}$.
-Its transpose, $f^{\vee} : A \to \delta_a B$ is given in $\mathbf{ChCts}_{s}$ by
-the composition
-\[\xymatrix{
-A
-\ar[r]^{\xi^{++}_A} &
-\delta_a (A^{\freshfor a})
-\ar[r]^{\delta^{++}_a f} &
-(\delta_a B)
-}\]
-which in $\mathbf{FMLin}_s$ is the composition along the top of the following
-diagram
-\[\xymatrix{
-{!}A
-\ar[r]^{\zeta_A}
-\ar@{=}[dr]
-&
-{!!}A
-\ar[d]^{\mathord{\cup}^{!}_{{!}A}}
-\\
-&
-{!}A
-\ar[r]_(0.35){{!}\xi^+_A}
-&
-{!}\delta_a(A^{\freshfor a})
-\ar[rr]^{{\theta^{{!}+}_{A^{\freshfor a}}}^{-1}}
-&&
-\delta_a{!}(A^{\freshfor a})
-\ar[r]^{\delta^+_a f}
-&
-\delta_a B,
-}\]
-which commutes by the comonad laws. In turn, in $\mathbf{FMPre}_s$ the composition along the bottom
-of the preceding diagram is the composition along the top of the following diagram
-\[\xymatrix{
-&&{!}\widehat{\delta_a(A^{\freshfor a})}
-\ar[dr]^{k_{\delta_a(A^{\freshfor a})}}
-\\
-{!}A
-\ar[r]^(0.4){{!}\xi_A}
-&
-{!}\delta_a(A^{\freshfor a})
-\ar[rr]^{\{\cdot\}_{{!}\delta_a A^{\freshfor a}}}
-\ar[ur]^{{!}\{\cdot\}_{\delta_a A^{\freshfor a}}}
-\ar[d]_{{\theta^{!}_{A^{\freshfor a}}}^{-1}}
-&&
-\widehat{{!}\delta_a(A^{\freshfor a})}
-\ar[d]^{\widehat{{\theta^{!}_{A^{\freshfor a}}}^{-1}}}
-\\&
-\delta_a{!}(A^{\freshfor a})
-\ar@{=}[dd]
-\ar[rr]^{\{\cdot\}_{\delta_a{!}(A^{\freshfor a})}}
-&&
-\widehat{\delta_a{!}(A^{\freshfor a})}
-\ar@{=}[dd]
-\ar[dr]^{\widehat{\{\cdot\}_{\delta_a{!}(A^{\freshfor a})}}}
-\\&&&&
-\widehat{\widehat{\delta_a{!}(A^{\freshfor a})}}
-\ar[dl]^{\mathord{\cup}_{\delta_a{!}(A^{\freshfor a})}}
-\\&
-\delta_a{!}(A^{\freshfor a})
-\ar[rr]^{\{\cdot\}_{\delta_a{!}(A^{\freshfor a})}}
-\ar[d]_{\delta_a f}
-&&
-\widehat{\delta_a{!}(A^{\freshfor a})}
-\ar[d]^{\widehat{\delta_a f}}
-\\&
-\delta_a{\widehat{B}}
-\ar[rr]^{\{\cdot\}_{\delta_a {\widehat B}}}
-\ar[d]_{\theta_B}
-&&
-\widehat{\delta_a{\widehat{B}}}
-\ar[d]^{\widehat{\theta_B}}
-\\&
-\widehat{\delta_a B}
-\ar[rr]^{\{\cdot\}_{\widehat{\delta_a B}}}
-\ar@{=}[rrd]
-&&
-\widehat{\widehat{\delta_a B}}
-\ar[d]^{\mathord{\cup}_{\delta_a B}}
-\\&&&
-\widehat{\delta_a B}
-}\]
-which commutes by the monad laws, the naturality of $\{\cdot\}$ and the
-distributive law (\TODO{Remove?}) $k : {!}\widehat{(-)} \to \widehat{{!}(-)}$. In short,
-therefore, $f^{\vee} : A \to \delta_a B$ is given by the following
-composition in $\mathbf{FMPre}_s$:
-\[\xymatrix{
-{!}A
-\ar[r]^(0.4){{!}\xi_A} &
-{!}\delta_a (A^{\freshfor a})
-\ar[r]^{{\theta^{!}_{A^{\freshfor a}}}^{-1}} &
-\delta_a{!}(A^{\freshfor a})
-\ar[r]^{\delta_a f} &
-\delta_a \widehat{B}
-\ar[r]^{\theta_B} &
-\widehat{\delta_a B}.
-}\]
-
-\vfill\TODO{Remove page break}\pagebreak
-
 \paragraph{Name Abstraction}
 %\infer[(a \notin s)]
 %{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
 %{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} &&
 Define \[\sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
 = \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}}^{\vee}\]
+where $(-)^{\vee}$ is the appropriate transposition in the adjunction
+\ref{deltafreshadjcts}.
+%
 Let $b$ be a fresh name and let
 \[\begin{array}{rcl}
 \newpath{b}{p} &\in& \sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
@@ -834,6 +396,8 @@ Let $b$ be a fresh name and let
 \theta_{\sem{\Gamma}^{\freshfor a}}^{-1} \circ
 \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma
 \end{array}\]
+by \ref{def:deltacts} and \ref{def:xicts}.
+%
 Since $b$ is fresh, by the definition of $\theta$,
 \[\begin{array}{rcl}
 p &\in& \left(\bigl(\delta_a \sem{t} \circ \theta_{\sem{\Gamma}^{\freshfor
@@ -854,26 +418,29 @@ a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma
 %{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \\
 Define \[\sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
 = \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}^{\wedge}\]
-
+where $(-)^{\wedge}$ is the appropriate transposition in the adjunction
+\ref{deltafreshadjcts}.
+%
 Let
 \[\begin{array}{rcl}
 p &\in& \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
 \langle \gamma \rangle_{\envfresh{\Gamma}{a}} \\
 &=& \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}^{\wedge} \langle \gamma
 \rangle_{\envfresh{\Gamma}{a}}\\
-&=& \bigl(\widehat{\epsilon_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
-\sem{t}^{\freshfor a} \circ {\phi^{!}_{\sem{\Gamma}}}^{-1}\bigr)
+&=& \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
+\sem{t}^{\freshfor a} \circ \phi_{\sem{\Gamma}}^{-1}\bigr)
 \langle \gamma \rangle_{\envfresh{\Gamma}{a}}\\
-\Rightarrow \qquad \newpath{a}{p} &\in& \bigl(\phi_{\delta_a \typeP} \circ
-\sem{t}^{\freshfor a} \circ {\phi^{!}_{\sem{\Gamma}}}^{-1}\bigr) \langle \gamma
+\end{array}\]
+by \ref{def:freshcts} and \ref{def:zetacts}. Therefore
+\[\begin{array}{rcl}
+\newpath{a}{p} &\in& \bigl(\phi_{\delta_a \typeP} \circ
+\sem{t}^{\freshfor a} \circ \phi_{\sem{\Gamma}}^{-1}\bigr) \langle \gamma
 \rangle_{\envfresh{\Gamma}{a}}\\
 &\subseteq& \bigl(\sem{t}^{\freshfor a} 
-\circ {\phi^{!}_{\sem{\Gamma}}}^{-1}\bigr) \langle \gamma
+\circ \phi_{\sem{\Gamma}}^{-1}\bigr) \langle \gamma
 \rangle_{\envfresh{\Gamma}{a}}\\
 \text{\TODO{Check calculation}} &=& \sem{t} \langle \gamma \rangle_{\Gamma}
 \end{array}\]
-
-\vfill\TODO{Remove page break}\pagebreak
 
 \paragraph{Labelling}
 Define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} =
