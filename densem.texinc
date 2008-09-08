@@ -430,7 +430,7 @@ composition
 \widehat{(-)}
 }.\]
 
-\vfill\pagebreak %TODO
+\vfill\TODO{Remove page break}\pagebreak
 
 The natural isomorphisms $\theta$ and $\phi$ restrict to natural isomorphisms
 $\theta^{!} : \delta_a{!} \to {!}\delta_a$ and $\phi^{!} : ({!}-)^{\freshfor a}
@@ -568,7 +568,8 @@ squares) and the appropriate monad law (for the triangle) and shows that
 $\delta^{++}_a f$ is given simply by the composition $\theta_B \circ \delta_a f
 \circ {\theta^{!}_A}^{-1}$ in $\mathbf{FMPre}_s$.
 
-\vfill\pagebreak %TODO
+\vfill\TODO{Remove page break}\pagebreak
+
 The unit $\xi^{++}$ is given by the following composition in $\mathbf{FMPre}_s$:
 \[\xymatrix{
 {!}
@@ -626,7 +627,7 @@ which is the composition along the top of the following diagram.
 which commutes by the monad law, so that $\epsilon^{++} = \widehat{\epsilon} \circ
 \mathord{\cup}^{!}_{(\delta_a -)^{\freshfor a}}$.
 
-\vfill\pagebreak %TODO
+\vfill\TODO{Remove page break}\pagebreak
 
 Now consider $f : A \to \delta_a B$ in $\mathbf{ChCts}_s$. Its transpose,
 $f^{\wedge} : A^{\freshfor a} \to B$ is given in $\mathbf{ChCts}_{s \udot
@@ -815,7 +816,7 @@ composition in $\mathbf{FMPre}_s$:
 \widehat{\delta_a B}.
 }\]
 
-\vfill\pagebreak %TODO
+\vfill\TODO{Remove page break}\pagebreak
 
 \paragraph{Name Abstraction}
 %\infer[(a \notin s)]
@@ -872,7 +873,7 @@ p &\in& \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\type
 \text{\TODO{Check calculation}} &=& \sem{t} \langle \gamma \rangle_{\Gamma}
 \end{array}\]
 
-\vfill\pagebreak %TODO
+\vfill\TODO{Remove page break}\pagebreak
 
 \paragraph{Labelling}
 Define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} =
