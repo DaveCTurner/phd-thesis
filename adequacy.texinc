@@ -124,9 +124,8 @@ $\login{p}{\typeP}{\apply{t_0}{u}{\typeQ}}$. Also
 $\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ implies that
 $\oprel{\apply{t_0}{u}{\typeQ}}{\typeP}{\apply{t_1}{u}{\typeQ}}$ as follows.
 Suppose that
-$\ajudge{\typeP}{\apply{t_0}{u}{\typeQ}}{p'}{t'}$, then by lemma \TODO{Opsem backwards
-lemma}
-%
+$\ajudge{\typeP}{\apply{t_0}{u}{\typeQ}}{p'}{t'}$, then by lemma 
+\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:apply})
 $\ajudge{\typemap{\typeQ}{\typeP}}{t_0}{\mapaction{u}{p'}}{t'}$ and hence
 $\ajudge{\typemap{\typeQ}{\typeP}}{t_1}{\mapaction{u}{p'}}{t'}$ so that
 finally $\ajudge{\typeP}{\apply{t_1}{u}{\typeQ}}{p'}{t'}$. Thus by induction
@@ -138,9 +137,8 @@ By assumpton, $\login{\newpath{b}{p}}{\typedelta\typeP}{t_0}$ where $b$ is a
 fresh name, so that $\login{p}{\typeP}{\newapply{t_0}{b}}$. Also
 $\oprel{t_0}{\typedelta\typeP}{t_1}$ implies that
 $\oprel{\newapply{t_0}{b}}{\typeP}{\newapply{t_1}{b}}$ as follows. Suppose that
-$\ajudge{\typeP}{\newapply{t_0}{b}}{p'}{t'}$, then by lemma \TODO{Opsem
-backwards lemma}
-%
+$\ajudge{\typeP}{\newapply{t_0}{b}}{p'}{t'}$, then by lemma
+\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:newapply})
 $\ajudge{\typedelta\typeP}{t_0}{\newaction{b}{p'}}{\new{b}{t'}}$ and hence
 $\ajudge{\typedelta\typeP}{t_1}{\newaction{b}{p'}}{\new{b}{t'}}$ so that finally
 $\ajudge{\typeP}{\newapply{t_1}{b}}{p'}{t'}$. Thus by induction
@@ -154,8 +152,7 @@ $\oprel{t_0}{\stdtypesum}{t_1}$ implies that
 $\oprel{\lproj{\ell_0}{t_0}}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}$ as
 follows. Suppose that
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}{p'}{t'}$, then by lemma
-\TODO{Opsem backwards lemma}
-%
+\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:lproj})
 $\ajudge{\stdtypesum}{t_0}{\labelaction{\ell_0}{p'}}{t'}$ and hence
 $\ajudge{\stdtypesum}{t_1}{\labelaction{\ell_0}{p'}}{t'}$ so that finally
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}{p'}{t'}$. Thus by induction
@@ -169,8 +166,7 @@ $\oprel{t_0}{\typerec{j}{P}{\typeP}}{t_1}$ implies that
 $\oprel{\rep{t_0}}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}$ as
 follows. Suppose that
 $\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}{p'}{t'}$, then by
-lemma \TODO{Opsem backwards lemma}
-%
+lemma \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:rep})
 $\ajudge{\typerec{j}{P}{\typeP}}{t_0}{\absaction{p'}}{t'}$ and hence
 $\ajudge{\typerec{j}{P}{\typeP}}{t_1}{\absaction{p'}}{t'}$ so that finally
 $\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}{p'}{t'}$.  Thus by
@@ -447,8 +443,8 @@ $\logrel{X'}{\typeP}{\apply{t}{u}{\typeQ}}$. Thus by induction if $P \in
 \sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}X =
 \sem{\atjudge{s}{\typeP}{p}{\typePp}}X'$ then there exists $t'$ such that
 $\ajudge{\typeP}{\apply{t}{u}{\typeQ}}{p}{t'}$ and $\logrel{P}{\typePp}{t'}$ and so by
-lemma \TODO{Opsem backwards lemma -- is it even true here??}
-%
+lemma 
+\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:apply})
 $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$ as
 required.
 
@@ -459,7 +455,8 @@ $\logrel{X}{\stdtypesum}{t}$ then
 $\logrel{X'}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$. Therefore by induction
 there exists $t'$ such that
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}$ and
-$\logrel{P}{\typePp}{t'}$ and hence by lemma \TODO{Opsem backwards lemma}
+$\logrel{P}{\typePp}{t'}$ and hence by lemma 
+\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:lproj})
 $\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$ as required.
 
 \paragraph{New Name Action} The induction premises are that
@@ -479,7 +476,8 @@ $\logrel{X'}{\typeP}{\newapply{t}{b}}$; also $P' @ b \in
 \sem{\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}} X'$
 and $\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}$ so that by
 induction there exists $t'$ such that $\ajudge{\typeP}{\newapply{t}{b}}{(ab) \cdot p}{t'}$ and
-$\logrel{P'@b}{\typePp}{t'}$. By lemma \TODO{Opsem backwards lemma},
+$\logrel{P'@b}{\typePp}{t'}$. By lemma
+\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:newapply}),
 $\ajudge{\typeP}{t}{\newaction{b}{(ab) \cdot p}}{\new{b}{t'}}$, and by
 $\alpha$-equivalence $\newaction{b}{(ab) \cdot p} = \newaction{a}{p}$ so that
 finally $\ajudge{\typeP}{t}{\newaction{a}{p}}{\new{b}{t'}}$.
@@ -499,7 +497,8 @@ $\logrel{X}{\typerec{j}{P}{\typeP}}{t}$ then
 $\logrel{X'}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$. Therefore by
 induction there exists $t'$ such that
 $\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}{p}{t'}$ and
-$\logrel{P}{\typePp}{t'}$ and hence by lemma \TODO{Opsem backwards lemma}
+$\logrel{P}{\typePp}{t'}$ and hence by lemma 
+\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:rep}),
 $\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$ as required.
 
 \paragraph{Support-Weakening (Actions)}
