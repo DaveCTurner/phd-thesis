@@ -260,17 +260,17 @@ $\mathbf{NPre}$ gives rise to a right adjoint to $(-)^{\freshfor a}$ which is
 given a concrete description here.
 
 \begin{definition}\label{def:deltaa} If $\typeP$ is a FM-preorder then define
-the FM-preorder \begin{equation}\delta_a \typeP \defeq \{p' \mid \freshin{b}{p'
-@ b \in (ab) \cdot \typeP \}},\end{equation} where if $p'_1$ and $p'_2$ are
-elements of $\delta_a \typeP$ then \begin{equation} p'_1 \le_{\delta_a \typeP}
-p'_2 \qquad \Leftrightarrow_{\mathrm{def}} \qquad \freshin{b}{p'_1 @ b \le_{(ab)
-\cdot \typeP} p'_2 @ b}.\end{equation} If $f : \typeP \to \typeQ$ is a
-finitely-supported monotone function then for all $p' \in \delta_a \typeP$
-define \begin{equation} \delta_a f (p') \defeq \freshin{b}{[b].\bigl((ab) \cdot
-f) (p' @ b)}.\end{equation}\end{definition}
-
-\TODO{Care more precisely about what the equivalence classes are. Where do they
-live?}
+the $\alpha$-equivalence relation $\sim_{\alpha}$ on $\typeP \times \mathbb A$
+as in \ref{def:alphaequiv} and define the FM-preorder \begin{equation}\delta_a
+\typeP \defeq \{p' \in (\typeP \times \mathbb A)/{\sim_{\alpha}} \mid
+\freshin{b}{p' @ b \in (ab) \cdot \typeP \}},\end{equation} where if $p'_1$ and
+$p'_2$ are elements of $\delta_a \typeP$ then \begin{equation} p'_1
+\le_{\delta_a \typeP} p'_2 \qquad \Leftrightarrow_{\mathrm{def}} \qquad
+\freshin{b}{p'_1 @ b \le_{(ab) \cdot \typeP} p'_2 @ b}.\end{equation}
+%
+If $f : \typeP \to \typeQ$ is a finitely-supported monotone function then for
+all $p' \in \delta_a \typeP$ define \begin{equation} \delta_a f (p') \defeq
+\freshin{b}{[b].\bigl((ab) \cdot f) (p' @ b)}.\end{equation}\end{definition}
 
 \begin{lemma} If $a \notin s$ then the operation $\delta_a$ defined in
 \ref{def:deltaa} is a functor $\mathbf{FMPre}_{s \udot a} \to
