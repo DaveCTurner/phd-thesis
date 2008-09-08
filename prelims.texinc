@@ -585,8 +585,8 @@ Gabbay\cite{PittsAM:newaas-jv}.
 There is a symmetric monoidal structure $\otimes$ on $\mathbf{NPre}$. 
 %
 Via the equivalence of lemma \ref{lemma:schequiv} it can be characterised
-abstractly as the Day tensor\TODO{Citation for Day tensor} of functors $\mathbb
-I \to \mathbf{Set}$.
+abstractly as the Day tensor\cite{day:closedcats} of functors $\mathbb I \to
+\mathbf{Set}$.
 %
 Concretely, if $X$ and $Y$ are nominal sets then \begin{equation}
 \label{def:otimes} X \otimes Y \defeq \{ \langle x, y \rangle \in X \times Y
