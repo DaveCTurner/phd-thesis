@@ -171,25 +171,46 @@ Setting foundational issues aside for a moment, FM set theory is closely related
 to the theory of nominal sets.  The universe of FM sets
 $\mathcal{V}_{\mathrm{FM}}$ is constructed similarly to the the von Neumann
 hierarchy $\mathcal{V}_{\mathrm{ZF}}$ of ZF set theory, with the following
-differences.  Firstly, the starting point includes an infinite collection of
-atoms as well as the empty set. The permutation action on this collection of
-atoms gives rise to a permutation action on all of $\mathcal{V}_{\mathrm{FM}}$
-by $\mathord{\in}$-recursion, which gives rise to the notion of `support' for
-arbitrary elements of $\mathcal{V}_{\mathrm{FM}}$.  The process of the
-construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in such a way as to
-only include elements that have finite supports. Each nominal set is then
-(isomorphic to) a FM set which has empty support.
+differences\cite{PittsAM:newaas-jv}.  Firstly, the starting point includes an
+infinite collection of atoms as well as the empty set. The permutation action on
+this collection of atoms gives rise to a permutation action on all of
+$\mathcal{V}_{\mathrm{FM}}$ by $\mathord{\in}$-recursion, which gives rise to
+the notion of `support' for arbitrary elements of $\mathcal{V}_{\mathrm{FM}}$.
+The process of the construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in
+such a way as to only include elements that have (hereditarily) finite supports.
 
-\TODO{refer to Jamie's thesis. Note that ${\mathcal{V}_{\mathrm{FM}}}_\alpha$ are
-all nominal sets.}
+With this construction, the $\varnothing$-supported FM sets are nominal sets
+where the permutation action is given by $\in$-recursion.
+%
+For now it is worth pretending that these are the only nominal sets.
+%
+This roughly corresponds to the pretence that conventional mathematics is
+developed within ZF set theory when in fact an arbitrary topos (especially a
+Boolean one) would be perfectly adequate most of the time.
+%
+In particular the axiom of foundation is not very important to many
+mathematicians, and similarly the $\in$-recursive nature of the permutation
+action is not very important here.
+
+In some sense $\mathcal{V}_{\mathrm{FM}}$ is a large nominal set, or `nominal
+class': it has a permutation action and all of its members are
+finitely-supported.
+%
+Alternatively, for each ordinal $\alpha$ the $\alpha$th level of the cumulative
+FM hierarchy is a (small) nominal set.
+%
+The discussion below could take place in either ${\mathcal{V}_{\mathrm{FM}}}$ or
+${\mathcal{V}_{\mathrm{FM}}}_\alpha$ for some $\alpha$, and can therefore use
+the language of nominal sets.
 
 It is certainly possible to define a category $\mathbf{FMPre}$ of FM-preorders
-and finitely-supported monotone functions within FM set theory, and for any
-FM-preorder $\typeP$ it is the case that $\typeP^{\freshfor a}$ is also a
-FM-preorder (where $p_1 \le_{\typeP^{\freshfor a}} p_2$ is defined to be $p_1
-\le_\typeP p_2 \wedge p_1, p_2 \in \typeP^{\freshfor a}$) since
-$\typeP^{\freshfor a}$ is supported by the finite set $\supp{\typeP} \cup
-\{a\}$. It would be convenient that $(-)^{\freshfor a}$ can be made into a
+and finitely-supported monotone functions, and for any FM-preorder $\typeP$ it
+is the case that $\typeP^{\freshfor a}$ is also a FM-preorder (where $p_1
+\le_{\typeP^{\freshfor a}} p_2$ is defined to be $p_1 \le_\typeP p_2 \wedge p_1,
+p_2 \in \typeP^{\freshfor a}$) since $\typeP^{\freshfor a}$ is supported by the
+finite set $\supp{\typeP} \cup \{a\}$.
+%
+It would be convenient that $(-)^{\freshfor a}$ can be made into a
 functor, but this is not possible on $\mathbf{FMPre}$. To see this, let $\typeP$
 be any FM-preorder and consider the unique map $f : \typeP \to \{a\}$ which is
 necessarily monotone and finitely-supported, and hence an arrow of
