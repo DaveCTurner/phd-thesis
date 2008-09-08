@@ -203,4 +203,28 @@ by induction as required.
 %
 \end{proof}
 
+\begin{lemma} \label{lemma:opsembackwards} If the conclusion of certain
+derivation rules for the operational semantics is derivable then so are its
+premises, in a sense that is made precise below.  \begin{enumerate}[(i)]
+%
+\item \label{lemma:opsembackwards:apply} If
+$\ajudge{\typeP}{\apply{t}{u}{\typeQ}}{p}{t'}$ then
+$\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$.
+%
+\item \label{lemma:opsembackwards:lproj} If
+$\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}$ then
+$\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$.
+%
+\item \label{lemma:opsembackwards:newapply} If
+$\ajudge{\typeP}{\newapply{t}{a}}{p}{t'}$ then
+$\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}$.
+%
+\item \label{lemma:opsembackwards:rep} If
+$\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t}}{p}{t'}$ then
+$\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$.  \end{enumerate}
+\end{lemma}
+
+\begin{proof} The derivation rules are completely syntax-directed, so the
+result is immediate.  \end{proof}
+
 % vim: set filetype=tex foldlevel=0 cms=\%%s:
