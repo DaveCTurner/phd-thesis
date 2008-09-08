@@ -266,7 +266,7 @@ that $\sigma_{i'} a \neq ib$ and hence $\sigma_i b = ib$ as required.
 
 This section is a very short introduction to the theory of nominal sets.
 %
-More details and longer discussions are available elsewhere\ref{PittsAM:alpsri}.
+More details and longer discussions are available elsewhere\cite{PittsAM:alpsri}.
 
 \begin{definition} Write \define{$\mathcal G$} for the group of finite
 permutations of $\mathbb A$. \end{definition}
@@ -634,7 +634,7 @@ transformation $\xi : \mathbf{1} \to \delta ((-) \otimes \mathbb A)$ defined by
 \end{equation}
 %
 The counit is the concretion operator $\mathord{@} : (\delta-) \otimes \mathbb A
-\to \mathbf{1}$ defined in \ref{def:concretion}.
+\to \mathbf{1}$ defined above.
 %
 That the triangular identities are satisfied amounts to saying that $([a].x)@a =
 x$ for any name $a$, and $[b].(x'@b) = x'$ for a fresh name $b$.
