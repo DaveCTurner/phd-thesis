@@ -599,7 +599,7 @@ In fact this discussion will only use this tensor as part of the functor $(-)
 \otimes \mathbb A$ and it is possible to characterise its right adjoint, written
 $\delta$, as follows.
 %
-There is an equivalence relation $\sim_{\alpha}$ on $X \otimes \mathbb A$ that
+There is an equivalence relation $\sim_{\alpha}$ on $X \times \mathbb A$ that
 captures the notion of $\alpha$-equivalence as \begin{equation}
 \label{def:simalpha} \langle x, a \rangle \sim_{\alpha} \langle x', a' \rangle
 \quad \Leftrightarrow_{\mathrm{def}} \quad \freshin{b}{(ab)\cdot x = (a'b) \cdot
@@ -607,7 +607,8 @@ x'}.  \end{equation}
 %
 Write the equivalence classes as $[a].x \defeq [\langle x, a
 \rangle]_{\sim_{\alpha}}$, then \begin{equation} \label{def:deltanom:obj} \delta
-X \defeq X/{\sim_\alpha} = \{ [a].x \mid a \in \mathbb A \wedge x \in X \}
+X \defeq (X \times \mathbb A)/{\sim_\alpha} = \{ [a].x \mid a \in \mathbb A
+\wedge x \in X \}
 \end{equation}
 %
 Notice that $\supp{[a].x} = \supp{x} \setminus \{a\}$ and therefore $\delta X$
