@@ -4,10 +4,10 @@
 \section{Introduction}
 
 Nominal HOPLA is an expressive calculus for higher-order processes with
-nondeterminism and name-binding which will now be used to illustrate the
-domain theory of the previous section. Nominal HOPLA follows closely the
-development of HOPLA (Higher-Order Process LAnguage) \cite{nygaardwinskel1}
-and is inspired by the language New-HOPLA \cite{zappanardelliwinskel}.
+nondeterminism and name-binding which will now be used to illustrate the domain
+theory of the previous section. Nominal HOPLA follows closely the development of
+HOPLA (Higher-Order Process LAnguage)\cite{nygaardwinskel1} and is inspired by
+the language New-HOPLA\cite{WZ04}.
 
 Section \ref{subsect:nset:category} shows that the category $\mathbf{NSet}$ is
 equivalent to the Schanuel topos $\mathbf{Sch}$ of pullback-preserving
