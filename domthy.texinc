@@ -438,11 +438,15 @@ This section gives a flavour of a less prescriptive foundational basis for this
 thesis than $\mathcal{V}_{\mathrm{FM}}$.
 %
 The theory is not developed fully here as to do so is beyond the scope of this
-discussion, but it is intended that there is enough information here to persuade
-the purist that this work is applicable more generally it might first appear.
+dissertation, but it is intended that there is enough information here to
+persuade the purist that this work is applicable more generally it might first
+appear.
 
-Secretly, this discussion has been taking place in a dependent type theory,
-along similar lines to the work of Ulrich Sch\"opp\cite{schoppthesis}.
+Secretly, this discussion has been taking place in a dependent type theory.
+%
+Nominal sets supports a very rich dependent type theory as studied by Sch\"opp
+and Stark\cite{SS04}, but for the sake of clarity it is preferable to consider a
+simpler setup here.
 %
 Roughly speaking, the available types are dependent on a `current' set of names:
 if the current set of names is $s$ then the available types are objects of
