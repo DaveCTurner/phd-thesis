@@ -425,10 +425,13 @@ $\mathcal P(X \times Y)$, where the derived $\mathcal{G}$-action becomes
 have finite support: if $A \subseteq \mathbb A$ is infinite and has infinite
 complement then its characteristic function $\chi_A : \mathbb A \to \mathbf{2}$
 has no finite support by the same argument as before. Again, $X \to Y$ does
-contain a nominal set, \begin{equation} X \to_{\mathrm{fs}} Y \defeq \{ f : X
-\to Y \mid \text{$f$ has finite support} \}. \end{equation} It is not hard to
-see that if $s$ supports $f$ then $\sigma \cdot s$ supports $\sigma \cdot f$ so
-that $X \to_{\mathrm{fs}} Y$ does have a well-defined $\mathcal{G}$-action.
+contain a nominal set, \begin{equation} \label{def:fsfunction} X
+\to_{\mathrm{fs}} Y \defeq \{ f : X \to Y \mid \text{$f$ has finite support} \}.
+\end{equation}
+%
+It is not hard to see that if $s$ supports $f$ then $\sigma \cdot s$ supports
+$\sigma \cdot f$ so that $X \to_{\mathrm{fs}} Y$ does have a well-defined
+$\mathcal{G}$-action.
 
 \begin{definition} A function $f : X \to Y$ between nominal sets is
 \define{equivariant} iff it has empty support. \end{definition}

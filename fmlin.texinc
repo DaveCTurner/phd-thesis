@@ -24,8 +24,8 @@ Alternatively, $\widehat{\typeP}$ may be viewed as the monotone function space
 $\typeP^{\mathrm{op}} \to_{\mathrm{fs}} \mathbf{2}$ where $\mathbf{2}$ is the
 nontrivial poset on $\{\top, \bot\}$. Elements $x \in \widehat{\typeP}$
 correspond to their characteristic functions $\chi_x$ such that
-\begin{equation}\chi_x(p) = \begin{cases} \top & \text{if $p \in x$} \\ \bot &
-\text{otherwise.} \end{cases}\end{equation}
+\begin{equation} \label{characteristicfunction} \chi_x(p) = \begin{cases} \top &
+\text{if $p \in x$} \\ \bot & \text{otherwise.} \end{cases}\end{equation}
 
 The operation $\widehat{(-)}$ may be extended to a functor $\mathbf{FMPre}_s \to
 \mathbf{FMPre}_s$. where if $f : \typeP \to \typeQ$ is an arrow of
