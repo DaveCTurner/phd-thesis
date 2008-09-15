@@ -91,6 +91,83 @@ Conversely the counit is given by $\mathord{\cup} \defeq
 \widehat{\widehat{\typeP}}$ then \begin{equation} \mathord{\cup}_{\typeP} X =
 \mathbf{1}_{\widehat{\typeP}}^\dagger X = \bigcup X. \end{equation}
 
+\subsection{The Structure of $\mathbf{FMLin}_s$}
+
+The use of the word `linear' in this context stems from the observation that
+each $\mathbf{FMLin}_s$ has enough structure to be understood as a categorical
+model of multiplicative-exponential linear logic (MELL)\cite{benton:linear}.
+%
+It has other features that are important for the development of a rich domain
+theory too, and this section explores some of their details.
+
+\subsubsection{Hom-sets.} Recall from \ref{def:fsfunction} that $\typeP
+\to_{\mathrm{fs}} \typeQ$ means all finitely-supported functions from $\typeP$
+to $\typeQ$, and write $\typeP \to_{s} \typeQ$ for just those functions
+supported by $s$.
+%
+The chain of isomorphisms \begin{equation}\begin{array}{rcll}
+\mathbf{FMLin}_{s}(\typeP, \typeQ)
+%
+&\cong& \typeP \to_s \widehat{\typeQ} & \text{by \ref{hat:adj}} \\
+%
+&\cong& \typeP \to_s (\typeQ^{\mathrm{op}} \to_{\mathrm{fs}} \mathbf{2}) &
+\text{by \ref{characteristicfunction}} \\
+%
+&\cong& (\typeP \times \typeQ^{\mathrm{op}}) \to_{s} \mathbf{2} & \text{by
+currying} \\
+%
+&=& (\typeP^{\mathrm{op}} \times \typeQ)^{\mathrm{op}} \to_{s} \mathbf{2}\\
+%
+&\cong& \{x \in \widehat{\typeP^{\mathrm{op}} \times \typeQ} \mid \supp{x}
+\subseteq s\} \end{array}\end{equation} characterises hom-sets in
+$\mathbf{FMLin}_s$.
+%
+Therefore each hom-set may be endowed with a partial order structure, given by
+$\subseteq$, and joins given by union.
+%
+Furthermore composition preserves joins in both its arguments, and in particular
+it is monotone.
+
+\subsubsection{Coproducts.} The disjoint union of the orders $\typeP_1$ and
+$\typeP_2$ forms the binary coproduct $\typeP_1 + \typeP_2$ in
+$\mathbf{FMLin}_s$.
+%
+The injections are the obvious maps $\mathbf{in}_i : \widehat{\typeP_i} \to
+\widehat{\typeP_1 + \typeP_2}$ derived from the injections of the underlying
+preorders.
+%
+More general coproducts are defined similarly.
+%
+In fact, if $(\typePsub{\ell})_{\ell \in L}$ is any collection of FM-preorders
+where the mapping $\ell \mapsto \typePsub{\ell}$ is supported by $s$ then it
+makes sense to define the object $\stdtypesum$ of $\mathbf{FMLin}_s$ as the
+disjoint union of the $\typePsub{\ell}$.
+%
+This behaves a little like a coproduct, except that the $\ell$th injection lives
+in $\mathbf{FMLin}_{s \cup \supp{\ell}}$.
+
+\subsubsection{Products.} The disjoint union of the orders $\typeP_1$ and
+$\typeP_2$ also forms the binary product $\typeP_1 \amp \typeP_2$ in
+$\mathbf{FMLin}_s$.
+%
+The projection $\mathbf{out}_i : \widehat{\typeP_1 \amp \typeP_2} \to
+\widehat{\typeP_i}$ is given by $\pi_i x \defeq \{ p \in \typeP_i \mid
+\mathbf{in}_i p \in x \}$.
+%
+Furthermore, the injections and projections satisfy \begin{equation}
+\label{biproducts} \begin{array}{c} \mathbf{out}_i \circ \mathbf{in}_i =
+\mathbf{1}_{\typeP_i} \quad \mathbf{out}_i \circ \mathbf{in}_j = \varnothing \
+(i \neq j) \\ ((\mathbf{in}_1 \circ \mathbf{out}_1) \cup (\mathbf{in}_2 \circ
+\mathbf{out}_2)) = \mathbf{1}_{\typeP_1 + \typeP_2} \end{array} \end{equation}
+%
+The order structure on the hom-sets gives rise to a commutative monoid
+structure, with multiplication given by $\cup$ and unit given by $\varnothing$,
+and by \ref{biproducts} the object $\typeP_1 + \typeP_2$ is the biproduct of
+$\typeP_1$ and $\typeP_2$ with respect to this monoid.
+
+
+
+
 \TODO{Copy across discussion of structures in $\mathbf{FMLin}_s$ from
 $\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.}
 
