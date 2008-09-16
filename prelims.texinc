@@ -338,18 +338,25 @@ then say $x$ \define{is fresh for} $y$ and write `$x \freshfor y$' iff $\supp{x}
 \subsection{Constructing Nominal Sets}
 \label{subsect:nset:examples}
 
-It is worth discussing some examples of nominal sets. Firstly, any set may be
-given the trivial $\mathcal G$-action $\sigma \cdot x = x$ and with respect to
-this action every element has empty support. A set with the trivial $\mathcal
-G$-action is called a discrete nominal set.
+It is worth discussing some examples of nominal sets.
 
-Secondly, $\mathbb A$ is a nominal set with permutation action given by $\sigma
+\subsubsection{Discrete nominal sets.}
+%
+Any set may be given the trivial $\mathcal G$-action $\sigma \cdot x = x$ and
+with respect to this action every element has empty support. A set with the
+trivial $\mathcal G$-action is called a discrete nominal set.
+
+\subsubsection{The set of names.}
+%
+The set $\mathbb A$ is a nominal set with permutation action given by $\sigma
 \cdot a \defeq \sigma a$.  This is clearly a group action, and it is
 straightforward to show that every $a \in \mathbb A$ is supported by the finite
 set $\{a\}$. Therefore $\supp{a} = a$ and $a \freshfor b$ iff $a \neq b$.
 
-Also $\mathcal G$ is a nominal set, with permutation action given by $\sigma
-\cdot \sigma' \defeq \sigma \sigma' \sigma^{-1}$.
+\subsubsection{The set of permutations of names.}
+%
+The group $\mathcal G$ is a nominal set, with permutation action given by
+$\sigma \cdot \sigma' \defeq \sigma \sigma' \sigma^{-1}$.
 %
 It is not hard to see that this is a group action.
 %
@@ -380,14 +387,20 @@ Furthermore, this is the smallest support: pick any $a$ and $b$ such that
 $\sigma a \neq a$ and $\sigma b = b$ then it is certainly the case that $(ab)
 \cdot \sigma \neq \sigma$ so that $a \in \supp{\sigma}$.
 
+\subsubsection{Products and sums.}
+%
 If $X$ and $Y$ are nominal sets then their product $X \times Y$ and their sum $X
 + Y$ are both nominal sets, with permutation actions given componentwise. The
 support of a pair $\langle x, y \rangle \in X \times Y$ is $\supp{x} \cup
 \supp{y}$.
 
+\subsubsection{Subsets.}
+%
 If $X$ is a nominal set and $Y \subseteq X$ is closed under the action of
 $\mathcal G$ then $Y$ is also a nominal set with respect to this action.
 
+\subsubsection{Nominal powersets.}
+%
 If $X$ is a nominal set then its powerset $\mathcal P X$ has a natural $\mathcal
 G$-action given by \begin{equation} \sigma \cdot A \defeq \{ \sigma \cdot x \mid
 x \in A \}. \end{equation}
@@ -418,6 +431,8 @@ Notice that any finite subset of $X$ is supported by the union of the supports
 of its elements (which is finite) and therefore $\mathcal P_{\mathrm{fin}} X$ is
 also a nominal set.
 
+\subsubsection{Nominal function spaces.}
+%
 If $X$ and $Y$ are nominal sets then the function space $X \to Y$ is a subset of
 $\mathcal P(X \times Y)$, where the derived $\mathcal{G}$-action becomes
 \begin{equation} (\sigma \cdot f)x \defeq \sigma \cdot \bigl( f(\sigma^{-1}
