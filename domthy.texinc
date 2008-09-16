@@ -536,7 +536,7 @@ The key result of this section is that there is an adjunction on the FM-linear
 categories that is analogous to the adjunction $(-)^{\freshfor a} \dashv
 \delta_a$ described in lemma \ref{deltafreshadj}. The path to this result is via
 lemma \ref{adjunctionlift}, which requires natural transformations
-$\widehat{(-)}^{\freshfor a} \to \widehat{(-)}^{\freshfor a}$ and $ \delta_a
+$\widehat{(-)}^{\freshfor a} \to \widehat{(-)^{\freshfor a}}$ and $ \delta_a
 \widehat{(-)} \to \widehat{\delta_a (-)}$.  It turns out that, perhaps
 surprisingly, these functors are naturally isomorphic and the isomorphisms
 satisfy the appropriate coherence conditions.
