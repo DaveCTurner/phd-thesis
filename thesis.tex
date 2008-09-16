@@ -35,7 +35,12 @@
 \newtheorem{definition}[equation]{Definition}
 \newcommand{\define}[1]{\textbf{#1}}
 %\def\equation{$$\refstepcounter{theorem}}
+\counterwithin{equation}{chapter}
+\counterwithin{equation}{section}
 \counterwithin{equation}{subsection}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
 
 \title{Nominal Domain Theory for Concurrency}
 \date{\revisionnumber}
