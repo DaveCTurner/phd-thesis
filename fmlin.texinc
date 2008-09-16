@@ -105,7 +105,7 @@ theory too, and this section explores some of their details.
 to $\typeQ$, and write $\typeP \to_{s} \typeQ$ for just those functions
 supported by $s$.
 %
-The chain of isomorphisms \begin{equation}\begin{array}{rcll}
+The chain of isomorphisms \begin{equation} \label{homsets} \begin{array}{rcll}
 \mathbf{FMLin}_{s}(\typeP, \typeQ)
 %
 &\cong& \typeP \to_s \widehat{\typeQ} & \text{by \ref{hat:adj}} \\
@@ -137,14 +137,28 @@ The injections are the obvious maps $\mathbf{in}_i : \widehat{\typeP_i} \to
 preorders.
 %
 More general coproducts are defined similarly.
-%
+
 In fact, if $(\typePsub{\ell})_{\ell \in L}$ is any collection of FM-preorders
 where the mapping $\ell \mapsto \typePsub{\ell}$ is supported by $s$ then it
-makes sense to define the object $\stdtypesum$ of $\mathbf{FMLin}_s$ as the
-disjoint union of the $\typePsub{\ell}$.
+makes sense to define the object $\stdtypesum$ as the disjoint union of the
+$\typePsub{\ell}$.
 %
-This behaves a little like a coproduct, except that the $\ell$th injection lives
-in $\mathbf{FMLin}_{s \cup \supp{\ell}}$.
+It is not hard to see that $\stdtypesum$ is supported by $s$ and therefore an
+object of $\mathbf{FMLin}_s$.
+%
+Furthermore, for each $\ell_0 \in L$ the $\ell_0$th component
+$\typePsub{\ell_0}$ is an object of $\mathbf{FMLin}_{s \cup \supp{\ell_0}}$, and
+if $J : \mathbf{FMLin}_s \hookrightarrow \mathbf{FMLin}_{s \cup \supp{\ell_0}}$
+is an inclusion of categories then the $\ell_0$th injection is an arrow
+$\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \to J\stdtypesum$ of
+$\mathbf{FMLin}_{s \cup \supp{\ell_0}}$.
+%
+Finally if $\typeQ$ is an object of $\mathbf{FMLin}_s$ and $(f_\ell :
+\typePsub{\ell} \to \typeQ)_{\ell \in L}$ is a collection of arrows (in the
+appropriate categories) then there is a unique $[f_{\ell}]_{\ell \in L} :
+\stdtypesum \to \typeQ$ in $\mathbf{FMLin}_{s}$ such that $[f_{\ell}]_{\ell \in
+L} \circ \mathbf{in}_{\ell_0} = f_{\ell_0}$ in $\mathbf{FMLin}_{s \cup
+\supp{\ell_0}}$ for each $\ell_0$.
 
 \subsubsection{Products.} The disjoint union of the orders $\typeP_1$ and
 $\typeP_2$ also forms the binary product $\typeP_1 \amp \typeP_2$ in
@@ -164,6 +178,31 @@ The order structure on the hom-sets gives rise to a commutative monoid
 structure, with multiplication given by $\cup$ and unit given by $\varnothing$,
 and by \ref{biproducts} the object $\typeP_1 + \typeP_2$ is the biproduct of
 $\typeP_1$ and $\typeP_2$ with respect to this monoid.
+%
+More general biproducts may be defined in $\mathbf{FMLin}_s$ in the same way.
+
+Furthermore, if $(\typePsub{\ell})_{\ell \in L}$ is a collection of FM-preorders
+where the mapping $\ell \mapsto \typePsub{\ell}$ is supported by $s$ then the
+`generalised coproduct' $\stdtypesum$ also has projections
+$\mathbf{out}_{\ell_0} : \stdtypesum \to \typePsub{\ell_0}$ that satisfy
+conditions much like those of a product, except that they do not all lie in the
+same category.
+%
+Also, the projections and injections interact as for a biproduct:
+$\mathbf{out}_{\ell} \circ \mathbf{in}_{\ell} = \mathbf{1}_{\typeP_i}$  in
+$\mathbf{FMLin}_{s'}$ where $s' \supseteq s \cup \supp{\ell}$ and
+$\mathbf{out}_{\ell} \circ \mathbf{in}_{\ell'} = \varnothing$ in
+$\mathbf{FMLin}_{s'}$ where $\ell \ne \ell'$ and $s' \supseteq s \cup
+\supp{\ell} \cup \supp{\ell'}$.
+%
+Finally $\bigcup_{\ell \in L} (\mathbf{in}_{\ell} \circ \mathbf{out}_{\ell}) =
+\mathbf{1}_{\stdtypesum}$ where the union is taken in the complete partial order
+\[\widehat{\left(\stdtypesum\right)^{\mathrm{op}} \times \stdtypesum}\] which
+contains all the function spaces $\mathbf{FMLin}_{s'}(\stdtypesum, \stdtypesum)$
+by \ref{homsets}.
+%
+In short, $\stdtypesum$ behaves much like a biproduct, except that its
+injections and projections are spread over many different categories.
 
 
 
