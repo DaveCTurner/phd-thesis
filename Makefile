@@ -3,6 +3,7 @@
 
 TEXES:=$(wildcard *.tex)
 TEXINCS:=$(wildcard *.texinc)
+STYS:=$(wildcard *.sty)
 TOCS:=$(patsubst %.tex,%.toc,$(TEXES))
 DVIS:=$(patsubst %.tex,%.dvi,$(TEXES))
 PDFS:=$(patsubst %.tex,%.pdf,$(TEXES))
@@ -49,7 +50,7 @@ clean:
 # This is necessary to stop the inbuilt rule for running TeX from taking over.
 %.dvi: %.tex
 
-%.dvi: %.tex $(BIBS) $(PSTEX_TS) $(PSTEXES) $(TEXINCS) margins
+%.dvi: %.tex $(BIBS) $(PSTEX_TS) $(PSTEXES) $(TEXINCS) $(STYS) margins
 	latex $< && \
 	if (grep `echo "$@" | sed -e "s/\.dvi$$/\.log/"` -e "Citation.*undefined"); \
 	then \
