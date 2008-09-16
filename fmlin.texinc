@@ -151,7 +151,7 @@ $\typeP_2$ also forms the binary product $\typeP_1 \amp \typeP_2$ in
 $\mathbf{FMLin}_s$.
 %
 The projection $\mathbf{out}_i : \widehat{\typeP_1 \amp \typeP_2} \to
-\widehat{\typeP_i}$ is given by $\pi_i x \defeq \{ p \in \typeP_i \mid
+\widehat{\typeP_i}$ is given by $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid
 \mathbf{in}_i p \in x \}$.
 %
 Furthermore, the injections and projections satisfy \begin{equation}
