@@ -766,9 +766,10 @@ following diagram commutes by naturality of $\xi$, \ref{comm:freshtriangle} and
 	\ar[d]_{\{\cdot\}_{\downarrow}}
 &
 \delta_a ((-)^{\freshfor a})
-	\ar[r]^{\{\cdot\}_{\delta_a ((-)^{\freshfor a})}}
-	\ar[dr]^{\delta_a \{\cdot\}_{(-)^{\freshfor a}}}
+	\ar[rr]^{\{\cdot\}_{\delta_a ((-)^{\freshfor a})}}
+	\ar[drr]^{\delta_a \{\cdot\}_{(-)^{\freshfor a}}}
 	\ar[d]_{\delta_a \{\cdot\}_\downarrow^{\freshfor a}}
+&
 &
 \matthat{\delta_a ((-)^{\freshfor a})}
 \\
@@ -776,7 +777,8 @@ following diagram commutes by naturality of $\xi$, \ref{comm:freshtriangle} and
 	\ar[r]_{\xi_{\widehat{(-)}}}
 &
 \delta_a\widehat{(-)}^{\freshfor a}
-	\ar[r]_{\delta_a \phi}
+	\ar[rr]_{\delta_a \phi}
+&
 &
 \delta_a\widehat{(-)^{\freshfor a}}
 	\ar[u]_{\theta_{(-)^{\freshfor a}}}
@@ -802,10 +804,10 @@ commutes by naturality of $\zeta$, \ref{comm:freshtriangle} and
 %
 \matthat{(\delta_a-)^{\freshfor a}}
 	\ar[d]_{\phi^{-1}_{\delta_a}}
-&
+&&
 (\delta_a(-))^{\freshfor a}
-	\ar[l]_{\{\cdot\}_{(\delta_a(-))^{\freshfor a}}}
-	\ar[dl]_{\{\cdot\}_{\delta_a}^{\freshfor a}}
+	\ar[ll]_{\{\cdot\}_{(\delta_a(-))^{\freshfor a}}}
+	\ar[dll]_{\{\cdot\}_{\delta_a}^{\freshfor a}}
 	\ar[d]^{(\delta_a\{\cdot\})^{\freshfor a}}
 	\ar[r]^{\zeta}
 &
@@ -813,8 +815,8 @@ commutes by naturality of $\zeta$, \ref{comm:freshtriangle} and
 	\ar[d]^{\{\cdot\}_\downarrow}
 \\
 \widehat{\delta_a(-)}^{\freshfor a}
-	\ar[r]_{{\theta^{-1}}^{\freshfor a}}
-&
+	\ar[rr]_{{\theta^{-1}}^{\freshfor a}}
+&&
 (\delta_a\widehat{(-)})^{\freshfor a}
 	\ar[r]_{\zeta_{\widehat{(-)}}}
 &
