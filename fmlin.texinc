@@ -241,7 +241,8 @@ a suitable setting for a domain theory that is sensitive to names and binding.
 More precisely, for any $s$ and $a \notin s$ there is an adjunction
 \begin{equation} (-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
 \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}\end{equation} with unit $\xi^+$
-and counit $\zeta^+$.
+and counit $\zeta^+$ which arises from the adjunction of lemma
+\ref{deltafreshadj}.
 %
 This follows from the abstract argument in \ref{subsect:deltafreshadjlin} below,
 but the adjunction can also be presented concretely as follows.
