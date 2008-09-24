@@ -675,7 +675,33 @@ a}\bigr)^{\dagger} \\
 &=& \bigl( \phi_\typeQ \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP} \bigr)
 \quad\text{by the adjunction \ref{hat:adj}.}
 %
-\end{array} \end{equation} If $f : \typeP \to \typeQ$ is an arrow of
+\end{array} \end{equation}
+%
+Even more concretely if $x \in \widehat{\typeP^{\freshfor a}}$ then
+$x_{\downarrow} \in \widehat{\typeP}$ so that \begin{equation}
+\label{concrete:freshlin} f^{\freshfor a+}x = \{q \in f(x_\downarrow) \mid q
+\freshfor a\} \end{equation} as follows.
+%
+Suppose that $q \in f(x_\downarrow)$ and $q \freshfor a$.
+%
+By definition $x \subseteq \phi^{-1}_{\typeP} x$ and $\phi^{-1}_{\typeP} x \in
+\widehat{\typeP}$ so that $x_\downarrow \subseteq \phi^{-1}_{\typeP} x$ and by
+the monotonicity of $f$ it follows that $q \in f(\phi^{-1}_{\typeP}x)$ and hence
+that $q \in f^{\freshfor a+} x$.
+%
+Conversely, suppose that $q \in f^{\freshfor a+} x = \bigl( \phi_\typeQ \circ
+f^{\freshfor a} \circ \phi^{-1}_{\typeP} \bigr) x$ then certainly $q \freshfor
+a$ by definition of $\phi_{\typeQ}$.
+%
+Also by the linearity of $f$ there exists $p \in \phi^{-1}_{\typeP}x$ such that
+$q \in f\{p\}_{\downarrow}$ and by \ref{characterisation:phiinv} if $c$ is a
+fresh name then $(ac) \cdot p \in x$.
+%
+As $a \freshfor q$ and $a \freshfor f$ it follows that $q = (ac) \cdot q \in
+(ac) \cdot f\{p\}_{\downarrow} = f\{(ac) \cdot p\}_{\downarrow} \subseteq
+f(x_{\downarrow})$ as required.
+
+If $f : \typeP \to \typeQ$ is an arrow of
 $\mathbf{FMLin}_{s \udot \{a\}}$ then \begin{equation} \label{def:deltalin}
 \begin{array}{rcl} \delta_a^+ f  
 %
