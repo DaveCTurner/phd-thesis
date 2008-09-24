@@ -204,6 +204,28 @@ by \ref{homsets}.
 In short, $\stdtypesum$ behaves much like a biproduct, except that its
 injections and projections are spread over many different categories.
 
+\subsubsection{Tensor.} A tensor product on $\mathbf{FMLin}_s$ can be defined as
+the product $\typePsub{1} \times \typePsub{2}$ of the underlying preorders.
+%
+It is straightforward to see that this product is associative, and the
+(discrete) nominal preorder on the one-element set is a unit for this operation
+on both sides, so that this is a monoidal structure on $\mathbf{FMLin}_s$.
+%
+Via \ref{homsets}, \begin{equation} \begin{array}{rcl} \mathbf{FMLin}_s(\typeP
+\times \typeQ, \typeR)
+%
+& \cong & \{ x \in \matthat{(\typeP \times \typeQ)^{\mathrm{op}} \times \typeR}
+\mid \supp{x} \subseteq s \} \\
+%
+& \cong & \{ x \in \matthat{\typeP^{\mathrm{op}} \times \typeQ^{\mathrm{op}}
+\times \typeR} \mid \supp{x} \subseteq s \} \\
+%
+& \cong & \mathbf{FMLin}_s(\typeP, \typeQ^{\mathrm{op}} \times \typeR)
+\end{array}\end{equation}
+%
+so that $\mathbf{FMLin}_s$ is closed with respect to the $\times$ monoid, and
+the internal function space is given by $\typeQ \multimap \typeR \defeq
+\typeQ^{\mathrm{op}} \times \typeR$.
 
 
 
