@@ -701,9 +701,13 @@ This completes the proof.
 
 By unwinding the isomorphism given in lemma \ref{adjunctioninclusion} and the
 definitions of $\phi$ and $\theta$ and those in lemma \ref{adjunctionlift}, this
-adjunction is concretely described as follows. If $f : \typeP \to \typeQ$ is an
-arrow of $\mathbf{FMLin}_s$ then \begin{equation} \label{def:freshlin}
-\begin{array}{rcl} f^{\freshfor a+} 
+adjunction is concretely described as follows.
+
+
+\subsubsection{The functor $(-)^{\freshfor a+}$.}
+%
+If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then
+\begin{equation} \label{def:freshlin} \begin{array}{rcl} f^{\freshfor a+} 
 %
 &=& \bigl(\phi_\typeQ \circ f^{\freshfor a} \circ \{\cdot\}_{\typeP}^{\freshfor
 a}\bigr)^{\dagger} \\
@@ -718,9 +722,8 @@ a}\bigr)^{\dagger} \\
 \end{array} \end{equation}
 %
 Even more concretely if $x \in \widehat{\typeP^{\freshfor a}}$ then
-$x_{\downarrow} \in \widehat{\typeP}$ so that \begin{equation}
-f^{\freshfor a+}x = \{q \in f(x_\downarrow) \mid q
-\freshfor a\} \end{equation} as follows.
+$x_{\downarrow} \in \widehat{\typeP}$ so that \begin{equation} f^{\freshfor a+}x
+= \{q \in f(x_\downarrow) \mid q \freshfor a\} \end{equation} as follows.
 %
 Suppose that $q \in f(x_\downarrow)$ and $q \freshfor a$.
 %
@@ -743,6 +746,8 @@ f(x_{\downarrow})$ as required.
 %
 This justifies the assertion made in \ref{concrete:freshlin}.
 
+\subsubsection{The functor $\delta_a^+$.}
+%
 If $f : \typeP \to \typeQ$ is an arrow of
 $\mathbf{FMLin}_{s \udot \{a\}}$ then \begin{equation} \label{def:deltalin}
 \begin{array}{rcl} \delta_a^+ f  
@@ -759,9 +764,11 @@ $\mathbf{FMLin}_{s \udot \{a\}}$ then \begin{equation} \label{def:deltalin}
 %
 \end{array} \end{equation} 
 
-To construct the unit $\xi^+$, first note that the
-following diagram commutes by naturality of $\xi$, \ref{comm:freshtriangle} and
-\ref{comm:deltatriangle}.  \begin{equation} \label{comm:xiplus} \xymatrix{
+\subsubsection{The unit $\xi^+$.}
+%
+First note that the following diagram commutes by naturality of $\xi$,
+\ref{comm:freshtriangle} and \ref{comm:deltatriangle}.  \begin{equation}
+\label{comm:xiplus} \xymatrix{
 %
 \mathbf{1}
 	\ar[r]^{\xi}
@@ -800,9 +807,11 @@ Then $\xi^+ : \mathbf{1} \to \delta^+_a((-)^{\freshfor a+})$ is given by
 %
 \end{array} \end{equation}
 
-Similarly, to construct the counit $\zeta^+$, note that the following diagram
-commutes by naturality of $\zeta$, \ref{comm:freshtriangle} and
-\ref{comm:deltatriangle}.  \begin{equation} \label{comm:zetaplus} \xymatrix{
+\subsubsection{The counit $\zeta^+$.}
+%
+Similarly, note first that the following diagram commutes by naturality of
+$\zeta$, \ref{comm:freshtriangle} and \ref{comm:deltatriangle}.
+\begin{equation} \label{comm:zetaplus} \xymatrix{
 %
 \matthat{(\delta_a-)^{\freshfor a}}
 	\ar[d]_{\phi^{-1}_{\delta_a}}
