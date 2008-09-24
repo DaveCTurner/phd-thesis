@@ -231,9 +231,9 @@ so that $\mathbf{FMLin}_s$ is closed with respect to the $\times$ monoid, and
 the internal function space is given by $\typeQ \multimap \typeR \defeq
 \typeQ^{\mathrm{op}} \times \typeR$.
 
-\subsubsection{Name Binding.} There is an adjunction on the FM-linear categories
-that is analogous to the adjunction $(-)^{\freshfor a} \dashv \delta_a$
-described in lemma \ref{deltafreshadj}.
+\subsubsection{Name Binding.} \label{subsubsect:deltafreshadjlin} There is an
+adjunction on the FM-linear categories that is analogous to the adjunction
+$(-)^{\freshfor a} \dashv \delta_a$ described in lemma \ref{deltafreshadj}.
 %
 This adjunction is the key structure in the FM-linear categories that makes them
 a suitable setting for a domain theory that is sensitive to names and binding.
@@ -267,17 +267,26 @@ f) \{p@b\}_{\downarrow}}\}.  \end{equation} \TODO{Check concrete definition of
 $\delta_a^+$}
 
 
-\subsection{Relationship between $\widehat{(-)}$, $(-)^{\freshfor a}$ and
-$\delta_a$ } \label{subsect:deltafreshadjlin}
+\subsection{Binding in FM-Linear Categories} \label{subsect:deltafreshadjlin}
 
-The key result of this section is that there is an adjunction on the FM-linear
-categories that is analogous to the adjunction $(-)^{\freshfor a} \dashv
-\delta_a$ described in lemma \ref{deltafreshadj}. The path to this result is via
-lemma \ref{adjunctionlift}, which requires natural transformations
-$\widehat{(-)}^{\freshfor a} \to \widehat{(-)^{\freshfor a}}$ and $ \delta_a
-\widehat{(-)} \to \widehat{\delta_a (-)}$.  It turns out that, perhaps
-surprisingly, these functors are naturally isomorphic and the isomorphisms
-satisfy the appropriate coherence conditions.
+As discussed in \ref{subsubsect:deltafreshadjlin} there is an adjunction on the
+FM-linear categories that is analogous to the adjunction $(-)^{\freshfor a}
+\dashv \delta_a$ described in lemma \ref{deltafreshadj}.
+%
+The path to this is via lemma \ref{adjunctionlift}, which requires natural
+transformations $\widehat{(-)}^{\freshfor a} \to \widehat{(-)^{\freshfor a}}$
+and $ \delta_a \widehat{(-)} \to \widehat{\delta_a (-)}$ that satisfy certain
+coherence conditions.
+%
+It turns out that the appropriate transformations are isomorphisms.
+%
+Lemmas \ref{freshhatiso} and \ref{deltahatiso} demonstrate these natural
+isomorphisms and lemma \ref{deltafreshadjhatkleisli} shows that they satisfy the
+necessary coherence conditions to apply lemma \ref{adjunctionlift}.
+%
+This section concludes with derivations of simple characterisations of the
+functors $(-)^{\freshfor a+}$ and $\delta_a^+$ and the unit and counit of their
+adjunction to justify the assertions made in \ref{subsubsect:deltafreshadjlin}.
 
 \begin{lemma}\label{freshhatiso} Let $a \notin s$. The functors
 \[\widehat{(-)}^{\freshfor a}, \widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s
