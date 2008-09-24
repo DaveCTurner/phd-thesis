@@ -27,13 +27,6 @@ correspond to their characteristic functions $\chi_x$ such that
 \begin{equation} \label{characteristicfunction} \chi_x(p) = \begin{cases} \top &
 \text{if $p \in x$} \\ \bot & \text{otherwise.} \end{cases}\end{equation}
 
-The operation $\widehat{(-)}$ may be extended to a functor $\mathbf{FMPre}_s \to
-\mathbf{FMPre}_s$. where if $f : \typeP \to \typeQ$ is an arrow of
-$\mathbf{FMPre}_s$ then for all $x \in \widehat{\typeP}$ define \begin{equation}
-\label{hat:arrows} \widehat{f}x \defeq \{ q \in \typeQ \mid \exists p \in x. q
-\le_{\typeQ} f p \}.\end{equation} It is not hard to see that this defines a
-functor. 
-
 The order $\widehat{\typeP}$ contains elements of the form $\{p\}_{\downarrow}$
 for each $p \in \typeP$. These elements are (completely) prime: if $X \subseteq
 \widehat{\typeP}$ and $\{p\}_{\downarrow} \subseteq \bigcup X$ then $p \in
@@ -66,6 +59,7 @@ correspondence with finitely-supported finitely-supported-join-preserving maps
 $\widehat{\typeP} \to \widehat{\typeQ}$.  For brevity, call such maps
 `FM-linear'.
 
+
 \subsection{Categories of FM-Linear Maps}
 \label{fmlin}
 
@@ -73,9 +67,19 @@ Let $\mathbf{FMLin}_s$ be the category whose objects are FM-preorders $\typeP$,
 $\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \to \typeQ$ are
 FM-linear maps $\widehat{\typeP} \to \widehat{\typeQ}$ supported by $s$.
 
-If $f$ is an arrow of $\mathbf{FMPre}_s$ then it is straightforward to see that
-$\widehat{f}$ is FM-linear not merely monotone, so that $\widehat{(-)}$ defines
-a functor $\mathbf{FMPre}_s \to \mathbf{FMLin}_s$.  On the other hand, FM-linear
+If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMPre}_s$ then so is
+$(\{\cdot\}_{\typeQ} \circ f)^{\dagger} : \widehat{\typeP} \to \widehat{\typeQ}$
+and furthermore this arrow is FM-linear by the definition of $(-)^{\dagger}$.
+%
+Therefore it is not hard to see that defining $\widehat{f} \defeq
+(\{\cdot\}_{\downarrow} \circ f)^{\dagger}$ makes $\widehat{(-)}$ into a functor
+$\mathbf{FMPre}_s \to \mathbf{FMLin}_s$.
+%
+Concretely this means that if $x \in \widehat{\typeP}$ then \begin{equation}
+\label{hat:arrows} \widehat{f}x = \{ q \in \typeQ \mid \exists p \in x. q
+\le_{\typeQ} f p \}.\end{equation}
+%
+On the other hand, FM-linear
 maps are necessarily monotone, since if $a \le b$ then $a \vee b = b$ so that if
 $f$ preserves joins then $f a \vee f b = f (a \vee b) = f b$ and hence $f a \le
 f b$. Therefore there is an inclusion $\mathbf{FMLin}_s \hookrightarrow
