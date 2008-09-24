@@ -118,7 +118,7 @@ currying} \\
 %
 &=& (\typeP^{\mathrm{op}} \times \typeQ)^{\mathrm{op}} \to_{s} \mathbf{2}\\
 %
-&\cong& \{x \in \widehat{\typeP^{\mathrm{op}} \times \typeQ} \mid \supp{x}
+&\cong& \{x \in \matthat{\typeP^{\mathrm{op}} \times \typeQ} \mid \supp{x}
 \subseteq s\} \end{array}\end{equation} characterises hom-sets in
 $\mathbf{FMLin}_s$.
 %
@@ -133,7 +133,7 @@ $\typeP_2$ forms the binary coproduct $\typeP_1 + \typeP_2$ in
 $\mathbf{FMLin}_s$.
 %
 The injections are the obvious maps $\mathbf{in}_i : \widehat{\typeP_i} \to
-\widehat{\typeP_1 + \typeP_2}$ derived from the injections of the underlying
+\matthat{\typeP_1 + \typeP_2}$ derived from the injections of the underlying
 preorders.
 %
 More general coproducts are defined similarly.
@@ -164,7 +164,7 @@ L} \circ \mathbf{in}_{\ell_0} = f_{\ell_0}$ in $\mathbf{FMLin}_{s \cup
 $\typeP_2$ also forms the binary product $\typeP_1 \amp \typeP_2$ in
 $\mathbf{FMLin}_s$.
 %
-The projection $\mathbf{out}_i : \widehat{\typeP_1 \amp \typeP_2} \to
+The projection $\mathbf{out}_i : \matthat{\typeP_1 \amp \typeP_2} \to
 \widehat{\typeP_i}$ is given by $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid
 \mathbf{in}_i p \in x \}$.
 %
@@ -197,7 +197,7 @@ $\mathbf{FMLin}_{s'}$ where $\ell \ne \ell'$ and $s' \supseteq s \cup
 %
 Finally $\bigcup_{\ell \in L} (\mathbf{in}_{\ell} \circ \mathbf{out}_{\ell}) =
 \mathbf{1}_{\stdtypesum}$ where the union is taken in the complete partial order
-\[\widehat{\left(\stdtypesum\right)^{\mathrm{op}} \times \stdtypesum}\] which
+\[\matthat{\left(\stdtypesum\right)^{\mathrm{op}} \times \stdtypesum}\] which
 contains all the function spaces $\mathbf{FMLin}_{s'}(\stdtypesum, \stdtypesum)$
 by \ref{homsets}.
 %
@@ -494,7 +494,7 @@ commute.
 &\xymatrix{
 \widehat{\typeP} \ar[r]^{\widehat{\xi}} 
 \ar[d]^{\xi_{\widehat{\typeP}}} & 
-\widehat{\delta_a(\typeP^{\freshfor a})}
+\matthat{\delta_a(\typeP^{\freshfor a})}
 \\
 \delta_a(\widehat{\typeP}^{\freshfor a})
 \ar[r]^{\delta_a \phi_\typeP} & 
@@ -521,7 +521,7 @@ commute.
 \ar[d]^{\zeta_{\widehat{\typeP}}} & 
 \widehat{\delta_a\typeP}^{\freshfor a} \ar[d]^{\phi_{\delta_a\typeP}} \\
 \widehat{\typeP} &
-\widehat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\zeta_{\typeP}}}}
+\matthat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\zeta_{\typeP}}}}
 \end{array}\]
 
 To see that the triangle containing the $(-)^{\freshfor a}$ functor commutes,
@@ -678,7 +678,7 @@ following diagram commutes by naturality of $\xi$, \ref{comm:freshtriangle} and
 	\ar[dr]^{\delta_a \{\cdot\}_{(-)^{\freshfor a}}}
 	\ar[d]_{\delta_a \{\cdot\}_\downarrow^{\freshfor a}}
 &
-\widehat{\delta_a ((-)^{\freshfor a})}
+\matthat{\delta_a ((-)^{\freshfor a})}
 \\
 \widehat{(-)}
 	\ar[r]_{\xi_{\widehat{(-)}}}
@@ -708,7 +708,7 @@ Similarly, to construct the counit $\zeta^+$, note that the following diagram
 commutes by naturality of $\zeta$, \ref{comm:freshtriangle} and
 \ref{comm:deltatriangle}.  \begin{equation} \label{comm:zetaplus} \xymatrix{
 %
-\widehat{(\delta_a-)^{\freshfor a}}
+\matthat{(\delta_a-)^{\freshfor a}}
 	\ar[d]_{\phi^{-1}_{\delta_a}}
 &
 (\delta_a(-))^{\freshfor a}

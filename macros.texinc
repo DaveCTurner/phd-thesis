@@ -131,6 +131,27 @@
 \def\abspath#1{{\pathhl \mathtt{abs}}\ {#1}}
 % }}}
 
+
+% MATTHAT - Due to Matthew Parkinson
+\newlength{\hatheight}
+\newsavebox{\mhat}
+\newsavebox{\foo}
+\newlength{\foowidth}
+\newlength{\foowidthminus}
+
+\newcommand{\matthat}[1]{
+\savebox{\mhat}{\ensuremath{\widehat{\phantom{xyt}}}}%
+\savebox{\foo}{\ensuremath{#1}}%
+\settowidth{\foowidth}{\usebox{\foo}}%
+\addtolength{\foowidthminus}{-1\foowidth}%
+\settoheight{\hatheight}{\usebox{\mhat}}%
+\addtolength{\hatheight}{0.03\foowidth}%
+\resizebox{\foowidth}{\hatheight}{\ensuremath{\widehat{\phantom{xyt}}}}%
+\hspace{\foowidthminus}%
+\usebox{\foo}
+}
+%
+
 \def\revisionnumber{}
 % vim: set filetype=tex foldlevel=0 cms=\%%s:
 
