@@ -764,6 +764,8 @@ $\mathbf{FMLin}_{s \udot \{a\}}$ then \begin{equation} \label{def:deltalin}
 %
 \end{array} \end{equation} 
 
+\TODO{Really concrete description of $\delta^+_a$}
+
 \subsubsection{The unit $\xi^+$.}
 %
 First note that the following diagram commutes by naturality of $\xi$,
