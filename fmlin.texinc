@@ -256,15 +256,15 @@ The unit and counit are given by $\xi^+ = \widehat{\xi}$ and $\zeta^+ =
 If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then $f^{\freshfor
 a} : \typeP^{\freshfor a} \to \typeQ^{\freshfor a}$ is an arrow of
 $\mathbf{FMLin}_{s \udot \{a\}}$ defined concretely as \begin{equation}
-f^{\freshfor a+} x \defeq \{ q \in f(x_{\downarrow}) \mid a \freshfor q\}.
-\end{equation}
+\label{concrete:freshlin} f^{\freshfor a+} x \defeq \{ q \in f(x_{\downarrow})
+\mid a \freshfor q\}.  \end{equation}
 %
 Also if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$
 then $\delta_a^+ f : \delta_a \typeP \to \delta_a \typeQ$ is an arrow of
-$\mathbf{FMLin}_s$ defined concretely as \begin{equation} \delta_a^+ f x \defeq
-\{ q \in \delta_a \typeQ \mid \exists p \in x.\ \freshin{b}{q@b \in ((ab) \cdot
-f) \{p@b\}_{\downarrow}}\}.  \end{equation} \TODO{Check concrete definition of
-$\delta_a^+$}
+$\mathbf{FMLin}_s$ defined concretely as \begin{equation}
+\label{concrete:deltalin} \delta_a^+ f x \defeq \{ q \in \delta_a \typeQ \mid
+\exists p \in x.\ \freshin{b}{q@b \in ((ab) \cdot f) \{p@b\}_{\downarrow}}\}.
+\end{equation} \TODO{Check concrete definition of $\delta_a^+$}
 
 
 \subsection{Binding in FM-Linear Categories} \label{subsect:deltafreshadjlin}
@@ -719,7 +719,7 @@ a}\bigr)^{\dagger} \\
 %
 Even more concretely if $x \in \widehat{\typeP^{\freshfor a}}$ then
 $x_{\downarrow} \in \widehat{\typeP}$ so that \begin{equation}
-\label{concrete:freshlin} f^{\freshfor a+}x = \{q \in f(x_\downarrow) \mid q
+f^{\freshfor a+}x = \{q \in f(x_\downarrow) \mid q
 \freshfor a\} \end{equation} as follows.
 %
 Suppose that $q \in f(x_\downarrow)$ and $q \freshfor a$.
@@ -740,6 +740,8 @@ fresh name then $(ac) \cdot p \in x$.
 As $a \freshfor q$ and $a \freshfor f$ it follows that $q = (ac) \cdot q \in
 (ac) \cdot f\{p\}_{\downarrow} = f\{(ac) \cdot p\}_{\downarrow} \subseteq
 f(x_{\downarrow})$ as required.
+%
+This justifies the assertion made in \ref{concrete:freshlin}.
 
 If $f : \typeP \to \typeQ$ is an arrow of
 $\mathbf{FMLin}_{s \udot \{a\}}$ then \begin{equation} \label{def:deltalin}
