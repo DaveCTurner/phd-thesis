@@ -231,13 +231,43 @@ so that $\mathbf{FMLin}_s$ is closed with respect to the $\times$ monoid, and
 the internal function space is given by $\typeQ \multimap \typeR \defeq
 \typeQ^{\mathrm{op}} \times \typeR$.
 
+\subsubsection{Name Binding.} There is an adjunction on the FM-linear categories
+that is analogous to the adjunction $(-)^{\freshfor a} \dashv \delta_a$
+described in lemma \ref{deltafreshadj}.
+%
+This adjunction is the key structure in the FM-linear categories that makes them
+a suitable setting for a domain theory that is sensitive to names and binding.
+%
+More precisely, for any $s$ and $a \notin s$ there is an adjunction
+\begin{equation} (-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
+\leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}\end{equation} with unit $\xi^+$
+and counit $\zeta^+$.
+%
+This follows from the abstract argument in \ref{subsect:deltafreshadjlin} below,
+but the adjunction can also be presented concretely as follows.
+%
+If $\typeP$ is an object then $\typeP^{\freshfor a+} = \typeP^{\freshfor a}$ and
+$\delta^+_a \typeP = \delta_a \typeP$.
+%
+The unit and counit are given by $\xi^+ = \widehat{\xi}$ and $\zeta^+ =
+\widehat{\zeta}$.
+%
+If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then $f^{\freshfor
+a} : \typeP^{\freshfor a} \to \typeQ^{\freshfor a}$ is an arrow of
+$\mathbf{FMLin}_{s \udot \{a\}}$ defined concretely as \begin{equation}
+f^{\freshfor a+} x \defeq \{ q \in f(x_{\downarrow}) \mid a \freshfor q\}.
+\end{equation}
+%
+Also if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$
+then $\delta_a^+ f : \delta_a \typeP \to \delta_a \typeQ$ is an arrow of
+$\mathbf{FMLin}_s$ defined concretely as \begin{equation} \delta_a^+ f x \defeq
+\{ q \in \delta_a \typeQ \mid \exists p \in x.\ \freshin{b}{q@b \in ((ab) \cdot
+f) \{p@b\}_{\downarrow}}\}.  \end{equation} \TODO{Check concrete definition of
+$\delta_a^+$}
 
-
-\TODO{Copy across discussion of structures in $\mathbf{FMLin}_s$ from
-$\mathbf{Lin}$ - e.g. products, tensor, coproducts, function space.}
 
 \subsection{Relationship between $\widehat{(-)}$, $(-)^{\freshfor a}$ and
-$\delta_a$ }
+$\delta_a$ } \label{subsect:deltafreshadjlin}
 
 The key result of this section is that there is an adjunction on the FM-linear
 categories that is analogous to the adjunction $(-)^{\freshfor a} \dashv
