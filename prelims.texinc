@@ -1033,7 +1033,7 @@ Dually, if the right adjoint $G$ is a bijection on objects then $\mathcal{D}$ is
 isomorphic to the coKleisli category of the comonad $(FG, \epsilon, F\eta_G)$.
 \end{lemma}
 
-\begin{proof} The finaly two sentences of the statement of this lemma are dual
+\begin{proof} The final two sentences of the statement of this lemma are dual
 to each other, so by duality it is sufficient to show just one.  Therefore,
 suppose that the right adjoint $G$ is a bijection on objects. Let $\mathcal{E}$
 be the coKleisli category of $FG$. Define $L : \mathcal{E} \to \mathcal{D}$ as
