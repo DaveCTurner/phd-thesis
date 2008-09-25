@@ -21,10 +21,8 @@ that the finite-join-completion exponential does in HOPLA.
 
 \TODO{Complete this intro when this section is complete.}
 
-\subsection{Name-Binding is Discontinuous}
+\subsection{Name-Binding is Directed-Join Discontinuous}
 \label{bindingdiscts}
-
-\TODO{`Directed-Join' discontinuity in subtitle??}
 
 It is now necessary to speculate a little on what a nominal extension to the
 process calculus HOPLA may look like. This speculation is motivated by the
