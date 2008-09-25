@@ -104,6 +104,9 @@ that all directed sets have well-orderings.
 However, the Axiom of Choice does not hold in the theory of FM sets, so the
 analogy between sequences and directed sets breaks down. 
 
+\TODO{`Analogy' should be `equivalence', and say `the use of s---' and `the use
+of d---'}
+
 \begin{definition} An \define{FM-sequence} in a domain $D$ is a sequence (i.e. a
 function from some ordinal $\alpha$ to $D$) that is additionally
 finitely-supported.  \end{definition} 
