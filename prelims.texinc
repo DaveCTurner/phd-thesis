@@ -175,7 +175,7 @@ permutations $\sigma$ such that $\sigma a = a$ for all $a \in A$ there exist
 permutations $\sigma_1$, $\sigma_2$, $\sigma_3$ such that \begin{enumerate}
 \item $\sigma = \sigma_1 \sigma_2 \sigma_3$, and \item $\sigma_1 a = a$ and
 $\sigma_3 a = a$ for all $a \in A \cup B$, and \item $\sigma_2 a \neq a$ only if
-$a \in (B \cup D) \setminus A$ \end{enumerate} \end{lemma}
+$a \in (B \cup D) \setminus A$. \end{enumerate} \end{lemma}
 
 The resulting middle factor $\sigma_2$ is a description of the footprint of
 $\sigma$ on $B$.
@@ -519,8 +519,8 @@ the category whose objects are finite subsets of $\mathbb A$ but whose arrows
 are just the inclusions between them. The action of $G$ on morphisms is given by
 the universal property of this colimit.
 
-It is left as an exercise to check that $F$ and $G$ define an equivalence of
-categories.\end{proof}
+It is now a simple case of definition-following to check that $F$ and $G$ define
+an equivalence of categories.  \end{proof}
 
 \subsection{Binding in Nominal Sets}
 \label{subsect:nset:binding}
@@ -1009,7 +1009,7 @@ those monads. Working within a Kleisli category is difficult because composition
 is cumbersome, but fortunately the Kleisli categories that arise in this
 dissertation are isomorphic to categories where composition is given more
 conventionally. Abstractly, this isomorphism follows if the categories in
-question have the same collections of objects and one of the adjoints preserves
+question have the same collections of objects and the left adjoint preserves
 objects.
 
 \begin{lemma}
@@ -1033,7 +1033,7 @@ Dually, if the right adjoint $G$ is a bijection on objects then $\mathcal{D}$ is
 isomorphic to the coKleisli category of the comonad $(FG, \epsilon, F\eta_G)$.
 \end{lemma}
 
-\begin{proof} The finaly two sentences of the statement of this lemma are dual
+\begin{proof} The final two sentences of the statement of this lemma are dual
 to each other, so by duality it is sufficient to show just one.  Therefore,
 suppose that the right adjoint $G$ is a bijection on objects. Let $\mathcal{E}$
 be the coKleisli category of $FG$. Define $L : \mathcal{E} \to \mathcal{D}$ as
