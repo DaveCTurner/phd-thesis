@@ -520,7 +520,10 @@ are just the inclusions between them. The action of $G$ on morphisms is given by
 the universal property of this colimit.
 
 It is left as an exercise to check that $F$ and $G$ define an equivalence of
-categories.\end{proof}
+categories.
+%
+\TODO{Not exercise - boring fact checking}
+\end{proof}
 
 \subsection{Binding in Nominal Sets}
 \label{subsect:nset:binding}
