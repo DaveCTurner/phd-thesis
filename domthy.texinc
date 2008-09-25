@@ -170,17 +170,20 @@ Fraenkel-Mostowski (FM) set theory.
 
 \subsection{Fraenkel-Mostowski Set Theory}
 
-\TODO{Delete `Setting ... moment'}
-
-Setting foundational issues aside for a moment, FM set theory is closely related
-to the theory of nominal sets.  The universe of FM sets
-$\mathcal{V}_{\mathrm{FM}}$ is constructed similarly to the the von Neumann
-hierarchy $\mathcal{V}_{\mathrm{ZF}}$ of ZF set theory, with the following
-differences\cite{PittsAM:newaas-jv}.  Firstly, the starting point includes an
-infinite collection of atoms as well as the empty set. The permutation action on
-this collection of atoms gives rise to a permutation action on all of
-$\mathcal{V}_{\mathrm{FM}}$ by $\mathord{\in}$-recursion, which gives rise to
-the notion of `support' for arbitrary elements of $\mathcal{V}_{\mathrm{FM}}$.
+FM set theory is closely related to the theory of nominal sets.
+%
+The cumulative hierarchy of FM sets $\mathcal{V}_{\mathrm{FM}}$ is constructed
+similarly to the the von Neumann hierarchy $\mathcal{V}_{\mathrm{ZF}}$ of ZF set
+theory, with the following differences\cite{PittsAM:newaas-jv}.
+%
+Firstly, the starting point includes an infinite collection of atoms as well as
+the empty set.
+%
+The permutation action on this collection of atoms gives rise to a permutation
+action on all of $\mathcal{V}_{\mathrm{FM}}$ by $\mathord{\in}$-recursion, which
+gives rise to the notion of `support' for arbitrary elements of
+$\mathcal{V}_{\mathrm{FM}}$.
+%
 The process of the construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in
 such a way as to only include elements that have (hereditarily) finite supports.
 
