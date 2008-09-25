@@ -10,6 +10,8 @@
 
 \subsection{Free Completions of Path Orders}
 
+\TODO{Join-Completions in subtitle?}
+
 The collection of path sets over a nominal path order $\typeP$ may be ordered by
 inclusion to form the nominal partial order $\widehat{\typeP}$, which will be
 interpreted as a domain of the meanings of processs of type $\typeP$. More
