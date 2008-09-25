@@ -175,7 +175,7 @@ permutations $\sigma$ such that $\sigma a = a$ for all $a \in A$ there exist
 permutations $\sigma_1$, $\sigma_2$, $\sigma_3$ such that \begin{enumerate}
 \item $\sigma = \sigma_1 \sigma_2 \sigma_3$, and \item $\sigma_1 a = a$ and
 $\sigma_3 a = a$ for all $a \in A \cup B$, and \item $\sigma_2 a \neq a$ only if
-$a \in (B \cup D) \setminus A$ \end{enumerate} \end{lemma}
+$a \in (B \cup D) \setminus A$. \end{enumerate} \end{lemma}
 
 The resulting middle factor $\sigma_2$ is a description of the footprint of
 $\sigma$ on $B$.
