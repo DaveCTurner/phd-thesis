@@ -1012,6 +1012,9 @@ conventionally. Abstractly, this isomorphism follows if the categories in
 question have the same collections of objects and one of the adjoints preserves
 objects.
 
+\TODO{No need for an ambidextrous introduction - the lemma contains the
+generality}
+
 \begin{lemma}
 \label{adjunctioninclusion}
 Suppose that there is an adjunction
