@@ -45,9 +45,7 @@ $x$ is prime then there exists $p \in x$ such that $x \subseteq
 
 Furthermore, if $x \in \widehat{\typeP}$ then \begin{equation} x = \bigcup
 \{\{p\}_{\downarrow} \mid p \in x\}.\end{equation} so that $\widehat{\typeP}$ is
-completely prime algebraic.
-
-\TODO{`Completely' prime algebraic is nonstandard name}
+prime algebraic.
 
 Finally, $\widehat{\typeP}$ can be characterised abstractly as the free
 finitely-supported join completion of $\typeP$. In other words,
