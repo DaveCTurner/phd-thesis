@@ -1009,11 +1009,8 @@ those monads. Working within a Kleisli category is difficult because composition
 is cumbersome, but fortunately the Kleisli categories that arise in this
 dissertation are isomorphic to categories where composition is given more
 conventionally. Abstractly, this isomorphism follows if the categories in
-question have the same collections of objects and one of the adjoints preserves
+question have the same collections of objects and the left adjoint preserves
 objects.
-
-\TODO{No need for an ambidextrous introduction - the lemma contains the
-generality}
 
 \begin{lemma}
 \label{adjunctioninclusion}
