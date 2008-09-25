@@ -8,9 +8,7 @@
 \section{Nominal Nondeterministic Domains}
 \label{nominalnondeterministicdomains}
 
-\subsection{Free Completions of Path Orders}
-
-\TODO{Join-Completions in subtitle?}
+\subsection{Free Join-Completions of Path Orders}
 
 The collection of path sets over a nominal path order $\typeP$ may be ordered by
 inclusion to form the nominal partial order $\widehat{\typeP}$, which will be
