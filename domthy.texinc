@@ -170,6 +170,8 @@ Fraenkel-Mostowski (FM) set theory.
 
 \subsection{Fraenkel-Mostowski Set Theory}
 
+\TODO{Delete `Setting ... moment'}
+
 Setting foundational issues aside for a moment, FM set theory is closely related
 to the theory of nominal sets.  The universe of FM sets
 $\mathcal{V}_{\mathrm{FM}}$ is constructed similarly to the the von Neumann
