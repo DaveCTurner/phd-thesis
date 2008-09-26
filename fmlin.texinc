@@ -264,7 +264,7 @@ then $\delta_a^+ f : \delta_a \typeP \to \delta_a \typeQ$ is an arrow of
 $\mathbf{FMLin}_s$ defined concretely as \begin{equation}
 \label{concrete:deltalin} \delta_a^+ f x \defeq \{ q \in \delta_a \typeQ \mid
 \exists p \in x.\ \freshin{b}{q@b \in ((ab) \cdot f) \{p@b\}_{\downarrow}}\}.
-\end{equation} \TODO{Check concrete definition of $\delta_a^+$}
+\end{equation}
 
 
 \subsection{Binding in FM-Linear Categories} \label{subsect:deltafreshadjlin}
@@ -748,9 +748,8 @@ This justifies the assertion made in \ref{concrete:freshlin}.
 
 \subsubsection{The functor $\delta_a^+$.}
 %
-If $f : \typeP \to \typeQ$ is an arrow of
-$\mathbf{FMLin}_{s \udot \{a\}}$ then \begin{equation} \label{def:deltalin}
-\begin{array}{rcl} \delta_a^+ f  
+If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$ then
+\begin{equation} \label{def:deltalin} \begin{array}{rcl} \delta_a^+ f  
 %
 &=& \bigl(\theta_\typeQ \circ \delta_a f \circ \delta_a
 \{\cdot\}_{\typeP}\bigr)^{\dagger} \\
@@ -763,8 +762,31 @@ $\mathbf{FMLin}_{s \udot \{a\}}$ then \begin{equation} \label{def:deltalin}
 \quad\text{by the adjunction \ref{hat:adj}.}
 %
 \end{array} \end{equation} 
-
-\TODO{Really concrete description of $\delta^+_a$}
+%
+Even more concretely if $x \in \widehat{\delta_a\typeP}$ then
+\begin{equation}\begin{array}{rcl} \delta_a^+ f(x)
+%
+&=& \bigl(\theta_\typeQ \circ \delta_a f \circ \theta_{\typeP}^{-1}\bigr) (x) \\
+%
+&=& \bigl(\theta_\typeQ \circ \delta_a f\bigr) \bigl( \freshin{b}{[b].\{p \mid
+[b].p \in x\}} \bigr) \\
+%
+&=& \theta_\typeQ \bigl( \freshin{b}{[b].((ab) \cdot f)\{p \mid [b].p \in x\}}
+\bigr) \\
+%
+&=& \{ q' \in \delta_a \typeQ \mid \freshin{b}{} \\ && \qquad q'@b \in ((ab) \cdot f)\{p \mid
+[b].p \in x\} \} \\
+%
+\text{by linearity of $f$} \quad &=& \{ q' \in \delta_a \typeQ \mid 
+\freshin{b}{} \\ && \qquad \exists p' \in x. b \freshfor p' \wedge
+q'@b \in ((ab) \cdot f)\{p'@b\}_{\downarrow} \}
+\\
+%
+&=& \{ q' \in \delta_a \typeQ \mid \exists p' \in x. \freshin{b}{} \\ &&\qquad
+q'@b \in ((ab) \cdot f)\{p'@b\}_{\downarrow} \}, \\
+%
+\end{array}\end{equation} which justifies the assertion made in
+\ref{concrete:deltalin}.
 
 \subsubsection{The unit $\xi^+$.}
 %
