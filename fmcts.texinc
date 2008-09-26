@@ -153,8 +153,23 @@ then define \begin{equation} \label{def:finelt} \finelt{F}{s} \defeq
 
 Every $x \in \widehat{\mathbb A}$ is of this form: either $x$ is finite and
 hence $x = \finelt{x}{\supp{x}}$ or else $x$ is cofinite and hence $x =
-\finelt{\{a\}}{\supp{x}}$ for any $a \in x$. It will turn out that sets of this
-form are precisely the isolated elements of $\widehat{\typeP}$.
+\finelt{\{a\}}{\supp{x}}$ for any $a \in x$.
+%
+Lemma \ref{finelts} shows that sets of this form are precisely the isolated
+elements of $\widehat{\typeP}$.
+%
+Corollary \ref{finelt:wlog} also shows that an appropriate $s$ may be chosen
+relatively freely, as long as it is sufficiently large.
+
+\begin{lemma} \label{finelt:mono} If $\supp{\typeP} \subseteq s \subseteq s'$
+and $F' \subseteq F \subseteq_{\mathrm{fin}} \typeP$ then $\finelt{F'}{s'}
+\subseteq \finelt{F}{s}$.\end{lemma}
+
+\begin{proof} Let $p' \in \finelt{F'}{s'}$, then there exists $p \in F'$ and
+$\sigma' \freshfor s'$ such that $p' \le_{\typeP} \sigma \cdot p$.
+%
+Also $F' \subseteq F$ so that $p \in F$ and $s \subseteq s'$ so that $\sigma
+\freshfor s$ and hence $p' \in \finelt{F}{s}$ as required.\end{proof}
 
 \begin{lemma}\label{fineltextension} If $\supp{\typeP} \subseteq s \subseteq s'$
 and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq
