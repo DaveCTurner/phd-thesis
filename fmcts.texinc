@@ -132,7 +132,7 @@ Considering $\widehat{\typeP}$ as a domain of meanings for processes of type
 $\typeP$, it is now sensible to investigate the structure of the isolated (or
 compact or `finite') elements of this domain with respect to FM-continuity. 
 
-\begin{definition} An element $x \in \widehat{\typeP}$ is \define{compact} in
+\begin{definition} An element $x \in \widehat{\typeP}$ is \define{isolated} in
 this sense iff for all uniformly supported directed sets $X \subseteq
 \widehat{\typeP}$, if $x \subseteq \bigcup X$ then there exists $x' \in X$ such
 that $x \subseteq x'$.  \end{definition}
