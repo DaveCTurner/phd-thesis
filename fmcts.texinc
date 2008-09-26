@@ -247,18 +247,35 @@ $\sigma \cdot p \in \sigma \cdot F$ and $\sigma \sigma' \sigma^{-1} \freshfor
 converse case is similar.  \end{proof}
 
 \begin{lemma}
-\label{fineltminsupp} \[\finelt{F}{s} = \finelt{F}{\supp{\finelt{F}{s}}}.\]
+\label{fineltminsupp} If $F \subseteq_{\mathrm{fin}} \typeP$ and $\supp{\typeP}
+\subseteq s$ then \[\finelt{F}{s} = \finelt{F}{\supp{\finelt{F}{s}, \typeP}}.\]
 \end{lemma}
 
 \begin{proof} Let $p' \in \finelt{F}{s}$ then there exists $p \in F$ and $\sigma
-\freshfor s$ such that $p' \le_{\typeP} \sigma \cdot p$.  By lemma
-\ref{fineltsupport}, $\supp{\finelt{F}{s}} \subseteq s$ so that $\sigma
-\freshfor \finelt{F}{s}$ and hence $p' \in \finelt{F}{\supp{\finelt{F}{s}}}$.
-Conversely, let $p' \in \finelt{F}{\supp{\finelt{F}{s}}}$ then there exists $p
-\in F$ and $\sigma \freshfor \finelt{F}{s}$ such that $p' \le_{\typeP} \sigma
-\cdot p = \iota \cdot \sigma \cdot p$ and $\iota \freshfor \sigma \cdot s$ so
-that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma \cdot
-\finelt{F}{s} = \finelt{F}{s}$ as required.  \end{proof}
+\freshfor s$ such that $p' \le_{\typeP} \sigma \cdot p$.
+%
+By lemma \ref{fineltsupport}, $\supp{\finelt{F}{s}} \subseteq s$ so that $\sigma
+\freshfor \finelt{F}{s}$; furthermore $\sigma \freshfor \typeP$ as
+$\supp{\typeP} \subseteq s$ so that $p' \in \finelt{F}{\supp{\finelt{F}{s},
+\typeP}}$.
+%
+Conversely, let $p' \in \finelt{F}{\supp{\finelt{F}{s}, \typeP}}$ then there
+exists $p \in F$ and $\sigma \freshfor \finelt{F}{s}, \typeP$ such that $p'
+\le_{\typeP} \sigma \cdot p = \iota \cdot \sigma \cdot p$ and $\iota \freshfor
+\sigma \cdot s$ so that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma
+\cdot \finelt{F}{s} = \finelt{F}{s}$ as required.  \end{proof}
+
+\begin{corollary} \label{finelt:wlog} If $x \in \widehat{\typeP}$ is isolated
+and $\supp{x, \typeP} \subseteq s$ then there exists $F \subseteq_{\mathrm{fin}}
+\typeP$ such that $x = \finelt{F}{s}$.  \end{corollary}
+
+\begin{proof} If $x$ is isolated then by \ref{finelts} there exists finite $F'
+\subseteq \typeP$ and finite $s' \supseteq \supp{\typeP}$ such that $x =
+\finelt{F'}{s'}$.
+%
+By \ref{fineltminsupp} therefore $x = \finelt{F'}{\supp{x, \typeP}}$ and by
+\ref{fineltextension} there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that
+$x = \finelt{F}{s}$ as required. \end{proof}
 
 \subsection{FM-Continuous Maps}
 \label{fmcts:maps}
