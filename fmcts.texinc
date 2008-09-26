@@ -323,32 +323,40 @@ is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
 %
 The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x \defeq
 \bigvee\{f y \mid y \in \typelift\typeP \wedge y \subseteq x \wedge \supp{y}
-\subseteq \supp{x} \}.\end{equation}
+\subseteq \supp{x, \typeP} \}.\end{equation}
 %
 Note that this is well-defined since the join is taken over a directed set that
-is uniformly supported by $\supp{x} \cup \supp{f}$, which exists in $C$.
+is uniformly supported by $\supp{x, f, \typeP}$, so the join exists in $C$.
 %
 It is also clear that $f^\ddagger$ is finitely-supported.
 
-\begin{lemma}
-The map $f^{\ddagger}$ is FM-continuous.
+\begin{lemma} \label{ddagger:cts} The map $f^{\ddagger}$ is FM-continuous.
 \end{lemma}
 
 \begin{proof} It not clear that $f^{\ddagger}$ is even monotone.  Let $x, x' \in
 \widehat{\typeP}$ be such that $x \subseteq x'$ and show that $f^{\ddagger} x
 \le f^{\ddagger} x'$ as follows. By the monotonicity of $f$ it is sufficient to
 show that for all $y \in \typelift\typeP$ such that $y \subseteq x$ and
-$\supp{y} \subseteq \supp{x}$ there exists $y' \in \typelift\typeP$ such that $y
-\subseteq y'$ and $y' \subseteq x'$ and $\supp{y'} \subseteq \supp{x'}$, so let
-$y \in \typelift\typeP$ be such that $y \subseteq x$ and without loss of
-generality write $y = \finelt{F}{\supp{x} \cup \supp{x'}}$. Define $y' =
-\finelt{F}{\supp{x'}}$. It is certainly the case that $y \subseteq y'$ and
-$\supp{y'} \subseteq \supp{x'}$ so it remains to show that $y' \subseteq x'$.
+$\supp{y} \subseteq \supp{x, \typeP}$ there exists $y' \in \typelift\typeP$ such
+that $y \subseteq y'$ and $y' \subseteq x'$ and $\supp{y'} \subseteq \supp{x',
+\typeP}$, so let $y \in \typelift\typeP$ be such that $y \subseteq x$ and
+without loss of generality (by \ref{finelt:wlog}) write $y =
+\finelt{F}{\supp{x,x',\typeP}}$.
+%
+Define $y' = \finelt{F}{\supp{x',\typeP}}$.
+%
+It is certainly the case that $y \subseteq y'$ (by \ref{finelt:mono}) and
+$\supp{y'} \subseteq \supp{x',\typeP}$ (by \ref{fineltsupport}) so it remains to
+show that $y' \subseteq x'$.
+%
 Let $p' \in y'$, then there exists $p \in F$ and $\sigma \freshfor x'$ such that
-$p' \le_{\typeP} \sigma \cdot p$.  However, since $y = \finelt{F}{\supp{x} \cup
-\supp{x'}} \subseteq x \subseteq x'$, it must be that $p \in x'$.  Since $\sigma
-\freshfor x'$, $\sigma \cdot p \in x'$ too, and $x' \in \widehat{\typeP}$ so
-that $p' \in x'$ as required.
+$p' \le_{\typeP} \sigma \cdot p$.
+%
+However, since $y = \finelt{F}{\supp{x,x',\typeP}} \subseteq x \subseteq x'$, it
+must be that $p \in x'$.
+%
+Since $\sigma \freshfor x'$, $\sigma \cdot p \in x'$ too, and $x' \in
+\widehat{\typeP}$ so that $p' \in x'$ as required.
 
 Having shown that $f^{\ddagger}$ is monotone, the proof of its continuity is
 standard.  Let $X \subseteq \widehat{\typeP}$ be uniformly-supported and
