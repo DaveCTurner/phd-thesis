@@ -160,6 +160,11 @@ elements of $\widehat{\typeP}$.
 %
 Corollary \ref{finelt:wlog} also shows that an appropriate $s$ may be chosen
 relatively freely, as long as it is sufficiently large.
+%
+The set $\finelt{F}{s}$ is generated from $F$ by closure under the action of
+certain permutations, and the origin of the notation $\finelt{F}{s}$ is by
+analogy with a presentation of a group in terms of its generators: $\langle a,
+b, \ldots \mid R(a, b, \ldots) \rangle$.
 
 \begin{lemma} \label{finelt:mono} If $\supp{\typeP} \subseteq s \subseteq s'$
 and $F' \subseteq F \subseteq_{\mathrm{fin}} \typeP$ then $\finelt{F'}{s'}
