@@ -10,7 +10,7 @@ EOF
 else if [ -f $HOME/.this_is_grisedale ]
 then
 	cat > margins <<EOF
-\\setlength\\textheight{165mm}
+\\setlength\\textheight{155mm}
 \\setlength\\paperwidth{250mm}
 \\setlength\\textwidth{210mm}
 EOF
