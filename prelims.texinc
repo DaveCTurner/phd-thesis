@@ -335,6 +335,12 @@ support of $x$, that is, \[\supp{x} \defeq \bigcap \{ s \subseteq_{\mathrm{fin}}
 then say $x$ \define{is fresh for} $y$ and write `$x \freshfor y$' iff $\supp{x}
 \cap \supp{y} = \varnothing$.\end{definition}
 
+\subsubsection{Notation.} For the remainder of this dissertation the symbol $s$
+and its relatives $s'$, $s''$, $s_1$, $s_i$, etc. always refer to
+\textit{finite} subsets of $\mathbb A$.
+%
+This convention will save a great deal of repetition.
+
 \subsection{Constructing Nominal Sets}
 \label{subsect:nset:examples}
 
