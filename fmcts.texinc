@@ -617,10 +617,17 @@ exists $p \in F$ and $\sigma \freshfor s'$ such that $q \le_{\typeQ} \sigma
 \cdot (f p) = f (\sigma \cdot p)$.  Therefore $\sigma \cdot p \in x$ and hence
 $q \in \widehat{f}(x)$ as required.
 
-The preceding lemmas now show that $({!}-)^{\freshfor a}$ and ${!}(-)^{\freshfor
-a}$ are naturally isomorphic as functors $\mathbf{FMPre}_s \rightrightarrows
-\mathbf{FMPre}_{s \udot \{a\}}$, as are $\delta_a{!} \text{ and } {!}\delta_a :
-\mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows \mathbf{FMPre}_s$.
+The following result follows immediately from the discussion above.
+
+\begin{corollary}\label{freshbangiso} Let $a \notin s$. The following pairs of
+functors are naturally isomorphic.  \[{({!}-)}^{\freshfor a}, {!}((-)^{\freshfor
+a}) : \mathbf{FMPre}_s \rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}\]
+\[\delta_a{!}, {!}\delta_a : \mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows
+\mathbf{FMPre}_s\] \end{corollary}
+
+The restrictions of the isomorphisms $\phi$ and $\theta$ are written $\phi^{!} :
+{({!}-)}^{\freshfor a} \to {!}((-)^{\freshfor a})$ and $\theta^{!} : \delta_a{!}
+\to {!}\delta_a$.
 
 
 
