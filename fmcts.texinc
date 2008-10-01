@@ -753,7 +753,7 @@ that by $\ref{finelt:wlog}$ there exist $p_1, \ldots, p_n \in \phi^{-1}_{\typeP}
 \left(\bigcup X\right)$ such that $p \in f(\finelt{\{p_1, \ldots, p_n\}}{s'})$.
 %
 Let $b$ be a fresh name, then from \ref{characterisation:phiinv} it follows that
-$ (ab) \cdot p_i \in \bigcup X$ for all $i$, so that there exists $x_1, \ldots,
+$ (ab) \cdot p_i \in \bigcup X$ for all $i$, so that there exist $x_1, \ldots,
 x_n \in X$ such that $(ab) \cdot p_i \in x_i$.
 %
 However, $X$ is directed so there exists $x \in X$ such that $x_i \subseteq x$
