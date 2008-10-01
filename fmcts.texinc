@@ -699,6 +699,24 @@ Have that $\phi^{!}$ satisfies
 i.e. that $i_{\typeQ}^{\freshfor a} \circ {\phi^{!}_{\typeQ}}^{-1} =
 \phi^{-1}_{\typeQ} \circ i_{\typeQ^{\freshfor a}}$.
 
+\subsubsection{Definition of $\theta^{!}$.}
+Have that $\theta^{!}$ satisfies
+\[\xymatrix{
+{!}\delta_a \typeQ
+	\ar[r]^{{\theta^{!}_{\typeQ}}^{-1}}
+	\ar[d]_{i_{\delta_a \typeQ}}
+&
+\delta_a {!}\typeQ
+	\ar[d]^{\delta_a i_{\typeQ}}
+\\
+\widehat{\delta_a \typeQ}
+	\ar[r]^{\theta^{-1}_{\typeQ}}
+&
+\delta_a \widehat{\typeQ}
+}\]
+i.e. that $\delta_a i_{\typeQ} \circ {\theta^{!}_{\typeQ}}^{-1} =
+\theta^{-1}_{\typeQ} \circ i_{\delta_a \typeQ}$.
+
 \begin{lemma} \label{freshhat:continuous} If $f : \widehat\typeP \to
 \widehat\typeQ$ is FM-continuous then so is $\phi_{\typeQ} \circ f^{\freshfor a}
 \circ \phi^{-1}_{\typeP}$. \end{lemma}
