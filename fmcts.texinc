@@ -958,6 +958,74 @@ $\widehat{{\theta^{!}}^{-1}}$ is a natural transformation ${!}\delta^+_a \to
 \delta^+_a {!}$.
 
 
+\vfill\TODO{Remove pagebreak}\pagebreak
+\subsubsection{Commuting Diagrams from \ref{adjunctionlift}.}
+
+\[\begin{array}{rcll}
+%
+\epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ
+\{\cdot\}_{\typelift{(\typeP^{\freshfor a})}}
+%
+&=& \epsilon_{\typeP}^{\freshfor a+} \circ
+\{\cdot\}_{(\typelift\typeP)^{\freshfor a}} \circ {\phi^{!}_{\typeP}}^{-1} &
+\text{by naturality of $\{\cdot\}_{\downarrow}$} \\
+%
+&=& \phi_{\typeP} \circ \epsilon_{\typeP}^{\freshfor a} \circ
+\phi^{-1}_{\typelift\typeP} \circ \{\cdot\}_{(\typelift\typeP)^{\freshfor a}}
+\circ {\phi^{!}_{\typeP}}^{-1} & \text{by \ref{def:freshlin}} \\ 
+%
+&=& \phi_{\typeP} \circ \epsilon_{\typeP}^{\freshfor a} \circ
+\{\cdot\}_{\typelift\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} &
+\text{by \ref{comm:freshtriangle}} \\ 
+%
+&=& \phi_{\typeP} \circ i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1}
+& \text{by \TODO{Xref - def of $\epsilon$}} \\ 
+%
+&=& \phi_{\typeP} \circ \phi_{\typeP}^{-1} \circ i_{\typeP^{\freshfor a}} &
+\text{by \TODO{Xref - def of $\phi^{!}$}} \\ 
+%
+&=& i_{\typeP^{\freshfor a}} \\ 
+%
+&=& \epsilon_{\typeP^{\freshfor a}} \circ
+\{\cdot\}_{\typelift{(\typeP^{\freshfor a})}} & \text{by \TODO{Xref - def of
+$\epsilon$}.} \\ 
+%
+\end{array}\] But $\epsilon_{\typeP^{\freshfor a}}$ and
+$\epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}$ are
+both linear, so they are equal by \ref{hat:freeness}.
+
+\[\begin{array}{rcll}
+%
+\delta_a^+ \epsilon_{\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
+\{\cdot\}_{\typelift{\delta_a \typeP}}
+%
+&=& \delta_a^+ \epsilon_{\typeP} \circ \{\cdot\}_{\delta_a \typelift\typeP}
+\circ {\theta^{!}_{\typeP}}^{-1} & \text{by naturality of
+$\{\cdot\}_{\downarrow}$} \\
+%
+&=& \theta_{\typeP} \circ \delta_a \epsilon_{\typeP} \circ
+\theta^{-1}_{\typelift\typeP} \circ \{\cdot\}_{\delta_a \typelift\typeP} \circ
+{\theta^{!}_{\typeP}}^{-1} & \text{by \ref{def:deltalin}} \\ 
+%
+&=& \theta_{\typeP} \circ \delta_a \epsilon_{\typeP} \circ \delta_a
+\{\cdot\}_{\typelift\typeP} \circ {\theta^{!}_{\typeP}}^{-1} & \text{by
+\ref{comm:deltatriangle}} \\ 
+%
+&=& \theta_{\typeP} \circ \delta_a i_{\typeP} \circ {\theta^{!}_{\typeP}}^{-1} &
+\text{by \TODO{Xref - def of $\epsilon$}} \\ 
+%
+&=& \theta_{\typeP} \circ \theta_{\typeP}^{-1} \circ i_{\delta_a \typeP} &
+\text{by \TODO{Xref - def of $\theta^{!}$}} \\ 
+%
+&=& i_{\delta_a \typeP} \\ 
+%
+&=& \epsilon_{\delta_a \typeP} \circ \{\cdot\}_{\typelift{\delta_a \typeP}} &
+\text{by \TODO{Xref - def of $\epsilon$}.} \\ 
+%
+\end{array}\] But $\epsilon_{\delta_a \typeP}$ and $\delta_a^+ \epsilon_{\typeP}
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}$ are both linear, so they are equal
+by \ref{hat:freeness}.
+
 
 \subsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
 and $\delta_a$}
