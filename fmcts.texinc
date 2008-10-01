@@ -399,11 +399,11 @@ $\widehat{\typelift\typeP} \to \widehat{\typeQ}$ so that there is an isomorphism
 \cong \mathbf{FMCts}_s (\typeP, \typeQ).\end{equation}
 
 Notice that there is a natural FM-continuous $\eta_{\typeP} : \widehat\typeP \to
-\widehat{\typelift\typeP}$ given by $\eta_{\typeP} X \defeq \{P \in
-\typelift\typeP \mid P \subseteq X \}$.
+\widehat{\typelift\typeP}$ given by $\eta_{\typeP} \defeq
+\{\cdot\}_{\typelift\typeP}^{\ddagger}$, or concretely $\eta_{\typeP} X = \{P
+\in \typelift\typeP \mid P \subseteq X \}$.
 %
-It is straightforward to see that $\eta_{\typeP} \circ i_{\typeP} =
-\{\cdot\}_{\typelift\typeP}$.
+In particular, $\eta_{\typeP} \circ i_{\typeP} = \{\cdot\}_{\typelift\typeP}$.
 %
 Furthermore for every FM-continuous $f : \widehat\typeP \to \widehat\typeQ$ the
 FM-linear function $(f \circ i_{\typeP})^{\dagger} : \widehat{\typelift\typeP}
