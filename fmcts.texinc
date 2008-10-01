@@ -314,6 +314,9 @@ FM-continuous maps in terms of FM-linear maps whose domain is under an
 exponential ${!}$ which captures the appropriate notion of approximation.  Here,
 $\typelift\typeP$ will consist of the isolated elements of $\widehat\typeP$
 ordered by inclusion.
+%
+Write $i_{\typeP}$ for the natural inclusion $i_{\typeP} : \typelift\typeP
+\hookrightarrow \widehat{\typeP}$.
 
 Each $\widehat{\typeP}$ is the free uniformly-supported-directed-join completion
 of $\typelift\typeP$. In detail, this means that $\widehat{\typeP}$ has all
@@ -381,9 +384,10 @@ y$, so by monotonicity $f y \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so
 that $f y \le U$ as required.  \end{proof}
 
 Notice that any $x \in \widehat{\typeP}$ is the uniformly-supported-directed
-join of certain isolated elements beneath it: \begin{equation} x = \bigcup \{y
-\in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x} \}
-\end{equation} which ensures the uniqueness of $f^{\ddagger}$.
+join of certain isolated elements beneath it: \begin{equation} \label{bang:alg}
+x = \bigcup \{y \in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq
+\supp{x} \} \end{equation} which ensures the uniqueness of $f^{\ddagger}$.
+%
 As before, if $C$ is of the form $\widehat{\typeQ}$ then this shows that
 finitely-supported monotone maps $\typelift\typeP \to \widehat{\typeQ}$ are in
 bijective correspondence with FM-continuous maps $\widehat{\typeP} \to
@@ -393,6 +397,52 @@ From earlier discussion, finitely-supported monotone maps $\typelift\typeP \to
 $\widehat{\typelift\typeP} \to \widehat{\typeQ}$ so that there is an isomorphism
 \begin{equation} \label{bang:adj} \mathbf{FMLin}_s (\typelift\typeP, \typeQ)
 \cong \mathbf{FMCts}_s (\typeP, \typeQ).\end{equation}
+
+Notice that there is a natural FM-continuous $\eta_{\typeP} : \widehat\typeP \to
+\widehat{\typelift\typeP}$ given by $\eta_{\typeP} \defeq
+\{\cdot\}_{\typelift\typeP}^{\ddagger}$, or concretely $\eta_{\typeP} X = \{P
+\in \typelift\typeP \mid P \subseteq X \}$.
+%
+In particular, $\eta_{\typeP} \circ i_{\typeP} = \{\cdot\}_{\typelift\typeP}$.
+%
+Furthermore for every FM-continuous $f : \widehat\typeP \to \widehat\typeQ$ the
+FM-linear function $(f \circ i_{\typeP})^{\dagger} : \widehat{\typelift\typeP}
+\to \widehat\typeQ$ satisfies that \begin{equation}
+%
+(f \circ i_{\typeP})^{\dagger} \circ \eta_{\typeP} = ((f \circ
+i_{\typeP})^{\dagger} \circ \eta_{\typeP} \circ i_{\typeP})^{\ddagger} = ((f
+\circ i_{\typeP})^{\dagger} \circ \{\cdot\}_{\typelift\typeP})^{\ddagger} = (f
+\circ i_{\typeP})^{\ddagger} = f \end{equation} by \ref{hat:freeness} and
+\ref{bang:freeness}.
+%
+Also, if $g : \widehat{\typelift\typeP} \to \widehat\typeQ$ is a FM-linear
+function such that $g \circ \eta_{\typeP} = f$ then \begin{equation} (f \circ
+i_{\typeP})^{\dagger} = (g \circ \eta_{\typeP} \circ i_{\typeP})^{\dagger} = (g
+\circ \{\cdot\}_{\typelift\typeP})^{\dagger} = g.  \end{equation} Therefore $(f
+\circ i_{\typeP})^{\dagger}$ is the unique FM-linear function such that the
+following diagram commutes.
+%
+\begin{equation} \label{bang:freechar} \xymatrix{ \widehat{\typeP}\
+\ar[r]^{\eta_\typeP} \ar[dr]_f & \widehat{\typelift\typeP} \ar[d]^{(f \circ
+i_{\typeP})^{\dagger}} \\& \widehat{\typeQ}} \end{equation} 
+%
+In other words if $J : \mathbf{FMLin}_s \hookrightarrow \mathbf{FMCts}_s$ then
+$\langle \eta_{\typeP}, \typelift\typeP \rangle$ is an initial object of
+$(\typeP \downarrow J)$, so the isomorphism \ref{bang:adj} is in fact an
+adjunction with $!$ as the left adjoint.
+%
+Concretely, if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$ then
+\begin{equation} \label{def:banglin} {!}f \defeq (\eta_{\typeQ} \circ f \circ
+i_{\typeP})^{\dagger} : \typelift\typeP \to \typelift\typeQ, \end{equation}
+which means that if $X \in \widehat{\typelift\typeP}$ then ${!}f(X) = \{y \in
+\typelift\typeQ \mid \exists x \in X.\ y \subseteq f x\}$.
+
+\TODO{WIP}
+
+
+
+
+
 
 \subsection{Relationships between ${!}$, $(-)^{\freshfor a}$ and $\delta_a$}
 
@@ -617,11 +667,364 @@ exists $p \in F$ and $\sigma \freshfor s'$ such that $q \le_{\typeQ} \sigma
 \cdot (f p) = f (\sigma \cdot p)$.  Therefore $\sigma \cdot p \in x$ and hence
 $q \in \widehat{f}(x)$ as required.
 
-The preceding lemmas now show that $({!}-)^{\freshfor a}$ and ${!}(-)^{\freshfor
-a}$ are naturally isomorphic as functors $\mathbf{FMPre}_s \rightrightarrows
-\mathbf{FMPre}_{s \udot \{a\}}$, as are $\delta_a{!} \text{ and } {!}\delta_a :
-\mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows \mathbf{FMPre}_s$.
+The following result follows immediately from the discussion above.
 
+\begin{corollary}\label{freshbangiso} Let $a \notin s$. The following pairs of
+functors are naturally isomorphic.  \[{({!}-)}^{\freshfor a}, {!}((-)^{\freshfor
+a}) : \mathbf{FMPre}_s \rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}\]
+\[\delta_a{!}, {!}\delta_a : \mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows
+\mathbf{FMPre}_s\] \end{corollary}
+
+The restrictions of the isomorphisms $\phi$ and $\theta$ are written $\phi^{!} :
+{({!}-)}^{\freshfor a} \to {!}((-)^{\freshfor a})$ and $\theta^{!} : \delta_a{!}
+\to {!}\delta_a$.
+
+\subsection{TODO} \TODO{More here}
+
+\subsubsection{Definition of $\phi^{!}$.}
+Have that $\phi^{!}$ satisfies
+\[\xymatrix{
+{!}(\typeQ^{\freshfor a})
+	\ar[r]^{{\phi^{!}_{\typeQ}}^{-1}}
+	\ar[d]_{i_{\typeQ^{\freshfor a}}}
+&
+({!}\typeQ)^{\freshfor a}
+	\ar[d]^{i_{\typeQ}^{\freshfor a}}
+\\
+\widehat{\typeQ^{\freshfor a}}
+	\ar[r]^{\phi^{-1}_{\typeQ}}
+&
+\widehat{\typeQ}^{\freshfor a}
+}\]
+i.e. that $i_{\typeQ}^{\freshfor a} \circ {\phi^{!}_{\typeQ}}^{-1} =
+\phi^{-1}_{\typeQ} \circ i_{\typeQ^{\freshfor a}}$.
+
+\subsubsection{Definition of $\theta^{!}$.}
+Have that $\theta^{!}$ satisfies
+\[\xymatrix{
+{!}\delta_a \typeQ
+	\ar[r]^{{\theta^{!}_{\typeQ}}^{-1}}
+	\ar[d]_{i_{\delta_a \typeQ}}
+&
+\delta_a {!}\typeQ
+	\ar[d]^{\delta_a i_{\typeQ}}
+\\
+\widehat{\delta_a \typeQ}
+	\ar[r]^{\theta^{-1}_{\typeQ}}
+&
+\delta_a \widehat{\typeQ}
+}\]
+i.e. that $\delta_a i_{\typeQ} \circ {\theta^{!}_{\typeQ}}^{-1} =
+\theta^{-1}_{\typeQ} \circ i_{\delta_a \typeQ}$.
+
+\begin{lemma} \label{freshhat:continuous} If $f : \widehat\typeP \to
+\widehat\typeQ$ is FM-continuous then so is $\phi_{\typeQ} \circ f^{\freshfor a}
+\circ \phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
+\widehat{\typeQ^{\freshfor a}}$. \end{lemma}
+
+\begin{proof} Let $X \subseteq \widehat{\typeP^{\freshfor a}}$ be directed and
+uniformly supported by $s'$.
+%
+Without loss of generality assume that $a \in s'$ and $s \subseteq s'$.
+%
+It is required to show that \[ \bigcup\{ (\phi_{\typeQ} \circ f^{\freshfor a}
+\circ \phi^{-1}_{\typeP})(x) \mid x \in X \} = (\phi_{\typeQ} \circ f^{\freshfor
+a} \circ \phi^{-1}_{\typeP}) \left(\bigcup X\right). \]
+%
+Let $p \in \bigcup\{ (\phi_{\typeQ} \circ f^{\freshfor a} \circ
+\phi^{-1}_{\typeP})(x) \mid x \in X \}$ and let $x \in X$ be such that $p \in
+(\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP})(x)$, then $x
+\subseteq \bigcup X$ so that by monotonicity $p \in (\phi_{\typeQ} \circ
+f^{\freshfor a} \circ \phi^{-1}_{\typeP}) \left(\bigcup X\right)$.
+%
+Conversely let $p \in (\phi_{\typeQ} \circ f^{\freshfor a} \circ
+\phi^{-1}_{\typeP}) \left(\bigcup X\right)$ then $p \freshfor a$ and $p \in
+f\left(\phi^{-1}_{\typeP} \left(\bigcup X\right)\right)$.
+%
+By \ref{bang:alg} it is the case that $\phi^{-1}_{\typeP} \left(\bigcup X\right)
+= \bigcup \{P \in \typelift\typeP \mid P \subseteq
+\phi^{-1}_{\typeP}\left(\bigcup X\right) \wedge \supp{P} \subseteq
+\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)}\}$.
+%
+Since $f$ is FM-continuous there exists $P \in \typelift\typeP$ such that $P
+\subseteq \phi^{-1}_{\typeP}\left(\bigcup X\right)$ and $\supp{P} \subseteq
+\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)}$ and $p \in fP$.
+%
+Notice that $\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)} \subseteq s'$ so
+that by $\ref{finelt:wlog}$ there exist $p_1, \ldots, p_n \in \phi^{-1}_{\typeP}
+\left(\bigcup X\right)$ such that $p \in f(\finelt{\{p_1, \ldots, p_n\}}{s'})$.
+%
+Let $b$ be a fresh name, then from \ref{characterisation:phiinv} it follows that
+$ (ab) \cdot p_i \in \bigcup X$ for all $i$ so that there exist $x_1, \ldots,
+x_n \in X$ such that $(ab) \cdot p_i \in x_i$.
+%
+However, $X$ is directed so there exists $x \in X$ such that $x_i \subseteq x$
+for all $i$, and $X$ is uniformly supported by $s'$ so that $\supp{x} \subseteq
+s'$ and hence $\finelt{\{p_1, \ldots, p_n\}}{s'} \subseteq (ab) \cdot x
+\subseteq \phi^{-1}_{\typeP} (x)$.
+%
+Therefore $p \in (\phi_{\typeQ} \circ f^{\freshfor a} \circ
+\phi^{-1}_{\typeP})(x)$ as required.  \end{proof}
+
+\subsubsection{Naturality of $\widehat{\phi^{!}}$.} Therefore
+\[\begin{array}{rcll} \multicolumn{4}{l}{\phi_{\typelift\typeQ} \circ
+\eta_{\typeQ}^{\freshfor a} \circ \phi^{-1}_{\typeQ} \circ i_{\typeQ^{\freshfor
+a}}} \\
+%
+&=& \phi_{\typelift\typeQ} \circ \eta_{\typeQ}^{\freshfor a} \circ
+i_{\typeQ}^{\freshfor a} \circ {\phi^{!}_{\typeQ}}^{-1} \\
+%
+&=& \phi_{\typelift\typeQ} \circ \{\cdot\}_{\typelift\typeQ}^{\freshfor a} \circ
+{\phi^{!}_{\typeQ}}^{-1} \\ 
+%
+&=& \{\cdot\}_{(\typelift\typeQ)^{\freshfor a}} \circ {\phi^{!}_{\typeQ}}^{-1} &
+\text{by \ref{comm:freshtriangle}} \\ 
+%
+&=& \widehat{{\phi^{!}_{\typeQ}}^{-1}} \circ
+\{\cdot\}_{\typelift{(\typeQ^{\freshfor a})}} & \text{by the naturality of
+$\{\cdot\}_{\downarrow}$} \\ 
+%
+&=& \widehat{{\phi^{!}_{\typeQ}}^{-1}} \circ \eta_{\typeQ^{\freshfor a}} \circ
+i_{\typeQ^{\freshfor a}}. \\ 
+%
+\end{array}\] But $\widehat{{\phi^{!}_{\typeQ}}^{-1}} \circ
+\eta_{\typeQ^{\freshfor a}}$ is continuous, and by \ref{freshhat:continuous} the
+map $\phi_{\typelift\typeQ} \circ \eta_{\typeQ}^{\freshfor a} \circ
+\phi^{-1}_{\typeQ}$ is continuous too, so by \ref{bang:freeness} they are equal.
+
+Now \[\begin{array}{rcll} \multicolumn{4}{l}{ ({!}f)^{\freshfor a+} \circ
+\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{\typelift{(\typeP^{\freshfor
+a})} }} \\
+%
+&=& \phi_{\typelift\typeQ} \circ ({!}f)^{\freshfor a} \circ
+\phi^{-1}_{\typelift\typeP} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ
+\{\cdot\}_{\typelift{(\typeP^{\freshfor a})}} & \text{by \ref{def:freshlin}} \\
+%
+&=& \phi_{\typelift\typeQ} \circ ({!}f)^{\freshfor a} \circ
+\phi^{-1}_{\typelift\typeP} \circ \{\cdot\}_{(\typelift\typeP)^{\freshfor a}}
+\circ {\phi^{!}_{\typeP}}^{-1} & \text{by the naturality of
+$\{\cdot\}_{\downarrow}$} \\
+%
+&=& \phi_{\typelift\typeQ} \circ ({!}f)^{\freshfor a} \circ
+\{\cdot\}_{\typelift\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} &
+\text{by \ref{comm:freshtriangle}} \\
+%
+&=& \phi_{\typelift\typeQ} \circ \eta_{\typeQ}^{\freshfor a} \circ f^{\freshfor
+a} \circ i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} & \text{by
+\ref{def:banglin}} \\
+%
+&=& \phi_{\typelift\typeQ} \circ \eta_{\typeQ}^{\freshfor a} \circ f^{\freshfor
+a} \circ \phi^{-1}_{\typeP} \circ i_{\typeP^{\freshfor a}} & \text{by
+\TODO{Xref - def of $\phi^{!}$}} \\
+%
+&=& \phi_{\typelift\typeQ} \circ \eta_{\typeQ}^{\freshfor a} \circ
+\phi^{-1}_{\typeQ} \circ f^{\freshfor a+} \circ i_{\typeP^{\freshfor a}} &
+\text{by \ref{def:freshlin}} \\
+%
+&=& \widehat{{\phi^{!}_{\typeQ}}^{-1}} \circ \eta_{\typeQ^{\freshfor a}} \circ
+f^{\freshfor a+} \circ i_{\typeP^{\freshfor a}} & \text{by the calculation
+above} \\
+%
+&=& \widehat{{\phi^{!}_{\typeQ}}^{-1}} \circ {!}(f^{\freshfor a+}) \circ
+\{\cdot\}_{\typelift{(\typeP^{\freshfor a})}} & \text{by \ref{def:banglin}.} \\
+%
+\end{array}\] But $({!}f)^{\freshfor a+} \circ
+\widehat{{\phi^{!}_{\typeP}}^{-1}}$ and $\widehat{{\phi^{!}_{\typeQ}}^{-1}}
+\circ {!}(f^{\freshfor a+})$ are both linear, so by \ref{hat:freeness} they are
+equal. Therefore $\widehat{{\phi^{!}}^{-1}}$ is a natural transformation
+${!}((-)^{\freshfor a+}) \to ({!}-)^{\freshfor a+}$.
+
+\begin{lemma} \label{deltahat:continuous} If $f : \widehat{\typeP} \to
+\widehat{\typeQ}$ is FM-continuous then so is $\theta_{\typeQ} \circ \delta_a f
+\circ \theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \widehat{\delta_a
+\typeQ}$.  \end{lemma}
+
+\begin{proof} Let $X \subseteq \widehat{\delta_a \typeP}$ be directed and
+uniformly supported by $s'$. Without loss of generality assume that $a \in s'$
+and $s \subseteq s'$.
+%
+It is required to show that \[\bigcup \{(\theta_\typeQ \circ \delta_a f \circ
+\theta^{-1}_{\typeP}) (x) \mid x \in X \} = (\theta_\typeQ \circ \delta_a f
+\circ \theta^{-1}_{\typeP}) \left( \bigcup X \right).\]
+%
+Let $p \in \bigcup \{(\theta_\typeQ \circ \delta_a f \circ \theta^{-1}_{\typeP})
+(x) \mid x \in X \}$ and let $x \in X$ be such that $p \in (\theta_\typeQ \circ
+\delta_a f \circ \theta^{-1}_{\typeP}) (x)$, then $x \subseteq \bigcup X$ so
+that by monotonicity $p \in  (\theta_\typeQ \circ \delta_a f \circ
+\theta^{-1}_{\typeP}) \left( \bigcup X \right)$.
+%
+Conversely let $p \in (\theta_\typeQ \circ \delta_a f \circ
+\theta^{-1}_{\typeP}) \left( \bigcup X \right)$ and let $b$ be a fresh name.
+%
+Therefore $p@b \in \left((\delta_a f \circ \theta^{-1}_{\typeP}) \left( \bigcup
+X \right) \right) @b = f \left( \left( \theta^{-1}_{\typeP} \left( \bigcup X
+\right) \right) @b\right)$.
+%
+By \ref{bang:alg} $\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right)
+@b = \bigcup \{P \in \typelift\typeP \mid P \subseteq \left(
+\theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b \wedge \supp{P}
+\subseteq \supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b}
+\}$.
+%
+Since $f$ is FM-continuous there exists $P \in \typelift\typeP$ such that $ P
+\subseteq \left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b$ and
+$\supp{P} \subseteq \supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right)
+\right) @b}$ and $p@b \in fP$.
+%
+Notice that $\supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right)
+@b} \subseteq s' \cup \{b\}$ so that by \ref{finelt:wlog} there exist $p_1,
+\ldots, p_n \in \left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b$
+such that $p@b \in f(\finelt{\{p_1, \ldots, p_n\}}{s' \cup \{b\}})$.
+%
+As $b \freshfor \bigcup X$ it follows that $[b].p_i \in \bigcup X$ and hence
+there exists $x_i \in X$ such that $[b].p_i \in x_i$ for all $i$.
+%
+However $X$ is directed so there exists $x \in X$ such that $x_i \subseteq x$
+for all $i$, and $X$ is uniformly supported by $s'$ so that $\supp{x} \subseteq
+s'$ and hence $\finelt{\{[b].p_1, \ldots, [b].p_n\}}{s'} \subseteq x$.
+%
+Therefore $\finelt{\{p_1, \ldots, p_n\}}{s' \udot \{b\}} = \left(
+\theta^{-1}_{\typeP} \finelt{\{[b].p_1, \ldots, [b].p_n\}}{s'} \right)@b
+\subseteq \left( \theta^{-1}_{\typeP} x \right)@b$ so that $p@b \in f
+\left(\left( \theta^{-1}_{\typeP} (x) \right)@b\right) = \left( (\delta_a f
+\circ \theta^{-1}_{\typeP}) (x) \right)@b$ and hence $p \in (\theta_{\typeQ}
+\circ \delta_a f \circ \theta^{-1}_{\typeP}) (x)$ as required.  \end{proof}
+
+
+\subsubsection{Naturality of $\widehat{\theta^{!}}$.} \[\begin{array}{rcll}
+\multicolumn{4}{l}{\theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ
+\theta^{-1}_{\typeQ} \circ i_{\delta_a \typeQ}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ \delta_a
+i_{\typeQ} \circ {\theta^{!}_{\typeQ}}^{-1} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \{\cdot\}_{\typelift\typeQ} \circ
+{\theta^{!}_{\typeQ}}^{-1} \\ 
+%
+&=& \{\cdot\}_{\delta_a \typelift\typeQ} \circ {\theta^{!}_{\typeQ}}^{-1} &
+\text{by \ref{comm:deltatriangle}} \\ 
+%
+&=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \{\cdot\}_{\typelift{\delta_a
+\typeQ}} & \text{by the naturality of $\{\cdot\}_{\downarrow}$} \\ 
+%
+&=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \eta_{\delta_a \typeQ} \circ
+i_{\delta_a \typeQ}. \\ 
+%
+\end{array}\] But $\widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \eta_{\delta_a
+\typeQ}$ is continuous, and by \ref{deltahat:continuous} the map
+$\theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ
+\theta^{-1}_{\typeQ}$ is continuous too, so by \ref{bang:freeness} they are
+equal.
+
+Now \[\begin{array}{rcll} \multicolumn{4}{l}{ \delta^+_a {!}f \circ
+\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{\typelift{\delta_a \typeP}
+}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a {!}f \circ
+\theta^{-1}_{\typelift\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
+\{\cdot\}_{\typelift{\delta_a \typeP}} & \text{by \ref{def:deltalin}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a {!}f \circ
+\theta^{-1}_{\typelift\typeP} \circ \{\cdot\}_{\delta_a \typelift\typeP} \circ
+{\theta^{!}_{\typeP}}^{-1} & \text{by the naturality of
+$\{\cdot\}_{\downarrow}$} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a {!}f \circ \delta_a
+\{\cdot\}_{\typelift\typeP} \circ {\theta^{!}_{\typeP}}^{-1} & \text{by
+\ref{comm:deltatriangle}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ \delta_a f \circ
+\delta_a i_{\typeP} \circ {\theta^{!}_{\typeP}}^{-1} & \text{by
+\ref{def:banglin}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ \delta_a f \circ
+\theta^{-1}_{\typeP} \circ i_{\delta_a \typeP} & \text{by \TODO{Xref - def of
+$\theta^{!}$}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ
+\theta^{-1}_{\typeQ} \circ \delta_a^+ f \circ i_{\delta_a \typeP} & \text{by
+\ref{def:deltalin}} \\
+%
+&=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \eta_{\delta_a \typeQ} \circ
+\delta_a^+ f \circ i_{\delta_a \typeP} & \text{by the calculation above} \\
+%
+&=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ {!}\delta^+_a f \circ
+\{\cdot\}_{\typelift{\delta_a \typeP}} & \text{by \ref{def:banglin}.} \\
+%
+\end{array}\] But $\delta^+_a {!}f \circ \widehat{{\theta^{!}_{\typeP}}^{-1}}$
+and $\widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ {!}\delta^+_a f$ are both
+linear, so by \ref{hat:freeness} they are equal. Therefore
+$\widehat{{\theta^{!}}^{-1}}$ is a natural transformation ${!}\delta^+_a \to
+\delta^+_a {!}$.
+
+
+\vfill\TODO{Remove pagebreak}\pagebreak
+\subsubsection{Commuting Diagrams from \ref{adjunctionlift}.}
+
+\[\begin{array}{rcll}
+%
+\epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ
+\{\cdot\}_{\typelift{(\typeP^{\freshfor a})}}
+%
+&=& \epsilon_{\typeP}^{\freshfor a+} \circ
+\{\cdot\}_{(\typelift\typeP)^{\freshfor a}} \circ {\phi^{!}_{\typeP}}^{-1} &
+\text{by naturality of $\{\cdot\}_{\downarrow}$} \\
+%
+&=& \phi_{\typeP} \circ \epsilon_{\typeP}^{\freshfor a} \circ
+\phi^{-1}_{\typelift\typeP} \circ \{\cdot\}_{(\typelift\typeP)^{\freshfor a}}
+\circ {\phi^{!}_{\typeP}}^{-1} & \text{by \ref{def:freshlin}} \\ 
+%
+&=& \phi_{\typeP} \circ \epsilon_{\typeP}^{\freshfor a} \circ
+\{\cdot\}_{\typelift\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} &
+\text{by \ref{comm:freshtriangle}} \\ 
+%
+&=& \phi_{\typeP} \circ i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1}
+& \text{by \TODO{Xref - def of $\epsilon$}} \\ 
+%
+&=& \phi_{\typeP} \circ \phi_{\typeP}^{-1} \circ i_{\typeP^{\freshfor a}} &
+\text{by \TODO{Xref - def of $\phi^{!}$}} \\ 
+%
+&=& i_{\typeP^{\freshfor a}} \\ 
+%
+&=& \epsilon_{\typeP^{\freshfor a}} \circ
+\{\cdot\}_{\typelift{(\typeP^{\freshfor a})}} & \text{by \TODO{Xref - def of
+$\epsilon$}.} \\ 
+%
+\end{array}\] But $\epsilon_{\typeP^{\freshfor a}}$ and
+$\epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}$ are
+both linear, so they are equal by \ref{hat:freeness}.
+
+\[\begin{array}{rcll}
+%
+\delta_a^+ \epsilon_{\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
+\{\cdot\}_{\typelift{\delta_a \typeP}}
+%
+&=& \delta_a^+ \epsilon_{\typeP} \circ \{\cdot\}_{\delta_a \typelift\typeP}
+\circ {\theta^{!}_{\typeP}}^{-1} & \text{by naturality of
+$\{\cdot\}_{\downarrow}$} \\
+%
+&=& \theta_{\typeP} \circ \delta_a \epsilon_{\typeP} \circ
+\theta^{-1}_{\typelift\typeP} \circ \{\cdot\}_{\delta_a \typelift\typeP} \circ
+{\theta^{!}_{\typeP}}^{-1} & \text{by \ref{def:deltalin}} \\ 
+%
+&=& \theta_{\typeP} \circ \delta_a \epsilon_{\typeP} \circ \delta_a
+\{\cdot\}_{\typelift\typeP} \circ {\theta^{!}_{\typeP}}^{-1} & \text{by
+\ref{comm:deltatriangle}} \\ 
+%
+&=& \theta_{\typeP} \circ \delta_a i_{\typeP} \circ {\theta^{!}_{\typeP}}^{-1} &
+\text{by \TODO{Xref - def of $\epsilon$}} \\ 
+%
+&=& \theta_{\typeP} \circ \theta_{\typeP}^{-1} \circ i_{\delta_a \typeP} &
+\text{by \TODO{Xref - def of $\theta^{!}$}} \\ 
+%
+&=& i_{\delta_a \typeP} \\ 
+%
+&=& \epsilon_{\delta_a \typeP} \circ \{\cdot\}_{\typelift{\delta_a \typeP}} &
+\text{by \TODO{Xref - def of $\epsilon$}.} \\ 
+%
+\end{array}\] But $\epsilon_{\delta_a \typeP}$ and $\delta_a^+ \epsilon_{\typeP}
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}$ are both linear, so they are equal
+by \ref{hat:freeness}.
 
 
 \subsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
