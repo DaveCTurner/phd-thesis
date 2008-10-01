@@ -384,9 +384,10 @@ y$, so by monotonicity $f y \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so
 that $f y \le U$ as required.  \end{proof}
 
 Notice that any $x \in \widehat{\typeP}$ is the uniformly-supported-directed
-join of certain isolated elements beneath it: \begin{equation} x = \bigcup \{y
-\in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x} \}
-\end{equation} which ensures the uniqueness of $f^{\ddagger}$.
+join of certain isolated elements beneath it: \begin{equation} \label{bang:alg}
+x = \bigcup \{y \in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq
+\supp{x} \} \end{equation} which ensures the uniqueness of $f^{\ddagger}$.
+%
 As before, if $C$ is of the form $\widehat{\typeQ}$ then this shows that
 finitely-supported monotone maps $\typelift\typeP \to \widehat{\typeQ}$ are in
 bijective correspondence with FM-continuous maps $\widehat{\typeP} \to
@@ -431,10 +432,10 @@ $(\typeP \downarrow J)$, so the isomorphism \ref{bang:adj} is in fact an
 adjunction with $!$ as the left adjoint.
 %
 Concretely, if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$ then
-\begin{equation} {!}f \defeq (\eta_{\typeQ} \circ f \circ i_{\typeP})^{\dagger}
-: \typelift\typeP \to \typelift\typeQ, \end{equation} which means that if $X \in
-\widehat{\typelift\typeP}$ then ${!}f(X) = \{y \in \typelift\typeQ \mid \exists
-x \in X.\ y \subseteq f x\}$.
+\begin{equation} \label{def:banglin} {!}f \defeq (\eta_{\typeQ} \circ f \circ
+i_{\typeP})^{\dagger} : \typelift\typeP \to \typelift\typeQ, \end{equation}
+which means that if $X \in \widehat{\typelift\typeP}$ then ${!}f(X) = \{y \in
+\typelift\typeQ \mid \exists x \in X.\ y \subseteq f x\}$.
 
 \TODO{WIP}
 
