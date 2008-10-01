@@ -805,14 +805,14 @@ a} \circ \phi^{-1}_{\typeP} \circ i_{\typeP^{\freshfor a}} & \text{by
 f^{\freshfor a+} \circ i_{\typeP^{\freshfor a}} & \text{by the calculation
 above} \\
 %
-&=& \widehat{{\phi^{!}_{\typeQ}}^{-1}} \circ \circ {!}(f^{\freshfor a+}) \circ
+&=& \widehat{{\phi^{!}_{\typeQ}}^{-1}} \circ {!}(f^{\freshfor a+}) \circ
 \{\cdot\}_{\typelift{(\typeP^{\freshfor a})}} & \text{by \ref{def:banglin}.} \\
 %
 \end{array}\] But $({!}f)^{\freshfor a+} \circ
 \widehat{{\phi^{!}_{\typeP}}^{-1}}$ and $\widehat{{\phi^{!}_{\typeQ}}^{-1}}
-\circ \circ {!}(f^{\freshfor a+})$ are both linear, so by \ref{hat:freeness}
-they are equal. Therefore $\widehat{{\phi^{!}}^{-1}}$ is a natural
-transformation ${!}((-)^{\freshfor a+}) \to ({!}-)^{\freshfor a+}$.
+\circ {!}(f^{\freshfor a+})$ are both linear, so by \ref{hat:freeness} they are
+equal. Therefore $\widehat{{\phi^{!}}^{-1}}$ is a natural transformation
+${!}((-)^{\freshfor a+}) \to ({!}-)^{\freshfor a+}$.
 
 
 \subsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
