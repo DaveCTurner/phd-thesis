@@ -719,7 +719,8 @@ i.e. that $\delta_a i_{\typeQ} \circ {\theta^{!}_{\typeQ}}^{-1} =
 
 \begin{lemma} \label{freshhat:continuous} If $f : \widehat\typeP \to
 \widehat\typeQ$ is FM-continuous then so is $\phi_{\typeQ} \circ f^{\freshfor a}
-\circ \phi^{-1}_{\typeP}$. \end{lemma}
+\circ \phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
+\widehat{\typeQ^{\freshfor a}}$. \end{lemma}
 
 \begin{proof} Let $X \subseteq \widehat{\typeP^{\freshfor a}}$ be directed and
 uniformly supported by $s'$.
@@ -834,7 +835,8 @@ ${!}((-)^{\freshfor a+}) \to ({!}-)^{\freshfor a+}$.
 
 \begin{lemma} \label{deltahat:continuous} If $f : \widehat{\typeP} \to
 \widehat{\typeQ}$ is FM-continuous then so is $\theta_{\typeQ} \circ \delta_a f
-\circ \theta^{-1}_{\typeP}$.  \end{lemma}
+\circ \theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \widehat{\delta_a
+\typeQ}$.  \end{lemma}
 
 \begin{proof} Let $X \subseteq \widehat{\delta_a \typeP}$ be directed and
 uniformly supported by $s'$. Without loss of generality assume that $a \in s'$
