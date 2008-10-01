@@ -838,7 +838,7 @@ A \to i^* X$ which is an arrow of $\mathbf{FMPre}_{\varnothing} / y(s \udot
 By \ref{reindexing} the object $i^* X$ corresponds to $G_s \langle X, f \rangle$
 as an object of $\mathbf{FMPre}_{s \udot \{a\}}$, and by \ref{deptype:fresh} the
 object $\langle X \otimes \mathbb A, \nu^{-1} \circ (f \otimes
-\mathbf{1}_{\mathbb A} \rangle$ corresponds to $(G_s \langle X, f
+\mathbf{1}_{\mathbb A}) \rangle$ corresponds to $(G_s \langle X, f
 \rangle)^{\freshfor a}$. Therefore by lemma \ref{lemma:slice} the arrow $\tau$
 corresponds to an arrow $(G_s \langle X, f \rangle)^{\freshfor a} \to G_s
 \langle X, f \rangle$ defined for all $x \in (G_s \langle X, f
