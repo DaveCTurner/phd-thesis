@@ -832,6 +832,72 @@ above} \\
 equal. Therefore $\widehat{{\phi^{!}}^{-1}}$ is a natural transformation
 ${!}((-)^{\freshfor a+}) \to ({!}-)^{\freshfor a+}$.
 
+\subsubsection{Naturality of $\widehat{\theta^{!}}$.} \[\begin{array}{rcll}
+\multicolumn{4}{l}{\theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ
+\theta^{-1}_{\typeQ} \circ i_{\delta_a \typeQ}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ \delta_a
+i_{\typeQ} \circ {\theta^{!}_{\typeQ}}^{-1} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \{\cdot\}_{\typelift\typeQ} \circ
+{\theta^{!}_{\typeQ}}^{-1} \\ 
+%
+&=& \{\cdot\}_{\delta_a \typelift\typeQ} \circ {\theta^{!}_{\typeQ}}^{-1} &
+\text{by \ref{comm:deltatriangle}} \\ 
+%
+&=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \{\cdot\}_{\typelift{\delta_a
+\typeQ}} & \text{by the naturality of $\{\cdot\}_{\downarrow}$} \\ 
+%
+&=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \eta_{\delta_a \typeQ} \circ
+i_{\delta_a \typeQ}. \\ 
+%
+\end{array}\] But $\widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \eta_{\delta_a
+\typeQ}$ is continuous, and by \ref{deltahat:continuous} the map
+$\theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ
+\theta^{-1}_{\typeQ}$ is continuous too, so by \ref{bang:freeness} they are
+equal.
+
+Now \[\begin{array}{rcll} \multicolumn{4}{l}{ \delta^+_a {!}f \circ
+\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{\typelift{\delta_a \typeP}
+}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a {!}f \circ
+\theta^{-1}_{\typelift\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
+\{\cdot\}_{\typelift{\delta_a \typeP}} & \text{by \ref{def:deltalin}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a {!}f \circ
+\theta^{-1}_{\typelift\typeP} \circ \{\cdot\}_{\delta_a \typelift\typeP} \circ
+{\theta^{!}_{\typeP}}^{-1} & \text{by the naturality of
+$\{\cdot\}_{\downarrow}$} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a {!}f \circ \delta_a
+\{\cdot\}_{\typelift\typeP} \circ {\theta^{!}_{\typeP}}^{-1} & \text{by
+\ref{comm:deltatriangle}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ \delta_a f \circ
+\delta_a i_{\typeP} \circ {\theta^{!}_{\typeP}}^{-1} & \text{by
+\ref{def:banglin}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ \delta_a f \circ
+\theta^{-1}_{\typeP} \circ i_{\delta_a \typeP} & \text{by \TODO{Xref}} \\
+%
+&=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ
+\theta^{-1}_{\typeQ} \circ \delta_a^+ f \circ i_{\delta_a \typeP} & \text{by
+\ref{def:deltalin}} \\
+%
+&=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \eta_{\delta_a \typeQ} \circ
+\delta_a^+ f \circ i_{\delta_a \typeP} & \text{by the calculation above} \\
+%
+&=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ {!}\delta^+_a f \circ
+\{\cdot\}_{\typelift{\delta_a \typeP}} & \text{by \ref{def:banglin}.} \\
+%
+\end{array}\] But $\delta^+_a {!}f \circ \widehat{{\theta^{!}_{\typeP}}^{-1}}$
+and $\widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ {!}\delta^+_a f$ are both
+linear, so by \ref{hat:freeness} they are equal. Therefore
+$\widehat{{\theta^{!}}^{-1}}$ is a natural transformation ${!}\delta^+_a \to
+\delta^+_a {!}$.
+
+
 
 \subsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
 and $\delta_a$}
