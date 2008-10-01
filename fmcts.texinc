@@ -815,7 +815,7 @@ a} \circ i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} & \text{by
 %
 &=& \phi_{\typelift\typeQ} \circ \eta_{\typeQ}^{\freshfor a} \circ f^{\freshfor
 a} \circ \phi^{-1}_{\typeP} \circ i_{\typeP^{\freshfor a}} & \text{by
-\TODO{Xref}} \\
+\TODO{Xref - def of $\phi^{!}$}} \\
 %
 &=& \phi_{\typelift\typeQ} \circ \eta_{\typeQ}^{\freshfor a} \circ
 \phi^{-1}_{\typeQ} \circ f^{\freshfor a+} \circ i_{\typeP^{\freshfor a}} &
@@ -938,7 +938,8 @@ $\{\cdot\}_{\downarrow}$} \\
 \ref{def:banglin}} \\
 %
 &=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ \delta_a f \circ
-\theta^{-1}_{\typeP} \circ i_{\delta_a \typeP} & \text{by \TODO{Xref}} \\
+\theta^{-1}_{\typeP} \circ i_{\delta_a \typeP} & \text{by \TODO{Xref - def of
+$\theta^{!}$}} \\
 %
 &=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ
 \theta^{-1}_{\typeQ} \circ \delta_a^+ f \circ i_{\delta_a \typeP} & \text{by
