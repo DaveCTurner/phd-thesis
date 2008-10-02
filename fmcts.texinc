@@ -966,7 +966,6 @@ $\widehat{{\theta^{!}}^{-1}}$ is a natural transformation ${!}\delta^+_a \to
 \delta^+_a {!}$.
 
 
-\vfill\TODO{Remove pagebreak}\pagebreak
 \subsubsection{Commuting Diagrams from \ref{adjunctionlift}.}
 
 \paragraph{Fresh triangle}
@@ -1202,7 +1201,6 @@ $\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ
 {!}\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ {!}\eta_{\delta_a \typeP}$ are
 both linear, so by \ref{hat:freeness} they are equal.
 
-\vfill\TODO{Remove pagebreak}\pagebreak
 \paragraph{Unit Square} \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
