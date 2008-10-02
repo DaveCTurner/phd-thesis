@@ -1309,6 +1309,101 @@ $ are both linear, so by \ref{hat:freeness} they are
 equal.
 
 
+\paragraph{Counit Square} \[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{
+\widehat{\zeta_{\typelift\typeP}}
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}^{\freshfor a+}
+\circ \widehat{{\phi^{!}_{\delta_a \typeP}}^{-1}}
+\circ \{\cdot\}_{{!}((\delta_a \typeP)^{\freshfor a})}
+}\\
+%
+&=&
+\widehat{\zeta_{\typelift\typeP}}
+\circ \phi_{\delta_a{!}\typeP}
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}^{\freshfor a}
+\circ \phi^{-1}_{{!}\delta_a \typeP}
+\circ \widehat{{\phi^{!}_{\delta_a \typeP}}^{-1}}
+\circ \{\cdot\}_{{!}((\delta_a \typeP)^{\freshfor a})}
+& \text{by \ref{def:freshlin}} \\
+%
+&=&
+\widehat{\zeta_{\typelift\typeP}}
+\circ \phi_{\delta_a{!}\typeP}
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}^{\freshfor a}
+\circ \phi^{-1}_{{!}\delta_a \typeP}
+\circ \widehat{{\phi^{!}_{\delta_a \typeP}}^{-1}}
+\circ \eta_{(\delta_a \typeP)^{\freshfor a}}
+\circ i_{(\delta_a \typeP)^{\freshfor a}}
+& \text{by \ref{def:eta}} \\
+%
+&=&
+\widehat{\zeta_{\typelift\typeP}}
+\circ \phi_{\delta_a{!}\typeP}
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}^{\freshfor a}
+\circ \phi^{-1}_{{!}\delta_a \typeP}
+\circ \phi_{{!}\delta_a \typeP}
+\circ \eta_{\delta_a \typeP}^{\freshfor a}
+\circ \phi^{-1}_{\delta_a \typeP}
+\circ i_{(\delta_a \typeP)^{\freshfor a}}
+& \text{by \ref{comm:phieta}} \\
+%
+&=&
+\widehat{\zeta_{\typelift\typeP}}
+\circ \phi_{\delta_a{!}\typeP}
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}^{\freshfor a}
+\circ \eta_{\delta_a \typeP}^{\freshfor a}
+\circ \phi^{-1}_{\delta_a \typeP}
+\circ i_{(\delta_a \typeP)^{\freshfor a}}
+\\
+%
+&=&
+\widehat{\zeta_{\typelift\typeP}}
+\circ \phi_{\delta_a{!}\typeP}
+\circ \theta^{\freshfor a}_{{!}\typeP}
+\circ (\delta_a \eta_{\typeP})^{\freshfor a}
+\circ {\theta^{-1}_{\typeP}}^{\freshfor a}
+\circ \phi^{-1}_{\delta_a \typeP}
+\circ i_{(\delta_a \typeP)^{\freshfor a}}
+& \text{by \ref{comm:thetaeta}} \\
+%
+&=&
+\zeta_{\widehat{\typelift\typeP}}
+\circ (\delta_a \eta_{\typeP})^{\freshfor a}
+\circ {\theta^{-1}_{\typeP}}^{\freshfor a}
+\circ \phi^{-1}_{\delta_a \typeP}
+\circ i_{(\delta_a \typeP)^{\freshfor a}}
+& \text{by \ref{comm:zetasquare}} \\
+%
+&=&
+\eta_{\typeP}
+\circ \zeta_{\widehat{\typeP}}
+\circ {\theta^{-1}_{\typeP}}^{\freshfor a}
+\circ \phi^{-1}_{\delta_a \typeP}
+\circ i_{(\delta_a \typeP)^{\freshfor a}}
+& \text{by naturality of $\zeta$} \\
+%
+&=&
+\eta_{\typeP}
+\circ \widehat{\zeta_{\typeP}}
+\circ i_{(\delta_a \typeP)^{\freshfor a}}
+& \text{by \ref{comm:zetasquare}} \\
+%
+&=&
+{!}\widehat{\zeta_{\typeP}}
+\circ \{\cdot\}_{{!}((\delta_a \typeP)^{\freshfor a})}
+& \text{by \ref{def:banglin}} \\
+%
+\end{array}\] But $
+\widehat{\zeta_{\typelift\typeP}}
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}^{\freshfor a+}
+\circ \widehat{{\phi^{!}_{\delta_a \typeP}}^{-1}}
+$ and $
+{!}\widehat{\zeta_{\typeP}}
+$ are both linear, so by \ref{hat:freeness} they are
+equal.
+
+
 
 \subsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
 and $\delta_a$}
