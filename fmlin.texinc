@@ -590,7 +590,7 @@ commute.
 \matthat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\zeta_{\typeP}}}}
 \end{array}\]
 
-To see that the triangle containing the $(-)^{\freshfor a}$ functor commutes,
+To see that the `left triangle' commutes,
 let $p \in \typeP^{\freshfor a}$, then \begin{equation}
 \label{comm:freshtriangle} \begin{array}{rcl}
 \bigl(\{\cdot\}_{\typeP^{\freshfor a}}\bigr)p 
@@ -604,7 +604,7 @@ let $p \in \typeP^{\freshfor a}$, then \begin{equation}
 &=& \bigl( \phi_{\typeP} \circ \{\cdot\}_{\typeP}^{\freshfor a} \bigr) p.
 \end{array} \end{equation}
 
-To see that the pentagon containing the $(-)^{\freshfor a}$ functor commutes,
+To see that the `left pentagon' commutes,
 let $X \in \widehat{\widehat{\typeP}}^{\freshfor a}$.  First, let $p \in
 \bigl(\phi_{\typeP} \circ \mathord{\cup}_{\typeP}^{\freshfor a}\bigr)X$, then $a
 \freshfor p$ and there exists $x \in X$ such that $p \in x$.  Let $b$ be a fresh
@@ -618,7 +618,7 @@ and $p \in \phi_{\typeP} (ab) \cdot x$ so that $p \in
 such that $a \freshfor x$ and $p \in x$ so that $p \in \bigl(\phi_{\typeP} \circ
 \mathord{\cup}_{\typeP}^{\freshfor a}\bigr)X$ as required.
 
-To see that the square containing the unit $\xi$ commutes, let $x \in
+To see that the `unit square' commutes, let $x \in
 \widehat{\typeP}$, then \begin{equation} \label{comm:xisquare} \begin{array}{rcl} \bigl(\theta_{\typeP^{\freshfor a}}
 \circ \delta_a \phi_{\typeP} \circ \xi_{\widehat{\typeP}}\bigr) x 
 %
@@ -639,7 +639,7 @@ p\}} \\
 %
 \end{array} \end{equation}
 
-To see that the triangle containing the $\delta_a$ functor commutes, let $p \in
+To see that the `right triangle' commutes, let $p \in
 \delta_a\typeP$, then \begin{equation} \label{comm:deltatriangle} \begin{array}{rcl}
 \bigl(\{\cdot\}_{\delta_a\typeP}\bigr)p
 %
@@ -658,7 +658,7 @@ To see that the triangle containing the $\delta_a$ functor commutes, let $p \in
 &=& \bigl( \theta_{\typeP} \circ \delta_a\{\cdot\}_{\typeP}\bigr) p.
 \end{array} \end{equation}
 
-To see that the pentagon containing the $\delta_a$ functor commutes, let $X' \in
+To see that the `right pentagon' commutes, let $X' \in
 \delta_a \widehat{\widehat{\typeP}}$. First, let $p' \in \bigl(\theta_\typeP
 \circ \delta_a \mathord{\cup}_{\typeP}\bigr) X'$ and let $b$ be a fresh name,
 then \[p' @ b \in \bigl(\delta_a \mathord{\cup}_{\typeP} X'\bigr) @ b = \bigcup
@@ -674,7 +674,7 @@ so that $p' @ b \in \bigcup(X'@b) = \bigl(\delta_a \mathord{\cup}_{\typeP}
 X'\bigr) @ b$ and hence $p' \in \bigl(\theta_\typeP \circ \delta_a
 \mathord{\cup}_{\typeP}\bigr) X'$ as required.
 
-To see that the square containing the counit $\zeta$ commutes, let $x' \in
+To see that the `counit square' commutes, let $x' \in
 (\delta_a \widehat{\typeP})^{\freshfor a}$, then \begin{equation}
 \label{comm:zetasquare} \begin{array}{rcl}
 \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
