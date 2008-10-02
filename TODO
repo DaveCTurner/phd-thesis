@@ -16,3 +16,9 @@ throw-away comments.
 #7 Need to emphasise the central story more.
 
 #8 Use P, Q, ... for finite elements, not x, y, ...
+
+#9 In "A Dep-Type Pres of FMPre", no equivalence between NPre and FMPre is
+asserted above
+
+#10 In 'Products' section of structure of FMLin, the union is not "taken"
+anywhere in particular, but it is a "join" in that partial order.
