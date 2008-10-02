@@ -1062,7 +1062,10 @@ i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} &\text{by \ref{def:eta}}
 \end{array} \] But using \ref{freshhat:continuous} the maps
 $\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}}$ and
 $\phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ \phi^{-1}_{\typeP}$
-are both continuous, so by \ref{bang:freeness} they are equal.
+are both continuous, so by \ref{bang:freeness} \begin{equation}
+\label{comm:phieta} \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ
+\eta_{\typeP^{\freshfor a}} = \phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a}
+\circ \phi^{-1}_{\typeP} \end{equation}
 
 \paragraph{Fresh pentagon}
 \[\begin{array}{rcll}
