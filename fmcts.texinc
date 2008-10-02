@@ -1381,7 +1381,7 @@ equal.
 \circ {\theta^{-1}_{\typeP}}^{\freshfor a}
 \circ \phi^{-1}_{\delta_a \typeP}
 \circ i_{(\delta_a \typeP)^{\freshfor a}}
-& \text{by naturality of $\zeta$} \\
+& \text{by nat. of $\zeta$} \\
 %
 &=&
 \eta_{\typeP}
