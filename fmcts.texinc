@@ -1123,7 +1123,7 @@ both linear, so by \ref{hat:freeness} they are equal.
 
 
 
-\paragraph{Delta pentagon} \[\begin{array}{rcll}
+\paragraph{Delta lemma} \[\begin{array}{rcll}
 \multicolumn{4}{l}{
 \widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ \eta_{\delta_a
 \typelift\typeP} \circ i_{\delta_a \typelift\typeP}
@@ -1150,7 +1150,10 @@ i_{\typelift\typeP} \circ {\theta^{!}_{\typelift\typeP}}^{-1} &\text{by \ref{def
 $\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ \eta_{\delta_a
 \typelift\typeP}$ and $\theta_{{!}{!}\typeP} \circ \delta_a
 \eta_{\typelift\typeP} \circ \theta^{-1}_{\typelift\typeP}$ are both continuous,
-so by \ref{bang:freeness} they are equal. Therefore \[\begin{array}{rcll}
+so by \ref{bang:freeness} they are equal.
+
+
+\paragraph{Delta pentagon} \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
 \delta_a^+ !\eta_{\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
