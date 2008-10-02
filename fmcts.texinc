@@ -972,8 +972,10 @@ $\widehat{{\theta^{!}}^{-1}}$ is a natural transformation ${!}\delta^+_a \to
 \paragraph{Fresh triangle}
 \[\begin{array}{rcll}
 %
+\multicolumn{4}{l}{
 \epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ
 \{\cdot\}_{\typelift{(\typeP^{\freshfor a})}}
+}\\
 %
 &=& \epsilon_{\typeP}^{\freshfor a+} \circ
 \{\cdot\}_{(\typelift\typeP)^{\freshfor a}} \circ {\phi^{!}_{\typeP}}^{-1} &
@@ -1005,8 +1007,10 @@ both linear, so they are equal by \ref{hat:freeness}.
 \paragraph{Delta triangle}
 \[\begin{array}{rcll}
 %
+\multicolumn{4}{l}{
 \delta_a^+ \epsilon_{\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
 \{\cdot\}_{\typelift{\delta_a \typeP}}
+}\\
 %
 &=& \delta_a^+ \epsilon_{\typeP} \circ \{\cdot\}_{\delta_a \typelift\typeP}
 \circ {\theta^{!}_{\typeP}}^{-1} & \text{by naturality of
@@ -1036,8 +1040,10 @@ $\{\cdot\}_{\downarrow}$} \\
 by \ref{hat:freeness}.
 
 \paragraph{Fresh pentagon} \[\begin{array}{rcll}
+\multicolumn{4}{l}{
 \widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
 \eta_{(\typelift\typeP)^{\freshfor a}} \circ i_{(\typelift\typeP)^{\freshfor a}}
+}\\
 %
 &=& \widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
 \{\cdot\}_{{!}((\typelift\typeP)^{\freshfor a})} &\text{by \ref{def:eta}} \\
@@ -1064,8 +1070,10 @@ $\widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
 continuous, so by \ref{bang:freeness} they are equal. Therefore
 \[\begin{array}{rcll}
 %
+\multicolumn{4}{l}{
 (!\eta_{\typeP})^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ
 \{\cdot\}_{{!}(\typeP^{\freshfor a})}
+}\\
 %
 &=& (!\eta_{\typeP})^{\freshfor a+} \circ \{\cdot\}_{({!}\typeP)^{\freshfor a}}
 \circ {\phi^{!}_{\typeP}}^{-1} & \text{by naturality of $\eta$} \\
@@ -1116,8 +1124,10 @@ both linear, so by \ref{hat:freeness} they are equal.
 
 
 \paragraph{Delta pentagon} \[\begin{array}{rcll}
+\multicolumn{4}{l}{
 \widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ \eta_{\delta_a
 \typelift\typeP} \circ i_{\delta_a \typelift\typeP}
+}\\
 %
 &=& \widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ
 \{\cdot\}_{{!}\delta_a\typelift\typeP} &\text{by \ref{def:eta}} \\
@@ -1142,8 +1152,10 @@ $\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ \eta_{\delta_a
 \eta_{\typelift\typeP} \circ \theta^{-1}_{\typelift\typeP}$ are both continuous,
 so by \ref{bang:freeness} they are equal. Therefore \[\begin{array}{rcll}
 %
+\multicolumn{4}{l}{
 \delta_a^+ !\eta_{\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
 \{\cdot\}_{{!}\delta_a\typeP}
+}\\
 %
 &=& \delta_a^+ !\eta_{\typeP} \circ \{\cdot\}_{\delta_a {!}\typeP} \circ
 {\theta^{!}_{\typeP}}^{-1} & \text{by naturality of $\eta$} \\
