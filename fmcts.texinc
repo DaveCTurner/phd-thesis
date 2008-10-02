@@ -437,6 +437,12 @@ Concretely, if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$ then
 i_{\typeP})^{\dagger} : \typelift\typeP \to \typelift\typeQ, \end{equation}
 which means that if $X \in \widehat{\typelift\typeP}$ then ${!}f(X) = \{y \in
 \typelift\typeQ \mid \exists x \in X.\ y \subseteq f x\}$.
+%
+The unit of the adjunction is $\eta$ as defined above and the counit $\epsilon$
+is defined as $\epsilon_{\typeP} \defeq i_{\typeP}^{\dagger}$.
+%
+Therefore $\epsilon_{\typeP}$ is the unique FM-linear map such that
+$\epsilon_{\typeP} \circ \{\cdot\}_{\typelift\typeP} = i_{\typeP}$.
 
 \TODO{WIP}
 
