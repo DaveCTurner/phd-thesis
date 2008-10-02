@@ -1190,7 +1190,7 @@ both continuous, so by \ref{bang:freeness} \begin{equation}
 %
 &=& \widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ \eta_{\delta_a
 \typelift\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a
-\typeP} \circ i_{\delta_a \typeP} & \text{by the calculation above} \\
+\typeP} \circ i_{\delta_a \typeP} & \text{by \ref{comm:thetaeta}} \\
 %
 &=& \widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ
 {!}\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ {!}\eta_{\delta_a \typeP} \circ
