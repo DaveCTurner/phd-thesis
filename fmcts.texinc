@@ -824,7 +824,7 @@ a} \circ i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} & \text{by
 %
 &=& \phi_{\typelift\typeQ} \circ \eta_{\typeQ}^{\freshfor a} \circ f^{\freshfor
 a} \circ \phi^{-1}_{\typeP} \circ i_{\typeP^{\freshfor a}} & \text{by
-\TODO{Xref - def of $\phi^{!}$}} \\
+\ref{def:phibang}} \\
 %
 &=& \phi_{\typelift\typeQ} \circ \eta_{\typeQ}^{\freshfor a} \circ
 \phi^{-1}_{\typeQ} \circ f^{\freshfor a+} \circ i_{\typeP^{\freshfor a}} &
@@ -946,8 +946,8 @@ Now \[\begin{array}{rcll} \multicolumn{4}{l}{ \delta^+_a {!}f \circ
 \ref{def:banglin}} \\
 %
 &=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ \delta_a f \circ
-\theta^{-1}_{\typeP} \circ i_{\delta_a \typeP} & \text{by \TODO{Xref - def of
-$\theta^{!}$}} \\
+\theta^{-1}_{\typeP} \circ i_{\delta_a \typeP} & \text{by
+\ref{def:thetabang}} \\
 %
 &=& \theta_{\typelift\typeQ} \circ \delta_a \eta_{\typeQ} \circ
 \theta^{-1}_{\typeQ} \circ \delta_a^+ f \circ i_{\delta_a \typeP} & \text{by
@@ -993,7 +993,7 @@ $\widehat{{\theta^{!}}^{-1}}$ is a natural transformation ${!}\delta^+_a \to
 & \text{by \ref{def:epsilon}} \\ 
 %
 &=& \phi_{\typeP} \circ \phi_{\typeP}^{-1} \circ i_{\typeP^{\freshfor a}} &
-\text{by \TODO{Xref - def of $\phi^{!}$}} \\ 
+\text{by \ref{def:phibang}} \\ 
 %
 &=& i_{\typeP^{\freshfor a}} \\ 
 %
@@ -1028,7 +1028,7 @@ $\{\cdot\}_{\downarrow}$} \\
 \text{by \ref{def:epsilon}} \\ 
 %
 &=& \theta_{\typeP} \circ \theta_{\typeP}^{-1} \circ i_{\delta_a \typeP} &
-\text{by \TODO{Xref - def of $\theta^{!}$}} \\ 
+\text{by \ref{def:thetabang}} \\ 
 %
 &=& i_{\delta_a \typeP} \\ 
 %
@@ -1061,7 +1061,7 @@ i_{\typelift\typeP}^{\freshfor a} \circ {\phi^{!}_{\typelift\typeP}}^{-1}
 %
 &=& \phi_{{!}{!}\typeP} \circ \eta_{\typelift\typeP}^{\freshfor a} \circ
 \phi^{-1}_{\typelift\typeP} \circ i_{(\typelift\typeP)^{\freshfor a}}
-&\text{\TODO{Xref - def of $\phi^{!}$}} \\
+&\text{by \ref{def:phibang}} \\
 %
 \end{array} \] But using \ref{freshhat:continuous} the maps
 $\widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
@@ -1144,7 +1144,7 @@ i_{\typelift\typeP} \circ {\theta^{!}_{\typelift\typeP}}^{-1} &\text{by \ref{def
 %
 &=& \theta_{{!}{!}\typeP} \circ \delta_a \eta_{\typelift\typeP} \circ
 \theta^{-1}_{\typelift\typeP} \circ i_{\delta_a \typelift\typeP}
-&\text{\TODO{Xref - def of $\theta^{!}$}} \\
+&\text{by \ref{def:thetabang}} \\
 %
 \end{array} \] But using \ref{deltahat:continuous} the maps
 $\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ \eta_{\delta_a
