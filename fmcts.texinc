@@ -1107,8 +1107,8 @@ are both continuous, so by \ref{bang:freeness} \begin{equation}
 %
 &=& \widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
 \eta_{(\typelift\typeP)^{\freshfor a}} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}
-\circ \eta_{\typeP^{\freshfor a}} \circ i_{\typeP^{\freshfor a}} & \text{by the
-calculation above} \\
+\circ \eta_{\typeP^{\freshfor a}} \circ i_{\typeP^{\freshfor a}} & \text{by
+\ref{comm:phieta}} \\
 %
 &=& \widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
 {!}\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ {!}\eta_{\typeP^{\freshfor a}} \circ
