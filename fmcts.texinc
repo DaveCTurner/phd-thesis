@@ -968,6 +968,7 @@ $\widehat{{\theta^{!}}^{-1}}$ is a natural transformation ${!}\delta^+_a \to
 \vfill\TODO{Remove pagebreak}\pagebreak
 \subsubsection{Commuting Diagrams from \ref{adjunctionlift}.}
 
+\paragraph{Fresh triangle}
 \[\begin{array}{rcll}
 %
 \epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ
@@ -1001,6 +1002,7 @@ $\epsilon$}.} \\
 $\epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}$ are
 both linear, so they are equal by \ref{hat:freeness}.
 
+\paragraph{Delta triangle}
 \[\begin{array}{rcll}
 %
 \delta_a^+ \epsilon_{\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
