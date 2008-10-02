@@ -1039,7 +1039,7 @@ $\{\cdot\}_{\downarrow}$} \\
 \circ \widehat{{\theta^{!}_{\typeP}}^{-1}}$ are both linear, so they are equal
 by \ref{hat:freeness}.
 
-\paragraph{Fresh pentagon} \[\begin{array}{rcll}
+\paragraph{Fresh lemma} \[\begin{array}{rcll}
 \multicolumn{4}{l}{
 \widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
 \eta_{(\typelift\typeP)^{\freshfor a}} \circ i_{(\typelift\typeP)^{\freshfor a}}
@@ -1067,7 +1067,9 @@ i_{\typelift\typeP}^{\freshfor a} \circ {\phi^{!}_{\typelift\typeP}}^{-1}
 $\widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
 \eta_{(\typelift\typeP)^{\freshfor a}}$ and $\phi_{{!}{!}\typeP} \circ
 \eta_{\typelift\typeP}^{\freshfor a} \circ \phi^{-1}_{\typelift\typeP}$ are both
-continuous, so by \ref{bang:freeness} they are equal. Therefore
+continuous, so by \ref{bang:freeness} they are equal.
+
+\paragraph{Fresh pentagon}
 \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
