@@ -690,7 +690,7 @@ The restrictions of the isomorphisms $\phi$ and $\theta$ are written $\phi^{!} :
 
 \subsection{TODO} \TODO{More here}
 
-\subsubsection{Definition of $\phi^{!}$.}
+\subsubsection{Definition of $\phi^{!}$.} \label{def:phibang}
 Have that $\phi^{!}$ satisfies
 \[\xymatrix{
 {!}(\typeQ^{\freshfor a})
@@ -708,7 +708,7 @@ Have that $\phi^{!}$ satisfies
 i.e. that $i_{\typeQ}^{\freshfor a} \circ {\phi^{!}_{\typeQ}}^{-1} =
 \phi^{-1}_{\typeQ} \circ i_{\typeQ^{\freshfor a}}$.
 
-\subsubsection{Definition of $\theta^{!}$.}
+\subsubsection{Definition of $\theta^{!}$.} \label{def:thetabang}
 Have that $\theta^{!}$ satisfies
 \[\xymatrix{
 {!}\delta_a \typeQ
