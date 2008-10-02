@@ -1145,7 +1145,10 @@ naturality of $\{\cdot\}_{\downarrow}$}\\
 \end{array} \] But using \ref{deltahat:continuous} the maps
 $\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a \typeP}$ and
 $\theta_{{!}\typeP} \circ \delta_a \eta_{\typeP} \circ \theta^{-1}_{\typeP}$ are
-both continuous, so by \ref{bang:freeness} they are equal.
+both continuous, so by \ref{bang:freeness} \begin{equation}
+\label{comm:thetaeta} \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a
+\typeP} = \theta_{{!}\typeP} \circ \delta_a \eta_{\typeP} \circ
+\theta^{-1}_{\typeP} \end{equation}
 
 
 \paragraph{Delta pentagon} \[\begin{array}{rcll}
