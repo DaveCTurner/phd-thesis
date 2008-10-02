@@ -403,8 +403,9 @@ Notice that there is a natural FM-continuous $\eta_{\typeP} : \widehat\typeP \to
 \{\cdot\}_{\typelift\typeP}^{\ddagger}$, or concretely $\eta_{\typeP} X = \{P
 \in \typelift\typeP \mid P \subseteq X \}$.
 %
-In particular, $\eta_{\typeP} \circ i_{\typeP} = \{\cdot\}_{\typelift\typeP}$
-and $\eta$ is the unique such FM-continuous map.
+In particular, \begin{equation} \label{def:eta} \eta_{\typeP} \circ i_{\typeP} =
+\{\cdot\}_{\typelift\typeP}\end{equation} and $\eta$ is the unique such
+FM-continuous map.
 %
 Furthermore for every FM-continuous $f : \widehat\typeP \to \widehat\typeQ$ the
 FM-linear function $(f \circ i_{\typeP})^{\dagger} : \widehat{\typelift\typeP}
@@ -442,7 +443,8 @@ The unit of the adjunction is $\eta$ as defined above and the counit $\epsilon$
 is defined as $\epsilon_{\typeP} \defeq i_{\typeP}^{\dagger}$.
 %
 Therefore $\epsilon_{\typeP}$ is the unique FM-linear map such that
-$\epsilon_{\typeP} \circ \{\cdot\}_{\typelift\typeP} = i_{\typeP}$.
+\begin{equation} \label{def:epsilon} \epsilon_{\typeP} \circ
+\{\cdot\}_{\typelift\typeP} = i_{\typeP}. \end{equation}
 
 \TODO{WIP}
 
