@@ -788,7 +788,7 @@ i_{\typeQ}^{\freshfor a} \circ {\phi^{!}_{\typeQ}}^{-1} \\
 \text{by \ref{comm:freshtriangle}} \\ 
 %
 &=& \widehat{{\phi^{!}_{\typeQ}}^{-1}} \circ
-\{\cdot\}_{\typelift{(\typeQ^{\freshfor a})}} & \text{by the naturality of
+\{\cdot\}_{\typelift{(\typeQ^{\freshfor a})}} & \text{by naturality of
 $\{\cdot\}_{\downarrow}$} \\ 
 %
 &=& \widehat{{\phi^{!}_{\typeQ}}^{-1}} \circ \eta_{\typeQ^{\freshfor a}} \circ
@@ -809,7 +809,7 @@ a})} }} \\
 %
 &=& \phi_{\typelift\typeQ} \circ ({!}f)^{\freshfor a} \circ
 \phi^{-1}_{\typelift\typeP} \circ \{\cdot\}_{(\typelift\typeP)^{\freshfor a}}
-\circ {\phi^{!}_{\typeP}}^{-1} & \text{by the naturality of
+\circ {\phi^{!}_{\typeP}}^{-1} & \text{by naturality of
 $\{\cdot\}_{\downarrow}$} \\
 %
 &=& \phi_{\typelift\typeQ} \circ ({!}f)^{\freshfor a} \circ
@@ -912,7 +912,7 @@ i_{\typeQ} \circ {\theta^{!}_{\typeQ}}^{-1} \\
 \text{by \ref{comm:deltatriangle}} \\ 
 %
 &=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \{\cdot\}_{\typelift{\delta_a
-\typeQ}} & \text{by the naturality of $\{\cdot\}_{\downarrow}$} \\ 
+\typeQ}} & \text{by naturality of $\{\cdot\}_{\downarrow}$} \\ 
 %
 &=& \widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ \eta_{\delta_a \typeQ} \circ
 i_{\delta_a \typeQ}. \\ 
@@ -933,8 +933,7 @@ Now \[\begin{array}{rcll} \multicolumn{4}{l}{ \delta^+_a {!}f \circ
 %
 &=& \theta_{\typelift\typeQ} \circ \delta_a {!}f \circ
 \theta^{-1}_{\typelift\typeP} \circ \{\cdot\}_{\delta_a \typelift\typeP} \circ
-{\theta^{!}_{\typeP}}^{-1} & \text{by the naturality of
-$\{\cdot\}_{\downarrow}$} \\
+{\theta^{!}_{\typeP}}^{-1} & \text{by naturality of $\{\cdot\}_{\downarrow}$} \\
 %
 &=& \theta_{\typelift\typeQ} \circ \delta_a {!}f \circ \delta_a
 \{\cdot\}_{\typelift\typeP} \circ {\theta^{!}_{\typeP}}^{-1} & \text{by
