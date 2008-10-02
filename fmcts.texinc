@@ -988,7 +988,7 @@ $\widehat{{\theta^{!}}^{-1}}$ is a natural transformation ${!}\delta^+_a \to
 \text{by \ref{comm:freshtriangle}} \\ 
 %
 &=& \phi_{\typeP} \circ i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1}
-& \text{by \TODO{Xref - def of $\epsilon$}} \\ 
+& \text{by \ref{def:epsilon}} \\ 
 %
 &=& \phi_{\typeP} \circ \phi_{\typeP}^{-1} \circ i_{\typeP^{\freshfor a}} &
 \text{by \TODO{Xref - def of $\phi^{!}$}} \\ 
@@ -996,8 +996,7 @@ $\widehat{{\theta^{!}}^{-1}}$ is a natural transformation ${!}\delta^+_a \to
 &=& i_{\typeP^{\freshfor a}} \\ 
 %
 &=& \epsilon_{\typeP^{\freshfor a}} \circ
-\{\cdot\}_{\typelift{(\typeP^{\freshfor a})}} & \text{by \TODO{Xref - def of
-$\epsilon$}.} \\ 
+\{\cdot\}_{\typelift{(\typeP^{\freshfor a})}} & \text{by \ref{def:epsilon}} \\ 
 %
 \end{array}\] But $\epsilon_{\typeP^{\freshfor a}}$ and
 $\epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}$ are
@@ -1022,7 +1021,7 @@ $\{\cdot\}_{\downarrow}$} \\
 \ref{comm:deltatriangle}} \\ 
 %
 &=& \theta_{\typeP} \circ \delta_a i_{\typeP} \circ {\theta^{!}_{\typeP}}^{-1} &
-\text{by \TODO{Xref - def of $\epsilon$}} \\ 
+\text{by \ref{def:epsilon}} \\ 
 %
 &=& \theta_{\typeP} \circ \theta_{\typeP}^{-1} \circ i_{\delta_a \typeP} &
 \text{by \TODO{Xref - def of $\theta^{!}$}} \\ 
@@ -1030,7 +1029,7 @@ $\{\cdot\}_{\downarrow}$} \\
 &=& i_{\delta_a \typeP} \\ 
 %
 &=& \epsilon_{\delta_a \typeP} \circ \{\cdot\}_{\typelift{\delta_a \typeP}} &
-\text{by \TODO{Xref - def of $\epsilon$}.} \\ 
+\text{by \ref{def:epsilon}} \\ 
 %
 \end{array}\] But $\epsilon_{\delta_a \typeP}$ and $\delta_a^+ \epsilon_{\typeP}
 \circ \widehat{{\theta^{!}_{\typeP}}^{-1}}$ are both linear, so they are equal
@@ -1041,8 +1040,7 @@ by \ref{hat:freeness}.
 \eta_{(\typelift\typeP)^{\freshfor a}} \circ i_{(\typelift\typeP)^{\freshfor a}}
 %
 &=& \widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
-\{\cdot\}_{{!}((\typelift\typeP)^{\freshfor a})} &\text{\TODO{Xref - def of
-$\eta$}} \\
+\{\cdot\}_{{!}((\typelift\typeP)^{\freshfor a})} &\text{by \ref{def:eta}} \\
 %
 &=& \{\cdot\}_{({!}\typelift\typeP)^{\freshfor a}} \circ
 {\phi^{!}_{\typelift\typeP}}^{-1} &\text{by naturality of
@@ -1053,7 +1051,7 @@ $\{\cdot\}_{\downarrow}$}\\
 %
 &=& \phi_{{!}{!}\typeP} \circ \eta_{\typelift\typeP}^{\freshfor a} \circ
 i_{\typelift\typeP}^{\freshfor a} \circ {\phi^{!}_{\typelift\typeP}}^{-1}
-&\text{\TODO{Xref - def of $\eta$}} \\
+&\text{by \ref{def:eta}} \\
 %
 &=& \phi_{{!}{!}\typeP} \circ \eta_{\typelift\typeP}^{\freshfor a} \circ
 \phi^{-1}_{\typelift\typeP} \circ i_{(\typelift\typeP)^{\freshfor a}}
@@ -1085,8 +1083,7 @@ continuous, so by \ref{bang:freeness} they are equal. Therefore
 {\phi^{!}_{\typeP}}^{-1} & \text{by \ref{def:banglin}} \\
 %
 &=& \phi_{{!}{!}\typeP} \circ \eta_{\typelift\typeP}^{\freshfor a} \circ
-\{\cdot\}_{{!}\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} & \text{by
-\TODO{Xref - def of $\eta$}} \\
+\{\cdot\}_{{!}\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} & \text{by \ref{def:eta}} \\
 %
 &=& \phi_{{!}{!}\typeP} \circ \eta_{\typelift\typeP}^{\freshfor a} \circ
 \phi^{-1}_{{!}\typeP} \circ \{\cdot\}_{({!}\typeP)^{\freshfor a}} \circ
@@ -1098,8 +1095,7 @@ continuous, so by \ref{bang:freeness} they are equal. Therefore
 %
 &=& \phi_{{!}{!}\typeP} \circ \eta_{\typelift\typeP}^{\freshfor a} \circ
 \phi^{-1}_{{!}\typeP}  \circ \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ
-\eta_{\typeP^{\freshfor a}} \circ i_{\typeP^{\freshfor a}} & \text{by \TODO{Xref
-- def of $\eta$}} \\
+\eta_{\typeP^{\freshfor a}} \circ i_{\typeP^{\freshfor a}} & \text{by \ref{def:eta}} \\
 %
 &=& \widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
 \eta_{(\typelift\typeP)^{\freshfor a}} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}
@@ -1124,7 +1120,7 @@ both linear, so by \ref{hat:freeness} they are equal.
 \typelift\typeP} \circ i_{\delta_a \typelift\typeP}
 %
 &=& \widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ
-\{\cdot\}_{{!}\delta_a\typelift\typeP} &\text{\TODO{Xref - def of $\eta$}} \\
+\{\cdot\}_{{!}\delta_a\typelift\typeP} &\text{by \ref{def:eta}} \\
 %
 &=& \{\cdot\}_{\delta_a {!}\typelift\typeP} \circ
 {\theta^{!}_{\typelift\typeP}}^{-1} &\text{by naturality of
@@ -1134,8 +1130,7 @@ $\{\cdot\}_{\downarrow}$}\\
 {\theta^{!}_{\typelift\typeP}}^{-1} &\text{by \ref{comm:delta}} \\
 %
 &=& \theta_{{!}{!}\typeP} \circ \delta_a\eta_{\typelift\typeP} \circ \delta_a
-i_{\typelift\typeP} \circ {\theta^{!}_{\typelift\typeP}}^{-1} &\text{\TODO{Xref
-- def of $\eta$}} \\
+i_{\typelift\typeP} \circ {\theta^{!}_{\typelift\typeP}}^{-1} &\text{by \ref{def:eta}} \\
 %
 &=& \theta_{{!}{!}\typeP} \circ \delta_a \eta_{\typelift\typeP} \circ
 \theta^{-1}_{\typelift\typeP} \circ i_{\delta_a \typelift\typeP}
@@ -1166,8 +1161,7 @@ so by \ref{bang:freeness} they are equal. Therefore \[\begin{array}{rcll}
 \text{by \ref{def:banglin}} \\
 %
 &=& \theta_{{!}{!}\typeP} \circ \delta_a \eta_{\typelift\typeP} \circ \delta_a
-\{\cdot\}_{{!}\typeP} \circ {\theta^{!}_{\typeP}}^{-1} & \text{by \TODO{Xref -
-def of $\eta$}} \\
+\{\cdot\}_{{!}\typeP} \circ {\theta^{!}_{\typeP}}^{-1} & \text{by \ref{def:eta}} \\
 %
 &=& \theta_{{!}{!}\typeP} \circ \delta_a \eta_{\typelift\typeP} \circ
 \theta^{-1}_{{!}\typeP} \circ \{\cdot\}_{\delta_a {!}\typeP} \circ
@@ -1179,8 +1173,7 @@ def of $\eta$}} \\
 %
 &=& \theta_{{!}{!}\typeP} \circ \delta_a \eta_{\typelift\typeP} \circ
 \theta^{-1}_{{!}\typeP}  \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
-\eta_{\delta_a \typeP} \circ i_{\delta_a \typeP} & \text{by \TODO{Xref
-- def of $\eta$}} \\
+\eta_{\delta_a \typeP} \circ i_{\delta_a \typeP} & \text{by \ref{def:eta}} \\
 %
 &=& \widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ \eta_{\delta_a
 \typelift\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a
