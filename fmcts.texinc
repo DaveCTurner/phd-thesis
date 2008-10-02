@@ -1123,34 +1123,29 @@ both linear, so by \ref{hat:freeness} they are equal.
 
 
 
-\paragraph{Delta lemma} \[\begin{array}{rcll}
-\multicolumn{4}{l}{
-\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ \eta_{\delta_a
-\typelift\typeP} \circ i_{\delta_a \typelift\typeP}
-}\\
+\paragraph{Delta lemma} \[\begin{array}{rcll} \multicolumn{4}{l}{
+\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a \typeP} \circ
+i_{\delta_a\typeP} }\\
 %
-&=& \widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ
-\{\cdot\}_{{!}\delta_a\typelift\typeP} &\text{by \ref{def:eta}} \\
+&=& \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}\delta_a\typeP}
+&\text{by \ref{def:eta}} \\
 %
-&=& \{\cdot\}_{\delta_a {!}\typelift\typeP} \circ
-{\theta^{!}_{\typelift\typeP}}^{-1} &\text{by naturality of
-$\{\cdot\}_{\downarrow}$}\\
+&=& \{\cdot\}_{\delta_a {!}\typeP} \circ {\theta^{!}_{\typeP}}^{-1} &\text{by
+naturality of $\{\cdot\}_{\downarrow}$}\\
 %
-&=& \theta_{{!}{!}\typeP} \circ \delta_a \{\cdot\}_{{!}\typelift\typeP} \circ
-{\theta^{!}_{\typelift\typeP}}^{-1} &\text{by \ref{comm:deltatriangle}} \\
+&=& \theta_{{!}\typeP} \circ \delta_a \{\cdot\}_{{!}\typeP} \circ
+{\theta^{!}_{\typeP}}^{-1} &\text{by \ref{comm:deltatriangle}} \\
 %
-&=& \theta_{{!}{!}\typeP} \circ \delta_a\eta_{\typelift\typeP} \circ \delta_a
-i_{\typelift\typeP} \circ {\theta^{!}_{\typelift\typeP}}^{-1} &\text{by \ref{def:eta}} \\
+&=& \theta_{{!}\typeP} \circ \delta_a\eta_{\typeP} \circ \delta_a i_{\typeP}
+\circ {\theta^{!}_{\typeP}}^{-1} &\text{by \ref{def:eta}} \\
 %
-&=& \theta_{{!}{!}\typeP} \circ \delta_a \eta_{\typelift\typeP} \circ
-\theta^{-1}_{\typelift\typeP} \circ i_{\delta_a \typelift\typeP}
-&\text{by \ref{def:thetabang}} \\
+&=& \theta_{{!}\typeP} \circ \delta_a \eta_{\typeP} \circ \theta^{-1}_{\typeP}
+\circ i_{\delta_a \typeP} &\text{by \ref{def:thetabang}} \\
 %
 \end{array} \] But using \ref{deltahat:continuous} the maps
-$\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ \eta_{\delta_a
-\typelift\typeP}$ and $\theta_{{!}{!}\typeP} \circ \delta_a
-\eta_{\typelift\typeP} \circ \theta^{-1}_{\typelift\typeP}$ are both continuous,
-so by \ref{bang:freeness} they are equal.
+$\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a \typeP}$ and
+$\theta_{{!}\typeP} \circ \delta_a \eta_{\typeP} \circ \theta^{-1}_{\typeP}$ are
+both continuous, so by \ref{bang:freeness} they are equal.
 
 
 \paragraph{Delta pentagon} \[\begin{array}{rcll}
