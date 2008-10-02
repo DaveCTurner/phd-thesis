@@ -1201,6 +1201,66 @@ $\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ
 {!}\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ {!}\eta_{\delta_a \typeP}$ are
 both linear, so by \ref{hat:freeness} they are equal.
 
+\paragraph{Unit Square} \[\begin{array}{rcll} \multicolumn{4}{l}{ 
+\widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
+\circ \eta_{\delta_a (\typeP^{\freshfor a})}
+\circ i_{\delta_a (\typeP^{\freshfor a})}
+}\\
+%
+&=&
+\widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
+\circ \{\cdot\}_{{!}\delta_a (\typeP^{\freshfor a})}
+&\text{by \ref{def:eta}} \\
+%
+&=&
+\{\cdot\}_{\delta_a{!} (\typeP^{\freshfor a})}
+\circ {\theta^{!}_{\typeP^{\freshfor a}}}^{-1}
+&\text{by naturality of $\eta$} \\
+%
+&=&
+\theta_{\delta_a{!} (\typeP^{\freshfor a})}
+\circ \delta_a \{\cdot\}_{{!} (\typeP^{\freshfor a})}
+\circ {\theta^{!}_{\typeP^{\freshfor a}}}^{-1}
+&\text{by \ref{comm:deltatriangle}} \\
+%
+&=&
+\theta_{\delta_a{!} (\typeP^{\freshfor a})}
+\circ \delta_a \eta_{(\typeP^{\freshfor a})}
+\circ \delta_a i_{(\typeP^{\freshfor a})}
+\circ {\theta^{!}_{\typeP^{\freshfor a}}}^{-1}
+&\text{by \ref{def:eta}} \\
+%
+&=&
+\theta_{\delta_a{!} (\typeP^{\freshfor a})}
+\circ \delta_a \eta_{(\typeP^{\freshfor a})}
+\circ \theta^{-1}_{\typeP^{\freshfor a}}
+\circ i_{\delta_a (\typeP^{\freshfor a})}
+&\text{by \ref{def:thetabang}} \\
+%
+\end{array} \] But using \ref{deltahat:continuous} the maps $
+\widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
+\circ \eta_{\delta_a (\typeP^{\freshfor a})}
+$ and $
+\theta_{\delta_a{!} (\typeP^{\freshfor a})}
+\circ \delta_a \eta_{(\typeP^{\freshfor a})}
+\circ \theta^{-1}_{\typeP^{\freshfor a}}
+$ are both
+continuous, so by \ref{bang:freeness} they are equal. Therefore
+\[\begin{array}{rcll}
+%
+\multicolumn{4}{l}{
+}\\
+%
+&=&
+& \text{by \ref{def:eta}} \\
+%
+\end{array}\] But $
+?
+$ and $
+?
+$ are both linear, so by \ref{hat:freeness} they are
+equal.
+
 
 
 \subsection{Relationships between ${!}$, $\widehat{(-)}$, $(-)^{\freshfor a}$
