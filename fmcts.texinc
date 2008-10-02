@@ -1202,63 +1202,111 @@ $\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ
 {!}\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ {!}\eta_{\delta_a \typeP}$ are
 both linear, so by \ref{hat:freeness} they are equal.
 
-\paragraph{Unit Square} \[\begin{array}{rcll} \multicolumn{4}{l}{ 
-\widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
-\circ \eta_{\delta_a (\typeP^{\freshfor a})}
-\circ i_{\delta_a (\typeP^{\freshfor a})}
-}\\
-%
-&=&
-\widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
-\circ \{\cdot\}_{{!}\delta_a (\typeP^{\freshfor a})}
-&\text{by \ref{def:eta}} \\
-%
-&=&
-\{\cdot\}_{\delta_a{!} (\typeP^{\freshfor a})}
-\circ {\theta^{!}_{\typeP^{\freshfor a}}}^{-1}
-&\text{by naturality of $\eta$} \\
-%
-&=&
-\theta_{\delta_a{!} (\typeP^{\freshfor a})}
-\circ \delta_a \{\cdot\}_{{!} (\typeP^{\freshfor a})}
-\circ {\theta^{!}_{\typeP^{\freshfor a}}}^{-1}
-&\text{by \ref{comm:deltatriangle}} \\
-%
-&=&
-\theta_{\delta_a{!} (\typeP^{\freshfor a})}
-\circ \delta_a \eta_{(\typeP^{\freshfor a})}
-\circ \delta_a i_{(\typeP^{\freshfor a})}
-\circ {\theta^{!}_{\typeP^{\freshfor a}}}^{-1}
-&\text{by \ref{def:eta}} \\
-%
-&=&
-\theta_{\delta_a{!} (\typeP^{\freshfor a})}
-\circ \delta_a \eta_{(\typeP^{\freshfor a})}
-\circ \theta^{-1}_{\typeP^{\freshfor a}}
-\circ i_{\delta_a (\typeP^{\freshfor a})}
-&\text{by \ref{def:thetabang}} \\
-%
-\end{array} \] But using \ref{deltahat:continuous} the maps $
-\widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
-\circ \eta_{\delta_a (\typeP^{\freshfor a})}
-$ and $
-\theta_{\delta_a{!} (\typeP^{\freshfor a})}
-\circ \delta_a \eta_{(\typeP^{\freshfor a})}
-\circ \theta^{-1}_{\typeP^{\freshfor a}}
-$ are both
-continuous, so by \ref{bang:freeness} they are equal. Therefore
-\[\begin{array}{rcll}
+\vfill\TODO{Remove pagebreak}\pagebreak
+\paragraph{Unit Square} \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
+\delta_a^+ \widehat{{\phi^{!}_{\typeP}}^{-1}}
+\circ \widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
+\circ {!}\widehat{\xi_{\typeP}}
+\circ \{\cdot\}_{\typelift\typeP}
 }\\
 %
 &=&
+\delta_a^+ \widehat{{\phi^{!}_{\typeP}}^{-1}}
+\circ \widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
+\circ \eta_{\delta_a (\typeP^{\freshfor a})}
+\circ \widehat{\xi_{\typeP}}
+\circ i_{\typeP}
+& \text{by \ref{def:banglin}} \\
+%
+&=&
+\theta_{({!}\typeP)^{\freshfor a}}
+\circ \delta_a \widehat{{\phi^{!}_{\typeP}}^{-1}}
+\\&&\qquad{}
+\circ \theta^{-1}_{{!}(\typeP^{\freshfor a})}
+\circ \widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
+\circ \eta_{\delta_a (\typeP^{\freshfor a})}
+\circ \widehat{\xi_{\typeP}}
+\circ i_{\typeP}
+& \text{by \ref{def:deltalin}} \\
+%
+&=&
+\theta_{({!}\typeP)^{\freshfor a}}
+\circ \delta_a \widehat{{\phi^{!}_{\typeP}}^{-1}}
+\\&&\qquad{}
+\circ \theta^{-1}_{{!}(\typeP^{\freshfor a})}
+\circ \theta_{{!}(\typeP^{\freshfor a})}
+\circ \delta_a \eta_{\typeP^{\freshfor a}}
+\circ \theta^{-1}_{\typeP^{\freshfor a}}
+\circ \widehat{\xi_{\typeP}}
+\circ i_{\typeP}
+& \text{by \ref{comm:thetaeta}} \\
+%
+&=&
+\theta_{({!}\typeP)^{\freshfor a}}
+\circ \delta_a \widehat{{\phi^{!}_{\typeP}}^{-1}}
+\circ \delta_a \eta_{\typeP^{\freshfor a}}
+\circ \theta^{-1}_{\typeP^{\freshfor a}}
+\circ \widehat{\xi_{\typeP}}
+\circ i_{\typeP}
+& \\
+%
+&=&
+\theta_{({!}\typeP)^{\freshfor a}}
+\circ \delta_a \phi_{\typelift\typeP}
+\circ \delta_a (\eta_{\typeP}^{\freshfor a})
+\circ \delta_a \phi^{-1}_{\typeP}
+\circ \theta^{-1}_{\typeP^{\freshfor a}}
+\circ \widehat{\xi_{\typeP}}
+\circ i_{\typeP}
+& \text{by \ref{comm:phieta}} \\
+%
+&=&
+\theta_{({!}\typeP)^{\freshfor a}}
+\circ \delta_a \phi_{\typelift\typeP}
+\circ \delta_a (\eta_{\typeP}^{\freshfor a})
+\circ \xi_{\widehat{\typeP}}
+\circ i_{\typeP}
+& \text{by \ref{comm:xisquare}} \\
+%
+&=&
+\theta_{({!}\typeP)^{\freshfor a}}
+\circ \delta_a \phi_{\typelift\typeP}
+\circ \delta_a (\eta_{\typeP}^{\freshfor a})
+\circ \delta_a (i_{\typeP}^{\freshfor a})
+\circ \xi_{\typelift\typeP}
+& \text{by naturality of $\xi$} \\
+%
+&=&
+\theta_{({!}\typeP)^{\freshfor a}}
+\circ \delta_a \phi_{\typelift\typeP}
+\circ \delta_a (\{\cdot\}_{\typelift\typeP}^{\freshfor a})
+\circ \xi_{\typelift\typeP}
 & \text{by \ref{def:eta}} \\
 %
+&=&
+\theta_{({!}\typeP)^{\freshfor a}}
+\circ \delta_a \{\cdot\}_{(\typelift\typeP)^{\freshfor a}}
+\circ \xi_{\typelift\typeP}
+& \text{by \ref{comm:freshtriangle}} \\
+%
+&=&
+\{\cdot\}_{\delta_a ((\typelift\typeP)^{\freshfor a})}
+\circ \xi_{\typelift\typeP}
+& \text{by \ref{comm:deltatriangle}} \\
+%
+&=&
+\widehat{\xi_{\typelift\typeP}}
+\circ \{\cdot\}_{\typelift\typeP}
+& \text{by naturality of $\{\cdot\}$} \\
+%
 \end{array}\] But $
-?
+\delta_a^+ \widehat{{\phi^{!}_{\typeP}}^{-1}}
+\circ \widehat{{\theta^{!}_{\typeP^{\freshfor a}}}^{-1}}
+\circ {!}\widehat{\xi_{\typeP}}
 $ and $
-?
+\widehat{\xi_{\typelift\typeP}}
 $ are both linear, so by \ref{hat:freeness} they are
 equal.
 
