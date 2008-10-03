@@ -109,7 +109,7 @@ theory too, and this section explores some of their details.
 to $\typeQ$, and write $\typeP \to_{s} \typeQ$ for just those functions
 supported by $s$.
 %
-The chain of isomorphisms \begin{equation} \label{homsets} \begin{array}{rcll}
+The chain of isomorphisms \begin{equation} \label{homsets} \begin{array}[t]{rcll}
 \mathbf{FMLin}_{s}(\typeP, \typeQ)
 %
 &\cong& \typeP \to_s \widehat{\typeQ} & \text{by \ref{hat:adj}} \\
@@ -173,7 +173,7 @@ The projection $\mathbf{out}_i : \matthat{\typeP_1 \amp \typeP_2} \to
 \mathbf{in}_i p \in x \}$.
 %
 Furthermore, the injections and projections satisfy \begin{equation}
-\label{biproducts} \begin{array}{c} \mathbf{out}_i \circ \mathbf{in}_i =
+\label{biproducts} \begin{array}[t]{c} \mathbf{out}_i \circ \mathbf{in}_i =
 \mathbf{1}_{\typeP_i} \quad \mathbf{out}_i \circ \mathbf{in}_j = \varnothing \
 (i \neq j) \\ ((\mathbf{in}_1 \circ \mathbf{out}_1) \cup (\mathbf{in}_2 \circ
 \mathbf{out}_2)) = \mathbf{1}_{\typeP_1 + \typeP_2} \end{array} \end{equation}
@@ -215,7 +215,7 @@ It is straightforward to see that this product is associative, and the
 (discrete) nominal preorder on the one-element set is a unit for this operation
 on both sides, so that this is a monoidal structure on $\mathbf{FMLin}_s$.
 %
-Via \ref{homsets}, \begin{equation} \begin{array}{rcl} \mathbf{FMLin}_s(\typeP
+Via \ref{homsets}, \begin{equation} \begin{array}[t]{rcl} \mathbf{FMLin}_s(\typeP
 \times \typeQ, \typeR)
 %
 & \cong & \{ x \in \matthat{(\typeP \times \typeQ)^{\mathrm{op}} \times \typeR}
@@ -592,7 +592,7 @@ commute.
 
 To see that the `left triangle' commutes,
 let $p \in \typeP^{\freshfor a}$, then \begin{equation}
-\label{comm:freshtriangle} \begin{array}{rcl}
+\label{comm:freshtriangle} \begin{array}[t]{rcl}
 \bigl(\{\cdot\}_{\typeP^{\freshfor a}}\bigr)p 
 %
 &=& \{p' \in \typeP^{\freshfor a} \mid p' \le_{\typeP^{\freshfor a}} p\} \\
@@ -619,7 +619,7 @@ such that $a \freshfor x$ and $p \in x$ so that $p \in \bigl(\phi_{\typeP} \circ
 \mathord{\cup}_{\typeP}^{\freshfor a}\bigr)X$ as required.
 
 To see that the `unit square' commutes, let $x \in
-\widehat{\typeP}$, then \begin{equation} \label{comm:xisquare} \begin{array}{rcl} \bigl(\theta_{\typeP^{\freshfor a}}
+\widehat{\typeP}$, then \begin{equation} \label{comm:xisquare} \begin{array}[t]{rcl} \bigl(\theta_{\typeP^{\freshfor a}}
 \circ \delta_a \phi_{\typeP} \circ \xi_{\widehat{\typeP}}\bigr) x 
 %
 &=& \bigl(\theta_{\typeP^{\freshfor a}} \circ \delta_a \phi_{\typeP}\bigr)
@@ -640,7 +640,7 @@ p\}} \\
 \end{array} \end{equation}
 
 To see that the `right triangle' commutes, let $p \in
-\delta_a\typeP$, then \begin{equation} \label{comm:deltatriangle} \begin{array}{rcl}
+\delta_a\typeP$, then \begin{equation} \label{comm:deltatriangle} \begin{array}[t]{rcl}
 \bigl(\{\cdot\}_{\delta_a\typeP}\bigr)p
 %
 &=& \{p' \in \delta_a\typeP \mid p' \le_{\delta_a\typeP} p\} \\
@@ -676,7 +676,7 @@ X'\bigr) @ b$ and hence $p' \in \bigl(\theta_\typeP \circ \delta_a
 
 To see that the `counit square' commutes, let $x' \in
 (\delta_a \widehat{\typeP})^{\freshfor a}$, then \begin{equation}
-\label{comm:zetasquare} \begin{array}{rcl}
+\label{comm:zetasquare} \begin{array}[t]{rcl}
 \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
 \theta_{\typeP}^{\freshfor a}\bigr) x'
 %
@@ -707,7 +707,7 @@ adjunction is concretely described as follows.
 \subsubsection{The functor $(-)^{\freshfor a+}$.}
 %
 If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then
-\begin{equation} \label{def:freshlin} \begin{array}{rcl} f^{\freshfor a+} 
+\begin{equation} \label{def:freshlin} \begin{array}[t]{rcl} f^{\freshfor a+} 
 %
 &=& \bigl(\phi_\typeQ \circ f^{\freshfor a} \circ \{\cdot\}_{\typeP}^{\freshfor
 a}\bigr)^{\dagger} \\
@@ -749,7 +749,7 @@ This justifies the assertion made in \ref{concrete:freshlin}.
 \subsubsection{The functor $\delta_a^+$.}
 %
 If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$ then
-\begin{equation} \label{def:deltalin} \begin{array}{rcl} \delta_a^+ f  
+\begin{equation} \label{def:deltalin} \begin{array}[t]{rcl} \delta_a^+ f  
 %
 &=& \bigl(\theta_\typeQ \circ \delta_a f \circ \delta_a
 \{\cdot\}_{\typeP}\bigr)^{\dagger} \\
@@ -764,7 +764,7 @@ If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$ then
 \end{array} \end{equation} 
 %
 Even more concretely if $x \in \widehat{\delta_a\typeP}$ then
-\begin{equation}\begin{array}{rcl} \delta_a^+ f(x)
+\begin{equation}\begin{array}[t]{rcl} \delta_a^+ f(x)
 %
 &=& \bigl(\theta_\typeQ \circ \delta_a f \circ \theta_{\typeP}^{-1}\bigr) (x) \\
 %
@@ -817,7 +817,7 @@ First note that the following diagram commutes by naturality of $\xi$,
 	\ar[u]_{\theta_{(-)^{\freshfor a}}}
 }\end{equation}
 Then $\xi^+ : \mathbf{1} \to \delta^+_a((-)^{\freshfor a+})$ is given by
-\begin{equation} \label{def:xilin} \begin{array}{rcl} \xi^+
+\begin{equation} \label{def:xilin} \begin{array}[t]{rcl} \xi^+
 %
 &=& \bigl(\{\cdot\}_{\delta_a((-)^{\freshfor a})} \circ \xi\bigr)^{\dagger} \\
 %
@@ -859,7 +859,7 @@ $\zeta$, \ref{comm:freshtriangle} and \ref{comm:deltatriangle}.
 %
 }\end{equation} Then $\zeta^+ : (\delta^+_a(-))^{\freshfor a+} \to
 \mathbf{1}$ is given by \begin{equation} \label{def:zetalin}
-\begin{array}{rcl} \zeta^+
+\begin{array}[t]{rcl} \zeta^+
 %
 &=& \bigl(\{\cdot\}_{\downarrow} \circ \zeta\bigr)^{\dagger} \\
 %

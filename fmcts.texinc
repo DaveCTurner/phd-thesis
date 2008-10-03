@@ -452,7 +452,7 @@ Therefore $\epsilon_{\typeP}$ is the unique FM-linear map such that
 \subsubsection{Hom-sets.}
 
 The chain of isomorphisms \begin{equation} \label{cts:homsets}
-\begin{array}{rcll} \mathbf{FMCts}_{s}(\typeP, \typeQ)
+\begin{array}[t]{rcll} \mathbf{FMCts}_{s}(\typeP, \typeQ)
 %
 &\cong& \mathbf{FMLin}_{s}({!}\typeP, \typeQ) & \text{by \ref{bang:adj}} \\
 %
@@ -1514,7 +1514,7 @@ Therefore by \ref{bang:freeness} and \ref{def:deltalin} \begin{equation}
 Recall that the counit $\epsilon$ of the adjunction \ref{bang:adj} is given by
 $\epsilon = i^{\dagger}$.
 %
-Therefore \begin{equation} \label{def:xicts} \begin{array}{rcl} \xi^{++} 
+Therefore \begin{equation} \label{def:xicts} \begin{array}[t]{rcl} \xi^{++} 
 %
 &=& (\xi^+_{\typeP} \circ \epsilon_{\typeP} \circ
 \{\cdot\}_{\typelift\typeP})^{\ddagger} \quad\text{by \ref{def:adjplus}} \\
@@ -1530,7 +1530,7 @@ Therefore \begin{equation} \label{def:xicts} \begin{array}{rcl} \xi^{++}
 &=& \widehat{\xi_{\typeP}} \quad\text{by \ref{def:xilin}}
 %
 \end{array} \end{equation} and \begin{equation} \label{def:zetacts}
-\begin{array}{rcl} \zeta^{++} 
+\begin{array}[t]{rcl} \zeta^{++} 
 %
 &=& (\zeta^+_{\typeP} \circ \epsilon_{(\delta_a\typeP)^{\freshfor a}} \circ
 \{\cdot\}_{\typelift{((\delta_a\typeP)^{\freshfor a})}})^{\ddagger}

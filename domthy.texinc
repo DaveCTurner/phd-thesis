@@ -311,7 +311,7 @@ Let $p_1' \le_{\delta_a \typeP} p_2'$ and let $b$ be fresh. Therefore $p_1'@b
 
 Let $\sigma$ be a permutation that fixes $s$ and suppose that $b$ is fresh.  The
 support of $(ab) \cdot f$ is contained in $s \udot \{b\}$ so that $\sigma \cdot
-(ab) \cdot f = (ab) \cdot f$. Therefore \begin{equation}\begin{array}{rcl}
+(ab) \cdot f = (ab) \cdot f$. Therefore \begin{equation}\begin{array}[t]{rcl}
 \sigma \cdot (\delta_a f(p'))
 %
 &=& \sigma \cdot [b].\bigl((ab) \cdot f\bigr) (p' @ b) \\
@@ -349,7 +349,7 @@ that $\zeta_\typeQ$ is well-defined.  It is not hard to see that $\zeta_\typeQ$ 
 supported by $s \udot \{a\}$ and that it is monotone.
 
 Let $f : \typeP \to \typeP'$ be an arrow of $\mathbf{FMPre}_s$, let $p \in \typeP$ and let $b$
-be a fresh name. Then \begin{equation}\begin{array}{rcl} 
+be a fresh name. Then \begin{equation}\begin{array}[t]{rcl} 
 %
 (\delta_a (f^{\freshfor a}) \circ \xi_\typeP) (p)
 %
@@ -364,7 +364,7 @@ be a fresh name. Then \begin{equation}\begin{array}{rcl}
 &=& (\xi_{\typeP'} \circ f)(p) \\ \end{array}\end{equation} so that $\xi_\typeP$ is
 natural in $\typeP$.  Let $g : \typeQ \to \typeQ'$ be an arrow of $\mathbf{FMPre}_{s \udot
 \{a\}}$, let $q' \in (\delta_a \typeQ)^{\freshfor a}$ and let $b$ be a fresh name.
-Then \begin{equation}\begin{array}{rcl} (\zeta_\typeQ' \circ (\delta_a
+Then \begin{equation}\begin{array}[t]{rcl} (\zeta_\typeQ' \circ (\delta_a
 g)^{\freshfor a}) (q')
 %
 &=& \bigl([b].\bigl((ab) \cdot g\bigr) (q'@b)\bigr) @ a \\
@@ -384,7 +384,7 @@ a}} \circ \xi_\typeP^{\freshfor a}) (p) = ([b].p)@a = (ab) \cdot p = p$ as $a
 \freshfor p$ so that $\zeta_{(-)^{\freshfor a}} \circ \xi^{\freshfor a} =
 \mathbf{1}_{(-)^{\freshfor a}}$.
 
-Let $q' \in \delta_a \typeQ$ and let $b$ be fresh, then \begin{equation}\begin{array}{rcl}
+Let $q' \in \delta_a \typeQ$ and let $b$ be fresh, then \begin{equation}\begin{array}[t]{rcl}
 (\delta_a \zeta_\typeQ \circ \xi_{\delta_a \typeQ}) (q') 
 %
 &=& \delta_a \zeta_\typeQ ([b].q') \\
@@ -540,7 +540,7 @@ and hence $(\sigma_i \cdot f) x \in \sigma_i \cdot Y$ so that $\overline{f}
 \langle i, x \rangle \in \overline{Y}$ as required.
 %
 Furthermore if $\sigma$ is any permutation and $\langle i, x \rangle \in
-\overline{X}$ then \begin{equation} \begin{array}{rcl} \sigma \cdot \overline{f}
+\overline{X}$ then \begin{equation} \begin{array}[t]{rcl} \sigma \cdot \overline{f}
 \langle i, x \rangle 
 %
 &=& \sigma \cdot \langle i, (\sigma_i \cdot f) x \rangle \\
@@ -621,7 +621,7 @@ $\mathbf{FMPre}_{\varnothing}/ys$ as required.
 Conversely, define $\beta^{-1}$ by $\beta^{-1}(x) \defeq \langle f(x), x
 \rangle$.
 %
-Then \begin{equation} \begin{array}{rcl} x &\in& f^{-1} \{ f(x) \} \\
+Then \begin{equation} \begin{array}[t]{rcl} x &\in& f^{-1} \{ f(x) \} \\
 %
 &=& f^{-1} \{ \sigma_{f(x)} \circ i_s \} \\
 %
@@ -679,7 +679,7 @@ permutation that extends $i$ then $i^*$ gives rise to the permutation functor
 $\sigma_i : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$ via the equivalence of
 lemma \ref{lemma:slice} as follows. Let $\langle X, f \rangle$ be an object of
 $\mathbf{FMPre}_{\varnothing}$, then \begin{equation} \label{reindexing}
-\begin{array}{rcl} G_{s'} i^* \langle X, f \rangle
+\begin{array}[t]{rcl} G_{s'} i^* \langle X, f \rangle
 %
 &=& G_{s'} \langle X \times_{ys} ys', \pi_2\rangle \\
 %
@@ -733,7 +733,7 @@ The action of $(-) \otimes \mathbb A$ takes it to the arrow $f \otimes
 %
 From the equivalence in lemma \ref{lemma:slice} the object $\langle X \otimes
 \mathbb A, \nu^{-1} \circ (f \otimes \mathbf{1}_{\mathbb A}) \rangle$
-corresponds to the FM set \begin{equation} \label{deptype:fresh} \begin{array}{rcl}
+corresponds to the FM set \begin{equation} \label{deptype:fresh} \begin{array}[t]{rcl}
 %
 \multicolumn{3}{l}{G_{s \udot \{a\}} \langle X \otimes \mathbb A, \nu^{-1} \circ
 (f \otimes \mathbf{1}_{\mathbb A}) \rangle} \\
@@ -787,7 +787,7 @@ ys
 Via the equivalence of lemma \ref{lemma:slice} the object $\langle \delta X
 \times_{\delta(ys \otimes \mathbb A)} ys, \pi_2 \rangle$ of
 $\mathbf{FMPre}_{\varnothing}/ys$ corresponds to \begin{equation}
-\begin{array}{rcl}
+\begin{array}[t]{rcl}
 %
 \multicolumn{3}{l}{G_s \langle \delta X \times_{\delta(ys \otimes \mathbb A)}
 ys, \pi_2 \rangle} \\
