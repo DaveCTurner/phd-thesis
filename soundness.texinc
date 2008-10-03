@@ -87,7 +87,7 @@ derived from $\ajudge{\typeP}{t}{p}{t'}$, then \[\begin{array}{rcll}
 \sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}} \circ
 \sem{\tjudge{s}{}{\new{a}{t}}{\typedelta\typeP}}} \\
 %
-&=& \bigl(\widehat{\theta^{!}_{\typePp}} \circ \delta_a \sem{p} \bigr) \circ
+&=& \bigl(\widehat{\theta^{!}_{\typePp}} \circ \delta_a^{++} \sem{p} \bigr) \circ
 \sem{t}^{\vee} & \text{by the denotational semantics}\\
 %
 &=& \widehat{\theta^{!}_{\typePp}} \circ \bigl(\sem{p} \circ \sem{t}\bigr)^{\vee}
@@ -98,11 +98,11 @@ derived from $\ajudge{\typeP}{t}{p}{t'}$, then \[\begin{array}{rcll}
 & \text{by induction}\\
 %
 &=& \widehat{\theta^{!}_{\typePp}} \circ 
-\delta_a \eta_{\typePp} \circ \sem{t'}^{\vee}
+\delta_a^{++} \eta_{\typePp} \circ \sem{t'}^{\vee}
 & \text{by naturality of the adjunction}\\
 %
 &=& \eta_{\delta_a\typePp} \circ \sem{t'}^{\vee}
-& \text{by lemma \TODO{delta-theta-hat triangle lemma}}\\
+& \text{by lemma \ref{comm:thetaeta}}\\
 %
 &=& \sem{\tjudge{s}{}{\bang{\new{a}{t'}}}{\typelift{\typedelta\typePp}}}
 & \text{by the denotational semantics}\\
@@ -115,7 +115,7 @@ $\ajudge{\typeP}{\newapply{t}{a}}{p}{t'}$ is derived from
 $\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}$, then
 \[\begin{array}{rcll}
 %
-\widehat{\theta^{!}_\typePp} \circ \delta_a \sem{p} \circ \sem{t}
+\widehat{\theta^{!}_\typePp} \circ \delta_a^{++} \sem{p} \circ \sem{t}
 %
 &=& \sem{\newaction{a}{p}} \circ \sem{t} & \text{by the denotational semantics}\\
 %
@@ -127,15 +127,15 @@ $\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}$, then
 so that
 \[\begin{array}{rcll}
 %
-\delta_a \sem{p} \circ \sem{t} & \sqsupseteq & \widehat{{\theta^{!}_{\typePp}}^{-1}}
+\delta_a^{++} \sem{p} \circ \sem{t} & \sqsupseteq & \widehat{{\theta^{!}_{\typePp}}^{-1}}
 \circ \eta_{\typePp} \circ \sem{t'}^{\vee} \\
 %
-&=& \delta_a \eta_{\typePp} \circ \sem{t'}^{\vee} & \text{by lemma \TODO{delta-theta-hat lemma}} \\
+&=& \delta_a^{++} \eta_{\typePp} \circ \sem{t'}^{\vee} & \text{by lemma \ref{comm:thetaeta}} \\
 %
 &=& \bigl( \eta_{\typePp} \circ \sem{t'} \bigr)^{\vee} & \text{by naturality of the adjunction} \\
 %
 \end{array}\]
-and hence $\bigl(\delta_a \sem{p} \circ \sem{t}\bigr)^{\wedge} \sqsupseteq  \eta_{\typePp} \circ \sem{t'}$
+and hence $\bigl(\delta_a^{++} \sem{p} \circ \sem{t}\bigr)^{\wedge} \sqsupseteq  \eta_{\typePp} \circ \sem{t'}$
 by lemma \TODO{monotonicity of delta-fresh adjunction}. Therefore
 \[\begin{array}{rcll}
 %
@@ -144,7 +144,7 @@ by lemma \TODO{monotonicity of delta-fresh adjunction}. Therefore
 %
 &=& \sem{p} \circ \sem{t}^{\wedge} & \text{by the denotational semantics}\\
 %
-&=& \bigl(\delta_a \sem{p} \circ \sem{t}\bigr)^{\wedge} & \text{by naturality
+&=& \bigl(\delta_a^{++} \sem{p} \circ \sem{t}\bigr)^{\wedge} & \text{by naturality
 of the adjunction}\\
 %
 & \sqsupseteq & \eta_{\typePp} \circ \sem{t'} \\
