@@ -450,7 +450,21 @@ Therefore $\epsilon_{\typeP}$ is the unique FM-linear map such that
 \TODO{Prose intro}
 
 \subsubsection{Hom-sets.}
-\TODO{Hom-sets}
+
+The chain of isomorphisms \begin{equation} \label{cts:homsets}
+\begin{array}{rcll} \mathbf{FMCts}_{s}(\typeP, \typeQ)
+%
+&\cong& \mathbf{FMLin}_{s}({!}\typeP, \typeQ) & \text{by \ref{bang:adj}} \\
+%
+&\cong& \{x \in \matthat{{!}\typeP^{\mathrm{op}} \times \typeQ} \mid \supp{x}
+\subseteq s\} & \text{by \ref{homsets}} \end{array}\end{equation} characterises
+hom-sets in $\mathbf{FMCts}_s$.
+%
+As in $\mathbf{FMLin}_s$ each hom-set may be endowed with a partial order
+structure, given by $\subseteq$, and joins given by union.
+%
+Furthermore composition preserves joins in both its arguments, and in particular
+it is monotone.
 
 \subsubsection{Biproducts.}
 \TODO{Biproducts}
