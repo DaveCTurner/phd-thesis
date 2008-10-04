@@ -549,21 +549,20 @@ Therefore $L$ and $K$ are mutual inverses, which completes the proof.
 \end{proof}
 
 In particular, $K_{\mathbf{Lin}} : \mathbf{FMLin}_s \to
-\mathrm{Kl}\bigl(\widehat{(-)} \text{ on } \mathbf{FMPre}_s\bigr)$ is defined as
-the identity on objects, and if $f : \typeP \to \typeQ$ is an arrow of
-$\mathbf{FMLin}_s$ then $K_{\mathbf{Lin}}f \defeq f \circ \{\cdot\}_{\typeP}$. Its
-inverse $L_{\mathbf{Lin}}$ is also the identity on objects, and if $f : \typeP
-\to \typeQ$ is an arrow of $\mathrm{Kl}\bigl(\widehat{(-)}\bigr)$ then
-$L_{\mathbf{Lin}}f \defeq f^{\dagger}$.
+\mathrm{Kl}\bigl(\widehat{(-)} \text{ on } \mathbf{FMPre}_s\bigr)$ and its
+inverse $L_{\mathbf{Lin}}$ are both defined as the identity on objects, and if
+$f : \typeP \to \typePp$ is an arrow of $\mathbf{FMLin}_s$ and $g : \typeQ \to
+\widehat{\typeQp}$ is an arrow of $\mathbf{FMPre}_s$ then \begin{equation}
+\label{def:klin} K_{\mathbf{Lin}}f \defeq f \circ \{\cdot\}_{\typeP}
+\quad\text{and}\quad L_{\mathbf{Lin}}g \defeq g^{\dagger}.\end{equation}
 
-Similarly, $K_{\mathbf{Cts}} : \mathbf{FMCts}_s \to \mathrm{coKl}\bigl({!}
-\text{ on } \mathbf{FMLin}_s\bigr)$ is defined as the identity on objects, and
-if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$ then
-$K_{\mathbf{Cts}}f \defeq (f \circ i_{\typeP})^{\dagger}$.  Its inverse
-$L_{\mathbf{Cts}}$ is also the identity on objects, and if $f : \typeP \to
-\typeQ$ is an arrow of $\mathrm{coKl}\bigl(!\bigr)$ then $L_{\mathbf{Cts}}f
-\defeq f \circ \eta_{\typeP}$.
-
+Similarly, $K_{\mathbf{Cts}} : \mathbf{FMCts}_s \to \mathrm{Kl}\bigl({!} \text{
+on } \mathbf{FMLin}_s\bigr)$ and its inverse $L_{\mathbf{Cts}}$ are both defined
+as the identity on objects, and if $f : \typeP \to \typePp$ is an arrow of
+$\mathbf{FMCts}_s$ and $g : \typelift\typeQ \to \typeQp$ is an arrow of
+$\mathbf{FMLin}_s$ then \begin{equation} \label{def:kcts} K_{\mathbf{Cts}}f
+\defeq (f \circ i_{\typeP})^{\dagger} \quad\text{and}\quad L_{\mathbf{Cts}}g
+\defeq g \circ \eta_{\typeQ}.\end{equation}
 
 \subsection{Adjunctions in Kleisli Categories}
 
@@ -590,8 +589,8 @@ monads\cite{street:monads} but the proof is elementary diagram-chasing so it is
 reproduced here.
 %
 In \ref{subsect:deltafreshadjlin} it is shown that this lifting process,
-combined with the isomorphism $K_{\mathbf{Lin}}$ described above, gives rise to
-the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ described in
+combined with the isomorphism \ref{def:klin}, gives rise to the adjunction
+$(-)^{\freshfor a+} \dashv \delta_a^+$ described in
 \ref{subsubsect:deltafreshadjlin}.
 %
 Furthermore, it is shown in \ref{subsect:deltafreshadjcts} that this lifting
@@ -1326,8 +1325,8 @@ Let $x' \in (\delta_a \widehat{\typeP})^{\freshfor a}$, then \begin{equation}
 \subsection{Binding in $\mathbf{FMLin}_s$, Concretely}
 \label{binding-lin:concrete}
 
-Via the isomorphism $K_{\mathbf{Lin}}^{-1} = L_{\mathbf{Lin}}$, the adjunction
-of lemma \ref{deltafreshadjhatkleisli} gives rise to an adjunction on the linear
+Via the isomorphism \ref{def:klin} the adjunction of lemma
+\ref{deltafreshadjhatkleisli} gives rise to an adjunction on the linear
 categories which is concretely described as follows.
 
 \subsubsection{The Left Adjoint.}
@@ -1465,6 +1464,9 @@ a}}\bigr)^{\dagger} & \text{by \ref{comm:zetaplus}}\\
 \label{subsect:deltafreshadjcts}
 \TODO{Prose intro}
 
+\subsection{Relationships between $(-)^{\freshfor a+}$, $\delta_a^+$ and
+$!$} \label{subsect:delta-fresh-bang}
+
 This section shows that it is possible to restrict $\phi_\typeP$ to an
 isomorphism $(\typelift\typeP)^{\freshfor a} \cong \typelift(\typeP^{\freshfor
 a})$ and similarly $\theta_\typeP$ restricts to an isomorphism
@@ -1474,9 +1476,10 @@ The path to this result is to observe that $\phi_\typeP$ and $\theta_\typeP$ and
 their inverses have particularly simple characterisations on these restricted
 domains.
 
-\begin{lemma} If $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$ and $a \notin
-s' \supseteq s$ then \[\phi_{\typeP} \finelt{F}{s'} = \finelt{F}{s' \cup \{a\}}
-\in \typelift{(\typeP^{\freshfor a})}.\]
+\begin{lemma} \label{characterisation:phibang} If $F \subseteq_{\mathrm{fin}}
+\typeP^{\freshfor a}$ and $a \notin s' \supseteq s$ then \[\phi_{\typeP}
+\finelt{F}{s'} = \finelt{F}{s' \cup \{a\}} \in \typelift{(\typeP^{\freshfor
+a})}.\]
 %
 Moreover any element of $(\typelift\typeP)^{\freshfor a}$ can be written in the
 form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$
@@ -1516,9 +1519,10 @@ all $p \in (ab) \cdot F$ and hence $(ab) \cdot F \subseteq \typeP^{\freshfor a}$
 as required. \end{proof}
 
 
-\begin{lemma} If $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$ and $a \in s'
-\supseteq s$ then \[\phi^{-1}_{\typeP} \finelt{F}{s'} = \finelt{F}{s' \setminus
-\{a\}} \in (\typelift\typeP)^{\freshfor a}.\]
+\begin{lemma} \label{characterisation:phibanginv} If $F \subseteq_{\mathrm{fin}}
+\typeP^{\freshfor a}$ and $a \in s' \supseteq s$ then \[\phi^{-1}_{\typeP}
+\finelt{F}{s'} = \finelt{F}{s' \setminus \{a\}} \in (\typelift\typeP)^{\freshfor
+a}.\]
 %
 Moreover any element of $\typelift{(\typeP^{\freshfor a})}$ can be written in
 the form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor
@@ -1529,7 +1533,7 @@ a}$ and $a \in s' \supseteq s$.  \end{lemma}
 (\typelift\typeP)^{\freshfor a}$ by \ref{finelts}.
 %
 Recall from \ref{characterisation:phiinv} that \begin{equation}
-\label{characterisation:phibanginv} p' \in \phi^{-1}_{\typeP}\finelt{F}{s'}
+p' \in \phi^{-1}_{\typeP}\finelt{F}{s'}
 \quad\Leftrightarrow \quad \freshin{b}{p' \in (ab) \cdot
 \finelt{F}{s'}}.\end{equation}
 %
@@ -1564,15 +1568,14 @@ exists $F \subseteq \typeP^{\freshfor a}$ such that $x = \finelt{F}{\supp{a,x,
 \typeP, s}}$ as required. \end{proof}
 
 
-\begin{lemma} If $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab) \cdot
-\typeP$ and $b \in s' \supseteq s$ then \[\theta_{\typeP}
-\bigl([b].\finelt{F}{s'}\bigr) = \finelt{\{[b].p \mid p \in F\}}{s' \setminus
-\{b\}} \in \typelift{\delta_a\typeP}.\]
+\begin{lemma} \label{characterisation:thetabang} If $b$ is a fresh name, $F
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \in s' \supseteq s$ then
+\[\theta_{\typeP} \bigl([b].\finelt{F}{s'}\bigr) = \finelt{\{[b].p \mid p \in
+F\}}{s' \setminus \{b\}} \in \typelift{\delta_a\typeP}.\]
 %
 Moreover any element of $\delta_a\typelift\typeP$ can be written in the form
 $[b].\finelt{F}{s'}$ where $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab)
-\cdot \typeP$ and $b \in s' \supseteq s$.
-\end{lemma}
+\cdot \typeP$ and $b \in s' \supseteq s$.  \end{lemma}
 
 \begin{proof} Since $F \subseteq (ab) \cdot \typeP$ it follows that $\{[b].p
 \mid p \in F\} \subseteq \delta_a \typeP$ so that $\finelt{\{[b].p \mid p \in
@@ -1601,10 +1604,10 @@ there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that $(ab) \cdot (x@b) =
 \finelt{F}{s'}$  and hence $x = [b].\bigl( \finelt{(ab) \cdot F}{(ab) \cdot s'}
 \bigr)$ and $b \in (ab) \cdot s'$ as required.  \end{proof}
 
-\begin{lemma} If $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab) \cdot
-\typeP$ and $b \notin s' \supseteq s$ then \[\theta^{-1}_{\typeP}
-\finelt{\{[b].p \mid p \in F\}}{s'} = [b].\finelt{F}{s' \udot \{b\}} \in
-\delta_a\typelift\typeP.\]
+\begin{lemma} \label{characterisation:thetabanginv} If $b$ is a fresh name, $F
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \notin s' \supseteq s$ then
+\[\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'} = [b].\finelt{F}{s'
+\udot \{b\}} \in \delta_a\typelift\typeP.\]
 %
 Moreover any element of $\typelift{\delta_a\typeP}$ can be written in the form
 $\finelt{\{[b].p \mid p \in F\}}{s'}$ where $b$ is a fresh name, $F
@@ -1660,37 +1663,11 @@ that $b \freshfor p'$ for all $p' \in F'$, so that $F' = \{[b].(p'@b) \mid p'
 \in F'\}$ and $\{p'@b \mid p' \in F'\} \subseteq_{\mathrm{fin}} (ab) \cdot
 \typeP$ as required.  \end{proof}
 
-In fact, ${!}$ may be seen as an endofunctor on $\mathbf{FMPre}_s$, where if $f
-: \typeP \to \typeQ$ is an arrow of $\mathbf{FMPre}_s$ and $x \in
-\typelift\typeP$ then $({!}f)(x) \defeq \widehat{f}(x)$.  To see that ${!}f$ is
-well-defined, it is necessary to show that $\widehat{f}(x) \in \typelift\typeQ$.
-Without loss of generality, write $x = \finelt{F}{s'}$ where $F$ is finite and
-$s \subseteq s'$, then it will be shown that $\widehat{f}(x) = \finelt{\{f p
-\mid p \in F\}}{s'}$ which is indeed isolated in $\widehat\typeQ$ as required.
-
-Firstly, let $q \in \widehat{f}(x)$, then there exists $p' \in x$ such that $q
-\le_{\typeQ} f p'$, and hence there exists $p \in F$ and $\sigma \freshfor s'$
-such that $p' \le_{\typeP} \sigma \cdot p$. Therefore $q \le_{\typeQ} f (\sigma
-\cdot p) = \sigma \cdot (f p)$ and hence $q \in \finelt{\{f p \mid p \in
-F\}}{s'}$. Conversely, let $q \in \finelt{\{f p \mid p \in F\}}{s'}$, then there
-exists $p \in F$ and $\sigma \freshfor s'$ such that $q \le_{\typeQ} \sigma
-\cdot (f p) = f (\sigma \cdot p)$.  Therefore $\sigma \cdot p \in x$ and hence
-$q \in \widehat{f}(x)$ as required.
-
-The following result follows immediately from the discussion above.
-
-\begin{corollary}\label{freshbangiso} Let $a \notin s$. The following pairs of
-functors are naturally isomorphic.  \[{({!}-)}^{\freshfor a}, {!}((-)^{\freshfor
-a}) : \mathbf{FMPre}_s \rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}\]
-\[\delta_a{!}, {!}\delta_a : \mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows
-\mathbf{FMPre}_s\] \end{corollary}
-
 The restrictions of the isomorphisms $\phi$ and $\theta$ are written $\phi^{!} :
 {({!}-)}^{\freshfor a} \to {!}((-)^{\freshfor a})$ and $\theta^{!} : \delta_a{!}
 \to {!}\delta_a$.
 
-\subsubsection{Definition of $\phi^{!}$.} \label{def:phibang}
-Have that $\phi^{!}$ satisfies
+\begin{lemma} \label{def:phibang} The following diagram commutes.
 \[\xymatrix{
 {!}(\typeQ^{\freshfor a})
 	\ar[r]^{{\phi^{!}_{\typeQ}}^{-1}}
@@ -1703,12 +1680,11 @@ Have that $\phi^{!}$ satisfies
 	\ar[r]^{\phi^{-1}_{\typeQ}}
 &
 \widehat{\typeQ}^{\freshfor a}
-}\]
-i.e. that $i_{\typeQ}^{\freshfor a} \circ {\phi^{!}_{\typeQ}}^{-1} =
-\phi^{-1}_{\typeQ} \circ i_{\typeQ^{\freshfor a}}$.
+}\]\end{lemma}
 
-\subsubsection{Definition of $\theta^{!}$.} \label{def:thetabang}
-Have that $\theta^{!}$ satisfies
+\begin{proof} By \ref{characterisation:phibanginv}.\end{proof}
+
+\begin{lemma} \label{def:thetabang} The following diagram commutes.
 \[\xymatrix{
 {!}\delta_a \typeQ
 	\ar[r]^{{\theta^{!}_{\typeQ}}^{-1}}
@@ -1721,13 +1697,14 @@ Have that $\theta^{!}$ satisfies
 	\ar[r]^{\theta^{-1}_{\typeQ}}
 &
 \delta_a \widehat{\typeQ}
-}\]
-i.e. that $\delta_a i_{\typeQ} \circ {\theta^{!}_{\typeQ}}^{-1} =
-\theta^{-1}_{\typeQ} \circ i_{\delta_a \typeQ}$.
+}\]\end{lemma}
 
-\TODO{More precision here.}
+\begin{proof} By \ref{characterisation:thetabanginv}.\end{proof}
 
-Two technical lemmas...
+\subsection{Binding in $\mathbf{FMCts}_s$, Abstractly}
+\label{binding-cts:abstract}
+
+Firstly it is useful to have the following two technical lemmas.
 
 \begin{lemma} \label{comm:phieta} If $\typeP$ is an object of $\mathbf{FMPre}_s$
 then \[\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}} =
@@ -1757,7 +1734,7 @@ i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} &\text{by \ref{def:eta}}
 \end{array} \] But using \ref{freshhat:continuous} the maps
 $\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}}$ and
 $\phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ \phi^{-1}_{\typeP}$
-are both continuous, so the result follows by \ref{bang:freeness}.\end{proof}
+are both continuous, so the result follows by \ref{bang:epi}.\end{proof}
 
 \begin{lemma} \label{comm:thetaeta}  If $\typeP$ is an object of
 $\mathbf{FMPre}_{s \udot \{a\}}$ then \[\widehat{{\theta^{!}_{\typeP}}^{-1}}
@@ -1786,7 +1763,11 @@ naturality of $\{\cdot\}_{\downarrow}$}\\
 \end{array} \] But using \ref{deltahat:continuous} the maps
 $\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a \typeP}$ and
 $\theta_{{!}\typeP} \circ \delta_a \eta_{\typeP} \circ \theta^{-1}_{\typeP}$ are
-both continuous, so the result follows by \ref{bang:freeness}.\end{proof}
+both continuous, so the result follows by \ref{bang:epi}.\end{proof}
+
+It is now possible to show that $\widehat{{\phi^{!}}^{-1}}$ and
+$\widehat{{\theta^{!}}^{-1}}$ are natural transformations of the appropriate
+types.
 
 \begin{lemma} \label{phihat:natural} $\widehat{{\phi^{!}}^{-1}}$ is a natural
 transformation ${!}((-)^{\freshfor a+}) \to ({!}-)^{\freshfor a+}$. \end{lemma}
@@ -1829,7 +1810,7 @@ f^{\freshfor a+} \circ i_{\typeP^{\freshfor a}} & \text{by \ref{comm:phieta}} \\
 %
 \end{array}\] But $({!}f)^{\freshfor a+} \circ
 \widehat{{\phi^{!}_{\typeP}}^{-1}}$ and $\widehat{{\phi^{!}_{\typeQ}}^{-1}}
-\circ {!}(f^{\freshfor a+})$ are both linear, so by \ref{hat:freeness} they are
+\circ {!}(f^{\freshfor a+})$ are both linear, so by \ref{hat:epi} they are
 equal as required.  \end{proof}
 
 
@@ -1873,11 +1854,30 @@ natural transformation ${!}\delta^+_a \to \delta^+_a {!}$.\end{lemma}
 %
 \end{array}\] But $\delta^+_a {!}f \circ \widehat{{\theta^{!}_{\typeP}}^{-1}}$
 and $\widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ {!}\delta^+_a f$ are both
-linear, so by \ref{hat:freeness} they are equal as required.\end{proof}
+linear, so by \ref{hat:epi} they are equal as required.\end{proof}
 
-\subsubsection{Commuting Diagrams from \ref{adjunctionlift}.}
+\begin{lemma}\label{deltafreshadjbangcokleisli} If $\typeP$ is an object of
+$\mathbf{FMLin}_s$ then define $F^{++} \typeP = \typeP^{\freshfor a}$, and if $f
+: \typelift\typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then define
+$F^{++}f = f^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}$.
+%
+If $\typeP$ is an object of $\mathbf{FMLin}_{s \udot \{a\}}$ then define $G^{++}
+\typeP = \delta_a \typeP$, and if $f : \typelift\typeP \to \typeQ$ is an arrow
+of $\mathbf{FMLin}_{s \udot \{a\}}$ then define $G^{++}f = \delta_a^+ f \circ
+\widehat{{\theta^{!}_{\typeP}}^{-1}}$.
+%
+Define $\xi^{++} = \widehat{\xi} \circ \epsilon$ and $\zeta^{++} =
+\widehat{\zeta} \circ \epsilon_{(\delta_a -)^{\freshfor a}}$.
+%
+Then $\xi^{++}$ and $\zeta^{++}$ are respectively the unit and counit of an
+adjunction \[F^{++} \dashv G^{++} : \mathrm{coKl}\bigl({!} \text{ on }
+\mathbf{FMLin}_s\bigr) \leftrightarrows \mathrm{coKl}\bigl({!} \text{ on }
+\mathbf{FMLin}_{s \udot \{a\}}\bigr).\]\end{lemma}
 
-\paragraph{Fresh triangle}
+\begin{proof}
+By the dual of lemma \ref{adjunctionlift}, the following argument is sufficient.
+
+\paragraph{Left Triangle.}
 \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
@@ -1912,7 +1912,7 @@ linear, so by \ref{hat:freeness} they are equal as required.\end{proof}
 $\epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}$ are
 both linear, so they are equal by \ref{hat:freeness}.
 
-\paragraph{Delta triangle}
+\paragraph{Right Triangle.}
 \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
@@ -1948,7 +1948,7 @@ $\{\cdot\}_{\downarrow}$} \\
 by \ref{hat:freeness}.
 
 
-\paragraph{Fresh pentagon}
+\paragraph{Left Pentagon.}
 \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
@@ -2006,7 +2006,7 @@ both linear, so by \ref{hat:freeness} they are equal.
 
 
 
-\paragraph{Delta pentagon} \[\begin{array}{rcll}
+\paragraph{Right Pentagon.} \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
 \delta_a^+ !\eta_{\typeP} \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ
@@ -2057,7 +2057,7 @@ $\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ
 {!}\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ {!}\eta_{\delta_a \typeP}$ are
 both linear, so by \ref{hat:freeness} they are equal.
 
-\paragraph{Unit Square} \[\begin{array}{rcll}
+\paragraph{Unit Square.} \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
 \delta_a^+ \widehat{{\phi^{!}_{\typeP}}^{-1}}
@@ -2165,7 +2165,7 @@ $ are both linear, so by \ref{hat:freeness} they are
 equal.
 
 
-\paragraph{Counit Square} \[\begin{array}{rcll}
+\paragraph{Counit Square.} \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{
 \widehat{\zeta_{\typelift\typeP}}
@@ -2258,34 +2258,23 @@ $ and $
 {!}\widehat{\zeta_{\typeP}}
 $ are both linear, so by \ref{hat:freeness} they are
 equal.
-
-
-\TODO{Integrate this}
-
-However, there is a much simpler approach to this adjunction, since the rest of
-this section shows that it is the same as the adjunction \ref{deltafreshadjlin}
-on the linear categories. 
 %
-More precisely, the `lifting' process of lemma \ref{adjunctionlift} lifts
-$(-)^{\freshfor a+}$ and $\delta_a^+$ to functors with the same action on the
-continuous categories, and preserves the unit and counit too.
-%
-Let $(-)^{\freshfor a++}$ and $\delta_a^{++}$ be the lifted functors and
-$\xi^{++}$ and $\zeta^{++}$ the lifted unit and counit.
+This completes the proof.\end{proof}
 
-If $\typeP$ is an object of $\mathbf{FMCts}_s$ then certainly $\typeP^{\freshfor a++} =
-\typeP^{\freshfor a+}$. 
+\subsection{Binding in $\mathbf{FMCts}_s$, Concretely}
+\label{binding-cts:concrete}
+
+Via the isomorphism \ref{def:kcts}, the adjunction of lemma
+\ref{deltafreshadjbangcokleisli} gives rise to an adjunction on the continuous
+categories which is concretely described as follows.
+
+\subsubsection{The Left Adjoint.}
+If $\typeP$ is an object of $\mathbf{FMCts}_s$ then certainly
+$L_{\mathbf{Cts}}F^{++}K_{\mathbf{Cts}}\typeP = \typeP^{\freshfor a}$.
 %
-Suppose that $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$, then $(f
-\circ i_{\typeP})^{\dagger}$ is the corresponding arrow of the coKleisli
-category on $\mathbf{FMLin}_s$ and hence $f^{\freshfor a++}$ corresponds to the
-linear map ${(f \circ i_{\typeP})^{\dagger}}^{\freshfor a+} \circ
-\widehat{{\phi^{!}_{\typeP}}^{-1}}$, which in turn corresponds to the monotone
-map ${(f \circ i_{\typeP})^{\dagger}}^{\freshfor a+} \circ
-\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}(\typeP^{\freshfor a})}$.
-%
-The following diagram commutes in $\mathbf{FMPre}_{s \udot \{a\}}$ by naturality
-of $\{\cdot\}_{\downarrow}$, definition of $\phi^{!}$, \ref{comm:freshtriangle},
+Suppose that $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$, then the
+following commutes in $\mathbf{FMPre}_{s \udot \{a\}}$ by naturality of
+$\{\cdot\}_{\downarrow}$, \ref{def:phibang}, \ref{comm:freshtriangle},
 \ref{def:freshlin} and the freeness property \ref{hat:freeness}.
 \begin{equation} \label{freshplusplus}
 \xymatrix{
@@ -2321,24 +2310,39 @@ of $\{\cdot\}_{\downarrow}$, definition of $\phi^{!}$, \ref{comm:freshtriangle},
 \widehat{\typeQ^{\freshfor a}}
 }\end{equation}
 %
-Therefore by \ref{bang:freeness} and \ref{def:freshlin} \begin{equation}
-\label{def:freshcts} f^{\freshfor a++} = (\phi_{\typeQ} \circ f^{\freshfor a}
-\circ \phi_{\typeP}^{-1} \circ i_{\typeP^{\freshfor a}})^{\ddagger} =
-\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi_{\typeP}^{-1} = f^{\freshfor a+}.
-\end{equation}
-
-Similarly, if $\typeP$ is an object of $\mathbf{FMCts}_{s \udot \{a\}}$ then
-$\delta_a^{++}\typeP = \delta_a^+\typeP$. Suppose that $f : \typeP \to \typeQ$
-is an arrow of $\mathbf{FMCts}_{s \udot\{a\}}$, then $(f \circ
-i_{\typeP})^{\dagger}$ is the corresponding arrow of the coKleisli category on
-$\mathbf{FMCts}_{s \udot \{a\}}$ and hence $\delta_a^{++} f$ corresponds to the
-linear map $\delta_a^+ (f \circ i_{\typeP})^{\dagger} \circ
-\widehat{{\theta^{!}_{\typeP}}^{-1}}$ which in turn corresponds to the monotone
-map $\delta_a^+ (f \circ i_{\typeP})^{\dagger} \circ
-\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}\delta_a\typeP}$.
+Therefore 
+\begin{equation}
+\label{def:freshcts}
+\begin{array}[t]{rcll}
+L_{\mathbf{Cts}}F^{++}K_{\mathbf{Cts}} f
+\circ i_{\typeP^{\freshfor a}}
 %
-The following diagram commutes in $\mathbf{FMPre}_{s}$ by naturality of
-$\{\cdot\}_{\downarrow}$, definition of $\theta^{!}$, \ref{comm:deltatriangle},
+&=& {(f \circ i_{\typeP})^\dagger}^{\freshfor a+}
+\circ \widehat{{\phi^{!}_{\typeP}}^{-1}}
+\circ \eta_{\typeP^{\freshfor a}}
+\circ i_{\typeP^{\freshfor a}}\\
+%
+&=& {(f \circ i_{\typeP})^\dagger}^{\freshfor a+}
+\circ \widehat{{\phi^{!}_{\typeP}}^{-1}}
+\circ \{\cdot\}_{{!}(\typeP^{\freshfor a})} 
+& \text{by \ref{def:eta}} \\
+%
+&=& \phi_{\typeQ} \circ f^{\freshfor a}
+\circ \phi_{\typeP}^{-1} \circ i_{\typeP^{\freshfor a}}
+& \text{by \ref{freshplusplus}}
+%
+\end{array}\end{equation}
+so that $L_{\mathbf{Cts}}F^{++}K_{\mathbf{Cts}} f = 
+\phi_{\typeQ} \circ f^{\freshfor a}
+\circ \phi_{\typeP}^{-1}$ by \ref{bang:epi}.
+
+\subsubsection{The Right Adjoint.}
+%
+Similarly, if $\typeP$ is an object of $\mathbf{FMCts}_{s \udot \{a\}}$ then
+$L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}}\typeP = \delta_a\typeP$. Suppose that $f : \typeP \to \typeQ$
+is an arrow of $\mathbf{FMCts}_{s \udot\{a\}}$, then
+the following diagram commutes in $\mathbf{FMPre}_{s}$ by naturality of
+$\{\cdot\}_{\downarrow}$, \ref{def:thetabang}, \ref{comm:deltatriangle},
 \ref{def:deltalin} and the freeness property \ref{hat:freeness}.
 \begin{equation} \label{deltaplusplus}
 \xymatrix{
@@ -2374,52 +2378,39 @@ $\{\cdot\}_{\downarrow}$, definition of $\theta^{!}$, \ref{comm:deltatriangle},
 \widehat{\delta_a \typeQ}
 }\end{equation}
 %
-Therefore by \ref{bang:freeness} and \ref{def:deltalin} \begin{equation}
-\label{def:deltacts} \delta_a^{++} f = (\theta_{\typeQ} \circ \delta_a f \circ
-\theta_{\typeP}^{-1} \circ i_{\delta_a \typeP})^{\ddagger} = \theta_{\typeQ}
-\circ \delta_a f \circ \theta_{\typeP}^{-1} = \delta_a^+ f. \end{equation}
+Therefore 
+\begin{equation}
+\label{def:deltacts}
+\begin{array}[t]{rcll}
+L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}} f
+\circ i_{\delta_a \typeP}
+%
+&=& \delta_a^+(f \circ i_{\typeP})^\dagger
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}
+\circ \eta_{\delta_a \typeP}
+\circ i_{\delta_a \typeP}\\
+%
+&=& \delta_a^+(f \circ i_{\typeP})^\dagger
+\circ \widehat{{\theta^{!}_{\typeP}}^{-1}}
+\circ \{\cdot\}_{{!}\delta_a\typeP} 
+& \text{by \ref{def:eta}} \\
+%
+&=& \theta_{\typeQ} \circ \delta_a f
+\circ \theta_{\typeP}^{-1} \circ i_{\delta_a \typeP}
+& \text{by \ref{deltaplusplus}}
+%
+\end{array}\end{equation}
+so that $L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}} f = 
+\theta_{\typeQ} \circ \delta_a f
+\circ \theta_{\typeP}^{-1}$ by \ref{bang:epi}.
 
-Recall that the counit $\epsilon$ of the adjunction \ref{bang:adj} is given by
-$\epsilon = i^{\dagger}$.
-%
-Therefore \begin{equation} \label{def:xicts} \begin{array}[t]{rcl} \xi^{++} 
-%
-&=& (\xi^+_{\typeP} \circ \epsilon_{\typeP} \circ
-\{\cdot\}_{\typelift\typeP})^{\ddagger} \quad\text{by \ref{def:adjplus}} \\
-%
-&=& (\xi^+_{\typeP} \circ i_{\typeP}^\dagger \circ
-\{\cdot\}_{\typelift\typeP})^{\ddagger} \\
-%
-&=& (\xi^+_{\typeP} \circ i_{\typeP})^{\ddagger} \quad\text{by
-\ref{hat:freeness}} \\
-%
-&=& \xi^+_{\typeP} \quad\text{by \ref{bang:freeness}} \\
-%
-&=& \widehat{\xi_{\typeP}} \quad\text{by \ref{def:xilin}}
-%
-\end{array} \end{equation} and \begin{equation} \label{def:zetacts}
-\begin{array}[t]{rcl} \zeta^{++} 
-%
-&=& (\zeta^+_{\typeP} \circ \epsilon_{(\delta_a\typeP)^{\freshfor a}} \circ
-\{\cdot\}_{\typelift{((\delta_a\typeP)^{\freshfor a})}})^{\ddagger}
-\quad\text{by \ref{def:adjplus}} \\
-%
-&=& (\zeta^+_{\typeP} \circ i_{(\delta_a\typeP)^{\freshfor a}}^\dagger \circ
-\{\cdot\}_{\typelift{((\delta_a\typeP)^{\freshfor a})}})^{\ddagger} \\
-%
-&=& (\zeta^+_{\typeP} \circ i_{(\delta_a\typeP)^{\freshfor a}})^{\ddagger}
-\quad\text{by \ref{hat:freeness}} \\
-%
-&=& \zeta^+_{\typeP} \quad\text{by \ref{bang:freeness}} \\
-%
-&=& \widehat{\zeta_{\typeP}} \quad\text{by \ref{def:zetalin}}
-%
-\end{array} \end{equation}
+\subsubsection{The Unit.} \begin{equation} L_{\mathbf{Cts}}
+\xi^{++}_{K_{\mathbf{Cts}}} = \widehat{\xi} \circ \epsilon \circ \eta =
+\widehat{\xi} \end{equation}
 
-In summary, therefore, $(-)^{\freshfor a+}$ and $\delta_a^+$ preserve continuous
-maps, and $\xi^+$ and $\zeta^+$ are themselves continuous. It has already been
-shown that these form an adjunction on the linear categories, so it is now clear
-that they give a corresponding adjunction \ref{deltafreshadjcts} on the
-continuous categories too.
+\subsubsection{The Counit.} \begin{equation} L_{\mathbf{Cts}}
+\zeta^{++}_{K_{\mathbf{Cts}}} = \widehat{\zeta} \circ \epsilon_{(\delta_a
+-)^{\freshfor a}} \circ \eta_{(\delta_a -)^{\freshfor a}} = \widehat{\zeta}
+\end{equation}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
