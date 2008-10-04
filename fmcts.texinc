@@ -392,20 +392,34 @@ exists $x \in X$ such that $y \subseteq x$. It is clear that $f^{\ddagger} y = f
 y$, so by monotonicity $f y \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so
 that $f y \le U$ as required.  \end{proof}
 
-Notice that any $x \in \widehat{\typeP}$ is the uniformly-supported-directed
-join of certain isolated elements beneath it: \begin{equation} \label{bang:alg}
-x = \bigcup \{y \in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq
-\supp{x} \} \end{equation} which ensures the uniqueness of $f^{\ddagger}$.
+\begin{lemma} \label{bang:alg} If $x \in \widehat{\typeP}$ then \[ x = \bigcup
+\{y \in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x,
+\typeP} \} \] \end{lemma}
+
+\begin{proof} Certainly $x \supseteq \bigcup \{y \in \typelift\typeP \mid y
+\subseteq x \wedge \supp{y} \subseteq \supp{x, \typeP} \}$.
 %
-As before, if $C$ is of the form $\widehat{\typeQ}$ then this shows that
-finitely-supported monotone maps $\typelift\typeP \to \widehat{\typeQ}$ are in
-bijective correspondence with FM-continuous maps $\widehat{\typeP} \to
-\widehat{\typeQ}$.
-From earlier discussion, finitely-supported monotone maps $\typelift\typeP \to
-\widehat{\typeQ}$ are also in bijective correspondence with FM-linear maps
-$\widehat{\typelift\typeP} \to \widehat{\typeQ}$ so that there is an isomorphism
-\begin{equation} \label{bang:adj} \mathbf{FMLin}_s (\typelift\typeP, \typeQ)
-\cong \mathbf{FMCts}_s (\typeP, \typeQ).\end{equation}
+To see the converse let $p \in x$ and let $y = \finelt{\{p\}}{\supp{x,
+\typeP}}$.
+%
+It is clear that $p \in y$.
+%
+By \ref{fineltsupport} it follows that $\supp{y} \subseteq \supp{x, \typeP}$ and
+from \ref{finelts} it follows that $y \in \typelift\typeP$.
+%
+Let $p' \in y$ then by definition there exists $\sigma \freshfor \supp{x,
+\typeP}$ such that $p' \le_{\typeP} \sigma \cdot p$, but $\sigma \cdot p \in
+\sigma \cdot x = x$ and hence $p' \in x$.
+%
+Therefore $y \subseteq x$ so as required it follows that \[p \in \bigcup \{y \in
+\typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x, \typeP}
+\}. \qedhere\] \end{proof}
+
+Lemma \ref{bang:alg} ensures the uniqueness of $f^{\ddagger}$. Therefore if $f$
+and $g$ are FM-continuous maps $\widehat{\typeP} \to \widehat{\typeQ}$ and $f
+\circ i_{\typeP} = g \circ i_{\typeP}$ then by \ref{bang:freeness}
+\begin{equation} \label{bang:epi} f = (f \circ i_{\typeP})^{\ddagger} = (g \circ
+i_{\typeP})^{\ddagger} = g.  \end{equation}
 
 Notice that there is a natural FM-continuous $\eta_{\typeP} : \widehat\typeP \to
 \widehat{\typelift\typeP}$ given by $\eta_{\typeP} \defeq
