@@ -169,6 +169,8 @@ footprints.
 The following lemma captures this idea of a `footprint' in terms of a
 factorisation property for permutations.
 
+\TODO{Say more informally what I mean by footprint}
+
 \begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
 mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
 permutations $\sigma$ such that $\sigma a = a$ for all $a \in A$ there exist
@@ -182,6 +184,8 @@ $\sigma$ on $B$.
 %
 Note that there are only $|(B \cup D) \setminus A|!$ possible values for
 $\sigma_2$.
+%
+\TODO{Merge into paragraph above lemma}
 
 \begin{proof} Represent $\sigma$ as a finite list of transpositions of names not
 in $A$ and proceed by induction on the length of the list.
