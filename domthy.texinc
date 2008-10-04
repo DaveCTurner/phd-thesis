@@ -55,9 +55,9 @@ maps and in \ref{fmcts} an appropriate notion of continuity is developed.
 \label{npre}
 
 The theory of nominal preorders is a straighforward reinterpretation of the
-classical theory of preorders within nominal set theory. In some sense, the
+classical theory of preorders within nominal set theory. In some sense the
 nominal structure and the order structure are orthogonal, so that many of the
-results of these two base theories carry through into the combined theory.
+results of these two base theories carry through into their combination.
 
 \subsection{Definitions}
 \label{npre:defs}
