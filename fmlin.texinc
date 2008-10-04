@@ -311,9 +311,9 @@ then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
 \end{proof}
 
 
-\begin{lemma} If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then
-\[f^{\freshfor a+} = \phi_{\typeQ} \circ f^{\freshfor a} \circ
-\phi^{-1}_{\typeP}.\]\end{lemma}
+\begin{lemma} \label{def:freshlin} If $f : \typeP \to \typeQ$ is an arrow of
+$\mathbf{FMLin}_s$ then \[f^{\freshfor a+} = \phi_{\typeQ} \circ f^{\freshfor a}
+\circ \phi^{-1}_{\typeP}.\]\end{lemma}
 
 \begin{proof} Let $x \in \widehat{\typeP^{\freshfor a}}$.
 %
@@ -340,9 +340,9 @@ f(x_{\downarrow})$ and hence $q \in f^{\freshfor a+} x$ as required.
 %
 \end{proof}
 
-\begin{lemma} If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot
-\{a\}}$ then \[\delta_a^+ f = \theta_{\typeQ} \circ \delta_a f \circ
-\theta^{-1}_{\typeP}.\]\end{lemma}
+\begin{lemma} \label{def:deltalin} If $f : \typeP \to \typeQ$ is an arrow of
+$\mathbf{FMLin}_{s \udot \{a\}}$ then \[\delta_a^+ f = \theta_{\typeQ} \circ
+\delta_a f \circ \theta^{-1}_{\typeP}.\]\end{lemma}
 
 \begin{proof} Let $x \in \widehat{\delta_a \typeP}$, then
 \begin{equation}\begin{array}[t]{rcl} 
