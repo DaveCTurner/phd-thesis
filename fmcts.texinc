@@ -503,9 +503,9 @@ it is monotone.
 \TODO{Name-Binding}
 
 \begin{lemma} \label{freshhat:continuous} If $f : \widehat\typeP \to
-\widehat\typeQ$ is FM-continuous then so is $\phi_{\typeQ} \circ f^{\freshfor a}
-\circ \phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
-\widehat{\typeQ^{\freshfor a}}$. \end{lemma}
+\widehat\typeQ$ is FM-continuous then so is \[\phi_{\typeQ} \circ f^{\freshfor
+a} \circ \phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
+\widehat{\typeQ^{\freshfor a}}.\] \end{lemma}
 
 \begin{proof} Let $X \subseteq \widehat{\typeP^{\freshfor a}}$ be directed and
 uniformly supported by $s'$.
@@ -552,9 +552,9 @@ Therefore $p \in (\phi_{\typeQ} \circ f^{\freshfor a} \circ
 \phi^{-1}_{\typeP})(x)$ as required.  \end{proof}
 
 \begin{lemma} \label{deltahat:continuous} If $f : \widehat{\typeP} \to
-\widehat{\typeQ}$ is FM-continuous then so is $\theta_{\typeQ} \circ \delta_a f
+\widehat{\typeQ}$ is FM-continuous then so is \[\theta_{\typeQ} \circ \delta_a f
 \circ \theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \widehat{\delta_a
-\typeQ}$.  \end{lemma}
+\typeQ}.\]  \end{lemma}
 
 \begin{proof} Let $X \subseteq \widehat{\delta_a \typeP}$ be directed and
 uniformly supported by $s'$. Without loss of generality assume that $a \in s'$
@@ -600,9 +600,9 @@ However $X$ is directed so there exists $x \in X$ such that $x_i \subseteq x$
 for all $i$, and $X$ is uniformly supported by $s'$ so that $\supp{x} \subseteq
 s'$ and hence $\finelt{\{[b].p_1, \ldots, [b].p_n\}}{s'} \subseteq x$.
 %
-Therefore $\finelt{\{p_1, \ldots, p_n\}}{s' \udot \{b\}} = \left(
+Therefore \[\finelt{\{p_1, \ldots, p_n\}}{s' \udot \{b\}} = \left(
 \theta^{-1}_{\typeP} \finelt{\{[b].p_1, \ldots, [b].p_n\}}{s'} \right)@b
-\subseteq \left( \theta^{-1}_{\typeP} x \right)@b$ so that $p@b \in f
+\subseteq \left( \theta^{-1}_{\typeP} x \right)@b\] so that $p@b \in f
 \left(\left( \theta^{-1}_{\typeP} (x) \right)@b\right) = \left( (\delta_a f
 \circ \theta^{-1}_{\typeP}) (x) \right)@b$ and hence $p \in (\theta_{\typeQ}
 \circ \delta_a f \circ \theta^{-1}_{\typeP}) (x)$ as required.  \end{proof}
