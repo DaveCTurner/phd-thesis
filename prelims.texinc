@@ -608,9 +608,7 @@ the FCB. In this case, $\freshin{a}{fa} =
 ${\reflectbox{\ensuremath{\mathsf{N}}}}$ is the `new' quantifier of Pitts and
 Gabbay\cite{PittsAM:newaas-jv}.
 
-\TODO{Use numbered definitions here}
-
-There is a symmetric monoidal structure $\otimes$ on $\mathbf{NPre}$. 
+There is a symmetric monoidal structure $\otimes$ on $\mathbf{NSet}$. 
 %
 Via the equivalence of lemma \ref{lemma:schequiv} it can be characterised
 abstractly as the Day tensor\cite{day:closedcats} of functors $\mathbb I \to
@@ -621,7 +619,7 @@ Concretely, if $X$ and $Y$ are nominal sets then \begin{equation}
 \mid x \freshfor y \}  \end{equation} with the action on arrows given
 componentwise.
 %
-Since $\otimes$ is the Day tensor, $\mathbf{NPre}$ is closed with respect to it.
+Since $\otimes$ is the Day tensor, $\mathbf{NSet}$ is closed with respect to it.
 %
 In fact this discussion will only use this tensor as part of the functor $(-)
 \otimes \mathbb A$ and it is possible to characterise its right adjoint, written
@@ -667,6 +665,6 @@ The counit is the concretion operator $\mathord{@} : (\delta-) \otimes \mathbb A
 That the triangular identities are satisfied amounts to saying that $([a].x)@a =
 x$ for any name $a$, and $[b].(x'@b) = x'$ for a fresh name $b$.
 
-\TODO{Conclude this section.}
+\TODO{Conclude this section?}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
