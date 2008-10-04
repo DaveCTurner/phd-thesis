@@ -1,8 +1,7 @@
 \chapter{Abstract Justification}
 \TODO{Title? Intro?}
 
-\section{A Dependently-Typed Presentation of $\mathbf{FMPre}_s$}
-\label{fmpre:alternative}
+\section{$\mathbf{FMPre}_s$ in Dependent Type Theory} \label{fmpre:alternative}
 
 The purist may wonder whether it is necessary that the foundations of this
 dissertation need to be as precisely specified as the cumulative hierarchy of FM
