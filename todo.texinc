@@ -1,0 +1,33 @@
+\chapter*{TODO items}
+
+\begin{enumerate}
+
+\item More use of 'definition' environment.
+
+\item DONE Use 'clockwise' and 'anticlockwise' instead of 'top' and 'bottom' when
+talking about commuting diagrams. Check that cw and ccw are used correctly in
+the text.
+
+\item Change use of 'ChCts' to 'FMCts' in HOPLA section.
+
+\item Check headings do not end in punctuation
+
+\item "Notions of Finiteness" section
+
+\item Too terse - need more cross-refs and explanation. Too many tantalising
+throw-away comments.
+
+\item Need to emphasise the central story more.
+
+\item Use P, Q, ... for finite elements, not x, y, ...
+
+\item In "A Dep-Type Pres of FMPre", no equivalence between NPre and FMPre is
+asserted above
+
+\item In 'Products' section of structure of FMLin, the union is not "taken"
+anywhere in particular, but it is a "join" in that partial order.
+
+\end{enumerate}
+
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
