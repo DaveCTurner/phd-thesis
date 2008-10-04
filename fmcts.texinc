@@ -309,7 +309,8 @@ $x = \finelt{F}{s}$ as required. \end{proof}
 \subsection{FM-Continuous Maps}
 \label{fmcts:maps}
 
-The discussion of the previous section indicates that `continuous' should mean
+The discussion of \ref{fm:continuity} indicates that `continuous' could be taken
+to mean
 `preserves joins of uniformly-supported directed sets' or equivalently
 `preserves joins of increasing sequences' - for brevity this will be called
 `FM-continuous'. Let $\mathbf{FMCts}_s$ be the category whose objects are
@@ -415,9 +416,9 @@ Therefore $y \subseteq x$ so as required it follows that \[p \in \bigcup \{y \in
 \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x, \typeP}
 \}. \qedhere\] \end{proof}
 
-Lemma \ref{bang:alg} ensures the uniqueness of $f^{\ddagger}$. Therefore if $f$
-and $g$ are FM-continuous maps $\widehat{\typeP} \to \widehat{\typeQ}$ and $f
-\circ i_{\typeP} = g \circ i_{\typeP}$ then by \ref{bang:freeness}
+Lemma \ref{bang:alg} ensures the uniqueness of $f^{\ddagger}$, and in
+pariticular if $f$ and $g$ are FM-continuous maps $\widehat{\typeP} \to
+\widehat{\typeQ}$ and $f \circ i_{\typeP} = g \circ i_{\typeP}$ then
 \begin{equation} \label{bang:epi} f = (f \circ i_{\typeP})^{\ddagger} = (g \circ
 i_{\typeP})^{\ddagger} = g.  \end{equation}
 
@@ -427,8 +428,7 @@ Notice that there is a natural FM-continuous $\eta_{\typeP} : \widehat\typeP \to
 \in \typelift\typeP \mid P \subseteq X \}$.
 %
 In particular, \begin{equation} \label{def:eta} \eta_{\typeP} \circ i_{\typeP} =
-\{\cdot\}_{\typelift\typeP}\end{equation} and $\eta$ is the unique such
-FM-continuous map.
+\{\cdot\}_{\typelift\typeP}.\end{equation}
 %
 Furthermore for every FM-continuous $f : \widehat\typeP \to \widehat\typeQ$ the
 FM-linear function $(f \circ i_{\typeP})^{\dagger} : \widehat{\typelift\typeP}
