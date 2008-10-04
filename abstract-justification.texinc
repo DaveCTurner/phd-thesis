@@ -1407,6 +1407,7 @@ a}}\bigr)^{\dagger} \quad \text{by \ref{comm:zetaplus}}\\
 
 
 \section{Binding in FM-Continuous Categories}
+\label{subsect:deltafreshadjcts}
 \TODO{Prose intro}
 
 This section shows that it is possible to restrict $\phi_\typeP$ to an

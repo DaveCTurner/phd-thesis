@@ -500,6 +500,7 @@ it is monotone.
 \TODO{Exponentials}
 
 \subsubsection{Name-Binding.}
+\label{subsubsect:deltafreshadjcts}
 \TODO{Name-Binding}
 
 \begin{lemma} \label{freshhat:continuous} If $f : \widehat\typeP \to
