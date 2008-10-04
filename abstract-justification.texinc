@@ -52,10 +52,13 @@ The current set of names can change, by inserting a new name or by permuting the
 current names, and in general if $i: s \rightarrowtail s'$ is an arrow of
 $\mathbb I$ then the `current' set of names can be changed from $s$ to $s'$
 using $i$.
-%
-In order to give this account in terms of dependent type theory, this indicates
-that a fibration over $\mathbb I^{\mathrm{op}}$ should be sought.
 
+\subsection{A Fibration}
+%
+In order to give this account in terms of dependent type theory, the discussion
+above indicates that a fibration over $\mathbb I^{\mathrm{op}}$ should be
+sought.
+%
 Recall from lemma \ref{lemma:schequiv} that each nominal preorder can be seen as
 a pullback-preserving functor from $\mathbb{I}$ to $\mathbf{Pre}$.
 %
@@ -297,14 +300,16 @@ y)$ gives rise to a more universal setting for the remainder of this discussion.
 As mentioned above, the details of this construction are outside the scope of
 this thesis, but it is worth highlighting how some aspects of the structure of
 $\mathbf{NPre}$ manifest themselves within the dependent type theory.
-%
-In particular, the functor $(-) \otimes \mathbb A$ and its right adjoint
-$\delta$ effectively give rise to the operation $(-)^{\freshfor a}$ and its
-right adjoint $\delta_a$ as shown below.
+
+\subsection{Binding in $(\mathbf{FMPre}_{\varnothing} \downarrow y)$}
+
+This section demonstrates that the functor $(-) \otimes \mathbb A$ and its right
+adjoint $\delta$ give rise to the operation $(-)^{\freshfor a}$ and its right
+adjoint $\delta_a$ defined in \ref{deltafreshadj}.
 %
 In fact, this latter pair of functors are themselves dependent (on the name $a$)
-and it is hard to capture this fact in full generality without going into far
-too much detail for the purposes of this section.
+but it would require too much notation and too much complexity for the purposes
+of this section to capture this fact in full generality.
 %
 For the sake of clarity, it is simpler here to notice that the isomorphism
 \ref{def:ys} gives rise to an isomorphism \begin{equation} \label{def:ysa} \nu :
