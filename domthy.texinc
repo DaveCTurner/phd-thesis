@@ -19,19 +19,24 @@ of path orders and continuous maps is then rich enough to support a natural
 domain theory for concurrency, with many computational features given by
 universal properties.
 
-A similar story unfolds within nominal set theory, but this story is complicated
+A similar story unfolds within nominal set theory, but it is complicated
 by a number of factors. Firstly, following the usual pattern of nominal sets,
 everything in sight must be finitely-supported: linear maps need only preserve
 finitely-supported joins, for example. As may be expected this involves little
 real alteration to the narrative. Secondly, if the domain theory is to make use
 of the name-binding constructions of nominal sets then the key adjunction $(-)
 \otimes \mathbb A \dashv \delta$ must be woven into the tale somehow. This is
-simple enough when dealing with basic path orders, but it takes care to ensure
+simple enough when dealing with basic path orders, but it takes an attention to
+detail to ensure
 that this adjunction meshes properly with the free constructions mentioned
 above.  Thirdly, and perhaps most surprisingly, the appropriate notion of
-`continuous' here is not simply the preservation of (finitely-supported)
-directed joins, but of directed joins with more stringent constraints on
-supports. This is the price to be paid for working in a universe without the
+`continuous' here is not simply the preservation of
+directed joins --- even finitely-supported directed joins ---
+but of directed joins with more stringent constraints on
+supports.
+%
+As illustrated in \ref{fm:continuity}
+this is the price to be paid for working in a universe without the
 Axiom of Choice.
 
 In \ref{npre} the theory of nominal preorders is introduced, and is shown to be
@@ -41,8 +46,9 @@ arrows that have nontrivial finite supports, because the domain theory will need
 to make use of such structure. Then \ref{nominalpathsemantics} gives a
 construction of particular preorders that support a path-based semantics. In
 \ref{nominalnondeterministicdomains} these `path orders' are freely completed to
-incorporate nondeterminism and the induced linear maps are studied in
-\ref{fmlin}. As mentioned above, linearity is too restrictive a condition on the
+incorporate nondeterminism and the induced `linear' maps are studied.
+%
+As mentioned above, linearity is too restrictive a condition on the
 maps and in \ref{fmcts} an appropriate notion of continuity is developed.
 
 \section{Nominal Preorders}
