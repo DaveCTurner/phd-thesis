@@ -453,14 +453,18 @@ i_{\typeP})^{\dagger}} \\& \widehat{\typeQ}} \end{equation}
 %
 In other words if $J : \mathbf{FMLin}_s \hookrightarrow \mathbf{FMCts}_s$ then
 $\langle \eta_{\typeP}, \typelift\typeP \rangle$ is an initial object of
-$(\typeP \downarrow J)$, so the isomorphism \ref{bang:adj} is in fact an
-adjunction with $!$ as the left adjoint.
+$(\typeP \downarrow J)$.
 %
-Concretely, if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$ then
-\begin{equation} \label{def:banglin} {!}f \defeq (\eta_{\typeQ} \circ f \circ
-i_{\typeP})^{\dagger} : \typelift\typeP \to \typelift\typeQ, \end{equation}
-which means that if $X \in \widehat{\typelift\typeP}$ then ${!}f(X) = \{y \in
-\typelift\typeQ \mid \exists x \in X.\ y \subseteq f x\}$.
+If \begin{equation} \label{def:banglin} {!}f \defeq (\eta_{\typeQ} \circ f \circ
+i_{\typeP})^{\dagger} : \typelift\typeP \to \typelift\typeQ, \end{equation} for
+any arrow $f : \typeP \to \typeQ$ of $\mathbf{FMCts}_s$ then this means that
+there is an adjunction \begin{equation} \label{bang:adj} \mathbf{FMLin}_s
+(\typelift\typeP, \typeQ) \cong \mathbf{FMCts}_s (\typeP, \typeQ).\end{equation}
+with $!$ as the left adjoint.
+%
+Concretely, \ref{def:banglin} means that if $X \in \widehat{\typelift\typeP}$
+then ${!}f(X) = \{y \in \typelift\typeQ \mid \exists x \in X.\ y \subseteq f
+x\}$.
 %
 The unit of the adjunction is $\eta$ as defined above and the counit $\epsilon$
 is defined as $\epsilon_{\typeP} \defeq i_{\typeP}^{\dagger}$.
