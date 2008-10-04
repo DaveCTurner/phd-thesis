@@ -59,6 +59,11 @@ correspondence with finitely-supported finitely-supported-join-preserving maps
 $\widehat{\typeP} \to \widehat{\typeQ}$.  For brevity, call such maps
 `FM-linear'.
 
+Notice that if $f$ and $g$ are linear maps $\widehat{\typeP} \to
+\widehat{\typeQ}$ and $f \circ \{\cdot\}_{\typeP} = g \circ \{\cdot\}_{\typeP}$
+then by \ref{hat:freeness} \begin{equation} \label{hat:epi} f = (f \circ
+\{\cdot\}_{\typeP})^{\dagger} = (g \circ \{\cdot\}_{\typeP})^{\dagger} = g.
+\end{equation}
 
 \subsection{Categories of FM-Linear Maps}
 \label{fmlin}
