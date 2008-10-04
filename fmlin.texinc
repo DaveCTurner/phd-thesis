@@ -247,34 +247,28 @@ a suitable setting for a domain theory that is sensitive to names and binding.
 %
 More precisely, for any $s$ and $a \notin s$ there is an adjunction
 \begin{equation} (-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
-\leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}\end{equation} with unit $\xi^+$
-and counit $\zeta^+$ which arises from the adjunction of lemma
-\ref{deltafreshadj}.
+\leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}\end{equation} as follows.
 %
-This follows from the abstract argument in \ref{subsect:deltafreshadjlin} below,
-but the adjunction can also be presented concretely as follows.
+If $\typeP$ is an object then $\typeP^{\freshfor a+} \defeq \typeP^{\freshfor
+a}$ and $\delta^+_a \typeP \defeq \delta_a \typeP$.
 %
-If $\typeP$ is an object then $\typeP^{\freshfor a+} = \typeP^{\freshfor a}$ and
-$\delta^+_a \typeP = \delta_a \typeP$.
-%
-The unit and counit are given by $\xi^+ = \widehat{\xi}$ and $\zeta^+ =
-\widehat{\zeta}$.
+The unit and counit are given by $\widehat{\xi}$ and $\widehat{\zeta}$.
 %
 If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then $f^{\freshfor
-a} : \typeP^{\freshfor a} \to \typeQ^{\freshfor a}$ is an arrow of
+a+} : \typeP^{\freshfor a} \to \typeQ^{\freshfor a}$ is the arrow of
 $\mathbf{FMLin}_{s \udot \{a\}}$ defined concretely as \begin{equation}
 \label{concrete:freshlin} f^{\freshfor a+} x \defeq \{ q \in f(x_{\downarrow})
 \mid a \freshfor q\}.  \end{equation}
 %
 Also if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$
-then $\delta_a^+ f : \delta_a \typeP \to \delta_a \typeQ$ is an arrow of
+then $\delta_a^+ f : \delta_a \typeP \to \delta_a \typeQ$ is the arrow of
 $\mathbf{FMLin}_s$ defined concretely as \begin{equation}
 \label{concrete:deltalin} \delta_a^+ f x \defeq \{ q \in \delta_a \typeQ \mid
 \exists p \in x.\ \freshin{b}{q@b \in ((ab) \cdot f) \{p@b\}_{\downarrow}}\}.
 \end{equation}
 
 For the purposes of calculation these definitions are a little unwieldy and it
-is useful to have a slightly more abstract definition of these functors to hand.
+is useful to have a slightly more abstract description of these functors.
 %
 For each object $\typeP$ of $\mathbf{FMPre}_s$ define $\phi_{\typeP} :
 \widehat{\typeP}^{\freshfor a} \to \widehat{\typeP^{\freshfor a}}$ by
@@ -294,7 +288,7 @@ $\theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \delta_a\widehat{\typeP}$
 by \begin{equation} \label{def:thetainv} \theta^{-1}_{\typeP}(x) \defeq
 \freshin{b}{ [b].\{p \mid [b].p \in x\}}.\end{equation}
 %
-The notation is no accident: these maps are natural in $\typeP$ and mutual
+The notation is no accident: these maps are natural in their respective objects and mutual
 inverses, as shown in \ref{freshhatiso} and \ref{deltahatiso}.
 %
 Here, it is merely worth noting the following results.
@@ -317,10 +311,9 @@ then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
 \end{proof}
 
 
-\begin{lemma}
-If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then
-$f^{\freshfor a+} = \phi_{\typeQ} \circ f^{\freshfor a} \circ
-\phi^{-1}_{\typeP}$.\end{lemma}
+\begin{lemma} If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then
+\[f^{\freshfor a+} = \phi_{\typeQ} \circ f^{\freshfor a} \circ
+\phi^{-1}_{\typeP}.\]\end{lemma}
 
 \begin{proof} Let $x \in \widehat{\typeP^{\freshfor a}}$.
 %
@@ -347,10 +340,9 @@ f(x_{\downarrow})$ and hence $q \in f^{\freshfor a+} x$ as required.
 %
 \end{proof}
 
-\begin{lemma}
-If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$ then
-$\delta_a^+ f = \theta_{\typeQ} \circ \delta_a f \circ
-\theta^{-1}_{\typeP}$.\end{lemma}
+\begin{lemma} If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot
+\{a\}}$ then \[\delta_a^+ f = \theta_{\typeQ} \circ \delta_a f \circ
+\theta^{-1}_{\typeP}.\]\end{lemma}
 
 \begin{proof} Let $x \in \widehat{\delta_a \typeP}$, then
 \begin{equation}\begin{array}[t]{rcl} 
