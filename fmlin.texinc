@@ -68,6 +68,8 @@ then by \ref{hat:freeness} \begin{equation} \label{hat:epi} f = (f \circ
 \subsection{Categories of FM-Linear Maps}
 \label{fmlin}
 
+\TODO{Rewrite in terms of initial object of $(\typeP \downarrow J)$}
+
 Let $\mathbf{FMLin}_s$ be the category whose objects are FM-preorders $\typeP$,
 $\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \to \typeQ$ are
 FM-linear maps $\widehat{\typeP} \to \widehat{\typeQ}$ supported by $s$.
