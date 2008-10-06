@@ -265,11 +265,10 @@ straightforward to see that $(-)^{\freshfor a}$ sends objects and arrows of
 $\mathbf{FMPre}_s$ to those of $\mathbf{FMPre}_{s \udot \{a\}}$ and that its
 action on arrows is functorial.\end{proof}
 
-The discussion in \ref{fmpre:alternative} demonstrates that this functor arises
+The discussion in \ref{deptype:fresh} demonstrates that this functor arises
 naturally from the tensor operation $(-) \otimes \mathbb A$ in $\mathbf{NPre}$.
-Furthermore, its right adjoint $\delta$ 
-gives rise to a right adjoint to $(-)^{\freshfor a}$ which is
-given a concrete description here.
+Furthermore, its right adjoint $\delta$ gives rise to a right adjoint to
+$(-)^{\freshfor a}$ which is given a concrete description here.
 
 \begin{definition}\label{def:deltaa} If $\typeP$ is a FM-preorder then define
 the $\alpha$-equivalence relation $\sim_{\alpha}$ on $\typeP \times \mathbb A$
