@@ -47,7 +47,7 @@ also has all finitely supported joins and $f : \typeP \to C$ is a monotone
 finitely-supported function then there is a unique finitely-supported
 $f^{\dagger} : \widehat{\typeP} \to C$ that preserves all finitely supported
 joins and such that the following diagram commutes.  \begin{equation} \label
-{hat:freeness} \xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\downarrow}} \ar[dr]_f &
+{hat:freeness} \xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\typeP}} \ar[dr]_f &
 \widehat{\typeP} \ar[d]^{f^{\dagger}} \\& C}\end{equation} The function
 $f^{\dagger}$ is given by \begin{equation}f^{\dagger}X \defeq \bigcup\{f p \mid
 p \in X\}.\end{equation} The uniqueness of $f^{\dagger}$ follows from the
