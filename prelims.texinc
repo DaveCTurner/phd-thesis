@@ -684,6 +684,6 @@ The counit is the concretion operator $\mathord{@} : (\delta-) \otimes \mathbb A
 That the triangular identities are satisfied amounts to saying that $([a].x)@a =
 x$ for any name $a$, and $[b].(x'@b) = x'$ for a fresh name $b$.
 
-\TODO{Conclude this section?}
+\TODO{Conclusion. In particular, say why this is ``binding''}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
