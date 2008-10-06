@@ -403,7 +403,8 @@ Let $q' \in \delta_a \typeQ$ and let $b$ be fresh, then \begin{equation}\begin{a
 \end{array}\end{equation} so that $ \delta_a \zeta \circ \xi_{\delta_a} =
 \mathbf{1}_{\delta_a}$ as required.  \end{proof}
 
-\TODO{Introduce this lemma}
+Finally, it is worth giving a name, $\tau^a_\typeP$, to the obvious natural
+embedding of $\typeP^{\freshfor a}$ into $\typeP$ as follows.
 
 \begin{lemma} \label{lemma:freshinclusion} If $a \notin s$ and $J$ is the
 inclusion of categories $\mathbf{FMPre}_{s} \hookrightarrow \mathbf{FMPre}_{s
