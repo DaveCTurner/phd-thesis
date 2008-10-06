@@ -207,10 +207,10 @@ $\mathbf{FMLin}_{s'}$ where $\ell \ne \ell'$ and $s' \supseteq s \cup
 \supp{\ell} \cup \supp{\ell'}$.
 %
 Finally $\bigcup_{\ell \in L} (\mathbf{in}_{\ell} \circ \mathbf{out}_{\ell}) =
-\mathbf{1}_{\stdtypesum}$ where the union is taken in the complete partial order
-\[\matthat{\left(\stdtypesum\right)^{\mathrm{op}} \times \stdtypesum}\] which
-contains all the function spaces $\mathbf{FMLin}_{s'}(\stdtypesum, \stdtypesum)$
-by \ref{homsets}.
+\mathbf{1}_{\stdtypesum}$ where the union is a join taken in the complete
+partial order \[\matthat{\left(\stdtypesum\right)^{\mathrm{op}} \times
+\stdtypesum}\] which contains all the function spaces
+$\mathbf{FMLin}_{s'}(\stdtypesum, \stdtypesum)$ by \ref{homsets}.
 %
 In short, $\stdtypesum$ behaves much like a biproduct, except that its
 injections and projections are spread over many different categories.
