@@ -244,6 +244,8 @@ $g_{n+1} = f \circ (\mathbf{1}_{\Gamma} \amp g_n) \circ
 \Delta_{\sem{\Gamma}}$, then $\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
 \langle \gamma \rangle = \bigcup_{n \in \omega} g_n \langle \gamma \rangle$.
 
+\TODO{Tarski's theorem is Kleene's?}
+
 \paragraph{Prefix-Match} Let $\sem{t} =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}
 }}{t}{\typeP}}$, $\sem{u} = \sem{\tjudge{s''}{\Lambda}{u}{\typeQ}}$ and $\sem{q}
