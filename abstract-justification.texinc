@@ -1381,7 +1381,7 @@ If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$ then
 &=& \bigl(\theta_\typeQ \circ \delta_a f \circ \theta_{\typeP}^{-1}\bigr)
 & \text{by \ref{hat:freeness}} \\
 %
-&=& \delta_a f & \text{by \ref{def:deltalin}.}
+&=& \delta_a^+ f & \text{by \ref{def:deltalin}.}
 %
 \end{array} \end{equation} 
 
