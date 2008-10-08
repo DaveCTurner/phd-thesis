@@ -293,6 +293,8 @@ inverses, as shown in \ref{freshhatiso} and \ref{deltahatiso}.
 %
 Here, it is merely worth noting the following results.
 
+\TODO{Should \ref{freshhatiso} and \ref{deltahatiso} be moved here?}
+
 \begin{lemma} \label{characterisation:phiinv} If $\typeP$ is an object of
 $\mathbf{FMLin}_s$ and $x \in \widehat{\typeP^{\freshfor a}}$ then \[ p \in
 \phi^{-1}_{\typeP} (x) \quad \Leftrightarrow\quad \freshin{c}{p \in (ac) \cdot
