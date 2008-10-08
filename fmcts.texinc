@@ -97,7 +97,7 @@ $\sem{\new{a}{t}}$.
 \label{fm:continuity}
 
 In some sense the notion of a limit of a directed set is the intuitionistic ---
-and therefore computational --- analogue of a limit of a (transfinite) sequence
+and therefore computational --- analogue of a limit of a sequence
 in point-set topology. Classically, a domain has limits of all increasing
 sequences iff it has limits of all directed sets: increasing sequences give rise
 to directed sets, and conversely given a well-ordered directed set the
