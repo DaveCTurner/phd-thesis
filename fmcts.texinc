@@ -407,7 +407,7 @@ To see the converse let $p \in x$ and let $y = \finelt{\{p\}}{\supp{x,
 %
 It is clear that $p \in y$.
 %
-By \ref{fineltsupport} it follows that $\supp{y} \subseteq \supp{x, \typeP}$ and
+From \ref{fineltsupport} it follows that $\supp{y} \subseteq \supp{x, \typeP}$ and
 from \ref{finelts} it follows that $y \in \typelift\typeP$.
 %
 Let $p' \in y$ then by definition there exists $\sigma \freshfor \supp{x,
