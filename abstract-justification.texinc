@@ -407,6 +407,10 @@ ys, \pi_2 \rangle} \\
 &=& \delta_a G_{s \udot \{a\}} \langle X, f \rangle \\
 %
 \end{array} \end{equation}
+%
+It is straightforward to see that the action of $\delta$ on
+arrows gives rise to the action of $\delta_a$ on arrows in the same
+fashion.
 
 \subsubsection{The transformations $\pi_1 : (-)\otimes \mathbb A \to \mathbf{1}$
 and $\tau_a : (-)^{\freshfor a}  \to \mathbf{1}$.}
