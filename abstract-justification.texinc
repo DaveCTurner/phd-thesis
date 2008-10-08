@@ -455,16 +455,18 @@ $\pi_1: X \otimes \mathbb A \to X$.
 
 \section{Adjunctions and Kleisli Categories}
 
-It can be seen from sections \ref{dtfc} and \ref{nsets} that a key feature of
-the theory of nominal sets is the adjunction $(-) \otimes \mathbb A \dashv
-\delta$, and a key feature of the Domain Theory for Concurrency is the use of
-Kleisli and co-Kleisli constructions. Since this dissertation aims to merge
-these two theories, it will be important that these structures `play nicely'
-with each other. Abstractly, and subject to certain coherence conditions, they
-do indeed `play nicely', and this fact gives rise to the binding structure in
-the FM-linear and FM-continuous categories defined in
-\ref{subsubsect:deltafreshadjlin} and \ref{subsubsect:deltafreshadjcts}
-respectively.
+It can be seen from section \ref{dtfc} that a key feature of the Domain Theory
+for Concurrency is the use of Kleisli and co-Kleisli constructions, and from
+\ref{nsets} that a key feature of the theory of nominal sets is the adjunction
+$(-) \otimes \mathbb A \dashv \delta$.
+%
+Since this dissertation aims to merge these two theories, it will be important
+that these structures `play nicely' with each other.
+%
+Abstractly, and subject to certain coherence conditions, they do indeed `play
+nicely', and this fact gives rise to the binding structure in the FM-linear and
+FM-continuous categories defined in \ref{subsubsect:deltafreshadjlin} and
+\ref{subsubsect:deltafreshadjcts} respectively.
 
 \subsection{Adjoints to Inclusions}
 
