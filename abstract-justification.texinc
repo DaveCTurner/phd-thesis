@@ -1486,12 +1486,12 @@ $!$} \label{subsect:delta-fresh-bang}
 
 This section shows that it is possible to restrict $\phi_\typeP$ to an
 isomorphism $(\typelift\typeP)^{\freshfor a} \cong \typelift(\typeP^{\freshfor
-a})$ and similarly $\theta_\typeP$ restricts to an isomorphism
+a})$ and similarly $\theta_\typeP$ gives rise to an isomorphism
 $\delta_a\typelift\typeP \cong \typelift\delta_a\typeP$.
 %
 The path to this result is to observe that $\phi_\typeP$ and $\theta_\typeP$ and
 their inverses have particularly simple characterisations on these restricted
-domains.
+domains, as shown in the following four lemmas.
 
 \begin{lemma} \label{characterisation:phibang} If $F \subseteq_{\mathrm{fin}}
 \typeP^{\freshfor a}$ and $a \notin s' \supseteq s$ then \[\phi_{\typeP}
