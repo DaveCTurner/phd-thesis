@@ -471,8 +471,8 @@ respectively.
 Firstly, notice that in both \ref{hat:adj} and \ref{bang:adj} one of the
 adjoints is the identity on objects.
 %
-By the abstract argument in \ref{adjunctioninclusion} it follows that each of
-these adjunctions is isomorphic to the appropriate (co-)Kleisli construction.
+By the abstract argument below it follows that each of these adjunctions is
+isomorphic to the appropriate (co-)Kleisli construction.
 
 \begin{lemma}
 \label{adjunctioninclusion}
