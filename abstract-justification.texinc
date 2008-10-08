@@ -12,10 +12,7 @@ where $\mathbf{Set}$ is some category of sets, not necessarily one with a
 cumulative hierarchy out of which one can construct $\mathcal{V}_{\mathrm{FM}}$. 
 %
 Nor does $\mathbf{Nom}$ insist that the permutation action on any particular set
-is given by $\mathord{\in}$-recursion: strictly speaking, one must specify the
-isomorphism between each nominal set and its corresponding FM set in order to
-set up the equivalence between $\mathbf{NPre}$ and
-$\mathbf{FMPre}_{\varnothing}$ that was asserted above.
+is given by $\mathord{\in}$-recursion as FM set theory does.
 %
 More practically, conventional domain theory does not really require all the
 fiddly details of ZF set theory, since it can be phrased in a much more
