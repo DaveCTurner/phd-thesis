@@ -381,7 +381,7 @@ ys
 \delta (ys \otimes \mathbb A)
 } \end{equation}
 %
-Via the equivalence of lemma \ref{lemma:slice} the object $\langle \delta X
+Via lemma \ref{lemma:slice} the object $\langle \delta X
 \times_{\delta(ys \otimes \mathbb A)} ys, \pi_2 \rangle$ of
 $\mathbf{FMPre}_{\varnothing}/ys$ corresponds to \begin{equation}
 \begin{array}[t]{rcl}
