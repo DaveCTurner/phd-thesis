@@ -319,6 +319,8 @@ Importantly, $\nu$ is equivariant, and hence an arrow of
 $\mathbf{FMPre}_{\varnothing}$, and $\nu (i_{s \udot \{a\}}) = \langle i_s, a
 \rangle$.
 
+\subsubsection{The functors $(-) \otimes \mathbb A$ and $(-)^{\freshfor a}$.}
+%
 Consider the object $\langle X, f \rangle$ of $\mathbf{FMPre}_{\varnothing}/ys$.
 %
 The action of $(-) \otimes \mathbb A$ takes it to the arrow $f \otimes
@@ -351,6 +353,8 @@ It is straightforward to see that the action of $(-) \otimes \mathbb A$ on
 arrows gives rise to the action of $(-)^{\freshfor a}$ on arrows in the same
 fashion.
 
+\subsubsection{The functors $\delta$ and $\delta_a$.}
+%
 Now consider the object $\langle X, f \rangle$ of
 $\mathbf{FMPre}_{\varnothing}/y(s \udot \{a\})$.
 %
@@ -404,6 +408,9 @@ ys, \pi_2 \rangle} \\
 %
 \end{array} \end{equation}
 
+\subsubsection{The transformations $\pi_1 : (-)\otimes \mathbb A \to \mathbf{1}$
+and $\tau_a : (-)^{\freshfor a}  \to \mathbf{1}$.}
+%
 Let $i : s \hookrightarrow s \udot \{a\}$ and consider the following situation.
 \begin{equation} \label{tau:projection} \xymatrix{
 X \otimes \mathbb A
