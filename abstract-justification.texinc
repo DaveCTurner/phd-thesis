@@ -1907,7 +1907,7 @@ By the dual of lemma \ref{adjunctionlift}, the following argument is sufficient.
 %
 \end{array}\] But $\epsilon_{\typeP^{\freshfor a}}$ and
 $\epsilon_{\typeP}^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}$ are
-both linear, so they are equal by \ref{hat:freeness}.
+both linear, so they are equal by \ref{hat:epi}.
 
 \paragraph{Right Triangle.}
 \[\begin{array}{rcll}
@@ -1942,7 +1942,7 @@ $\{\cdot\}_{\downarrow}$} \\
 %
 \end{array}\] But $\epsilon_{\delta_a \typeP}$ and $\delta_a^+ \epsilon_{\typeP}
 \circ \widehat{{\theta^{!}_{\typeP}}^{-1}}$ are both linear, so they are equal
-by \ref{hat:freeness}.
+by \ref{hat:epi}.
 
 
 \paragraph{Left Pentagon.}
@@ -1996,7 +1996,7 @@ by \ref{hat:freeness}.
 \widehat{{\phi^{!}_{\typeP}}^{-1}}$ and
 $\widehat{{\phi^{!}_{\typelift\typeP}}^{-1}} \circ
 {!}\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ {!}\eta_{\typeP^{\freshfor a}}$ are
-both linear, so by \ref{hat:freeness} they are equal.
+both linear, so by \ref{hat:epi} they are equal.
 
 
 
@@ -2052,7 +2052,7 @@ both linear, so by \ref{hat:freeness} they are equal.
 \widehat{{\theta^{!}_{\typeP}}^{-1}}$ and
 $\widehat{{\theta^{!}_{\typelift\typeP}}^{-1}} \circ
 {!}\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ {!}\eta_{\delta_a \typeP}$ are
-both linear, so by \ref{hat:freeness} they are equal.
+both linear, so by \ref{hat:epi} they are equal.
 
 \paragraph{Unit Square.} \[\begin{array}{rcll}
 %
@@ -2158,7 +2158,7 @@ both linear, so by \ref{hat:freeness} they are equal.
 \circ {!}\widehat{\xi_{\typeP}}
 $ and $
 \widehat{\xi_{\typelift\typeP}}
-$ are both linear, so by \ref{hat:freeness} they are
+$ are both linear, so by \ref{hat:epi} they are
 equal.
 
 
@@ -2253,7 +2253,7 @@ equal.
 \circ \widehat{{\phi^{!}_{\delta_a \typeP}}^{-1}}
 $ and $
 {!}\widehat{\zeta_{\typeP}}
-$ are both linear, so by \ref{hat:freeness} they are
+$ are both linear, so by \ref{hat:epi} they are
 equal.
 %
 This completes the proof.\end{proof}
