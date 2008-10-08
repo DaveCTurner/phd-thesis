@@ -551,6 +551,8 @@ the universal property of this colimit.
 It is now a simple case of definition-following to check that $F$ and $G$ define
 an equivalence of categories.  \end{proof}
 
+\TODO{Should really define the isos $FG \cong \mathbf{1}$ and $GF \cong \mathbf{1}$}
+
 \subsection{Binding in Nominal Sets}
 \label{subsect:nset:binding}
 
