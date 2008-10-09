@@ -21,11 +21,12 @@ is the term obtained by simultaneously substituting $v$ for the variables
 $\termvar{y1}, \ldots, \termvar{yn}$ in $t$.
 
 The proof now proceeds by induction on the derivation of
-$\tjudge{s}{\Gamma'}{t}{\typeP}$. Throughout variables beginning
-with $\termvar{y}$ and $\termvar{z}$ such as $\termvar{y1}, \termvar{ym}$ and
-$\termvar{zn}$ will represent variables that are subject to substitution, and
-other variables such as $\termvar{x}$, $\termvar{x1}$ and so on will represent
-variables that are not subject to substitution.
+$\tjudge{s}{\Gamma'}{t}{\typeP}$.
+%
+Throughout, variables beginning with $\termvar{y}$ and $\termvar{z}$ such as
+$\termvar{y1}, \termvar{ym}$ and $\termvar{zn}$ represent those that are
+subject to substitution, whereas others such as $\termvar{x}$ and
+$\termvar{x1}$ stand for those that are not.
 
 \paragraph{Variable}
 %\infer{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing} }{\termvar{x}}{\typeP}}{-}
