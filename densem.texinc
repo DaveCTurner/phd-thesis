@@ -4,12 +4,12 @@
 \subsection{Types}
 
 Closed types $\typeP$ denote the corresponding objects $\typeP$ of
-$\mathbf{ChCts_\varnothing}$.  \TODO{More detail on the paths in each type.}
+$\mathbf{FMCts_\varnothing}$.  \TODO{More detail on the paths in each type.}
 
 \subsection{Environments}
 
 Environments $\Gamma$ (with freshness contraints contained in $s_0$) denote
-objects of $\mathbf{ChCts}_{s_0}$ as follows.
+objects of $\mathbf{FMCts}_{s_0}$ as follows.
 \[\sem{\envempty} = \typeO \qquad\text{and}\qquad 
 \sem{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} = \sem{\Gamma} \amp \typeP^{\freshfor s} \]
 
@@ -87,10 +87,10 @@ it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 
 Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
 \[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} : \sem{\Gamma} \to \typeP\] in
-$\mathbf{ChCts}_s$, defined by recursion on the derivation of the typing
+$\mathbf{FMCts}_s$, defined by recursion on the derivation of the typing
 judgement as shown below.  Typing judgements $\atjudge{s}{\typeP}{p}{\typePp}$
 denote arrows \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} : \typeP \to
-\typelift\typePp\] in $\mathbf{ChCts}_s$ as defined below.  Often the type
+\typelift\typePp\] in $\mathbf{FMCts}_s$ as defined below.  Often the type
 information is clear, and then $\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ and
 $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ are abbreviated to $\sem{t}$ and
 $\sem{p}$ respectively.
@@ -109,7 +109,7 @@ follows that
 }{t}{\typeP}}\langle \gamma, q \rangle = \sem{\tjudge{s}{\Gamma}{t}{\typeP}}
 \langle \gamma \rangle.\]
 
-\paragraph{Exchange} Since each $\mathbf{ChCts}_s$ is cartesian, for any objects
+\paragraph{Exchange} Since each $\mathbf{FMCts}_s$ is cartesian, for any objects
 $X$ and $Y$ there is a twist map $\sigma_{X,Y} : X \amp Y \to Y \amp X$ given by
 $\sigma_{X,Y} = \langle \pi_2, \pi_1 \rangle$.
 Given an arrow \[f = \sem{
@@ -129,7 +129,7 @@ from which it follows that \[\begin{array}{l}
 \langle \gamma, q_1, q_2, \lambda \rangle.  \end{array}\]
 
 \paragraph{Contraction}
-Since each $\mathbf{ChCts}_s$ is cartesian, for any object $X$ there is a unique
+Since each $\mathbf{FMCts}_s$ is cartesian, for any object $X$ there is a unique
 map $\Delta_{X} : X \to X \amp X$ given by $\langle \mathbf{1}_X, \mathbf{1}_X
 \rangle$. Given an arrow \[f = \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
 {\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
@@ -151,8 +151,8 @@ follows that
 $\otimes$.}
 
 If $s'' \subseteq s' \subseteq s$ then let \[\begin{array}{rcrcl} j^{\mathbf{C}}
-&:& \mathbf{ChCts}_{s \setminus (s' \setminus s'')} &\hookrightarrow&
-\mathbf{ChCts}_{s} \\ j^{\mathbf{P}} &:& \mathbf{FMPre}_{s \setminus (s'
+&:& \mathbf{FMCts}_{s \setminus (s' \setminus s'')} &\hookrightarrow&
+\mathbf{FMCts}_{s} \\ j^{\mathbf{P}} &:& \mathbf{FMPre}_{s \setminus (s'
 \setminus s'')} &\hookrightarrow& \mathbf{FMPre}_{s} \end{array}\] be the
 canonical functors induced by the inclusion $s \setminus (s' \setminus s'')
 \hookrightarrow s$. Furthermore let $\tau : (-)^{\freshfor s'} \hookrightarrow
@@ -166,7 +166,7 @@ from \TODO{cross-ref?}, given by $\phi^{s'}_X(p) = \{x \in p \mid x \freshfor s'
 similarly for $\phi^{s''}$. Finally, notice that for all $X$, $j^{\mathbf{P}}
 (\widehat{X}) = \widehat{j^{\mathbf{C}} X}$ naturally in $X$.
 
-If $\typeP$ is an object of $\mathbf{ChCts}_{s \setminus s'}$ then let
+If $\typeP$ is an object of $\mathbf{FMCts}_{s \setminus s'}$ then let
 $k_\typeP$ be the following composition in $\mathbf{FMPre}_s$.
 \[\xymatrix@M=6pt{
 \widehat{\typeP^{\freshfor s'}} 
@@ -191,7 +191,7 @@ so that if $X \in \widehat{\typeP}^{\freshfor s'}$ then
 
 To see that $k_{\typeP} : \typeP^{\freshfor
 s'} \to j^{\mathbf{C}}(\typeP^{\freshfor s''})$ is an arrow of
-$\mathbf{ChCts}_s$, \TODO{$k_\typeP$ is continuous?}
+$\mathbf{FMCts}_s$, \TODO{$k_\typeP$ is continuous?}
 
 Now define \[
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
@@ -215,7 +215,7 @@ q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}.}}
 \end{array}\]
 
 \paragraph{Support-Weakening (Terms)} If $s' \subseteq s$ then let $j :
-\mathbf{ChCts}_{s'} \hookrightarrow \mathbf{ChCts}_s$ be the canonical inclusion
+\mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the canonical inclusion
 so induced. Define \[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} 
 = j\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}\]
 from which it follows that \[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
@@ -229,17 +229,17 @@ from which it follows that \[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
 \langle\gamma\rangle \text{ and $P$ is chain-finite}\]
 
 \paragraph{Recursion} \TODO{Some bold assertions here!} The hom-set
-$\mathbf{ChCts}_s(\sem{\Gamma}, \typeP)$ is a chain-complete poset with the
+$\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ is a chain-complete poset with the
 ordering given pointwise. Let $f =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
 }}{t}{\typeP}}$ and consider the operation on homsets 
-$f^* : \mathbf{ChCts}_s(\sem{\Gamma}, \typeP) \to \mathbf{ChCts}_s(\sem{\Gamma},
+$f^* : \mathbf{FMCts}_s(\sem{\Gamma}, \typeP) \to \mathbf{FMCts}_s(\sem{\Gamma},
 \typeP)$ given by \[f^*(g) = f \circ (\mathbf{1}_{\Gamma} \amp g) \circ
 \Delta_{\sem{\Gamma}}.\] This operation is continuous so by Tarski's theorem
 it has a least fixed point, $\mathrm{fix}(f^*)$. Define
 $\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} = \mathrm{fix}(f^*)$. Concretely,
 this fixed point may be obtained as follows: define $g_0 = \bot \in
-\mathbf{ChCts}_s(\sem{\Gamma}, \typeP)$ and for each $n \in \omega$ define
+\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ and for each $n \in \omega$ define
 $g_{n+1} = f \circ (\mathbf{1}_{\Gamma} \amp g_n) \circ
 \Delta_{\sem{\Gamma}}$, then $\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
 \langle \gamma \rangle = \bigcup_{n \in \omega} g_n \langle \gamma \rangle$.
@@ -345,13 +345,13 @@ such that $p \in \sem{t} \langle \gamma, Q
 Define $\sem{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }}$ to
 be the exponential transpose of
 $\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
-}}{t}{\typeP}}$ in $\mathbf{ChCts}_s$.
+}}{t}{\typeP}}$ in $\mathbf{FMCts}_s$.
 
 Suppose that $\gamma \in \semp{\Gamma}$ and that $\mappath{Q}{p} \in
 \sem{\abstract{x}{t}}\langle \gamma \rangle \subseteq \typemap{\typeQ}{\typeP} =
 {\typelift\typeQ}^{\mathrm{op}} \amp \typeP$, then \TODO{exponential adjunction
 cross-ref} by definition of the
-exponential adjunction in $\mathbf{ChCts}_s$, $p \in \sem{t} \langle \gamma, Q
+exponential adjunction in $\mathbf{FMCts}_s$, $p \in \sem{t} \langle \gamma, Q
 \rangle$.
 
 
@@ -362,7 +362,7 @@ Define $\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typ
 be \[\mathbf{apply} \circ (
 \sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}} \amp
 \sem{\tjudge{s}{\Lambda}{u}{\typeQ}}),\] where $\mathbf{apply}$ is the counit of
-the exponential adjunction in $\mathbf{ChCts}_s$.
+the exponential adjunction in $\mathbf{FMCts}_s$.
 
 Suppose that $\gamma \in \semp{\Gamma}$, $\lambda \in \semp{\Lambda}$ and 
 \[\begin{array}{rcl}
@@ -449,7 +449,7 @@ Define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} =
 \mathbf{in}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}},\]
 where $\mathbf{in}_{\ell_0}$ is the $\ell_0$th injection of the biproduct
 $\stdtypesum$, which (\TODO{Injections into biproducts in correct category})
-is an arrow of $\mathbf{ChCts}_s$ since $s$ supports
+is an arrow of $\mathbf{FMCts}_s$ since $s$ supports
 $\ell_0$. Consequently $\labelpath{\ell}{p} \in
 \sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle\gamma\rangle$ iff $\ell = \ell_0$
 and $p \in \sem{t} \langle\gamma\rangle$.
@@ -458,7 +458,7 @@ and $p \in \sem{t} \langle\gamma\rangle$.
 Define \[\sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} } =
 \mathbf{out}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}},\] where
 $\mathbf{out}_{\ell_0}$ is the $\ell_0$th projection of the biproduct
-$\stdtypesum$, which (\TODO{Projections from biproducts in correct category}) is an arrow of $\mathbf{ChCts}_s$ since $s$ supports
+$\stdtypesum$, which (\TODO{Projections from biproducts in correct category}) is an arrow of $\mathbf{FMCts}_s$ since $s$ supports
 $\ell_0$. Consequently $p \in
 \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} }
 \langle\gamma\rangle$ iff
@@ -470,7 +470,7 @@ $\labelpath{\ell_0}{p} \in \sem{t} \langle\gamma\rangle$.
 Define \[\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
 = \sum_{i \in I} \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}},\] which (\TODO{Sum
 in correct category}) is an
-arrow of $\mathbf{ChCts}_s$ since $s$ supports the mapping $i \mapsto
+arrow of $\mathbf{FMCts}_s$ since $s$ supports the mapping $i \mapsto
 \tjudge{s_i}{\Gamma}{t_i}{\typeP}$. Consequently $p \in
 \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle\gamma\rangle$ iff $p \in
 \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}} \langle\gamma\rangle$ for some $i \in I$.
@@ -497,7 +497,7 @@ between the type $\typerec{j}{P}{\typeP}$ and its unfolding. Consequently
 $\abspath p \in \sem{t} \langle\gamma\rangle$ iff $p \in \sem{\rep t} \langle\gamma\rangle$.
 
 \paragraph{Support Weakening (Actions)} If $s' \subseteq s$ then let $j :
-\mathbf{ChCts}_{s'} \hookrightarrow \mathbf{ChCts}_s$ be the canonical inclusion
+\mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the canonical inclusion
 so induced. Define \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} =
 j\sem{\atjudge{s'}{\typeP}{p}{\typePp}}\] from which it follows that
 \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} X =
