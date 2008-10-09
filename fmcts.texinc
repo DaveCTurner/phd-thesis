@@ -130,8 +130,21 @@ set are always finitely supported so the (external) Axiom of Choice gives rise
 to an (internal) well-ordering and the remainder of the proof is as in the
 classical case.
 
-\TODO{Return to the example of $\sem{\new{a}{\termvar{x}}}$ and show that it is
-FM-continuous}
+Returning to the example of $\sem{\new{a}{\termvar{x}}}$, let $X \subseteq
+\widehat{\mathbb A}$ be directed and uniformly supported by a finite set $s$.
+%
+Therefore every $x \in X$ is either a subset of $s$ or a superset of $\mathbb A
+\setminus s$, so $X$ is finite.
+%
+Since $X$ is also directed it contains a maximal element $x$ so that
+\begin{equation} \sem{\new{a}{\termvar{x}}}\left(\bigcup X \right) =
+\sem{\new{a}{\termvar{x}}} x = \bigcup_{x' \in X} \sem{\new{a}{\termvar{x}}} x'
+\end{equation} and hence $\sem{\new{a}{\termvar{x}}}$ does preserve joins of
+directed sets that have uniform supports.
+%
+It turns out that preservation of uniformly-supported directed joins is a
+satisfactory definition of continuity in nominal domain theory.
+
 
 \subsection{FM-Isolated Elements}
 \label{fm:isolated}
