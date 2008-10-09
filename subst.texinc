@@ -1,4 +1,4 @@
-\section{Substitution}
+\subsection{Substitution}
 
 The substitution $\termsubst{t}{v}{y}$ of a term $v$ for the variable
 $\termvar{y}$ in a term $t$ is defined by recursion on $t$ as follows.
