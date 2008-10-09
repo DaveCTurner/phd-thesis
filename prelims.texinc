@@ -542,7 +542,7 @@ $\sigma_i^{-1} \cdot \sigma'_i \cdot x = x$ and hence $\sigma_i \cdot x =
 \sigma'_i \cdot x$.
 
 A functor $G : \mathbf{Sch} \to \mathbf{NSet}$ is defined by \begin{equation} G
-X \defeq \mathrm{colim} X |_{\mathbb J} \end{equation} where the colimit is
+X \defeq \mathrm{colim} (X |_{\mathbb J}) \end{equation} where the colimit is
 taken over the restriction of $X$ to a diagram of shape $\mathbb J$, which is
 the category whose objects are finite subsets of $\mathbb A$ but whose arrows
 are just the inclusions between them. The action of $G$ on morphisms is given by
