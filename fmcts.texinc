@@ -163,12 +163,13 @@ elements simply `isolated'.
 
 For example, every element of $\widehat{\mathbb A}$ is isolated.
 %
-To see this, let $x \subseteq \mathbb A$ be
-finitely-supported and such that $x \subseteq \bigcup X$ where $X \subseteq
-\widehat{\mathbb A}$ is directed and uniformly supported by $s$, then every
-element of $X$ is either a subset of $s$ or a superset of $\mathbb A \setminus
-s$. Therefore $X$ is finite, and since it is also directed there must exist $x'
-\in X$ such that $x \subseteq x'$.
+To see this, let $x \in \widehat{\mathbb A}$ be such that $x \subseteq \bigcup
+X$ where $X \subseteq \widehat{\mathbb A}$ is directed and uniformly supported
+by $s$, then every element of $X$ is either a subset of $s$ or a superset of
+$\mathbb A \setminus s$.
+%
+Therefore $X$ is finite, and since it is also directed it contains a maximal
+element $x'$ and hence $x \subseteq x'$.
 %
 More generally, \begin{definition} If $\typeP$ is a FM-preorder, $F$ a finite
 subset of $\typeP$ and $s$ a finite set of names that contains $\supp{\typeP}$
