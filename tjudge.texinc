@@ -338,6 +338,9 @@ $\atjudge{\supp{p}}{\typeP}{p}{\typePp}$.
 
 \begin{proof} The proof is by mutual induction on the derivations of
 $\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
+%
+The proof is straightfoward with the exception of the case for terms of the
+form $\ndsum{i}{I}{t_i}$.
 
 \paragraph{Variable} Trivially, since $\supp{\termvar{x}} = \varnothing$.
 
