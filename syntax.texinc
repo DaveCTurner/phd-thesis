@@ -44,7 +44,7 @@ Define $\envcombine{\Gamma}{\Lambda}$ is defined by the obvious recursion \[
 \envcombine{\Gamma}{\envempty} = \Gamma \qquad\text{and}\qquad
 \envcombine{\Gamma}{(\envcombine{\Lambda}{\envvarfresh{x}{\typeP}{s}})} =
 \envcombine{(\envcombine{\Gamma}{\Lambda})}{\envvarfresh{x}{\typeP}{s} }, \]
-which only makes sense when the variables in $\Gamma$ and $\Lambda$ to be
+which only makes sense when the variables in $\Gamma$ and $\Lambda$ are 
 distinct. It is sometimes useful to be able to simultaneously alter all the
 freshness assumptions in an environment: define $\envfresh{\Gamma}{s}$ by
 \[\envfresh{\envempty}{s} = \envempty \qquad\text{and}\qquad
