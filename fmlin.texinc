@@ -68,37 +68,37 @@ then by \ref{hat:freeness} \begin{equation} \label{hat:epi} f = (f \circ
 \subsection{Categories of FM-Linear Maps}
 \label{fmlin}
 
-\TODO{Rewrite in terms of initial object of $(\typeP \downarrow J)$}
-
 Let $\mathbf{FMLin}_s$ be the category whose objects are FM-preorders $\typeP$,
 $\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \to \typeQ$ are
 FM-linear maps $\widehat{\typeP} \to \widehat{\typeQ}$ supported by $s$.
-
-If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMPre}_s$ then so is
-$(\{\cdot\}_{\typeQ} \circ f)^{\dagger} : \widehat{\typeP} \to \widehat{\typeQ}$
-and furthermore this arrow is FM-linear by the definition of $(-)^{\dagger}$.
 %
-Therefore it is not hard to see that defining $\widehat{f} \defeq
-(\{\cdot\}_{\downarrow} \circ f)^{\dagger}$ makes $\widehat{(-)}$ into a functor
-$\mathbf{FMPre}_s \to \mathbf{FMLin}_s$.
+The discussion at the end of the previous section shows that
+there is an isomorphism \begin{equation} \label{hat:adj}
+\mathbf{FMPre}_s(\typeP, \widehat{\typeQ}) \cong \mathbf{FMLin}_s(\typeP,
+\typeQ).\end{equation}
+
+FM-linear maps are necessarily monotone, since if $a \le b$ then $a \vee b = b$
+so that if $f$ preserves joins then $f a \vee f b = f (a \vee b) = f b$ and
+hence $f a \le f b$.
+%
+Therefore there is a functor $J : \mathbf{FMLin}_s \to \mathbf{FMPre}_s$, where
+$J\typeP \defeq \widehat{\typeP}$ and if $f : \typeP \to \typeQ$ is an arrow of
+$\mathbf{FMLin}_s$ then $Jf \defeq f : \widehat{\typeP} \to \widehat{\typeQ}$ in
+$\mathbf{FMPre}_s$.
+%
+Furthermore the freeness property \ref{hat:freeness} says that $(\typeP,
+\{\cdot\}_{\typeP})$ is initial in $(\typeP \downarrow J)$ which implies that
+$\ref{hat:adj}$ is an adjunction with $J$ the right adjoint to the functor which
+acts as the identity on objects and takes an arrow $f : \typeP \to \typeQ$ of
+$\mathbf{FMPre}_s$ to $\widehat f \defeq (\{\cdot\}_{\typeQ} \circ f)^{\dagger}
+: \typeP \to \typeQ$ in $\mathbf{FMLin}_s$.
 %
 Concretely this means that if $x \in \widehat{\typeP}$ then \begin{equation}
 \label{hat:arrows} \widehat{f}x = \{ q \in \typeQ \mid \exists p \in x. q
 \le_{\typeQ} f p \}.\end{equation}
 %
-On the other hand, FM-linear
-maps are necessarily monotone, since if $a \le b$ then $a \vee b = b$ so that if
-$f$ preserves joins then $f a \vee f b = f (a \vee b) = f b$ and hence $f a \le
-f b$. Therefore there is an inclusion $\mathbf{FMLin}_s \hookrightarrow
-\mathbf{FMPre}_s$. The discussion at the end of the previous section shows that
-there is an isomorphism \begin{equation} \label{hat:adj}
-\mathbf{FMPre}_s(\typeP, \widehat{\typeQ}) \cong \mathbf{FMLin}_s(\typeP,
-\typeQ)\end{equation} and it is not hard to see that this is natural in $\typeP$
-and $\typeQ$, and hence an adjunction with the inclusion as left adjoint.  In
-detail, the unit of this adjunction is given by the transpose of the identity in
-\ref{hat:adj} and by \ref{hat:freeness} it is therefore $\{\cdot\}_\downarrow$.
-Conversely the counit is given by $\mathord{\cup} \defeq
-\mathbf{1}_{\widehat{(-)}}^\dagger$, and in detail if $X \in
+The unit of this adjunction is $\{\cdot\}_{\downarrow}$ and the counit is given
+by $\mathord{\cup} \defeq \mathbf{1}_{\widehat{(-)}}^\dagger$ where if $X \in
 \widehat{\widehat{\typeP}}$ then \begin{equation} \mathord{\cup}_{\typeP} X =
 \mathbf{1}_{\widehat{\typeP}}^\dagger X = \bigcup X. \end{equation}
 
