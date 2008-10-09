@@ -40,7 +40,7 @@ an environment is the union of its freshness constraints.
 This is a finite support, so the collection of environments forms a nominal
 set.
 
-Define $\envcombine{\Gamma}{\Lambda}$ is defined by the obvious recursion \[
+Define $\envcombine{\Gamma}{\Lambda}$ by the obvious recursion \[
 \envcombine{\Gamma}{\envempty} = \Gamma \qquad\text{and}\qquad
 \envcombine{\Gamma}{(\envcombine{\Lambda}{\envvarfresh{x}{\typeP}{s}})} =
 \envcombine{(\envcombine{\Gamma}{\Lambda})}{\envvarfresh{x}{\typeP}{s} }, \]
