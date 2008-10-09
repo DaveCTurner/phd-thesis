@@ -83,6 +83,8 @@ application} \\
 %
 &&\bigmid \abs{t} \bigmid \rep{t} && \text{recursive types}\\
 \end{array}\]
+(\TODO{Try superscript in syntax for match})
+%
 The forms \[\rec{x}{t} \qquad \matchz{s}{u}{p}{x}{t}{\typeP} \qquad
 \abstract{x}{t}\] all bind $\termvar{x}$ in $t$, and the set of free variables
 of $t$, $\fv{t}$, is defined in the usual way.
