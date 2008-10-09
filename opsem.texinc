@@ -101,7 +101,7 @@ the transition in the conclusion has the correct type.
 % ===========================================================================
 \end{array}\]
 
-\vfill\pagebreak
+\subsection{Properties of the Operational Semantics}
 
 \begin{lemma} \label{ajudgeimptjudge} If $\ajudge{\typeP}{t}{p}{t'}$ then
 $\tjudge{}{}{t}{\typeP}$.  \end{lemma} \begin{proof} By definition.\end{proof}
