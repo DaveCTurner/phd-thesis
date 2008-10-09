@@ -91,9 +91,9 @@ contradiction: $\new{a}{a} = \new{a'}{a'} \neq \new{a'}{b_i}$ for any $i$ as
 $a'$ was chosen to be fresh.
 %
 From all of the speculative assumptions made in this example, the least
-convincing is that $\sem{\new{a}{t}}$ must preserve directed joins, so it is
-sensible to seek an alternative notion of continuity that includes maps such as
-$\sem{\new{a}{t}}$.
+convincing is that $\sem{\new{a}{\termvar{x}}}$ must preserve directed joins, so
+it is sensible to seek an alternative notion of continuity that includes maps
+such as $\sem{\new{a}{\termvar{x}}}$.
 
 \subsection{FM-Continuity}
 \label{fm:continuity}
@@ -130,7 +130,7 @@ set are always finitely supported so the (external) Axiom of Choice gives rise
 to an (internal) well-ordering and the remainder of the proof is as in the
 classical case.
 
-\TODO{Return to the example of $\sem{\new{a}{t}}$ and show that it is
+\TODO{Return to the example of $\sem{\new{a}{\termvar{x}}}$ and show that it is
 FM-continuous}
 
 \subsection{FM-Isolated Elements}
