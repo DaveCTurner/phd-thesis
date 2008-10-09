@@ -687,6 +687,46 @@ The counit is the concretion operator $\mathord{@} : (\delta-) \otimes \mathbb A
 That the triangular identities are satisfied amounts to saying that $([a].x)@a =
 x$ for any name $a$, and $[b].(x'@b) = x'$ for a fresh name $b$.
 
-\TODO{Conclusion. In particular, say why this is ``binding''}
+To see roughly why the operation $\delta$ corresponds to `binding', consider the
+set $\Lambda$ of $\lambda$ terms, and its quotient
+$\Lambda/\mathord{\sim}_{\alpha}$ under $\alpha$-equivalence.
+%
+The set $\Lambda$ may be defined recursively by the rules \begin{equation}
+\infer[(a \in \mathbb A)]{\quad a \quad}{} \quad \infer{MN}{M & N} \quad
+\infer[(a \in \mathbb A)]{\lambda a. M}{M} \end{equation} which amounts to
+saying that $\Lambda$ is an initial algebra for the functor $\mathbb A + (-)^{2}
++ \mathbb A \times (-)$.
+%
+Notice that the components of this functor arise directly from the recursive
+definition of $\Lambda$.
+%
+Furthermore, the initiality of $\Lambda$ is the property that gives rise to the
+principle of structural induction on $\lambda$ terms.
+%
+Similarly, $\Lambda/\mathord{\sim}_{\alpha}$ is an initial algebra for the
+functor $\mathbb A + (-)^{2} + \delta(-)$, and the initiality gives rise to an
+induction principle that can be described as `structural-up-to-$\alpha$'.
+%
+It is a structural principle in the sense that it decomposes terms into their
+components, and it is `up-to-$\alpha$' in the sense that a decomposition of a
+term of the form $\lambda a. M$ picks a name $a$ which is fresh for any other
+names in scope.
+%
+This captures the common informal practice for inductive reasoning over syntax
+with binding, where bound names are always chosen to be fresh.
+%
+A much more detailed discussion of this can be found
+elsewhere\cite{PittsAM:alpsri}.
+%
+Notice that $\delta$ is a purely semantic construction, so it can be used even
+without any obvious notion of syntax.
+%
+For this reason, the word `binding' will be used to mean `related to the
+adjunction $(-)\otimes \mathbb A \dashv \delta$' in chapters \ref{domthy} and
+\ref{abstract-justification}, since these chapters are not concerned with
+syntax.
+%
+This is justified by the results of chapter \ref{nomhopla} when the semantics of
+the previous chapters is related to the syntax of the language Nominal HOPLA.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
