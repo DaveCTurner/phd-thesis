@@ -1,6 +1,4 @@
-\vfill\pagebreak
-
-\section{Adequacy}
+\subsection{Adequacy}
 \label{secadequacy}
 
 Define a relation $\logrel{X}{\typeP}{t}$ between $X

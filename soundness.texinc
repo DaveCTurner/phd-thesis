@@ -1,4 +1,6 @@
-\section{Soundness}
+\section{Soundness and Adequacy}
+
+\subsection{Soundness}
 
 \begin{lemma}[Soundness]
 \label{soundnessactions}
