@@ -128,7 +128,7 @@ The form $\newaction{a}{p}$ binds the name $a$ in the same way that $a$ is
 bound in the term $\new{a}{t}$.
 
 The permutation action on terms and actions is as follows.
-\[\begin{array}{rclcrcl} \sigma \cdot \termvar{x} &=& \termvar{x} &\qquad&
+\[\begin{array}{rclcrcl} \sigma \cdot \termvar{x} &=& \termvar{x} &&
 %
 \sigma \cdot (\rec{x}{t}) &=& \rec{x}{(\sigma \cdot t)} \\
 %
@@ -137,10 +137,11 @@ The permutation action on terms and actions is as follows.
 \sigma \cdot \left(\ndsum{i}{I}{t_i}\right) &=& \ndsum{i}{I}{(\sigma \cdot
 t_i)} \\
 %
-\multicolumn{3}{c}{\sigma \cdot (\matchz{s}{u}{p}{x}{t}{\typeP})} &=&
-\multicolumn{3}{c}{ \matchz{(\sigma \cdot s)}{(\sigma \cdot u)}{(\sigma \cdot
-p)}{x}{(\sigma \cdot t)}{\typeP}} \\ \sigma \cdot (\abstract{x}{t}) &=&
-\abstract{x}{(\sigma \cdot t)} &&
+\multicolumn{7}{c}{\sigma \cdot (\matchz{s}{u}{p}{x}{t}{\typeP}) =
+\matchz{(\sigma \cdot s)}{(\sigma \cdot u)}{(\sigma \cdot
+p)}{x}{(\sigma \cdot t)}{\typeP}} \\
+%
+\sigma \cdot (\abstract{x}{t}) &=& \abstract{x}{(\sigma \cdot t)} &&
 %
 \sigma \cdot (\apply{t}{u}{\typeP}) &=& \apply{(\sigma \cdot t)}{(\sigma \cdot u)}{\typeP} \\
 %
