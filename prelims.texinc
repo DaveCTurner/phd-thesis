@@ -548,10 +548,11 @@ the category whose objects are finite subsets of $\mathbb A$ but whose arrows
 are just the inclusions between them. The action of $G$ on morphisms is given by
 the universal property of this colimit.
 
-It is now a simple case of definition-following to check that $F$ and $G$ define
-an equivalence of categories.  \end{proof}
-
-\TODO{Should really define the isos $FG \cong \mathbf{1}$ and $GF \cong \mathbf{1}$}
+There are obvious transformations $\mathbf{1} \to FG$ and $\mathbf{1} \to GF$
+which essentially take elements to their equivalence classes in the colimit.
+%
+It is straightforward to show that these are natural isomorphisms and hence that
+$F$ and $G$ define an equivalence of categories as required.  \end{proof}
 
 \subsection{Binding in Nominal Sets}
 \label{subsect:nset:binding}
