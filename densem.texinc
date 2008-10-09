@@ -22,9 +22,11 @@ of paths satisfying the appropriate freshness constraints. Define a monotone map
 \mathord{\cdot} \rangle_{\Gamma} : \semp{\Gamma} \to \widehat{\sem{\Gamma}}$ as follows.
 \[\langle\rangle_{\envempty} = \{ \typeO \} \qquad \text{and} \qquad
 \langle \gamma, p \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }}
-= \langle \gamma \rangle_{\Gamma} \udot \{x \in p \mid x \freshfor s\}.\] Where
+= \langle \gamma \rangle_{\Gamma} \uplus \{x \in p \mid x \freshfor s\}.\] Where
 it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 \rangle$.
+
+\TODO{Relationship of $\langle \cdot \rangle_\Gamma$ with $\phi^{(s)}$.}
 
 
 %Given $f : \typefresh{\typeP}{{s}} \to \typefresh{\typePp}{{s'}}$, define $\envsubst{\Gamma}{f}{x} : \sem{\envsubst{\Gamma}{\envvarfresh{x}{\typeP}{{s}}}{x}} \to \sem{\envsubst{\Gamma}{\envvarfresh{x}{\typePp}{{s'}}}{x}}$ as follows.
