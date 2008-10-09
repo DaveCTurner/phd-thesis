@@ -66,7 +66,7 @@ Terms are given by the following grammar, where $\termvar{x}$ ranges over
 variables, $a$ ranges over names, $s$ over finite sets of names, $p$ over
 actions, $\ell$ over labels and $\typeP$ over types.
 \[\begin{array}{lclcl} t, u &::=&
-\quad \termvar{x} \bigmid \rec{x}{t} &\qquad&\text{variables; recursion}
+\quad \termvar{x} \bigmid \rec{x}{t} &&\text{variables; recursion}
 \\
 %
 &&\bigmid \bang{t} \bigmid \matchz{s}{u}{p}{x}{t}{\typeP} && \text{prefixing}\\
