@@ -599,7 +599,7 @@ monads\cite{street:monads} but the proof is elementary diagram-chasing so it is
 reproduced here.
 %
 In \ref{subsect:deltafreshadjlin} it is shown that this lifting process,
-combined with the isomorphism $K_{\mathbf{Cts}}$ defined in \ref{def:klin},
+combined with the isomorphism $K_{\mathbf{Lin}}$ defined in \ref{def:klin},
 gives rise to the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ described in
 \ref{subsubsect:deltafreshadjlin}.
 %
