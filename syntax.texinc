@@ -100,12 +100,12 @@ Although the binding of variables is treated informally, the binding of the
 name $a$ in the form $\new{a}{t}$ must be treated more carefully. Strictly
 speaking, the form $\new{a}{t}$ is the equivalence class of pairs of names and
 terms that contains $(a, t)$ under the usual $\alpha$-equivalence relation
-\[(a, t) \sim (a', t') \quad\Leftrightarrow\quad \exists b \freshfor (a, a', t,
-t'). (ab) \cdot t = (a'b) \cdot t'.\] Therefore for any fresh name $b$,
+\[(a, t) \sim (a', t') \quad\Leftrightarrow\quad \freshin{b}{ (ab) \cdot t =
+(a'b) \cdot t'}.\]
+%
+Therefore for any fresh name $b$,
 $\new{a}{t} = \new{b}{(ab) \cdot t}$, where the equality in this statement is
 literally equality, not simply equality-up-to-$\alpha$.
-\TODO{Chicken-and-egg problem here: can't say $b \freshfor t$ without defining
-the permutation action on $t$.}
 
 \subsection{Syntax of Actions}
 
