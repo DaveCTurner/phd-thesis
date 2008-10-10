@@ -157,28 +157,6 @@ More general coproducts are defined similarly.
 %
 The empty order $\mathbb O$ is the empty coproduct.
 
-In fact, if $(\typePsub{\ell})_{\ell \in L}$ is any collection of FM-preorders
-where the mapping $\ell \mapsto \typePsub{\ell}$ is supported by $s$ then it
-makes sense to define the object $\stdtypesum$ as the disjoint union of the
-$\typePsub{\ell}$.
-%
-It is not hard to see that $\stdtypesum$ is supported by $s$ and therefore an
-object of $\mathbf{FMLin}_s$.
-%
-Furthermore, for each $\ell_0 \in L$ the $\ell_0$th component
-$\typePsub{\ell_0}$ is an object of $\mathbf{FMLin}_{s \cup \supp{\ell_0}}$, and
-if $J : \mathbf{FMLin}_s \hookrightarrow \mathbf{FMLin}_{s \cup \supp{\ell_0}}$
-is an inclusion of categories then the $\ell_0$th injection is an arrow
-$\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \to J\stdtypesum$ of
-$\mathbf{FMLin}_{s \cup \supp{\ell_0}}$.
-%
-Finally if $\typeQ$ is an object of $\mathbf{FMLin}_s$ and $(f_\ell :
-\typePsub{\ell} \to \typeQ)_{\ell \in L}$ is a collection of arrows (in the
-appropriate categories) then there is a unique $[f_{\ell}]_{\ell \in L} :
-\stdtypesum \to \typeQ$ in $\mathbf{FMLin}_{s}$ such that $[f_{\ell}]_{\ell \in
-L} \circ \mathbf{in}_{\ell_0} = f_{\ell_0}$ in $\mathbf{FMLin}_{s \cup
-\supp{\ell_0}}$ for each $\ell_0$.
-
 \subsubsection{Products.} Since $\mathbf{FMLin}_s$ is enriched over
 $\mathbf{CMon}$ and it has binary coproducts given by disjoint union, it follows
 that the disjoint union of the orders $\typeP_1$ and $\typeP_2$ is also a binary
@@ -202,12 +180,38 @@ $\typeP_2$ with respect to this monoid.
 %
 More general biproducts may be defined in $\mathbf{FMLin}_s$ in the same way.
 
-Furthermore, if $(\typePsub{\ell})_{\ell \in L}$ is a collection of FM-preorders
-where the mapping $\ell \mapsto \typePsub{\ell}$ is supported by $s$ then the
-`generalised coproduct' $\stdtypesum$ also has projections
+\subsubsection{Generalised Biproducts.}
+%
+In fact, if $(\typePsub{\ell})_{\ell \in L}$ is any collection of FM-preorders
+where the mapping $\ell \mapsto \typePsub{\ell}$ is supported by $s$ then it
+makes sense to define the object $\stdtypesum$ as the disjoint union of the
+$\typePsub{\ell}$.
+%
+It is not hard to see that $\stdtypesum$ is supported by $s$ and therefore an
+object of $\mathbf{FMLin}_s$.
+%
+Furthermore, for each $\ell_0 \in L$ the $\ell_0$th component
+$\typePsub{\ell_0}$ is an object of $\mathbf{FMLin}_{s \cup \supp{\ell_0}}$, and
+if $J : \mathbf{FMLin}_s \hookrightarrow \mathbf{FMLin}_{s \cup \supp{\ell_0}}$
+is an inclusion of categories then the $\ell_0$th injection is an arrow
+$\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \to J\stdtypesum$ of
+$\mathbf{FMLin}_{s \cup \supp{\ell_0}}$.
+%
+Moreover if $\typeQ$ is an object of $\mathbf{FMLin}_s$ and $(f_\ell :
+\typePsub{\ell} \to \typeQ)_{\ell \in L}$ is a collection of arrows (in the
+appropriate categories) such that the mapping $\ell \mapsto f_\ell$ is supported
+by $s' \supseteq s $ then there is a unique $[f_{\ell}]_{\ell \in L} :
+\stdtypesum \to \typeQ$ in $\mathbf{FMLin}_{s'}$ such that $[f_{\ell}]_{\ell \in
+L} \circ \mathbf{in}_{\ell_0} = f_{\ell_0}$ in $\mathbf{FMLin}_{s' \cup
+\supp{\ell_0}}$ for each $\ell_0$.
+%
+In short, $\stdtypesum$ behaves much like a coproduct, except that its
+injections do not necessarily all inhabit the same categories.
+
+This generalised coproduct $\stdtypesum$ also has projections
 $\mathbf{out}_{\ell_0} : \stdtypesum \to \typePsub{\ell_0}$ that satisfy
-conditions much like those of a product, except that they do not all lie in the
-same category.
+conditions much like those of a product, except that they also do not all lie in
+the same category.
 %
 Also, the projections and injections interact as for a biproduct:
 $\mathbf{out}_{\ell} \circ \mathbf{in}_{\ell} = \mathbf{1}_{\typeP_i}$  in
