@@ -138,6 +138,12 @@ $\subseteq$, and joins given by union.
 %
 Furthermore composition preserves joins in both its arguments, and in particular
 it is monotone.
+%
+The order structure on the hom-sets gives rise to a commutative monoid
+structure, with multiplication given by $\cup$ and unit given by $\varnothing$.
+%
+Moreover composition is a monoid homomorphism which makes it possible to view
+each $\mathbf{FMLin}_s$ as being enriched over $\mathbf{CMon}$.
 
 \subsubsection{Coproducts.} The disjoint union of the orders $\typeP_1$ and
 $\typeP_2$ forms the binary coproduct $\typeP_1 + \typeP_2$ in
@@ -173,24 +179,26 @@ appropriate categories) then there is a unique $[f_{\ell}]_{\ell \in L} :
 L} \circ \mathbf{in}_{\ell_0} = f_{\ell_0}$ in $\mathbf{FMLin}_{s \cup
 \supp{\ell_0}}$ for each $\ell_0$.
 
-\subsubsection{Products.} The disjoint union of the orders $\typeP_1$ and
-$\typeP_2$ also forms the binary product $\typeP_1 \amp \typeP_2$ in
-$\mathbf{FMLin}_s$.
+\subsubsection{Products.} Since $\mathbf{FMLin}_s$ is enriched over
+$\mathbf{CMon}$ and it has binary coproducts given by disjoint union, it follows
+that the disjoint union of the orders $\typeP_1$ and $\typeP_2$ is also a binary
+product $\typeP_1 \amp \typeP_2$.
 %
-The projection $\mathbf{out}_i : \matthat{\typeP_1 \amp \typeP_2} \to
+The projections are defined by $\mathbf{out}_1 \defeq [\mathbf{1}_{\typeP_1},
+\varnothing]$ and $\mathbf{out}_2 \defeq [\varnothing, \mathbf{1}_{\typeP_2}]$,
+and concretely $\mathbf{out}_i : \matthat{\typeP_1 \amp \typeP_2} \to
 \widehat{\typeP_i}$ is given by $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid
 \mathbf{in}_i p \in x \}$.
 %
-Furthermore, the injections and projections satisfy \begin{equation}
-\label{biproducts} \begin{array}[t]{c} \mathbf{out}_i \circ \mathbf{in}_i =
-\mathbf{1}_{\typeP_i} \quad \mathbf{out}_i \circ \mathbf{in}_j = \varnothing \
-(i \neq j) \\ ((\mathbf{in}_1 \circ \mathbf{out}_1) \cup (\mathbf{in}_2 \circ
-\mathbf{out}_2)) = \mathbf{1}_{\typeP_1 + \typeP_2} \end{array} \end{equation}
+Furthermore, the commutative monoid structure means that injections and
+projections satisfy \begin{equation} \label{biproducts} \begin{array}[t]{c}
+\mathbf{out}_i \circ \mathbf{in}_i = \mathbf{1}_{\typeP_i} \quad \mathbf{out}_i
+\circ \mathbf{in}_j = \varnothing \ (i \neq j) \\ ((\mathbf{in}_1 \circ
+\mathbf{out}_1) \cup (\mathbf{in}_2 \circ \mathbf{out}_2)) =
+\mathbf{1}_{\typeP_1 + \typeP_2} \end{array} \end{equation}
 %
-The order structure on the hom-sets gives rise to a commutative monoid
-structure, with multiplication given by $\cup$ and unit given by $\varnothing$,
-and by \ref{biproducts} the object $\typeP_1 + \typeP_2$ is the biproduct of
-$\typeP_1$ and $\typeP_2$ with respect to this monoid.
+and in short the object $\typeP_1 + \typeP_2$ is the biproduct of $\typeP_1$ and
+$\typeP_2$ with respect to this monoid.
 %
 More general biproducts may be defined in $\mathbf{FMLin}_s$ in the same way.
 
