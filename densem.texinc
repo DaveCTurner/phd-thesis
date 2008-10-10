@@ -394,7 +394,7 @@ Let $b$ be a fresh name and let
 \theta_{\sem{\Gamma}^{\freshfor a}}^{-1} \circ
 \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma
 \end{array}\]
-by \ref{def:deltacts} and \ref{def:xicts}.
+by the definitions of \ref{subsubsect:deltafreshadjcts}.
 %
 Since $b$ is fresh, by the definition of $\theta$,
 \[\begin{array}{rcl}
@@ -429,7 +429,7 @@ p &\in& \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\type
 \sem{t}^{\freshfor a} \circ \phi_{\sem{\Gamma}}^{-1}\bigr)
 \langle \gamma \rangle_{\envfresh{\Gamma}{a}}\\
 \end{array}\]
-by \ref{def:freshcts} and \ref{def:zetacts}. Therefore
+by the definitions of \ref{subsubsect:deltafreshadjcts}. Therefore
 \[\begin{array}{rcl}
 \newpath{a}{p} &\in& \bigl(\phi_{\delta_a \typeP} \circ
 \sem{t}^{\freshfor a} \circ \phi_{\sem{\Gamma}}^{-1}\bigr) \langle \gamma
