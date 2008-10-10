@@ -577,8 +577,63 @@ partial order \[\matthat{\left({!}\left(\stdtypesum\right)\right)^{\mathrm{op}}
 $\mathbf{FMCts}_{s'}(\stdtypesum, \stdtypesum)$ by \ref{cts:homsets}.
 
 
-\subsubsection{Exponentials.}
-\TODO{Exponentials}
+\subsubsection{Exponentials.} If $\typeP$ and $\typeQ$ are objects of
+$\mathbf{FMCts}_s$ then there is an isomorphism $m_{\typeP, \typeQ} :
+\typelift\typeP \to \typelift\typeQ \cong \typelift{(\typeP \amp \typeQ)}$ which
+maps a pair $\langle P, Q \rangle$ to the union $P \uplus Q$.
+%
+To see that this is well-defined, pick $s' \supseteq \supp{P, Q, \typeP,
+\typeQ}$ and write $P = \finelt{F}{s'}$ and $Q = \finelt{G}{s'}$ by
+\ref{finelt:wlog}, then it is straightforward to see that $P \uplus Q =
+\finelt{F \uplus G}{s'} \in \typelift{(\typeP \amp \typeQ)}$.
+%
+Moreover, any element of $\typelift{(\typeP \amp \typeQ)}$ can be written as
+$\finelt{F \uplus G}{s'}$ and in this case $\finelt{F}{s'} \in \typelift\typeP$
+and $\finelt{G}{s'} \in \typelift\typeQ$, so that $m_{\typeP, \typeQ}$ is an
+isomorphism.
+%
+It is straightforward to see that $m_{\typeP, \typeQ}$ is supported by $s$ and
+natural in $\typeP$ and $\typeQ$, and finally it is clearly linear in both its
+arguments.
+
+Recall from \ref{subsubsect:lintensor} that $\mathbf{FMLin}_s$ is monoidal
+closed, so that each $(-) \times \typeQ$ has a right adjoint $\typeQ \multimap
+(-)$.
+%
+Together with the natural isomorphism $m$ and the adjunction \ref{bang:adj} this
+gives rise to the following chain of isomorphisms (naturally in $\typeP$ and
+$\typeR$).  \begin{equation} \begin{array}[t]{rcl}
+%
+\mathbf{FMCts}_s(\typeP \amp \typeQ, \typeR)
+%
+&\cong& \mathbf{FMLin}_s(\typelift{(\typeP \amp \typeQ)}, \typeR) \\
+%
+&\cong& \mathbf{FMLin}_s(\typelift\typeP \times \typelift\typeQ, \typeR) \\
+%
+&\cong& \mathbf{FMLin}_s(\typelift\typeP, \typelift\typeQ \multimap \typeR) \\
+%
+&\cong& \mathbf{FMCts}_s(\typeP, \typelift\typeQ \multimap \typeR) \\
+%
+\end{array} \end{equation} so that $\typeQ \to (-) \defeq \typelift\typeQ
+\multimap (-)$ gives a right adjoint to the cartesian product $(-) \amp \typeQ$
+in $\mathbf{FMCts}_s$, so that $\mathbf{FMCts}_s$ is cartesian closed.
+
+In detail, the exponential counit is $\mathbf{apply} : (\typelift\typeQ
+\multimap (-)) \amp \typeQ \to \mathbf{1}$ where if $f \in
+\matthat{\typelift\typeQ \multimap \typeP}$ and $y \in \widehat{\typeQ}$ then
+\begin{equation} \label{def:apply} \mathbf{apply}_{\typeP} (f \uplus y) = \{ p
+\in \typeP \mid \exists Q \in \typelift\typeQ .\ Q \subseteq y \wedge \langle Q,
+p \rangle \in f \}. \end{equation}
+%
+The transpose of a continuous arrow $f : \typeP \amp \typeQ \to \typeR$ is
+$\mathbf{abstract}(f) : \typeP \to (\typelift\typeQ \multimap \typeR)$ where if
+$x \in \widehat{\typeP}$ then \begin{equation} \label{def:abstract}
+\mathbf{abstract}(f)(x) = \{ \langle Q, r \rangle \in \typelift\typeQ \multimap
+\typeR \mid r \in f (x \uplus Q) \}. \end{equation}
+
+
+
+
 
 \subsubsection{Name-Binding.}
 \label{subsubsect:deltafreshadjcts}
