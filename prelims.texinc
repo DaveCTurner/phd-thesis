@@ -154,19 +154,29 @@ Note that $\sigma^{-1} a \neq a$ since $a \neq \sigma a$, so that $\vec{\tau}
 (a\ \sigma^{-1}a)$ is as desired.  \end{proof}
 
 
-Suppose that some agent $P$ `knows about' a particular set $B$ of names.
+\subsubsection{The Footprint Lemma.}
 %
-For example, suppose that $P$ is a term in some context and the names in $B$ are
-free within the scope of $P$ so that they cannot be permuted without affecting
-its context.
+The following lemma characterises permutations in terms of their `footprint' on
+a particular set $B$ of names.
 %
-More precisely if $P$ only `knows about' the names in $B$ then from the point of
-view of $P$ any names outside $B$ are equivalent (in the sense that their
-precise identities carry no significance: of course, if $P$ sees two distinct
-names from outside $B$ then they can be distinguished.)
+The intuition behind this lemma is as follows.
 %
-Therefore $P$ may characterise a permutation $\sigma$ in terms of its
-`footprint' on $B$: the action of $\sigma$ just on the names in $B$.
+Suppose that in the course of a calculation there is a bound $B$ on the set of
+names that are `known'.
+%
+For example, the calculation could be a reduction of a term $t$ in some context
+$C$ and $B$ contains the free names of $t$ so they cannot be permuted without
+affecting its context.
+%
+In this example, $t$ and $C$ `know' the free names.
+%
+Importantly, if $B$ contains all the names that are `known' by a calculation
+then for the purposes of that particular calculation any names outside $B$ are
+equivalent.
+%
+Therefore for the purposes of the calculation it is possible to characterise a
+permutation $\sigma$ in terms of its `footprint' on $B$: the action of $\sigma$
+just on the names in $B$.
 %
 Of course if $a \notin B$ but $\sigma a \in B$ then this is significant,
 although the precise source $a$ of $\sigma a$ is not important.
@@ -178,8 +188,9 @@ If $B$ is finite then it is possible to specify a disjoint set $D$ that
 represents a canonical collection of `unknown' sources and destinations of the
 elements in $B$.
 %
-Then from the point of view of $P$ the permutation $\sigma$ may be represented
-as a permutation $\sigma_2$ such that \begin{enumerate}
+Then from the point of view of the calculation in question the permutation
+$\sigma$ may be represented as a permutation $\sigma_2$ such that
+\begin{enumerate}
 %
 \item if $b \in B$ and $\sigma b \in B$ then $\sigma_2 b = \sigma b$,
 %
@@ -194,9 +205,9 @@ and a finite such $D$ exists, so $\sigma_2$ takes only finitely many possible
 values.
 %
 This fact is important in the proof of \ref{fineltextension}.
-%
-The intuition described above is captured by the following lemma, which
-generalises the result that $(be) = (de)(bd)(de)$ for distinct names $b, d, e$.
+
+Notice that this lemma generalises the result that $(be) = (de)(bd)(de)$ for
+distinct names $b, d, e$.
 
 \begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
 mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
