@@ -148,6 +148,8 @@ The injections are the obvious maps $\mathbf{in}_i : \widehat{\typeP_i} \to
 preorders.
 %
 More general coproducts are defined similarly.
+%
+The empty order $\mathbb O$ is the empty coproduct.
 
 In fact, if $(\typePsub{\ell})_{\ell \in L}$ is any collection of FM-preorders
 where the mapping $\ell \mapsto \typePsub{\ell}$ is supported by $s$ then it
