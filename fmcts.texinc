@@ -582,7 +582,45 @@ $\mathbf{FMCts}_{s'}(\stdtypesum, \stdtypesum)$ by \ref{cts:homsets}.
 
 \subsubsection{Name-Binding.}
 \label{subsubsect:deltafreshadjcts}
-\TODO{Name-Binding}
+
+There is an adjunction on the FM-continuous categories that is analogous to the
+adjunctions $(-)^{\freshfor a} \dashv \delta_a$ and $(-)^{\freshfor a+} \dashv
+\delta_a^+$ described in \ref{deltafreshadj} and
+\ref{subsubsect:deltafreshadjlin}.
+%
+This adjunction is the key structure in the FM-continuous categories that makes
+them a suitable setting for a domain theory that is sensitive to names and
+binding.
+%
+More precisely, for any $s$ and $a \notin s$ there is an adjunction
+\begin{equation} \label{deltafreshadjcts} (-)^{\freshfor a++} \dashv
+\delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot
+\{a\}}\end{equation} as follows.
+%
+If $\typeP$ is an object then $\typeP^{\freshfor a++} \defeq \typeP^{\freshfor
+a}$ and $\delta^{++}_a \typeP \defeq \delta_a \typeP$.
+%
+The unit and counit are given by $\widehat{\xi}$ and $\widehat{\zeta}$.
+%
+If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$ then $f^{\freshfor
+a++} : \typeP^{\freshfor a} \to \typeQ^{\freshfor a}$ is defined by
+\begin{equation} \label{def:freshcts} f^{\freshfor a++} \defeq \phi_{\typeQ}
+\circ f^{\freshfor a} \circ \phi^{-1}_{\typeP}.  \end{equation}
+%
+Also if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_{s \udot \{a\}}$
+then $\delta_a^{++} f : \delta_a \typeP \to \delta_a \typeQ$ is defined by
+\begin{equation} \label{def:deltacts} \delta_a^{++} f \defeq \theta_{\typeQ}
+\circ \delta_a f \circ \theta^{-1}_{\typeP}.  \end{equation}
+%
+Notice that the definitions above are the same as those for the adjunction
+$(-)^{\freshfor a+} \dashv \delta_a^+$ described in
+\ref{subsubsect:deltafreshadjlin}.
+%
+It is necessary to show that $(-)^{\freshfor a++}$ and $\delta_a^{++}$ send
+continuous maps to continuous maps.
+%
+This is demonstrated in \ref{freshhat:continuous} and \ref{deltahat:continuous}
+below.
 
 \begin{lemma} \label{freshhat:continuous} If $f : \widehat\typeP \to
 \widehat\typeQ$ is FM-continuous then so is \[\phi_{\typeQ} \circ f^{\freshfor
