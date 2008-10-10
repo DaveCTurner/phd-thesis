@@ -351,10 +351,8 @@ $\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
 
 Suppose that $\gamma \in \semp{\Gamma}$ and that $\mappath{Q}{p} \in
 \sem{\abstract{x}{t}}\langle \gamma \rangle \subseteq \typemap{\typeQ}{\typeP} =
-{\typelift\typeQ}^{\mathrm{op}} \amp \typeP$, then (\TODO{exponential adjunction
-cross-ref}) by definition of the
-exponential adjunction in $\mathbf{FMCts}_s$, $p \in \sem{t} \langle \gamma, Q
-\rangle$.
+{\typelift\typeQ}^{\mathrm{op}} \times \typeP$, then by \ref{def:abstract} it
+follows that $p \in \sem{t} \langle \gamma, Q \rangle$.
 
 
 
@@ -366,20 +364,16 @@ be \[\mathbf{apply} \circ (
 \sem{\tjudge{s}{\Lambda}{u}{\typeQ}}),\] where $\mathbf{apply}$ is the counit of
 the exponential adjunction in $\mathbf{FMCts}_s$.
 
-Suppose that $\gamma \in \semp{\Gamma}$, $\lambda \in \semp{\Lambda}$ and 
-\[\begin{array}{rcl}
-p &\in& 
-\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}} \langle
-\gamma, \lambda \rangle \\
-&=& \bigl(\mathbf{apply} \circ (
+Suppose that $\gamma \in \semp{\Gamma}$, $\lambda \in \semp{\Lambda}$ and
+\[\begin{array}{rcl} p &\in&
+\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}}
+\langle \gamma, \lambda \rangle \\ &=& \bigl(\mathbf{apply} \circ (
 \sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}} \amp
 \sem{\tjudge{s}{\Lambda}{u}{\typeQ}})\bigr) \langle \gamma, \lambda \rangle \\
-&=& \mathbf{apply} \bigl(\sem{t}\langle \gamma \rangle \amp
-\sem{u} \langle \lambda \rangle \bigr)
-\end{array}\]
-then there exists $Q \in \typelift\typeQ$ such that $Q \subseteq \sem{u}\langle
-\lambda \rangle$ and $\mappath{Q}{p} \in \sem{t}\langle \gamma \rangle$ by
-(\TODO{exponential adjunction cross-ref}) definition of $\mathbf{apply}$.
+&=& \mathbf{apply} \bigl(\sem{t}\langle \gamma \rangle \amp \sem{u} \langle
+\lambda \rangle \bigr) \end{array}\] then there exists $Q \in \typelift\typeQ$
+such that $Q \subseteq \sem{u}\langle \lambda \rangle$ and $\mappath{Q}{p} \in
+\sem{t}\langle \gamma \rangle$ by \ref{def:apply}.
 
 \paragraph{Name Abstraction}
 %\infer[(a \notin s)]
