@@ -145,17 +145,18 @@ structure, with multiplication given by $\cup$ and unit given by $\varnothing$.
 Moreover composition is a monoid homomorphism which makes it possible to view
 each $\mathbf{FMLin}_s$ as being enriched over $\mathbf{CMon}$.
 
-\subsubsection{Coproducts.} The disjoint union of the orders $\typeP_1$ and
-$\typeP_2$ forms the binary coproduct $\typeP_1 + \typeP_2$ in
-$\mathbf{FMLin}_s$.
+\subsubsection{Coproducts.} Since left adjoints preserve coproducts, the
+disjoint union of the orders $\typeP_1$ and $\typeP_2$ forms the binary
+coproduct $\typeP_1 + \typeP_2$ in $\mathbf{FMLin}_s$.
 %
-The injections are the obvious maps $\mathbf{in}_i : \widehat{\typeP_i} \to
-\matthat{\typeP_1 + \typeP_2}$ derived from the injections of the underlying
-preorders.
-%
-More general coproducts are defined similarly.
+The $i$th injection $\mathbf{in}_i : \widehat{\typeP_i} \to \matthat{\typeP_1 +
+\typeP_2}$ is given by the action of $\widehat{(-)}$ on the $i$th injection of
+the underlying preorders: concretely, $\mathbf{in}_1 (x) = x \uplus
+\varnothing$ for example.
 %
 The empty order $\mathbb O$ is the empty coproduct.
+%
+More general coproducts are defined similarly.
 
 \subsubsection{Products.} Since $\mathbf{FMLin}_s$ is enriched over
 $\mathbf{CMon}$ and it has binary coproducts given by disjoint union, it follows
