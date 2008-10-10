@@ -2354,7 +2354,6 @@ $\{\cdot\}_{\downarrow}$, \ref{def:phibang}, \ref{comm:freshtriangle},
 %
 Therefore 
 \begin{equation}
-\label{def:freshcts}
 \begin{array}[t]{rcll}
 L_{\mathbf{Cts}}F^{++}K_{\mathbf{Cts}} f
 \circ i_{\typeP^{\freshfor a}}
@@ -2422,7 +2421,6 @@ $\{\cdot\}_{\downarrow}$, \ref{def:thetabang}, \ref{comm:deltatriangle},
 %
 Therefore 
 \begin{equation}
-\label{def:deltacts}
 \begin{array}[t]{rcll}
 L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}} f
 \circ i_{\delta_a \typeP}
