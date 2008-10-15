@@ -238,11 +238,14 @@ so induced. Define \begin{equation} \label{densem:suppweak-terms}
 \sem{\tjudge{s'}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_{\Gamma.}
 \end{equation}
 
-\paragraph{Prefix} Define \[\sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}}
-= \eta_{\typeP} \circ \sem{\tjudge{s}{\Gamma}{t}{\typeP}}.\] Therefore \[P \in
+\subsubsection{Prefix.} Define \begin{equation} \label{densem:prefix}
+\sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} = \eta_{\typeP} \circ
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}}. \end{equation} Therefore \begin{equation}
+\label{densem:prefix:characterisation} P \in
 \sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} \langle\gamma\rangle \quad
 \Leftrightarrow \quad P \subseteq \sem{\tjudge{s}{\Gamma}{t}{\typeP}}
-\langle\gamma\rangle \text{ and $P$ is chain-finite}\]
+\langle\gamma\rangle \text{ and $P$ is isolated in $\widehat{\typeP}$}
+\end{equation}
 
 \paragraph{Recursion} \TODO{Some bold assertions here!} The hom-set
 $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ is a chain-complete poset with the
