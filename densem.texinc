@@ -9,22 +9,24 @@ $\mathbf{FMCts_\varnothing}$.  \TODO{More detail on the paths in each type.}
 \subsection{Environments}
 
 Environments $\Gamma$ (with freshness contraints contained in $s_0$) denote
-objects of $\mathbf{FMCts}_{s_0}$ as follows.
-\[\sem{\envempty} = \typeO \qquad\text{and}\qquad 
-\sem{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} = \sem{\Gamma} \amp \typeP^{\freshfor s} \]
+objects of $\mathbf{FMCts}_{s_0}$ as follows.  \begin{equation}
+\label{densem:env} \sem{\envempty} = \typeO \qquad\text{and}\qquad
+\sem{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} = \sem{\Gamma} \amp
+\typeP^{\freshfor s} \end{equation}
 
 To help provide a suggestive notation for the elements of $\sem{\Gamma}$,
 environments $\Gamma$ also denote objects of $\mathbf{FMPre}_{s_0}$ as follows.
-\[\semp{\envempty} = \widehat\typeO \qquad\text{and}\qquad
-\semp{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} = \semp{\Gamma} \times
-\bigl(\widehat{\typeP}\bigr)^{\freshfor s}\] so that elements of $\semp{\Gamma}$ are tuples
-of paths satisfying the appropriate freshness constraints. Define a monotone map $\langle
-\mathord{\cdot} \rangle_{\Gamma} : \semp{\Gamma} \to \widehat{\sem{\Gamma}}$ as follows.
-\[\langle\rangle_{\envempty} = \{ \typeO \} \qquad \text{and} \qquad
-\langle \gamma, p \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }}
-= \langle \gamma \rangle_{\Gamma} \uplus \{x \in p \mid x \freshfor s\}.\] Where
-it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
-\rangle$.
+\begin{equation} \label{densem:envp} \semp{\envempty} = \widehat\typeO
+\qquad\text{and}\qquad \semp{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} =
+\semp{\Gamma} \times \bigl(\widehat{\typeP}\bigr)^{\freshfor s}\end{equation} so
+that elements of $\semp{\Gamma}$ are tuples of paths satisfying the appropriate
+freshness constraints. Define a monotone map $\langle \mathord{\cdot}
+\rangle_{\Gamma} : \semp{\Gamma} \to \widehat{\sem{\Gamma}}$ as follows.
+\begin{equation} \label{densem:angles} \langle\rangle_{\envempty} = \{ \typeO \}
+\qquad \text{and} \qquad \langle \gamma, p
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} = \langle \gamma
+\rangle_{\Gamma} \uplus \{x \in p \mid x \freshfor s\}.\end{equation} Where it
+is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot \rangle$.
 
 \TODO{Relationship of $\langle \cdot \rangle_\Gamma$ with $\phi^{(s)}$.}
 
@@ -87,13 +89,18 @@ it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 
 \subsection{Terms and Actions}
 
-Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
-\[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} : \sem{\Gamma} \to \typeP\] in
-$\mathbf{FMCts}_s$, defined by recursion on the derivation of the typing
-judgement as shown below.  Typing judgements $\atjudge{s}{\typeP}{p}{\typePp}$
-denote arrows \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} : \typeP \to
-\typelift\typePp\] in $\mathbf{FMCts}_s$ as defined below.  Often the type
-information is clear, and then $\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ and
+Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows \begin{equation}
+\label{densem:tjudge} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} : \sem{\Gamma} \to
+\typeP \end{equation} in $\mathbf{FMCts}_s$, defined by recursion on the
+derivation of the typing judgement as shown below.
+%
+Typing judgements $\atjudge{s}{\typeP}{p}{\typePp}$ denote arrows
+\begin{equation} \label{densem:atjudge} \sem{\atjudge{s}{\typeP}{p}{\typePp}} :
+\typeP \to \typelift\typePp \end{equation} in $\mathbf{FMCts}_s$ as defined
+below.
+%
+Often the type information is clear, and then
+$\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ and
 $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ are abbreviated to $\sem{t}$ and
 $\sem{p}$ respectively.
 
