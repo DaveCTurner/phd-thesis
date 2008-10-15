@@ -105,10 +105,12 @@ $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ are abbreviated to $\sem{t}$ and
 $\sem{p}$ respectively.
 
 % Definition of denotational semantics { {{
-\paragraph{Variable} The meaning of a free variable (with no
-freshness assumptions) is simply the identity map on the underlying type.
-\[\sem{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}}{\termvar
-x}{\typeP}} = \mathbf{1}_{\typeP}\]
+\subsubsection{Variable.} The meaning of a free variable (with no freshness
+assumptions) is simply the identity map on the underlying type.
+%
+\begin{equation} \label{densem:variable}
+\sem{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}}{\termvar
+x}{\typeP}} \defeq \mathbf{1}_{\typeP} \end{equation}
 
 \paragraph{Weakening} Define
 \[\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
