@@ -141,21 +141,22 @@ s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \amp \mathbf{1}_{\Lambda} \bigr)
 {}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}}
 \langle \gamma, q_1, q_2, \lambda \rangle.  \end{array} \end{equation}
 
-\paragraph{Contraction}
-Since each $\mathbf{FMCts}_s$ is cartesian, for any object $X$ there is a unique
-map $\Delta_{X} : X \to X \amp X$ given by $\langle \mathbf{1}_X, \mathbf{1}_X
-\rangle$. Given an arrow \[f = \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
+\subsubsection{Contraction.} Since each $\mathbf{FMCts}_s$ is cartesian, for any
+object $X$ there is a unique map $\Delta_{X} : X \to X \amp X$ given by $\langle
+\mathbf{1}_X, \mathbf{1}_X \rangle$. Given an arrow \[f =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
 {\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
-define \[\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} = f \circ \bigl(
-\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr)\] from which it
-follows that
-\[\begin{array}{l}
+define \begin{equation} \label{densem:contraction}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \langle \gamma, q \rangle \\
-= \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}} \langle \gamma, q, q \rangle \\
-\end{array}\]
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \defeq f \circ \bigl(
+\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation}
+from which it follows that \begin{equation}
+\label{densem:contraction:characterisation} \begin{array}{l}
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \langle \gamma, q \rangle \\ =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}
+\langle \gamma, q, q \rangle \\ \end{array} \end{equation}
 
 
 \vfill\pagebreak
