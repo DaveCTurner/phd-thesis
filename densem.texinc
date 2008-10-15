@@ -228,13 +228,15 @@ s'\}) \\
 q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}.}}
 \end{array}\]
 
-\paragraph{Support-Weakening (Terms)} If $s' \subseteq s$ then let $j :
+\subsubsection{Support-Weakening (Terms).} If $s' \subseteq s$ then let $j :
 \mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the canonical inclusion
-so induced. Define \[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} 
-= j\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}\]
-from which it follows that \[\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
-\rangle_{\Gamma} = \sem{\tjudge{s'}{\Gamma}{t}{\typeP}} \langle \gamma
-\rangle_{\Gamma.}\]
+so induced. Define \begin{equation} \label{densem:suppweak-terms}
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \defeq j\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}
+\end{equation} from which it follows that \begin{equation}
+\label{densem:suppweak-terms:characterisation}
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_{\Gamma} =
+\sem{\tjudge{s'}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_{\Gamma.}
+\end{equation}
 
 \paragraph{Prefix} Define \[\sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}}
 = \eta_{\typeP} \circ \sem{\tjudge{s}{\Gamma}{t}{\typeP}}.\] Therefore \[P \in
