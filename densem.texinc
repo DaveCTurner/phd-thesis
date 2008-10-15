@@ -112,13 +112,14 @@ assumptions) is simply the identity map on the underlying type.
 \sem{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}}{\termvar
 x}{\typeP}} \defeq \mathbf{1}_{\typeP} \end{equation}
 
-\paragraph{Weakening} Define
-\[\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
-}{t}{\typeP}} = \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \pi_1\] from which it
-follows that
-\[\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+\subsubsection{Weakening.} Define \begin{equation} \label{densem:weakening}
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}} \defeq \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \pi_1 \end{equation}
+from which it follows that \begin{equation}
+\label{densem:weakening:characterisation}
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
 }{t}{\typeP}}\langle \gamma, q \rangle = \sem{\tjudge{s}{\Gamma}{t}{\typeP}}
-\langle \gamma \rangle.\]
+\langle \gamma \rangle. \end{equation}
 
 \paragraph{Exchange} Since each $\mathbf{FMCts}_s$ is cartesian, for any objects
 $X$ and $Y$ there is a twist map $\sigma_{X,Y} : X \amp Y \to Y \amp X$ given by
