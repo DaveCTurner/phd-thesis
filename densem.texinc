@@ -22,17 +22,27 @@ To help provide a suggestive notation for the elements of $\sem{\Gamma}$,
 environments $\Gamma$ also denote objects of $\mathbf{FMPre}_{s_0}$ as follows.
 \begin{equation} \label{densem:envp} \semp{\envempty} = \widehat\typeO
 \qquad\text{and}\qquad \semp{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} =
-\semp{\Gamma} \times \bigl(\widehat{\typeP}\bigr)^{\freshfor s}\end{equation} so
-that elements of $\semp{\Gamma}$ are tuples of paths satisfying the appropriate
-freshness constraints. Define a monotone map $\langle \mathord{\cdot}
-\rangle_{\Gamma} : \semp{\Gamma} \to \widehat{\sem{\Gamma}}$ as follows.
-\begin{equation} \label{densem:angles} \langle\rangle_{\envempty} = \{ \typeO \}
-\qquad \text{and} \qquad \langle \gamma, p
+\semp{\Gamma} \times \widehat{\typeP}^{\freshfor s}\end{equation} so that
+elements of $\semp{\Gamma}$ are tuples of paths satisfying the appropriate
+freshness constraints.
+%
+The transformations $m$ and $\phi^{(s)}$ of \ref{def:m} and \ref{} can be used
+to build a monotone map $\langle \mathord{\cdot} \rangle_{\Gamma} :
+\semp{\Gamma} \to \widehat{\sem{\Gamma}}$ by recursion on $\Gamma$ by setting
+$\langle \mathord{\cdot} \rangle_{()} : \semp{()} \to \widehat{\sem{()}} \cong
+\{\varnothing\}$ to be the unique such function, and \begin{equation}
+\label{densem:def:angles} \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} \defeq
+m_{\sem{\Gamma}, \typeP^{\freshfor s}} \circ \Bigl( \langle \mathord{\cdot}
+\rangle_{\Gamma} \times \phi^{(s)}_{\typeP} \Bigr). \end{equation}
+%
+Therefore \begin{equation} \label{densem:angles} \langle \gamma, p
 \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} = \langle \gamma
-\rangle_{\Gamma} \uplus \{x \in p \mid x \freshfor s\}.\end{equation} Where it
-is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot \rangle$.
+\rangle_{\Gamma} \uplus \{x \in p \mid x \freshfor s\}. \end{equation}
+%
+Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
+\rangle$.
 
-\TODO{Relationship of $\langle \cdot \rangle_\Gamma$ with $\phi^{(s)}$.}
 \TODO{It is always ambiguous to write $\langle \cdot \rangle_\Gamma$ as $\langle
 \cdot \rangle$.}
 
