@@ -537,6 +537,17 @@ The product of the objects $\typeP_1$ and $\typeP_2$ is written as $\typeP_1
 As in $\mathbf{FMLin}_s$, $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid
 \mathbf{in}_i p \in x \}$.
 
+\begin{definition} If $f_i : \typeQ \to \typePsub{i}$ are arrows of
+$\mathbf{FMCts}_s$ for $i \in \{1, 2\}$ then write $\langle f_1, f_2
+\rangle^{\amp}$ for the unique arrow such that \begin{equation}
+\label{def:angleamp} \mathbf{out}_i \circ \langle f_1, f_2 \rangle^{\amp} = f_i
+\ \text{for each $i$.} \end{equation} If $g_i : \typePsub{i} \to \typeQsub{i}$
+are arrows of $\mathbf{FMCts}_s$ for $i \in \{1, 2\}$ then define
+\begin{equation} \label{def:arrowamp} g_1 \amp g_2 \defeq \langle g_1 \circ
+\mathbf{out}_1, g_2 \circ \mathbf{out}_2 \rangle^{\amp} : \typePsub{1} \amp
+\typePsub{2} \to \typeQsub{1} \amp \typeQsub{2}. \end{equation}
+\end{definition}
+
 If $\typePsub{1}$ and $\typePsub{2}$ are objects of $\mathbf{FMCts}_s$ then
 there is an isomorphism $m_{\typePsub{1}, \typePsub{2}} : \widehat{\typePsub{1}}
 \times \widehat{\typePsub{2}} \cong \matthat{\typePsub{1} \amp \typePsub{2}}$
