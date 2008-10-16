@@ -568,11 +568,10 @@ easily than dealing directly with elements of $\matthat{\typePsub{1} \amp
 In particular, \begin{equation} \label{characterisation:m:proj} (\mathbf{out}_i
 \circ m_{\typePsub{1}, \typePsub{2}}) = \pi_i : \widehat{\typePsub{1}} \times
 \widehat{\typePsub{2}} \to \widehat{\typePsub{i}}.  \end{equation} so that if
-$\langle f_1, f_2 \rangle : \typeQ \to \typePsub{1} \amp \typePsub{2}$ is the
-unique arrow of $\mathbf{FMCts}_s$ such that $\mathbf{out}_i \circ \langle f_1,
-f_2 \rangle = f_i$ for $i \in \{1, 2\}$ then \begin{equation}
-\label{characterisation:m:pair} \langle f_1, f_2 \rangle y = m_{\typePsub{1},
-\typePsub{2}} \langle f_1 y, f_2 y \rangle \end{equation} for $y \in \typeR$.
+$f_i : \typeQ \to \typePsub{i}$ are arrows of $\mathbf{FMCts}_s$ for $i \in \{1,
+2\}$ then \begin{equation} \label{characterisation:m:pair} \langle f_1, f_2
+\rangle^{\amp} y = m_{\typePsub{1}, \typePsub{2}} \langle f_1 y, f_2 y \rangle
+\end{equation} for $y \in \typeQ$.
 %
 This helps to make the presentation of a denotational semantics in the
 FM-continuous categories look a little more familiar.
