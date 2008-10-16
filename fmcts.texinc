@@ -578,7 +578,7 @@ $\mathbf{FMCts}_{s'}(\stdtypesum, \stdtypesum)$ by \ref{cts:homsets}.
 
 
 \subsubsection{Exponentials.} If $\typeP$ and $\typeQ$ are objects of
-$\mathbf{FMCts}_s$ then there is an isomorphism $m_{\typeP, \typeQ} :
+$\mathbf{FMCts}_s$ then there is an isomorphism $m^{!}_{\typeP, \typeQ} :
 \typelift\typeP \times \typelift\typeQ \cong \typelift{(\typeP \amp \typeQ)}$
 which maps a pair $\langle P, Q \rangle$ to the union $P \uplus Q$.
 %
@@ -589,20 +589,20 @@ To see that this is well-defined, pick $s' \supseteq \supp{P, Q, \typeP,
 %
 Moreover, any element of $\typelift{(\typeP \amp \typeQ)}$ can be written as
 $\finelt{F \uplus G}{s'}$ and in this case $\finelt{F}{s'} \in \typelift\typeP$
-and $\finelt{G}{s'} \in \typelift\typeQ$, so that $m_{\typeP, \typeQ}$ is an
+and $\finelt{G}{s'} \in \typelift\typeQ$, so that $m^{!}_{\typeP, \typeQ}$ is an
 isomorphism.
 %
-It is straightforward to see that $m_{\typeP, \typeQ}$ is supported by $s$ and
-natural in $\typeP$ and $\typeQ$, and finally it is clearly linear in both its
-arguments.
+It is straightforward to see that $m^{!}_{\typeP, \typeQ}$ is supported by $s$
+and natural in $\typeP$ and $\typeQ$, and finally it is clearly linear in both
+its arguments.
 
 Recall from \ref{subsubsect:lintensor} that $\mathbf{FMLin}_s$ is monoidal
 closed, so that each $(-) \times \typeQ$ has a right adjoint $\typeQ \multimap
 (-)$.
 %
-Together with the natural isomorphism $m$ and the adjunction \ref{bang:adj} this
-gives rise to the following chain of isomorphisms (naturally in $\typeP$ and
-$\typeR$).  \begin{equation} \begin{array}[t]{rcl}
+Together with the natural isomorphism $m^{!}$ and the adjunction \ref{bang:adj}
+this gives rise to the following chain of isomorphisms (naturally in $\typeP$
+and $\typeR$).  \begin{equation} \begin{array}[t]{rcl}
 %
 \mathbf{FMCts}_s(\typeP \amp \typeQ, \typeR)
 %
