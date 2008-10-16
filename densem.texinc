@@ -33,6 +33,8 @@ freshness constraints. Define a monotone map $\langle \mathord{\cdot}
 is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot \rangle$.
 
 \TODO{Relationship of $\langle \cdot \rangle_\Gamma$ with $\phi^{(s)}$.}
+\TODO{It is always ambiguous to write $\langle \cdot \rangle_\Gamma$ as $\langle
+\cdot \rangle$.}
 
 
 %Given $f : \typefresh{\typeP}{{s}} \to \typefresh{\typePp}{{s'}}$, define $\envsubst{\Gamma}{f}{x} : \sem{\envsubst{\Gamma}{\envvarfresh{x}{\typeP}{{s}}}{x}} \to \sem{\envsubst{\Gamma}{\envvarfresh{x}{\typePp}{{s'}}}{x}}$ as follows.
