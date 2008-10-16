@@ -579,8 +579,8 @@ $\mathbf{FMCts}_{s'}(\stdtypesum, \stdtypesum)$ by \ref{cts:homsets}.
 
 \subsubsection{Exponentials.} If $\typeP$ and $\typeQ$ are objects of
 $\mathbf{FMCts}_s$ then there is an isomorphism $m_{\typeP, \typeQ} :
-\typelift\typeP \to \typelift\typeQ \cong \typelift{(\typeP \amp \typeQ)}$ which
-maps a pair $\langle P, Q \rangle$ to the union $P \uplus Q$.
+\typelift\typeP \times \typelift\typeQ \cong \typelift{(\typeP \amp \typeQ)}$
+which maps a pair $\langle P, Q \rangle$ to the union $P \uplus Q$.
 %
 To see that this is well-defined, pick $s' \supseteq \supp{P, Q, \typeP,
 \typeQ}$ and write $P = \finelt{F}{s'}$ and $Q = \finelt{G}{s'}$ by
