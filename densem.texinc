@@ -473,22 +473,83 @@ r}}} \Bigr) \\&&{} \circ (\langle \mathord{\cdot}
 \mathbf{1}_{\semp{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}}} \Bigr)
 \end{array} \end{equation} as required.  \end{proof}
 
-\subsubsection{Contraction.} Since each $\mathbf{FMCts}_s$ is cartesian, for any
-object $X$ there is a unique map $\Delta_{X} : X \to X \amp X$ given by $\langle
-\mathbf{1}_X, \mathbf{1}_X \rangle$. Given an arrow \[f =
+\begin{definition}[Semantics of Contraction] \label{densem:contraction} Let
+$\Delta$ be the diagonal map defined in \ref{def:diagonal} and let \[f =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
 {\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
-define \begin{equation} \label{densem:contraction}
+then define \begin{equation*}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
 }}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \defeq f \circ \bigl(
-\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation}
-from which it follows that \begin{equation}
+\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation*}
+\end{definition}
+
+\begin{lemma}[Characterising Contraction] \begin{equation*}
 \label{densem:contraction:characterisation} \begin{array}{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \langle \gamma, q \rangle \\ =
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \langle \gamma, q
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} \\ =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
 {\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}
-\langle \gamma, q, q \rangle \\ \end{array} \end{equation}
+\langle \gamma, q, q \rangle_{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }} \\ \end{array}
+\end{equation*} \end{lemma}
+
+\begin{proof} Firstly note that $\Delta_{\typeQ^{\freshfor s'}} =
+m_{\typeQ^{\freshfor s'}, \typeQ^{\freshfor s'}} \circ \langle
+\mathbf{1}_{\typeQ^{\freshfor s'}}, \mathbf{1}_{\typeQ^{\freshfor s'}} \rangle$
+by \ref{characterisation:m:pair} and \ref{def:diagonal}.
+%
+Therefore \begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{ \bigl( \mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor
+s'}} \bigr) \circ \langle \cdot
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} } \\
+%
+&=& \bigl( \mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \circ
+m_{\sem{\Gamma}, \typeQ^{\freshfor s'} } \circ \Bigl( \langle \cdot
+\rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s'} \amp \typeQ^{\freshfor s'} } \circ
+\bigl( \mathbf{1}_{\Gamma} \times \Delta_{\typeQ^{\freshfor s'}} \bigr) \circ
+\Bigl( \langle \cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s'} \amp \typeQ^{\freshfor s'} } \circ
+\bigl( \mathbf{1}_{\Gamma} \times m_{\typeQ^{\freshfor s'}, \typeQ^{\freshfor
+s'}} \bigr) \\&&{} \circ \bigl( \mathbf{1}_{\Gamma} \times \langle
+\mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}},
+\mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \rangle \bigr) \circ \Bigl( \langle
+\cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
+%
+&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }},
+\typeQ^{\freshfor s'} } \circ \bigl( m_{\sem{\Gamma}, \typeQ^{\freshfor s'}}
+\times \mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \bigr) \\&&{} \circ \bigl(
+\mathbf{1}_{\Gamma} \times \langle \mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}},
+\mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \rangle \bigr) \circ \Bigl( \langle
+\cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
+%
+&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }},
+\typeQ^{\freshfor s'} } \circ \bigl( m_{\sem{\Gamma}, \typeQ^{\freshfor s'}}
+\times \mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \bigr) \\&&{} \circ \Bigl(
+\langle \cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \times
+\phi^{(s')}_{\typeQ} \Bigr) \circ \bigl( \mathbf{1}_{\semp{\Gamma}} \times
+\langle \mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}},
+\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}} \rangle \bigr)  \\
+%
+&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }},
+\typeQ^{\freshfor s'} } \circ \Bigl(\langle \cdot
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} \times
+\phi^{(s')}_{\typeQ} \Bigr) \\&&{} \circ \bigl( \mathbf{1}_{\semp{\Gamma}}
+\times \langle \mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}},
+\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}} \rangle \bigr)  \\
+%
+&=& \langle \cdot \rangle_{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}  \\&&{} \circ
+\bigl( \mathbf{1}_{\semp{\Gamma}} \times \langle
+\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}},
+\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}} \rangle \bigr)  \\
+%
+\end{array} \end{equation} as required. \end{proof}
+
 
 
 \vfill\pagebreak
