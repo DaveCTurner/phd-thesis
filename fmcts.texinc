@@ -576,6 +576,24 @@ $f_i : \typeQ \to \typePsub{i}$ are arrows of $\mathbf{FMCts}_s$ for $i \in \{1,
 This helps to make the presentation of a denotational semantics in the
 FM-continuous categories look a little more familiar.
 
+Also, since each $\mathbf{FMCts}_s$ is cartesian, for any objects $\typePsub{1}$
+and $\typePsub{2}$ there is a twist map \begin{equation} \label{def:varsigma}
+\varsigma_{\typePsub{1}, \typePsub{2}} \defeq \langle \mathbf{out}_2, \mathbf{out}_1
+\rangle^{\amp} : \typePsub{1} \amp \typePsub{2} \to \typePsub{2} \amp
+\typePsub{1} \end{equation}
+%
+In particular $\varsigma$ is natural in $\typePsub{1}$ and $\typePsub{2}$ in the
+sense that if $f_i : \typePsub{i} \to \typeQsub{i}$ for $i \in \{1, 2\}$ then
+\begin{equation} \label{naturality:twist} (f_2 \amp f_1) \circ
+\varsigma_{\typePsub{1}, \typePsub{2}} = \varsigma_{\typeQsub{1}, \typeQsub{2}}
+\circ (f_1 \amp f_2). \end{equation}
+
+Finally for any objects $\typeP$ of $\mathbf{FMCts}_s$ there is a diagonal map
+\begin{equation} \label{def:diagonal} \Delta_{\typeP} \defeq \langle
+\mathbf{1}_{\typeP}, \mathbf{1}_{\typeP} \rangle^{\amp} : \typeP \to \typeP \amp
+\typeP. \end{equation}
+
+
 \subsubsection{Coproducts.}
 %
 Since $\mathbf{FMCts}_s$ is enriched over $\mathbf{CMon}$ and has finite
