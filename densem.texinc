@@ -640,14 +640,33 @@ so induced. Define \begin{equation} \label{densem:suppweak-terms}
 \langle\gamma\rangle \text{ and $P$ is isolated in $\widehat{\typeP}$}
 \end{equation}
 
-\paragraph{Recursion} \TODO{Some bold assertions here!} The hom-set
-$\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ is a chain-complete poset with the
-ordering given pointwise. Let $f =
+\subsubsection{Recursion} \TODO{Some bold assertions here!} By \ref{cts:homsets} the
+hom-set $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ is a poset which has all joins
+of $\omega$-chains.
+%
+Let $f =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
-}}{t}{\typeP}}$ and consider the operation on homsets 
-$f^* : \mathbf{FMCts}_s(\sem{\Gamma}, \typeP) \to \mathbf{FMCts}_s(\sem{\Gamma},
+}}{t}{\typeP}}$ and consider the operation on homsets $f^* :
+\mathbf{FMCts}_s(\sem{\Gamma}, \typeP) \to \mathbf{FMCts}_s(\sem{\Gamma},
 \typeP)$ given by \[f^*(g) = f \circ (\mathbf{1}_{\Gamma} \amp g) \circ
-\Delta_{\sem{\Gamma}}.\] This operation is continuous so by Tarski's theorem
+\Delta_{\sem{\Gamma}}.\]
+%
+Composition preserves joins of $\omega$-chains in both its arguments by \ref{}
+and the functor $\mathbf{1} \amp (-)$ preserves joins of $\omega$-chains by
+\ref{}, so the operation $f^*$ is continuous.
+%
+Therefore by Kleene's fixpoint theorem it has a least fixed point
+$\mathrm{fix}(f^*)$ defined as follows.
+%
+Let $g_0 = \varnothing \in \mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ and for each
+$n \in \omega$ define $g_{n+1} = f \circ (\mathbf{1}_{\Gamma} \amp g_n) \circ
+\Delta_{\sem{\Gamma}}$, then $\mathrm{fix}(f^*) \langle \gamma \rangle =
+\bigcup_{n \in \omega} g_n \langle \gamma \rangle$.
+%
+Define $\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} = \mathrm{fix}(f^*)$.
+
+
+This operation is continuous so by Tarski's theorem
 it has a least fixed point, $\mathrm{fix}(f^*)$. Define
 $\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} = \mathrm{fix}(f^*)$. Concretely,
 this fixed point may be obtained as follows: define $g_0 = \bot \in
