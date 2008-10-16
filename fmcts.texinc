@@ -841,9 +841,59 @@ Using \ref{characterisation:thetabanginv} \TODO{forward-ref?} it follows that
 \delta_a f \circ \theta^{-1}_{\typeP}) (x)$ as required.  \end{proof}
 
 
+\subsubsection{Freshness Assumptions.} \label{subsubsect:freshness-cts} The
+machinery of freshness (such as the functor $(-)^{\freshfor a}$ and the
+isomorphism $\phi : \widehat{(-)}^{\freshfor a} \to \widehat{(-)^{\freshfor
+a}}$) can be extended in order to model freshness with respect to a list
+$\vec{s'}$ of names.
+%
+This can be used to capture the idea of `freshness assumptions' in a type
+system: a variable of type $\typeP^{\freshfor \vec{s'}}$ insists that it
+receives input that is fresh for $s'$, and a term of type $\typeP^{\freshfor
+\vec{s'}}$ avoids the names in $s'$ in its evaluation.
+%
+More precisely, if $s \cap s' = \varnothing$ and $s'$ is the underlying set of a
+list $\vec{s'}$ of distinct names then there is a functor $(-)^{\freshfor
+\vec{s'}} : \mathbf{FMPre}_{s} \to \mathbf{FMPre}_{s \udot \vec{s'}}$ defined as
+\begin{equation} \label{def:freshfunctor-vec} (-)^{\freshfor []} =
+\mathbf{1}_{\mathbf{FMPre}_{s}} \quad \text{and}\quad (-)^{\freshfor
+a::\vec{s'}} = (-)^{\freshfor a} \circ (-)^{\freshfor \vec{s'}}.  \end{equation}
+%
+Concretely this means that $\typeP^{\freshfor \vec{s'}} = \{p \in \typeP \mid p
+\freshfor s' \}$ where the order on $\typeP^{\freshfor \vec{s'}}$ is given by
+the restriction of the order on $\typeP$, and the action of $(-)^{\freshfor
+\vec{s'}}$ is given by restriction.
+%
+Therefore the order of the names in $\vec{s'}$ is unimportant, so the functor
+$(-)^{\freshfor \vec{s'}}$ may be written simply $(-)^{\freshfor s'}$.
 
+It follows that there is an isomorphism $\phi^{(\vec{s'})} :
+\widehat{(-)}^{\freshfor s'} \to \widehat{(-)^{\freshfor s'}}$ given by
+\begin{equation} \label{def:phi-vec} \phi^{([])} = \mathbf{1}_{\widehat{(-)}}
+\quad \text{and}\quad \phi^{(a::\vec{s'})} = \phi^{(a)}_{(-)^{\freshfor s'}}
+\circ {\phi^{(s')}}^{\freshfor a}.  \end{equation}
+%
+Concretely this means that if $x \in \widehat{\typeP}^{\freshfor s'}$ then
+$\phi^{(\vec{s'})}_{\typeP} x = \{ p \in x \mid p \freshfor s' \}$.
+%
+Therefore the order of the names in $\vec{s'}$ is again unimportant, so the
+transformation $\phi^{(\vec{s'})}$ may be written simply $\phi^{(s')}$.
+%
+The inverse ${\phi^{(s')}}^{-1}$ is defined similarly, and by repeatedly
+applying \ref{characterisation:phiinv} the inverse can be characterised
+concretely by letting $s' = \{a_1, \ldots, a_n\}$, then $p \in
+{\phi^{(s')}}^{-1} (x)$ if and only if there are $n$ fresh and distinct names
+$c_1, \ldots, c_n$ such that $p \in (a_1 c_1) \ldots (a_n c_n) \cdot x$.
+%
+It is clear that if $s$, $s_1$ and $s_2$ are mutually disjoint then
+\begin{equation} \label{phi-vec:compose} \phi^{(s_1 \udot s_2)} =
+\phi^{(s_1)}_{(-)^{\freshfor s_2}} \circ {\phi^{(s_2)}}^{\freshfor s_1}.
+\end{equation}
 
-
+Furthermore, the map $\tau^a : (-)^{\freshfor a} \to J$ of
+\ref{lemma:freshinclusion} extends in the obvious fashion to a natural
+transformation $\tau^{(s')} : (-)^{\freshfor s'} \to J$ where $J$ is the
+inclusion functor.
 
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
