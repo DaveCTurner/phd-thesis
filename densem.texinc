@@ -1,5 +1,9 @@
-\section{Denotational Semantics}
+\chapter{The Denotational Semantics of Nominal HOPLA}
 \label{densem}
+
+\TODO{Intro}
+
+\section{Definitions}
 
 \subsection{Types}
 
