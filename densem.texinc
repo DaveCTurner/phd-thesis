@@ -554,7 +554,7 @@ s'}} \bigr) \\&&{} \circ \bigl( \mathbf{1}_{\Gamma} \times \langle
 
 \vfill\pagebreak
 
-\paragraph{Fresh-Weakening} \TODO{Messy! And get $\tau$ from projections from
+\subsubsection{Fresh-Weakening} \TODO{Messy! And get $\tau$ from projections from
 $\otimes$.}
 
 If $s'' \subseteq s' \subseteq s$ then let \[\begin{array}{rcrcl} j^{\mathbf{C}}
@@ -677,7 +677,7 @@ $g_{n+1} = f \circ (\mathbf{1}_{\Gamma} \amp g_n) \circ
 
 \TODO{Tarski's theorem is Kleene's?}
 
-\paragraph{Prefix-Match} Let $\sem{t} =
+\subsubsection{Prefix-Match} Let $\sem{t} =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}
 }}{t}{\typeP}}$, $\sem{u} = \sem{\tjudge{s''}{\Lambda}{u}{\typeQ}}$ and $\sem{q}
 = \sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}$. Let $\phi : ({!}-)^{\freshfor s'}
@@ -770,7 +770,7 @@ such that $p \in \sem{t} \langle \gamma, Q
 \bigl(\sem{q} \circ \sem{u}\bigr) \langle \lambda \rangle_{\Lambda}$ and $Q
 \freshfor s'$.
 
-\paragraph{Function Abstraction}
+\subsubsection{Function Abstraction}
 %\infer{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }}
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}} &&
 Define $\sem{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }}$ to
@@ -786,7 +786,7 @@ follows that $p \in \sem{t} \langle \gamma, Q \rangle$.
 
 
 
-\paragraph{Function Application}
+\subsubsection{Function Application}
 Define $\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}}$ to
 be \[\mathbf{apply} \circ (
 \sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}} \amp
@@ -804,7 +804,7 @@ Suppose that $\gamma \in \semp{\Gamma}$, $\lambda \in \semp{\Lambda}$ and
 such that $Q \subseteq \sem{u}\langle \lambda \rangle$ and $\mappath{Q}{p} \in
 \sem{t}\langle \gamma \rangle$ by \ref{def:apply}.
 
-\paragraph{Name Abstraction}
+\subsubsection{Name Abstraction}
 %\infer[(a \notin s)]
 %{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
 %{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} &&
@@ -839,7 +839,7 @@ a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma
 &=& \sem{(ab) \cdot t} \langle \gamma \rangle_{\envfresh{\Gamma}{b}}
 \end{array}\]
 
-\paragraph{Name Application}
+\subsubsection{Name Application}
 %\infer[(a \notin s)]
 %{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
 %{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \\
@@ -869,7 +869,7 @@ by the definitions of \ref{subsubsect:deltafreshadjcts}. Therefore
 &=& \sem{t} \langle \gamma \rangle_{\Gamma}
 \end{array}\]
 
-\paragraph{Labelling}
+\subsubsection{Labelling}
 Define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} =
 \mathbf{in}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}},\]
 where $\mathbf{in}_{\ell_0}$ is the $\ell_0$th injection of the biproduct
@@ -879,7 +879,7 @@ $\ell_0$. Consequently $\labelpath{\ell}{p} \in
 \sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle\gamma\rangle$ iff $\ell = \ell_0$
 and $p \in \sem{t} \langle\gamma\rangle$.
 
-\paragraph{Label Projection}
+\subsubsection{Label Projection}
 Define \[\sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} } =
 \mathbf{out}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}},\] where
 $\mathbf{out}_{\ell_0}$ is the $\ell_0$th projection of the biproduct
@@ -889,7 +889,7 @@ $\ell_0$. Consequently $p \in
 \langle\gamma\rangle$ iff
 $\labelpath{\ell_0}{p} \in \sem{t} \langle\gamma\rangle$.
 
-\paragraph{Nondeterministic Sum}
+\subsubsection{Nondeterministic Sum}
 %{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
 %{\tjudge{s_i}{\Gamma}{t_i}{\typeP} \qquad\text{each $i \in I$}} \\
 Define \[\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
@@ -899,7 +899,7 @@ arrow of $\mathbf{FMCts}_s$ since $s$ supports the mapping $i \mapsto
 \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle\gamma\rangle$ iff $p \in
 \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}} \langle\gamma\rangle$ for some $i \in I$.
 
-\paragraph{Recursive Type Folding}
+\subsubsection{Recursive Type Folding}
 %{\tjudge{s}{\Gamma}{\abs t}{\typerec{j}{P}{\typeP} }}
 %{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} &&
 Define \[\sem{\tjudge{s}{\Gamma}{\abs t}{\typerec{j}{P}{\typeP} }} =
@@ -910,7 +910,7 @@ $\typerec{j}{P}{\typeP}$ and its unfolding. Consequently $p \in \sem{t}
 \langle\gamma\rangle$ iff
 $\abspath p \in \sem{\abs t} \langle\gamma\rangle$.
 
-\paragraph{Recursive Type Unfolding}
+\subsubsection{Recursive Type Unfolding}
 %{\tjudge{s}{\Gamma}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
 %{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }} 
 Define \[\sem{\tjudge{s}{\Gamma}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} =
@@ -920,19 +920,19 @@ where $\mathbf{rep} = \mathbf{abs}^{-1}$ is part of the canonical isomorphism
 between the type $\typerec{j}{P}{\typeP}$ and its unfolding. Consequently
 $\abspath p \in \sem{t} \langle\gamma\rangle$ iff $p \in \sem{\rep t} \langle\gamma\rangle$.
 
-\paragraph{Support Weakening (Actions)} If $s' \subseteq s$ then let $j :
+\subsubsection{Support Weakening (Actions)} If $s' \subseteq s$ then let $j :
 \mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the canonical inclusion
 so induced. Define \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} =
 j\sem{\atjudge{s'}{\typeP}{p}{\typePp}}\] from which it follows that
 \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} X =
 \sem{\atjudge{s'}{\typeP}{p}{\typePp}} X.\]
 
-\paragraph{Prefix Action}
+\subsubsection{Prefix Action}
 Define $\sem{\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}} =
 \mathbf{1}_{\typelift\typeP}$, so that
 $\sem{\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}} X = X$.
 
-\paragraph{Higher-Order Action}
+\subsubsection{Higher-Order Action}
 Define 
 \[\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}
 = \sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ \mathbf{apply} \circ
@@ -948,7 +948,7 @@ Define
 that } \mappath{Q}{x} \in X \}.
 \end{array}\]
 
-\paragraph{Labelled Action}
+\subsubsection{Labelled Action}
 Define
 \[\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}
 = \sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}} \circ \mathbf{out}_{\ell_0}.\] Therefore
@@ -959,7 +959,7 @@ Define
 \mid \labelpath{\ell_0}{x} \in X\}.
 \end{array}\]
 
-\paragraph{New Name Action}
+\subsubsection{New Name Action}
 If $a \notin s$ then define \[\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}
 = \widehat{\theta^{!}_{\typePp}} \circ \theta_{\typelift\typePp}
 \circ \delta_a \sem{\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}} \circ
@@ -983,7 +983,7 @@ If $a \notin s$ then define \[\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p
 Y @ b \in \sem{(ab) \cdot p} \{x \mid \newpath{b}{x} \in X}\}\}_{\downarrow} \\
 \end{array}\]
 
-\paragraph{Recursive Type Action}
+\subsubsection{Recursive Type Action}
 Define
 \[\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}
 = \sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}
