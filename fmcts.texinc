@@ -537,6 +537,35 @@ The product of the objects $\typeP_1$ and $\typeP_2$ is written as $\typeP_1
 As in $\mathbf{FMLin}_s$, $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid
 \mathbf{in}_i p \in x \}$.
 
+If $\typePsub{1}$ and $\typePsub{2}$ are objects of $\mathbf{FMCts}_s$ then
+there is an isomorphism $m_{\typePsub{1}, \typePsub{2}} : \widehat{\typePsub{1}}
+\times \widehat{\typePsub{2}} \cong \matthat{\typePsub{1} \amp \typePsub{2}}$
+where if $x_i \in \widehat{\typePsub{i}}$ for $i \in \{1, 2\}$ then
+\begin{equation} \label{def:m} m_{\typePsub{1}, \typePsub{2}} \langle x_1, x_2
+\rangle \defeq x_1 \uplus x_2. \end{equation}
+%
+It is not hard to see that this isomorphism is supported by $s$ and monotone,
+and hence an arrow of $\mathbf{FMPre}_s$.
+%
+Furthermore it is straightforward to show that it is natural in $\typePsub{1}$
+and $\typePsub{2}$.
+%
+The isomorphism $m$ can be used to perform calculations with products more
+easily than dealing directly with elements of $\matthat{\typePsub{1} \amp
+\typePsub{2}}$.
+%
+In particular, \begin{equation} \label{characterisation:m:proj} (\mathbf{out}_i
+\circ m_{\typePsub{1}, \typePsub{2}}) = \pi_i : \widehat{\typePsub{1}} \times
+\widehat{\typePsub{2}} \to \widehat{\typePsub{i}}.  \end{equation} so that if
+$\langle f_1, f_2 \rangle : \typeQ \to \typePsub{1} \amp \typePsub{2}$ is the
+unique arrow of $\mathbf{FMCts}_s$ such that $\mathbf{out}_i \circ \langle f_1,
+f_2 \rangle = f_i$ for $i \in \{1, 2\}$ then \begin{equation}
+\label{characterisation:m:pair} \langle f_1, f_2 \rangle y = m_{\typePsub{1},
+\typePsub{2}} \langle f_1 y, f_2 y \rangle \end{equation} for $y \in \typeR$.
+%
+This helps to make the presentation of a denotational semantics in the
+FM-continuous categories look a little more familiar.
+
 \subsubsection{Coproducts.}
 %
 Since $\mathbf{FMCts}_s$ is enriched over $\mathbf{CMon}$ and has finite
