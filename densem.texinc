@@ -5,12 +5,12 @@
 
 \section{Definitions}
 
-\subsection{Types}
+\subsection{Denotational Semantics of Types}
 
 Closed types $\typeP$ denote the corresponding objects $\typeP$ of
 $\mathbf{FMCts_\varnothing}$.  \TODO{More detail on the paths in each type.}
 
-\subsection{Environments}
+\subsection{Denotational Semantics of Environments}
 
 Environments $\Gamma$ (with freshness contraints contained in $s_0$) denote
 objects of $\mathbf{FMCts}_{s_0}$ as follows.  \begin{equation}
@@ -103,7 +103,7 @@ Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 %\end{proof}
 
 
-\subsection{Terms and Actions}
+\subsection{Denotational Semantics of Terms and Actions}
 
 Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows \begin{equation}
 \label{densem:tjudge} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} : \sem{\Gamma} \to
