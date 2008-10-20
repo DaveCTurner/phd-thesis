@@ -894,6 +894,44 @@ Furthermore, the map $\tau^a : (-)^{\freshfor a} \to J$ of
 \ref{lemma:freshinclusion} extends in the obvious fashion to a natural
 transformation $\tau^{(s')} : (-)^{\freshfor s'} \to J$ where $J$ is the
 inclusion functor.
+%
+Concretely if $p \in \typeP^{\freshfor s'}$ then $\tau^{(s')}_{\typeP}(p) \defeq
+p$.
+%
+The maps $\tau^{(s')}$ and $\phi^{(s')}$ can be used to construct the map
+\begin{equation} \label{def:taucts} \tau^{(s')++} \defeq
+\tau_{\widehat{(-)}}^{(s')} \circ {\phi^{(s')}}^{-1}: \widehat{(-)^{\freshfor
+s'}} \to \widehat{(-)}. \end{equation}
 
+\begin{lemma} The map $\tau^{(s')++}$ is a natural transformation
+$(-)^{\freshfor s'++} \to J : \mathbf{FMCts}_{s} \rightrightarrows
+\mathbf{FMCts}_{s \udot s'}$ where $J$ is the inclusion of categories.
+\end{lemma}
+
+\begin{proof} The naturality of $\tau^{(s')++}$ follows directly from that of
+$\tau^{(s')}$.
+%
+It remains to show that each $\tau^{(s')++}_{\typeP}$ is FM-continuous so let $X
+\subseteq \widehat{\typeP^{\freshfor s'}}$ be directed and uniformly supported
+by $s''$, then it is necessary to show that $\tau^{(s')++}_{\typeP} \bigl(
+\bigcup X \bigr) = \bigcup_{x \in X} \tau^{(s')++}_{\typeP} x$.
+%
+Let $s' = \{a_1, \ldots, a_n\}$.
+%
+Let $p \in \tau^{(s')++}_{\typeP} \bigl( \bigcup X \bigr)$, let $c_1$, $\ldots$,
+$c_n$ be fresh and let $\sigma = (a_1 c_1) \ldots (a_n c_n)$.
+%
+Therefore $p \in \sigma \cdot \bigcup X$ so there exists $x \in X$ such that $p
+\in \sigma \cdot x$.
+%
+However, the $c_i$ were chosen to be fresh for $s''$ so that $p \in
+\tau^{(s')++}_{\typeP} (x) \subseteq \bigcup_{x \in X} \tau^{(s')++}_{\typeP} x$
+as required.
+%
+Conversely let $p \in \bigcup_{x \in X} \tau^{(s')++}_{\typeP} x$, let $x \in X$
+be such that $p \in \tau^{(s')++}_{\typeP} (x)$, let $c_1$, $\ldots$, $c_n$ be
+fresh and let $\sigma = (a_1 c_1) \ldots (a_n c_n)$, then $p \in \sigma \cdot x
+\subseteq \sigma \cdot \bigcup X$ so that $p \in \tau^{(s')++}_{\typeP} \bigl(
+\bigcup X \bigr)$ as required.  \end{proof}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
