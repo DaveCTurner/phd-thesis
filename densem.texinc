@@ -550,76 +550,68 @@ s'}} \bigr) \\&&{} \circ \bigl( \mathbf{1}_{\Gamma} \times \langle
 %
 \end{array} \end{equation} as required. \end{proof}
 
-
-
-\vfill\pagebreak
-
-\subsubsection{Fresh-Weakening} \TODO{Messy! And get $\tau$ from projections from
-$\otimes$.}
-
-If $s'' \subseteq s' \subseteq s$ then let \[\begin{array}{rcrcl} j^{\mathbf{C}}
-&:& \mathbf{FMCts}_{s \setminus (s' \setminus s'')} &\hookrightarrow&
-\mathbf{FMCts}_{s} \\ j^{\mathbf{P}} &:& \mathbf{FMPre}_{s \setminus (s'
-\setminus s'')} &\hookrightarrow& \mathbf{FMPre}_{s} \end{array}\] be the
-canonical functors induced by the inclusion $s \setminus (s' \setminus s'')
-\hookrightarrow s$. Furthermore let $\tau : (-)^{\freshfor s'} \hookrightarrow
-j^{\mathbf{P}}\bigl((-)^{\freshfor s''}\bigr)$ be the natural transformation of
-functors $\mathbf{FMPre}_{s \setminus s'} \to \mathbf{FMPre}_s$ given by
-$\tau_{X} (x) = x$ for all $x \in X$ such that $x \freshfor s'$.  Let
-\[\begin{array}{rcrcl} \phi^{s'} &:& \widehat{(-)}^{\freshfor s'} &\cong&
-\widehat{(-)^{\freshfor s'}} \\ \phi^{s''} &:& \widehat{(-)}^{\freshfor s''}
-&\cong& \widehat{(-)^{\freshfor s''}} \end{array}\] be the natural isomorphisms
-from \TODO{cross-ref?}, given by $\phi^{s'}_X(p) = \{x \in p \mid x \freshfor s'\}$ and
-similarly for $\phi^{s''}$. Finally, notice that for all $X$, $j^{\mathbf{P}}
-(\widehat{X}) = \widehat{j^{\mathbf{C}} X}$ naturally in $X$.
-
-If $\typeP$ is an object of $\mathbf{FMCts}_{s \setminus s'}$ then let
-$k_\typeP$ be the following composition in $\mathbf{FMPre}_s$.
-\[\xymatrix@M=6pt{
-\widehat{\typeP^{\freshfor s'}} 
-\ar[r]^{\bigl(\phi^{s'}_\typeP\bigr)^{-1}}_{\cong}
-& \widehat{\typeP}^{\freshfor s'}
-\ar@{^{(}->}[r]^(0.4){\tau_{\widehat{\typeP}}}
-	& j^{\mathbf{P}} \bigl(\widehat{\typeP}^{\freshfor s''}\bigr)
-\ar[r]^{j^{\mathbf{P}}\phi^{s''}_{\typeP}}_{\cong}
-	& j^{\mathbf{P}}\bigl(\widehat{\typeP^{\freshfor s''}}\bigr)
-\ar@{=}[r]
-	& \widehat{j^{\mathbf{C}}(\typeP^{\freshfor s''})}
-}\]
-
-Concretely, if $X \in 
-\widehat{\typeP^{\freshfor s'}}$ then \[
-k_\typeP(X) = \phi^{s''}_{\typeP} \bigl(\bigl(\phi^{s'}_{\typeP}\bigr)^{-1}
-X\bigr) = \left\{ x \in \bigl(\phi^{s'}_{\typeP}\bigr)^{-1} X 
-\mid x \freshfor s''\right\}\]
-so that if $X \in \widehat{\typeP}^{\freshfor s'}$ then
-\[k_\typeP \{x \in X \mid x \freshfor s'\} = k_\typeP (\phi^{s'}_{\typeP} X)
-= \{x \in X \mid x \freshfor s''\}\]
-
-To see that $k_{\typeP} : \typeP^{\freshfor
-s'} \to j^{\mathbf{C}}(\typeP^{\freshfor s''})$ is an arrow of
-$\mathbf{FMCts}_s$, \TODO{$k_\typeP$ is continuous?}
-
-Now define \[
+\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak} If
+$s'' \subseteq s' \subseteq s$ then let $\tau^{(s'\setminus s'')++} :
+(-)^{\freshfor (s' \setminus s'')++} \to \mathbf{1}_{\mathbf{FMCts}_s}$ be as
+defined in \ref{def:taucts} and define \[
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
-\circ (\mathbf{1}_{\Gamma} \amp k_{\typeQ}),\] 
-from which it follows that \[\begin{array}{rcl}
-\multicolumn{3}{l}{\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
-\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}} }}\\
-&=& \bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}} 
-\circ (\mathbf{1}_{\Gamma} \amp k_{\typeQ})\bigr) (\langle \gamma
-\rangle_{\Gamma} \udot \{x \in q \mid x \freshfor s'\}) \\
-&=&
+\circ (\mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
+s''}}).\] \end{definition}
+
+\begin{lemma}[Characterising Fresh-Weakening] \[
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
+\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}} } =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
-(\langle \gamma \rangle_{\Gamma} \udot k_{\typeQ} \{x \in q \mid x \freshfor
-s'\}) \\
-&=&
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
-(\langle \gamma \rangle_{\Gamma} \udot \{x \in q \mid x \freshfor s''\}) \\
-&=& \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}} \langle \gamma,
-q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}.}}
-\end{array}\]
+\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}.}}
+\] \end{lemma}
+
+\begin{proof} Firstly, \begin{equation} \begin{array}[t]{rcl}
+\multicolumn{3}{l}{ \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor s''}} \circ
+\phi_{\typeQ}^{(s')} }\\
+%
+&=& \tau^{(s' \setminus s'')}_{\widehat{\typeQ^{\freshfor s''}}} \circ
+{\phi_{\typeQ^{\freshfor s''}}^{(s' \setminus s'')}}^{-1} \circ
+\phi_{\typeQ}^{(s')} \\
+%
+&=& \tau^{(s' \setminus s'')}_{\widehat{\typeQ^{\freshfor s''}}} \circ
+{\phi_{\typeQ^{\freshfor s''}}^{(s' \setminus s'')}}^{-1} \circ
+\phi_{\typeQ^{\freshfor s''}}^{(s' \setminus s'')} \circ
+{\phi_{\typeQ}^{(s'')}}^{\freshfor (s' \setminus s'')} \\
+%
+&=& \tau^{(s' \setminus s'')}_{\widehat{\typeQ^{\freshfor s''}}} \circ
+{\phi_{\typeQ}^{(s'')}}^{\freshfor (s' \setminus s'')} \\
+%
+&=& \phi_{\typeQ}^{(s'')} \circ \tau^{(s' \setminus
+s'')}_{\widehat{\typeQ}^{\freshfor s''}} \\
+%
+\end{array} \end{equation} so that \begin{equation} \begin{array}[t]{rcl}
+\multicolumn{3}{l}{\bigl( \mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus
+s'')++}_{\typeQ^{\freshfor s''}} \bigr) \circ \langle \cdot
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}} \\
+%
+&=& \bigl( \mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus
+s'')++}_{\typeQ^{\freshfor s''}} \bigr) \circ m_{\sem{\Gamma}, \typeQ^{\freshfor
+s'}} \circ \bigl( \langle \cdot \rangle_\Gamma \times \phi_{\typeQ}^{(s')}
+\bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s''}} \circ \bigl( \mathbf{1}_{\Gamma}
+\times \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor s''}} \bigr) \circ \bigl(
+\langle \cdot \rangle_\Gamma \times \phi_{\typeQ}^{(s')} \bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s''}} \circ \bigl( \langle \cdot
+\rangle_{\Gamma} \times \bigl( \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
+s''}} \circ \phi_{\typeQ}^{(s')} \bigr) \bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s''}} \circ \bigl( \langle \cdot
+\rangle_{\Gamma} \times \bigl( \phi_{\typeQ}^{(s'')} \circ \tau^{(s' \setminus
+s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \bigr) \\
+%
+&=& \langle \cdot \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}
+\circ \bigl( \mathbf{1}_{\Gamma} \times \tau^{(s' \setminus
+s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \\
+%
+\end{array} \end{equation} as required. \end{proof}
 
 \subsubsection{Support-Weakening (Terms).} If $s' \subseteq s$ then let $j :
 \mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the canonical inclusion
