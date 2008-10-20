@@ -178,6 +178,29 @@ $\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ and
 $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ are abbreviated to $\sem{t}$ and
 $\sem{p}$ respectively.
 
+\subsection{Structural Rules}
+
+The denotational semantics associated with the usual structural rules make use
+of the cartesian structure of each $\mathbf{FMCts}_s$: variables denote the
+identity map on their underlying types; weakening corresponds to projection;
+exchange corresponds to a twist map $\langle \pi_2, \pi_1 \rangle$; contraction
+corresponds to the diagonal map $\langle \mathbf{1}, \mathbf{1} \rangle$.
+%
+The new structural rule of fresh-weakening, \begin{equation*} \infer[(s''
+\subseteq s' \subseteq s)]
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}}
+\end{equation*} comes from the map $\tau^{(s' \setminus s'')++}$ defined in
+\ref{def:taucts}, which in turn arises from the map $\tau : (-)^{\freshfor a}
+\to \mathbf{1}$ defined in \ref{lemma:freshinclusion}.
+%
+Notice that the discussion of \ref{tau:projection} shows that this is ultimately
+given by the projection $(-) \otimes \mathbb A \to \mathbf{1}$.
+%
+The other new structural rule of support-weakening, \begin{equation*} \infer[(s'
+\subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}} {\tjudge{s'}{\Gamma}{t}{\typeP}}
+\end{equation*} is simply given by the inclusion $\mathbf{FMCts}_{s'}
+\hookrightarrow \mathbf{FMCts}_s'$.
 
 % Definition of denotational semantics { {{
 \begin{definition}[Semantics of Variable] \label{densem:variable} The meaning of
