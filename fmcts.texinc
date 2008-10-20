@@ -697,6 +697,46 @@ $x \in \widehat{\typeP}$ then \begin{equation} \label{def:abstract}
 
 
 
+\subsubsection{Strong Monad.} \label{subsubsect:strongmonad-cts} There is a map
+$n_{\typeP, \typeQ} : \widehat{\typeP} \times \widehat{\typeQ} \to
+\matthat{\typeP \times \typeQ}$ defined by \begin{equation} \label{def:n}
+n_{\typeP, \typeQ} \langle x, y \rangle \defeq \{ \langle p, q \rangle \in
+\typeP \times \typeQ \mid p \in x \wedge q \in y \}. \end{equation}
+%
+It is straightforward to show that $n$ is natural in $\typeP$ and $\typeQ$.
+%
+The composition \begin{equation} \label{def:strength} \xymatrix{ \matthat{\typeP
+\amp \typelift\typeQ} \ar[r]^{\eta_{\typeP} \amp \mathbf{1}_{\typelift\typeQ}} &
+\matthat{\typelift\typeP \amp \typelift\typeQ} \ar[r]^{m_{\typelift\typeP,
+\typelift\typeQ}^{-1}} & \widehat{\typelift\typeP} \times
+\widehat{\typelift\typeQ} \ar[r]^{n_{\typelift\typeP, \typelift\typeQ}} &
+\matthat{\typelift\typeP \times \typelift\typeQ} \ar[r]^{\widehat{m^{!}_{\typeP,
+\typeQ}}} & \matthat{\typelift(\typeP \amp \typeQ)} }\end{equation} defines a
+natural strength map $s_{\typeP, \typeQ}$ for the monad $({!}, \eta,
+\epsilon_{!})$.
+%
+Concretely, if $x \in \widehat{\typeP}$ and $Y \in \widehat{\typelift\typeQ}$
+then \begin{equation} \label{concrete:strength} s_{\typeP, \typeQ} (x \uplus Y)
+= \{ P \uplus Q \mid P \subseteq x \wedge P \in \typelift\typeP \wedge Q \in Y
+\}. \end{equation}
+%
+It follows that if $x \in \widehat{\typeP}$ and $y \in \widehat{\typeQ}$ then
+\begin{equation} \label{strength:eta} \begin{array}[t]{rcl}
+\multicolumn{3}{l}{s_{\typeP, \typeQ} \circ (\mathbf{1}_{\typeP} \amp
+\eta_{\typeQ}) (x \uplus y)} \\
+%
+&=& s_{\typeP, \typeQ} \circ (x \uplus \{ Q \in \typelift\typeQ \mid Q \subseteq
+y\}) \\
+%
+&=& \{ P \uplus Q \mid P \in \typelift\typeP \wedge Q \in \typelift\typeQ \wedge
+P \subseteq x \wedge Q \subseteq y\}) \\ 
+%
+&=& \eta_{\typeP \amp \typeQ} (x \uplus y). \end{array} \end{equation}
+
+
+
+
+
 \subsubsection{Name-Binding.}
 \label{subsubsect:deltafreshadjcts}
 
