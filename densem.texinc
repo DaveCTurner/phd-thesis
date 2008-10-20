@@ -217,6 +217,51 @@ x}{\typeP}} \defeq \mathbf{1}_{\typeP} \end{equation*} \end{definition}
 }{t}{\typeP}} \defeq \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1.
 \end{equation*} \end{definition}
 
+\begin{definition}[Semantics of Exchange] \label{densem:exchange} Let
+$\varsigma$ be the twist map defined in \ref{def:varsigma} and let \[f = \sem{
+\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}},\]
+then define \begin{equation*}
+\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
+\defeq f \circ \bigl( \mathbf{1}_\Gamma \amp \varsigma_{{ {\typeQ
+{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \amp
+\mathbf{1}_{\Lambda} \bigr) \end{equation*} \end{definition}
+
+\begin{definition}[Semantics of Contraction] \label{densem:contraction} Let
+$\Delta$ be the diagonal map defined in \ref{def:diagonal} and let \[f =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
+then define \begin{equation*}
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \defeq f \circ \bigl(
+\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation*}
+\end{definition}
+
+\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak} If
+$s'' \subseteq s' \subseteq s$ then let $\tau^{(s'\setminus s'')++} :
+(-)^{\freshfor (s' \setminus s'')++} \to \mathbf{1}_{\mathbf{FMCts}_s}$ be as
+defined in \ref{def:taucts} and define \[
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
+\circ (\mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
+s''}}).\] \end{definition}
+
+\begin{definition}[Support-Weakening for Terms] \label{densem:suppweak-terms} If
+$s' \subseteq s$ then let $J : \mathbf{FMCts}_{s'} \hookrightarrow
+\mathbf{FMCts}_s$ be the inclusion of categories and define \begin{equation*}
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \defeq
+J\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}.  \end{equation*} \end{definition}
+
+It is useful to characterise the action of these structural rules in terms of
+their action on inputs of the form $\langle \gamma \rangle_{\Gamma}$ where
+$\gamma \in \semp{\Gamma}$ is a tuple of paths in the appropriate environment
+$\Gamma$.
+%
+As shown below, it turns out that these characterisations are all as one might
+expect.
+
+
 \begin{lemma}[Characterising Weakening]
 \label{densem:weakening:characterisation} \[
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
@@ -250,16 +295,6 @@ m_{\sem{\Gamma}, \typeP} \circ (\langle \mathord{\cdot} \rangle_{\Gamma} \times
 %
 \end{array} \end{equation} \end{proof}
 
-\begin{definition}[Semantics of Exchange] \label{densem:exchange} Let
-$\varsigma$ be the twist map defined in \ref{def:varsigma} and let \[f = \sem{
-\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}},\]
-then define \begin{equation*}
-\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
-\defeq f \circ \bigl( \mathbf{1}_\Gamma \amp \varsigma_{{ {\typeQ
-{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \amp
-\mathbf{1}_{\Lambda} \bigr) \end{equation*} \end{definition}
 
 \begin{lemma}[Characterising Exchange] \begin{equation*}
 \label{densem:exchange:characterisation} \begin{array}{l}
@@ -496,16 +531,6 @@ r}}} \Bigr) \\&&{} \circ (\langle \mathord{\cdot}
 \mathbf{1}_{\semp{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}}} \Bigr)
 \end{array} \end{equation} as required.  \end{proof}
 
-\begin{definition}[Semantics of Contraction] \label{densem:contraction} Let
-$\Delta$ be the diagonal map defined in \ref{def:diagonal} and let \[f =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
-then define \begin{equation*}
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \defeq f \circ \bigl(
-\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation*}
-\end{definition}
-
 \begin{lemma}[Characterising Contraction] \begin{equation*}
 \label{densem:contraction:characterisation} \begin{array}{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
@@ -573,15 +598,6 @@ s'}} \bigr) \\&&{} \circ \bigl( \mathbf{1}_{\Gamma} \times \langle
 %
 \end{array} \end{equation} as required. \end{proof}
 
-\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak} If
-$s'' \subseteq s' \subseteq s$ then let $\tau^{(s'\setminus s'')++} :
-(-)^{\freshfor (s' \setminus s'')++} \to \mathbf{1}_{\mathbf{FMCts}_s}$ be as
-defined in \ref{def:taucts} and define \[
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
-\circ (\mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
-s''}}).\] \end{definition}
-
 \begin{lemma}[Characterising Fresh-Weakening] \[
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
 \langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}} } =
@@ -636,19 +652,12 @@ s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \\
 %
 \end{array} \end{equation} as required. \end{proof}
 
-\begin{definition}[Support-Weakening for Terms] \label{densem:suppweak-terms} If
-$s' \subseteq s$ then let $J : \mathbf{FMCts}_{s'} \hookrightarrow
-\mathbf{FMCts}_s$ be the inclusion of categories and define \begin{equation*}
-\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \defeq
-J\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}.  \end{equation*} \end{definition}
 
 \begin{lemma}[Characterising Support-Weakening for Terms]
-\label{densem:suppweak-terms:characterisation}
-\begin{equation*}
+\label{densem:suppweak-terms:characterisation} \begin{equation*}
 \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_{\Gamma} =
 \sem{\tjudge{s'}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_{\Gamma.}
-\end{equation*}
-\end{lemma}
+\end{equation*} \end{lemma}
 
 \begin{proof} Immediate. \end{proof}
 
