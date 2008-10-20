@@ -613,15 +613,21 @@ s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \\
 %
 \end{array} \end{equation} as required. \end{proof}
 
-\subsubsection{Support-Weakening (Terms).} If $s' \subseteq s$ then let $j :
-\mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the canonical inclusion
-so induced. Define \begin{equation} \label{densem:suppweak-terms}
-\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \defeq j\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}
-\end{equation} from which it follows that \begin{equation}
+\begin{definition}[Support-Weakening for Terms] \label{densem:suppweak-terms} If
+$s' \subseteq s$ then let $J : \mathbf{FMCts}_{s'} \hookrightarrow
+\mathbf{FMCts}_s$ be the inclusion of categories and define \begin{equation*}
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \defeq
+J\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}.  \end{equation*} \end{definition}
+
+\begin{lemma}[Characterising Support-Weakening for Terms]
 \label{densem:suppweak-terms:characterisation}
+\begin{equation*}
 \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_{\Gamma} =
 \sem{\tjudge{s'}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_{\Gamma.}
-\end{equation}
+\end{equation*}
+\end{lemma}
+
+\begin{proof} Immediate. \end{proof}
 
 \subsubsection{Prefix.} Define \begin{equation} \label{densem:prefix}
 \sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} = \eta_{\typeP} \circ
