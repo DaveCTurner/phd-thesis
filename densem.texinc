@@ -126,7 +126,7 @@ The nominal structure gives rise to two extra structural rules.
 %
 The first permits adding extra assumptions on the freshness of input with
 respect to certain names, which receives its semantics (\ref{densem:freshweak})
-from the map $\tau$ defined in \ref{}.
+from the map $\tau$ defined in \ref{lemma:freshinclusion}.
 %
 The second permits extending the the `current' set of names from $s$ to $s'
 \supseteq s$, and this rule receives its semantics (\ref{densem:suppweak-terms})
