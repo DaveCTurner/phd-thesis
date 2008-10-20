@@ -661,6 +661,50 @@ s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \\
 
 \begin{proof} Immediate. \end{proof}
 
+
+
+
+
+
+
+\subsection{Prefixing and Matching}
+
+The adjunction $\mathbf{FMLin}_s (\typelift\typeP, \typeQ) \cong
+\mathbf{FMCts}_s (\typeP, \typeQ)$ of \ref{bang:adj} gives rise to a semantics
+for an anonymous prefix action, written $\bangaction$.
+%
+The unit $\eta$ acts as a constructor for this action, taking a term $t$ to the
+prefixed term $\bang{t}$ as follows.
+
+\begin{definition}[Prefix] \begin{equation} \label{densem:prefix}
+\sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} \defeq \eta_{\typeP} \circ
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}}. \end{equation} \end{definition}
+
+For example, the process $\tjudge{\varnothing}{}{\inactive}{\typeO}$ can perform
+no action and has empty denotation, but
+$\sem{\tjudge{\varnothing}{}{\bang{\inactive}}{\typelift\typeO}} = \eta_{\typeO}
+\circ \sem{\inactive} = \{\varnothing\}$ is not empty and indeed the operational
+semantics shows that $\bang{\inactive}$ can perform an action.
+%
+The counit $\epsilon$ acts as a destructor for the $\bangaction$ action,
+intuitively `matching' a $\bangaction$ action in the output of a term $u$ and
+passing the resumption after performing the $\bangaction$ to a term $t$.
+%
+More precisely, if $\tjudge{s}{\Lambda}{u}{\typelift\typeQ}$ and
+$\tjudge{s}{\envvarfresh{x}{\typeQ}{\varnothing}}{t}{\typeP}$ then
+\begin{equation} \begin{array}[t]{l}
+\sem{\tjudge{s}{\Lambda}{\matchz{\varnothing}{u}{\bangaction}{x}{t}{\typeQ}}{\typeP}}
+\\ \quad {} \defeq \epsilon_{\typeP} \circ
+{!}\sem{\tjudge{s}{\envvarfresh{x}{\typeQ}{\varnothing}}{t}{\typeP}} \circ
+\sem{\tjudge{s}{\Lambda}{u}{\typelift\typeQ}}. \end{array} \end{equation} For
+example,
+$\sem{\tjudge{\varnothing}{}{\matchz{\varnothing}{\bang\inactive}{\bangaction}{x}{\termvar{x}}{\typeO}}{\typeO}}
+= \epsilon_{\typeO} \circ \eta_{\typeO} \circ \sem{\inactive} = \varnothing$,
+and the operational semantics shows that after $\bang\inactive$ has performed
+the action $\bangaction$ it can perform no further actions.
+%
+If $t$ has free variables other than $\termvar{x}$ then \TODO{Strength}
+
 \subsubsection{Prefix.} Define \begin{equation} \label{densem:prefix}
 \sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} = \eta_{\typeP} \circ
 \sem{\tjudge{s}{\Gamma}{t}{\typeP}}. \end{equation} Therefore \begin{equation}
