@@ -676,9 +676,9 @@ for an anonymous prefix action, written $\bangaction$.
 The unit $\eta$ acts as a constructor for this action, taking a term $t$ to the
 prefixed term $\bang{t}$ as follows.
 
-\begin{definition}[Prefix] \begin{equation} \label{densem:prefix}
+\begin{definition}[Prefix] \label{densem:prefix} \begin{equation*}
 \sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} \defeq \eta_{\typeP} \circ
-\sem{\tjudge{s}{\Gamma}{t}{\typeP}}. \end{equation} \end{definition}
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}}. \end{equation*} \end{definition}
 
 For example, the process $\tjudge{\varnothing}{}{\inactive}{\typeO}$ can perform
 no action and has empty denotation, but
