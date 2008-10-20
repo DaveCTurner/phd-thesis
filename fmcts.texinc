@@ -570,8 +570,13 @@ In particular, \begin{equation} \label{characterisation:m:proj} (\mathbf{out}_i
 \widehat{\typePsub{2}} \to \widehat{\typePsub{i}}.  \end{equation} so that if
 $f_i : \typeQ \to \typePsub{i}$ are arrows of $\mathbf{FMCts}_s$ for $i \in \{1,
 2\}$ then \begin{equation} \label{characterisation:m:pair} \langle f_1, f_2
-\rangle^{\amp} = m_{\typePsub{1}, \typePsub{2}} \circ \langle f_1, f_2 \rangle.
+\rangle^{\amp} = m_{\typePsub{1}, \typePsub{2}} \circ \langle f_1, f_2 \rangle
 \end{equation}
+%
+and if $g_i : \typePsub{i} \to \typeQsub{i}$ are arrows of $\mathbf{FMCts}_s$
+for $i \in \{1, 2\}$ then \begin{equation} \label{characterisation:m:prod} (g_1
+\amp g_2) \circ m_{\typePsub{1}, \typePsub{2}} = m_{\typeQsub{1}, \typeQsub{2}}
+\circ (g_1 \times g_2). \end{equation}
 %
 This helps to make the presentation of a denotational semantics in the
 FM-continuous categories look a little more familiar.
