@@ -3,7 +3,7 @@
 
 As in the development of HOPLA, linear maps are too restrictive to give a
 semantics for concurrent processes: it is desirable for a process to be able to
-perform actions spontaneously and without having received any input, but linear
+perform actions spontaneously, without having received any input, but linear
 maps are join-preserving so that they preserve empty joins in particular and
 hence a linear process with no input can generate no output.
 
