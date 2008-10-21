@@ -258,6 +258,9 @@ the internal function space is given by $\typeQ \multimap \typeR \defeq
 adjunction on the FM-linear categories that is analogous to the adjunction
 $(-)^{\freshfor a} \dashv \delta_a$ described in lemma \ref{deltafreshadj}.
 %
+Abstractly this adjunction arises from the general argument of section
+\ref{subsect:deltafreshadjlin}, but this section describes it in concrete terms.
+%
 This adjunction is the key structure in the FM-linear categories that makes them
 a suitable setting for a domain theory that is sensitive to names and binding.
 %
