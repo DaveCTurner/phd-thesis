@@ -204,7 +204,7 @@ Importantly a set $D$ may be chosen that suffices for any permutation $\sigma$,
 and a finite such $D$ exists, so $\sigma_2$ takes only finitely many possible
 values.
 %
-This fact is important in the proof of \ref{fineltextension}.
+This fact is used in the proof of \ref{fineltextension}.
 
 Notice that this lemma generalises the result that $(be) = (de)(bd)(de)$ for
 distinct names $b, d, e$.
