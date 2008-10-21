@@ -685,7 +685,24 @@ If $f : X \to Y$ is an equivariant function and $x' \in \delta X$ then
 \freshin{b}{[b].(f(x'@b))}. \end{equation}
 %
 It is straightforward to check that $\delta$ so defined is a functor on
-$\mathbf{NSet}$.
+$\mathbf{NSet}$, using the following lemma.
+
+\begin{lemma} \label{lemma:delta-abs} If $f : X \to Y$ is an arrow of
+$\mathbf{NSet}$, $b \in \mathbb A$ and $x \in X$ then \begin{equation*}\delta f ([b].x) = [b].(f x)
+\end{equation*} \end{lemma}
+
+\begin{proof} \begin{equation} \begin{array}[t]{rcl} \delta f ([b].x)
+%
+&=& \freshin{c}{[c].(f((bc) \cdot x))} \\
+%
+&=& \freshin{c}{[c].(bc) \cdot (f x)} \\
+%
+&=& \freshin{c}{(bc) \cdot ([b].(f x))} \\
+%
+&=& \freshin{c}{[b].(f x)} \\
+%
+&=& [b].(f x) \\ \end{array} \end{equation} since $c$ is fresh and $b \freshfor
+[b].(f x)$. \end{proof}
 
 The unit of the adjunction $(-)\otimes \mathbb A \dashv \delta$ is the natural
 transformation $\xi : \mathbf{1} \to \delta ((-) \otimes \mathbb A)$ defined by
