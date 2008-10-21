@@ -165,7 +165,7 @@ Suppose that in the course of a calculation there is a bound $B$ on the set of
 names that are `known'.
 %
 For example, the calculation could be a reduction of a term $t$ in some context
-$C$ and $B$ contains the free names of $t$ so they cannot be permuted without
+$C$ and $B$ contains the free names of $t$, so they cannot be permuted without
 affecting its context.
 %
 In this example, $t$ and $C$ `know' the free names.
