@@ -98,37 +98,79 @@ such as $\sem{\new{a}{\termvar{x}}}$.
 \subsection{FM-Continuity}
 \label{fm:continuity}
 
-In some sense the notion of a limit of a directed set is the intuitionistic ---
-and therefore computational --- analogue of a limit of a sequence
-in point-set topology. Classically, a domain has limits of all increasing
-sequences iff it has limits of all directed sets: increasing sequences give rise
-to directed sets, and conversely given a well-ordered directed set the
-well-ordering gives rise to an increasing sequence. The Axiom of Choice ensures
-that all directed sets have well-orderings.
+Continuity in domain theory arises from considering the process of physically
+realising some computation by performing a sequence of computational steps.
+%
+Taking `continuous' to mean `preserves increasing $\omega$-sequences',
+continuous functions are those that are physically feasible\cite[Thesis
+5]{plotkin:pisa}.
+%
+Classically, it makes little difference to the theory whether one uses
+increasing sequences or directed sets.
+%
+After all, a poset has limits of all increasing sequences iff it has limits of
+all directed sets: increasing sequences give rise to directed sets, and
+conversely given a well-ordered directed set the well-ordering gives rise to an
+increasing sequence.
+%
+The Axiom of Choice ensures that all directed sets have well-orderings.
 %
 However, the Axiom of Choice does not hold in the theory of FM sets, so the
-equivalence between the use of sequences and the use of directed sets breaks down here.
+equivalence between the use of increasing sequences and the use of directed sets
+breaks down here.
+%
+It is therefore worthwhile to study increasing sequences in FM set theory in
+order to define a suitable notion of directedness in this setting.
+%
+Firstly, notice that the supports of elements of total orders are very
+constrained as the following lemma shows.
 
-\begin{definition} An \define{FM-sequence} in a domain $D$ is a sequence (i.e. a
-function from some ordinal $\alpha$ to $D$) that is additionally
-finitely-supported.  \end{definition} 
+\begin{lemma} Let $\typeP$ be a totally ordered FM-poset. Then each $p \in
+\typeP$ has $\supp{p} \subseteq \supp{\typeP}$.  \end{lemma}
 
-If the sequence is supported by $s$ then each element must also be supported by
-$s$ since ordinals have empty support: this support is said to be
-\textit{uniform} since it applies uniformly to all of the elements of the
-sequence. Furthermore any uniformly supported sequence is an FM-sequence.
+\begin{proof} Let $\mathbb A \ni b, c \freshfor \typeP$, then for all $p \in
+\typeP$ it follows that $(bc) \cdot p \in \typeP$ too, so that either $p \le
+(bc) \cdot p$ or $(bc) \cdot p \le p$.
+%
+If $p \le (bc) \cdot p$ then $(bc) \cdot p \le p$ by equivariance, so that $p =
+(bc) \cdot p$, and if $(bc) \cdot p \le p$ then $p = (bc) \cdot p$ by a similar
+argument.
+%
+However if $\supp{p} \nsubseteq \supp{P}$ then letting $b \in \supp{p} \setminus
+\supp{P}$ and $c \notin \supp{p, \typeP}$ means that $(bc) \cdot p \neq p$ which
+is a contradiction, so that $\supp{p} \subseteq \supp{P}$ as required.
+\end{proof}
+
+\begin{definition} An \define{increasing FM-sequence} in a poset $D$ is an
+increasing sequence (i.e. a monotone function from some ordinal $\alpha$ to $D$)
+that is additionally finitely-supported.  \end{definition} 
+
+Notice that the ordinal $\alpha$ is totally ordered, so if $d_0 \le d_1 \le
+\ldots$ is an increasing FM-sequence in $D$ then each $d_i$ in the sequence
+is supported by the finite set $\supp{\alpha, d}$.
+%
+In other words, $\supp{\alpha, d}$ is a \textit{uniform} support for the
+sequence $d$ since it supports the elements of $d$ uniformly.
+%
+This observation suggests the following definition.
 
 \begin{definition} An FM set $X$ is \define{uniformly supported} by $s$ if every
 element $x \in X$ is supported by $s$. An FM set \define{has uniform support} if
 there exists a finite set $s$ that uniformly supports it. \end{definition}
 
-Classical sequences are to directed sets as uniformly supported sequences are to
-directed sets that are also uniformly supported. More precisely, an FM preorder
-has limits of all increasing uniformly supported sequences iff it has limits of
-all uniformly supported directed sets: well-orderings of a uniformly supported
-set are always finitely supported so the (external) Axiom of Choice gives rise
-to an (internal) well-ordering and the remainder of the proof is as in the
-classical case.
+The (external) Axiom of Choice gives a well-ordering of any set $X$, and if $X$
+is uniformly supported by $s$ then this well-ordering must also be supported by
+$s$, so that $X$ can be well-ordered within FM set theory.
+%
+It follows that classical increasing sequences are to directed sets as uniformly
+supported increasing sequences are to directed sets \textit{that are also
+uniformly supported}.
+%
+More precisely, an FM preorder has limits of all increasing uniformly supported
+increasing sequences iff it has limits of all uniformly supported directed sets:
+uniformly supported increasing sequences are already uniformly supported
+directed sets, and conversely any uniformly supported directed set can be
+wellordered and this gives rise to a corresponding sequence.
 
 Returning to the example of $\sem{\new{a}{\termvar{x}}}$, let $X \subseteq
 \widehat{\mathbb A}$ be directed and uniformly supported by a finite set $s$.
