@@ -283,6 +283,33 @@ If $f : \typeP \to \typeQ$ is a finitely-supported monotone function then for
 all $p' \in \delta_a \typeP$ define \begin{equation} \delta_a f (p') \defeq
 \freshin{b}{[b].\bigl((ab) \cdot f) (p' @ b)}.\end{equation}\end{definition}
 
+\begin{lemma} \label{lemma:delta-a-abs} If $f : \typeP \to \typeQ$ is a
+finitely-supported monotone function, $p \in \typeP$ and $f \freshfor b \in
+\mathbb A \setminus \{a\}$ then \[ \delta_a f ([b].p) = [b].(((ab) \cdot f) p).
+\] \end{lemma}
+
+\begin{proof} \begin{equation} \begin{array}[t]{rcl} \delta_a f ([b].p)
+%
+&=& \freshin{c}{[c].(((ac) \cdot f)((bc) \cdot p))} \\
+%
+&=& \freshin{c}{[c].(ac) \cdot (f ((ac) \cdot (bc) \cdot p))} \\
+%
+&=& \freshin{c}{[c].(ac) \cdot (f ((bc) \cdot (ab) \cdot p))} \\
+%
+&=& \freshin{c}{[c].(ac) \cdot (bc) \cdot (f ((ab) \cdot p))} \\
+%
+&=& \freshin{c}{[c].(bc) \cdot (ab) \cdot (f ((ab) \cdot p))} \\
+%
+&=& \freshin{c}{(bc) \cdot ([b].(ab) \cdot (f ((ab) \cdot p)))} \\
+%
+&=& \freshin{c}{(bc) \cdot ([b].((ab) \cdot f) p)} \\
+%
+&=& \freshin{c}{([b].((ab) \cdot f) p)} \\
+%
+&=& [b].(((ab) \cdot f) p) \\ \end{array} \end{equation} where the penultimate
+step follows since $c$ is fresh and $b \freshfor [b].((ab) \cdot f) p$.
+\end{proof}
+
 \begin{lemma} If $a \notin s$ then the operation $\delta_a$ defined in
 \ref{def:deltaa} is a functor $\mathbf{FMPre}_{s \udot a} \to
 \mathbf{FMPre}_s$.\end{lemma}
