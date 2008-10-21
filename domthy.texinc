@@ -14,10 +14,10 @@ joins, and this free construction draws attention to a rich category of `linear'
 maps which preserve all joins. Computationally speaking, these linear maps use
 their input precisely once which is a severe restriction on their expressivity,
 so it is desirable to turn to `continuous' maps which preserve only directed
-joins and so can express discarding or limited copying of inputs. The category
-of path orders and continuous maps is then rich enough to support a natural
-domain theory for concurrency, with many computational features given by
-universal properties.
+joins and so can express discarding or limited copying of inputs, by means of a
+coKleisli construction. The category of path orders and continuous maps is then
+rich enough to support a natural domain theory for concurrency, with many
+computational features given by universal properties.
 
 A similar story unfolds within nominal set theory, but it is complicated
 by a number of factors. Firstly, following the usual pattern of nominal sets,
