@@ -118,22 +118,22 @@ $\tjudge{}{}{t'}{\typePp}$.  \end{lemma}
 \begin{proof}
 By induction on the derivation of $\ajudge{\typeP}{t}{p}{t'}$ as follows.
 
-\paragraph{Recursion} The induction hypothesis says that
+\subparagraph{Recursion} The induction hypothesis says that
 $\atjudge{}{\typeP}{p}{\typePp}$ and
 $\ajudge{\typeP}{\termsubst{t}{\rec{x}{t}}{x}}{p}{t'}$ so that
 $\tjudge{}{}{t'}{\typeP}$ follows immediately by induction.
 
-\paragraph{Prefix} The induction hypothesis says that
+\subparagraph{Prefix} The induction hypothesis says that
 $\tjudge{}{}{\bang{t}}{\typelift\typeP}$ so that by lemma
 \ref{closedtermtypebackwards}(\ref{closedtermtypebackwardsbang})
 $\tjudge{}{}{t}{\typeP}$, as required.
 
-\paragraph{Prefix Match} The induction hypothesis says that
+\subparagraph{Prefix Match} The induction hypothesis says that
 $\atjudge{}{\typeP}{p}{\typePp}$ and
 $\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}$, so that
 $\tjudge{}{}{t'}{\typeP}$ follows immediately by induction.
 
-\paragraph{Name Abstraction} The induction hypothesis says that
+\subparagraph{Name Abstraction} The induction hypothesis says that
 $\atjudge{}{\typedelta\typeP}{\newaction{a}{p}}{\typePpp}$ and
 $\ajudge{\typeP}{t}{p}{t'}$. Therefore $\typePpp = \typedelta\typePp$ for some
 $\typePp$, and hence
@@ -143,21 +143,21 @@ therefore $\atjudge{}{\typeP}{p}{\typePp}$ so that by induction
 $\tjudge{}{}{t'}{\typePp}$ and hence
 $\tjudge{}{}{\new{a}{t'}}{\typedelta\typePp}$ as required.
 
-\paragraph{Name Application} The induction hypothesis says that $\atjudge{}{\typeP}{p}{\typePp}$ and
+\subparagraph{Name Application} The induction hypothesis says that $\atjudge{}{\typeP}{p}{\typePp}$ and
 $\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}$ so that
 $\atjudge{}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$ and hence
 by induction $\tjudge{}{}{\new{a}{t'}}{\typedelta\typePp}$.  From lemma
 \ref{closedtermtypebackwards}(\ref{closedtermtypebackwardsnew}) therefore
 $\tjudge{}{}{t'}{\typePp}$ as required.
 
-\paragraph{Function Abstraction} The induction hypothesis says that
+\subparagraph{Function Abstraction} The induction hypothesis says that
 $\atjudge{}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ and
 $\ajudge{\typeP}{\termsubst{t}{u}{x}}{p}{t'}$. From lemma
 \ref{closedactiontypebackwards}(\ref{closedactiontypebackwardsmap}) therefore
 $\atjudge{}{\typeP}{p}{\typePp}$ and hence by induction
 $\tjudge{}{}{t'}{\typePp}$ as required.
 
-\paragraph{Function Application} The induction hypothesis says that
+\subparagraph{Function Application} The induction hypothesis says that
 $\atjudge{}{\typeP}{p}{\typePp}$ and
 $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$.  By lemma
 \ref{ajudgeimpatjudge} there exists a unique $\typePpp$ such that
@@ -167,20 +167,20 @@ $\tjudge{}{}{u}{\typeQ}$ and $\atjudge{}{\typeP}{p}{\typePpp}$ so that
 $\typePpp = \typePp$. Therefore by induction $\tjudge{}{}{t'}{\typePp}$ by
 induction as required.
 
-\paragraph{Labelling} The induction hypothesis says that
+\subparagraph{Labelling} The induction hypothesis says that
 $\ajudge{\typePsub{\ell_0}}{t}{p}{t'}$ and
 $\atjudge{}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$.  From lemma
 \ref{closedactiontypebackwards}(\ref{closedactiontypebackwardslabel})
 therefore $\atjudge{}{\typePsub{\ell_0}}{p}{\typePp}$ so that
 $\tjudge{}{}{t'}{\typePp}$ by induction as required.
 
-\paragraph{Label Projection} The induction hypothesis says that
+\subparagraph{Label Projection} The induction hypothesis says that
 $\atjudge{}{\typePsub{\ell_0}}{p}{\typePp}$ and
 $\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$.  From the typing
 rules $\atjudge{}{\stdtypesum}{\labelaction{\ell_0}{p}}{t'}$ so that
 $\tjudge{}{}{t'}{\typePp}$ by induction as required.
 
-\paragraph{Recursive Type Folding} The induction hypothesis gives the
+\subparagraph{Recursive Type Folding} The induction hypothesis gives the
 statements that
 $\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{t}{p}{t'}$ and
 $\atjudge{}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$.  From lemma
@@ -188,14 +188,14 @@ $\atjudge{}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$.  From lemma
 $\atjudge{}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$, so that
 $\tjudge{}{}{t'}{\typePp}$ by induction as required.
 
-\paragraph{Recursive Type Unfolding} The induction hypothesis gives the
+\subparagraph{Recursive Type Unfolding} The induction hypothesis gives the
 statements that
 $\atjudge{}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$ and
 $\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$. From the typing
 rules $\atjudge{}{\typerec{j}{P}{\typeP}}{\absaction{p}}{t'}$ so that
 $\tjudge{}{}{t'}{\typePp}$ by induction as required.
 
-\paragraph{Nondeterministic Sum}
+\subparagraph{Nondeterministic Sum}
 The induction hypothesis says that
 $\atjudge{}{\typeP}{p}{\typePp}$
 and $\ajudge{\typeP}{t_{i_0}}{p}{t'}$ so that $\tjudge{}{}{t'}{\typePp}$

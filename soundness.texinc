@@ -13,7 +13,7 @@ $\supp{t,p,t'} \subseteq s$ then \[\sem{\tjudge{s}{}{\bang{t'}
 \begin{proof}
 By induction on the derivation of $\ajudge{\typeP}{t}{p}{t'}$ as follows.
 
-\paragraph{Recursion} Suppose that $\ajudge{\typeP}{\rec{x}{t}}{p}{t'}$ is
+\subparagraph{Recursion} Suppose that $\ajudge{\typeP}{\rec{x}{t}}{p}{t'}$ is
 derived from $\ajudge{\typeP}{\termsubst{t}{\rec{x}{t}}{x}}{p}{t'}$.  Let $t^*$
 be defined by $t^*(f) = \sem{t} \circ f$, then \[\begin{array}{rcll}
 %
@@ -38,13 +38,13 @@ substitution lemma}\\
 %
 \end{array}\] as required.
 
-\paragraph{Prefix}
+\subparagraph{Prefix}
 If $\ajudge{\typelift\typeP}{\bang{t}}{\bangaction}{t}$ then
 \[\sem{\atjudge{s}{\typelift\typeP}{\bangaction}{\typeP}}
 \circ \sem{\tjudge{s}{}{\bang{t}}{\typelift\typeP}} = \sem
 {\tjudge{s}{}{\bang{t}}{\typelift\typeP}}\] as required.
 
-\paragraph{Prefix Match} Suppose that
+\subparagraph{Prefix Match} Suppose that
 $\ajudge{\typeP}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{p}{t'}$ is derived from
 $\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}$ and $\ajudge{\typeQ}{u}{q}{u'}$,
 then \[\begin{array}{rcll}
@@ -81,7 +81,7 @@ induction on $t$} \\
 %
 \end{array}\] as required.
 
-\paragraph{Name Abstraction} Suppose that
+\subparagraph{Name Abstraction} Suppose that
 $\ajudge{\typedelta\typeP}{\new{a}{t}}{\newaction{a}{p}}{\new{a}{t'}}$ is
 derived from $\ajudge{\typeP}{t}{p}{t'}$, then \[\begin{array}{rcll}
 %
@@ -112,7 +112,7 @@ derived from $\ajudge{\typeP}{t}{p}{t'}$, then \[\begin{array}{rcll}
 \end{array}\]
 as required.
 
-\paragraph{Name Application} Suppose that
+\subparagraph{Name Application} Suppose that
 $\ajudge{\typeP}{\newapply{t}{a}}{p}{t'}$ is derived from
 $\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}$, then
 \[\begin{array}{rcll}
@@ -156,7 +156,7 @@ of the adjunction}\\
 as required.
 
 
-\paragraph{Function Abstraction} Suppose that
+\subparagraph{Function Abstraction} Suppose that
 $\ajudge{\typemap{\typeQ}{\typeP}}{\abstract{x}{t}}{\mapaction{u}{p}}{t'}$ is
 derived from $\ajudge{\typeP}{\termsubst{t}{u}{x}}{p}{t'}$, then
 \[\begin{array}{rcll}
@@ -180,7 +180,7 @@ derived from $\ajudge{\typeP}{\termsubst{t}{u}{x}}{p}{t'}$, then
 \end{array}\]
 as required.
 
-\paragraph{Function Application}
+\subparagraph{Function Application}
 Suppose that $\ajudge{\typeP}{\apply{t}{u}{\typeQ}}{p}{t'}$
 is derived from $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$, then
 \[\begin{array}{rcll}
@@ -202,7 +202,7 @@ is derived from $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$, th
 \end{array}\]
 as required.
 
-\paragraph{Labelling} Suppose that
+\subparagraph{Labelling} Suppose that
 $\ajudge{\stdtypesum}{\linj{\ell_0}{t}}{\labelaction{\ell_0}{p}}{t'}$ is
 derived from $\ajudge{\typePsub{\ell_0}}{t}{p}{t'}$, then \[\begin{array}{rcll}
 %
@@ -219,7 +219,7 @@ induction}\\
 %
 \end{array}\] as required
 
-\paragraph{Label Projection}
+\subparagraph{Label Projection}
 Suppose that $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}$
 is derived from $\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$,
 then \[\begin{array}{rcll}
@@ -237,7 +237,7 @@ induction}\\
 %
 \end{array}\] as required
 
-\paragraph{Recursive Type Folding}
+\subparagraph{Recursive Type Folding}
 Suppose that
 $\ajudge{\typerec{j}{P}{\typeP}}{\abs{t}}{\absaction{p}}{t'}$
 is derived from
@@ -257,7 +257,7 @@ induction}\\
 %
 \end{array}\] as required
 
-\paragraph{Recursive Type Unfolding}
+\subparagraph{Recursive Type Unfolding}
 Suppose that $\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}{p}{t'}$
 is derived from $\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$,
 then \[\begin{array}{rcll}
@@ -275,7 +275,7 @@ induction}\\
 %
 \end{array}\] as required
 
-\paragraph{Nondeterministic Sum}
+\subparagraph{Nondeterministic Sum}
 Suppose that $\ajudge{\typeP}{\ndsum{i}{I}{t_i}}{p}{t'}$
 is derived from $\ajudge{\typeP}{t_{i_0}}{p}{t'}$, then
 \[\begin{array}{rcll}

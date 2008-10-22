@@ -28,7 +28,7 @@ $\termvar{y1}, \termvar{ym}$ and $\termvar{zn}$ represent those that are
 subject to substitution, whereas others such as $\termvar{x}$ and
 $\termvar{x1}$ stand for those that are not.
 
-\paragraph{Variable}
+\subparagraph{Variable}
 %\infer{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing} }{\termvar{x}}{\typeP}}{-}
 There are two possibilities for the variable rule, depending on whether the variable in question
 is subject to substitution or not. If it is subject to substitution then $t =
@@ -40,7 +40,7 @@ by repeated use of weakening, support-weakening and fresh-weakening it is possib
 to derive $\tjudge{s_1}{\envcombine{\envvarfresh{x}{\typeP}{\varnothing}}{\Delta}}
 {x}{\typeP}$ as required.
 
-\paragraph{Weakening} 
+\subparagraph{Weakening} 
 %\infer{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
 %}}{t}{\typeP}} {\tjudge{s}{\Gamma}{t}{\typeP}}
 There are two possibilities for the weakening rule, depending on whether the
@@ -60,11 +60,11 @@ then $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup \ldots
 s_1}{\envcombine{\Gamma}{\envcombine{\envfresh{\Delta}{r_1 \cup \ldots \cup
 r_n}}{\envvarfresh{x}{\typeQ}{\varnothing}} }}{t[v]}{\typeP}$ as required.
 
-\paragraph{Exchange} This case is trivial, by reordering the environments appropriately.
+\subparagraph{Exchange} This case is trivial, by reordering the environments appropriately.
 
 \vfill\pagebreak
 
-\paragraph{Contraction} There are two possibilities for this case, depending on
+\subparagraph{Contraction} There are two possibilities for this case, depending on
 whether the contracted variable is subject to substitution or not. Suppose that
 the judgement
 $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{yn}{\typeR}{r_n}
@@ -90,7 +90,7 @@ Furthermore as the substitutions $[v]$ and $\termsubst{}{\termvar{x1}}{x2}$ are
 disjoint, $\termsubst{t[v]}{\termvar{x1}}{x2} =
 \termsubst{t}{\termvar{x1}}{x2}[v]$ so this judgement is as required.
 
-\paragraph{Fresh-Weakening}
+\subparagraph{Fresh-Weakening}
 %\infer[(s'' \subseteq s' \subseteq s)]
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}} 
@@ -110,7 +110,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup \ldots \cup r_{n-1} \cup
 r_n} }}{t[v]}{\typeP}$ by repeated applications of fresh-weakening on the
 variables in $\Delta$, as required.
 
-\paragraph{Support-Weakening}
+\subparagraph{Support-Weakening}
 %\infer[(s' \subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}}
 %{\tjudge{s'}{\Gamma}{t}{\typeP}} \\
 Suppose that $s' \subseteq s$ and that
@@ -121,7 +121,7 @@ by induction, and hence $\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typeP}$
 by support-weakening as required.
 
-\paragraph{Prefix}
+\subparagraph{Prefix}
 %\infer{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}}
 %{\tjudge{s}{\Gamma}{t}{\typeP}} &&
 Suppose that $\tjudge{s}{\Gamma'}{\bang{t}}{\typelift\typeP}$ is derived from
@@ -132,7 +132,7 @@ for prefixed terms that $\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\bang{(t[v])}
 ={(\bang{t})}[v]}{\typelift\typeP}$ as required.
 
-\paragraph{Recursion} Suppose that
+\subparagraph{Recursion} Suppose that
 $\tjudge{s}{\Gamma'}{\rec{x}{t}}{\typeP}$ is derived from the judgement
 $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeP}{\varnothing}
 }}{t}{\typeP}$, then $\tjudge{s \cup
@@ -144,7 +144,7 @@ required.
 
 \vfill\pagebreak
 
-\paragraph{Prefix-Match}
+\subparagraph{Prefix-Match}
 %\infer[(s'' \subseteq s \setminus s')]
 %{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 %{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
@@ -191,7 +191,7 @@ s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envfresh{\Lambda}{
 {\matchz{s'}{u}{q}{x}{t[v]}{\typeQp} = \matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}{\typeP}\] as
 required (up-to exchange).
 
-\paragraph{Function Abstraction} Suppose that
+\subparagraph{Function Abstraction} Suppose that
 $\tjudge{s}{\Gamma'}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP}}$ is derived from the judgement
 $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQ}{\varnothing}
 }}{t}{\typeP}$, then $\tjudge{s \cup
@@ -200,7 +200,7 @@ s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 hence $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 }}{\abstract{x}{(t[v])} = (\abstract{x}{t}) [v]}{\typemap{\typeQ}{\typeP}}$ as required.
 
-\paragraph{Function Application} Suppose that
+\subparagraph{Function Application} Suppose that
 $\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}{\typeQ}}{\typeP}$ is derived
 from $\tjudge{s}{\Gamma'}{t}{\typemap{\typeQ}{\typeP}}$ and
 $\tjudge{s}{\Lambda'}{u}{\typeQ}$.  Suppose that $\Gamma'$ is a reordering of
@@ -222,7 +222,7 @@ $\tjudge{s \cup s_1}{\envcombine{\Gamma}
 
 \vfill\pagebreak
 
-\paragraph{Name Abstraction}
+\subparagraph{Name Abstraction}
 Suppose that
 $\tjudge{s}{\Gamma'}{\new{a}{t}}{\typedelta \typeP}$ is derived from $\tjudge{s \udot
 \{a\}}{\envfresh{\Gamma'}{a}}{t}{\typeP}$ where $a$ is a fresh name and $\Gamma'$ is a reordering of
@@ -234,7 +234,7 @@ and $a \notin s_1$ so that $a \freshfor v$. By induction $\tjudge{s \cup s_1
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\new{a}{(t[v])}
 = (\new{a}{t})[v]}{\typedelta\typeP}$ as required.
 
-\paragraph{Name Application}
+\subparagraph{Name Application}
 Suppose that $a \notin s$ and that 
 $\tjudge{s \udot \{a\}}{\envfresh{\Gamma'}{a}}{\newapply{t}{a}}{\typeP}$
 is derived from $\tjudge{s}{\Gamma'}{t}{\typedelta \typeP}$
@@ -248,7 +248,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 }} {\newapply{(t[v])}{a} =
 (\newapply{t}{a})[v]}{\typeP}\] as required.
 
-\paragraph{Labelling}
+\subparagraph{Labelling}
 Suppose that $\tjudge{s}{\Gamma'}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\typePsub{\ell_0}}$, then by induction
 $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
@@ -256,7 +256,7 @@ $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\linj{\ell_0}{(t[v])}
 ={(\linj{\ell_0}{t})}[v]}{\stdtypesum}$ as required.
 
-\paragraph{Label Projection}
+\subparagraph{Label Projection}
 Suppose that $\tjudge{s}{\Gamma'}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\stdtypesum}$, then by induction
 $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
@@ -264,7 +264,7 @@ $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\lproj{\ell_0}{(t[v])}
 ={(\lproj{\ell_0}{t})}[v]}{\typePsub{\ell_0}}$ as required.
 
-\paragraph{Nondeterministic Sum}
+\subparagraph{Nondeterministic Sum}
 Suppose that $\tjudge{s}{\Gamma'}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from
 $\tjudge{s_i}{\Gamma'}{t_i}{\typeP}$ for all $i \in I$, then by induction
 $\tjudge{s_i \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
@@ -273,7 +273,7 @@ mapping $i \mapsto s_i \cup s_1$ is at most $s \cup s_1$ and so $\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\ndsum{i}{I}{(t[v])}
 ={\bigl(\ndsum{i}{I}{t}\bigr)}[v]}{\stdtypesum}$ as required.
 
-\paragraph{Recursive Type Folding}
+\subparagraph{Recursive Type Folding}
 Suppose that $\tjudge{s}{\Gamma'}{\abs{t}}{\typerec{j}{P}{\typeP} }$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$, then by induction
 $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
@@ -281,7 +281,7 @@ $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\abs{(t[v])}
 ={(\abs{t})}[v]}{\typerec{j}{P}{\typeP} }$ as required.
 
-\paragraph{Recursive Type Unfolding}
+\subparagraph{Recursive Type Unfolding}
 Suppose that $\tjudge{s}{\Gamma'}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\typerec{j}{P}{\typeP} }$, then by induction
 $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}

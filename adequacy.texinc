@@ -43,7 +43,7 @@ The proof is by induction on the path $p_0$.
 \TODO{Names of the cases in the proof of lemma
 \ref{triangleleftandsyntacticpreorder} are rubbish - think of better ones.}
 
-\paragraph{Finite Path Set} By assumption, $\login{P_0}{\typelift\typeP}{t}$
+\subparagraph{Finite Path Set} By assumption, $\login{P_0}{\typelift\typeP}{t}$
 and $P_1 \le_{\typelift\typeP} P_0$, so that $P_1 \subseteq P_0 \subseteq
 \typeP$ and $P_0$ and $P_1$ are chain-finite. From the definition of the logical
 relation, there exists $t'$ such that
@@ -52,7 +52,7 @@ $\logrel{P_0}{\typeP}{t'}$. Since $P_1 \subseteq P_0$,
 $\logrel{P_1}{\typeP}{t'}$ too. Therefore
 $\login{P_1}{\typelift\typeP}{t}$ as required.
 
-\paragraph{Function Space Path} By assumption,
+\subparagraph{Function Space Path} By assumption,
 $\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ and
 $\mappath{Q_1}{p_1} \le_{\typemap{\typeQ}{\typeP}} \mappath{Q_0}{p_0}$, so that
 $p_1 \le_{\typeP} p_0$ and $Q_0 \le_{\typelift\typeQ} Q_1$ and hence $Q_0
@@ -64,7 +64,7 @@ and since $\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ it must
 be the case that $\login{p_0}{\typeP}{\apply{t}{u}{\typeQ}}$ and hence by induction
 $\login{p_1}{\typeP}{\apply{t}{u}{\typeQ}}$ as required.
 
-\paragraph{New Name Path}
+\subparagraph{New Name Path}
 By assumption, $\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$ and
 $\newpath{b}{p_0} \le_{\typedelta\typeP} \newpath{b}{p_1}$ where $b$ is a fresh
 name, and hence $p_0 \le_{\typeP} p_1$. We wish to show that
@@ -73,7 +73,7 @@ that $\login{p_1}{\typeP}{\newapply{t}{b}}$ and hence by induction that
 $\login{p_0}{\typeP}{\newapply{t}{b}}$; this is immediate since 
 $\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$.
 
-\paragraph{Labelled Path}
+\subparagraph{Labelled Path}
 By assumption, $\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$ and
 $\labelpath{\ell_0}{p_0} \le_{\stdtypesum} \labelpath{\ell_1}{p_1}$ so that
 $\ell_0 = \ell_1$ and $p_0 \le_{\typePsub{\ell_0}} p_1$. We wish to show that
@@ -82,7 +82,7 @@ that $\login{p_1}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$ and hence by induction
 that $\login{p_0}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$; this is immediate
 since $\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$.
 
-\paragraph{Recursive Type Path}
+\subparagraph{Recursive Type Path}
 By assumption, $\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$ and
 $\abspath{p_0} \le_{\typerec{j}{P}{\typeP}} \abspath{p_1}$ so that $p_0
 \le_{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]} p_1$. We wish to show
@@ -110,13 +110,13 @@ The proof is by induction on the path $p$.
 \TODO{Names of the cases in the proof of lemma \ref{ctxle1} are rubbish - think
 of better ones.}
 
-\paragraph{Finite Path Set} By assumption, $\login{P}{\typelift\typeP}{t_0}$, so
+\subparagraph{Finite Path Set} By assumption, $\login{P}{\typelift\typeP}{t_0}$, so
 there exists $t'$ such that $\logrel{P}{\typeP}{t'}$ and
 $\ajudge{\typelift\typeP}{t_0}{\bangaction}{t'}$. Since
 $\oprel{t_0}{\typeP}{t_1}$, $\ajudge{\typelift\typeP}{t_1}{\bangaction}{t'}$
 too, so that $\login{P}{\typelift\typeP}{t_1}$ as required.
 
-\paragraph{Function Space Path} By assumption,
+\subparagraph{Function Space Path} By assumption,
 $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_0}$, so that for all $u$ such that $\logrel{Q}{\typeQ}{u}$,
 $\login{p}{\typeP}{\apply{t_0}{u}{\typeQ}}$. Also
 $\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ implies that
@@ -130,7 +130,7 @@ finally $\ajudge{\typeP}{\apply{t_1}{u}{\typeQ}}{p'}{t'}$. Thus by induction
 $\login{p}{\typeP}{\apply{t_1}{u}{\typeQ}}$, so that
 $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_1}$ as required.
 
-\paragraph{New Name Path}
+\subparagraph{New Name Path}
 By assumpton, $\login{\newpath{b}{p}}{\typedelta\typeP}{t_0}$ where $b$ is a
 fresh name, so that $\login{p}{\typeP}{\newapply{t_0}{b}}$. Also
 $\oprel{t_0}{\typedelta\typeP}{t_1}$ implies that
@@ -143,7 +143,7 @@ $\ajudge{\typeP}{\newapply{t_1}{b}}{p'}{t'}$. Thus by induction
 $\login{p}{\typeP}{\newapply{t_1}{b}}$, so that
 $\login{\newpath{b}{p}}{\typedelta\typeP}{t_1}$ as required.
 
-\paragraph{Labelled Path}
+\subparagraph{Labelled Path}
 By assumpton, $\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_0}$ so that
 $\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}$. Also
 $\oprel{t_0}{\stdtypesum}{t_1}$ implies that
@@ -157,7 +157,7 @@ $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}{p'}{t'}$. Thus by induction
 $\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}$, so that
 $\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_1}$ as required.
 
-\paragraph{Recursive Type Path} By assumpton,
+\subparagraph{Recursive Type Path} By assumpton,
 $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{t_0}$, so that by definition
 $\login{p}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}$. Also
 $\oprel{t_0}{\typerec{j}{P}{\typeP}}{t_1}$ implies that 
@@ -195,7 +195,7 @@ $\logrel{P}{\typePp}{t'}$.
 \begin{proof} The proof is by mutual induction on the respective derivations of
 $\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
 
-\paragraph{Variable} Here $n = 1$, $\typePsub{1} = \typeP$, $t =
+\subparagraph{Variable} Here $n = 1$, $\typePsub{1} = \typeP$, $t =
 \termvar{x}_1$, $\gamma = \gamma_1$ and $s = s_1 = \varnothing$.
 \[\begin{array}{rcll}
 \sem{\tjudge{\varnothing}{\envvarfresh{$\termvar{x}_1$}{\typeP}{\varnothing}}
@@ -206,7 +206,7 @@ $\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
 & = & t[v] & \text{by hypothesis,}
 \end{array}\] as required.
 
-\paragraph{Weakening} 
+\subparagraph{Weakening} 
 \[\begin{array}{rcll}
 \multicolumn{4}{l}{\sem{\tjudge{s}{\envcombine{\Gamma}
 {\envvarfresh{$\termvar{x}_{n+1}$}{\typePsub{n+1}}{s_{n+1}} }}{t}{\typeP}}
@@ -223,7 +223,7 @@ where $[v']$ is the simultaneous substitution of $v_i$ for $x_i$ for $i \in
 \{1, \ldots, n\}$ only. However $t[v'] = t[v]$ since $x_{n+1}$ does not appear
 free in $t$ (\TODO{weakening does not add free variables - by induction}) which yields the desired result.
 
-\paragraph{Exchange} 
+\subparagraph{Exchange} 
 \[\begin{array}{rcll} \multicolumn{4}{l}{
 \sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
 {}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }}
@@ -236,7 +236,7 @@ free in $t$ (\TODO{weakening does not add free variables - by induction}) which 
 \end{array}\] where $[v']$ is the substitution $[v]$ appropriately reordered,
 as required.
 
-\paragraph{Fresh-Weakening}
+\subparagraph{Fresh-Weakening}
 Since the freshness conditions have been strengthened, the terms $v_i$
 satisfy the weaker conditions required for the induction hypothesis to hold.
 Therefore
@@ -251,7 +251,7 @@ Therefore
 \end{array}\]
 as required.
 
-\paragraph{Support-Weakening (Terms)}
+\subparagraph{Support-Weakening (Terms)}
 Suppose that $s' \subseteq s$. Therefore
 \[\begin{array}{rcll}
 \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle
@@ -261,7 +261,7 @@ Suppose that $s' \subseteq s$. Therefore
 \end{array}\]
 as required.
 
-\paragraph{Prefix} Let $P \in
+\subparagraph{Prefix} Let $P \in
 \sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} \langle \gamma \rangle$. By
 the denotational semantics therefore $P \subseteq
 \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle$. By induction
@@ -271,7 +271,7 @@ operational semantics,
 $\ajudge{\typelift\typeP}{\bang{t[v]}}{\bangaction}{t[v]}$ so that
 $\login{P}{\typelift\typeP}{\bang{t[v]}}$ as required.
 
-\paragraph{Recursion} Let $p \in \sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
+\subparagraph{Recursion} Let $p \in \sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
 \langle \gamma \rangle$. By the denotational semantics therefore there exists $n
 \in \omega$ such that $p \in
 \bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}}}{t}{\typeP}}^*\bigr)^n
@@ -299,7 +299,7 @@ induction} \\
 %{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} &
 %\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
-\paragraph{Prefix-Match} Let $p \in
+\subparagraph{Prefix-Match} Let $p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda \rangle$, then by the
 denotational semantics there exists $Q \in \typelift\typeQp$ such that $p \in
@@ -317,7 +317,7 @@ by the operational semantics $\oprel{\termsubst{t}{u'}{x}[v]}{\typeP}{
 \matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}$ so that
 $\login{p}{\typeP}{\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}$ as required.
 
-\paragraph{Function Abstraction} Let $\mappath{Q}{p} \in
+\subparagraph{Function Abstraction} Let $\mappath{Q}{p} \in
 \sem{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP}}} \langle
 \gamma \rangle$, and let $u$ be such that 
 $\logrel{Q}{\typeQ}{u}$. Then
@@ -331,7 +331,7 @@ $\login{p}{\typeP}{\apply{\abstract{x}{t[v]}}{u}{\typeQ}}$ and hence
 $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{\abstract{x}{t[v]}}$ as
 required.
 
-\paragraph{Function Application} Let $p \in
+\subparagraph{Function Application} Let $p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}} \langle
 \gamma, \lambda \rangle$, then by the denotational semantics there is $Q \in
 \typelift\typeQ$ such that $\mappath{Q}{p} \in
@@ -344,7 +344,7 @@ $\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}}\langle\gamma\rang
 so that $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t[v]}$ and hence
 $\login{p}{\typeP} {\apply{t[v]}{u[v]}{\typeQ} = \apply{t}{u}{\typeQ}[v]}$ as required.
 
-\paragraph{Name Abstraction} Let $\newpath{b}{p} \in
+\subparagraph{Name Abstraction} Let $\newpath{b}{p} \in
 \sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta\typeP}} \langle \gamma
 \rangle_\Gamma$, where $b$ is fresh, then by the denotational semantics $p \in
 \sem{\tjudge{s\udot\{b\}}{\envfresh{\Gamma}{b}}{(ab) \cdot t}{\typeP}} \langle
@@ -358,7 +358,7 @@ t)[v]}\bigr)}{b} &\text{by the operational semantics}\\ &=&
 $\login{p}{\typeP}{\newapply{(\new{a}{t})[v]}{b}}$ and hence
 $\login{\newpath{b}{p}}{\typedelta\typeP}{(\new{a}{t})[v]}$ as required.
 
-\paragraph{Name Application} Let $p \in
+\subparagraph{Name Application} Let $p \in
 \sem{\tjudge{s\udot\{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
 \langle \gamma \rangle_{\envfresh{\Gamma}{a}}$ then by the denotational
 semantics $\newpath{a}{p} \in \sem{\tjudge{s}{\Gamma}{t}{\typedelta\typeP}}
@@ -370,7 +370,7 @@ $\login{(ab) \cdot p}{\typedelta\typeP}{\newapply{t[v]}{b} =
 by equivariance $\login{p}{\typedelta\typeP}{\newapply{t}{a}[v]}$
 as required.
 
-\paragraph{Labelling} Let $\labelpath{\ell}{p} \in
+\subparagraph{Labelling} Let $\labelpath{\ell}{p} \in
 \sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle \gamma
 \rangle_\Gamma$, then by the denotational semantics $\ell = \ell_0$ and $p \in
 \sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}}$. By induction
@@ -381,7 +381,7 @@ $\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{\linj{\ell_0}{t} }}$ and hence
 $\login{\labelpath{\ell}{p}}{\stdtypesum} {\linj{\ell_0}{t[v]}}$ as
 required.
 
-\paragraph{Label Projection}
+\subparagraph{Label Projection}
 Let $p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
 \langle \gamma \rangle_\Gamma$, then by the denotational
 semantics $\labelpath{\ell_0}{p} \in \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}} \langle \gamma \rangle_\Gamma$. Also by
@@ -389,7 +389,7 @@ induction it follows that $\logrel{\sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}}\gamm
 $\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t[v]}$ and hence
 $\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t[v]}}$ as required.
 
-\paragraph{Nondeterministic Sum} Let $p \in
+\subparagraph{Nondeterministic Sum} Let $p \in
 \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle \gamma
 \rangle_\Gamma$, then by the denotational semantics there exists $i_0 \in I$
 such that $p \in \sem{\tjudge{s_{i_0}}{\Gamma}{t_{i_0}}{\typeP}} \langle \gamma
@@ -397,7 +397,7 @@ such that $p \in \sem{\tjudge{s_{i_0}}{\Gamma}{t_{i_0}}{\typeP}} \langle \gamma
 the operational semantics $\oprel{t_{i_0}}{\typeP}{\ndsum{i}{I}{t_i}}$ so that
 $\login{p}{\typeP}{\ndsum{i}{I}{t_i}}$ as required.
 
-\paragraph{Recursive Type Folding} Let $\abspath{p} \in
+\subparagraph{Recursive Type Folding} Let $\abspath{p} \in
 \sem{\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP}}} \langle \gamma
 \rangle_\Gamma$, then by the denotational semantics $p \in
 \sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} \langle
@@ -409,7 +409,7 @@ $\oprel{t[v]}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{\abs{t} }}$ so that
 $\login{p}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{\abs{t} }}$ and
 hence $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{\abs{t[v]}}$ as required.
 
-\paragraph{Recursive Type Unfolding}
+\subparagraph{Recursive Type Unfolding}
 Let $p \in
 \sem{\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
 \langle \gamma \rangle_\Gamma$, then by the denotational semantics $\abspath{p}
@@ -421,13 +421,13 @@ $\login{\abs{p}}{\typerec{j}{P}{\typeP}}{t[v]}$ and hence
 $\login{p}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t[v]}}$ as
 required.
 
-\paragraph{Prefix Action}
+\subparagraph{Prefix Action}
 Suppose that $\logrel{X}{\typelift\typeP}{t}$ and $P \in
 \sem{\atjudge{s}{\typelift\typeP}{\bangaction}{\typeP}} X = X$, then
 $\login{P}{\typelift\typeP}{t}$ and hence there exists $t'$ such that
 $\logrel{P}{\typeP}{t'}$ and $\ajudge{\typelift\typeP}{t}{\bangaction}{t'}$ as required.
 
-\paragraph{Higher-Order Action} Let $X' = \{ p' \mid \exists Q \subseteq
+\subparagraph{Higher-Order Action} Let $X' = \{ p' \mid \exists Q \subseteq
 \sem{\tjudge{s}{}{u}{\typeQ}}.\ \mappath{Q}{p'} \in X\}$ then by the
 denotational semantics
 $\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}X =
@@ -446,7 +446,7 @@ lemma
 $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$ as
 required.
 
-\paragraph{Labelled Action} Let $X' = \{ p' \mid \labelpath{\ell_0}{p'}
+\subparagraph{Labelled Action} Let $X' = \{ p' \mid \labelpath{\ell_0}{p'}
 \in X \}$ then $\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}X = \sem{
 \atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}}X'$ and if
 $\logrel{X}{\stdtypesum}{t}$ then
@@ -457,7 +457,7 @@ $\logrel{P}{\typePp}{t'}$ and hence by lemma
 \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:lproj})
 $\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$ as required.
 
-\paragraph{New Name Action} The induction premises are that
+\subparagraph{New Name Action} The induction premises are that
 $\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$,
 $\logrel{X}{\typedelta\typeP}{t}$ and $P \in
 \sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}X$. By
@@ -488,7 +488,7 @@ the operational semantics, $\oprel{t'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ so
 that $\login{x'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ and hence
 $\login{x}{\typedelta\typePp}{\new{b}{t'}}$, as required.
 
-\paragraph{Recursive Type Action} Let \[X' = \{ p' \mid \abspath{p'} \in X \}\]
+\subparagraph{Recursive Type Action} Let \[X' = \{ p' \mid \abspath{p'} \in X \}\]
 then $\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}X =
 \sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}X'$ and if
 $\logrel{X}{\typerec{j}{P}{\typeP}}{t}$ then
@@ -499,7 +499,7 @@ $\logrel{P}{\typePp}{t'}$ and hence by lemma
 \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:rep}),
 $\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$ as required.
 
-\paragraph{Support-Weakening (Actions)}
+\subparagraph{Support-Weakening (Actions)}
 \TODO{Support-Weakening (Actions) case}
 %
 \end{proof}

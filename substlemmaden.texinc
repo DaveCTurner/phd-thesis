@@ -44,7 +44,7 @@ $\termvar{x1}$ stand for those that are not.
 Where it is unimportant, omit the map $\sigma$ and the functors $i_1^*$ and
 $i_2^*$ to preserve the clarity of the proof.
 
-\paragraph{Variable}
+\subparagraph{Variable}
 %\infer{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}
 %}{\termvar{x}}{\typeP}}{-}
 There are two possibilities for the variable rule, depending on whether the
@@ -70,7 +70,7 @@ other hand if the variable in question is not subject to substitution then $t =
 \circ (\mathbf{1}_{\typeP} \amp \sem{v}^n) \end{array}\] as required.
 
 
-\paragraph{Weakening} 
+\subparagraph{Weakening} 
 %\infer{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
 %}}{t}{\typeP}} {\tjudge{s}{\Gamma}{t}{\typeP}}
 There are two possibilities for the weakening rule, depending on whether the
@@ -113,9 +113,9 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{t[v]}{\typeP}} \circ \pi \\
 \amp \typeQ} \amp \sem{v}^n) \\
 \end{array}\] as required.
 
-\paragraph{Exchange} This case is trivial, by reordering the environments appropriately.
+\subparagraph{Exchange} This case is trivial, by reordering the environments appropriately.
 
-\paragraph{Contraction} There are two possibilities for this case, depending on
+\subparagraph{Contraction} There are two possibilities for this case, depending on
 whether the contracted variable is subject to substitution or not. Suppose that
 the judgement
 $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{yn}{\typeR}{r_n}
@@ -192,7 +192,7 @@ s'}} \amp \sem{v}^{n}) \\&&{} \circ (\mathbf{1}_{\Gamma \amp
 \end{array}\]
 as required.
 
-\paragraph{Fresh-Weakening}
+\subparagraph{Fresh-Weakening}
 %\infer[(s'' \subseteq s' \subseteq s)]
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}} 
@@ -228,7 +228,7 @@ r'_n} }}{t[v]}{\typeP}} \circ \bigl(\mathbf{1}_{\Gamma} \amp k_\Delta \bigr) \\
 \end{array}\]
 as required.
 
-\paragraph{Support-Weakening}
+\subparagraph{Support-Weakening}
 %\infer[(s' \subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}}
 %{\tjudge{s'}{\Gamma}{t}{\typeP}} \\
 Suppose that $s' \subseteq s$ and that
@@ -249,7 +249,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typeP}} \\
 \end{array}\]
 as required.
 
-\paragraph{Prefix}
+\subparagraph{Prefix}
 %\infer{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}}
 %{\tjudge{s}{\Gamma}{t}{\typeP}} &&
 Suppose that $\tjudge{s}{\Gamma'}{\bang{t}}{\typelift\typeP}$ is derived from
@@ -267,7 +267,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typeP}}} \\
 \end{array}\]
 as required.
 
-\paragraph{Recursion} Suppose that $\tjudge{s}{\Gamma'}{\rec{x}{t}}{\typeP}$ is
+\subparagraph{Recursion} Suppose that $\tjudge{s}{\Gamma'}{\rec{x}{t}}{\typeP}$ is
 derived from the judgement
 $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeP}{\varnothing}
 }}{t}{\typeP}$.
@@ -347,7 +347,7 @@ as required.
 
 \vfill\pagebreak
 
-\paragraph{Prefix-Match}
+\subparagraph{Prefix-Match}
 %\infer[(s'' \subseteq s \setminus s')]
 %{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 %{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
@@ -467,7 +467,7 @@ s'}} \amp \bigl((\sem{v}^{n} \amp {\sem{v}^{m}}^{\freshfor s'}) \circ
 \end{array}\] as required. The proof in the case $m = 0$ is similar, albeit
 simpler.
 
-\paragraph{Function Abstraction} Suppose that
+\subparagraph{Function Abstraction} Suppose that
 $\tjudge{s}{\Gamma'}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP}}$ is derived from the judgement
 $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQ}{\varnothing}
 }}{t}{\typeP}$, then\[\begin{array}{rcl}
@@ -492,7 +492,7 @@ $\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQ}{\varnothing}
 \end{array}\]
 as required.
 
-\paragraph{Function Application} Suppose that
+\subparagraph{Function Application} Suppose that
 $\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}{\typeQ}}{\typeP}$ is derived
 from $\tjudge{s}{\Gamma'}{t}{\typemap{\typeQ}{\typeP}}$ and
 $\tjudge{s}{\Lambda'}{u}{\typeQ}$.  Suppose that $\Gamma'$ is a reordering of
@@ -537,7 +537,7 @@ as required.
 
 \vfill\pagebreak
 
-\paragraph{Name Abstraction} Suppose that
+\subparagraph{Name Abstraction} Suppose that
 $\tjudge{s}{\Gamma'}{\new{a}{t}}{\typedelta \typeP}$ is derived from $\tjudge{s
 \udot \{a\}}{\envfresh{\Gamma'}{a}}{t}{\typeP}$ where $a$ is a fresh name and
 $\Gamma'$ is a reordering of $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
@@ -565,7 +565,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{ (\new{a}{t})[v] =
 \end{array}\]
 as required.
 
-\paragraph{Name Application} Suppose that $a \notin s$ and that $\tjudge{s
+\subparagraph{Name Application} Suppose that $a \notin s$ and that $\tjudge{s
 \udot \{a\}}{\envfresh{\Gamma'}{a}}{\newapply{t}{a}}{\typeP}$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\typedelta \typeP}$ where $\Gamma'$ is a reordering of
 $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots, \envvarfresh{yn}{\typeR}{r_n}$.
@@ -597,7 +597,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 \end{array}\]
 as required.
 
-\paragraph{Labelling} Suppose that
+\subparagraph{Labelling} Suppose that
 $\tjudge{s}{\Gamma'}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\typePsub{\ell_0}}$, then 
 \[\begin{array}{rcl}
@@ -619,7 +619,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typePsub{\ell_0}}}} \\
 as required.
 
 
-\paragraph{Label Projection}
+\subparagraph{Label Projection}
 Suppose that $\tjudge{s}{\Gamma'}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\stdtypesum}$, then 
 \[\begin{array}{rcl}
@@ -640,7 +640,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\stdtypesum}}} \\
 \end{array}\]
 as required.
 
-\paragraph{Nondeterministic Sum}
+\subparagraph{Nondeterministic Sum}
 Suppose that $\tjudge{s}{\Gamma'}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from
 $\tjudge{s_i}{\Gamma'}{t_i}{\typeP}$ for all $i \in I$, then 
 \[\begin{array}{rcl}
@@ -664,7 +664,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t_i[v]}{\typeP}} \\
 \end{array}\]
 as required.
 
-\paragraph{Recursive Type Folding}
+\subparagraph{Recursive Type Folding}
 Suppose that $\tjudge{s}{\Gamma'}{\abs{t}}{\typerec{j}{P}{\typeP} }$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$, then
 \[\begin{array}{rcl}
@@ -688,7 +688,7 @@ as required.
 
 
 
-\paragraph{Recursive Type Unfolding}
+\subparagraph{Recursive Type Unfolding}
 Suppose that $\tjudge{s}{\Gamma'}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\typerec{j}{P}{\typeP} }$, then 
 \[\begin{array}{rcl}

@@ -342,23 +342,23 @@ $\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
 The proof is straightfoward with the exception of the case for terms of the
 form $\ndsum{i}{I}{t_i}$.
 
-\paragraph{Variable} Trivially, since $\supp{\termvar{x}} = \varnothing$.
+\subparagraph{Variable} Trivially, since $\supp{\termvar{x}} = \varnothing$.
 
-\paragraph{Weakening} Suppose that
+\subparagraph{Weakening} Suppose that
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
 }}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$, then by
 induction $\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typeP}$ and
 hence $\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}
 {\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}$ as required.
 
-\paragraph{Exchange} This case follows by a straightforward application of the
+\subparagraph{Exchange} This case follows by a straightforward application of the
 induction hypothesis, similarly to the case of weakening above.
 
-\paragraph{Contraction} 
+\subparagraph{Contraction} 
 This case follows by a straightforward application of the
 induction hypothesis, similarly to the case of weakening above.
 
-\paragraph{Fresh-Weakening} Suppose that
+\subparagraph{Fresh-Weakening} Suppose that
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}$ is
 derived from the judgement
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}$
@@ -368,16 +368,16 @@ $\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\
 $\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\typeQ}{s'
 \cap \supp{t}} }}{t}{\typeP}$ as required.
 
-\paragraph{Support-Weakening (Terms)} If $\tjudge{s}{\Gamma}{t}{\typeP}$ is derived
+\subparagraph{Support-Weakening (Terms)} If $\tjudge{s}{\Gamma}{t}{\typeP}$ is derived
 from $\tjudge{s'}{\Gamma}{t}{\typeP}$ then by induction
 $\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typeP}$ as required.
 
-\paragraph{Prefix}
+\subparagraph{Prefix}
 Suppose that $\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$,
 then by induction $\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typeP}$, and $\supp{\bang{t}} = \supp{t}$
 so that $\tjudge{\supp{\bang{t}}}{\envrestrict{\Gamma}{\supp{\bang{t}}}}{\bang{t}}{\typelift\typeP}$ as required.
 
-\paragraph{Recursion} Suppose that $\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}$ is
+\subparagraph{Recursion} Suppose that $\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}$ is
 derived from
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
 }}{t}{\typeP}$, then by induction
@@ -386,7 +386,7 @@ $\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\
 $\tjudge{\supp{\rec{x}{t}}}{\envrestrict{\Gamma}{\supp{\rec{x}{t}}}}{\rec{x}{t}}{\typeP}$
 as required.
 
-\paragraph{Prefix-Match} Suppose that
+\subparagraph{Prefix-Match} Suppose that
 $\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}$ is derived from
 \[\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP}, \quad
@@ -416,7 +416,7 @@ and hence
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}\]
 by fresh-weakening as required.
 
-\paragraph{Function Abstraction} Suppose that
+\subparagraph{Function Abstraction} Suppose that
 $\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }$ is derived
 from $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
 }}{t}{\typeP}$, then by induction
@@ -425,7 +425,7 @@ $\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\
 $\tjudge{\supp{\abstract{x}{t}}}{\envrestrict{\Gamma}{\supp{\abstract{x}{t}}}}
 {\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }$ as required.
 
-\paragraph{Function Application}
+\subparagraph{Function Application}
 Suppose that $\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}$
 is derived from the judgements $\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}$ and $\tjudge{s}{\Lambda}{u}{\typeQ}$,
 then by induction followed by support-weakening and fresh-weakening
@@ -434,7 +434,7 @@ and $\tjudge{\supp{t,u}}{\envrestrict{\Lambda}{\supp{t,u}}}{u}{\typeQ}$, and $\s
 \supp{t,u}$ so it follows that $\tjudge{\supp{\apply{t}{u}{\typeQ}}}
 {\envcombine{\envrestrict{\Gamma}{\supp{t,u}}}{\envrestrict{\Lambda}{\supp{t,u}}}}{\apply{t}{u}{\typeQ}}{\typeP}$ as required.
 
-\paragraph{Name Abstraction} Suppose that
+\subparagraph{Name Abstraction} Suppose that
 $\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}$ is derived from the judgement $\tjudge{s
 \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}$ where $a$ is fresh, then by
 induction and support-weakening $\tjudge{\supp{t} \cup
@@ -442,7 +442,7 @@ induction and support-weakening $\tjudge{\supp{t} \cup
 \setminus \{a\}$ so that $\tjudge{\supp{t} \setminus
 \{a\}}{\envrestrict{\Gamma}{\supp{t} \setminus \{a\}}}{\new{a}{t}}{\typeP}$ as required.
 
-\paragraph{Name Application} Suppose that
+\subparagraph{Name Application} Suppose that
 $\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}$ is
 derived from the judgement $\tjudge{s}{\Gamma}{t}{\typedelta \typeP}$ and $a
 \notin s$, then by induction
@@ -452,7 +452,7 @@ $\tjudge{\supp{\newapply{t}{a}}}{\envrestrict{\envfresh{\Gamma}{a}}{\supp{\newap
 as required.
 
 
-\paragraph{Labelling} Suppose that
+\subparagraph{Labelling} Suppose that
 $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
 $\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$, then by induction followed by
 support-weakening and freshness-weakening
@@ -462,7 +462,7 @@ $\tjudge{\supp{t,\ell_0}}{\envrestrict{\Gamma}{\supp{t,\ell_0}}}{\linj{\ell_0}{t
 as required.
 
 
-\paragraph{Label Projection} Suppose that
+\subparagraph{Label Projection} Suppose that
 $\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
 the judgement $\tjudge{s}{\Gamma}{t}{\stdtypesum}$, then by induction followed by
 support-weakening and freshness-weakening
@@ -472,7 +472,7 @@ $\tjudge{\supp{t,\ell_0}}{\envrestrict{\Gamma}{\supp{t,\ell_0}}}{\lproj{\ell_0}{
 as required.
 
 
-\paragraph{Nondeterministic Sum} Suppose that
+\subparagraph{Nondeterministic Sum} Suppose that
 $\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from the judgements
 $\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ for all $i \in I$.  Therefore by induction
 for each $i \in I$ it follows that
@@ -513,7 +513,7 @@ $\tjudge{\supp{\lambda i. t_i}}{\envrestrict{\Gamma}{\supp{\lambda i.
 t_i}}}{\ndsum{i}{I}{t_i}}{\typeP}$.
 
 
-\paragraph{Recursive Type Folding}
+\subparagraph{Recursive Type Folding}
 Suppose that $\tjudge{s}{\Gamma}{\abs t}{\typerec{j}{P}{\typeP} }$
 is derived from $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$
 then by induction 
@@ -523,7 +523,7 @@ $\tjudge{\supp{\abs t}}{\envrestrict{\Gamma}{\supp{\abs t}}}{\abs t}{\typerec{j}
 as required.
 
 
-\paragraph{Recursive Type Unfolding}
+\subparagraph{Recursive Type Unfolding}
 Suppose that $\tjudge{s}{\Gamma}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$
 is derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }$
 then by induction 
@@ -532,9 +532,9 @@ and $\supp{\rep t} = \supp t$ so that
 $\tjudge{\supp{\rep t}}{\envrestrict{\Gamma}{\supp{\rep t}}}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$
 as required.
 
-\paragraph{Prefix Action} Trivially, since $\supp{\bangaction} = \varnothing$.
+\subparagraph{Prefix Action} Trivially, since $\supp{\bangaction} = \varnothing$.
 
-\paragraph{Higher-Order Action} Suppose that
+\subparagraph{Higher-Order Action} Suppose that
 $\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ is derived
 from $\atjudge{s}{\typeP}{p}{\typePp}$ and $\tjudge{s}{}{u}{\typeQ}$, then by
 induction and support-weakening $\atjudge{\supp{u,p}}{\typeP}{p}{\typePp}$ and
@@ -543,7 +543,7 @@ so that
 $\atjudge{\supp{u,p}}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ as
 required.
 
-\paragraph{Labelled Action} Suppose that
+\subparagraph{Labelled Action} Suppose that
 $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is derived from
 $\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$, then by induction and
 support-weakening $\atjudge{\supp{p, \ell_0}}{\typePsub{\ell_0}}{p}{\typePp}$.
@@ -551,14 +551,14 @@ Also $\supp{\labelaction{\ell_0}{p}} = \supp{p, \ell_0}$ so that
 $\atjudge{\supp{p, \ell_0}}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ as
 required.
 
-\paragraph{New Name Action} Suppose that
+\subparagraph{New Name Action} Suppose that
 $\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$ is derived
 from $\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}$, then by induction and
 support-weakening $\atjudge{\supp{p} \cup \{a\}}{\typeP}{p}{\typePp}$. Also
 $\supp{\newaction{a}{p}} = \supp{p} \setminus \{a\}$ so that $\atjudge{\supp{p}
 \setminus \{a\}}{\typedelta\typeP}{\newaction{a}{p}}{\typePp}$ as required.
 
-\paragraph{Recursive Type Action}
+\subparagraph{Recursive Type Action}
 Suppose that $\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$
 is derived from $\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$,
 then by induction 
@@ -566,7 +566,7 @@ $\atjudge{\supp{p}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$
 and $\supp{\absaction{p}} = \supp{p}$ so that
 $\atjudge{\supp{p}}{\typerec{j}{P}{\typeP} }{\abs p}{\typePp}$ as required.
 
-\paragraph{Support-Weakening (Actions)}
+\subparagraph{Support-Weakening (Actions)}
 
 If $\atjudge{s}{\typeP}{p}{\typePp}$ is derived from
 $\atjudge{s'}{\typeP}{p}{\typePp}$ then
