@@ -455,26 +455,26 @@ that $f^{\ddagger} P = f P$, so by monotonicity $f P \le f^{\ddagger} x$ and
 $f^{\ddagger} x \le U$ so that $f P \le U$ as required.  \end{proof}
 
 \begin{lemma} \label{bang:alg} If $x \in \widehat{\typeP}$ then \[ x = \bigcup
-\{y \in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x,
+\{P \in \typelift\typeP \mid P \subseteq x \wedge \supp{P} \subseteq \supp{x,
 \typeP} \} \] \end{lemma}
 
-\begin{proof} Certainly $x \supseteq \bigcup \{y \in \typelift\typeP \mid y
-\subseteq x \wedge \supp{y} \subseteq \supp{x, \typeP} \}$.
+\begin{proof} Certainly $x \supseteq \bigcup \{P \in \typelift\typeP \mid P
+\subseteq x \wedge \supp{P} \subseteq \supp{x, \typeP} \}$.
 %
-To see the converse let $p \in x$ and let $y = \finelt{\{p\}}{\supp{x,
+To see the converse let $p \in x$ and let $P = \finelt{\{p\}}{\supp{x,
 \typeP}}$.
 %
-It is clear that $p \in y$.
+It is clear that $p \in P$.
 %
-From \ref{fineltsupport} it follows that $\supp{y} \subseteq \supp{x, \typeP}$ and
-from \ref{finelts} it follows that $y \in \typelift\typeP$.
+From \ref{fineltsupport} it follows that $\supp{P} \subseteq \supp{x, \typeP}$ and
+from \ref{finelts} it follows that $P \in \typelift\typeP$.
 %
-Let $p' \in y$ then by definition there exists $\sigma \freshfor \supp{x,
+Let $p' \in P$ then by definition there exists $\sigma \freshfor \supp{x,
 \typeP}$ such that $p' \le_{\typeP} \sigma \cdot p$, but $\sigma \cdot p \in
 \sigma \cdot x = x$ and hence $p' \in x$.
 %
-Therefore $y \subseteq x$ so as required it follows that \[p \in \bigcup \{y \in
-\typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x, \typeP}
+Therefore $P \subseteq x$ so as required it follows that \[p \in \bigcup \{P \in
+\typelift\typeP \mid P \subseteq x \wedge \supp{P} \subseteq \supp{x, \typeP}
 \}. \qedhere\] \end{proof}
 
 Lemma \ref{bang:alg} ensures the uniqueness of $f^{\ddagger}$, and in
