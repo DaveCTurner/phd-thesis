@@ -401,11 +401,11 @@ is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
 \ar[d]^{f^{\ddagger}} \\& C} \end{equation} 
 %
 The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x \defeq
-\bigvee\{f y \mid y \in \typelift\typeP \wedge y \subseteq x \wedge \supp{y}
+\bigvee\{f P \mid P \in \typelift\typeP \wedge P \subseteq x \wedge \supp{P}
 \subseteq \supp{x, \typeP} \}.\end{equation}
 %
 Note that this is well-defined since the join is taken over a directed set that
-is uniformly supported by $\supp{x, f, \typeP}$, so the join exists in $C$.
+is uniformly supported by $\supp{f, x, \typeP}$, so the join exists in $C$.
 %
 It is also clear that $f^\ddagger$ is finitely-supported.
 
