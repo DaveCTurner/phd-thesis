@@ -415,23 +415,23 @@ It is also clear that $f^\ddagger$ is finitely-supported.
 \begin{proof} It not clear that $f^{\ddagger}$ is even monotone.  Let $x, x' \in
 \widehat{\typeP}$ be such that $x \subseteq x'$ and show that $f^{\ddagger} x
 \le f^{\ddagger} x'$ as follows. By the monotonicity of $f$ it is sufficient to
-show that for all $y \in \typelift\typeP$ such that $y \subseteq x$ and
-$\supp{y} \subseteq \supp{x, \typeP}$ there exists $y' \in \typelift\typeP$ such
-that $y \subseteq y'$ and $y' \subseteq x'$ and $\supp{y'} \subseteq \supp{x',
-\typeP}$, so let $y \in \typelift\typeP$ be such that $y \subseteq x$ and
-without loss of generality (by \ref{finelt:wlog}) write $y =
+show that for all $P \in \typelift\typeP$ such that $P \subseteq x$ and
+$\supp{P} \subseteq \supp{x, \typeP}$ there exists $P' \in \typelift\typeP$ such
+that $P \subseteq P'$ and $P' \subseteq x'$ and $\supp{P'} \subseteq \supp{x',
+\typeP}$, so let $P \in \typelift\typeP$ be such that $P \subseteq x$ and
+without loss of generality (by \ref{finelt:wlog}) write $P =
 \finelt{F}{\supp{x,x',\typeP}}$.
 %
-Define $y' = \finelt{F}{\supp{x',\typeP}}$.
+Define $P' = \finelt{F}{\supp{x',\typeP}}$.
 %
-It is certainly the case that $y \subseteq y'$ (by \ref{finelt:mono}) and
-$\supp{y'} \subseteq \supp{x',\typeP}$ (by \ref{fineltsupport}) so it remains to
-show that $y' \subseteq x'$.
+It is certainly the case that $P \subseteq P'$ (by \ref{finelt:mono}) and
+$\supp{P'} \subseteq \supp{x',\typeP}$ (by \ref{fineltsupport}) so it remains to
+show that $P' \subseteq x'$.
 %
-Let $p' \in y'$, then there exists $p \in F$ and $\sigma \freshfor x'$ such that
+Let $p' \in P'$, then there exists $p \in F$ and $\sigma \freshfor x'$ such that
 $p' \le_{\typeP} \sigma \cdot p$.
 %
-However, since $y = \finelt{F}{\supp{x,x',\typeP}} \subseteq x \subseteq x'$, it
+However, since $P = \finelt{F}{\supp{x,x',\typeP}} \subseteq x \subseteq x'$, it
 must be that $p \in x'$.
 %
 Since $\sigma \freshfor x'$, $\sigma \cdot p \in x'$ too, and $x' \in
@@ -445,14 +445,14 @@ is an upper bound for $\{f^{\ddagger} x \mid x \in X \}$.  It remains to show
 that it is the least such upper bound, i.e.  for any $U$ such that $f^{\ddagger}
 x \le U$ for all $x \in X$ it is the case that $f^{\ddagger} \bigl(\bigcup
 X\bigr) \le U$. For this, it is sufficient to show that $U$ is an upper bound
-for $\{f y \mid y \in \typelift\typeP \wedge y \subseteq \bigcup X \wedge
-\supp{y} \subseteq \supp{\bigcup X} \}$ since $f^{\ddagger} \bigl(\bigcup X
-\bigr)$ is the least such. Therefore, suppose that $y \in \typelift\typeP$ is
-such that $y \subseteq \bigcup X$ and $\supp{y} \subseteq \supp{\bigcup X}$.
-Then $y$ is isolated, and $X$ is uniformly-supported and directed, so there
-exists $x \in X$ such that $y \subseteq x$. It is clear that $f^{\ddagger} y = f
-y$, so by monotonicity $f y \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so
-that $f y \le U$ as required.  \end{proof}
+for $\{f P \mid P \in \typelift\typeP \wedge P \subseteq \bigcup X \wedge
+\supp{P} \subseteq \supp{\bigcup X, \typeP} \}$ since $f^{\ddagger}
+\bigl(\bigcup X \bigr)$ is the least such. Therefore, suppose that $P \in
+\typelift\typeP$ is such that $P \subseteq \bigcup X$ and $\supp{P} \subseteq
+\supp{\bigcup X, \typeP}$.  Then $P$ is isolated, and $X$ is uniformly-supported
+and directed, so there exists $x \in X$ such that $P \subseteq x$. It is clear
+that $f^{\ddagger} P = f P$, so by monotonicity $f P \le f^{\ddagger} x$ and
+$f^{\ddagger} x \le U$ so that $f P \le U$ as required.  \end{proof}
 
 \begin{lemma} \label{bang:alg} If $x \in \widehat{\typeP}$ then \[ x = \bigcup
 \{y \in \typelift\typeP \mid y \subseteq x \wedge \supp{y} \subseteq \supp{x,
