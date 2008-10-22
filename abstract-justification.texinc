@@ -1612,13 +1612,13 @@ and $\sigma \freshfor s' \udot \{a\}$ such that $p' \le_{\typeP^{\freshfor a}}
 Therefore $\sigma \freshfor s'$ and $p' \le_{\typeP} \sigma \cdot p$ and $a
 \freshfor p$ so that $p' \in \phi_{\typeP} \finelt{F}{s'}$ as required.
 
-If $x \in (\typelift\typeP)^{\freshfor a}$ then $x \freshfor a$ so that $a
-\notin \supp{x, \typeP, s}$ and hence by \ref{finelt:wlog} there exists $F
-\subseteq_{\mathrm{fin}} \typeP$ such that $x = \finelt{F}{\supp{x, \typeP,
+If $P \in (\typelift\typeP)^{\freshfor a}$ then $P \freshfor a$ so that $a
+\notin \supp{P, \typeP, s}$ and hence by \ref{finelt:wlog} there exists $F
+\subseteq_{\mathrm{fin}} \typeP$ such that $P = \finelt{F}{\supp{P, \typeP,
 s}}$.
 %
-If $b$ is a fresh name then $(ab) \cdot \supp{x, \typeP, s} = \supp{x, \typeP,
-s}$ and hence $x = (ab) \cdot x = \finelt{(ab) \cdot F}{\supp{x, \typeP, s}}$.
+If $b$ is a fresh name then $(ab) \cdot \supp{P, \typeP, s} = \supp{P, \typeP,
+s}$ and hence $P = (ab) \cdot P = \finelt{(ab) \cdot F}{\supp{P, \typeP, s}}$.
 %
 Also $a \freshfor (ab) \cdot F$ and $F$ is finite so that $a \freshfor p$ for
 all $p \in (ab) \cdot F$ and hence $(ab) \cdot F \subseteq \typeP^{\freshfor a}$
@@ -1669,8 +1669,8 @@ $(ab)\sigma(ab) \freshfor s'$ since $\sigma \freshfor (s' \setminus \{a\}) \udot
 Hence $(ab) \cdot p' \in \finelt{F}{s'}$ so that $p' \in
 \phi^{-1}_{\typeP}\finelt{F}{s'}$ as required.
 
-Finally if $x \in \typelift{(\typeP^{\freshfor a})}$ then by \ref{finelt:wlog} there
-exists $F \subseteq \typeP^{\freshfor a}$ such that $x = \finelt{F}{\supp{a,x,
+Finally if $P \in \typelift{(\typeP^{\freshfor a})}$ then by \ref{finelt:wlog} there
+exists $F \subseteq \typeP^{\freshfor a}$ such that $P = \finelt{F}{\supp{a,P,
 \typeP, s}}$ as required. \end{proof}
 
 
@@ -1704,10 +1704,10 @@ F$ and $\sigma \freshfor s' \setminus \{b\}$ such that $p' \le_{\delta_a \typeP}
 \cdot \finelt{F}{s'}$ and hence $p' \in \theta_{\typeP}
 \bigl([b].\finelt{F}{s'}\bigr)$ as required.
 
-If $x \in \delta_a \typelift\typeP$ and $b$ is a fresh name then $x@b \in (ab)
-\cdot \typelift\typeP$ so that if $a \in s' \supseteq s \cup \supp{x}$ then
-there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that $(ab) \cdot (x@b) =
-\finelt{F}{s'}$  and hence $x = [b].\bigl( \finelt{(ab) \cdot F}{(ab) \cdot s'}
+If $P' \in \delta_a \typelift\typeP$ and $b$ is a fresh name then $P'@b \in (ab)
+\cdot \typelift\typeP$ so that if $a \in s' \supseteq s \cup \supp{P'}$ then
+there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that $(ab) \cdot (P'@b) =
+\finelt{F}{s'}$  and hence $P' = [b].\bigl( \finelt{(ab) \cdot F}{(ab) \cdot s'}
 \bigr)$ and $b \in (ab) \cdot s'$ as required.  \end{proof}
 
 \begin{lemma} \label{characterisation:thetabanginv} If $b$ is a fresh name, $F
@@ -1761,8 +1761,8 @@ Therefore $[c].p' \le_{\delta_a\typeP} [c].\bigl((bc) \cdot \sigma \cdot p\bigr)
 \bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c$ as
 required. 
 
-If $x \in \typelift{\delta_a\typeP}$ then by \ref{finelt:wlog} there exists $F'
-\subseteq \delta_a \typeP$ such that $x = \finelt{F'}{\supp{x, s, \typeP}}$.
+If $P \in \typelift{\delta_a\typeP}$ then by \ref{finelt:wlog} there exists $F'
+\subseteq \delta_a \typeP$ such that $P = \finelt{F'}{\supp{P, s, \typeP}}$.
 %
 Let $b$ be a fresh name, then as $b \freshfor F'$ and $F'$ is finite it follows
 that $b \freshfor p'$ for all $p' \in F'$, so that $F' = \{[b].(p'@b) \mid p'
