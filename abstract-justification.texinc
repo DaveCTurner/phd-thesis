@@ -991,7 +991,8 @@ and `counit square'.
 
 As discussed in \ref{subsubsect:deltafreshadjlin} there is an adjunction on the
 FM-linear categories that is analogous to the adjunction $(-)^{\freshfor a}
-\dashv \delta_a$ described in lemma \ref{deltafreshadj}.
+\dashv \delta_a : \mathbf{FMPre}_s \leftrightarrows
+\mathbf{FMPre}_{s\udot\{a\}}$ described in lemma \ref{deltafreshadj}.
 %
 Abstractly, this adjunction arises from lemma \ref{adjunctionlift} making use of
 the natural transformations $\phi : \widehat{(-)}^{\freshfor a} \to
@@ -999,9 +1000,8 @@ the natural transformations $\phi : \widehat{(-)}^{\freshfor a} \to
 \widehat{\delta_a (-)}$, and lemma \ref{adjunctioninclusion} which shows that
 $\mathbf{FMLin}_s$ is the appropriate Kleisli category.
 %
-This section demonstrates that this abstract description of th adjunction
-coincides with the concrete description given in
-\ref{subsubsect:deltafreshadjlin}.
+This section demonstrates that this abstract description coincides with the
+concrete definitions given in \ref{subsubsect:deltafreshadjlin}.
  
 Firstly \ref{subsect:fresh-delta-hat} shows that $\phi$ and $\theta$ are indeed
 natural isomorphisms and \ref{binding-lin:abstract} shows that they satisfy the
