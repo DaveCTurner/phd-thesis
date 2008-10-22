@@ -524,8 +524,8 @@ there is an adjunction \begin{equation} \label{bang:adj} \mathbf{FMLin}_s
 with $!$ as the left adjoint.
 %
 Concretely, \ref{def:banglin} means that if $X \in \widehat{\typelift\typeP}$
-then ${!}f(X) = \{y \in \typelift\typeQ \mid \exists x \in X.\ y \subseteq f
-x\}$.
+then ${!}f(X) = \{Q \in \typelift\typeQ \mid \exists P \in X.\ Q \subseteq f
+P\}$.
 %
 The unit of the adjunction is $\eta$ as defined above and the counit $\epsilon$
 is defined as $\epsilon_{\typeP} \defeq i_{\typeP}^{\dagger}$.
