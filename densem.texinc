@@ -211,14 +211,24 @@ the underlying type.
 \sem{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}}{\termvar
 x}{\typeP}} \defeq \mathbf{1}_{\typeP} \end{equation*} \end{definition}
 
-\begin{definition}[Semantics of Weakening] \label{densem:weakening}
+\begin{definition}[Semantics of Weakening] \label{densem:weakening} Suppose that
+the judgement
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$ by weakening, then
 \begin{equation*}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
 }{t}{\typeP}} \defeq \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1.
 \end{equation*} \end{definition}
 
-\begin{definition}[Semantics of Exchange] \label{densem:exchange} Let
-$\varsigma$ be the twist map defined in \ref{def:varsigma} and let \[f = \sem{
+\begin{definition}[Semantics of Exchange] \label{densem:exchange} Suppose that a
+typing judgement
+$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}$ is
+derived from the typing judgement
+$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}$ by
+exchange, let $\varsigma$ be the twist map defined in \ref{def:varsigma} and let
+\[f = \sem{
 \tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
 {}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}},\]
 then define \begin{equation*}
@@ -228,9 +238,13 @@ then define \begin{equation*}
 {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \amp
 \mathbf{1}_{\Lambda} \bigr) \end{equation*} \end{definition}
 
-\begin{definition}[Semantics of Contraction] \label{densem:contraction} Let
-$\Delta$ be the diagonal map defined in \ref{def:diagonal} and let \[f =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
+\begin{definition}[Semantics of Contraction] \label{densem:contraction} Suppose
+that the judgement $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}$ is derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$ by
+contraction, let $\Delta$ be the diagonal map defined in \ref{def:diagonal} and
+let \[f = \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
 {\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
 then define \begin{equation*}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
@@ -238,10 +252,15 @@ then define \begin{equation*}
 \mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation*}
 \end{definition}
 
-\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak} If
-$s'' \subseteq s' \subseteq s$ then let $\tau^{(s'\setminus s'')++} :
-(-)^{\freshfor (s' \setminus s'')++} \to \mathbf{1}_{\mathbf{FMCts}_s}$ be as
-defined in \ref{def:taucts} and define \[
+\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak}
+Suppose that $s'' \subseteq s' \subseteq s$ and that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ is
+derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ by
+fresh-weakening.
+%
+Let $\tau^{(s'\setminus s'')++} : (-)^{\freshfor (s' \setminus s'')++} \to
+\mathbf{1}_{\mathbf{FMCts}_s}$ be as defined in \ref{def:taucts}, then define \[
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
 \circ (\mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
