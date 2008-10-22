@@ -162,15 +162,15 @@ The (external) Axiom of Choice gives a well-ordering of any set $X$, and if $X$
 is uniformly supported by $s$ then this well-ordering must also be supported by
 $s$, so that $X$ can be well-ordered within FM set theory.
 %
-It follows that classical increasing sequences are to directed sets as uniformly
-supported increasing sequences are to directed sets \textit{that are also
-uniformly supported}.
+It follows that classical increasing sequences are to directed sets as
+increasing FM-sequences are to directed sets \textit{that are also uniformly
+supported}.
 %
-More precisely, an FM preorder has limits of all increasing uniformly supported
-increasing sequences iff it has limits of all uniformly supported directed sets:
-uniformly supported increasing sequences are already uniformly supported
-directed sets, and conversely any uniformly supported directed set can be
-wellordered and this gives rise to a corresponding sequence.
+More precisely, an FM preorder has limits of all increasing FM-sequences iff it
+has limits of all uniformly supported directed sets: increasing FM-sequences are
+already uniformly supported directed sets, and conversely any uniformly
+supported directed set can be wellordered within FM set theory and this gives
+rise to a corresponding increasing FM-sequence.
 
 Returning to the example of $\sem{\new{a}{\termvar{x}}}$, let $X \subseteq
 \widehat{\mathbb A}$ be directed and uniformly supported by a finite set $s$.
