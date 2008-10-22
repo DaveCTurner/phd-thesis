@@ -400,6 +400,4 @@ q'@b \in ((ab) \cdot f)\{p'@b\}_{\downarrow} \}, \\
 %
 \end{array}\end{equation} as required.\end{proof}
 
-\TODO{Generalise $\phi$ and $\tau$ from $(-)^{\freshfor a}$ to $(-)^{\freshfor s'}$}
-
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
