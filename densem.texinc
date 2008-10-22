@@ -871,10 +871,10 @@ Therefore there exists $\gamma' \subseteq \gamma$ such that $Q_1 = \langle
 \sem{t}(\langle \gamma \rangle_\Gamma \uplus Q_2)$.
 %
 Also, since $Q_2 \in f \langle \lambda \rangle_{\envfresh{\Lambda}{s'}} =
-\widehat{\phi_{\typeQp}} \bigl( (\sem{q} \circ \sem{u})^{\freshfor s'} \langle
+\widehat{\phi_{\typeQp}} \bigl( (\sem{q} \circ \sem{u})^{\freshfor s'++} \langle
 \lambda \rangle_{\envfresh{\Lambda}{s'}} \bigr)$ this means that
 $\bigl(\phi_{\typeQp}^{-1} Q_2\bigr) \in \bigl(\sem{q} \circ
-\sem{u}\bigr)^{\freshfor s'} \langle \lambda \rangle_{\envfresh{\Lambda}{s'}} =
+\sem{u}\bigr)^{\freshfor s'++} \langle \lambda \rangle_{\envfresh{\Lambda}{s'}} =
 \bigl\{ Q \in \sem{q} \circ \sem{u} \langle \lambda \rangle_{\Lambda} \mid Q
 \freshfor s' \bigr\}$.
 
