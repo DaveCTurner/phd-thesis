@@ -1398,9 +1398,11 @@ Let $x' \in (\delta_a \widehat{\typeP})^{\freshfor a}$, then \begin{equation}
 \subsection{Binding in $\mathbf{FMLin}_s$, Concretely}
 \label{binding-lin:concrete}
 
-Via the isomorphism \ref{def:klin} the adjunction of lemma
-\ref{deltafreshadjhatkleisli} gives rise to the adjunction $(-)^{\freshfor a+}
-\dashv \delta_a^+$ on the linear categories as follows.
+Via the isomorphism $L_{\mathbf{Lin}} = K_{\mathbf{Lin}}^{-1}$ of \ref{def:klin}
+the adjunction $F^+ \dashv G^+$ of lemma \ref{deltafreshadjhatkleisli} gives
+rise to the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
+\leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$ of
+\ref{subsubsect:deltafreshadjlin} as follows.
 
 \subsubsection{The Left Adjoint.}
 %
