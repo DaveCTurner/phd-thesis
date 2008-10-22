@@ -8,6 +8,8 @@ Then
 	i_2^* \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{y}{\typeR}{r} }}{t}{\mathbb P}}
 	\circ \bigl(\mathbf{1}_{\Gamma} \amp i_1^* \sem{\tjudge{s_1}{\Delta}{v}{\mathbb R}}^{\# r} \bigr)\]\end{lemma}
 
+\TODO{Replace $\pi$ with $\mathbf{out}$ in relevant cases below.}
+
 % Proof of Substitution Lemma {{{
 \begin{proof} The proof is by induction over the typing rules.  As with the
 proof of lemma \ref{substitutionlemma}, in the presence of exchange and
@@ -227,6 +229,7 @@ r'_n} }}{t[v]}{\typeP}} \circ \bigl(\mathbf{1}_{\Gamma} \amp k_\Delta \bigr) \\
 \bigl(\mathbf{1}_{\Gamma} \amp \sem{v}^{n}\bigr) \\
 \end{array}\]
 as required.
+\TODO{Check calculation}
 
 \subparagraph{Support-Weakening}
 %\infer[(s' \subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}}
