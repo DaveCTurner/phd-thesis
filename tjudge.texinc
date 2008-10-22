@@ -291,47 +291,67 @@ judgements for terms the set $s$ helps with the presentation of the associated
 denotational semantics and lemma \ref{typerestrictsupport} shows that, if
 omitted, a suitable $s$ may be inferred from the rest of the typing judgement.
 
-As with the typing rules for terms, in the rule for actions of the form
-$\labelaction{\ell_0}{p}$ the support of $\ell_0$ must be contained in $s$.
-
-\[\begin{array}{ccc}
-%
-\infer
-{\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}}
-{-}
-%
-&&
-%
-\infer
-{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}
-{\atjudge{s}{\typeP}{p}{\typePp} & \tjudge{s}{}{u}{\typeQ}}
-%
-\\
-\rule{0pt}{7ex}
-%
-\infer
-{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}
-{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}}
-%
-&&
-%
-\infer
-{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}
-{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}
-%
-\\
-\rule{0pt}{7ex}
-%
-\infer[(a \notin s)]
-{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}
-{\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}}
-%
-&&
+\subsubsection{Support-Weakening (Actions)} It is possible to extend the
+`current' set $s$ of names.
+\[
 \infer[(s' \subseteq s)]
 {\atjudge{s}{\typeP}{p}{\typePp}}
 {\atjudge{s'}{\typeP}{p}{\typePp}}
-\end{array}\]
+\]
 
+\subsubsection{Prefix Action.} The resumption of a process of type $\typelift\typeP$
+after performing a $\bangaction$ action is $\typeP$.
+\[
+\infer
+{\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}}
+{-}
+\]
+
+\subsubsection{Higher-Order Action.}
+A process $t$ of type $\typemap{\typeQ}{\typeP}$ can perform the action $\mapaction{u}{p}$
+if the application of $t$ to $u$ can perform the action $p$.
+\[
+\infer
+{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}
+{\atjudge{s}{\typeP}{p}{\typePp} & \tjudge{s}{}{u}{\typeQ}}
+\]
+
+\subsubsection{Labelled Action.} Actions may be labelled as follows.
+%
+As with the corresponding typing rules for terms, the support of $\ell_0$ must
+be contained in $s$.
+\[
+\infer
+{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}
+{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}}
+\]
+
+\subsubsection{Recursive Type Action.} As the recursively-defined type
+$\typerec{j}{P}{\typeP}$ is isomorphic (and not equal) to its unfolding
+$\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$ it is necessary to decorate actions
+in the unfolded type with the tag $\mathbf{abs}$ to record the use of the
+isomorphism $\mathbf{abs} = \mathbf{rep}^{-1}$.
+\[
+\infer
+{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}
+{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}
+\]
+
+\subsubsection{New Name Action.} An action $p$ may have the name $a$ `bound' in
+it to form the action $\newaction{a}{p}$.
+%
+Notice that the type of the resumption is $\typedelta\typePp$: if the name $a$
+is bound in a term then it remains bound in its resumption.
+\[
+\infer[(a \notin s)]
+{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}
+{\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}}
+\]
+
+This concludes the definition of the type system for actions.
+%
+As is the case for terms, it is possible to use the type system for actions
+`backwards' in the following semse.
 
 \begin{lemma} 
 \label{closedactiontypebackwards}
