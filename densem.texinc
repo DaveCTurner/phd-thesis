@@ -1065,7 +1065,7 @@ Define
 &=& \sem{\atjudge{s}{\typeP}{p}{\typePp}} \bigl(\mathbf{apply} \langle X, \sem{u}
 \rangle\bigr) \\
 &=& \sem{\atjudge{s}{\typeP}{p}{\typePp}} 
-\{ x \in \typeP \mid \exists \text{ finite } Q \subseteq \sem{u}  \text{ such
+\{ x \in \typeP \mid \exists \text{ isolated } Q \subseteq \sem{u}  \text{ such
 that } \mappath{Q}{x} \in X \}.
 \end{array}\]
 
