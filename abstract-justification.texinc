@@ -1540,6 +1540,11 @@ a}}\bigr)^{\dagger} & \text{by \ref{comm:zetaplus}}\\
 %
 \end{array} \end{equation}
 
+Therefore the adjunction $F^+ \dashv G^+$ of lemma \ref{deltafreshadjhatkleisli}
+gives rise to the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ :
+\mathbf{FMLin}_s \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$ of
+\ref{subsubsect:deltafreshadjlin} by way of the isomorphism $L_{\mathbf{Lin}} =
+K_{\mathbf{Lin}}^{-1}$ of \ref{def:klin} as required.
 
 
 \section{Binding in FM-Continuous Categories}
@@ -1810,6 +1815,11 @@ The restrictions of the isomorphisms $\phi$ and $\theta$ are written $\phi^{!} :
 \subsection{Binding in $\mathbf{FMCts}_s$, Abstractly}
 \label{binding-cts:abstract}
 
+This section uses the abstract machinery of lemma \ref{adjunctionlift} to lift
+the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
+\leftrightarrows \mathbf{FMLin}_{s\udot\{a\}}$ to a corresponding adjunction on
+the coKleisli categories of the respective $!$ comonads.
+%
 Firstly it is useful to have the following two technical lemmas.
 
 \begin{lemma} \label{comm:phieta} If $\typeP$ is an object of $\mathbf{FMPre}_s$
@@ -1961,6 +1971,12 @@ natural transformation ${!}\delta^+_a \to \delta^+_a {!}$.\end{lemma}
 \end{array}\] But $\delta^+_a {!}f \circ \widehat{{\theta^{!}_{\typeP}}^{-1}}$
 and $\widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ {!}\delta^+_a f$ are both
 linear, so by \ref{hat:epi} they are equal as required.\end{proof}
+
+It is now possible to show the main result of this section, namely that the
+abstract machinery of lemma \ref{adjunctionlift} can be used to lift the
+adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
+\leftrightarrows \mathbf{FMLin}_{s\udot\{a\}}$ to a corresponding adjunction on
+the coKleisli categories of the respective $!$ comonads.
 
 \begin{lemma}\label{deltafreshadjbangcokleisli} If $\typeP$ is an object of
 $\mathbf{FMLin}_s$ then define $F^{++} \typeP = \typeP^{\freshfor a}$, and if $f
@@ -2441,9 +2457,9 @@ L_{\mathbf{Cts}}F^{++}K_{\mathbf{Cts}} f
 & \text{by \ref{freshplusplus}}
 %
 \end{array}\end{equation}
-so that $L_{\mathbf{Cts}}F^{++}K_{\mathbf{Cts}} f = 
-\phi_{\typeQ} \circ f^{\freshfor a}
-\circ \phi_{\typeP}^{-1}$ by \ref{bang:epi}.
+so that $L_{\mathbf{Cts}}F^{++}K_{\mathbf{Cts}} f = \phi_{\typeQ} \circ
+f^{\freshfor a} \circ \phi_{\typeP}^{-1} = f^{\freshfor a++}$ by \ref{bang:epi}
+and \ref{def:freshcts}.
 
 \subsubsection{The Right Adjoint.}
 %
@@ -2508,9 +2524,9 @@ L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}} f
 & \text{by \ref{deltaplusplus}}
 %
 \end{array}\end{equation}
-so that $L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}} f = 
-\theta_{\typeQ} \circ \delta_a f
-\circ \theta_{\typeP}^{-1}$ by \ref{bang:epi}.
+so that $L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}} f = \theta_{\typeQ} \circ
+\delta_a f \circ \theta_{\typeP}^{-1} = \delta_a^{++}$ by \ref{bang:epi} and
+\ref{def:deltacts}.
 
 \subsubsection{The Unit.} \begin{equation} L_{\mathbf{Cts}}
 \xi^{++}_{K_{\mathbf{Cts}}} = \widehat{\xi} \circ \epsilon \circ \eta =
@@ -2520,5 +2536,11 @@ so that $L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}} f =
 \zeta^{++}_{K_{\mathbf{Cts}}} = \widehat{\zeta} \circ \epsilon_{(\delta_a
 -)^{\freshfor a}} \circ \eta_{(\delta_a -)^{\freshfor a}} = \widehat{\zeta}
 \end{equation}
+
+Therefore the adjunction $F^{++} \dashv G^{++}$ of lemma
+\ref{deltafreshadjbangcokleisli} gives rise to the adjunction $(-)^{\freshfor
+a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s
+\udot \{a\}}$ of \ref{subsubsect:deltafreshadjcts} by way of the isomorphism
+$L_{\mathbf{Cts}} = K_{\mathbf{Cts}}^{-1}$ of \ref{def:kcts} as required.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
