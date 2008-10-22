@@ -410,7 +410,10 @@ $\atjudge{s}{\typeP}{p}{\typePp}$.  \end{proof}
 
 \vfill\pagebreak
 
-\begin{lemma}\label{typerestrictsupport} \begin{enumerate}[(a)]
+\begin{lemma}\label{typerestrictsupport} If the current set $s$ of names is
+omitted in a typing judgement then a suitable $s$ can be deduced from the syntax
+of the typing judgement:
+\begin{enumerate}[(a)]
 %
 \item If $\tjudge{s}{\Gamma}{t}{\typeP}$ then
 $\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp t}}{t}{\typeP}$.
@@ -658,8 +661,10 @@ $\atjudge{\supp{p}}{\typeP}{p}{\typePp}$ by induction as required.
 
 \end{proof}
 
-In the light of this result, write $\tjudge{}{\Gamma}{t}{\typeP}$ for $\tjudge{\supp{t}}{\Gamma}{t}{\typeP}$
-and $\atjudge{}{\typeP}{p}{\typePp}$ for $\atjudge{\supp{p}}{\typeP}{p}{\typePp}$.
+\begin{definition} In the light of the previous lemma, write
+$\tjudge{}{\Gamma}{t}{\typeP}$ for $\tjudge{\supp{t}}{\Gamma}{t}{\typeP}$ and
+$\atjudge{}{\typeP}{p}{\typePp}$ for $\atjudge{\supp{p}}{\typeP}{p}{\typePp}$.
+\end{definition}
 
 
 %\vfill\pagebreak
