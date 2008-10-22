@@ -193,12 +193,14 @@ satisfactory definition of continuity in nominal domain theory.
 
 Considering $\widehat{\typeP}$ as a domain of meanings for processes of type
 $\typeP$, it is now sensible to investigate the structure of the isolated (or
-compact or `finite') elements of this domain with respect to FM-continuity. 
+compact or `finite') elements of this domain with respect to FM-continuity,
+since the isolated elements correspond to those computations that can be
+realised in finitely many steps.
 
-\begin{definition} An element $x \in \widehat{\typeP}$ is \define{FM-isolated} 
-iff for all uniformly supported directed sets $X \subseteq
-\widehat{\typeP}$, if $x \subseteq \bigcup X$ then there exists $x' \in X$ such
-that $x \subseteq x'$.  \end{definition}
+\begin{definition} An element $P \in \widehat{\typeP}$ is \define{FM-isolated}
+iff for all uniformly supported directed sets $X \subseteq \widehat{\typeP}$, if
+$P \subseteq \bigcup X$ then there exists $x \in X$ such that $P \subseteq x$.
+\end{definition}
 
 For the purposes of this discussion it is unambiguous to call FM-isolated
 elements simply `isolated'.
@@ -290,7 +292,7 @@ Then $\sigma \cdot p \le \sigma \cdot \sigma' \cdot p'$ and $\sigma\sigma'
 \freshfor s$ so that $\sigma \cdot p \in \finelt{F}{s}$ and hence $\sigma \cdot
 \finelt{F}{s} \subseteq \finelt{F}{s}$. The converse is similar.  \end{proof}
 
-\begin{lemma}\label{finelts} An element $x \in \widehat{\typeP}$ is isolated iff
+\begin{lemma}\label{finelts} An element $P \in \widehat{\typeP}$ is isolated iff
 it is of the form $\finelt{F}{s}$ where $F$ is a finite subset of $\typeP$ and
 $s$ is a finite set of names that contains the support of $\typeP$.  \end{lemma}
 
@@ -307,20 +309,20 @@ some $\sigma \freshfor s$. Therefore $p \in \sigma \cdot x_i \subseteq \sigma
 \bar{x} = \bar{x}$ and hence $p \in \bar{x}$. Therefore $\finelt{F}{s}$ is
 isolated.
 
-Conversely, let $x \in \widehat{\typeP}$ be isolated, let $s = \supp{x} \cup
+Conversely, let $P \in \widehat{\typeP}$ be isolated, let $s = \supp{P} \cup
 \supp{\typeP}$ and define $X \subseteq \widehat{\typeP}$ by $X = \{\finelt{F}{s}
-\mid F \subseteq_{\mathrm{fin}} x\}$. From lemma \ref{fineltsupport} it follows
+\mid F \subseteq_{\mathrm{fin}} P\}$. From lemma \ref{fineltsupport} it follows
 that $X$ is uniformly supported by $s$, and it is clear that if $F_1
-\subseteq_{\mathrm{fin}} x$ and $F_2 \subseteq_{\mathrm{fin}} x$ then $F_1 \cup
-F_2 \subseteq_{\mathrm{fin}} x$ and $\finelt{F_1 \cup F_2}{s}$ is an upper bound
+\subseteq_{\mathrm{fin}} P$ and $F_2 \subseteq_{\mathrm{fin}} P$ then $F_1 \cup
+F_2 \subseteq_{\mathrm{fin}} P$ and $\finelt{F_1 \cup F_2}{s}$ is an upper bound
 for $\finelt{F_1}{s}$ and $\finelt{F_2}{s}$ so that $X$ is directed.  Therefore
-by the isolation of $x$ there exists $F \subseteq_{\mathrm{fin}} x$ such that $x
-\subseteq \finelt{F}{s}$. Furthermore, $\finelt{F}{s} \subseteq x$ as follows.
+by the isolation of $P$ there exists $F \subseteq_{\mathrm{fin}} P$ such that $P
+\subseteq \finelt{F}{s}$. Furthermore, $\finelt{F}{s} \subseteq P$ as follows.
 Let $p \in \finelt{F}{s}$, then there exists $\sigma \freshfor s$ and $p' \in F$
-such that $p \le_{\typeP} \sigma \cdot p'$. Also, $F \subseteq x$ so that $p'
-\in x$, and $\sigma \freshfor s$ so that $\sigma \cdot x = x$ and hence $p
-\le_{\typeP} \sigma \cdot p' \in x \in \widehat{\typeP}$ so that $p \in x$.
-Therefore $x = \finelt{F}{s}$ as required.  \end{proof}
+such that $p \le_{\typeP} \sigma \cdot p'$. Also, $F \subseteq P$ so that $p'
+\in P$, and $\sigma \freshfor s$ so that $\sigma \cdot P = P$ and hence $p
+\le_{\typeP} \sigma \cdot p' \in P \in \widehat{\typeP}$ so that $p \in P$.
+Therefore $P = \finelt{F}{s}$ as required.  \end{proof}
 
 \begin{lemma}
 \label{finelteqvt} If $\sigma$ is a permutation and $\sigma \freshfor \typeP$
@@ -353,17 +355,17 @@ exists $p \in F$ and $\sigma \freshfor \finelt{F}{s}, \typeP$ such that $p'
 \sigma \cdot s$ so that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma
 \cdot \finelt{F}{s} = \finelt{F}{s}$ as required.  \end{proof}
 
-\begin{corollary} \label{finelt:wlog} If $x \in \widehat{\typeP}$ is isolated
-and $\supp{x, \typeP} \subseteq s$ then there exists $F \subseteq_{\mathrm{fin}}
-\typeP$ such that $x = \finelt{F}{s}$.  \end{corollary}
+\begin{corollary} \label{finelt:wlog} If $P \in \widehat{\typeP}$ is isolated
+and $\supp{P, \typeP} \subseteq s$ then there exists $F \subseteq_{\mathrm{fin}}
+\typeP$ such that $P = \finelt{F}{s}$.  \end{corollary}
 
-\begin{proof} If $x$ is isolated then by \ref{finelts} there exists finite $F'
-\subseteq \typeP$ and finite $s' \supseteq \supp{\typeP}$ such that $x =
+\begin{proof} If $P$ is isolated then by \ref{finelts} there exists finite $F'
+\subseteq \typeP$ and finite $s' \supseteq \supp{\typeP}$ such that $P =
 \finelt{F'}{s'}$.
 %
-By \ref{fineltminsupp} therefore $x = \finelt{F'}{\supp{x, \typeP}}$ and by
+By \ref{fineltminsupp} therefore $P = \finelt{F'}{\supp{P, \typeP}}$ and by
 \ref{fineltextension} there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that
-$x = \finelt{F}{s}$ as required. \end{proof}
+$P = \finelt{F}{s}$ as required. \end{proof}
 
 \subsection{FM-Continuous Maps}
 \label{fmcts:maps}
