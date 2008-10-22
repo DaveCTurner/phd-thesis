@@ -1,118 +1,182 @@
 \section{Typing Rules}
 \label{tjudge}
 
+Nominal HOPLA is a strongly typed language, and its terms and actions are typed
+as defined in this section.
+%
+This definition is mutually recursive, since the term
+$\matchz{s'}{u}{q}{x}{t}{\typeQp}$ contains the action $q$ and the action
+$\mapaction{u}{p}$ contains the term $u$.
+%
+However for the sake of clarity it is presented here as two separate type
+systems (one for terms and the other for actions) with each assuming that the
+other is already defined.
+
 \subsection{Typing Rules for Terms}
 
 Terms of Nominal HOPLA are typed with judgements of the form
 $\tjudge{s}{\Gamma}{t}{\typeP}$, where $\Gamma$ is an environment, $s$ is a
-finite set of names, $t$ is a term and $\typeP$ is a type. The type $\typeP$
-describes the actions that the term may perform. The environment $\Gamma$
-records types (and freshness assumptions) for the variables of $t$. The set $s$
-records a bound on the support of the typing judgement, which helps to give a
-clean presentation of the denotational semantics. However, lemma
-\ref{typerestrictsupport} below demonstrates that it is not strictly necessary
-to include this information, since a suitable $s$ may inferred from the rest of
-the typing judgement.
-
-In the rules below for terms of the forms $\linj{\ell_0} t$ and
-$\lproj{\ell_0} t$, the support of $\ell_0$ must be contained in $s$, and in
-the rule for terms of the form $\ndsum{i}{I}{t_i}$, the mapping $i \mapsto
-\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ must also be supported by $s$.
-
+finite set of names, $t$ is a term and $\typeP$ is a type.
 %
-% Typing rules {{{
-\[\begin{array}{ccc}
+The type $\typeP$ describes the actions that the term may perform.
 %
+The environment $\Gamma$ records types (and freshness assumptions) for the
+variables of $t$.
+%
+The set $s$ represents the `current' set of names, and records a bound on the
+support of the typing judgement, which helps to give a clean presentation of
+the denotational semantics.
+%
+However, lemma \ref{typerestrictsupport} below demonstrates that it is not
+strictly necessary to include this information, since a suitable $s$ may
+inferred from the rest of the typing judgement.
+
+\subsubsection{Variable.} A bare variable is typed by the environment in the obvious fasion.
+\[
 \infer{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing} }{\termvar{x}}{\typeP}}{-}
-%
-&& 
+\]
+
+\subsubsection{Weakening.} The environment may be extended with extra variables.
+\[
 \infer{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}}
 {\tjudge{s}{\Gamma}{t}{\typeP}}
-%
-\\\multicolumn{3}{c}{\rule{0pt}{7ex}
-%
+\]
+
+\subsubsection{Exchange.} Two variables in the environment may be exchanged.
+\[
 \infer
 {\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}}
 {\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ {}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
-}
-\\\multicolumn{3}{c}{\rule{0pt}{7ex}
-%
+\]
+
+\subsubsection{Contraction.} It is possible to replace a pair of variables (with equal types) with a single variable.
+\[
 \infer
 {\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}}
 {\tjudge{s}{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}
-}
-\\
-\rule{0pt}{7ex}
+\]
+
+\subsubsection{Fresh-Weakening.} It is possible to impose extra freshness assumptions on a variable.
+\[
 \infer[(s'' \subseteq s' \subseteq s)]
 {\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
 {\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}} 
-%
-&&
+\]
+
+\subsubsection{Support-Weakening (Terms).} It is possible to extend the `current' set $s$ of names.
+\[
 \infer[(s' \subseteq s)]
 {\tjudge{s}{\Gamma}{t}{\typeP}}
-{\tjudge{s'}{\Gamma}{t}{\typeP}} \\
+{\tjudge{s'}{\Gamma}{t}{\typeP}}
+\]
+
+\subsubsection{Prefix.} The term constructor $\bang{}$ takes a term $t$ to a
+term $\bang{t}$ that intuitively may perform an anonymous action $\bangaction$
+and resume as $t$.
 %
-\rule{0pt}{7ex}
+The possible action $\bangaction$ is recorded in the type information.
+\[
 \infer{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}}
-{\tjudge{s}{\Gamma}{t}{\typeP}} &&
+{\tjudge{s}{\Gamma}{t}{\typeP}}
+\]
+
+\subsubsection{Match.} A term of the form $\matchz{s'}{u}{q}{x}{t}{\typeQp}$
+intuitively matches the output of $u$ against the action $q$ and feeds the
+resumption of $u$ into the variable $\termvar{x}$ in $t$.
 %
-\infer{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
-{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing} }}{t}{\typeP}} \\
-%
-\multicolumn{3}{c}{\rule{0pt}{7ex}
-%
+If $\termvar{x}$ has some freshness assumptions imposed on it then $u$ and $q$
+must satisfy those assumptions.
+\[
 \infer[(s'' \subseteq s \setminus s')]
 {\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 	{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 {\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} &
-\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
-%
-\rule{0pt}{7ex}
-%
+\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }
+\]
+
+\subsubsection{Recursion.} A term of the form $\rec{x}{t}$ intuitively acts as
+its unfolding $\termsubst{t}{\rec{x}{t}}{x}$, so that $\termvar{x}$ must be of
+the same type as $t$.
+\[
+\infer{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing} }}{t}{\typeP}}
+\]
+
+\subsubsection{Function Abstraction and Application.} A term $t$ of type
+$\typeP$ may be abstracted with respect to the free variable $\termvar{x}$ of
+type $\typeQ$ to leave a term $\abstract{x}{t}$ of type
+$\typemap{\typeQ}{\typeP}$ that can be applied to a term of type $\typeQ$ in
+the usual fashion.
+\[
 \infer{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }}
-{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}} &&
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}} \qquad
 %
 \infer{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}}
 {\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}} & 
-\tjudge{s}{\Lambda}{u}{\typeQ}} \\
+\tjudge{s}{\Lambda}{u}{\typeQ}}
+\]
+
+\subsubsection{Labelling and Label Projection.} The actions of a term $t$ may be
+`tagged' with a label $\ell_0$ by forming the term $\linj{\ell_0}{t}$.
 %
-\rule{0pt}{7ex}
+The effect of the term former $\lproj{\ell_0}{}$ is that terms of the form
+$\lproj{\ell_0}{t}$ can perform only the actions of $t$ that are tagged by the
+label $\ell_0$.
 %
-\infer[(a \notin s)]
-{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
-{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} &&
-%
-\infer[(a \notin s)]
-{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
-{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \\
-%
-\rule{0pt}{7ex}
-%
+In both of these rules, the support of $\ell_0$ must be contained in $s$.
+\[
 \infer
 {\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}}
-{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}} } &&
+{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}} }  \qquad
 %
 \infer
 {\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} }
-{\tjudge{s}{\Gamma}{t}{\stdtypesum}} \\
+{\tjudge{s}{\Gamma}{t}{\stdtypesum}}
+\]
+
+\subsubsection{Nondeterministic Sum.} A term $\ndsum{i}{I}{t_i}$ nondeterministically
+chooses one of its components, say the $i$th, and behaves as $t_i$.
 %
-\rule{0pt}{7ex}
-%
+The support of the mapping $i \mapsto \tjudge{s_i}{\Gamma}{t_i}{\typeP}$ must
+be supported by $s$.
+\[
 \infer
 {\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
-{\tjudge{s_i}{\Gamma}{t_i}{\typeP} \qquad\text{each $i \in I$}} \\
-%
-\rule{0pt}{7ex}
-%
+{\tjudge{s_i}{\Gamma}{t_i}{\typeP} \qquad\text{each $i \in I$}}
+\]
+
+\subsubsection{Recursive Type Folding and Unfolding.} As the
+recursively-defined type $\typerec{j}{P}{\typeP}$ is isomorphic (and not equal)
+to its unfolding $\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$ it is necessary to
+record any uses of the isomorphism $\mathbf{abs} = \mathbf{rep}^{-1}$ in the
+syntax of the term.
+\[
 \infer
 {\tjudge{s}{\Gamma}{\abs t}{\typerec{j}{P}{\typeP} }}
-{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} &&
+{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} \qquad
 %
 \infer
 {\tjudge{s}{\Gamma}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
-{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }} 
-\end{array}\]
-% }}}
+{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }}
+\]
+
+\subsubsection{Name Abstraction and Application.} The only alteration to the
+syntax of terms over that of conventional HOPLA is the following pair of term
+formers.
+%
+Intuitively the term $\new{a}{t}$ can perform the same actions as $t$ with the
+name $a$ bound, whereas the term $\newapply{t}{a}$ takes the outputs of $t$,
+which contain a bound name since $t$ is of type $\typedelta\typeP$, and unbinds
+that name to $a$.
+\[
+\infer[(a \notin s)]
+{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
+{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} \qquad
+%
+\infer[(a \notin s)]
+{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
+{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}
+\]
 
 
 \vfill\pagebreak
