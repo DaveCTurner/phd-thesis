@@ -307,12 +307,22 @@ $\theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \delta_a\widehat{\typeP}$
 by \begin{equation} \label{def:thetainv} \theta^{-1}_{\typeP}(x) \defeq
 \freshin{b}{ [b].\{p \mid [b].p \in x\}}.\end{equation}
 %
-The notation is no accident: these maps are natural in their respective objects and mutual
-inverses, as shown in \ref{freshhatiso} and \ref{deltahatiso}.
-%
-Here, it is merely worth noting the following results.
+The notation is no accident:
 
-\TODO{Should \ref{freshhatiso} and \ref{deltahatiso} be moved here?}
+\begin{lemma}\label{freshhatiso-early} The map $\phi$
+is a natural isomorphism of the functors
+\[\widehat{(-)}^{\freshfor a}, \widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s
+\rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}.\] \end{lemma}
+
+\begin{lemma}\label{deltahatiso-early} The map $\theta$ is a natural isomorphism
+of the functors \[\delta_a \widehat{(-)}, \widehat{\delta_a -} :
+\mathbf{FMPre}_{s \udot \{a\}} \rightrightarrows \mathbf{FMPre}_s.\]\end{lemma}
+
+See \ref{freshhatiso} and \ref{deltahatiso} for proofs of these lemmas.
+%
+For now, it is worth noting the following results which characterise
+$(-)^{\freshfor a+}$ and $\delta_a^+$ in terms of $(-)^{\freshfor a}$,
+$\delta_a$, $\phi$ and $\theta$.
 
 \begin{lemma} \label{characterisation:phiinv} If $\typeP$ is an object of
 $\mathbf{FMLin}_s$ and $x \in \widehat{\typeP^{\freshfor a}}$ then \[ p \in
