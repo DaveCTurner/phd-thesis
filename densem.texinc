@@ -344,12 +344,13 @@ m_{\sem{\Gamma}, \typeP} \circ (\langle \mathord{\cdot} \rangle_{\Gamma} \times
 The proof proceeds by induction on the structure of $\Lambda$. The interesting
 case is when $\Lambda = \envempty$ which is as follows.
 %
-Firstly, note that \begin{equation} \mathbf{1}_{\Gamma} \amp \varsigma_{{
-{\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } = \langle
+Firstly, note that \begin{equation} \begin{array}{l}
+\mathbf{1}_{\Gamma} \amp \varsigma_{{
+{\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \\ \qquad {} = \langle
 \mathbf{out}_1, \mathbf{out}_3, \mathbf{out}_2 \rangle^{\amp} : \sem{\Gamma}
 \amp \typeQsub{1}^{\freshfor s_1} \amp \typeQsub{2}^{\freshfor s_2} \to
 \sem{\Gamma} \amp \typeQsub{2}^{\freshfor s_2} \amp \typeQsub{1}^{\freshfor
-s_1}.  \end{equation}
+s_1}. \end{array} \end{equation}
 %
 Therefore by \ref{densem:def:angles} \begin{equation} \begin{array}[t]{rcll}
 %
