@@ -71,7 +71,7 @@ induction on $u$} \\
 &=& \sem{p} \circ  \epsilon_{\typeP} \circ \eta_{\typeP} \circ \sem{t} \circ
 \sem{u'}^{\freshfor s'} &\text{by naturality of $\eta$} \\
 %
-&=& \sem{p} \circ  \sem{t} \circ \sem{u'}^{\freshfor s'} &\text{by triangle
+&=& \sem{p} \circ  \sem{t} \circ \sem{u'}^{\freshfor s'} &\text{by triangular
 identity} \\
 %
 &=& \sem{p} \circ  \sem{\termsubst{t}{u'}{x}} &\text{by substitution lemma} \\
