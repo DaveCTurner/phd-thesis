@@ -1547,7 +1547,9 @@ a}}\bigr)^{\dagger} & \text{by \ref{comm:zetaplus}}\\
 
 As discussed in \ref{subsubsect:deltafreshadjcts} there is an adjunction on the
 FM-continuous categories that is analogous to the adjunctions $(-)^{\freshfor a}
-\dashv \delta_a$ and $(-)^{\freshfor a+} \dashv \delta_a^+$ of
+\dashv \delta_a : \mathbf{FMPre}_s \leftrightarrows
+\mathbf{FMPre}_{s\udot\{a\}}$ and $(-)^{\freshfor a+} \dashv \delta_a^+ :
+\mathbf{FMLin}_s \leftrightarrows \mathbf{FMLin}_{s\udot\{a\}}$ of
 \ref{deltafreshadj} and \ref{subsubsect:deltafreshadjlin} respectively.
 %
 Abstractly, this adjunction arises from the dual of lemma \ref{adjunctionlift}
