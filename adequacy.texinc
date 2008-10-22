@@ -311,7 +311,7 @@ denotational semantics there exists $Q \in \typelift\typeQp$ such that $p \in
 induction on $u$, $\logrel{\sem{\tjudge{s''}{\Lambda}{u}{\typeQ}} \langle
 \lambda \rangle}{\typeQ}{u[v]}$ so that by induction on $q$ there exists $u'$
 such that $\ajudge{\typeQ}{u[v]}{q}{u'}$ and $\logrel{Q}{\typeQp}{u'}$.
-Therefore by induction on $t$,
+Therefore by induction on $t$
 $\logrel{\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}
 }}{t}{\typeP} } \langle \gamma, Q \rangle}{\typeP}{\termsubst{t}{u'}{x}[v]}$ and
 by the operational semantics $\oprel{\termsubst{t}{u'}{x}[v]}{\typeP}{
