@@ -1016,6 +1016,18 @@ Therefore define
 \mathbf{out}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}}.\]
 \end{definition}
 
+\begin{definition}[Semantics of Labelled Actions] \label{densem:labelaction} If
+the judgement $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is
+derived from $\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$ then by the typing
+rules it must be that $s$ supports $\ell_0$ so that the projection
+$\mathbf{out}_{\ell_0} : \stdtypesum \to \typePsub{\ell_0}$ is an arrow of
+$\mathbf{FMCts}_s$.
+%
+Therefore define
+\[\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}} \defeq
+\sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}} \circ \mathbf{out}_{\ell_0}.\]
+\end{definition}
+
 The following lemmas demonstrate how these definitions capture tagging and
 matching.
 
@@ -1047,6 +1059,21 @@ Then $p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
 \end{lemma}
 
 \begin{proof} By \ref{densem:lproj} and the properties of the biproduct.
+\end{proof}
+
+\begin{lemma}[Characterising Labelled Actions]
+\label{densem:labelaction:characterisation} Suppose that
+$\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is derived from
+$\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$.
+%
+Let $X \in \matthat{\stdtypesum}$.
+%
+Then \[\begin{array}{l}
+\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}} X \\ \qquad {}
+= \sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}} \{x \in \typePsub{\ell_0}
+\mid \labelpath{\ell_0}{x} \in X\}.  \end{array}\] \end{lemma}
+
+\begin{proof} By \ref{densem:labelaction} and the properties of the biproduct.
 \end{proof}
 
 
@@ -1318,17 +1345,6 @@ Define
 &=& \sem{\atjudge{s}{\typeP}{p}{\typePp}} 
 \{ x \in \typeP \mid \exists \text{ isolated } Q \subseteq \sem{u}  \text{ such
 that } \mappath{Q}{x} \in X \}.
-\end{array}\]
-
-\subsubsection{Labelled Action}
-Define
-\[\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}
-= \sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}} \circ \mathbf{out}_{\ell_0}.\] Therefore
-\[\begin{array}{rcl}
-\multicolumn{3}{l}{\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}} X}\\
-&=& \sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}} \bigl( \mathbf{out}_{\ell_0} X\bigr) \\
-&=& \sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}} \{x \in \typePsub{\ell_0}
-\mid \labelpath{\ell_0}{x} \in X\}.
 \end{array}\]
 
 \subsubsection{New Name Action}
