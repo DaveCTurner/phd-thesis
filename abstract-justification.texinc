@@ -333,7 +333,7 @@ corresponding reindexing functor $i^* : \mathbf{FMPre}_{\varnothing}/ys \to
 permutation that extends $i$ then $i^*$ gives rise to the permutation functor
 $\sigma_i : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$ via the equivalence of
 lemma \ref{lemma:slice} as follows. Let $\langle X, f \rangle$ be an object of
-$\mathbf{FMPre}_{\varnothing}$, then \begin{equation} \label{reindexing}
+$\mathbf{FMPre}_{\varnothing}/ys$, then \begin{equation} \label{reindexing}
 \begin{array}[t]{rcl} G_{s'} i^* \langle X, f \rangle
 %
 &=& G_{s'} \langle X \times_{ys} ys', \pi_2\rangle \\
@@ -603,7 +603,7 @@ Let $f : A \to B$ in $\mathcal{D}$, then \begin{equation}\begin{array}[t]{rcl} L
 %
 &=& G\epsilon_{G^{-1}B} \circ \eta_{GG^{-1}B} \circ f \quad\text{by naturality of $\eta$}\\
 %
-&=& f \quad \text{by triangular identity}
+&=& f \quad \text{by triangular identity.}
 %
 \end{array}\end{equation}
 Conversely, let $f : A \to B$ in $\mathcal{E}$, then \begin{equation}\begin{array}[t]{rcl} KLF
@@ -617,7 +617,7 @@ Conversely, let $f : A \to B$ in $\mathcal{E}$, then \begin{equation}\begin{arra
 &=& f \circ \epsilon_{FGA} \circ F\eta_{GA} \quad\text{by naturality of
 $\epsilon$} \\
 %
-&=& f \quad\text{by triangular identity}
+&=& f \quad\text{by triangular identity.}
 %
 \end{array}\end{equation}
 Therefore $L$ and $K$ are mutual inverses, which completes the proof.
