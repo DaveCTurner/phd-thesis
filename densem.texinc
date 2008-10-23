@@ -786,7 +786,7 @@ Then $p \in
 $Q \in \typelift\typeQ$ such that $Q \subseteq
 \sem{\tjudge{s}{\Lambda}{u}{\typeQ}} \langle \lambda \rangle_{\Lambda}$ and
 $\mappath{Q}{p} \in \sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}}
-\langle \gamma \rangle$.  \end{lemma}
+\langle \gamma \rangle_\Gamma$.  \end{lemma}
 
 \begin{proof}
 By \ref{densem:apply} and \ref{def:apply}.
