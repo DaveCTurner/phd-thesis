@@ -1,4 +1,8 @@
-\begin{lemma}[Semantic Substitution Lemma]\label{semsubstitutionlemma} Suppose that
+\section{Substitution as Composition}
+
+Substitution amounts to composition of denotations, as the following lemma shows.
+
+\begin{lemma}[Semantic Substitution Lemma]\label{semsubstitutionlemma} Suppose that the judgement
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{y}{\typeR}{r}
 }}{t}{\mathbb P}$ and $\tjudge{s_1}{\Delta}{v}{\mathbb R}$ where $s_1 \cap r = \varnothing$
 and $\dom\Gamma \cap \dom\Delta = \varnothing$.

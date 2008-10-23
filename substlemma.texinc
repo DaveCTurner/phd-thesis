@@ -1,3 +1,5 @@
+\section{The Substitution Lemma}
+
 \begin{lemma}[Syntactic Substitution Lemma]\label{substitutionlemma} Suppose
 that $t$ and $v$ satisfy
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{y}{\typeR}{r} }}{t}{\typeP}$ and
@@ -225,15 +227,15 @@ $\tjudge{s \cup s_1}{\envcombine{\Gamma}
 
 \subparagraph{Name Abstraction}
 Suppose that
-$\tjudge{s}{\Gamma'}{\new{a}{t}}{\typedelta \typeP}$ is derived from $\tjudge{s \udot
+$\tjudge{s}{\Gamma'}{\new{a}{t}}{\typedelta \typeP}$ is derived from the judgement $\tjudge{s \udot
 \{a\}}{\envfresh{\Gamma'}{a}}{t}{\typeP}$ where $a$ is a fresh name and $\Gamma'$ is a reordering of
 $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
 \envvarfresh{yn}{\typeR}{r_n}$. Notice that as $a$ is fresh, therefore $a \notin r$
 and $a \notin s_1$ so that $a \freshfor v$. By induction $\tjudge{s \cup s_1
 \udot \{a\}}{\envcombine{\envfresh{\Gamma}{a}}{\envfresh{\Delta}{r \udot \{a\}}
-}}{t[v]}{\typeP}$ so that $\tjudge{s \cup
+}}{t[v]}{\typeP}$ so that as required \[\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\new{a}{(t[v])}
-= (\new{a}{t})[v]}{\typedelta\typeP}$ as required.
+= (\new{a}{t})[v]}{\typedelta\typeP}.\]
 
 \subparagraph{Name Application}
 Suppose that $a \notin s$ and that 
