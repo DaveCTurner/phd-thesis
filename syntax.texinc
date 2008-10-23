@@ -105,7 +105,7 @@ terms that contains $(a, t)$ under the usual $\alpha$-equivalence relation
 %
 Therefore for any fresh name $b$,
 $\new{a}{t} = \new{b}{(ab) \cdot t}$, where the equality in this statement is
-literally equality, not simply equality-up-to-$\alpha$.
+literally equality, not simply equivalence-up-to-$\alpha$.
 
 \subsection{Syntax of Actions}
 
