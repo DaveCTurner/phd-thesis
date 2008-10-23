@@ -44,11 +44,11 @@ denotational semantics.
 %
 For example, the denotation of the $\pi$-calculus term $\nu a. P$ should be
 built from the denotation of $P$ via some kind of binding operator: the name $a$
-should appear `free' in $\sem{P}$ but must not be `free' in $\sem{\nu a. P}$.
+should appear `free' in $\sem{P}$ but must not be free in $\sem{\nu a. P}$.
 %
-The theory of nominal sets makes sense of the idea of a name appearing `free' in
-a semantic object such as $\sem{P}$ in a fashion that smoothly extends the
-syntactic definition of `free' names.
+The theory of nominal sets makes sense of the idea of a name appearing free in a
+semantic object such as $\sem{P}$ in a fashion that smoothly extends the
+syntactic notion of free names.
 %
 It also allows the construction of the kind of binding operator that takes
 $\sem{P}$ to $\sem{\nu a. P}$.
