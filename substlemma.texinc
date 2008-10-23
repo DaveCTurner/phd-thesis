@@ -1,7 +1,8 @@
 \begin{lemma}[Syntactic Substitution Lemma]\label{substitutionlemma} Suppose
-that $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{y}{\typeR}{r} }}{t}{\typeP}$
-and $\tjudge{s_1}{\Delta}{v}{\typeP}$ where $s_1 \cap r = \varnothing$ and
-$\dom\Gamma \cap \dom\Delta = \varnothing$. Then \[\tjudge{s \cup
+that $t$ and $v$ satisfy
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{y}{\typeR}{r} }}{t}{\typeP}$ and
+$\tjudge{s_1}{\Delta}{v}{\typeP}$ where $s_1 \cap r = \varnothing$ and the
+variables in $\Gamma$ and $\Delta$ are distinct.  Then \[\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\termsubst{t}{v}{y}}{\typeP}\]
 \end{lemma}
 
