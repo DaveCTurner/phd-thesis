@@ -136,10 +136,10 @@ If $p \le (bc) \cdot p$ then $(bc) \cdot p \le p$ by equivariance, so that $p =
 (bc) \cdot p$, and if $(bc) \cdot p \le p$ then $p = (bc) \cdot p$ by a similar
 argument.
 %
-However if $\supp{p} \nsubseteq \supp{P}$ then letting $b \in \supp{p} \setminus
-\supp{P}$ and $c \notin \supp{p, \typeP}$ means that $(bc) \cdot p \neq p$ which
-is a contradiction, so that $\supp{p} \subseteq \supp{P}$ as required.
-\end{proof}
+However if $\supp{p} \nsubseteq \supp{\typeP}$ then letting $b \in \supp{p}
+\setminus \supp{\typeP}$ and $c \notin \supp{p, \typeP}$ means that $(bc) \cdot
+p \neq p$ which is a contradiction, so that $\supp{p} \subseteq \supp{\typeP}$
+as required.  \end{proof}
 
 \begin{definition} An \define{increasing FM-sequence} in a poset $D$ is an
 increasing sequence (i.e. a monotone function from some ordinal $\alpha$ to $D$)
