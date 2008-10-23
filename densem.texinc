@@ -750,6 +750,15 @@ to be \[\mathbf{apply} \circ (
 \sem{\tjudge{s}{\Lambda}{u}{\typeQ}}),\] where $\mathbf{apply}$ is the counit of
 the exponential adjunction in $\mathbf{FMCts}_s$.  \end{definition}
 
+\begin{definition}[Semantics of Higher-Order Actions] \label{densem:mapaction}
+If the judgement
+$\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ is derived
+from $\atjudge{s}{\typeP}{p}{\typePp}$ and $\tjudge{s}{}{u}{\typeQ}$ then define
+\[\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}} \defeq
+\sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ \mathbf{apply} \circ
+\bigl(\mathbf{1}_{\typemap{\typeQ}{\typeP}} \amp
+\sem{\tjudge{s}{}{u}{\typeQ}}\bigr).\] \end{definition}
+
 These definitions can be characterised as follows.
 
 \begin{lemma}[Characterising Function Abstraction]
@@ -791,6 +800,21 @@ $\mappath{Q}{p} \in \sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}}
 \begin{proof}
 By \ref{densem:apply} and \ref{def:apply}.
 \end{proof}
+
+\begin{lemma}[Characterising Higher-Order Actions]
+\label{densem:mapaction:characterisation} Suppose that
+$\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ is derived
+from $\atjudge{s}{\typeP}{p}{\typePp}$ and $\tjudge{s}{}{u}{\typeQ}$.
+%
+Let $X \in \matthat{\typemap{\typeQ}{\typeP}}$.
+%
+Then \[\begin{array}{l}
+\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}} X \\
+\quad {} = \sem{\atjudge{s}{\typeP}{p}{\typePp}} \{ x \in \typeP \mid \exists Q
+\in \typelift\typeQ.\  Q \subseteq \sem{\tjudge{s}{}{u}{\typeQ}} \wedge
+\mappath{Q}{x} \in X \}.  \end{array} \] \end{lemma}
+
+\begin{proof} By \ref{densem:mapaction} and \ref{def:apply}.  \end{proof}
 
 \subsection{Prefixing and Matching}
 
