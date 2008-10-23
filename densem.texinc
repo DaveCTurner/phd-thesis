@@ -1205,6 +1205,14 @@ derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}$ then define
 \defeq \mathbf{rep} \circ \sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}}.\]
 \end{definition}
 
+\begin{definition}[Semantics of Actions at Recursive Types]
+\label{densem:absaction} If the judgement
+$\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$ is derived from
+$\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$ then define
+\[\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}} \defeq
+\sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}} \circ
+\mathbf{rep}.\] \end{definition}
+
 \begin{lemma}[Characterising Folding] \label{densem:abs:characterisation}
 Suppose that $\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }$ is derived
 from $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$.
@@ -1236,6 +1244,21 @@ Then $p \in
 \begin{proof} By \ref{densem:rep} and the fact that $\mathbf{rep} =
 \mathbf{abs}^{-1}$.  \end{proof}
 
+\begin{lemma}[Characterising Actions at Recursive Types]
+\label{densem:absaction:characterisation} Suppose that
+$\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$ is derived from
+$\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$.
+%
+Let $X \in \raisebox{0.6ex}{$\matthat{\raisebox{-0.6ex}{$\typerec{j}{P}{\typeP}$}}$}$.
+%
+Then \[\begin{array}{l}
+\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}} X \\ \qquad {}
+= \sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}} \{x \in
+\typeP_j[\typerec{}{P}{\typeP}/\vec{P}] \mid \abspath{x} \in X\}.  \end{array}\]
+\end{lemma}
+
+\begin{proof} By \ref{densem:absaction} and the fact that $\mathbf{rep} =
+\mathbf{abs}^{-1}$.  \end{proof}
 
 
 
@@ -1367,19 +1390,6 @@ If $a \notin s$ then define \[\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p
 Y @ b \in \sem{(ab) \cdot p} \{x \mid \newpath{b}{x} \in X}\}\}_{\downarrow} \\
 \end{array}\]
 
-\subsubsection{Recursive Type Action}
-Define
-\[\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}
-= \sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}
-\circ \mathbf{rep}.\]
-Therefore
-\[\begin{array}{rcl}
-\multicolumn{3}{l}{\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}} X} \\
-&=& \sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}
-\bigl(\mathbf{rep} X\bigr)\\
-&=& \sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}
-\{x \in \typeP_j[\typerec{}{P}{\typeP}/\vec{P}] \mid \abspath{x} \in X\}.
-\end{array}\]
 
 %%
 %&&
