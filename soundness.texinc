@@ -5,7 +5,8 @@
 \begin{lemma}[Soundness]
 \label{soundnessactions}
 If $\ajudge{\typeP}{t}{p}{t'}$ and $\atjudge{}{\typeP}{p}{\typePp}$ and
-$\supp{t,p,t'} \subseteq s$ then \[\sem{\tjudge{s}{}{\bang{t'}
+$s$ is a finite set of names such that
+$\supp{t,p,t'} \subseteq s$, then \[\sem{\tjudge{s}{}{\bang{t'}
 }{\typelift\typePp}} \sqsubseteq \sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ
 \sem{\tjudge{s}{}{t}{\typePp}}.\]
 \end{lemma}
