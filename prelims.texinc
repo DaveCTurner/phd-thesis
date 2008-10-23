@@ -244,7 +244,7 @@ $\sigma_3(ab) = (a'b)\sigma_3$ where $a' = \sigma_3 a$.
 %
 Note that $a' \notin A \cup B$ since otherwise $a' = \sigma_3 a'$ and hence $a'
 = \sigma_3^{-1} a' = a \notin A \cup B$ which is a contradiction. There are two
-cases to consider, depending on whether $a' \in D$ as follows.
+cases to consider, depending on whether $a' \in D$ or not.
 
 If $a' \in D$ then let $\sigma'_2 = \sigma_2(a'b)$.
 %
@@ -267,8 +267,8 @@ factorisation in the desired form.
 
 It will sometimes be useful to be able to extend an injection $i : s
 \rightarrowtail \mathbb A$ into a permutation $\sigma_i : \mathbb A \to \mathbb
-A$. This is always possible if $s$ is finite, although there will be many
-possible choices for $\sigma_i$.
+A$. This is always possible if $s$ is finite, although there will be multiple
+possible choices for $\sigma_i$ if $|s| > 1$.
 
 \begin{lemma} \label{lemma:injextension} If $s \subseteq_{\mathrm{fin}} \mathbb
 A$ and $i : s \rightarrowtail \mathbb A$ is an injection then there exists a
@@ -307,7 +307,7 @@ permutations of $\mathbb A$. \end{definition}
 
 \begin{definition} A \define{$\mathcal G$-set} is a set $X$ together with an
 $\mathcal G$-action, written as the infix operator $\cdot_X$ or more commonly
-simply $\cdot$ where the ambient set is clear from the context. \end{definition}
+simply $\cdot$ where the set $X$ is clear from the context. \end{definition}
 
 A $\mathcal G$-set is conceptually a set whose elements `use names'.
 %
@@ -372,8 +372,6 @@ then say $x$ \define{is fresh for} $y$ and write `$x \freshfor y$' iff $\supp{x}
 \subsubsection{Notation.} For the remainder of this dissertation the symbol $s$
 and its relatives $s'$, $s''$, $s_1$, $s_i$, etc. always refer to
 \textit{finite} subsets of $\mathbb A$.
-%
-This convention will save a great deal of repetition.
 
 \subsection{Constructing Nominal Sets}
 \label{subsect:nset:examples}
@@ -449,7 +447,7 @@ However in general not every subset of $X$ has finite support with respect to
 this action.
 %
 For example, consider some $A \subseteq \mathbb A$ which is neither finite nor
-has finite complement, then $A$ does not have a finite support.
+has finite complement, then this $A$ does not have a finite support.
 %
 To see this, suppose that $A$ is supported by a set $s \subseteq \mathbb A$. If
 there exists $a \in A \setminus s$ and $b \in \mathbb A \setminus (A \cup s)$
@@ -462,14 +460,15 @@ in this case as well.
 
 However, $\mathcal P X$ does contain a nominal set, \begin{equation}
 \mathcal{P}_{\mathrm{fs}}(X) \defeq \{ A \subseteq X \mid \text{$A$ has finite
-support} \}. \end{equation} It is not hard to see that if $A \subseteq X$ is
-supported by $s$ then $\sigma \cdot A$ is supported by $\{ \sigma a \mid a \in
-s\} = \sigma \cdot s$ so that $\mathcal{P}_{\mathrm{fs}} X$ does have a
-$\mathcal{G}$-action.
+support} \}. \end{equation}
+%
+It is not hard to see that if $A \subseteq X$ is supported by $s$ then $\sigma
+\cdot A$ is supported by $\{ \sigma a \mid a \in s\} = \sigma \cdot s$ so that
+$\mathcal{P}_{\mathrm{fs}} X$ does have a well-defined $\mathcal{G}$-action.
 %
 Notice that any finite subset of $X$ is supported by the union of the supports
-of its elements (which is finite) and therefore $\mathcal P_{\mathrm{fin}} X$ is
-also a nominal set.
+of its elements (which is finite) and therefore the finite powerset $\mathcal
+P_{\mathrm{fin}} X$ is also a nominal set.
 
 \subsubsection{Nominal function spaces.}
 %
@@ -479,10 +478,11 @@ $\mathcal P(X \times Y)$, where the derived $\mathcal{G}$-action becomes
 \cdot x) \bigr). \end{equation} In general a function $f : X \to Y$ does not
 have finite support: if $A \subseteq \mathbb A$ is infinite and has infinite
 complement then its characteristic function $\chi_A : \mathbb A \to \mathbf{2}$
-has no finite support by the same argument as before. Again, $X \to Y$ does
-contain a nominal set, \begin{equation} \label{def:fsfunction} X
-\to_{\mathrm{fs}} Y \defeq \{ f : X \to Y \mid \text{$f$ has finite support} \}.
-\end{equation}
+has no finite support for the same reason that $A$ has no finite support.
+%
+Again, $X \to Y$ does contain a nominal set, \begin{equation}
+\label{def:fsfunction} X \to_{\mathrm{fs}} Y \defeq \{ f : X \to Y \mid
+\text{$f$ has finite support} \}.  \end{equation}
 %
 It is not hard to see that if $s$ supports $f$ then $\sigma \cdot s$ supports
 $\sigma \cdot f$ so that $X \to_{\mathrm{fs}} Y$ does have a well-defined
