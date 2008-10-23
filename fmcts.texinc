@@ -81,7 +81,7 @@ Let $\{b_1, \ldots, b_n\}$ be such that \begin{equation} \label{boundnamein}
 
 Again, note that substitution under a $\new{a}{(-)}$ ensures that $a$ is a fresh
 name in new-HOPLA. In particular $a'$ may be chosen so that it is distinct from
-the $b_i$ and rewrite $\new{a}{\termvar{x}}$ as $\new{a'}{\termvar{x}}$ since
+the $b_i$ and then $\new{a}{\termvar{x}} = \new{a'}{\termvar{x}}$ since
 the term $\termvar{x}$ is unaffected by permutations of names and therefore has
 empty support.  Therefore \begin{equation} \label{allnamecomp:finite}
 \sem{\new{a}{\termvar{x}}} \circ \sem{\linj{b_1}{\bang{\inactive}}
@@ -660,7 +660,7 @@ $\typeP_1$ and $\typeP_2$ -- the injections are given as in $\mathbf{FMLin}_s$
 \subsubsection{Generalised Biproducts.} \label{fmcts:genbiproducts}
 %
 Just as products and coproducts in $\mathbf{FMLin}_s$ are also products and
-coproducts in $\mathbf{FMCts}_s$ the object $\stdtypesum$ behaves as a
+coproducts in $\mathbf{FMCts}_s$, the object $\stdtypesum$ behaves as a
 `generalised biproduct' in $\mathbf{FMCts}_s$ when the mapping $\ell \mapsto
 \typePsub{\ell}$ is supported by $s$.
 %
