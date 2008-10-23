@@ -1326,6 +1326,8 @@ Then $p \in \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
 
 
 
+\subsection{Names and Binding}
+\TODO{Update this}
 
 \subsubsection{Name Abstraction}
 %\infer[(a \notin s)]
