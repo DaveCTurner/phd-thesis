@@ -182,9 +182,10 @@ $\sem{p}$ respectively.
 
 The denotational semantics associated with the usual structural rules make use
 of the cartesian structure of each $\mathbf{FMCts}_s$: variables denote the
-identity map on their underlying types; weakening corresponds to projection;
-exchange corresponds to a twist map $\langle \pi_2, \pi_1 \rangle$; contraction
-corresponds to the diagonal map $\langle \mathbf{1}, \mathbf{1} \rangle$.
+identity map on their underlying types, weakening corresponds to projection,
+exchange corresponds to a twist map $\langle \pi_2, \pi_1 \rangle$, and
+contraction corresponds to the diagonal map $\langle \mathbf{1}, \mathbf{1}
+\rangle$.
 %
 The new structural rule of fresh-weakening, \begin{equation*} \infer[(s''
 \subseteq s' \subseteq s)]
@@ -883,8 +884,8 @@ This covers the case where $\termvar{x}$ is the only free variable of $t$.
 %
 More generally, if
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}{t}{\typeP}$
-then it is necessary to use the strength map $s$ of \ref{def:strength} as
-follows.
+then it is necessary to use the strength map $s$ of \ref{def:strength} to pass
+the extra parameters to $t$ as follows.
 %
 \begin{equation} \begin{array}[t]{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{\varnothing}{u}{\bangaction}{x}{t}{\typeQ}}{\typeP}}
@@ -894,14 +895,13 @@ follows.
 \sem{\tjudge{s}{\Lambda}{u}{\typelift\typeQ}}). \end{array} \end{equation}
 %
 Even more generally, the type of $u$ may be $\typeQp$ and not be in the form
-$\typelift\typeQ$ so that $u$ may perform actions other than $\bangaction$.
-%
-It is useful to be able to match against any action $q$ that $u$ may perform.
+$\typelift\typeQ$ so that $u$ may perform actions other than $\bangaction$ and
+it is useful to be able to match against any action $q$ that $u$ may perform.
 %
 More precisely, suppose now that $\tjudge{s}{\Lambda}{u}{\typeQp}$ and also that
 $\atjudge{s}{\typeQp}{q}{\typeQ}$, then matching the output of $u$ against the
 action $q$ can be achieved using the map $\sem{\atjudge{s}{\typeQp}{q}{\typeQ}}
-: \typeQp \to \typelift\typeQ$ defined in \ref{} as follows.
+: \typeQp \to \typelift\typeQ$ as follows.
 %
 \begin{equation} \begin{array}[t]{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{\varnothing}{u}{q}{x}{t}{\typeQp}}{\typeP}}
