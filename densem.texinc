@@ -991,7 +991,7 @@ matching.
 Suppose that $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
 $\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$.
 %
-Let $\gamma \in \semp{\Gamma}$, $\ell \in L$ and $p \in \typeP$.
+Let $\gamma \in \semp{\Gamma}$, $\ell \in L$ and $p \in \typePsub{\ell_0}$.
 %
 Then $\labelpath{\ell}{p} \in
 \sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle \gamma
@@ -1007,7 +1007,7 @@ Then $\labelpath{\ell}{p} \in
 $\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
 $\tjudge{s}{\Gamma}{t}{\stdtypesum}$.
 %
-Let $\gamma \in \semp{\Gamma}$ and $p \in \typeP$.
+Let $\gamma \in \semp{\Gamma}$ and $p \in \typePsub{\ell_0}$.
 %
 Then $p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
 \langle \gamma \rangle_\Gamma$ iff $\labelpath{\ell_0}{p} \in
