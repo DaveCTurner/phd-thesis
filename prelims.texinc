@@ -373,6 +373,18 @@ then say $x$ \define{is fresh for} $y$ and write `$x \freshfor y$' iff $\supp{x}
 and its relatives $s'$, $s''$, $s_1$, $s_i$, etc. always refer to
 \textit{finite} subsets of $\mathbb A$.
 
+\begin{lemma} \label{supp-in-out}
+%
+Let $X$ be a nominal set, $x \in X$ and let $a, b \in \mathbb A$.
+%
+If $a \in \supp{x}$ and $b \notin \supp{x}$ then $(ab) \cdot x \neq x$.
+%
+\end{lemma}
+
+\begin{proof}
+\TODO{Proof of supp-in-out lemma.}
+\end{proof}
+
 \subsection{Constructing Nominal Sets}
 \label{subsect:nset:examples}
 
