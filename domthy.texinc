@@ -10,14 +10,16 @@ In slightly greater detail, the development of the domain theory behind HOPLA
 runs as follows. Firstly, processes are typed by the computation paths that they
 may follow, and these paths may be ordered by a kind of information ordering.
 To incorporate nondeterminism, these `path orders' are freely closed under
-joins, and this free construction draws attention to a rich category of `linear'
-maps which preserve all joins. Computationally speaking, these linear maps use
+joins, and this free construction draws attention to a rich category of
+join-preserving --- or linear --- maps.
+%
+Computationally speaking, these linear maps use
 their input precisely once which is a severe restriction on their expressivity,
 so it is desirable to turn to `continuous' maps which preserve only directed
 joins and so can express discarding or limited copying of inputs, by means of a
 coKleisli construction. The category of path orders and continuous maps is then
 rich enough to support a natural domain theory for concurrency, with many
-computational features given by universal properties.
+computational features given by universal constructions.
 
 A similar story unfolds within nominal set theory, but it is complicated
 by a number of factors. Firstly, following the usual pattern of nominal sets,
@@ -190,8 +192,9 @@ action on all of $\mathcal{V}_{\mathrm{FM}}$ by $\mathord{\in}$-recursion, which
 gives rise to the notion of `support' for arbitrary elements of
 $\mathcal{V}_{\mathrm{FM}}$.
 %
-The process of the construction of $\mathcal{V}_{\mathrm{FM}}$ then continues in
-such a way as to only include elements that have (hereditarily) finite supports.
+The iterative process of the construction of $\mathcal{V}_{\mathrm{FM}}$ then
+continues in such a way as to only include elements that have (hereditarily)
+finite supports.
 
 With this construction, the $\varnothing$-supported FM sets are nominal sets
 where the permutation action is given by $\in$-recursion.
@@ -224,7 +227,7 @@ is the case that $\typeP^{\freshfor a}$ is also a FM-preorder (where $p_1
 p_2 \in \typeP^{\freshfor a}$) since $\typeP^{\freshfor a}$ is supported by the
 finite set $\supp{\typeP} \cup \{a\}$.
 %
-It would be convenient that $(-)^{\freshfor a}$ can be made into a
+It would be convenient to be able to make $(-)^{\freshfor a}$ into a
 functor, but this is not possible on $\mathbf{FMPre}$. To see this, let $\typeP$
 be any FM-preorder and consider the unique map $f : \typeP \to \{a\}$ which is
 necessarily monotone and finitely-supported, and hence an arrow of
@@ -433,14 +436,13 @@ Let $q' \in \delta_a \typeQ$ and let $b$ be fresh, then \begin{equation}\begin{a
 Finally, it is worth giving a name, $\tau^a_\typeP$, to the obvious natural
 embedding of $\typeP^{\freshfor a}$ into $\typeP$ as follows.
 
-\begin{lemma} \label{lemma:freshinclusion} If $a \notin s$ and $J$ is the
+\begin{definition} \label{lemma:freshinclusion} If $a \notin s$ and $J$ is the
 inclusion of categories $\mathbf{FMPre}_{s} \hookrightarrow \mathbf{FMPre}_{s
-\udot \{a\}}$ then there is a natural transformation \[ \tau^a : (-)^{\freshfor
+\udot \{a\}}$ then define the natural transformation \[ \tau^a : (-)^{\freshfor
 a} \Rightarrow J : \mathbf{FMPre}_{s} \rightrightarrows \mathbf{FMPre}_{s \udot
-\{a\}} \] given by $\tau^a_\typeP(p) \defeq p$  for all $p \in \typeP^{\freshfor
-a}$.  \end{lemma}
+\{a\}} \] by $\tau^a_\typeP(p) \defeq p$  for all $p \in \typeP^{\freshfor
+a}$.  \end{definition}
 
-\begin{proof} Trivial. \end{proof}
 
 
 \input{fmlin.texinc}
