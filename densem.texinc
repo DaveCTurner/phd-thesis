@@ -835,9 +835,17 @@ $\sem{\tjudge{\varnothing}{}{\bang{\inactive}}{\typelift\typeO}} = \eta_{\typeO}
 \circ \sem{\inactive} = \{\varnothing\}$ is not empty and indeed the operational
 semantics shows that $\bang{\inactive}$ can perform an action.
 %
-The counit $\epsilon$ acts as a destructor for the $\bangaction$ action,
-intuitively `matching' a $\bangaction$ action in the output of a term $u$ and
-passing the resumption after performing the $\bangaction$ to a term $t$.
+The denotation of the judgement $\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}$
+is simply the identity map, as follows.
+
+\begin{definition}[Semantics of Prefix Action] \label{densem:bangaction}
+\[\sem{\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}} \defeq
+\mathbf{1}_{\typelift\typeP}.\] \end{definition}
+
+The counit $\epsilon$ of the adjunction of \ref{bang:adj} acts as a destructor
+for the $\bangaction$ action, intuitively `matching' a $\bangaction$ action in
+the output of a term $u$ and passing the resumption after performing the
+$\bangaction$ to a term $t$.
 %
 More precisely, if $\tjudge{s}{\Lambda}{u}{\typelift\typeQ}$ and
 $\tjudge{s}{\envvarfresh{x}{\typeQ}{\varnothing}}{t}{\typeP}$ then
@@ -1295,11 +1303,6 @@ so induced. Define \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} =
 j\sem{\atjudge{s'}{\typeP}{p}{\typePp}}\] from which it follows that
 \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} X =
 \sem{\atjudge{s'}{\typeP}{p}{\typePp}} X.\]
-
-\subsubsection{Prefix Action}
-Define $\sem{\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}} =
-\mathbf{1}_{\typelift\typeP}$, so that
-$\sem{\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}} X = X$.
 
 \subsubsection{Higher-Order Action}
 Define 
