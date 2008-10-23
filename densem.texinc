@@ -1,5 +1,5 @@
-\chapter[Denotational Semantics]{The Denotational Semantics of Nominal HOPLA}
-\label{densem}
+\chapter[Nominal HOPLA: Denotational Semantics]{The Denotational Semantics of
+Nominal HOPLA} \label{densem} \chaptermark{Denotational Semantics}
 
 \TODO{Intro}
 
