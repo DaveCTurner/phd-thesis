@@ -1019,46 +1019,15 @@ Then $p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
 
 
 
+\subsection{Recursion}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsubsection{Recursion} \TODO{Some bold assertions here!} By \ref{cts:homsets} the
-hom-set $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ is a poset which has all joins
-of $\omega$-chains.
+By \ref{cts:homsets} hom-sets of $\mathbf{FMCts}_s$ are posets which have all
+joins of $\omega$-chains.
 %
-Let $f =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
-}}{t}{\typeP}}$ and consider the operation on homsets $f^* :
-\mathbf{FMCts}_s(\sem{\Gamma}, \typeP) \to \mathbf{FMCts}_s(\sem{\Gamma},
-\typeP)$ given by \[f^*(g) = f \circ (\mathbf{1}_{\Gamma} \amp g) \circ
-\Delta_{\sem{\Gamma}}.\]
+Let $f : \typeQ \amp \typeP \to \typeP$ be an arrow of $\mathbf{FMCts}_s$ and
+consider the operation on homsets $f^* : \mathbf{FMCts}_s(\typeQ, \typeP) \to
+\mathbf{FMCts}_s(\typeQ, \typeP)$ given by \[f^*(g) = f \circ
+(\mathbf{1}_{\typeQ} \amp g) \circ \Delta_{\typeQ}.\]
 %
 Composition preserves joins of $\omega$-chains in both its arguments by \ref{}
 and the functor $\mathbf{1} \amp (-)$ preserves joins of $\omega$-chains by
@@ -1072,19 +1041,82 @@ $n \in \omega$ define $g_{n+1} = f \circ (\mathbf{1}_{\Gamma} \amp g_n) \circ
 \Delta_{\sem{\Gamma}}$, then $\mathrm{fix}(f^*) \langle \gamma \rangle =
 \bigcup_{n \in \omega} g_n \langle \gamma \rangle$.
 %
-Define $\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} = \mathrm{fix}(f^*)$.
+This fixed point gives a semantics for terms of the form $\rec{x}{t}$ as
+follows.
+
+\begin{definition}[Semantics of Recursive Processes] \label{densem:rec}
+%
+If the judgement $\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}$ is derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}$ then define \[\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} =
+\mathrm{fix}(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}}^*).\] \end{definition}
+
+\begin{lemma}[Characterising Recursion] \label{densem:rec:characterisaion}
+%
+Suppose that $\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}$ is derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}$.
+%
+Let $\gamma \in \semp{\Gamma}$.
+%
+Then \[\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} \langle \gamma
+\rangle_\Gamma =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}} \langle \gamma, \sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
+\langle \gamma \rangle_\Gamma
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}.\] \end{lemma}
+
+\begin{proof} \begin{equation*} \begin{array}[t]{rcl} \multicolumn{3}{l}{
+\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} \langle \gamma \rangle_\Gamma } \\
+%
+&=&
+\mathrm{fix}(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}}^*) \langle \gamma \rangle_{\Gamma} \\
+%
+&=&
+\bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}} \circ (\mathbf{1}_{\Gamma} \amp
+\mathrm{fix}(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}}^*)) \circ \Delta_\Gamma \bigr) \langle \gamma \rangle_{\Gamma} \\
+%
+&=&
+\bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}} \circ (\mathbf{1}_{\Gamma} \amp
+\mathrm{fix}(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}}^*)) \bigr) (\langle \gamma \rangle_{\Gamma} \uplus \langle \gamma
+\rangle_{\Gamma}) \\
+%
+&=&
+\bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}} \circ (\mathbf{1}_{\Gamma} \amp
+\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}) \bigr) (\langle \gamma
+\rangle_{\Gamma} \uplus \langle \gamma \rangle_{\Gamma}) \\
+%
+&=& \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}} \bigl( \langle \gamma \rangle_\Gamma \uplus
+\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}\langle \gamma \rangle_{\Gamma}
+\bigr) \\
+%
+&=& \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+}}{t}{\typeP}} \langle \gamma, \sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
+\langle \gamma \rangle_\Gamma
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing} }}\end{array}
+\end{equation*} \end{proof}
 
 
-This operation is continuous so by Tarski's theorem
-it has a least fixed point, $\mathrm{fix}(f^*)$. Define
-$\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} = \mathrm{fix}(f^*)$. Concretely,
-this fixed point may be obtained as follows: define $g_0 = \bot \in
-\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ and for each $n \in \omega$ define
-$g_{n+1} = f \circ (\mathbf{1}_{\Gamma} \amp g_n) \circ
-\Delta_{\sem{\Gamma}}$, then $\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
-\langle \gamma \rangle = \bigcup_{n \in \omega} g_n \langle \gamma \rangle$.
 
-\TODO{Tarski's theorem is Kleene's?}
+
+
+
+
+
+
+
+
+
+
 
 
 \subsubsection{Name Abstraction}
