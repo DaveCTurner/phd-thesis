@@ -211,8 +211,8 @@ injections do not necessarily all inhabit the same categories.
 
 This generalised coproduct $\stdtypesum$ also has projections
 $\mathbf{out}_{\ell_0} : \stdtypesum \to \typePsub{\ell_0}$ that satisfy
-conditions much like those of a product, except that they also do not all lie in
-the same category.
+conditions much like those of a product, except that again they also do not all
+lie in the same category.
 %
 Also, the projections and injections interact as for a biproduct:
 $\mathbf{out}_{\ell} \circ \mathbf{in}_{\ell} = \mathbf{1}_{\typeP_i}$  in
