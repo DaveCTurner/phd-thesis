@@ -1106,6 +1106,76 @@ Then \[\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} \langle \gamma
 \end{equation*} \end{proof}
 
 
+Recursively-defined processes need recursively-defined types.
+%
+The isomorphism $\mathbf{rep} : \typerec{j}{P}{\typeP}  \cong
+\typeP_j[\typerec{}{P}{\typeP}/\vec{P}] : \mathbf{abs}$, relating a recursive
+type to its unfolding, gives rise to the denotational semantics for terms of
+recursive types as follows.
+
+\begin{definition}[Semantics of Folding] \label{densem:abs} If the judgement
+$\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }$ is derived from
+$\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ then define
+\[\sem{\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }} \defeq \mathbf{abs}
+\circ \sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}.\]
+\end{definition}
+
+\begin{definition}[Semantics of Unfolding] \label{densem:rep} If the judgement
+$\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is
+derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}$ then define
+\[\sem{\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
+\defeq \mathbf{rep} \circ \sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}}.\]
+\end{definition}
+
+\begin{lemma}[Characterising Folding] \label{densem:abs:characterisation}
+Suppose that $\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }$ is derived
+from $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$.
+%
+Let $\gamma \in \semp{\Gamma}$ and $p \in
+\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$.
+%
+Then $\abspath{p} \in \sem{\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }}
+\langle \gamma \rangle_\Gamma$ iff $p \in
+\sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} \langle
+\gamma \rangle_\Gamma$.  \end{lemma}
+
+\begin{proof} By \ref{densem:abs}.  \end{proof}
+
+\begin{lemma}[Characterising Unfolding] \label{densem:rep:characterisation}
+Suppose that
+$\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is
+derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }$.
+%
+Let $\gamma \in \semp{\Gamma}$ and $p \in
+\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$.
+%
+Then $p \in
+\sem{\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
+\langle \gamma \rangle_\Gamma$ iff $\abspath{p} \in
+\sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }} \langle \gamma
+\rangle_\Gamma$.  \end{lemma}
+
+\begin{proof} By \ref{densem:rep} and the fact that $\mathbf{rep} =
+\mathbf{abs}^{-1}$.  \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1194,26 +1264,6 @@ arrow of $\mathbf{FMCts}_s$ since $s$ supports the mapping $i \mapsto
 \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle\gamma\rangle$ iff $p \in
 \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}} \langle\gamma\rangle$ for some $i \in I$.
 
-\subsubsection{Recursive Type Folding}
-%{\tjudge{s}{\Gamma}{\abs t}{\typerec{j}{P}{\typeP} }}
-%{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} &&
-Define \[\sem{\tjudge{s}{\Gamma}{\abs t}{\typerec{j}{P}{\typeP} }} =
-\mathbf{abs} \circ
-\sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}\]
-where $\mathbf{abs}$ is part of the canonical isomorphism between the type
-$\typerec{j}{P}{\typeP}$ and its unfolding. Consequently $p \in \sem{t}
-\langle\gamma\rangle$ iff
-$\abspath p \in \sem{\abs t} \langle\gamma\rangle$.
-
-\subsubsection{Recursive Type Unfolding}
-%{\tjudge{s}{\Gamma}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
-%{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }} 
-Define \[\sem{\tjudge{s}{\Gamma}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} =
-\mathbf{rep} \circ
-\sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }}\]
-where $\mathbf{rep} = \mathbf{abs}^{-1}$ is part of the canonical isomorphism
-between the type $\typerec{j}{P}{\typeP}$ and its unfolding. Consequently
-$\abspath p \in \sem{t} \langle\gamma\rangle$ iff $p \in \sem{\rep t} \langle\gamma\rangle$.
 
 \subsubsection{Support Weakening (Actions)} If $s' \subseteq s$ then let $j :
 \mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the canonical inclusion
