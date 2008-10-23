@@ -1263,6 +1263,43 @@ Then \[\begin{array}{l}
 
 
 
+\subsection{Nondeterminism} As demonstrated by \ref{cts:homsets}, each hom-set
+$\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ can be seen as a subset of the complete
+FM-preorder $\matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times \typeP}$.
+%
+Therefore, given a collection of arrows $f_i : \sem{\Gamma} \to \typeP$ where
+the mapping $i \mapsto f_i$ is supported by $s$, the join $\sum_{i \in I} f_i$
+of the $f_i$ (in $\matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times \typeP}$) is an
+arrow of $\mathbf{FMCts}_s$.
+%
+This join can be used to give a denotational semantics to nondeterministic sums
+as follows.
+
+\begin{definition}[Semantics of Nondeterministic Sums] \label{densem:ndsum}
+Suppose that $\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from the
+collection of judgements $\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ for each $i \in I$.
+%
+Then define \[\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \defeq \sum_{i
+\in I} \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}}.\] \end{definition}
+
+This captures the semantics of nondeterminism as follows.
+
+\begin{lemma}[Characterising Nondeterministic Sums]
+\label{densem:ndsum:characterisation}
+%
+Suppose that $\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from the
+collection of judgements $\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ for each $i \in I$.
+%
+Let $\gamma \in \semp{\Gamma}$ and $p \in \typeP$.
+%
+Then $p \in \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
+\langle\gamma\rangle$ iff there exists $i \in I$ such that $p \in
+\sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}} \langle\gamma\rangle$.  \end{lemma}
+
+\begin{proof} Since the join in $\matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times
+\typeP}$ is given by union, this follows immediately from \ref{densem:ndsum}.
+\end{proof}
+
 
 
 
@@ -1354,16 +1391,6 @@ by the definitions of \ref{subsubsect:deltafreshadjcts}. Therefore
 \rangle_{\envfresh{\Gamma}{a}}\\
 &=& \sem{t} \langle \gamma \rangle_{\Gamma}
 \end{array}\]
-
-\subsubsection{Nondeterministic Sum}
-%{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
-%{\tjudge{s_i}{\Gamma}{t_i}{\typeP} \qquad\text{each $i \in I$}} \\
-Define \[\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
-= \sum_{i \in I} \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}},\] which is an
-arrow of $\mathbf{FMCts}_s$ since $s$ supports the mapping $i \mapsto
-\tjudge{s_i}{\Gamma}{t_i}{\typeP}$. Consequently $p \in
-\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle\gamma\rangle$ iff $p \in
-\sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}} \langle\gamma\rangle$ for some $i \in I$.
 
 
 \subsubsection{New Name Action}
