@@ -1126,7 +1126,7 @@ follows.
 %
 If the judgement $\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}$ is derived from
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
-}}{t}{\typeP}$ then define \[\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} =
+}}{t}{\typeP}$ then define \[\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} \defeq
 \mathrm{fix}(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
 }}{t}{\typeP}}^*).\] \end{definition}
 
