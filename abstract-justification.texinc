@@ -4,9 +4,8 @@
 This chapter introduces a more universal approach to the nominal domain theory
 introduced in the previous chapters.
 %
-Its definitions are all `local' to this chapter -- in the sense that the rest of
-this dissertation does not depend on them -- so it can safely be skipped by an
-uninterested reader.
+Its definitions are all local to this chapter, in the sense that the rest of
+this dissertation does not depend on them.
 %
 It exists to provide a justification that the definitions of the previous
 chapters were the results of sensible and canonical choices.
@@ -17,9 +16,9 @@ in a natural way from a dependent type theory in $\mathbf{FMPre}_{\varnothing}$.
 %
 The category $\mathbf{FMPre}_\varnothing$ could be replaced by $\mathbf{NPre}$
 or equivalently the category of sheaves on $\mathbf{Pre}^{\mathbb I}$, which
-highlights that the set-theoretical foundations of the collection
-$(\mathbf{FMPre}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$ are not especially
-important in this discussion.
+highlights that the set-theoretical foundations of the $(\mathbf{FMPre}_s)_{s
+\subseteq_{\mathrm{fin}} \mathbb A}$ are not especially important in this
+discussion.
 %
 The replacement of $(\mathbf{FMPre}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$
 with a dependent type theory in the more canonical $\mathbf{NPre}$ is not
@@ -32,19 +31,22 @@ In particular, it is shown that the adjunction $(-)^{\freshfor a} \dashv
 \ref{deltafreshadj} arises from the adjunction $(-) \otimes \mathbb A \dashv
 \delta : \mathbf{FMPre}_{\varnothing} \leftrightarrows
 \mathbf{FMPre}_{\varnothing}$ in a purely categorical fashion, which justifies
-the simple set-theoretic definitions of $(-)^{\freshfor a}$ and $\delta_a$
-defined in \ref{def:freshfor} and \ref{def:deltaa}.
+the simple set-theoretic definitions of $(-)^{\freshfor a}$ and $\delta_a$ in
+\ref{def:freshfor} and \ref{def:deltaa}.
 
 Then, since $\mathbf{FMPre}_s (\typeP, \widehat{\typeQ}) \cong \mathbf{FMLin}_s
 (\typeP, \typeQ)$ by \ref{hat:adj} it follows that $\mathbf{FMLin}_s$ is
 isomorphic to the Kleisli category of the monad $\widehat{(-)} :
 \mathbf{FMPre}_s \to \mathbf{FMPre}_s$.
 %
-Via the abstract machinery of \ref{sect:adj-kleisli} it is shown in
-\ref{subsect:deltafreshadjlin} that the adjunction $(-)^{\freshfor a+} \dashv
-\delta_a^+ : \mathbf{FMLin}_s \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$
-arises from the adjunction $(-)^{\freshfor a} \dashv \delta_a : \mathbf{FMPre}_s
-\leftrightarrows \mathbf{FMPre}_{s \udot \{a\}}$.
+Section \ref{sect:adj-kleisli} develops some abstract machinery regarding
+adjunctions on Kleisli categories, and then \ref{subsect:deltafreshadjlin} uses
+this machinery to lift the binding adjunction $(-)^{\freshfor a} \dashv \delta_a
+: \mathbf{FMPre}_s \leftrightarrows \mathbf{FMPre}_{s \udot \{a\}}$ to the
+Kleisli category, and demonstrates that the result of this abstract lifting
+process coincides with the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ :
+\mathbf{FMLin}_s \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$ of
+\ref{subsubsect:deltafreshadjlin}.
 
 Similarly, since $\mathbf{FMLin}_s ({!}\typeP, \typeQ) \cong \mathbf{FMCts}_s
 (\typeP, \typeQ)$ by \ref{bang:adj} it follows that $\mathbf{FMCts}_s$ is
@@ -66,8 +68,8 @@ theory of semantics with names.
 \section{$\mathbf{FMPre}_s$ in Dependent Type Theory} \label{fmpre:alternative}
 
 The purist may wonder whether it is necessary that the foundations of this
-dissertation need to be as precisely specified as the cumulative hierarchy of FM
-sets.
+dissertation need to be as precisely specified as the cumulative hierarchy
+$\mathcal{V}_{\mathrm{FM}}$ of FM sets.
 %
 After all, $\mathbf{Nom}$ can be constructed as $Sh(\mathbf{Set}^{\mathbb I})$
 where $\mathbf{Set}$ is some category of sets, not necessarily one with a
@@ -109,8 +111,8 @@ $\mathbf{FMPre}_s$.
 %
 The current set of names can change, by inserting a new name or by permuting the
 current names, and in general if $i: s \rightarrowtail s'$ is an arrow of
-$\mathbb I$ then the `current' set of names can be changed from $s$ to $s'$
-using $i$.
+$\mathbb I$ then the current set of names can be changed from $s$ to $s'$ using
+$i$.
 
 \subsection{A Fibration}
 %
