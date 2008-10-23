@@ -1331,22 +1331,6 @@ j\sem{\atjudge{s'}{\typeP}{p}{\typePp}}\] from which it follows that
 \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} X =
 \sem{\atjudge{s'}{\typeP}{p}{\typePp}} X.\]
 
-\subsubsection{Higher-Order Action}
-Define 
-\[\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}}
-= \sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ \mathbf{apply} \circ
-\bigl(\mathbf{1}_{\typemap{\typeQ}{\typeP}} \amp
-\sem{\tjudge{s}{}{u}{\typeQ}}\bigr).\] Therefore
-\[\begin{array}{rcl}
-\multicolumn{3}{l}{
-\sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}} X}\\
-&=& \sem{\atjudge{s}{\typeP}{p}{\typePp}} \bigl(\mathbf{apply} \langle X, \sem{u}
-\rangle\bigr) \\
-&=& \sem{\atjudge{s}{\typeP}{p}{\typePp}} 
-\{ x \in \typeP \mid \exists \text{ isolated } Q \subseteq \sem{u}  \text{ such
-that } \mappath{Q}{x} \in X \}.
-\end{array}\]
-
 \subsubsection{New Name Action}
 If $a \notin s$ then define \[\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}
 = \widehat{\theta^{!}_{\typePp}} \circ \theta_{\typelift\typePp}
