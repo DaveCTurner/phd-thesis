@@ -677,22 +677,25 @@ captures the notion of $\alpha$-equivalence as \begin{equation}
 x'}.  \end{equation}
 %
 Write the equivalence classes as $[a].x \defeq [\langle x, a
-\rangle]_{\sim_{\alpha}}$, then \begin{equation} \label{def:deltanom:obj} \delta
-X \defeq (X \times \mathbb A)/{\sim_\alpha} = \{ [a].x \mid a \in \mathbb A
-\wedge x \in X \}
-\end{equation}
+\rangle]_{\sim_{\alpha}}$ and define \begin{equation} \label{def:deltanom:obj}
+\delta X \defeq (X \times \mathbb A)/{\sim_\alpha} = \{ [a].x \mid a \in \mathbb
+A \wedge x \in X \}. \end{equation}
 %
-Notice that $\supp{[a].x} = \supp{x} \setminus \{a\}$ and therefore $\delta X$
-is a nominal set.
+The permutation action on the equivalence classes is given by $\sigma \cdot
+([a].x) \defeq [\sigma a].(\sigma \cdot x)$, from which it follows that
+$\supp{[a].x} = \supp{x} \setminus \{a\}$ and therefore $\delta X$ is a nominal
+set.
 
 If $x' \in \delta X$ and $a \freshfor x'$ then define the \define{concretion}
 $x'@a$ as the unique $x \in X$ such that $x' = [a].x$.
 %
 To see that there exists such an $x$ note that $x' = [b].y$ for some $b \in
 \mathbb A$ and some $y \in X$, so if $c$ is a fresh name then $(ac) \cdot (ab)
-\cdot y = (bc) \cdot y$ and hence $[a].((ac) \cdot y) = [b].y$
+\cdot y = (bc) \cdot y$ and hence $[a].((ac) \cdot y) = [b].y$.
+%
+Therefore if $d \freshfor x \in X$ then $([a].x)@d = (ad) \cdot x$.
 
-If $f : X \to Y$ is an equivariant function and $x' \in \delta X$ then
+If $f : X \to Y$ is an equivariant function and $x' \in \delta X$ then define
 \begin{equation} \label{def:deltanom:arrow} (\delta f) x' \defeq
 \freshin{b}{[b].(f(x'@b))}. \end{equation}
 %
