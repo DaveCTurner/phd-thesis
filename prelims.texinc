@@ -31,10 +31,10 @@ deal with locally-scoped names, so this ability must be carefully implemented by
 hand.
 %
 Over the years a variety of ways to deal with locally-scoped names have been
-created.
+created (\TODO{Cite summary paper?}).
 %
 This discussion will concentrate on a recently developed method based on a
-non-standard set theory: the theory of nominal sets.
+non-standard set theory: the theory of nominal sets\cite{PittsAM:newaas-jv}.
 %
 This theory is relevant to this thesis because it gives a purely semantic
 account of the idea of names and binding.
