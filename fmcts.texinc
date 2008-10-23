@@ -657,7 +657,7 @@ $\typeP_1$ and $\typeP_2$ -- the injections are given as in $\mathbf{FMLin}_s$
 \mathbf{out}_2)) = \mathbf{1}_{\typeP_1 + \typeP_2}. \end{array} \end{equation}
 
 
-\subsubsection{Generalised Biproducts.}
+\subsubsection{Generalised Biproducts.} \label{fmcts:genbiproducts}
 %
 Just as products and coproducts in $\mathbf{FMLin}_s$ are also products and
 coproducts in $\mathbf{FMCts}_s$ the object $\stdtypesum$ behaves as a
