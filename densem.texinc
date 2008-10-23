@@ -951,6 +951,104 @@ such that $p \in \sem{t} \langle \gamma, Q
 \bigl(\sem{q} \circ \sem{u}\bigr) \langle \lambda \rangle_{\Lambda}$ and $Q
 \freshfor s'$ as required.  \end{proof}
 
+
+
+
+\subsection{Labelled Processes}
+
+Generalised biproducts $\stdtypesum$, described in \ref{fmcts:genbiproducts},
+give rise to a denotational semantics for labelling.
+%
+Injection into the biproduct corresponds to tagging the outputs of a process
+with a particular label, whereas projection from the biproduct corresponds to
+matching the outputs of a process against a particular label.
+
+\begin{definition}[Semantics of Labelling] \label{densem:linj} If the judgement
+$\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
+$\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$ then by the typing rules it must be that $s$ supports
+$\ell_0$ so that the injection $\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \to
+\stdtypesum$ is an arrow of $\mathbf{FMCts}_s$.
+%
+Therefore define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}}
+\defeq \mathbf{in}_{\ell_0} \circ
+\sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}}.\] \end{definition}
+
+\begin{definition}[Semantics of Label Projection] \label{densem:lproj} If the
+judgement $\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived
+from $\tjudge{s}{\Gamma}{t}{\stdtypesum}$ then by the typing rules it must be
+that $s$ supports $\ell_0$ so that the projection $\mathbf{out}_{\ell_0} :
+\stdtypesum \to \typePsub{\ell_0}$ is an arrow of $\mathbf{FMCts}_s$.
+%
+Therefore define
+\[\sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}} \defeq
+\mathbf{out}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}}.\]
+\end{definition}
+
+The following lemmas demonstrate how these definitions capture tagging and
+matching.
+
+\begin{lemma}[Characterising Labelling] \label{densem:linj:characterisation}
+Suppose that $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
+$\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$.
+%
+Let $\gamma \in \semp{\Gamma}$, $\ell \in L$ and $p \in \typeP$.
+%
+Then $\labelpath{\ell}{p} \in
+\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle \gamma
+\rangle_\Gamma$ iff $\ell = \ell_0$ and $p \in
+\sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}} \langle \gamma \rangle_\Gamma$.
+\end{lemma}
+
+\begin{proof} By \ref{densem:linj} and the properties of the biproduct.
+\end{proof}
+
+\begin{lemma}[Characterising Label Projection]
+\label{densem:lproj:characterisation} Suppose that
+$\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
+$\tjudge{s}{\Gamma}{t}{\stdtypesum}$.
+%
+Let $\gamma \in \semp{\Gamma}$ and $p \in \typeP$.
+%
+Then $p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
+\langle \gamma \rangle_\Gamma$ iff $\labelpath{\ell_0}{p} \in
+\sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}} \langle \gamma \rangle_\Gamma$.
+\end{lemma}
+
+\begin{proof} By \ref{densem:lproj} and the properties of the biproduct.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsubsection{Recursion} \TODO{Some bold assertions here!} By \ref{cts:homsets} the
 hom-set $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ is a poset which has all joins
 of $\omega$-chains.
@@ -1053,26 +1151,6 @@ by the definitions of \ref{subsubsect:deltafreshadjcts}. Therefore
 \rangle_{\envfresh{\Gamma}{a}}\\
 &=& \sem{t} \langle \gamma \rangle_{\Gamma}
 \end{array}\]
-
-\subsubsection{Labelling}
-Define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} =
-\mathbf{in}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}},\]
-where $\mathbf{in}_{\ell_0}$ is the $\ell_0$th injection of the biproduct
-$\stdtypesum$, which 
-is an arrow of $\mathbf{FMCts}_s$ since $s$ supports
-$\ell_0$. Consequently $\labelpath{\ell}{p} \in
-\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle\gamma\rangle$ iff $\ell = \ell_0$
-and $p \in \sem{t} \langle\gamma\rangle$.
-
-\subsubsection{Label Projection}
-Define \[\sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} } =
-\mathbf{out}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}},\] where
-$\mathbf{out}_{\ell_0}$ is the $\ell_0$th projection of the biproduct
-$\stdtypesum$, which is an arrow of $\mathbf{FMCts}_s$ since $s$ supports
-$\ell_0$. Consequently $p \in
-\sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}} }
-\langle\gamma\rangle$ iff
-$\labelpath{\ell_0}{p} \in \sem{t} \langle\gamma\rangle$.
 
 \subsubsection{Nondeterministic Sum}
 %{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
