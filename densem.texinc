@@ -117,21 +117,6 @@ Intuitively, the arrow $\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ receives some input
 in its free variables, as typed by $\Gamma$, and returns the set of paths that
 the term $t$ can perform with the given input.
 
-The structural rules for variables, exchange, weakening and contraction make use
-of the cartesian structure of $\mathbf{FMCts}_s$ in the usual fashion, as shown
-in \ref{densem:variable}, \ref{densem:exchange}, \ref{densem:weakening} and
-\ref{densem:contraction}.
-%
-The nominal structure gives rise to two extra structural rules.
-%
-The first permits adding extra assumptions on the freshness of input with
-respect to certain names, which receives its semantics (\ref{densem:freshweak})
-from the map $\tau$ defined in \ref{lemma:freshinclusion}.
-%
-The second permits extending the the `current' set of names from $s$ to $s'
-\supseteq s$, and this rule receives its semantics (\ref{densem:suppweak-terms})
-from the inclusion $\mathbf{FMCts}_s \hookrightarrow \mathbf{FMCts}_{s'}$.
-
 Exponentials in $\mathbf{FMCts}_s$ give rise to a semantics for
 $\lambda$-abstraction (\ref{densem:abstract}) and function application
 (\ref{densem:apply}) much as in the simply-typed $\lambda$-calculus.
@@ -159,10 +144,26 @@ The hom-set $\sem{\Gamma} \to \typeP$ has more general joins than merely those
 of $\omega$-chains, and such joins give rise to a semantics for nondeterministic
 sums (\ref{densem:ndsum}).
 
-Finally, the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} :
-\mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$ of
-\ref{deltafreshadjcts} gives a semantics of names and binding as demonstrated in
-\ref{densem:new} and \ref{densem:newapply}.
+The adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
+\leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$ of \ref{deltafreshadjcts} gives
+a semantics of names and binding as demonstrated in \ref{densem:new} and
+\ref{densem:newapply}.
+
+Finally, the structural rules for variables, exchange, weakening and contraction
+make use of the cartesian structure of $\mathbf{FMCts}_s$ in the usual fashion,
+as shown in \ref{densem:variable}, \ref{densem:exchange}, \ref{densem:weakening}
+and \ref{densem:contraction}.
+%
+The nominal structure gives rise to two extra structural rules.
+%
+The first permits adding extra assumptions on the freshness of input with
+respect to certain names, which receives its semantics (\ref{densem:freshweak})
+from the map $\tau$ defined in \ref{lemma:freshinclusion}.
+%
+The second permits extending the the `current' set of names from $s$ to $s'
+\supseteq s$, and this rule receives its semantics (\ref{densem:suppweak-terms})
+from the inclusion $\mathbf{FMCts}_s \hookrightarrow \mathbf{FMCts}_{s'}$.
+
 
 Typing judgements $\atjudge{s}{\typeP}{p}{\typePp}$ denote arrows
 \begin{equation} \label{densem:atjudge} \sem{\atjudge{s}{\typeP}{p}{\typePp}} :
@@ -177,571 +178,6 @@ Often the type information is clear, and then
 $\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ and
 $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ are abbreviated to $\sem{t}$ and
 $\sem{p}$ respectively.
-
-\subsection{Structural Rules}
-
-The denotational semantics associated with the usual structural rules make use
-of the cartesian structure of each $\mathbf{FMCts}_s$: variables denote the
-identity map on their underlying types, weakening corresponds to projection,
-exchange corresponds to a twist map $\langle \pi_2, \pi_1 \rangle$, and
-contraction corresponds to the diagonal map $\langle \mathbf{1}, \mathbf{1}
-\rangle$.
-%
-The new structural rule of fresh-weakening, \begin{equation*} \infer[(s''
-\subseteq s' \subseteq s)]
-{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
-{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}}
-\end{equation*} comes from the map $\tau^{(s' \setminus s'')++}$ defined in
-\ref{def:taucts}, which in turn arises from the map $\tau : (-)^{\freshfor a}
-\to \mathbf{1}$ defined in \ref{lemma:freshinclusion}.
-%
-Notice that the discussion of \ref{tau:projection} shows that this is ultimately
-given by the projection $(-) \otimes \mathbb A \to \mathbf{1}$.
-%
-The other new structural rule of support-weakening, \begin{equation*} \infer[(s'
-\subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}} {\tjudge{s'}{\Gamma}{t}{\typeP}}
-\end{equation*} is simply given by the inclusion $\mathbf{FMCts}_{s'}
-\hookrightarrow \mathbf{FMCts}_s$.
-
-% Definition of denotational semantics { {{
-\begin{definition}[Semantics of Variable] \label{densem:variable} The meaning of
-a free variable (with no freshness assumptions) is simply the identity map on
-the underlying type.
-%
-\begin{equation*}
-\sem{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}}{\termvar
-x}{\typeP}} \defeq \mathbf{1}_{\typeP} \end{equation*} \end{definition}
-
-\begin{definition}[Semantics of Weakening] \label{densem:weakening} Suppose that
-the judgement
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
-}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$ by weakening, then
-\begin{equation*}
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
-}{t}{\typeP}} \defeq \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1.
-\end{equation*} \end{definition}
-
-\begin{definition}[Semantics of Exchange] \label{densem:exchange} Suppose that a
-typing judgement
-$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}$ is
-derived from the typing judgement
-$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}$ by
-exchange, let $\varsigma$ be the twist map defined in \ref{def:varsigma} and let
-\[f = \sem{
-\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}},\]
-then define \begin{equation*}
-\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
-\defeq f \circ \bigl( \mathbf{1}_\Gamma \amp \varsigma_{{ {\typeQ
-{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \amp
-\mathbf{1}_{\Lambda} \bigr) \end{equation*} \end{definition}
-
-\begin{definition}[Semantics of Contraction] \label{densem:contraction} Suppose
-that the judgement $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}$ is derived from
-$\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$ by
-contraction, let $\Delta$ be the diagonal map defined in \ref{def:diagonal} and
-let \[f = \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
-then define \begin{equation*}
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \defeq f \circ \bigl(
-\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation*}
-\end{definition}
-
-\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak}
-Suppose that $s'' \subseteq s' \subseteq s$ and that
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ is
-derived from
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ by
-fresh-weakening.
-%
-Let $\tau^{(s'\setminus s'')++} : (-)^{\freshfor (s' \setminus s'')++} \to
-\mathbf{1}_{\mathbf{FMCts}_s}$ be as defined in \ref{def:taucts}, then define \[
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
-\circ (\mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
-s''}}).\] \end{definition}
-
-\begin{definition}[Support-Weakening for Terms] \label{densem:suppweak-terms} If
-$s' \subseteq s$ then let $J : \mathbf{FMCts}_{s'} \hookrightarrow
-\mathbf{FMCts}_s$ be the inclusion of categories and define \begin{equation*}
-\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \defeq
-J\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}.  \end{equation*} \end{definition}
-
-\begin{definition}[Support-Weakening for Actions]
-\label{densem:suppweak-actions} If $s' \subseteq s$ then let $J :
-\mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the inclusion of
-categories and define \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} \defeq
-J\sem{\atjudge{s'}{\typeP}{p}{\typePp}}.\] \end{definition}
-
-It is useful to characterise the action of these structural rules in terms of
-their action on inputs of the form $\langle \gamma \rangle_{\Gamma}$ where
-$\gamma \in \semp{\Gamma}$ is a tuple of paths in the appropriate environment
-$\Gamma$.
-%
-As shown below, it turns out that these characterisations are all as one might
-expect.
-
-
-\begin{lemma}[Characterising Weakening]
-\label{densem:weakening:characterisation} Suppose that
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
-}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$ by weakening.
-%
-Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}$.
-%
-Then \[
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
-}{t}{\typeP}}\langle \gamma, q
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}} =
-\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_\Gamma. \]
-\end{lemma}
-
-\begin{proof} \begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
-}{t}{\typeP}} \circ \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}} \\
-%
-&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1 \circ \langle
-\mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}} & \text{by
-\ref{densem:weakening}} \\
-%
-&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1 \circ
-m_{\sem{\Gamma}, \typeP} \circ (\langle \mathord{\cdot} \rangle_{\Gamma} \times
-\mathbf{1}_{\typeP}) & \text{by \ref{densem:def:angles}} \\
-%
-&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \pi_1 \circ (\langle
-\mathord{\cdot} \rangle_{\Gamma} \times \mathbf{1}_{\typeP}) & \text{by
-\ref{characterisation:m:proj}} \\
-%
-&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \langle \mathord{\cdot}
-\rangle_{\Gamma} \circ \pi_1.
-%
-\end{array} \end{equation} \end{proof}
-
-
-\begin{lemma}[Characterising Exchange] \label{densem:exchange:characterisation}
-Suppose that
-$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}$ is
-derived from
-$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}$ by
-exchange.
-%
-Let $\gamma \in \semp{\Gamma}$, $\lambda \in \semp{\Lambda}$, $q_1 \in
-\widehat{\typeQsub{1}}^{\freshfor s_1}$ and $q_2 \in
-\widehat{\typeQsub{2}}^{\freshfor s_2}$.
-%
-Then \begin{equation*} \begin{array}{l}
-\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
-\langle \gamma, q_2, q_1, \lambda
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \\ =
-\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}}
-\langle \gamma, q_1, q_2, \lambda
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}.  \end{array}
-\end{equation*} \end{lemma}
-
-\begin{proof} It clearly suffices to show that \begin{equation} \begin{array}{l}
-\Bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}},
-{{\typeQ {}_2}^{\freshfor s_2}} } \amp \mathbf{1}_{\Lambda} \Bigr) \circ \langle
-\mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \\ \qquad =
-\langle \mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \circ
-\Bigl(\mathbf{1}_{\semp{\Gamma}} \times \langle \pi_2, \pi_1 \rangle \times
-\mathbf{1}_{\semp{\Lambda}} \Bigr). \end{array} \end{equation}
-%
-The proof proceeds by induction on the structure of $\Lambda$. The interesting
-case is when $\Lambda = \envempty$ which is as follows.
-%
-Firstly, note that \begin{equation} \begin{array}{l}
-\mathbf{1}_{\Gamma} \amp \varsigma_{{
-{\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \\ \qquad {} = \langle
-\mathbf{out}_1, \mathbf{out}_3, \mathbf{out}_2 \rangle^{\amp} : \sem{\Gamma}
-\amp \typeQsub{1}^{\freshfor s_1} \amp \typeQsub{2}^{\freshfor s_2} \to
-\sem{\Gamma} \amp \typeQsub{2}^{\freshfor s_2} \amp \typeQsub{1}^{\freshfor
-s_1}. \end{array} \end{equation}
-%
-Therefore by \ref{densem:def:angles} \begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{\bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ
-{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \bigr) \circ \langle
-\mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
-%
-&=& \langle \mathbf{out}_1, \mathbf{out}_3, \mathbf{out}_2 \rangle^{\amp} \circ
-m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} }, \typeQ {}_2
-^{\freshfor s_2}} \circ \Bigl( \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} } \times
-\phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
-%
-\end{array} \end{equation} so that by \ref{characterisation:m:proj}
-\begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{\langle \mathbf{out}_1, \mathbf{out}_3 \rangle^{\amp} \circ
-\bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}},
-{{\typeQ {}_2}^{\freshfor s_2}} } \bigr) \circ \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
-{\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
-%
-&=& \mathbf{out}_{12} \circ m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} }, \typeQ {}_2 ^{\freshfor s_2}} \circ \Bigl( \langle
-\mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
-} \times \phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
-%
-&=& \pi_{12} \circ \Bigl( \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} } \times
-\phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
-%
-&=& \langle \mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} } \circ \pi_{12} \\
-%
-\end{array} \end{equation} and hence \begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{\mathbf{out}_1 \circ \bigl( \mathbf{1}_{\Gamma} \amp
-\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
-\bigr) \circ \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
-{\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
-%
-&=& \mathbf{out}_1 \circ \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} } \circ
-\pi_{12} \\
-%
-&=& \mathbf{out}_1 \circ m_{\sem{\Gamma}, \typeQ {}_1^{\freshfor s_1}} \circ
-\Bigl( \langle \mathord{\cdot} \rangle_{\Gamma} \times
-\phi^{(s_1)}_{\typeQsub{1}} \Bigr) \circ \pi_{12} \\
-%
-&=& \pi_1 \circ \Bigl( \langle \mathord{\cdot} \rangle_{\Gamma} \times
-\phi^{(s_1)}_{\typeQsub{1}} \Bigr) \circ \pi_{12} \\
-%
-&=& \langle \mathord{\cdot} \rangle_{\Gamma} \circ \pi_{1} \\
-%
-\end{array} \end{equation} and similarly \begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{\mathbf{out}_3 \circ \bigl( \mathbf{1}_{\Gamma} \amp
-\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
-\bigr) \circ \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
-{\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
-%
-&=& \phi^{(s_1)}_{\typeQsub{1}} \circ \pi_{2}. \\
-%
-\end{array} \end{equation} Furthermore, \begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{\mathbf{out}_2 \circ \bigl( \mathbf{1}_{\Gamma} \amp
-\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
-\bigr) \circ \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
-{\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
-%
-&=& \mathbf{out}_3 \circ m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} }, \typeQ {}_2 ^{\freshfor s_2}} \circ \Bigl( \langle
-\mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
-} \times \phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
-%
-&=& \pi_3 \circ \Bigl( \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} } \times
-\phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
-%
-&=& \phi^{(s_2)}_{\typeQsub{2}} \circ \pi_{3}. \\
-%
-\end{array} \end{equation} Therefore by \ref{def:angleamp} and
-\ref{characterisation:m:pair} \begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{\bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ
-{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \bigr) \circ \langle
-\mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
-%
-&=& \langle \langle \mathord{\cdot} \rangle_{\Gamma} \circ \pi_{1},
-\phi^{(s_2)}_{\typeQsub{2}} \circ \pi_{3}, \phi^{(s_1)}_{\typeQsub{1}} \circ
-\pi_{2} \rangle^{\amp} \\
-%
-&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x2}{\typeQ {}_2}{s_2}} },
-\typeQsub{1}^{\freshfor s_1}} \circ \Bigl( m_{\sem{\Gamma},
-\typeQsub{2}^{\freshfor s_2}} \times \mathbf{1}_{\typeQsub{1}^{\freshfor s_1}}
-\Bigr) \circ \langle \langle \mathord{\cdot} \rangle_{\Gamma} \circ \pi_{1},
-\phi^{(s_2)}_{\typeQsub{2}} \circ \pi_{3}, \phi^{(s_1)}_{\typeQsub{1}} \circ
-\pi_{2} \rangle \\
-%
-&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x2}{\typeQ {}_2}{s_2}} },
-\typeQsub{1}^{\freshfor s_1}} \circ \Bigl( \Bigl( m_{\sem{\Gamma},
-\typeQsub{2}^{\freshfor s_2}} \circ \Bigl( \langle \mathord{\cdot}
-\rangle_{\Gamma} \times \phi^{(s_2)}_{\typeQsub{2}} \Bigr) \Bigr) \times
-\phi^{(s_1)}_{\typeQsub{1}} \Bigr) \circ \Bigl(\mathbf{1}_{\semp{\Gamma}} \times
-\langle \pi_2, \pi_1 \rangle \Bigr) \\
-%
-&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x2}{\typeQ {}_2}{s_2}} },
-\typeQsub{1}^{\freshfor s_1}} \circ \Bigl( \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x2}{\typeQ {}_2}{s_2}} } \times
-\phi^{(s_1)}_{\typeQsub{1}} \Bigr) \circ \Bigl(\mathbf{1}_{\semp{\Gamma}} \times
-\langle \pi_2, \pi_1 \rangle \Bigr) \\
-%
-&=& \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ {}_2}{s_2}}
-{\envvarfresh{x1}{\typeQ {}_1}{s_1} }} } \circ \Bigl(\mathbf{1}_{\semp{\Gamma}}
-\times \langle \pi_2, \pi_1 \rangle \Bigr) \\
-%
-\end{array} \end{equation} as required.
-
-
-Now for the inductive case assume that \begin{equation} \begin{array}{l} \Bigl(
-\mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ
-{}_2}^{\freshfor s_2}} } \amp \mathbf{1}_{\Lambda} \Bigr) \circ \langle
-\mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \\ \qquad =
-\langle \mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \circ
-\Bigl(\mathbf{1}_{\semp{\Gamma}} \times \langle \pi_2, \pi_1 \rangle \times
-\mathbf{1}_{\semp{\Lambda}} \Bigr). \end{array} \end{equation} then
-\begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{\Bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ
-{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \amp
-\mathbf{1}_{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}} \Bigr) \circ
-\langle \mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }}
-}{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}}}} \\
-%
-&=& \Bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}},
-{{\typeQ {}_2}^{\freshfor s_2}} } \amp \mathbf{1}_{\Lambda} \amp
-\mathbf{1}_{\widehat{\typeR^{\freshfor r}}} \Bigr) \\&& {} \circ
-m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}},
-\typeR^{\freshfor r}} \circ (\langle \mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \times
-\phi_\typeR^{(r)}) \\
-%
-&=& m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}},
-\typeR^{\freshfor r}} \\&&{} \circ \Bigl( \Bigl( \mathbf{1}_{\Gamma} \amp
-\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
-\amp \mathbf{1}_{\Lambda} \Bigr) \times \mathbf{1}_{\widehat{\typeR^{\freshfor
-r}}} \Bigr) \\&&{} \circ (\langle \mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \times
-\phi_\typeR^{(r)}) \\
-%
-&=& m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}},
-\typeR^{\freshfor r}} \\&&{} \circ \Bigl( \Bigl( \Bigl( \mathbf{1}_{\Gamma} \amp
-\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
-\amp \mathbf{1}_{\Lambda} \Bigr) \circ \langle \mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
-{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \Bigr) \times
-\phi_\typeR^{(r)} \Bigr) \\
-%
-&=& m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}},
-\typeR^{\freshfor r}} \\&&{} \circ \Bigl( \Bigl( \langle \mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \circ
-\Bigl(\mathbf{1}_{\semp{\Gamma}} \times \langle \pi_2, \pi_1 \rangle \times
-\mathbf{1}_{\semp{\Lambda}} \Bigr) \Bigr) \times \phi_\typeR^{(r)} \Bigr) \\
-%
-&=& m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}},
-\typeR^{\freshfor r}} \circ \Bigl( \langle \mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \times
-\phi_\typeR^{(r)} \Bigr) \\ \\&&{} \circ \Bigl(\mathbf{1}_{\semp{\Gamma}} \times
-\langle \pi_2, \pi_1 \rangle \times \mathbf{1}_{\semp{\Lambda}} \times
-\mathbf{1}_{\widehat{\typeR}^{\freshfor r}} \Bigr) \\
-%
-&=& \langle \mathord{\cdot}
-\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }}
-}{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}}} \circ
-\Bigl(\mathbf{1}_{\semp{\Gamma}} \times \langle \pi_2, \pi_1 \rangle \times
-\mathbf{1}_{\semp{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}}} \Bigr)
-\end{array} \end{equation} as required.  \end{proof}
-
-\begin{lemma}[Characterising Contraction]
-\label{densem:contraction:characterisation} Suppose that
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}$ is derived from
-$\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$ by
-contraction.
-%
-Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}^{\freshfor s'}$.
-%
-Then \begin{equation*} \begin{array}{l}
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \langle \gamma, q
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} \\ =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}
-\langle \gamma, q, q \rangle_{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }} \\ \end{array}
-\end{equation*} \end{lemma}
-
-\begin{proof} Firstly note that $\Delta_{\typeQ^{\freshfor s'}} =
-m_{\typeQ^{\freshfor s'}, \typeQ^{\freshfor s'}} \circ \langle
-\mathbf{1}_{\typeQ^{\freshfor s'}}, \mathbf{1}_{\typeQ^{\freshfor s'}} \rangle$
-by \ref{characterisation:m:pair} and \ref{def:diagonal}.
-%
-Therefore \begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{ \bigl( \mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor
-s'}} \bigr) \circ \langle \cdot
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} } \\
-%
-&=& \bigl( \mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \circ
-m_{\sem{\Gamma}, \typeQ^{\freshfor s'} } \circ \Bigl( \langle \cdot
-\rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
-%
-&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s'} \amp \typeQ^{\freshfor s'} } \circ
-\bigl( \mathbf{1}_{\Gamma} \times \Delta_{\typeQ^{\freshfor s'}} \bigr) \circ
-\Bigl( \langle \cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
-%
-&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s'} \amp \typeQ^{\freshfor s'} } \circ
-\bigl( \mathbf{1}_{\Gamma} \times m_{\typeQ^{\freshfor s'}, \typeQ^{\freshfor
-s'}} \bigr) \\&&{} \circ \bigl( \mathbf{1}_{\Gamma} \times \langle
-\mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}},
-\mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \rangle \bigr) \circ \Bigl( \langle
-\cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
-%
-&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }},
-\typeQ^{\freshfor s'} } \circ \bigl( m_{\sem{\Gamma}, \typeQ^{\freshfor s'}}
-\times \mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \bigr) \\&&{} \circ \bigl(
-\mathbf{1}_{\Gamma} \times \langle \mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}},
-\mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \rangle \bigr) \circ \Bigl( \langle
-\cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
-%
-&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }},
-\typeQ^{\freshfor s'} } \circ \bigl( m_{\sem{\Gamma}, \typeQ^{\freshfor s'}}
-\times \mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \bigr) \\&&{} \circ \Bigl(
-\langle \cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \times
-\phi^{(s')}_{\typeQ} \Bigr) \circ \bigl( \mathbf{1}_{\semp{\Gamma}} \times
-\langle \mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}},
-\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}} \rangle \bigr)  \\
-%
-&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }},
-\typeQ^{\freshfor s'} } \circ \Bigl(\langle \cdot
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} \times
-\phi^{(s')}_{\typeQ} \Bigr) \\&&{} \circ \bigl( \mathbf{1}_{\semp{\Gamma}}
-\times \langle \mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}},
-\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}} \rangle \bigr)  \\
-%
-&=& \langle \cdot \rangle_{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}  \\&&{} \circ
-\bigl( \mathbf{1}_{\semp{\Gamma}} \times \langle
-\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}},
-\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}} \rangle \bigr)  \\
-%
-\end{array} \end{equation} as required. \end{proof}
-
-\begin{lemma}[Characterising Fresh-Weakening]
-\label{densem:freshweak:characterisation} Suppose that
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ is
-derived from
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ by
-fresh-weakening, where $s'' \subseteq s' \subseteq s$.
-%
-Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}^{\freshfor s'}$.
-%
-Then \[
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
-\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}} } =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
-\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}.}}
-\] \end{lemma}
-
-\begin{proof} Firstly, \begin{equation} \begin{array}[t]{rcl}
-\multicolumn{3}{l}{ \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor s''}} \circ
-\phi_{\typeQ}^{(s')} }\\
-%
-&=& \tau^{(s' \setminus s'')}_{\widehat{\typeQ^{\freshfor s''}}} \circ
-{\phi_{\typeQ^{\freshfor s''}}^{(s' \setminus s'')}}^{-1} \circ
-\phi_{\typeQ}^{(s')} \\
-%
-&=& \tau^{(s' \setminus s'')}_{\widehat{\typeQ^{\freshfor s''}}} \circ
-{\phi_{\typeQ^{\freshfor s''}}^{(s' \setminus s'')}}^{-1} \circ
-\phi_{\typeQ^{\freshfor s''}}^{(s' \setminus s'')} \circ
-{\phi_{\typeQ}^{(s'')}}^{\freshfor (s' \setminus s'')} \\
-%
-&=& \tau^{(s' \setminus s'')}_{\widehat{\typeQ^{\freshfor s''}}} \circ
-{\phi_{\typeQ}^{(s'')}}^{\freshfor (s' \setminus s'')} \\
-%
-&=& \phi_{\typeQ}^{(s'')} \circ \tau^{(s' \setminus
-s'')}_{\widehat{\typeQ}^{\freshfor s''}} \\
-%
-\end{array} \end{equation} so that \begin{equation} \begin{array}[t]{rcl}
-\multicolumn{3}{l}{\bigl( \mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus
-s'')++}_{\typeQ^{\freshfor s''}} \bigr) \circ \langle \cdot
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}} \\
-%
-&=& \bigl( \mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus
-s'')++}_{\typeQ^{\freshfor s''}} \bigr) \circ m_{\sem{\Gamma}, \typeQ^{\freshfor
-s'}} \circ \bigl( \langle \cdot \rangle_\Gamma \times \phi_{\typeQ}^{(s')}
-\bigr) \\
-%
-&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s''}} \circ \bigl( \mathbf{1}_{\Gamma}
-\times \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor s''}} \bigr) \circ \bigl(
-\langle \cdot \rangle_\Gamma \times \phi_{\typeQ}^{(s')} \bigr) \\
-%
-&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s''}} \circ \bigl( \langle \cdot
-\rangle_{\Gamma} \times \bigl( \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
-s''}} \circ \phi_{\typeQ}^{(s')} \bigr) \bigr) \\
-%
-&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s''}} \circ \bigl( \langle \cdot
-\rangle_{\Gamma} \times \bigl( \phi_{\typeQ}^{(s'')} \circ \tau^{(s' \setminus
-s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \bigr) \\
-%
-&=& \langle \cdot \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}
-\circ \bigl( \mathbf{1}_{\Gamma} \times \tau^{(s' \setminus
-s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \\
-%
-\end{array} \end{equation} as required. \end{proof}
-
-
-\begin{lemma}[Characterising Support-Weakening for Terms]
-\label{densem:suppweak-terms:characterisation} Suppose that
-$\tjudge{s}{\Gamma}{t}{\typeP}$ is derived from $\tjudge{s'}{\Gamma}{t}{\typeP}$
-by support-weakening, where $s' \subseteq s$.
-%
-Let $\gamma \in \semp{\Gamma}$.
-%
-Then \begin{equation*} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
-\rangle_{\Gamma} = \sem{\tjudge{s'}{\Gamma}{t}{\typeP}} \langle \gamma
-\rangle_{\Gamma.} \end{equation*} \end{lemma}
-
-\begin{proof} Immediate. \end{proof}
-
-\begin{lemma}[Characterising Support-Weakening for Actions]
-\label{densem:suppweak-actions:characterisation} Suppose that
-$\atjudge{s}{\typeP}{p}{\typePp}$ is derived from
-$\atjudge{s'}{\typeP}{p}{\typePp}$ by support-weakening, where $s' \subseteq s$.
-%
-Let $X \in \widehat{\typeP}$.
-%
-Then \begin{equation*} \sem{\atjudge{s}{\typeP}{p}{\typePp}} X =
-\sem{\atjudge{s'}{\typeP}{p}{\typePp}} X.  \end{equation*} \end{lemma}
-
-\begin{proof} Immediate. \end{proof}
-
-
 
 \subsection{Higher-Order Processes}
 
@@ -1418,6 +854,571 @@ If $a \notin s$ then define \[\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p
 &=& \{\theta^{!}_{\typePp}Y \mid \freshin{b}{
 Y @ b \in \sem{(ab) \cdot p} \{x \mid \newpath{b}{x} \in X}\}\}_{\downarrow} \\
 \end{array}\]
+
+\subsection{Structural Rules}
+
+The denotational semantics associated with the usual structural rules make use
+of the cartesian structure of each $\mathbf{FMCts}_s$: variables denote the
+identity map on their underlying types, weakening corresponds to projection,
+exchange corresponds to a twist map $\langle \pi_2, \pi_1 \rangle$, and
+contraction corresponds to the diagonal map $\langle \mathbf{1}, \mathbf{1}
+\rangle$.
+%
+The new structural rule of fresh-weakening, \begin{equation*} \infer[(s''
+\subseteq s' \subseteq s)]
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}}
+\end{equation*} comes from the map $\tau^{(s' \setminus s'')++}$ defined in
+\ref{def:taucts}, which in turn arises from the map $\tau : (-)^{\freshfor a}
+\to \mathbf{1}$ defined in \ref{lemma:freshinclusion}.
+%
+Notice that the discussion of \ref{tau:projection} shows that this is ultimately
+given by the projection $(-) \otimes \mathbb A \to \mathbf{1}$.
+%
+The other new structural rule of support-weakening, \begin{equation*} \infer[(s'
+\subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}} {\tjudge{s'}{\Gamma}{t}{\typeP}}
+\end{equation*} is simply given by the inclusion $\mathbf{FMCts}_{s'}
+\hookrightarrow \mathbf{FMCts}_s$.
+
+% Definition of denotational semantics { {{
+\begin{definition}[Semantics of Variable] \label{densem:variable} The meaning of
+a free variable (with no freshness assumptions) is simply the identity map on
+the underlying type.
+%
+\begin{equation*}
+\sem{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}}{\termvar
+x}{\typeP}} \defeq \mathbf{1}_{\typeP} \end{equation*} \end{definition}
+
+\begin{definition}[Semantics of Weakening] \label{densem:weakening} Suppose that
+the judgement
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$ by weakening, then
+\begin{equation*}
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}} \defeq \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1.
+\end{equation*} \end{definition}
+
+\begin{definition}[Semantics of Exchange] \label{densem:exchange} Suppose that a
+typing judgement
+$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}$ is
+derived from the typing judgement
+$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}$ by
+exchange, let $\varsigma$ be the twist map defined in \ref{def:varsigma} and let
+\[f = \sem{
+\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}},\]
+then define \begin{equation*}
+\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
+\defeq f \circ \bigl( \mathbf{1}_\Gamma \amp \varsigma_{{ {\typeQ
+{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \amp
+\mathbf{1}_{\Lambda} \bigr) \end{equation*} \end{definition}
+
+\begin{definition}[Semantics of Contraction] \label{densem:contraction} Suppose
+that the judgement $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}$ is derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$ by
+contraction, let $\Delta$ be the diagonal map defined in \ref{def:diagonal} and
+let \[f = \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
+then define \begin{equation*}
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \defeq f \circ \bigl(
+\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation*}
+\end{definition}
+
+\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak}
+Suppose that $s'' \subseteq s' \subseteq s$ and that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ is
+derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ by
+fresh-weakening.
+%
+Let $\tau^{(s'\setminus s'')++} : (-)^{\freshfor (s' \setminus s'')++} \to
+\mathbf{1}_{\mathbf{FMCts}_s}$ be as defined in \ref{def:taucts}, then define \[
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
+\circ (\mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
+s''}}).\] \end{definition}
+
+\begin{definition}[Support-Weakening for Terms] \label{densem:suppweak-terms} If
+$s' \subseteq s$ then let $J : \mathbf{FMCts}_{s'} \hookrightarrow
+\mathbf{FMCts}_s$ be the inclusion of categories and define \begin{equation*}
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \defeq
+J\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}.  \end{equation*} \end{definition}
+
+\begin{definition}[Support-Weakening for Actions]
+\label{densem:suppweak-actions} If $s' \subseteq s$ then let $J :
+\mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the inclusion of
+categories and define \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} \defeq
+J\sem{\atjudge{s'}{\typeP}{p}{\typePp}}.\] \end{definition}
+
+It is useful to characterise the action of these structural rules in terms of
+their action on inputs of the form $\langle \gamma \rangle_{\Gamma}$ where
+$\gamma \in \semp{\Gamma}$ is a tuple of paths in the appropriate environment
+$\Gamma$.
+%
+As shown below, it turns out that these characterisations are all as one might
+expect.
+
+
+\begin{lemma}[Characterising Weakening]
+\label{densem:weakening:characterisation} Suppose that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$ by weakening.
+%
+Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}$.
+%
+Then \[
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}}\langle \gamma, q
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}} =
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_\Gamma. \]
+\end{lemma}
+
+\begin{proof} \begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}} \circ \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}} \\
+%
+&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1 \circ \langle
+\mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}} & \text{by
+\ref{densem:weakening}} \\
+%
+&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1 \circ
+m_{\sem{\Gamma}, \typeP} \circ (\langle \mathord{\cdot} \rangle_{\Gamma} \times
+\mathbf{1}_{\typeP}) & \text{by \ref{densem:def:angles}} \\
+%
+&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \pi_1 \circ (\langle
+\mathord{\cdot} \rangle_{\Gamma} \times \mathbf{1}_{\typeP}) & \text{by
+\ref{characterisation:m:proj}} \\
+%
+&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \langle \mathord{\cdot}
+\rangle_{\Gamma} \circ \pi_1.
+%
+\end{array} \end{equation} \end{proof}
+
+
+\begin{lemma}[Characterising Exchange] \label{densem:exchange:characterisation}
+Suppose that
+$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}$ is
+derived from
+$\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}$ by
+exchange.
+%
+Let $\gamma \in \semp{\Gamma}$, $\lambda \in \semp{\Lambda}$, $q_1 \in
+\widehat{\typeQsub{1}}^{\freshfor s_1}$ and $q_2 \in
+\widehat{\typeQsub{2}}^{\freshfor s_2}$.
+%
+Then \begin{equation*} \begin{array}{l}
+\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
+\langle \gamma, q_2, q_1, \lambda
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \\ =
+\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}}
+\langle \gamma, q_1, q_2, \lambda
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}.  \end{array}
+\end{equation*} \end{lemma}
+
+\begin{proof} It clearly suffices to show that \begin{equation} \begin{array}{l}
+\Bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}},
+{{\typeQ {}_2}^{\freshfor s_2}} } \amp \mathbf{1}_{\Lambda} \Bigr) \circ \langle
+\mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \\ \qquad =
+\langle \mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \circ
+\Bigl(\mathbf{1}_{\semp{\Gamma}} \times \langle \pi_2, \pi_1 \rangle \times
+\mathbf{1}_{\semp{\Lambda}} \Bigr). \end{array} \end{equation}
+%
+The proof proceeds by induction on the structure of $\Lambda$. The interesting
+case is when $\Lambda = \envempty$ which is as follows.
+%
+Firstly, note that \begin{equation} \begin{array}{l}
+\mathbf{1}_{\Gamma} \amp \varsigma_{{
+{\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \\ \qquad {} = \langle
+\mathbf{out}_1, \mathbf{out}_3, \mathbf{out}_2 \rangle^{\amp} : \sem{\Gamma}
+\amp \typeQsub{1}^{\freshfor s_1} \amp \typeQsub{2}^{\freshfor s_2} \to
+\sem{\Gamma} \amp \typeQsub{2}^{\freshfor s_2} \amp \typeQsub{1}^{\freshfor
+s_1}. \end{array} \end{equation}
+%
+Therefore by \ref{densem:def:angles} \begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{\bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ
+{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \bigr) \circ \langle
+\mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
+%
+&=& \langle \mathbf{out}_1, \mathbf{out}_3, \mathbf{out}_2 \rangle^{\amp} \circ
+m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} }, \typeQ {}_2
+^{\freshfor s_2}} \circ \Bigl( \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} } \times
+\phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
+%
+\end{array} \end{equation} so that by \ref{characterisation:m:proj}
+\begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{\langle \mathbf{out}_1, \mathbf{out}_3 \rangle^{\amp} \circ
+\bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}},
+{{\typeQ {}_2}^{\freshfor s_2}} } \bigr) \circ \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
+{\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
+%
+&=& \mathbf{out}_{12} \circ m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} }, \typeQ {}_2 ^{\freshfor s_2}} \circ \Bigl( \langle
+\mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
+} \times \phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
+%
+&=& \pi_{12} \circ \Bigl( \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} } \times
+\phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
+%
+&=& \langle \mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} } \circ \pi_{12} \\
+%
+\end{array} \end{equation} and hence \begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{\mathbf{out}_1 \circ \bigl( \mathbf{1}_{\Gamma} \amp
+\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
+\bigr) \circ \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
+{\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
+%
+&=& \mathbf{out}_1 \circ \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} } \circ
+\pi_{12} \\
+%
+&=& \mathbf{out}_1 \circ m_{\sem{\Gamma}, \typeQ {}_1^{\freshfor s_1}} \circ
+\Bigl( \langle \mathord{\cdot} \rangle_{\Gamma} \times
+\phi^{(s_1)}_{\typeQsub{1}} \Bigr) \circ \pi_{12} \\
+%
+&=& \pi_1 \circ \Bigl( \langle \mathord{\cdot} \rangle_{\Gamma} \times
+\phi^{(s_1)}_{\typeQsub{1}} \Bigr) \circ \pi_{12} \\
+%
+&=& \langle \mathord{\cdot} \rangle_{\Gamma} \circ \pi_{1} \\
+%
+\end{array} \end{equation} and similarly \begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{\mathbf{out}_3 \circ \bigl( \mathbf{1}_{\Gamma} \amp
+\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
+\bigr) \circ \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
+{\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
+%
+&=& \phi^{(s_1)}_{\typeQsub{1}} \circ \pi_{2}. \\
+%
+\end{array} \end{equation} Furthermore, \begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{\mathbf{out}_2 \circ \bigl( \mathbf{1}_{\Gamma} \amp
+\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
+\bigr) \circ \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
+{\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
+%
+&=& \mathbf{out}_3 \circ m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} }, \typeQ {}_2 ^{\freshfor s_2}} \circ \Bigl( \langle
+\mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}}
+} \times \phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
+%
+&=& \pi_3 \circ \Bigl( \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ {}_1}{s_1}} } \times
+\phi^{(s_2)}_{\typeQ {}_2} \Bigr) \\
+%
+&=& \phi^{(s_2)}_{\typeQsub{2}} \circ \pi_{3}. \\
+%
+\end{array} \end{equation} Therefore by \ref{def:angleamp} and
+\ref{characterisation:m:pair} \begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{\bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ
+{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \bigr) \circ \langle
+\mathord{\cdot} \rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }} \\
+%
+&=& \langle \langle \mathord{\cdot} \rangle_{\Gamma} \circ \pi_{1},
+\phi^{(s_2)}_{\typeQsub{2}} \circ \pi_{3}, \phi^{(s_1)}_{\typeQsub{1}} \circ
+\pi_{2} \rangle^{\amp} \\
+%
+&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x2}{\typeQ {}_2}{s_2}} },
+\typeQsub{1}^{\freshfor s_1}} \circ \Bigl( m_{\sem{\Gamma},
+\typeQsub{2}^{\freshfor s_2}} \times \mathbf{1}_{\typeQsub{1}^{\freshfor s_1}}
+\Bigr) \circ \langle \langle \mathord{\cdot} \rangle_{\Gamma} \circ \pi_{1},
+\phi^{(s_2)}_{\typeQsub{2}} \circ \pi_{3}, \phi^{(s_1)}_{\typeQsub{1}} \circ
+\pi_{2} \rangle \\
+%
+&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x2}{\typeQ {}_2}{s_2}} },
+\typeQsub{1}^{\freshfor s_1}} \circ \Bigl( \Bigl( m_{\sem{\Gamma},
+\typeQsub{2}^{\freshfor s_2}} \circ \Bigl( \langle \mathord{\cdot}
+\rangle_{\Gamma} \times \phi^{(s_2)}_{\typeQsub{2}} \Bigr) \Bigr) \times
+\phi^{(s_1)}_{\typeQsub{1}} \Bigr) \circ \Bigl(\mathbf{1}_{\semp{\Gamma}} \times
+\langle \pi_2, \pi_1 \rangle \Bigr) \\
+%
+&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x2}{\typeQ {}_2}{s_2}} },
+\typeQsub{1}^{\freshfor s_1}} \circ \Bigl( \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x2}{\typeQ {}_2}{s_2}} } \times
+\phi^{(s_1)}_{\typeQsub{1}} \Bigr) \circ \Bigl(\mathbf{1}_{\semp{\Gamma}} \times
+\langle \pi_2, \pi_1 \rangle \Bigr) \\
+%
+&=& \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ {}_2}{s_2}}
+{\envvarfresh{x1}{\typeQ {}_1}{s_1} }} } \circ \Bigl(\mathbf{1}_{\semp{\Gamma}}
+\times \langle \pi_2, \pi_1 \rangle \Bigr) \\
+%
+\end{array} \end{equation} as required.
+
+
+Now for the inductive case assume that \begin{equation} \begin{array}{l} \Bigl(
+\mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ
+{}_2}^{\freshfor s_2}} } \amp \mathbf{1}_{\Lambda} \Bigr) \circ \langle
+\mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \\ \qquad =
+\langle \mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \circ
+\Bigl(\mathbf{1}_{\semp{\Gamma}} \times \langle \pi_2, \pi_1 \rangle \times
+\mathbf{1}_{\semp{\Lambda}} \Bigr). \end{array} \end{equation} then
+\begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{\Bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ
+{}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \amp
+\mathbf{1}_{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}} \Bigr) \circ
+\langle \mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }}
+}{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}}}} \\
+%
+&=& \Bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}},
+{{\typeQ {}_2}^{\freshfor s_2}} } \amp \mathbf{1}_{\Lambda} \amp
+\mathbf{1}_{\widehat{\typeR^{\freshfor r}}} \Bigr) \\&& {} \circ
+m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}},
+\typeR^{\freshfor r}} \circ (\langle \mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \times
+\phi_\typeR^{(r)}) \\
+%
+&=& m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}},
+\typeR^{\freshfor r}} \\&&{} \circ \Bigl( \Bigl( \mathbf{1}_{\Gamma} \amp
+\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
+\amp \mathbf{1}_{\Lambda} \Bigr) \times \mathbf{1}_{\widehat{\typeR^{\freshfor
+r}}} \Bigr) \\&&{} \circ (\langle \mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \times
+\phi_\typeR^{(r)}) \\
+%
+&=& m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}},
+\typeR^{\freshfor r}} \\&&{} \circ \Bigl( \Bigl( \Bigl( \mathbf{1}_{\Gamma} \amp
+\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
+\amp \mathbf{1}_{\Lambda} \Bigr) \circ \langle \mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
+{}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}} \Bigr) \times
+\phi_\typeR^{(r)} \Bigr) \\
+%
+&=& m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}},
+\typeR^{\freshfor r}} \\&&{} \circ \Bigl( \Bigl( \langle \mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \circ
+\Bigl(\mathbf{1}_{\semp{\Gamma}} \times \langle \pi_2, \pi_1 \rangle \times
+\mathbf{1}_{\semp{\Lambda}} \Bigr) \Bigr) \times \phi_\typeR^{(r)} \Bigr) \\
+%
+&=& m_{\sem{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}},
+\typeR^{\freshfor r}} \circ \Bigl( \langle \mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \times
+\phi_\typeR^{(r)} \Bigr) \\ \\&&{} \circ \Bigl(\mathbf{1}_{\semp{\Gamma}} \times
+\langle \pi_2, \pi_1 \rangle \times \mathbf{1}_{\semp{\Lambda}} \times
+\mathbf{1}_{\widehat{\typeR}^{\freshfor r}} \Bigr) \\
+%
+&=& \langle \mathord{\cdot}
+\rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }}
+}{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}}} \circ
+\Bigl(\mathbf{1}_{\semp{\Gamma}} \times \langle \pi_2, \pi_1 \rangle \times
+\mathbf{1}_{\semp{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}}} \Bigr)
+\end{array} \end{equation} as required.  \end{proof}
+
+\begin{lemma}[Characterising Contraction]
+\label{densem:contraction:characterisation} Suppose that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}$ is derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$ by
+contraction.
+%
+Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}^{\freshfor s'}$.
+%
+Then \begin{equation*} \begin{array}{l}
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \langle \gamma, q
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} \\ =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}
+\langle \gamma, q, q \rangle_{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }} \\ \end{array}
+\end{equation*} \end{lemma}
+
+\begin{proof} Firstly note that $\Delta_{\typeQ^{\freshfor s'}} =
+m_{\typeQ^{\freshfor s'}, \typeQ^{\freshfor s'}} \circ \langle
+\mathbf{1}_{\typeQ^{\freshfor s'}}, \mathbf{1}_{\typeQ^{\freshfor s'}} \rangle$
+by \ref{characterisation:m:pair} and \ref{def:diagonal}.
+%
+Therefore \begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{ \bigl( \mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor
+s'}} \bigr) \circ \langle \cdot
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} } \\
+%
+&=& \bigl( \mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \circ
+m_{\sem{\Gamma}, \typeQ^{\freshfor s'} } \circ \Bigl( \langle \cdot
+\rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s'} \amp \typeQ^{\freshfor s'} } \circ
+\bigl( \mathbf{1}_{\Gamma} \times \Delta_{\typeQ^{\freshfor s'}} \bigr) \circ
+\Bigl( \langle \cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s'} \amp \typeQ^{\freshfor s'} } \circ
+\bigl( \mathbf{1}_{\Gamma} \times m_{\typeQ^{\freshfor s'}, \typeQ^{\freshfor
+s'}} \bigr) \\&&{} \circ \bigl( \mathbf{1}_{\Gamma} \times \langle
+\mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}},
+\mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \rangle \bigr) \circ \Bigl( \langle
+\cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
+%
+&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }},
+\typeQ^{\freshfor s'} } \circ \bigl( m_{\sem{\Gamma}, \typeQ^{\freshfor s'}}
+\times \mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \bigr) \\&&{} \circ \bigl(
+\mathbf{1}_{\Gamma} \times \langle \mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}},
+\mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \rangle \bigr) \circ \Bigl( \langle
+\cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \Bigr) \\
+%
+&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }},
+\typeQ^{\freshfor s'} } \circ \bigl( m_{\sem{\Gamma}, \typeQ^{\freshfor s'}}
+\times \mathbf{1}_{\widehat{\typeQ^{\freshfor s'}}} \bigr) \\&&{} \circ \Bigl(
+\langle \cdot \rangle_{\Gamma} \times \phi^{(s')}_{\typeQ} \times
+\phi^{(s')}_{\typeQ} \Bigr) \circ \bigl( \mathbf{1}_{\semp{\Gamma}} \times
+\langle \mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}},
+\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}} \rangle \bigr)  \\
+%
+&=& m_{\sem{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }},
+\typeQ^{\freshfor s'} } \circ \Bigl(\langle \cdot
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} \times
+\phi^{(s')}_{\typeQ} \Bigr) \\&&{} \circ \bigl( \mathbf{1}_{\semp{\Gamma}}
+\times \langle \mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}},
+\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}} \rangle \bigr)  \\
+%
+&=& \langle \cdot \rangle_{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}  \\&&{} \circ
+\bigl( \mathbf{1}_{\semp{\Gamma}} \times \langle
+\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}},
+\mathbf{1}_{\widehat{\typeQ}^{\freshfor s'}} \rangle \bigr)  \\
+%
+\end{array} \end{equation} as required. \end{proof}
+
+\begin{lemma}[Characterising Fresh-Weakening]
+\label{densem:freshweak:characterisation} Suppose that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ is
+derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ by
+fresh-weakening, where $s'' \subseteq s' \subseteq s$.
+%
+Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}^{\freshfor s'}$.
+%
+Then \[
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
+\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}} } =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
+\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}.}}
+\] \end{lemma}
+
+\begin{proof} Firstly, \begin{equation} \begin{array}[t]{rcl}
+\multicolumn{3}{l}{ \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor s''}} \circ
+\phi_{\typeQ}^{(s')} }\\
+%
+&=& \tau^{(s' \setminus s'')}_{\widehat{\typeQ^{\freshfor s''}}} \circ
+{\phi_{\typeQ^{\freshfor s''}}^{(s' \setminus s'')}}^{-1} \circ
+\phi_{\typeQ}^{(s')} \\
+%
+&=& \tau^{(s' \setminus s'')}_{\widehat{\typeQ^{\freshfor s''}}} \circ
+{\phi_{\typeQ^{\freshfor s''}}^{(s' \setminus s'')}}^{-1} \circ
+\phi_{\typeQ^{\freshfor s''}}^{(s' \setminus s'')} \circ
+{\phi_{\typeQ}^{(s'')}}^{\freshfor (s' \setminus s'')} \\
+%
+&=& \tau^{(s' \setminus s'')}_{\widehat{\typeQ^{\freshfor s''}}} \circ
+{\phi_{\typeQ}^{(s'')}}^{\freshfor (s' \setminus s'')} \\
+%
+&=& \phi_{\typeQ}^{(s'')} \circ \tau^{(s' \setminus
+s'')}_{\widehat{\typeQ}^{\freshfor s''}} \\
+%
+\end{array} \end{equation} so that \begin{equation} \begin{array}[t]{rcl}
+\multicolumn{3}{l}{\bigl( \mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus
+s'')++}_{\typeQ^{\freshfor s''}} \bigr) \circ \langle \cdot
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}} \\
+%
+&=& \bigl( \mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus
+s'')++}_{\typeQ^{\freshfor s''}} \bigr) \circ m_{\sem{\Gamma}, \typeQ^{\freshfor
+s'}} \circ \bigl( \langle \cdot \rangle_\Gamma \times \phi_{\typeQ}^{(s')}
+\bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s''}} \circ \bigl( \mathbf{1}_{\Gamma}
+\times \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor s''}} \bigr) \circ \bigl(
+\langle \cdot \rangle_\Gamma \times \phi_{\typeQ}^{(s')} \bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s''}} \circ \bigl( \langle \cdot
+\rangle_{\Gamma} \times \bigl( \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
+s''}} \circ \phi_{\typeQ}^{(s')} \bigr) \bigr) \\
+%
+&=& m_{\sem{\Gamma}, \typeQ^{\freshfor s''}} \circ \bigl( \langle \cdot
+\rangle_{\Gamma} \times \bigl( \phi_{\typeQ}^{(s'')} \circ \tau^{(s' \setminus
+s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \bigr) \\
+%
+&=& \langle \cdot \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}
+\circ \bigl( \mathbf{1}_{\Gamma} \times \tau^{(s' \setminus
+s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \\
+%
+\end{array} \end{equation} as required. \end{proof}
+
+
+\begin{lemma}[Characterising Support-Weakening for Terms]
+\label{densem:suppweak-terms:characterisation} Suppose that
+$\tjudge{s}{\Gamma}{t}{\typeP}$ is derived from $\tjudge{s'}{\Gamma}{t}{\typeP}$
+by support-weakening, where $s' \subseteq s$.
+%
+Let $\gamma \in \semp{\Gamma}$.
+%
+Then \begin{equation*} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
+\rangle_{\Gamma} = \sem{\tjudge{s'}{\Gamma}{t}{\typeP}} \langle \gamma
+\rangle_{\Gamma.} \end{equation*} \end{lemma}
+
+\begin{proof} Immediate. \end{proof}
+
+\begin{lemma}[Characterising Support-Weakening for Actions]
+\label{densem:suppweak-actions:characterisation} Suppose that
+$\atjudge{s}{\typeP}{p}{\typePp}$ is derived from
+$\atjudge{s'}{\typeP}{p}{\typePp}$ by support-weakening, where $s' \subseteq s$.
+%
+Let $X \in \widehat{\typeP}$.
+%
+Then \begin{equation*} \sem{\atjudge{s}{\typeP}{p}{\typePp}} X =
+\sem{\atjudge{s'}{\typeP}{p}{\typePp}} X.  \end{equation*} \end{lemma}
+
+\begin{proof} Immediate. \end{proof}
+
+
 
 
 %%
