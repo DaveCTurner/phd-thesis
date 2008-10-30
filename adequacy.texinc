@@ -175,6 +175,7 @@ that $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{t_1}$ as required.
 \vfill\pagebreak
 
 \subsection{Adequacy} \label{secadequacy}
+\TODO{Words}
 
 \begin{lemma}\label{biglemma} Suppose $\tjudge{s}{\Gamma}{t}{\typeP}$ where
 $\Gamma = \envcombine{\envvarfresh{$\termvar{x}_1$}{\typePsub{1}}{s_1}}
