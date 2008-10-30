@@ -279,6 +279,17 @@ prefixed term $\bang{t}$ as follows.
 \sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} \defeq \eta_{\typeP} \circ
 \sem{\tjudge{s}{\Gamma}{t}{\typeP}}. \end{equation*} \end{definition}
 
+\begin{lemma}[Characterising Prefixing] \label{densem:prefix:characterisation} 
+%
+Suppose that $\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}$ is derived from
+$\tjudge{s}{\Gamma}{t}{\typeP}$. Let $\gamma \in \semp{\Gamma}$ and $P \in
+\typelift\typeP$. Then \[ P \in
+\sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} \langle\gamma\rangle_\Gamma
+\text{ iff } P \subseteq \sem{\tjudge{s}{\Gamma}{t}{\typeP}}
+\langle\gamma\rangle_\Gamma.  \] \end{lemma}
+
+\begin{proof} By the definition of $\eta$. \end{proof}
+
 For example, the process $\tjudge{\varnothing}{}{\inactive}{\typeO}$ can perform
 no action and has empty denotation, but
 $\sem{\tjudge{\varnothing}{}{\bang{\inactive}}{\typelift\typeO}} = \eta_{\typeO}
@@ -361,17 +372,7 @@ defined in \ref{}, then \begin{equation*} \begin{array}[t]{l}
 \sem{\tjudge{s''}{\Lambda}{u}{\typeQp}}^{\freshfor s'++} \right) \right).
 \end{array} \end{equation*} \end{definition}
 
-
-
-\begin{lemma}[Characterising Prefixing]
-\label{densem:prefix:characterisation} \[ P \in
-\sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} \langle\gamma\rangle \quad
-\Leftrightarrow \quad P \subseteq \sem{\tjudge{s}{\Gamma}{t}{\typeP}}
-\langle\gamma\rangle \text{ and $P$ is isolated in $\widehat{\typeP}$}
-\]
-\end{lemma}
-
-\begin{proof} By \ref{densem:prefix} and the definition of $\eta$. \end{proof}
+\TODO{Is this lemma an `iff'?}
 
 \begin{lemma}[Characterising Pattern Matching]
 \label{densem:match:characterisation} Suppose that $\gamma \in \semp{\Gamma}$,
