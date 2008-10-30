@@ -911,6 +911,20 @@ $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
 }{t}{\typeP}} \defeq \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1.
 \end{equation*} \end{definition}
 
+\begin{lemma}[Characterising Weakening]
+\label{densem:weakening:characterisation} Suppose that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$ by weakening.
+%
+Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}$.
+%
+Then \[
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}}\langle \gamma, q
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}} =
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_\Gamma. \]
+\end{lemma}
+
 \begin{definition}[Semantics of Exchange] \label{densem:exchange} Suppose that a
 typing judgement
 $\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
@@ -928,88 +942,6 @@ then define \begin{equation*}
 \defeq f \circ \bigl( \mathbf{1}_\Gamma \amp \varsigma_{{ {\typeQ
 {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \amp
 \mathbf{1}_{\Lambda} \bigr) \end{equation*} \end{definition}
-
-\begin{definition}[Semantics of Contraction] \label{densem:contraction} Suppose
-that the judgement $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}$ is derived from
-$\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$ by
-contraction, let $\Delta$ be the diagonal map defined in \ref{def:diagonal} and
-let \[f = \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
-then define \begin{equation*}
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \defeq f \circ \bigl(
-\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation*}
-\end{definition}
-
-\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak}
-Suppose that $s'' \subseteq s' \subseteq s$ and that
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ is
-derived from
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ by
-fresh-weakening.
-%
-Let $\tau^{(s'\setminus s'')++} : (-)^{\freshfor (s' \setminus s'')++} \to
-\mathbf{1}_{\mathbf{FMCts}_s}$ be as defined in \ref{def:taucts}, then define \[
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
-\circ (\mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
-s''}}).\] \end{definition}
-
-\begin{definition}[Support-Weakening for Terms] \label{densem:suppweak-terms} If
-$s' \subseteq s$ then let $J : \mathbf{FMCts}_{s'} \hookrightarrow
-\mathbf{FMCts}_s$ be the inclusion of categories and define \begin{equation*}
-\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \defeq
-J\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}.  \end{equation*} \end{definition}
-
-\begin{definition}[Support-Weakening for Actions]
-\label{densem:suppweak-actions} If $s' \subseteq s$ then let $J :
-\mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the inclusion of
-categories and define \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} \defeq
-J\sem{\atjudge{s'}{\typeP}{p}{\typePp}}.\] \end{definition}
-
-
-
-\begin{lemma}[Characterising Weakening]
-\label{densem:weakening:characterisation} Suppose that
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
-}{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$ by weakening.
-%
-Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}$.
-%
-Then \[
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
-}{t}{\typeP}}\langle \gamma, q
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}} =
-\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma \rangle_\Gamma. \]
-\end{lemma}
-
-\begin{proof} \begin{equation} \begin{array}[t]{rcll}
-%
-\multicolumn{4}{l}{
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
-}{t}{\typeP}} \circ \langle \mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}} \\
-%
-&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1 \circ \langle
-\mathord{\cdot}
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}} & \text{by
-\ref{densem:weakening}} \\
-%
-&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1 \circ
-m_{\sem{\Gamma}, \typeP} \circ (\langle \mathord{\cdot} \rangle_{\Gamma} \times
-\mathbf{1}_{\typeP}) & \text{by \ref{densem:def:angles}} \\
-%
-&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \pi_1 \circ (\langle
-\mathord{\cdot} \rangle_{\Gamma} \times \mathbf{1}_{\typeP}) & \text{by
-\ref{characterisation:m:proj}} \\
-%
-&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \langle \mathord{\cdot}
-\rangle_{\Gamma} \circ \pi_1.
-%
-\end{array} \end{equation} \end{proof}
-
 
 \begin{lemma}[Characterising Exchange] \label{densem:exchange:characterisation}
 Suppose that
@@ -1037,7 +969,144 @@ Then \begin{equation*} \begin{array}{cl}
 {}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}.  \end{array}
 \end{equation*} \end{lemma}
 
-\begin{proof} It clearly suffices to show that \begin{equation} \begin{array}{l}
+\begin{definition}[Semantics of Contraction] \label{densem:contraction} Suppose
+that the judgement $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}$ is derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$ by
+contraction, let $\Delta$ be the diagonal map defined in \ref{def:diagonal} and
+let \[f = \sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}\]
+then define \begin{equation*}
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \defeq f \circ \bigl(
+\mathbf{1}_{\Gamma} \amp \Delta_{\typeQ^{\freshfor s'}} \bigr) \end{equation*}
+\end{definition}
+
+\begin{lemma}[Characterising Contraction]
+\label{densem:contraction:characterisation} Suppose that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}$ is derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$ by
+contraction.
+%
+Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}^{\freshfor s'}$.
+%
+Then \begin{equation*} \begin{array}{l}
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
+}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \langle \gamma, q
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} \\ =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}
+\langle \gamma, q, q \rangle_{\envcombine{\Gamma}{\envcombine
+{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }} \\ \end{array}
+\end{equation*} \end{lemma}
+
+\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak}
+Suppose that $s'' \subseteq s' \subseteq s$ and that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ is
+derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ by
+fresh-weakening.
+%
+Let $\tau^{(s'\setminus s'')++} : (-)^{\freshfor (s' \setminus s'')++} \to
+\mathbf{1}_{\mathbf{FMCts}_s}$ be as defined in \ref{def:taucts}, then define \[
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}} =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
+\circ (\mathbf{1}_{\Gamma} \amp \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor
+s''}}).\] \end{definition}
+
+\begin{lemma}[Characterising Fresh-Weakening]
+\label{densem:freshweak:characterisation} Suppose that
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ is
+derived from
+$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ by
+fresh-weakening, where $s'' \subseteq s' \subseteq s$.
+%
+Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}^{\freshfor s'}$.
+%
+Then \[
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
+\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}} } =
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
+\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}.}}
+\] \end{lemma}
+
+\begin{definition}[Support-Weakening for Terms] \label{densem:suppweak-terms} If
+$s' \subseteq s$ then let $J : \mathbf{FMCts}_{s'} \hookrightarrow
+\mathbf{FMCts}_s$ be the inclusion of categories and define \begin{equation*}
+\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \defeq
+J\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}.  \end{equation*} \end{definition}
+
+\begin{lemma}[Characterising Support-Weakening for Terms]
+\label{densem:suppweak-terms:characterisation} Suppose that
+$\tjudge{s}{\Gamma}{t}{\typeP}$ is derived from $\tjudge{s'}{\Gamma}{t}{\typeP}$
+by support-weakening, where $s' \subseteq s$.
+%
+Let $\gamma \in \semp{\Gamma}$.
+%
+Then \begin{equation*} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
+\rangle_{\Gamma} = \sem{\tjudge{s'}{\Gamma}{t}{\typeP}} \langle \gamma
+\rangle_{\Gamma.} \end{equation*} \end{lemma}
+
+\begin{proof} Immediate. \end{proof}
+
+\begin{definition}[Support-Weakening for Actions]
+\label{densem:suppweak-actions} If $s' \subseteq s$ then let $J :
+\mathbf{FMCts}_{s'} \hookrightarrow \mathbf{FMCts}_s$ be the inclusion of
+categories and define \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} \defeq
+J\sem{\atjudge{s'}{\typeP}{p}{\typePp}}.\] \end{definition}
+
+\begin{lemma}[Characterising Support-Weakening for Actions]
+\label{densem:suppweak-actions:characterisation} Suppose that
+$\atjudge{s}{\typeP}{p}{\typePp}$ is derived from
+$\atjudge{s'}{\typeP}{p}{\typePp}$ by support-weakening, where $s' \subseteq s$.
+%
+Let $X \in \widehat{\typeP}$.
+%
+Then \begin{equation*} \sem{\atjudge{s}{\typeP}{p}{\typePp}} X =
+\sem{\atjudge{s'}{\typeP}{p}{\typePp}} X.  \end{equation*} \end{lemma}
+
+\begin{proof} Immediate. \end{proof}
+
+
+\subsubsection{Proofs of characterisation lemmas}
+
+\begin{proof}[Proof of \ref{densem:weakening:characterisation} (Characterising
+Weakening)]
+%
+\begin{equation} \begin{array}[t]{rcll}
+%
+\multicolumn{4}{l}{
+\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
+}{t}{\typeP}} \circ \langle \mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}} \\
+%
+&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1 \circ \langle
+\mathord{\cdot}
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}} & \text{by
+\ref{densem:weakening}} \\
+%
+&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \mathbf{out}_1 \circ
+m_{\sem{\Gamma}, \typeP} \circ (\langle \mathord{\cdot} \rangle_{\Gamma} \times
+\mathbf{1}_{\typeP}) & \text{by \ref{densem:def:angles}} \\
+%
+&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \pi_1 \circ (\langle
+\mathord{\cdot} \rangle_{\Gamma} \times \mathbf{1}_{\typeP}) & \text{by
+\ref{characterisation:m:proj}} \\
+%
+&=& \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \circ \langle \mathord{\cdot}
+\rangle_{\Gamma} \circ \pi_1.
+%
+\end{array} \end{equation} \end{proof}
+
+
+
+\begin{proof}[Proof of \ref{densem:exchange:characterisation} (Characterising
+Exchange)]
+%
+It clearly suffices to show that \begin{equation} \begin{array}{l}
 \Bigl( \mathbf{1}_{\Gamma} \amp \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}},
 {{\typeQ {}_2}^{\freshfor s_2}} } \amp \mathbf{1}_{\Lambda} \Bigr) \circ \langle
 \mathord{\cdot}
@@ -1052,13 +1121,12 @@ Then \begin{equation*} \begin{array}{cl}
 The proof proceeds by induction on the structure of $\Lambda$. The interesting
 case is when $\Lambda = \envempty$ which is as follows.
 %
-Firstly, note that \begin{equation} \begin{array}{l}
-\mathbf{1}_{\Gamma} \amp \varsigma_{{
-{\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} } \\ \qquad {} = \langle
-\mathbf{out}_1, \mathbf{out}_3, \mathbf{out}_2 \rangle^{\amp} : \sem{\Gamma}
-\amp \typeQsub{1}^{\freshfor s_1} \amp \typeQsub{2}^{\freshfor s_2} \to
-\sem{\Gamma} \amp \typeQsub{2}^{\freshfor s_2} \amp \typeQsub{1}^{\freshfor
-s_1}. \end{array} \end{equation}
+Firstly, note that \begin{equation} \begin{array}{l} \mathbf{1}_{\Gamma} \amp
+\varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
+\\ \qquad {} = \langle \mathbf{out}_1, \mathbf{out}_3, \mathbf{out}_2
+\rangle^{\amp} : \sem{\Gamma} \amp \typeQsub{1}^{\freshfor s_1} \amp
+\typeQsub{2}^{\freshfor s_2} \to \sem{\Gamma} \amp \typeQsub{2}^{\freshfor s_2}
+\amp \typeQsub{1}^{\freshfor s_1}. \end{array} \end{equation}
 %
 Therefore by \ref{densem:def:angles} \begin{equation} \begin{array}[t]{rcll}
 %
@@ -1259,27 +1327,10 @@ r}}} \Bigr) \\&&{} \circ (\langle \mathord{\cdot}
 \mathbf{1}_{\semp{\envcombine{\Lambda}{\envvarfresh{y}{\typeR}{r}}}} \Bigr)
 \end{array} \end{equation} as required.  \end{proof}
 
-\begin{lemma}[Characterising Contraction]
-\label{densem:contraction:characterisation} Suppose that
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}$ is derived from
-$\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}$ by
-contraction.
+\begin{proof}[Proof of \ref{densem:contraction:characterisation} (Characterising
+Contraction)]
 %
-Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}^{\freshfor s'}$.
-%
-Then \begin{equation*} \begin{array}{l}
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}}
-}}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}} \langle \gamma, q
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }} \\ =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}
-\langle \gamma, q, q \rangle_{\envcombine{\Gamma}{\envcombine
-{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }} \\ \end{array}
-\end{equation*} \end{lemma}
-
-\begin{proof} Firstly note that $\Delta_{\typeQ^{\freshfor s'}} =
+Firstly note that $\Delta_{\typeQ^{\freshfor s'}} =
 m_{\typeQ^{\freshfor s'}, \typeQ^{\freshfor s'}} \circ \langle
 \mathbf{1}_{\typeQ^{\freshfor s'}}, \mathbf{1}_{\typeQ^{\freshfor s'}} \rangle$
 by \ref{characterisation:m:pair} and \ref{def:diagonal}.
@@ -1335,23 +1386,10 @@ s'}} \bigr) \\&&{} \circ \bigl( \mathbf{1}_{\Gamma} \times \langle
 %
 \end{array} \end{equation} as required. \end{proof}
 
-\begin{lemma}[Characterising Fresh-Weakening]
-\label{densem:freshweak:characterisation} Suppose that
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ is
-derived from
-$\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ by
-fresh-weakening, where $s'' \subseteq s' \subseteq s$.
+\begin{proof}[Proof of \ref{densem:freshweak:characterisation} (Characterising
+Fresh-Weakening)]
 %
-Let $\gamma \in \semp{\Gamma}$ and $q \in \widehat{\typeQ}^{\freshfor s'}$.
-%
-Then \[
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
-\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}} } =
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}}
-\langle \gamma, q \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}.}}
-\] \end{lemma}
-
-\begin{proof} Firstly, \begin{equation} \begin{array}[t]{rcl}
+Firstly, \begin{equation} \begin{array}[t]{rcl}
 \multicolumn{3}{l}{ \tau^{(s' \setminus s'')++}_{\typeQ^{\freshfor s''}} \circ
 \phi_{\typeQ}^{(s')} }\\
 %
@@ -1397,33 +1435,6 @@ s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \bigr) \\
 s'')}_{\widehat{\typeQ}^{\freshfor s''}} \bigr) \\
 %
 \end{array} \end{equation} as required. \end{proof}
-
-
-\begin{lemma}[Characterising Support-Weakening for Terms]
-\label{densem:suppweak-terms:characterisation} Suppose that
-$\tjudge{s}{\Gamma}{t}{\typeP}$ is derived from $\tjudge{s'}{\Gamma}{t}{\typeP}$
-by support-weakening, where $s' \subseteq s$.
-%
-Let $\gamma \in \semp{\Gamma}$.
-%
-Then \begin{equation*} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma
-\rangle_{\Gamma} = \sem{\tjudge{s'}{\Gamma}{t}{\typeP}} \langle \gamma
-\rangle_{\Gamma.} \end{equation*} \end{lemma}
-
-\begin{proof} Immediate. \end{proof}
-
-\begin{lemma}[Characterising Support-Weakening for Actions]
-\label{densem:suppweak-actions:characterisation} Suppose that
-$\atjudge{s}{\typeP}{p}{\typePp}$ is derived from
-$\atjudge{s'}{\typeP}{p}{\typePp}$ by support-weakening, where $s' \subseteq s$.
-%
-Let $X \in \widehat{\typeP}$.
-%
-Then \begin{equation*} \sem{\atjudge{s}{\typeP}{p}{\typePp}} X =
-\sem{\atjudge{s'}{\typeP}{p}{\typePp}} X.  \end{equation*} \end{lemma}
-
-\begin{proof} Immediate. \end{proof}
-
 
 
 
