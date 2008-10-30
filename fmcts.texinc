@@ -21,7 +21,7 @@ that the finite-join-completion exponential does in HOPLA.
 
 \TODO{Complete this intro when this section is complete.}
 
-\subsection{Name-Binding is Directed-Join Discontinuous}
+\subsection{Name-Binding is Not Directed-Join Continuous}
 \label{bindingdiscts}
 
 It is now necessary to speculate a little on what a nominal extension to the
