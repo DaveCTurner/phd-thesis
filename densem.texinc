@@ -261,7 +261,7 @@ Let $X \in \matthat{\typemap{\typeQ}{\typeP}}$.
 Then \[\begin{array}{l}
 \sem{\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}} X \\
 \quad {} = \sem{\atjudge{s}{\typeP}{p}{\typePp}} \{ x \in \typeP \mid \exists Q
-\in \typelift\typeQ.\  Q \subseteq \sem{\tjudge{s}{}{u}{\typeQ}} \ \wedge \ %
+\in \typelift\typeQ.\  Q \subseteq \sem{\tjudge{s}{}{u}{\typeQ}} \text{ and }
 \mappath{Q}{x} \in X \}.  \end{array} \] \end{lemma}
 
 \begin{proof} By \ref{def:apply}.  \end{proof}
