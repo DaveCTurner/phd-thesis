@@ -749,6 +749,7 @@ Then $p \in \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
 \TODO{Update this}
 
 \subsubsection{Name Abstraction}
+\TODO{Is this characterisation an `iff'?}
 %\infer[(a \notin s)]
 %{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
 %{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} &&
@@ -784,6 +785,7 @@ a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma
 \end{array}\]
 
 \subsubsection{Name Application}
+\TODO{Is this characterisation an `iff'?}
 %\infer[(a \notin s)]
 %{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
 %{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \\
