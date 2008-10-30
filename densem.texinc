@@ -880,6 +880,19 @@ The other new structural rule of support-weakening, \begin{equation*} \infer[(s'
 \end{equation*} is simply given by the inclusion $\mathbf{FMCts}_{s'}
 \hookrightarrow \mathbf{FMCts}_s$.
 
+It is useful to characterise the action of these structural rules in terms of
+their action on inputs of the form $\langle \gamma \rangle_{\Gamma}$ where
+$\gamma \in \semp{\Gamma}$ is a tuple of paths in the appropriate environment
+$\Gamma$.
+%
+It turns out that these characterisations are all as one might expect.
+%
+However, the proofs of this are a little long and tedious, so
+the results are only stated alongside the corresponding definitions, and the
+proofs are collected at the end of this section.
+
+
+
 % Definition of denotational semantics { {{
 \begin{definition}[Semantics of Variable] \label{densem:variable} The meaning of
 a free variable (with no freshness assumptions) is simply the identity map on
@@ -956,13 +969,6 @@ J\sem{\tjudge{s'}{\Gamma}{t}{\typeP}}.  \end{equation*} \end{definition}
 categories and define \[\sem{\atjudge{s}{\typeP}{p}{\typePp}} \defeq
 J\sem{\atjudge{s'}{\typeP}{p}{\typePp}}.\] \end{definition}
 
-It is useful to characterise the action of these structural rules in terms of
-their action on inputs of the form $\langle \gamma \rangle_{\Gamma}$ where
-$\gamma \in \semp{\Gamma}$ is a tuple of paths in the appropriate environment
-$\Gamma$.
-%
-As shown below, it turns out that these characterisations are all as one might
-expect.
 
 
 \begin{lemma}[Characterising Weakening]
