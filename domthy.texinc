@@ -314,7 +314,7 @@ step follows since $c$ is fresh and $b \freshfor [b].((ab) \cdot f) p$.
 \end{proof}
 
 \begin{lemma} If $a \notin s$ then the operation $\delta_a$ defined in
-\ref{def:deltaa} is a functor $\mathbf{FMPre}_{s \udot a} \to
+\ref{def:deltaa} is a functor $\mathbf{FMPre}_{s \udot \{a\}} \to
 \mathbf{FMPre}_s$.\end{lemma}
 
 \begin{proof} Let $\typeP$ be an object of $\mathbf{FMPre}_{s \udot \{a\}}$.
