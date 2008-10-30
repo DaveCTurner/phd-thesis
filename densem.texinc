@@ -1024,12 +1024,12 @@ Let $\gamma \in \semp{\Gamma}$, $\lambda \in \semp{\Lambda}$, $q_1 \in
 \widehat{\typeQsub{1}}^{\freshfor s_1}$ and $q_2 \in
 \widehat{\typeQsub{2}}^{\freshfor s_2}$.
 %
-Then \begin{equation*} \begin{array}{l}
-\sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
+Then \begin{equation*} \begin{array}{cl}
+& \sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
 {}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}}{t}{\typeP}}
 \langle \gamma, q_2, q_1, \lambda
 \rangle_{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x2}{\typeQ
-{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \\ =
+{}_2}{s_2}} {\envvarfresh{x1}{\typeQ {}_1}{s_1} }} }{\Lambda}} \\ =&
 \sem{\tjudge{s}{\envcombine{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ
 {}_1}{s_1}} {\envvarfresh{x2}{\typeQ {}_2}{s_2} }} }{\Lambda}}{t}{\typeP}}
 \langle \gamma, q_1, q_2, \lambda
