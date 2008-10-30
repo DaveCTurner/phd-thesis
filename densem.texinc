@@ -624,21 +624,6 @@ $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ then define
 \circ \sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}.\]
 \end{definition}
 
-\begin{definition}[Semantics of Unfolding] \label{densem:rep} If the judgement
-$\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is
-derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}$ then define
-\[\sem{\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
-\defeq \mathbf{rep} \circ \sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}}.\]
-\end{definition}
-
-\begin{definition}[Semantics of Actions at Recursive Types]
-\label{densem:absaction} If the judgement
-$\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$ is derived from
-$\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$ then define
-\[\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}} \defeq
-\sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}} \circ
-\mathbf{rep}.\] \end{definition}
-
 \begin{lemma}[Characterising Folding] \label{densem:abs:characterisation}
 Suppose that $\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }$ is derived
 from $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$.
@@ -646,12 +631,17 @@ from $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$.
 Let $\gamma \in \semp{\Gamma}$ and $p \in
 \typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$.
 %
-Then $\abspath{p} \in \sem{\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }}
-\langle \gamma \rangle_\Gamma$ iff $p \in
+Then \[\abspath{p} \in \sem{\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }}
+\langle \gamma \rangle_\Gamma \text{ iff } p \in
 \sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} \langle
-\gamma \rangle_\Gamma$.  \end{lemma}
+\gamma \rangle_\Gamma.\]  \end{lemma}
 
-\begin{proof} By \ref{densem:abs}.  \end{proof}
+\begin{definition}[Semantics of Unfolding] \label{densem:rep} If the judgement
+$\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is
+derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}$ then define
+\[\sem{\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
+\defeq \mathbf{rep} \circ \sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}}.\]
+\end{definition}
 
 \begin{lemma}[Characterising Unfolding] \label{densem:rep:characterisation}
 Suppose that
@@ -661,30 +651,33 @@ derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }$.
 Let $\gamma \in \semp{\Gamma}$ and $p \in
 \typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$.
 %
-Then $p \in
+Then \[p \in
 \sem{\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
-\langle \gamma \rangle_\Gamma$ iff $\abspath{p} \in
+\langle \gamma \rangle_\Gamma \text{ iff } \abspath{p} \in
 \sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }} \langle \gamma
-\rangle_\Gamma$.  \end{lemma}
+\rangle_\Gamma.\]  \end{lemma}
 
-\begin{proof} By \ref{densem:rep} and the fact that $\mathbf{rep} =
-\mathbf{abs}^{-1}$.  \end{proof}
+\begin{definition}[Semantics of Actions at Recursive Types]
+\label{densem:absaction} If the judgement
+$\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$ is derived from
+$\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$ then define
+\[\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}} \defeq
+\sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}} \circ
+\mathbf{rep}.\] \end{definition}
 
 \begin{lemma}[Characterising Actions at Recursive Types]
 \label{densem:absaction:characterisation} Suppose that
 $\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$ is derived from
 $\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$.
 %
-Let $X \in \raisebox{0.6ex}{$\matthat{\raisebox{-0.6ex}{$\typerec{j}{P}{\typeP}$}}$}$.
+Let $X \in
+\raisebox{0.6ex}{$\matthat{\raisebox{-0.6ex}{$\typerec{j}{P}{\typeP}$}}$}$.
 %
 Then \[\begin{array}{l}
 \sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}} X \\ \qquad {}
 = \sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}} \{x \in
 \typeP_j[\typerec{}{P}{\typeP}/\vec{P}] \mid \abspath{x} \in X\}.  \end{array}\]
 \end{lemma}
-
-\begin{proof} By \ref{densem:absaction} and the fact that $\mathbf{rep} =
-\mathbf{abs}^{-1}$.  \end{proof}
 
 
 
