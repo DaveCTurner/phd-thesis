@@ -711,13 +711,13 @@ collection of judgements $\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ for each $i \in I$.
 %
 Let $\gamma \in \semp{\Gamma}$ and $p \in \typeP$.
 %
-Then $p \in \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
-\langle\gamma\rangle$ iff there exists $i \in I$ such that $p \in
-\sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}} \langle\gamma\rangle$.  \end{lemma}
+Then \[p \in \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
+\langle\gamma\rangle \text{ iff there exists $i \in I$ such that } p \in
+\sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}} \langle\gamma\rangle.\]  \end{lemma}
 
 \begin{proof} Since the join in $\matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times
-\typeP}$ is given by union, this follows immediately from \ref{densem:ndsum}.
-\end{proof}
+\typeP}$ that defines $\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}$ is
+given by union, this follows immediately from \ref{densem:ndsum}.  \end{proof}
 
 
 
