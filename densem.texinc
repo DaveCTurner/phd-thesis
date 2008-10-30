@@ -455,6 +455,20 @@ Therefore define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}}
 \defeq \mathbf{in}_{\ell_0} \circ
 \sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}}.\] \end{definition}
 
+\begin{lemma}[Characterising Labelling] \label{densem:linj:characterisation}
+Suppose that $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
+$\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$.
+%
+Let $\gamma \in \semp{\Gamma}$, $\ell \in L$ and $p \in \typePsub{\ell_0}$.
+%
+Then \[\labelpath{\ell}{p} \in
+\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle \gamma
+\rangle_\Gamma \text{ iff } \ell = \ell_0 \text{ and } p \in
+\sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}} \langle \gamma \rangle_\Gamma.\]
+\end{lemma}
+
+\begin{proof} By the properties of the biproduct.  \end{proof}
+
 \begin{definition}[Semantics of Label Projection] \label{densem:lproj} If the
 judgement $\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived
 from $\tjudge{s}{\Gamma}{t}{\stdtypesum}$ then by the typing rules it must be
@@ -465,6 +479,21 @@ Therefore define
 \[\sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}} \defeq
 \mathbf{out}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}}.\]
 \end{definition}
+
+\begin{lemma}[Characterising Label Projection]
+\label{densem:lproj:characterisation} Suppose that
+$\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
+$\tjudge{s}{\Gamma}{t}{\stdtypesum}$.
+%
+Let $\gamma \in \semp{\Gamma}$ and $p \in \typePsub{\ell_0}$.
+%
+Then \[p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
+\langle \gamma \rangle_\Gamma \text{ iff } \labelpath{\ell_0}{p} \in
+\sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}} \langle \gamma \rangle_\Gamma.\]
+\end{lemma}
+
+\begin{proof} By the properties of the biproduct.
+\end{proof}
 
 \begin{definition}[Semantics of Labelled Actions] \label{densem:labelaction} If
 the judgement $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is
@@ -478,39 +507,6 @@ Therefore define
 \sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}} \circ \mathbf{out}_{\ell_0}.\]
 \end{definition}
 
-The following lemmas demonstrate how these definitions capture tagging and
-matching.
-
-\begin{lemma}[Characterising Labelling] \label{densem:linj:characterisation}
-Suppose that $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
-$\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$.
-%
-Let $\gamma \in \semp{\Gamma}$, $\ell \in L$ and $p \in \typePsub{\ell_0}$.
-%
-Then $\labelpath{\ell}{p} \in
-\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}} \langle \gamma
-\rangle_\Gamma$ iff $\ell = \ell_0$ and $p \in
-\sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}} \langle \gamma \rangle_\Gamma$.
-\end{lemma}
-
-\begin{proof} By \ref{densem:linj} and the properties of the biproduct.
-\end{proof}
-
-\begin{lemma}[Characterising Label Projection]
-\label{densem:lproj:characterisation} Suppose that
-$\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
-$\tjudge{s}{\Gamma}{t}{\stdtypesum}$.
-%
-Let $\gamma \in \semp{\Gamma}$ and $p \in \typePsub{\ell_0}$.
-%
-Then $p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
-\langle \gamma \rangle_\Gamma$ iff $\labelpath{\ell_0}{p} \in
-\sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}} \langle \gamma \rangle_\Gamma$.
-\end{lemma}
-
-\begin{proof} By \ref{densem:lproj} and the properties of the biproduct.
-\end{proof}
-
 \begin{lemma}[Characterising Labelled Actions]
 \label{densem:labelaction:characterisation} Suppose that
 $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is derived from
@@ -523,8 +519,7 @@ Then \[\begin{array}{l}
 = \sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}} \{x \in \typePsub{\ell_0}
 \mid \labelpath{\ell_0}{x} \in X\}.  \end{array}\] \end{lemma}
 
-\begin{proof} By \ref{densem:labelaction} and the properties of the biproduct.
-\end{proof}
+\begin{proof} By the properties of the biproduct.  \end{proof}
 
 
 
