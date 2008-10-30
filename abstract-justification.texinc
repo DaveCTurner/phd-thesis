@@ -2,13 +2,10 @@
 \label{abstract-justification}
 
 This chapter introduces a more universal approach to the nominal domain theory
-introduced in the previous chapters.
+introduced above.
 %
-Its definitions are all local to this chapter, in the sense that the rest of
-this dissertation does not depend on them.
-%
-It exists to provide a justification that the definitions of the previous
-chapters were the results of sensible and canonical choices.
+It provides a justification that the definition of the semantics of Nominal
+HOPLA is the result of sensible and canonical choices.
 
 In \ref{fmpre:alternative} it is shown that the collection
 $(\mathbf{FMPre}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$ of categories arises
