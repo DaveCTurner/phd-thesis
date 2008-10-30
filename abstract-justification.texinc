@@ -523,12 +523,13 @@ for Concurrency is the use of Kleisli and co-Kleisli constructions, and from
 $(-) \otimes \mathbb A \dashv \delta$.
 %
 Since this dissertation aims to merge these two theories, it will be important
-that these structures `play nicely' with each other.
+that these structures interplay well.
 %
-Abstractly, and subject to certain coherence conditions, they do indeed `play
-nicely', and this fact gives rise to the binding structure in the FM-linear and
-FM-continuous categories defined in \ref{subsubsect:deltafreshadjlin} and
-\ref{subsubsect:deltafreshadjcts} respectively.
+Abstractly, and subject to certain coherence conditions, they do indeed
+interplay well, and this fact gives rise to the binding structure in the
+FM-linear and FM-continuous categories defined in
+\ref{subsubsect:deltafreshadjlin} and \ref{subsubsect:deltafreshadjcts}
+respectively.
 
 \subsection{Adjoints to Inclusions}
 
