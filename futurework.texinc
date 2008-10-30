@@ -21,7 +21,12 @@ but certainly not chain-finite.}
 
 \TODO{Write this}
 
-\TODO{Development of 'Nominal Category Theory' a prerequisite?}
+\TODO{Development of 'Nominal Category Theory' a prerequisite?} 
+
+\TODO{What does $\delta$ of a category do?}
+
+\TODO{$\delta\widehat{\typeP} \simeq \widehat{\delta\typeP}$ for presheaves over
+the category $\typeP$}
 
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
