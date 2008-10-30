@@ -103,11 +103,11 @@ Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 %\end{proof}
 
 
-\subsection{Denotational Semantics of Terms and Actions}
+\section{Denotational Semantics of Terms and Actions}
 
-Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows \begin{equation}
-\label{densem:tjudge} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} : \sem{\Gamma} \to
-\typeP \end{equation} in $\mathbf{FMCts}_s$.
+Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
+\begin{equation*} \label{densem:tjudge} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} :
+\sem{\Gamma} \to \typeP \end{equation*} in $\mathbf{FMCts}_s$.
 %
 The denotation of a typing judgement is built by recursion on the derivation of
 the typing judgement, making use of the various universal constructions
@@ -166,9 +166,9 @@ from the inclusion $\mathbf{FMCts}_s \hookrightarrow \mathbf{FMCts}_{s'}$.
 
 
 Typing judgements $\atjudge{s}{\typeP}{p}{\typePp}$ denote arrows
-\begin{equation} \label{densem:atjudge} \sem{\atjudge{s}{\typeP}{p}{\typePp}} :
-\typeP \to \typelift\typePp \end{equation} in $\mathbf{FMCts}_s$ by recursion on
-the structure of $p$ as shown below.
+\begin{equation*} \label{densem:atjudge} \sem{\atjudge{s}{\typeP}{p}{\typePp}} :
+\typeP \to \typelift\typePp \end{equation*} in $\mathbf{FMCts}_s$ by recursion
+on the structure of $p$ as shown below.
 %
 Intuitively the arrow $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ matches its input
 against the action $p$ and returns a collection of possible resumptions after
