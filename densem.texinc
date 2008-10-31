@@ -149,9 +149,9 @@ The adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
 a semantics of names and binding as demonstrated in \ref{densem:new} and
 \ref{densem:newapply}.
 
-Finally, the structural rules for variables, exchange, weakening and contraction
+Finally, the structural rules for variables, weakening, exchange and contraction
 make use of the cartesian structure of $\mathbf{FMCts}_s$ in the usual fashion,
-as shown in \ref{densem:variable}, \ref{densem:exchange}, \ref{densem:weakening}
+as shown in \ref{densem:variable}, \ref{densem:weakening}, \ref{densem:exchange}
 and \ref{densem:contraction}.
 %
 The nominal structure gives rise to two extra structural rules.
