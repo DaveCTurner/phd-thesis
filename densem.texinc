@@ -597,6 +597,9 @@ $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
 \mathrm{fix}(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
 }}{t}{\typeP}}^*).\] \end{definition}
 
+As expected, the denotation of a recursive process is equivalent to its
+unfolding, as follows.
+
 \begin{lemma}[Characterising Recursion] \label{densem:rec:characterisaion}
 %
 Suppose that $\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}$ is derived from
@@ -665,6 +668,9 @@ $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ then define
 \circ \sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}.\]
 \end{definition}
 
+The semantics of folding can be given a concrete, set theoretic,
+characterisation in terms of paths as follows.
+
 \begin{lemma}[Characterising Folding] \label{densem:abs:characterisation}
 Suppose that $\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }$ is derived
 from $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$.
@@ -677,12 +683,18 @@ Then \[\abspath{p} \in \sem{\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }
 \sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}} \langle
 \gamma \rangle_\Gamma.\]  \end{lemma}
 
+Similarly, unfolding a recursively-defined type uses the inverse $\mathbf{rep}$
+in its semantics.
+
 \begin{definition}[Semantics of Unfolding] \label{densem:rep} If the judgement
 $\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is
 derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}$ then define
 \[\sem{\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
 \defeq \mathbf{rep} \circ \sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}}.\]
 \end{definition}
+
+The semantics of unfolding can be given a concrete, set theoretic,
+characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Unfolding] \label{densem:rep:characterisation}
 Suppose that
@@ -698,6 +710,9 @@ Then \[p \in
 \sem{\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }} \langle \gamma
 \rangle_\Gamma.\]  \end{lemma}
 
+The denotational semantics of the action $\absaction{p}$ is
+closely related to that of type unfolding as follows.
+
 \begin{definition}[Semantics of Actions at Recursive Types]
 \label{densem:absaction} If the judgement
 $\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}$ is derived from
@@ -705,6 +720,9 @@ $\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$ then define
 \[\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}} \defeq
 \sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}} \circ
 \mathbf{rep}.\] \end{definition}
+
+The semantics of the action $\absaction{p}$ can be given a concrete, set
+theoretic, characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Actions at Recursive Types]
 \label{densem:absaction:characterisation} Suppose that
