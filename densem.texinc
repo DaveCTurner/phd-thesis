@@ -298,6 +298,9 @@ prefixed term $\bang{t}$ as follows.
 \sem{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}} \defeq \eta_{\typeP} \circ
 \sem{\tjudge{s}{\Gamma}{t}{\typeP}}. \end{equation*} \end{definition}
 
+The semantics of prefixing can be given a concrete, set theoretic,
+characterisation in terms of paths as follows.
+
 \begin{lemma}[Characterising Prefixing] \label{densem:prefix:characterisation} 
 %
 Suppose that $\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}$ is derived from
@@ -390,6 +393,9 @@ defined in \ref{}, then \begin{equation*} \begin{array}[t]{l}
 \sem{\atjudge{s''}{\typeQp}{q}{\typeQ}}^{\freshfor s'++} \circ
 \sem{\tjudge{s''}{\Lambda}{u}{\typeQp}}^{\freshfor s'++} \right) \right).
 \end{array} \end{equation*} \end{definition}
+
+The semantics of prefix matching can be given a concrete, set theoretic,
+characterisation in terms of paths as follows.
 
 \TODO{Is this lemma an `iff'?}
 
