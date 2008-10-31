@@ -924,41 +924,101 @@ a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma
 \\ \end{array}\end{equation} as required.  \end{proof}
 
 
+The other transposition in the adjunction $(-)^{\freshfor a++} \dashv
+\delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot
+\{a\}}$ gives rise to a denotational semantics for terms of the form
+$\newapply{t}{a}$ as follows.
+
+\begin{definition}[Semantics of Name Application] \label{densem:newapply} If the
+judgement $\tjudge{s \udot
+\{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}$ is derived from
+$\tjudge{s}{\Gamma}{t}{\typedelta \typeP}$ where $a \notin s$ then define
+$\sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}$ to
+be the transpose of $\sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}$ in the
+adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
+\leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$.
+%
+In other words, \[\sem{\tjudge{s \udot
+\{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}} \defeq
+%
+\widehat{\zeta_{\typeP}} \circ \sem{\tjudge{s}{\Gamma}{t}{\typedelta
+\typeP}}^{\freshfor a++} \]\end{definition}
+
+The semantics of name abstraction can be given a concrete, set theoretic,
+characterisation in terms of paths as follows.
+
+\begin{lemma}[Characterising Name Application]
+\label{densem:newapply:characterisation} Suppose that $\tjudge{s \udot
+\{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}$ is derived from
+$\tjudge{s}{\Gamma}{t}{\typedelta \typeP}$ where $a \notin s$.
+%
+Let $\gamma \in \semp{\envfresh{\Gamma}{a}}$ and let $p \in \typeP$.
+%
+Then \[ \newpath{a}{p} \in \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}
+\langle \gamma \rangle_\Gamma \text{ iff } p \in \sem{\tjudge{s \udot
+\{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}} \langle \gamma
+\rangle_{\envfresh{\Gamma}{a}}. \] \end{lemma}
+
+\begin{proof} Firstly note that \begin{equation} \begin{array}[t]{rcl}
+\multicolumn{3}{l}{\sem{\tjudge{s \udot
+\{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}} \langle \gamma
+\rangle_{\envfresh{\Gamma}{a}}} \\
+%
+&=& \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
+\sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}^{\freshfor a} \circ
+\phi_{\sem{\Gamma}}^{-1}\bigr) \langle \gamma \rangle_{\envfresh{\Gamma}{a}} \\
+%
+&=& \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
+\sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}^{\freshfor a} \bigr) \langle
+\gamma \rangle_{\Gamma} \\
+%
+&=& \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \bigr) \Bigl(
+\sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma \rangle_{\Gamma}
+\Bigr) \\
+%
+\end{array} \end{equation}
+%
+Notice that $a \freshfor \newpath{a}{p}$ so that if $ \newpath{a}{p} \in
+\sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma \rangle_{\Gamma} $
+then $\newpath{a}{p} \in \phi_{\delta_a \typeP} \Bigl(
+\sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma \rangle_{\Gamma}
+\Bigr)$ and hence \begin{equation} \begin{array}[r]{rcl} p &=&
+(\newpath{a}{p})@a  \\
+%
+&\in& \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \bigr)  \Bigl(
+\sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma \rangle_{\Gamma}
+\Bigr) \\
+%
+&=& \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
+\langle \gamma \rangle_{\envfresh{\Gamma}{a}}
+%
+\end{array} \end{equation} as required.
+%
+Conversely suppose that \begin{equation} \begin{array}[t]{rcl} p &\in&
+%
+\sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
+\langle \gamma \rangle_{\envfresh{\Gamma}{a}} \\
+%
+&=& \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \bigr)  \Bigl(
+\sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma \rangle_{\Gamma}
+\Bigr)
+%
+\end{array} \end{equation} then there exists $p' \in \phi_{\delta_a \typeP}
+\Bigl( \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma
+\rangle_{\Gamma} \Bigr)$ such that $p \le_{\typeP} \zeta_{\typeP} (p') = p' @
+a$.
+%
+Therefore $\newpath{a}{p} \le_{\typedelta\typeP} \newpath{a}{(p'@a)} = p'$ and
+$p' \in \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma
+\rangle_{\Gamma}$ so that $\newpath{a}{p} \in
+\sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma \rangle_{\Gamma}$
+as required.
+%
+\end{proof}
 
 
 \TODO{Update this}
 
-
-\subsubsection{Name Application}
-\TODO{Is this characterisation an `iff'?}
-%\infer[(a \notin s)]
-%{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
-%{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \\
-Define \[\sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
-= \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}^{\wedge}\]
-where $(-)^{\wedge}$ is the appropriate transposition in the adjunction
-\ref{deltafreshadjcts}.
-%
-Let
-\[\begin{array}{rcl}
-p &\in& \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{\newapply{t}{a}}{\typeP}}
-\langle \gamma \rangle_{\envfresh{\Gamma}{a}} \\
-&=& \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}^{\wedge} \langle \gamma
-\rangle_{\envfresh{\Gamma}{a}}\\
-&=& \bigl(\widehat{\zeta_{\typeP}} \circ \phi_{\delta_a \typeP} \circ
-\sem{t}^{\freshfor a} \circ \phi_{\sem{\Gamma}}^{-1}\bigr)
-\langle \gamma \rangle_{\envfresh{\Gamma}{a}}\\
-\end{array}\]
-by the definitions of \ref{subsubsect:deltafreshadjcts}. Therefore
-\[\begin{array}{rcl}
-\newpath{a}{p} &\in& \bigl(\phi_{\delta_a \typeP} \circ
-\sem{t}^{\freshfor a} \circ \phi_{\sem{\Gamma}}^{-1}\bigr) \langle \gamma
-\rangle_{\envfresh{\Gamma}{a}}\\
-&\subseteq& \bigl(\sem{t}^{\freshfor a} 
-\circ \phi_{\sem{\Gamma}}^{-1}\bigr) \langle \gamma
-\rangle_{\envfresh{\Gamma}{a}}\\
-&=& \sem{t} \langle \gamma \rangle_{\Gamma}
-\end{array}\]
 
 
 \subsubsection{New Name Action}
