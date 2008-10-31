@@ -1016,34 +1016,52 @@ as required.
 %
 \end{proof}
 
+The semantics of the action $\newaction{a}{p}$ is given by the functor
+$\delta_a^{++}$ together with the isomorphism $\theta^{!}$ as follows.
 
-\TODO{Update this}
+\begin{definition}[Semantics of Name-Abstracted Actions]
+\label{densem:newaction} If the judgement
+$\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$ is derived
+from $\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}$ where $a \notin s$ then
+define
+\[\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}
+\defeq \widehat{\theta^{!}_{\typePp}} \circ \delta_a^{++} \sem{\atjudge{s \udot
+\{a\}}{\typeP}{p}{\typePp}}.\] \end{definition}
 
+The denotational semantics of the action $\newaction{a}{p}$ can be given a
+concrete, set theoretic, characterisation in terms of paths as follows.
 
+\begin{lemma}[Characterising Name-Abstracted Actions]
+\label{densem:newaction:characterisation} Suppose that
+$\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$ is derived
+from $\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}$ where $a \notin s$.
+%
+Let $X \in \widehat{\typedelta\typeP}$.
+%
+Then \[\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}
+X = \{\theta^{!}_{\typePp}Y \mid \freshin{b}{ Y @ b \in \sem{(ab) \cdot p} \{x
+\mid \newpath{b}{x} \in X}\}\}_{\downarrow} \] \end{lemma}
 
-\subsubsection{New Name Action}
-If $a \notin s$ then define \[\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}
-= \widehat{\theta^{!}_{\typePp}} \circ \theta_{\typelift\typePp}
-\circ \delta_a \sem{\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}} \circ
-\theta^{-1}_{\typeP}.\] Therefore
-\[\begin{array}{rcl}
-\multicolumn{3}{l}{\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}} X} \\
-&=& \bigl(\widehat{\theta^{!}_{\typePp}} \circ \theta_{\typelift\typePp}
-\circ \delta_a \sem{p} \circ
-\theta^{-1}_{\typeP}\bigr) X \\
-&=& \bigl(\widehat{\theta^{!}_{\typePp}} \circ \theta_{\typelift\typePp}
-\circ \delta_a \sem{p} \bigr)
-\bigl(\freshin{b}{[b].\{x \mid \newpath{b}{x}
-\in X\}}\bigr) \\
+\begin{proof} \[\begin{array}{rcl}
+\multicolumn{3}{l}{\sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}
+X} \\
+%
+&=& \bigl(\widehat{\theta^{!}_{\typePp}} \circ \theta_{\typelift\typePp} \circ
+\delta_a \sem{p} \circ \theta^{-1}_{\typeP}\bigr) X \\
+%
+&=& \bigl(\widehat{\theta^{!}_{\typePp}} \circ \theta_{\typelift\typePp} \circ
+\delta_a \sem{p} \bigr) \bigl(\freshin{b}{[b].\{x \mid \newpath{b}{x} \in
+X\}}\bigr) \\
+%
 &=& \bigl(\widehat{\theta^{!}_{\typePp}} \circ \theta_{\typelift\typePp} \bigr)
-\bigl(\freshin{b}{[b].  \sem{(ab) \cdot p}
-\{x \mid \newpath{b}{x} \in X\}}\bigr) \\
-&=& \widehat{\theta^{!}_{\typePp}} 
-\{Y \mid \freshin{b}{Y @ b \in \sem{(ab) \cdot p}
-\{x \mid \newpath{b}{x} \in X}\}\} \\
-&=& \{\theta^{!}_{\typePp}Y \mid \freshin{b}{
-Y @ b \in \sem{(ab) \cdot p} \{x \mid \newpath{b}{x} \in X}\}\}_{\downarrow} \\
-\end{array}\]
+\bigl(\freshin{b}{[b].  \sem{(ab) \cdot p} \{x \mid \newpath{b}{x} \in
+X\}}\bigr) \\
+%
+&=& \widehat{\theta^{!}_{\typePp}} \{Y \mid \freshin{b}{Y @ b \in \sem{(ab)
+\cdot p} \{x \mid \newpath{b}{x} \in X}\}\} \\
+%
+&=& \{\theta^{!}_{\typePp}Y \mid \freshin{b}{ Y @ b \in \sem{(ab) \cdot p} \{x
+\mid \newpath{b}{x} \in X}\}\}_{\downarrow} \\ \end{array}\] \end{proof}
 
 \subsection{Structural Rules}
 
