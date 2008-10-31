@@ -805,43 +805,129 @@ given by union, this follows immediately from \ref{densem:ndsum}.  \end{proof}
 
 
 \subsection{Names and Binding}
+
+The adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
+\leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$ of \ref{deltafreshadjcts} gives
+rise to the denotational semantics for terms of the form $\new{a}{t}$ and
+$\newapply{t}{a}$ as follows.
+
+\begin{definition}[Semantics of Name Abstraction] \label{densem:new} If the
+judgement $\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}$ is derived from
+$\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}$ where $a \notin s$
+then define $\sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}$ to be the
+transpose of $\sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}}$ in
+the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
+\leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$.
+%
+In other words,
+\[\sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}} \defeq
+%
+\delta_a^{++} \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}}
+\circ \widehat{\xi_{\sem{\Gamma}}}.
+\]\end{definition}
+
+The semantics of name abstraction can be given a concrete, set theoretic,
+characterisation in terms of paths as follows.
+
+\begin{lemma}[Characterising Name Abstraction]
+\label{densem:new:characterisation} Suppose that
+$\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}$ is derived from $\tjudge{s
+\udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}$ where $a \notin s$.
+%
+Let $\gamma \in \semp{\Gamma}$, let $b$ be a fresh name and let $p \in \typeP$.
+%
+Then \[ \newpath{b}{p} \in \sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta
+\typeP}} \langle \gamma \rangle_\Gamma \text{ iff } p \in \sem{\tjudge{s \udot
+\{b\}}{\envfresh{\Gamma}{b}}{(ab) \cdot t}{\typeP}} \langle \gamma
+\rangle_{\envfresh{\Gamma}{b}} . \] \end{lemma}
+
+\begin{proof} Firstly, note that since $b \freshfor \gamma$ it follows that
+$\gamma \in \semp{\envfresh{\Gamma}{b}}$ so that $\langle \gamma
+\rangle_{\envfresh{\Gamma}{b}}$ is well-defined.
+%
+Also it is the case that $\langle \gamma \rangle_{\envfresh{\Gamma}{b}} =
+\left(\bigl(\theta_{\sem{\Gamma}^{\freshfor a}}^{-1} \circ
+\widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma \right)
+\mathop{@}b$ as follows.
+%
+Let $x \in \langle \gamma \rangle_{\Gamma^{\freshfor b}}$, then $x \in \langle
+\gamma \rangle_\Gamma$ and $x \freshfor b$ so that $[b].x \in
+\widehat{\xi_{\sem{\Gamma}}}\langle \gamma \rangle_\Gamma$.
+%
+Let $c$ be a fresh name, then $[b].x = (bc) \cdot ([b].x) = [c].((bc) \cdot x)$.
+%
+By the definition of $\theta^{-1}$ it follows that \begin{equation}
+\bigl(\theta_{\sem{\Gamma}^{\freshfor a}}^{-1} \circ
+\widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma =
+\freshin{c}{[c].\{x \mid [c].x \in \widehat{\xi_{\sem{\Gamma}}}\langle \gamma
+\rangle_\Gamma \}} \end{equation} so that \begin{equation}
+\left(\bigl(\theta_{\sem{\Gamma}^{\freshfor a}}^{-1} \circ
+\widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma \right)
+\mathop{@}b = (bc) \cdot \bigl([c].\{x \mid [c].x \in
+\widehat{\xi_{\sem{\Gamma}}}\langle \gamma \rangle_\Gamma \} \bigr)
+\end{equation} and hence $x \in \left(\bigl(\theta_{\sem{\Gamma}^{\freshfor
+a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma
+\right) \mathop{@}b$ as required.
+%
+Conversely, let \begin{equation} x \in
+\left(\bigl(\theta_{\sem{\Gamma}^{\freshfor a}}^{-1} \circ
+\widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma \right)
+\mathop{@}b \end{equation} and let $c$ be a fresh name, then $(bc) \cdot x \in
+\{x \mid [c].x \in \widehat{\xi_{\sem{\Gamma}}} \langle \gamma \rangle_\Gamma
+\}$ so that \begin{equation} [c].((bc) \cdot x) = (bc) \cdot ([b].x) = [b].x \in
+\widehat{\xi_{\sem{\Gamma}}} \langle \gamma \rangle_\Gamma. \end{equation}
+%
+Therefore there exists $x' \in \langle \gamma \rangle_{\Gamma}$ such that $[b].x
+\le_{\delta_a (\sem{\Gamma}^{\freshfor a})} \freshin{d}{[d].x'}$ and hence, for
+any fresh name $d$, $x \le_{\sem{\Gamma}^{\freshfor b}} (bd) \cdot x'$.
+%
+Also $b \freshfor (bd) \cdot x'$ so that $(bd) \cdot x' \in \langle \gamma
+\rangle_{\Gamma^{\freshfor b}}$ and hence $x \in \langle \gamma
+\rangle_{\Gamma^{\freshfor b}}$ as required.
+%
+Thus as claimed, \begin{equation} \left(\bigl(\theta_{\sem{\Gamma}^{\freshfor
+a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma
+\right) \mathop{@}b  = \langle \gamma \rangle_{\Gamma^{\freshfor b}}.
+\end{equation}
+
+Now $\newpath{b}{p} \in \sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
+\langle \gamma \rangle_\Gamma$ if and only if \begin{equation} 
+%
+\newpath{b}{p} \in \sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
+\langle \gamma \rangle_\Gamma
+%
+= \bigl( \theta_{\typeP} \circ \delta_a \sem{\tjudge{s \udot
+\{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} \circ \theta_{\sem{\Gamma}^{\freshfor
+a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}} \bigr) \langle \gamma \rangle_\Gamma
+\end{equation} and since $b$ is fresh by the definition of $\theta$ it follows
+that this is equivalent to \begin{equation} \begin{array}[t]{rcl} p &\in&
+%
+\left(\bigl(\delta_a \sem{\tjudge{s \udot
+\{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} \circ \theta_{\sem{\Gamma}^{\freshfor
+a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma
+\right) \mathop{@} b \\
+%
+&=& \bigl( (ab) \cdot \sem{\tjudge{s \udot
+\{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} \bigr)
+\left(\left(\bigl(\theta_{\sem{\Gamma}^{\freshfor a}}^{-1} \circ
+\widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma \right)
+\mathop{@}b \right) \\
+%
+&=& \sem{\tjudge{s \udot \{b\}}{\envfresh{\Gamma}{b}}{(ab) \cdot t}{\typeP}}
+\left(\left(\bigl(\theta_{\sem{\Gamma}^{\freshfor a}}^{-1} \circ
+\widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma \right)
+\mathop{@}b \right) \\
+%
+&=& \sem{\tjudge{s \udot \{b\}}{\envfresh{\Gamma}{b}}{(ab) \cdot t}{\typeP}}
+\langle\gamma\rangle_{\Gamma^{\freshfor b}}
+%
+\\ \end{array}\end{equation} as required.  \end{proof}
+
+
+
+
 \TODO{Update this}
 
-\subsubsection{Name Abstraction}
-\TODO{Is this characterisation an `iff'?}
-%\infer[(a \notin s)]
-%{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
-%{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}} &&
-Define \[\sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
-= \sem{\tjudge{s \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}}^{\vee}\]
-where $(-)^{\vee}$ is the appropriate transposition in the adjunction
-\ref{deltafreshadjcts}.
-%
-Let $b$ be a fresh name and let
-\[\begin{array}{rcl}
-\newpath{b}{p} &\in& \sem{\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}
-\langle \gamma \rangle_\Gamma \\
-&=& \sem{\tjudge{s}{\envfresh{\Gamma}{a}}{t}{\typeP}}^{\vee} \langle \gamma
-\rangle_\Gamma\\
-&=& \bigl(\theta_{\typeP} \circ \delta_a \sem{t} \circ
-\theta_{\sem{\Gamma}^{\freshfor a}}^{-1} \circ
-\widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma
-\end{array}\]
-by the definitions of \ref{subsubsect:deltafreshadjcts}.
-%
-Since $b$ is fresh, by the definition of $\theta$,
-\[\begin{array}{rcl}
-p &\in& \left(\bigl(\delta_a \sem{t} \circ \theta_{\sem{\Gamma}^{\freshfor
-a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma \right)
-\mathop{@} b \\
-&=& \sem{(ab) \cdot t} \left(\left(\bigl(\theta_{\sem{\Gamma}^{\freshfor
-a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma
-\rangle_\Gamma \right) \mathop{@}b \right) \\
-&=& \sem{(ab) \cdot t} \bigl\{ x \mid [b].x \in \widehat{\xi_{\sem{\Gamma}}} \langle \gamma
-\rangle_\Gamma \bigr\} \\
-&=& \sem{(ab) \cdot t} \bigl\{ x \in \langle \gamma \rangle \mid x \freshfor b \bigr\} \\
-&=& \sem{(ab) \cdot t} \langle \gamma \rangle_{\envfresh{\Gamma}{b}}
-\end{array}\]
 
 \subsubsection{Name Application}
 \TODO{Is this characterisation an `iff'?}
