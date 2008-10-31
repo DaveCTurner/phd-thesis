@@ -461,8 +461,7 @@ Generalised biproducts $\stdtypesum$, described in \ref{fmcts:genbiproducts},
 give rise to a denotational semantics for labelling.
 %
 Injection into the biproduct corresponds to tagging the outputs of a process
-with a particular label, whereas projection from the biproduct corresponds to
-matching the outputs of a process against a particular label.
+with a particular label as follows.
 
 \begin{definition}[Semantics of Labelling] \label{densem:linj} If the judgement
 $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
@@ -473,6 +472,10 @@ $\ell_0$ so that the injection $\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \to
 Therefore define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}}
 \defeq \mathbf{in}_{\ell_0} \circ
 \sem{\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}}.\] \end{definition}
+
+This definition can be given a concrete, set theoretic, characterisation in
+terms of paths which highlight how it captures the semantics of labelling as
+follows.
 
 \begin{lemma}[Characterising Labelling] \label{densem:linj:characterisation}
 Suppose that $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
@@ -488,6 +491,9 @@ Then \[\labelpath{\ell}{p} \in
 
 \begin{proof} By the properties of the biproduct.  \end{proof}
 
+On the other hand projection from the biproduct corresponds to matching the
+outputs of a process against a particular label as follows.
+
 \begin{definition}[Semantics of Label Projection] \label{densem:lproj} If the
 judgement $\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived
 from $\tjudge{s}{\Gamma}{t}{\stdtypesum}$ then by the typing rules it must be
@@ -498,6 +504,10 @@ Therefore define
 \[\sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}} \defeq
 \mathbf{out}_{\ell_0} \circ \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}}.\]
 \end{definition}
+
+This definition can be given a concrete, set theoretic, characterisation in
+terms of paths which highlight how it captures the semantics of label-matching
+as follows.
 
 \begin{lemma}[Characterising Label Projection]
 \label{densem:lproj:characterisation} Suppose that
@@ -514,6 +524,9 @@ Then \[p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
 \begin{proof} By the properties of the biproduct.
 \end{proof}
 
+The denotational semantics of the labelled action $\labelaction{\ell_0}{p}$ is
+closely related to that of label projection at the label $\ell_0$ as follows.
+
 \begin{definition}[Semantics of Labelled Actions] \label{densem:labelaction} If
 the judgement $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is
 derived from $\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$ then by the typing
@@ -525,6 +538,9 @@ Therefore define
 \[\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}} \defeq
 \sem{\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}} \circ \mathbf{out}_{\ell_0}.\]
 \end{definition}
+
+The semantics of the labelled action $\labelaction{\ell_0}{p}$ can be given a
+concrete, set theoretic, characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Labelled Actions]
 \label{densem:labelaction:characterisation} Suppose that
