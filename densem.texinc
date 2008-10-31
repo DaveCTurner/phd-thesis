@@ -238,7 +238,7 @@ The semantics of function application can be given a concrete, set theoretic,
 characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Function Application]
-\label{densem:apply:characterisation} Suppose that
+\label{densem:apply:characterisation} Suppose that the judgement
 $\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}$ is
 derived from $\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}$ and
 $\tjudge{s}{\Lambda}{u}{\typeQ}$.
@@ -484,8 +484,8 @@ terms of paths which highlight how it captures the semantics of labelling as
 follows.
 
 \begin{lemma}[Characterising Labelling] \label{densem:linj:characterisation}
-Suppose that $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
-$\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$.
+Suppose that the judgement $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$
+is derived from $\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$.
 %
 Let $\gamma \in \semp{\Gamma}$, $\ell \in L$ and $p \in \typePsub{\ell_0}$.
 %
