@@ -133,14 +133,18 @@ currying} \\
 \subseteq s\} \end{array}\end{equation} characterises hom-sets in
 $\mathbf{FMLin}_s$.
 %
-Therefore each hom-set may be endowed with a partial order structure, given by
-$\subseteq$, and joins given by union.
+Under this correspondence the ordering (given by inclusion) on
+$\matthat{\typeP^{\mathrm{op}} \times \typeQ}$ gives rise to an ordering (given
+by pointwise inclusion) on $\mathbf{FMLin}_{s}(\typeP, \typeQ)$, and joins
+(given by union) in $\matthat{\typeP^{\mathrm{op}} \times \typeQ}$ give rise to
+joins (given by pointwise union) in $\mathbf{FMLin}_{s}(\typeP, \typeQ)$.
 %
 Furthermore composition preserves joins in both its arguments, and in particular
 it is monotone.
 %
 The order structure on the hom-sets gives rise to a commutative monoid
-structure, with multiplication given by $\cup$ and unit given by $\varnothing$.
+structure, with multiplication given by binary pointwise union and unit given by
+the empty map $\varnothing$.
 %
 Moreover composition is a monoid homomorphism which makes it possible to view
 each $\mathbf{FMLin}_s$ as being enriched over $\mathbf{CMon}$.
