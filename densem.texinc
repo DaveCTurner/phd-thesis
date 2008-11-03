@@ -768,11 +768,11 @@ This captures the semantics of nondeterminism as follows.
 Suppose that $\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from the
 collection of judgements $\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ for each $i \in I$.
 %
-Let $\gamma \in \semp{\Gamma}$ and $p \in \typeP$.
+Let $\gamma \in \semp{\Gamma}$.
 %
-Then \[p \in \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
-\langle\gamma\rangle \text{ iff there exists $i \in I$ such that } p \in
-\sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}} \langle\gamma\rangle.\]  \end{lemma}
+Then \[\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle\gamma\rangle
+= \bigcup_{i \in I} \bigl( \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}}
+\langle\gamma\rangle \bigr).\] \end{lemma}
 
 \begin{proof} Since the join in $\matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times
 \typeP}$ that defines $\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}$ is
