@@ -4,12 +4,16 @@
 \subsection{Preliminaries}
 
 Fix a set of (term) variables $\termvar{x}, \termvar{y}, \ldots$ and a set of
-type variables $P, \ldots$, each with a discrete permutation action.  Also fix
-a set $\mathcal L$ of nominal label-sets $L, \ldots$.  $\mathcal L$ also has
-the discrete permutation action. Labels will be written $\ell, \ell_0, \ldots
-\in L$. Note that each $L \in \mathcal L$ does not necessarily have the discrete
-permutation action, so that for some labels $\ell$ and some permutations $\sigma$
-it may be the case that $\sigma \cdot \ell \neq \ell$.
+type variables $P, \ldots$, each with a discrete permutation action.
+%
+Also fix a set $\mathcal L$ of nominal label-sets, also with the discrete
+permutation action.
+%
+Labels will be written $\ell, \ell_0, \ldots \in L \in \mathcal L$.
+%
+Note that each $L \in \mathcal L$ does not necessarily have the discrete
+permutation action, so that for some labels $\ell$ and some permutations
+$\sigma$ it may be the case that $\sigma \cdot \ell \neq \ell$.
 
 \subsection{Syntax of Types}
 
