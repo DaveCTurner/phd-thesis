@@ -17,9 +17,9 @@ $\sigma$ it may be the case that $\sigma \cdot \ell \neq \ell$.
 
 \subsection{Syntax of Types}
 
-Types are given by the grammar \[\typeP, \typeQ ::= \typevar{P} \mid
+Types are given by the grammar \begin{equation} \typeP, \typeQ ::= \typevar{P} \mid
 \typelift{\typeP} \mid \typemap{\typeQ}{\typeP} \mid \typedelta{\typeP} \mid
-\stdtypesum \mid \typerec{j}{P}{\typeP}, \] where $P$ is a type variable,
+\stdtypesum \mid \typerec{j}{P}{\typeP}, \end{equation} where $P$ is a type variable,
 $\vec{P}$ is a list of type variables, and $\typerec{j}{P}{\typeP}$ binds
 $\vec{P}$. A closed type is a type with no free variables, and in the
 following, closed types will normally simply be called `types'. The permutation
