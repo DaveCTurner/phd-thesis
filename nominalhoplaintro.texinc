@@ -48,18 +48,15 @@ variables in scope, and substitution will silently avoid capturing free
 variables. In particular, if $\termvar{x}$ is a variable and $\sigma$ is a
 permutation of the set of atoms then $\sigma \cdot \termvar{x} = \termvar{x}$.
 
-The design of Nominal HOPLA is motivated by universal constructions in
-FM-continuous categories, such as their cartesian closed structure (for
-higher-order processes) and the adjunction $(-)^{\freshfor a++} \dashv
-\delta^{++}_a$ (for names and name binding).
+The design of Nominal HOPLA is motivated by universal constructions in the
+categories $(\mathbf{FMCts}_s){s \subseteq_{\mathrm{fin}} \mathbb A}$, such as
+their cartesian closed structure (for higher-order processes) and the adjunction
+$(-)^{\freshfor a++} \dashv \delta^{++}_a$ (for names and name binding).
 %
-This motivation will become clear in section \ref{densem} which shows the
+This motivation will become clear in chapter \ref{densem} which shows the
 details of the denotational semantics.
 %
 Before that, the syntax (section \ref{syntax}), type system (section
 \ref{tjudge}) and operational semantics (section \ref{opsem}) will be presented.
-%
-Finally, in section \ref{secadequacy} it will be shown that the denotational
-semantics and operational semantics correspond adequately.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
