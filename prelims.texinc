@@ -794,7 +794,7 @@ adjunction $(-)\otimes \mathbb A \dashv \delta$' in chapters \ref{domthy} and
 \ref{abstract-justification}, since these chapters are not concerned with
 syntax.
 %
-This is justified by the results of chapter \ref{nomhopla} when the semantics of
-the previous chapters is related to the syntax of the language Nominal HOPLA.
+This is justified by the results of chapter \ref{densem} which relates the
+semantic and syntactic notions of binding in the language Nominal HOPLA.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
