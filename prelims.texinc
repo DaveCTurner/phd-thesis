@@ -425,7 +425,7 @@ Any finite nominal set is necessarily discrete.
 The set $\mathbb A$ is a nominal set with permutation action given by $\sigma
 \cdot a \defeq \sigma a$.  This is clearly a group action, and it is
 straightforward to show that every $a \in \mathbb A$ is supported by the finite
-set $\{a\}$. Therefore $\supp{a} = a$ and $a \freshfor b$ iff $a \neq b$.
+set $\{a\}$. Therefore $\supp{a} = \{a\}$ and $a \freshfor b$ iff $a \neq b$.
 
 \subsubsection{The set of permutations of names.}
 %
