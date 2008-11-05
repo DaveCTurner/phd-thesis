@@ -483,7 +483,8 @@ However in general not every subset of $X$ has finite support with respect to
 this action.
 %
 For example, consider some $A \subseteq \mathbb A$ which is neither finite nor
-has finite complement, then this $A$ does not have a finite support.
+has finite complement, then this $A$ does not have a finite support with respect
+to the usual $\mathcal G$-action on $\mathbb A$ defined above.
 %
 To see this, suppose that $A$ is supported by a set $s \subseteq \mathbb A$. If
 there exists $a \in A \setminus s$ and $b \in \mathbb A \setminus (A \cup s)$
