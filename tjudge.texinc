@@ -20,11 +20,11 @@ finite set of names, $t$ is a term and $\typeP$ is a type.
 %
 The type $\typeP$ describes the actions that the term may perform.
 %
-The environment $\Gamma$ records types (and freshness assumptions) for the
+The environment $\Gamma$ records types and freshness assumptions for the
 variables of $t$.
 %
 The set $s$ represents the `current' set of names, and records a bound on the
-support of the typing judgement, which helps to give a clean presentation of
+support of the typing judgement which helps to give a clean presentation of
 the denotational semantics.
 %
 However, lemma \ref{typerestrictsupport} below demonstrates that it is not
@@ -123,7 +123,7 @@ The effect of the term former $\lproj{\ell_0}{}$ is that terms of the form
 $\lproj{\ell_0}{t}$ can perform only the actions of $t$ that are tagged by the
 label $\ell_0$.
 %
-In both of these rules, the support of $\ell_0$ must be contained in $s$.
+In both of these rules the support of $\ell_0$ must be contained in $s$.
 \[
 \infer
 {\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}}
