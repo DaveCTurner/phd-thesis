@@ -5,10 +5,7 @@ This chapter discusses some prerequisites of the remainder of this dissertation.
 
 \TODO{Mention highlights like the Footprint Lemma}
 
-\section{Domain Theory for Concurrency}
-\label{dtfc}
-
-\TODO{Write section introducing Domain Theory for Concurrency}
+\section{Domain Theory} \label{dtfc} \input{dtfc.texinc}
 
 \section{Nominal Sets}
 \label{nsets}
