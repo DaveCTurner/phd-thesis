@@ -3,14 +3,111 @@ Nominal HOPLA} \label{densem} \chaptermark{Denotational Semantics}
 
 \TODO{Intro}
 
-\section{Definitions}
+\section{Types and Environments}
 
-\subsection{Denotational Semantics of Types}
+A closed type denotes a path order as shown below.
+%
+Environments denote tuples of path orders as shown below.
 
-Closed types $\typeP$ denote the corresponding objects $\typeP$ of
-$\mathbf{FMCts_\varnothing}$.  \TODO{More detail on the paths in each type.}
+\TODO{More Intro}
 
-\subsection{Denotational Semantics of Environments}
+\subsection{Types as Path Orders}
+
+A closed type $\typeP$ denotes the collection of paths of type $\typeP$ ordered
+by extension.
+%
+It is therefore possible to construct a denotation for $\typeP$ in terms of a
+language of paths, given by the grammar \begin{equation} p ::= Q \mid
+\mappath{Q}{p} \mid \labelpath{\ell}{p} \mid \abspath{p} \mid \newpath{a}{p},
+\end{equation} where $Q$ is a set of paths of the form $\finelt{\{p_1, \ldots,
+p_n\}}{s}$, $\ell$ is a label and $a$ is a name.
+%
+A path of the form $\mappath{Q}{p}$ denotes a pairs $\langle Q, p \rangle$ in
+the continuous function space $\typemap{\typeQ}{\typeP} =
+\typelift{\typeQ}^{\mathrm{op}} \times \typeP$.
+%
+A path of the form $\newpath{a}{p}$ denotes an equivalence class $[a].p$ in the
+path order $\delta\typeP$, and in particular if $b$ is a fresh name then $[a].p
+= [b].((ab) \cdot p)$.
+%
+A path of the form $\labelpath{\ell_0}{p}$ denotes a path in the $\ell_0$th
+component of the biproduct $\stdtypesum$.
+%
+Finally a path of the form $\abspath{p}$ denotes a path in the
+recursively-defined type $\typerec{j}{P}{\typeP}$, where $p$ is a path of the
+unfolded type $\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$.
+
+To capture this intuituion, paths are typed by judgements of the form $p :
+\typeP$ according to the following rules.  \begin{equation}
+\begin{array}[t]{ccc}
+%
+\infer{\finelt{\{p_1, \ldots, p_n\}}{s} : \typelift\typeP} {p_1 : \typeP &
+\ldots & p_n : \typeP} &\quad&
+%
+\infer{\mappath{Q}{p} : \typemap{\typeQ}{\typeP}} {Q : \typelift\typeQ & p :
+\typeP} \\
+%
+\rule{0pt}{7ex} \infer[(\ell_0 \in L)]{\labelpath{\ell_0}{p} : \stdtypesum} {p :
+\typePsub{\ell_0}} &&
+%
+\rule{0pt}{7ex} \infer{\abspath{p} : \typerec{j}{P}{\typeP}} {p :
+\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]} \\
+%
+\rule{0pt}{7ex} \infer{\newpath{a}{p} : \typedelta\typeP} {p : \typeP} \\
+%
+\end{array} \end{equation} where the ordering $\le_{\typeP}$ of paths of type
+$\typeP$ is given recursively as follows.  \begin{equation}
+\begin{array}[t]{ccc}
+%
+\infer{P \le_{\typelift\typeP} P'} {P \preceq_{\typeP} P'} &\quad&
+%
+\infer{\mappath{Q}{p} \le_{\typemap{\typeQ}{\typeP}} \mappath{Q'}{p'}} {Q'
+\le_{\typelift\typeQ} Q & p \le_{\typeP} p'} \\
+%
+\rule{0pt}{7ex} \infer[(\ell_0 \in L)]{\labelpath{\ell_0}{p} \le_{\stdtypesum}
+\labelpath{\ell_0}{p'}} {p \le_{\typePsub{\ell_0}} p'} &&
+%
+\rule{0pt}{7ex} \infer{\abspath{p} \le_{\typerec{j}{P}{\typeP}} \abspath{p'} }
+{p \le_{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]} p'} \\
+%
+\rule{0pt}{7ex} \infer{\newpath{a}{p} \le_{\typedelta\typeP} \newpath{a}{p'}} {p
+\le_{\typeP} p'} \\
+%
+\end{array} \end{equation} Here, $P \preceq_{\typeP} P'$ means that for all $p
+\in P$ there exists $p' \in P'$ such that $p \le_{\typeP} p'$.
+%
+Finally, the permutation action on paths is defined by the following. \begin{equation}
+\begin{array}[t]{rcl}
+%
+\sigma \cdot \finelt{\{p_1, \ldots, p_n\}}{s} &\defeq& \finelt{\{\sigma \cdot
+p_1, \ldots, \sigma \cdot p_n\}}{\sigma \cdot s} \\
+%
+\sigma \cdot (\mappath{Q}{p}) &\defeq& \mappath{(\sigma \cdot Q)}{(\sigma \cdot
+p)} \\
+%
+\sigma \cdot (\labelpath{\ell}{p}) &\defeq& \labelpath{(\sigma \cdot
+\ell)}{(\sigma \cdot p)} \\
+%
+\sigma \cdot (\abspath{p}) &\defeq& \abspath{(\sigma \cdot p)} \\
+%
+\sigma \cdot (\newpath{a}{p}) &\defeq& \newpath{(\sigma a)}{(\sigma \cdot p)}. \\
+%
+\end{array} \end{equation}
+
+This method of constructing recursive types syntactically is inspired by the
+similar process used in classical HOPLA\cite{nygaardwinskel1} which in turn is
+inspired by the theory of information systems\cite{winskel:infosystems}.
+%
+Here it is straightforward to show that these definitions construct path orders
+that are nominal preorders and hence objects of $\mathbf{FMPre}_{\varnothing}$.
+%
+As in classical HOPLA, in a recursively-defined type $\typerec{j}{P}{\typeP}$
+each path is of the form $\abspath{p}$, which means there is an isomorphism
+\begin{equation} \label{repabsiso} \mathbf{rep} : \typerec{j}{P}{\typeP} \cong
+\typeP_j[\typerec{}{P}{\typeP}/\vec{P}] : \mathbf{abs}, \end{equation}  where
+$\mathbf{abs}(p) \defeq \abspath{p}$ and $\mathbf{rep}(\abspath{p}) \defeq p$.
+
+\subsection{Environments as Products}
 
 Environments $\Gamma$ (with freshness contraints contained in $s_0$) denote
 objects of $\mathbf{FMCts}_{s_0}$ as follows.  \begin{equation}
@@ -103,7 +200,7 @@ Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 %\end{proof}
 
 
-\section{Denotational Semantics of Terms and Actions}
+\section{Terms and Actions}
 
 Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
 \begin{equation*} \label{densem:tjudge} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} :
@@ -131,10 +228,10 @@ actions: the injection $\mathbf{in}_{\ell_0}$ into the biproduct corresponds to
 tagging an action with the label $\ell_0$, whereas the projection
 $\mathbf{out}_{\ell_0}$ corresponds to matching against the label $\ell_0$.
 
-The isomorphism $\mathbf{abs} : \typerec{}{P}{\typeP} \cong
-\typeP_j[\typerec{}{P}{\typeP}/\vec{P}] : \mathbf{rep}$ gives a semantics for
-terms of recursively-defined types by folding (\ref{densem:abs}) and unfolding
-(\ref{densem:rep}) the definition.
+The isomorphism $\mathbf{rep} : \typerec{}{P}{\typeP} \cong
+\typeP_j[\typerec{}{P}{\typeP}/\vec{P}] : \mathbf{abs}$ of \ref{repabsiso} gives
+a semantics for terms of recursively-defined types by folding (\ref{densem:abs})
+and unfolding (\ref{densem:rep}) the definition.
 %
 The hom-set $\sem{\Gamma} \to \typeP$ is $\omega$-complete which gives rise to a
 semantics for recursive processes (\ref{densem:rec}) as the $\omega$-limit of
