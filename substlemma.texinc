@@ -97,9 +97,9 @@ disjoint, $\termsubst{t[v]}{\termvar{x1}}{x2} =
 %\infer[(s'' \subseteq s' \subseteq s)]
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}} 
-There are two possibilities for this case, depending on whether the variable
-with extra freshness assumptions is subject to substitution or not. If it is
-not subject to substitution then this case is a simple application of the
+There are two possibilities for this case, corresponding to whether the
+variable with extra freshness assumptions is subject to substitution or not. If
+it is not subject to substitution then this case is a simple application of the
 inductive hypothesis. On the other hand, suppose that $r'_n \subseteq r_n
 \subseteq s$, that $\Gamma'$ is a reordering of the environment $\Gamma,
 \envvarfresh{y1}{\typeR}{r_1}, \ldots, \envvarfresh{yn}{\typeR}{r_n}$ and also

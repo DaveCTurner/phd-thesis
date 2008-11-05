@@ -119,14 +119,14 @@ $\tjudge{}{}{t'}{\typePp}$.  \end{lemma}
 By induction on the derivation of $\ajudge{\typeP}{t}{p}{t'}$ as follows.
 
 \subparagraph{Recursion} The induction hypothesis says that
-$\atjudge{}{\typeP}{p}{\typePp}$ and
+$\atjudge{}{\typeP}{p}{\typePp}$ and furthermore that
 $\ajudge{\typeP}{\termsubst{t}{\rec{x}{t}}{x}}{p}{t'}$ so that
 $\tjudge{}{}{t'}{\typeP}$ follows immediately by induction.
 
 \subparagraph{Prefix} The induction hypothesis says that
-$\tjudge{}{}{\bang{t}}{\typelift\typeP}$ so that by lemma
-\ref{closedtermtypebackwards}(\ref{closedtermtypebackwardsbang})
-$\tjudge{}{}{t}{\typeP}$, as required.
+$\tjudge{}{}{\bang{t}}{\typelift\typeP}$ so that $\tjudge{}{}{t}{\typeP}$ by
+lemma \ref{closedtermtypebackwards}(\ref{closedtermtypebackwardsbang}), as
+required.
 
 \subparagraph{Prefix Match} The induction hypothesis says that
 $\atjudge{}{\typeP}{p}{\typePp}$ and
@@ -164,8 +164,8 @@ $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$.  By lemma
 $\atjudge{}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePpp}$ and by
 lemma \ref{closedactiontypebackwards}(\ref{closedactiontypebackwardsmap})
 $\tjudge{}{}{u}{\typeQ}$ and $\atjudge{}{\typeP}{p}{\typePpp}$ so that
-$\typePpp = \typePp$. Therefore by induction $\tjudge{}{}{t'}{\typePp}$ by
-induction as required.
+$\typePpp = \typePp$. Therefore by induction $\tjudge{}{}{t'}{\typePp}$ as
+required.
 
 \subparagraph{Labelling} The induction hypothesis says that
 $\ajudge{\typePsub{\ell_0}}{t}{p}{t'}$ and
