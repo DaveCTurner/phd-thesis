@@ -1184,13 +1184,13 @@ However $X$ is directed so there exists $x \in X$ such that $x_i \subseteq x$
 for all $i$, and $X$ is uniformly supported by $s'$ so that $\supp{x} \subseteq
 s'$ and hence $\finelt{\{[b].p_1, \ldots, [b].p_n\}}{s'} \subseteq x$.
 %
-Using \ref{characterisation:thetabanginv} \TODO{forward-ref?} it follows that
-\[\finelt{\{p_1, \ldots, p_n\}}{s' \udot \{b\}} = \left( \theta^{-1}_{\typeP}
-\finelt{\{[b].p_1, \ldots, [b].p_n\}}{s'} \right)@b \subseteq \left(
-\theta^{-1}_{\typeP} x \right)@b\] so that $p@b \in f \left(\left(
-\theta^{-1}_{\typeP} (x) \right)@b\right) = \left( (\delta_a f \circ
-\theta^{-1}_{\typeP}) (x) \right)@b$ and hence $p \in (\theta_{\typeQ} \circ
-\delta_a f \circ \theta^{-1}_{\typeP}) (x)$ as required.  \end{proof}
+Using \ref{characterisation:thetabanginv} it follows that \[\finelt{\{p_1,
+\ldots, p_n\}}{s' \udot \{b\}} = \left( \theta^{-1}_{\typeP} \finelt{\{[b].p_1,
+\ldots, [b].p_n\}}{s'} \right)@b \subseteq \left( \theta^{-1}_{\typeP} x
+\right)@b\] so that $p@b \in f \left(\left( \theta^{-1}_{\typeP} (x)
+\right)@b\right) = \left( (\delta_a f \circ \theta^{-1}_{\typeP}) (x) \right)@b$
+and hence $p \in (\theta_{\typeQ} \circ \delta_a f \circ \theta^{-1}_{\typeP})
+(x)$ as required.  \end{proof}
 
 
 \subsubsection{Freshness Assumptions.} \label{subsubsect:freshness-cts} The
