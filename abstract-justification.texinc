@@ -1325,21 +1325,17 @@ Abstractly, this adjunction arises from the dual of lemma \ref{adjunctionlift}
 since the FM-continuous categories are isomorphic to coKleisli categories via
 the isomorphism $K_\mathbf{Cts}$ of \ref{def:kcts}.
 %
-The natural transformations required to apply lemma \ref{adjunctionlift} are
-$\widehat{{\phi^{!}}^{-1}}$ and $\widehat{{\theta^{!}}^{-1}}$ where
-${\phi^{!}}^{-1}$ and ${\theta^{!}}^{-1}$ are the restrictions of $\phi^{-1}$
-and $\theta^{-1}$ to the isolated elements of their respective domains.
-
-Section \ref{subsect:delta-fresh-bang} demonstrates that $\phi^{!}$ and
-$\theta^{!}$ are well-defined and \ref{binding-cts:abstract} shows that they
-satisfy the appropriate coherence conditions to apply lemma
-\ref{adjunctionlift}.
+This section demonstrates that this abstract description coincides with the
+concrete definitions given in \ref{subsubsect:deltafreshadjcts}.
 %
-Finally \ref{binding-cts:concrete} unwinds definitions to demonstrate that the
-result of this abstract process coincides with the concrete route given in
-\ref{subsubsect:deltafreshadjcts}.
-
-\TODO{Deleted section - rewrite intro}
+The natural transformations required to apply lemma \ref{adjunctionlift} are
+$\widehat{{\phi^{!}}^{-1}}$ and $\widehat{{\theta^{!}}^{-1}}$.
+%
+Firstly it is shown in \ref{binding-cts:abstract} that these natural
+transformations satisfy the appropriate coherence conditions to apply lemma
+\ref{adjunctionlift}, and then \ref{binding-cts:concrete} unwinds definitions to
+demonstrate that the result of this abstract process coincides with the concrete
+route given in \ref{subsubsect:deltafreshadjcts}.
 
 \subsection{Binding in $\mathbf{FMCts}_s$, Abstractly}
 \label{binding-cts:abstract}
