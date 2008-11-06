@@ -481,7 +481,7 @@ $\tjudge{s''}{\Lambda}{u}{\typeQp}$ and $\atjudge{s''}{\typeQp}{q}{\typeQ}$
 hold, where $s'' \subseteq s \setminus s'$.
 %
 Let $\phi^{{!}(s')} : ({!}-)^{\freshfor s'} \cong {!}((-)^{\freshfor s'})$ be as
-defined in \ref{}, then \begin{equation*} \begin{array}[t]{l}
+defined in \ref{def:phibang-vec}, then \begin{equation*} \begin{array}[t]{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \\ \quad {} \defeq \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
