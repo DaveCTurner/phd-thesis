@@ -1080,20 +1080,7 @@ commute.
 \matthat{(\delta_a\typeP)^{\freshfor a}} \ar[l]_{\widehat{\zeta_{\typeP}}}}
 \end{array}\]
 
-\paragraph{Left Triangle.}
-%
-Let $p \in \typeP^{\freshfor a}$, then \begin{equation}
-\label{comm:freshtriangle} \begin{array}[t]{rcl}
-\bigl(\{\cdot\}_{\typeP^{\freshfor a}}\bigr)p 
-%
-&=& \{p' \in \typeP^{\freshfor a} \mid p' \le_{\typeP^{\freshfor a}} p\} \\
-%
-&=& \{p' \in \typeP \mid a \freshfor p' \wedge p' \le_{\typeP} p\} \\
-%
-&=& \phi_{\typeP} \{p' \in \typeP \mid p' \le_{\typeP} p\} \\
-%
-&=& \bigl( \phi_{\typeP} \circ \{\cdot\}_{\typeP}^{\freshfor a} \bigr) p.
-\end{array} \end{equation}
+\paragraph{Left Triangle.} By lemma \ref{comm:freshtriangle}.
 
 \paragraph{Left Pentagon.}
 %

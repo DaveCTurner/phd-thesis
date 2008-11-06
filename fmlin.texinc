@@ -243,6 +243,28 @@ immediately that $\phi^{-1}_{\typeP}$ is natural in $\typeP$, and hence that
 $\phi$ is a natural isomorphism with inverse given by $\phi^{-1}$ as required.
 \end{proof}
 
+The transformation $\phi$ also interacts well with the unit
+$\{\cdot\}_{\downarrow}$ of the $\widehat{(-)}$ monad as follows.
+
+\begin{lemma} \label{comm:freshtriangle} The following diagram commutes. \[
+\xymatrix{ (-)^{\freshfor a} \ar[r]^{\{\cdot\}_{\downarrow}^{\freshfor a}}
+\ar[dr]_{\{\cdot\}_{(-)^{\freshfor a}}} & \widehat{(-)}^{\freshfor a}
+\ar[d]^{\phi} \\ & \widehat{(-)^{\freshfor a}}} \] \end{lemma}
+
+\begin{proof} Let $\typeP$ be an object of $\mathbf{FMCts}_s$ and let $p \in
+\typeP^{\freshfor a}$, then \begin{equation} \begin{array}[t]{rcl}
+\bigl(\{\cdot\}_{\typeP^{\freshfor a}}\bigr)p 
+%
+&=& \{p' \in \typeP^{\freshfor a} \mid p' \le_{\typeP^{\freshfor a}} p\} \\
+%
+&=& \{p' \in \typeP \mid a \freshfor p' \wedge p' \le_{\typeP} p\} \\
+%
+&=& \phi_{\typeP} \{p' \in \typeP \mid p' \le_{\typeP} p\} \\
+%
+&=& \bigl( \phi_{\typeP} \circ \{\cdot\}_{\typeP}^{\freshfor a} \bigr) p.
+\end{array} \end{equation} \end{proof}
+
+
 \subsection{A relationship between $\delta_a$ and $\widehat{(-)}$}
 \label{subsect:delta-hat}
 
