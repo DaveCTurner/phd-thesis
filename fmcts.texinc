@@ -538,6 +538,7 @@ Therefore $\epsilon_{\typeP}$ is the unique FM-linear map such that
 \TODO{Prose intro}
 
 \subsubsection{Hom-sets.}
+\label{subsubsect:cts:homsets}
 
 The chain of isomorphisms \begin{equation} \label{cts:homsets}
 \begin{array}[t]{rcll} \mathbf{FMCts}_{s}(\typeP, \typeQ)
@@ -570,6 +571,7 @@ $\mathbf{FMCts}_s$ as $\sum_{i \in I} f_i : \typeP \to \typeQ$.
 
 
 \subsubsection{Products.}
+\label{subsubsect:cts:products}
 %
 Since right adjoints preserve products, $\mathbf{FMCts}_s$ has finite products
 given by the disjoint union of the underlying preorders as in
