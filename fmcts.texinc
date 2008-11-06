@@ -534,6 +534,261 @@ Therefore $\epsilon_{\typeP}$ is the unique FM-linear map such that
 \begin{equation} \label{def:epsilon} \epsilon_{\typeP} \circ
 \{\cdot\}_{\typelift\typeP} = i_{\typeP}. \end{equation}
 
+
+
+\subsection{A relationship between $(-)^{\freshfor a}$ and $!$}
+\label{subsect:fresh-bang}
+
+This section shows that it is possible to restrict $\phi_\typeP$ to an
+isomorphism $(\typelift\typeP)^{\freshfor a} \cong \typelift(\typeP^{\freshfor
+a})$.
+%
+The path to this result is to observe that $\phi_\typeP$ and its inverse have
+particularly simple characterisations when attention is restricted to just the
+isolated elements, as shown below.
+
+\begin{lemma} \label{characterisation:phibang} If $F \subseteq_{\mathrm{fin}}
+\typeP^{\freshfor a}$ and $a \notin s' \supseteq s$ then \[\phi_{\typeP}
+\finelt{F}{s'} = \finelt{F}{s' \cup \{a\}} \in \typelift{(\typeP^{\freshfor
+a})}.\]
+%
+Moreover any element of $(\typelift\typeP)^{\freshfor a}$ can be written in the
+form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$
+and $a \notin s' \supseteq s$. \end{lemma}
+
+\begin{proof} Clearly $\finelt{F}{s'
+\udot \{a\}} \in \typelift{(\typeP^{\freshfor a})}$ by \ref{finelts}.
+%
+Let $p' \in \phi_{\typeP} \finelt{F}{s'}$, then $a \freshfor p'$
+and there exists $p \in F$ and $\sigma \freshfor s'$ such that $p' \le_{\typeP}
+\sigma \cdot p$.
+%
+Let $b$ be a fresh name, then $p = (ab) \cdot p$ and $p' = (ab) \cdot p'$ so
+that $p' \le_{\typeP} (ab) \cdot \sigma \cdot (ab) \cdot p$.
+%
+Since $b \freshfor \sigma$ it follows by the equivariance of $\freshfor$ that
+$s' \udot \{a\} = (ab) \cdot (s' \udot\{b\}) \freshfor (ab) \cdot \sigma = (ab)
+\sigma (ab)$ so that $p' \in \finelt{F}{s' \udot \{a\}}$.
+%
+Conversely, let $p' \in \finelt{F}{s' \udot \{a\}}$, then there exists $p \in F$
+and $\sigma \freshfor s' \udot \{a\}$ such that $p' \le_{\typeP^{\freshfor a}}
+\sigma \cdot p$.
+%
+Therefore $\sigma \freshfor s'$ and $p' \le_{\typeP} \sigma \cdot p$ and $a
+\freshfor p$ so that $p' \in \phi_{\typeP} \finelt{F}{s'}$ as required.
+
+If $P \in (\typelift\typeP)^{\freshfor a}$ then $P \freshfor a$ so that $a
+\notin \supp{P, \typeP, s}$ and hence by \ref{finelt:wlog} there exists $F
+\subseteq_{\mathrm{fin}} \typeP$ such that $P = \finelt{F}{\supp{P, \typeP,
+s}}$.
+%
+If $b$ is a fresh name then $(ab) \cdot \supp{P, \typeP, s} = \supp{P, \typeP,
+s}$ and hence $P = (ab) \cdot P = \finelt{(ab) \cdot F}{\supp{P, \typeP, s}}$.
+%
+Also $a \freshfor (ab) \cdot F$ and $F$ is finite so that $a \freshfor p$ for
+all $p \in (ab) \cdot F$ and hence $(ab) \cdot F \subseteq \typeP^{\freshfor a}$
+as required. \end{proof}
+
+
+\begin{lemma} \label{characterisation:phibanginv} If $F \subseteq_{\mathrm{fin}}
+\typeP^{\freshfor a}$ and $a \in s' \supseteq s$ then \[\phi^{-1}_{\typeP}
+\finelt{F}{s'} = \finelt{F}{s' \setminus \{a\}} \in (\typelift\typeP)^{\freshfor
+a}.\]
+%
+Moreover any element of $\typelift{(\typeP^{\freshfor a})}$ can be written in
+the form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor
+a}$ and $a \in s' \supseteq s$.  \end{lemma}
+
+\begin{proof} Certainly $a \freshfor \finelt{F}{s' \setminus a}$ by
+\ref{fineltsupport} so that $\finelt{F}{s' \setminus a} \in
+(\typelift\typeP)^{\freshfor a}$ by \ref{finelts}.
+%
+Recall from \ref{characterisation:phiinv} that \begin{equation}
+p' \in \phi^{-1}_{\typeP}\finelt{F}{s'}
+\quad\Leftrightarrow \quad \freshin{b}{p' \in (ab) \cdot
+\finelt{F}{s'}}.\end{equation}
+%
+Let $p' \in \phi^{-1}_{\typeP}\finelt{F}{s'}$ and let $b$ be a fresh name, then
+$p' \in (ab) \cdot \finelt{F}{s'}$ so that by \ref{finelteqvt} there exists $p
+\in (ab) \cdot F$ and $\sigma \freshfor (ab) \cdot s'$ such that $p'
+\le_{\typeP^{\freshfor a}} \sigma \cdot p$. 
+%
+Therefore $p' \le_{\typeP} \sigma \cdot (ab) \cdot (ab) \cdot p$ and $(ab) \cdot
+p \in F$.
+%
+Furthermore if $a' \in s' \setminus \{a\}$ then $\sigma \cdot (ab) \cdot a' =
+a'$ as $b$ is fresh and $\sigma \freshfor (ab) \cdot s' \supseteq s' \setminus
+\{a\}$ so that $p' \in \finelt{F}{s' \setminus \{a\}}$. 
+%
+Conversely, suppose that $p' \in \finelt{F}{s' \setminus \{a\}}$, then there
+exists $p \in F$ and $\sigma \freshfor s' \setminus \{a\}$ such that $p'
+\le_{\typeP} \sigma \cdot p$.
+%
+Let $b$ be a fresh name.  Since $p \in F$, $a \freshfor p$ and hence $(ab) \cdot
+p = p$.
+%
+Therefore $(ab) \cdot p' \le (ab) \cdot \sigma \cdot (ab) \cdot p$ and
+$(ab)\sigma(ab) \freshfor s'$ since $\sigma \freshfor (s' \setminus \{a\}) \udot
+\{b\} = (ab) \cdot s'$.
+%
+Hence $(ab) \cdot p' \in \finelt{F}{s'}$ so that $p' \in
+\phi^{-1}_{\typeP}\finelt{F}{s'}$ as required.
+
+Finally if $P \in \typelift{(\typeP^{\freshfor a})}$ then by \ref{finelt:wlog} there
+exists $F \subseteq \typeP^{\freshfor a}$ such that $P = \finelt{F}{\supp{a,P,
+\typeP, s}}$ as required. \end{proof}
+
+This restriction of the map $\phi$ is written $\phi^{!} : {({!}-)}^{\freshfor a} \to
+{!}((-)^{\freshfor a})$ and can be characterised as follows.
+
+\begin{lemma} \label{def:phibang} The following diagram commutes.
+\[\xymatrix{
+{!}(\typeQ^{\freshfor a})
+	\ar[r]^{{\phi^{!}_{\typeQ}}^{-1}}
+	\ar[d]_{i_{\typeQ^{\freshfor a}}}
+&
+({!}\typeQ)^{\freshfor a}
+	\ar[d]^{i_{\typeQ}^{\freshfor a}}
+\\
+\widehat{\typeQ^{\freshfor a}}
+	\ar[r]^{\phi^{-1}_{\typeQ}}
+&
+\widehat{\typeQ}^{\freshfor a}
+}\]\end{lemma}
+
+\begin{proof} By \ref{characterisation:phibanginv}.\end{proof}
+
+
+\subsection{A relationship between $\delta_a$ and $!$}
+\label{subsect:delta-bang}
+
+Similarly to section \ref{subsect:fresh-bang} this section shows that it is
+possible to restrict $\theta_\typeP$ to an isomorphism $\delta_a\typelift\typeP
+\cong \typelift\delta_a\typeP$.
+%
+As was the case with the above relationship between $(-)^{\freshfor a}$ and $!$,
+the path to this result is to observe that $\theta_\typeP$ and its inverse
+have particularly simple characterisations when attention is restricted to just
+the isolated elements, as shown below.
+
+\begin{lemma} \label{characterisation:thetabang} If $b$ is a fresh name, $F
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \in s' \supseteq s$ then
+\[\theta_{\typeP} \bigl([b].\finelt{F}{s'}\bigr) = \finelt{\{[b].p \mid p \in
+F\}}{s' \setminus \{b\}} \in \typelift{\delta_a\typeP}.\]
+%
+Moreover any element of $\delta_a\typelift\typeP$ can be written in the form
+$[b].\finelt{F}{s'}$ where $b$ is a fresh name, $F \subseteq_{\mathrm{fin}} (ab)
+\cdot \typeP$ and $b \in s' \supseteq s$.  \end{lemma}
+
+\begin{proof} Since $F \subseteq (ab) \cdot \typeP$ it follows that $\{[b].p
+\mid p \in F\} \subseteq \delta_a \typeP$ so that $\finelt{\{[b].p \mid p \in
+F\}}{s' \setminus \{b\}} \in \typelift{\delta_a\typeP}$ by \ref{finelts}.
+%
+Let $p' \in \theta_{\typeP} \bigl([b].\finelt{F}{s'}\bigr)$ and let $c$ be a
+fresh name, then $p'@c \in (bc) \cdot \finelt{F}{s'}$ so that there exists $p
+\in F$ and $\sigma \freshfor s'$ so that $(bc) \cdot (p'@c) \le_{(ab) \cdot
+\typeP} \sigma \cdot p$. Therefore $\big((bc) \cdot p') @ b \le_{(ab) \cdot
+\typeP} \sigma \cdot p = \bigl([b].(\sigma \cdot p)\bigr)@b$ so that $(bc) \cdot
+p' \le_{\delta_a \typeP} [b].(\sigma \cdot p)$. However $\sigma \freshfor s' \ni
+b$ so $[b].(\sigma \cdot p) = \sigma \cdot ([b].p)$ and hence $p' \le_{\delta_a
+\typeP} (bc) \cdot \sigma \cdot ([b].p)$ so that $p' \in \finelt{\{[b].p \mid p
+\in F\}}{s' \setminus \{b\}}$ as required. Conversely, let $p' \in
+\finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}}$, then there exists $p \in
+F$ and $\sigma \freshfor s' \setminus \{b\}$ such that $p' \le_{\delta_a \typeP}
+\sigma \cdot ([b].p)$. Let $c$ be a fresh name, then $p'@c \le_{(ac) \cdot
+\typeP} \sigma \cdot (bc) \cdot p = (bc) \cdot (bc) \cdot \sigma \cdot (bc)
+\cdot p$. Furthermore, $(bc)\sigma(bc) \freshfor s'$ so that $p'@c \in (bc)
+\cdot \finelt{F}{s'}$ and hence $p' \in \theta_{\typeP}
+\bigl([b].\finelt{F}{s'}\bigr)$ as required.
+
+If $P' \in \delta_a \typelift\typeP$ and $b$ is a fresh name then $P'@b \in (ab)
+\cdot \typelift\typeP$ so that if $a \in s' \supseteq s \cup \supp{P'}$ then
+there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that $(ab) \cdot (P'@b) =
+\finelt{F}{s'}$  and hence $P' = [b].\bigl( \finelt{(ab) \cdot F}{(ab) \cdot s'}
+\bigr)$ and $b \in (ab) \cdot s'$ as required.  \end{proof}
+
+\begin{lemma} \label{characterisation:thetabanginv} If $b$ is a fresh name, $F
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \notin s' \supseteq s$ then
+\[\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'} = [b].\finelt{F}{s'
+\udot \{b\}} \in \delta_a\typelift\typeP.\]
+%
+Moreover any element of $\typelift{\delta_a\typeP}$ can be written in the form
+$\finelt{\{[b].p \mid p \in F\}}{s'}$ where $b$ is a fresh name, $F
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \notin s' \supseteq s$.
+\end{lemma}
+
+\begin{proof} Since $s' \supseteq s$ it follows that $(ab) \cdot (s' \udot
+\{b\}) \supseteq (ab) \cdot s = s$.
+%
+Therefore $(ab) \cdot \finelt{F}{s' \udot\{b\}} = \finelt{(ab)\cdot F}{(ab)\cdot
+(s' \udot\{b\})} \in \typelift\typeP$ so that $[b].\finelt{F}{s' \udot\{b\}} \in
+\delta_a\typelift\typeP$.
+
+Let $c$ be a fresh name, then to show that $\theta^{-1}_{\typeP} \finelt{\{[b].p
+\mid p \in F\}}{s'} = [b].\finelt{F}{s' \udot \{b\}}$ it is sufficient so show
+that $\bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c =
+([b].\finelt{F}{s' \udot\{b\}})@c$.
+%
+Let $p' \in \bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
+F\}}{s'}\bigr)@c$, then $[c].p' \in \finelt{\{[b].p \mid p \in F\}}{s'}$ so that
+there exists $p \in F$ and $\sigma \freshfor s'$ such that $[c].p' \le_{\delta_a
+\typeP} \sigma \cdot [b].p$.
+%
+Let $d$ be a fresh name, then $(cd) \cdot p' \le_{(ad) \cdot \typeP} (\sigma
+\cdot [b].p)@d = \sigma \cdot (bd) \cdot p$ and hence $p' \le_{(ac) \cdot
+\typeP} (cd) \cdot \sigma \cdot (bd) \cdot p$.
+%
+Since $c \freshfor F$ and $F$ is finite $c \freshfor p$ so that $p = (cd) \cdot
+p$; furthermore $(cd) = (bc)(cd)(bd)$, so that $(cd) \cdot \sigma \cdot (bd)
+\cdot p = (bc) \cdot (cd) \cdot (bd) \cdot \sigma \cdot (bd) \cdot (cd) \cdot
+p$.
+%
+Also, $s' \cup \{d\} \freshfor \sigma$ so that $s' \cup \{b\} \freshfor
+(cd)(bd)\sigma(bd)(cd)$, which shows that $p' \in (bc) \cdot \finelt{F}{s' \udot
+\{b\}} = ([b].\finelt{F}{s' \udot\{b\}})@c$.
+%
+Conversely, let $p' \in ([b].\finelt{F}{s' \udot\{b\}})@c = (bc) \cdot
+\finelt{F}{s' \udot \{b\}}$, then there exists $p \in F$ and $\sigma \freshfor
+s' \udot \{b\}$ such that $p' \le_{(ac) \cdot \typeP} (bc) \cdot \sigma \cdot
+p$.
+%
+Therefore $[c].p' \le_{\delta_a\typeP} [c].\bigl((bc) \cdot \sigma \cdot p\bigr)
+= (bc) \cdot \sigma \cdot [b].p$ and $(bc)\sigma \freshfor s'$ so that $[c].p'
+\in \finelt{\{[b].p \mid p \in F\}}{s'}$ and hence $p' \in
+\bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'}\bigr)@c$ as
+required. 
+
+If $P \in \typelift{\delta_a\typeP}$ then by \ref{finelt:wlog} there exists $F'
+\subseteq \delta_a \typeP$ such that $P = \finelt{F'}{\supp{P, s, \typeP}}$.
+%
+Let $b$ be a fresh name, then as $b \freshfor F'$ and $F'$ is finite it follows
+that $b \freshfor p'$ for all $p' \in F'$, so that $F' = \{[b].(p'@b) \mid p'
+\in F'\}$ and $\{p'@b \mid p' \in F'\} \subseteq_{\mathrm{fin}} (ab) \cdot
+\typeP$ as required.  \end{proof}
+
+This restriction of the map $\theta$ is written $\theta^{!} : \delta_a{!} \to
+{!}\delta_a$ and can be characterised as follows.
+
+\begin{lemma} \label{def:thetabang} The following diagram commutes.
+\[\xymatrix{
+{!}\delta_a \typeQ
+	\ar[r]^{{\theta^{!}_{\typeQ}}^{-1}}
+	\ar[d]_{i_{\delta_a \typeQ}}
+&
+\delta_a {!}\typeQ
+	\ar[d]^{\delta_a i_{\typeQ}}
+\\
+\widehat{\delta_a \typeQ}
+	\ar[r]^{\theta^{-1}_{\typeQ}}
+&
+\delta_a \widehat{\typeQ}
+}\]\end{lemma}
+
+\begin{proof} By \ref{characterisation:thetabanginv}.\end{proof}
+
+
+
+
 \subsection{The Structure of $\mathbf{FMCts}_s$}
 \TODO{Prose intro}
 
