@@ -120,6 +120,8 @@ and define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
 \phi^{-1}_{\typeP} (x) \defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot
 x.\end{equation}
 
+It is convenient to characterise the action of $\phi^{-1}_{\typeP}$ as follows.
+
 \begin{lemma} \label{characterisation:phiinv} If $\typeP$ is an object of
 $\mathbf{FMLin}_s$ and $x \in \widehat{\typeP^{\freshfor a}}$ then \[ p \in
 \phi^{-1}_{\typeP} (x) \quad \Leftrightarrow\quad \freshin{c}{p \in (ac) \cdot
