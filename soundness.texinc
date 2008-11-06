@@ -138,8 +138,10 @@ so that
 &=& \bigl( \eta_{\typePp} \circ \sem{t'} \bigr)^{\vee} & \text{by naturality of the adjunction} \\
 %
 \end{array}\]
-and hence $\bigl(\delta_a^{++} \sem{p} \circ \sem{t}\bigr)^{\wedge} \sqsupseteq  \eta_{\typePp} \circ \sem{t'}$
-by lemma \TODO{monotonicity of delta-fresh adjunction}. Therefore
+and hence $\bigl(\delta_a^{++} \sem{p} \circ \sem{t}\bigr)^{\wedge} \sqsupseteq
+\eta_{\typePp} \circ \sem{t'}$.
+%
+Therefore
 \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{ \sem{\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}} \circ
