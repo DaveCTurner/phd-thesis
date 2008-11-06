@@ -123,8 +123,8 @@ environments $\Gamma$ also denote objects of $\mathbf{FMPre}_{s_0}$ as follows.
 elements of $\semp{\Gamma}$ are tuples of paths satisfying the appropriate
 freshness constraints.
 %
-The transformations $m$ and $\phi^{(s)}$ of \ref{def:m} and \ref{} can be used
-to build a monotone map $\langle \mathord{\cdot} \rangle_{\Gamma} :
+The transformations $m$ and $\phi^{(s)}$ of \ref{def:m} and \ref{def:phi-vec}
+can be used to build a monotone map $\langle \mathord{\cdot} \rangle_{\Gamma} :
 \semp{\Gamma} \to \widehat{\sem{\Gamma}}$ by recursion on $\Gamma$ by setting
 $\langle \mathord{\cdot} \rangle_{()} : \semp{()} \to \widehat{\sem{()}} \cong
 \{\varnothing\}$ to be the unique such function, and \begin{equation}
@@ -671,9 +671,10 @@ consider the operation on homsets $f^* : \mathbf{FMCts}_s(\typeQ, \typeP) \to
 \mathbf{FMCts}_s(\typeQ, \typeP)$ given by \[f^*(g) = f \circ
 (\mathbf{1}_{\typeQ} \amp g) \circ \Delta_{\typeQ}.\]
 %
-Composition preserves joins of $\omega$-chains in both its arguments by \ref{}
-and the functor $\mathbf{1} \amp (-)$ preserves joins of $\omega$-chains by
-\ref{}, so the operation $f^*$ is continuous.
+Composition preserves joins of $\omega$-chains in both its arguments as noted in
+\ref{subsubsect:cts:homsets} and the functor $\mathbf{1} \amp (-)$ preserves
+joins of $\omega$-chains as noted in \ref{subsubsect:cts:products}, so the
+operation $f^*$ is continuous.
 %
 Therefore by Kleene's fixpoint theorem it has a least fixed point
 $\mathrm{fix}(f^*)$ defined as follows.
