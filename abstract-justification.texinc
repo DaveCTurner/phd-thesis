@@ -1349,70 +1349,12 @@ the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
 \leftrightarrows \mathbf{FMLin}_{s\udot\{a\}}$ to a corresponding adjunction on
 the coKleisli categories of the respective $!$ comonads.
 %
-Firstly it is useful to have the following two technical lemmas.
-
-\begin{lemma} \label{comm:phieta} If $\typeP$ is an object of $\mathbf{FMPre}_s$
-then \[\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}} =
-\phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ \phi^{-1}_{\typeP}
-\]\end{lemma}
-
-\begin{proof} \[\begin{array}{rcll} \multicolumn{4}{l}{
-\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}} \circ
-i_{\typeP^{\freshfor a}} }\\
+Firstly, note that $\widehat{{\phi^{!}}^{-1}}$ and $\widehat{{\theta^{!}}^{-1}}$
+are natural transformations of the appropriate types, as shown in lemmas
+\ref{phihat:natural} and \ref{thetahat:natural}.
 %
-&=& \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}(\typeP^{\freshfor
-a})} &\text{by \ref{def:eta}} \\
-%
-&=& \{\cdot\}_{({!}\typeP)^{\freshfor a}} \circ {\phi^{!}_{\typeP}}^{-1}
-&\text{by naturality of $\{\cdot\}_{\downarrow}$}\\
-%
-&=& \phi_{{!}\typeP} \circ \{\cdot\}_{{!}\typeP}^{\freshfor a} \circ
-{\phi^{!}_{\typeP}}^{-1} &\text{by \ref{comm:freshtriangle}} \\
-%
-&=& \phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ
-i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} &\text{by \ref{def:eta}}
-\\
-%
-&=& \phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ \phi^{-1}_{\typeP}
-\circ i_{\typeP^{\freshfor a}} &\text{by \ref{def:phibang}.} \\
-%
-\end{array} \] But using \ref{freshhat:continuous} the maps
-$\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}}$ and
-$\phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ \phi^{-1}_{\typeP}$
-are both continuous, so the result follows by \ref{bang:epi}.\end{proof}
-
-\begin{lemma} \label{comm:thetaeta}  If $\typeP$ is an object of
-$\mathbf{FMPre}_{s \udot \{a\}}$ then \[\widehat{{\theta^{!}_{\typeP}}^{-1}}
-\circ \eta_{\delta_a \typeP} = \theta_{{!}\typeP} \circ \delta_a \eta_{\typeP}
-\circ \theta^{-1}_{\typeP} \]\end{lemma}
-
-\begin{proof} \[\begin{array}{rcll} \multicolumn{4}{l}{
-\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a \typeP} \circ
-i_{\delta_a\typeP} }\\
-%
-&=& \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}\delta_a\typeP}
-&\text{by \ref{def:eta}} \\
-%
-&=& \{\cdot\}_{\delta_a {!}\typeP} \circ {\theta^{!}_{\typeP}}^{-1} &\text{by
-naturality of $\{\cdot\}_{\downarrow}$}\\
-%
-&=& \theta_{{!}\typeP} \circ \delta_a \{\cdot\}_{{!}\typeP} \circ
-{\theta^{!}_{\typeP}}^{-1} &\text{by \ref{comm:deltatriangle}} \\
-%
-&=& \theta_{{!}\typeP} \circ \delta_a\eta_{\typeP} \circ \delta_a i_{\typeP}
-\circ {\theta^{!}_{\typeP}}^{-1} &\text{by \ref{def:eta}} \\
-%
-&=& \theta_{{!}\typeP} \circ \delta_a \eta_{\typeP} \circ \theta^{-1}_{\typeP}
-\circ i_{\delta_a \typeP} &\text{by \ref{def:thetabang}.} \\
-%
-\end{array} \] But using \ref{deltahat:continuous} the maps
-$\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a \typeP}$ and
-$\theta_{{!}\typeP} \circ \delta_a \eta_{\typeP} \circ \theta^{-1}_{\typeP}$ are
-both continuous, so the result follows by \ref{bang:epi}.\end{proof}
-
-It is now possible to show that $\widehat{{\phi^{!}}^{-1}}$ and
-$\widehat{{\theta^{!}}^{-1}}$ are natural transformations of the appropriate
-types.
+Then lemma \ref{deltafreshadjbangcokleisli} shows that they also satisfy the
+appropriate coherence conditions to apply lemma \ref{adjunctionlift}.
 
 \begin{lemma} \label{phihat:natural} $\widehat{{\phi^{!}}^{-1}}$ is a natural
 transformation ${!}((-)^{\freshfor a+}) \to ({!}-)^{\freshfor a+}$. \end{lemma}
