@@ -658,6 +658,92 @@ This restriction of the map $\phi$ is written $\phi^{!} : {({!}-)}^{\freshfor a}
 
 \begin{proof} By \ref{characterisation:phibanginv}.\end{proof}
 
+Furthermore the action of $(-)^{\freshfor a+}$ on linear arrows, as described in
+lemma \ref{def:freshlin}, extends to a similar action on continuous arrows as
+shown here.
+
+\begin{lemma} \label{freshhat:continuous} If $f : \widehat\typeP \to
+\widehat\typeQ$ is FM-continuous then so is \[\phi_{\typeQ} \circ f^{\freshfor
+a} \circ \phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
+\widehat{\typeQ^{\freshfor a}}.\] \end{lemma}
+
+\begin{proof} Let $X \subseteq \widehat{\typeP^{\freshfor a}}$ be directed and
+uniformly supported by $s'$.
+%
+Without loss of generality assume that $a \in s'$ and $s \subseteq s'$.
+%
+It is required to show that \[ \bigcup\{ (\phi_{\typeQ} \circ f^{\freshfor a}
+\circ \phi^{-1}_{\typeP})(x) \mid x \in X \} = (\phi_{\typeQ} \circ f^{\freshfor
+a} \circ \phi^{-1}_{\typeP}) \left(\bigcup X\right). \]
+%
+Let $p \in \bigcup\{ (\phi_{\typeQ} \circ f^{\freshfor a} \circ
+\phi^{-1}_{\typeP})(x) \mid x \in X \}$ and let $x \in X$ be such that $p \in
+(\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP})(x)$, then $x
+\subseteq \bigcup X$ so that by monotonicity $p \in (\phi_{\typeQ} \circ
+f^{\freshfor a} \circ \phi^{-1}_{\typeP}) \left(\bigcup X\right)$.
+%
+Conversely let $p \in (\phi_{\typeQ} \circ f^{\freshfor a} \circ
+\phi^{-1}_{\typeP}) \left(\bigcup X\right)$ then $p \freshfor a$ and $p \in
+f\left(\phi^{-1}_{\typeP} \left(\bigcup X\right)\right)$.
+%
+By \ref{bang:alg} it is the case that $\phi^{-1}_{\typeP} \left(\bigcup X\right)
+= \bigcup \{P \in \typelift\typeP \mid P \subseteq
+\phi^{-1}_{\typeP}\left(\bigcup X\right) \wedge \supp{P} \subseteq
+\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)}\}$.
+%
+Since $f$ is FM-continuous there exists $P \in \typelift\typeP$ such that $P
+\subseteq \phi^{-1}_{\typeP}\left(\bigcup X\right)$ and $\supp{P} \subseteq
+\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)}$ and $p \in fP$.
+%
+Notice that $\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)} \subseteq s'$ so
+that by $\ref{finelt:wlog}$ there exist $p_1, \ldots, p_n \in \phi^{-1}_{\typeP}
+\left(\bigcup X\right)$ such that $p \in f(\finelt{\{p_1, \ldots, p_n\}}{s'})$.
+%
+Let $b$ be a fresh name, then from \ref{characterisation:phiinv} it follows that
+$ (ab) \cdot p_i \in \bigcup X$ for all $i$ so that there exist $x_1, \ldots,
+x_n \in X$ such that $(ab) \cdot p_i \in x_i$.
+%
+However, $X$ is directed so there exists $x \in X$ such that $x_i \subseteq x$
+for all $i$, and $X$ is uniformly supported by $s'$ so that $\supp{x} \subseteq
+s'$ and hence $\finelt{\{p_1, \ldots, p_n\}}{s'} \subseteq (ab) \cdot x
+\subseteq \phi^{-1}_{\typeP} (x)$.
+%
+Therefore $p \in (\phi_{\typeQ} \circ f^{\freshfor a} \circ
+\phi^{-1}_{\typeP})(x)$ as required.  \end{proof}
+
+Finally, it is useful to characterise the interaction between $\phi^{!}$ and the
+unit $\eta$ of the ${!}$ comonad as follows.
+
+\begin{lemma} \label{comm:phieta} If $\typeP$ is an object of $\mathbf{FMPre}_s$
+then \[\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}} =
+\phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ \phi^{-1}_{\typeP}
+\]\end{lemma}
+
+\begin{proof} \[\begin{array}{rcll} \multicolumn{4}{l}{
+\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}} \circ
+i_{\typeP^{\freshfor a}} }\\
+%
+&=& \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}(\typeP^{\freshfor
+a})} &\text{by \ref{def:eta}} \\
+%
+&=& \{\cdot\}_{({!}\typeP)^{\freshfor a}} \circ {\phi^{!}_{\typeP}}^{-1}
+&\text{by naturality of $\{\cdot\}_{\downarrow}$}\\
+%
+&=& \phi_{{!}\typeP} \circ \{\cdot\}_{{!}\typeP}^{\freshfor a} \circ
+{\phi^{!}_{\typeP}}^{-1} &\text{by \ref{comm:freshtriangle}} \\
+%
+&=& \phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ
+i_{\typeP}^{\freshfor a} \circ {\phi^{!}_{\typeP}}^{-1} &\text{by \ref{def:eta}}
+\\
+%
+&=& \phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ \phi^{-1}_{\typeP}
+\circ i_{\typeP^{\freshfor a}} &\text{by \ref{def:phibang}.} \\
+%
+\end{array} \] But using \ref{freshhat:continuous} the maps
+$\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}}$ and
+$\phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ \phi^{-1}_{\typeP}$
+are both continuous, so the result follows by \ref{bang:epi}.\end{proof}
+
 
 \subsection{A relationship between $\delta_a$ and $!$}
 \label{subsect:delta-bang}
@@ -786,7 +872,98 @@ This restriction of the map $\theta$ is written $\theta^{!} : \delta_a{!} \to
 
 \begin{proof} By \ref{characterisation:thetabanginv}.\end{proof}
 
+Furthermore the action of $\delta_a^+$ on linear arrows, as described in
+lemma \ref{def:deltalin}, extends to a similar action on continuous arrows as
+shown here.
 
+\begin{lemma} \label{deltahat:continuous} If $f : \widehat{\typeP} \to
+\widehat{\typeQ}$ is FM-continuous then so is \[\theta_{\typeQ} \circ \delta_a f
+\circ \theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \widehat{\delta_a
+\typeQ}.\]  \end{lemma}
+
+\begin{proof} Let $X \subseteq \widehat{\delta_a \typeP}$ be directed and
+uniformly supported by $s'$. Without loss of generality assume that $a \in s'$
+and $s \subseteq s'$.
+%
+It is required to show that \[\bigcup \{(\theta_\typeQ \circ \delta_a f \circ
+\theta^{-1}_{\typeP}) (x) \mid x \in X \} = (\theta_\typeQ \circ \delta_a f
+\circ \theta^{-1}_{\typeP}) \left( \bigcup X \right).\]
+%
+Let $p \in \bigcup \{(\theta_\typeQ \circ \delta_a f \circ \theta^{-1}_{\typeP})
+(x) \mid x \in X \}$ and let $x \in X$ be such that $p \in (\theta_\typeQ \circ
+\delta_a f \circ \theta^{-1}_{\typeP}) (x)$, then $x \subseteq \bigcup X$ so
+that by monotonicity $p \in  (\theta_\typeQ \circ \delta_a f \circ
+\theta^{-1}_{\typeP}) \left( \bigcup X \right)$.
+%
+Conversely let $p \in (\theta_\typeQ \circ \delta_a f \circ
+\theta^{-1}_{\typeP}) \left( \bigcup X \right)$ and let $b$ be a fresh name.
+%
+Therefore $p@b \in \left((\delta_a f \circ \theta^{-1}_{\typeP}) \left( \bigcup
+X \right) \right) @b = f \left( \left( \theta^{-1}_{\typeP} \left( \bigcup X
+\right) \right) @b\right)$.
+%
+By \ref{bang:alg} $\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right)
+@b = \bigcup \{P \in \typelift\typeP \mid P \subseteq \left(
+\theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b \wedge \supp{P}
+\subseteq \supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b}
+\}$.
+%
+Since $f$ is FM-continuous there exists $P \in \typelift\typeP$ such that $ P
+\subseteq \left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b$ and
+$\supp{P} \subseteq \supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right)
+\right) @b}$ and $p@b \in fP$.
+%
+Notice that $\supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right)
+@b} \subseteq s' \cup \{b\}$ so that by \ref{finelt:wlog} there exist $p_1,
+\ldots, p_n \in \left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b$
+such that $p@b \in f(\finelt{\{p_1, \ldots, p_n\}}{s' \cup \{b\}})$.
+%
+As $b \freshfor \bigcup X$ it follows that $[b].p_i \in \bigcup X$ and hence
+there exists $x_i \in X$ such that $[b].p_i \in x_i$ for all $i$.
+%
+However $X$ is directed so there exists $x \in X$ such that $x_i \subseteq x$
+for all $i$, and $X$ is uniformly supported by $s'$ so that $\supp{x} \subseteq
+s'$ and hence $\finelt{\{[b].p_1, \ldots, [b].p_n\}}{s'} \subseteq x$.
+%
+Using \ref{characterisation:thetabanginv} it follows that \[\finelt{\{p_1,
+\ldots, p_n\}}{s' \udot \{b\}} = \left( \theta^{-1}_{\typeP} \finelt{\{[b].p_1,
+\ldots, [b].p_n\}}{s'} \right)@b \subseteq \left( \theta^{-1}_{\typeP} x
+\right)@b\] so that $p@b \in f \left(\left( \theta^{-1}_{\typeP} (x)
+\right)@b\right) = \left( (\delta_a f \circ \theta^{-1}_{\typeP}) (x) \right)@b$
+and hence $p \in (\theta_{\typeQ} \circ \delta_a f \circ \theta^{-1}_{\typeP})
+(x)$ as required.  \end{proof}
+
+Finally, it is useful to characterise the interaction between $\theta^{!}$ and the
+unit $\eta$ of the ${!}$ comonad as follows.
+
+\begin{lemma} \label{comm:thetaeta}  If $\typeP$ is an object of
+$\mathbf{FMPre}_{s \udot \{a\}}$ then \[\widehat{{\theta^{!}_{\typeP}}^{-1}}
+\circ \eta_{\delta_a \typeP} = \theta_{{!}\typeP} \circ \delta_a \eta_{\typeP}
+\circ \theta^{-1}_{\typeP} \]\end{lemma}
+
+\begin{proof} \[\begin{array}{rcll} \multicolumn{4}{l}{
+\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a \typeP} \circ
+i_{\delta_a\typeP} }\\
+%
+&=& \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{{!}\delta_a\typeP}
+&\text{by \ref{def:eta}} \\
+%
+&=& \{\cdot\}_{\delta_a {!}\typeP} \circ {\theta^{!}_{\typeP}}^{-1} &\text{by
+naturality of $\{\cdot\}_{\downarrow}$}\\
+%
+&=& \theta_{{!}\typeP} \circ \delta_a \{\cdot\}_{{!}\typeP} \circ
+{\theta^{!}_{\typeP}}^{-1} &\text{by \ref{comm:deltatriangle}} \\
+%
+&=& \theta_{{!}\typeP} \circ \delta_a\eta_{\typeP} \circ \delta_a i_{\typeP}
+\circ {\theta^{!}_{\typeP}}^{-1} &\text{by \ref{def:eta}} \\
+%
+&=& \theta_{{!}\typeP} \circ \delta_a \eta_{\typeP} \circ \theta^{-1}_{\typeP}
+\circ i_{\delta_a \typeP} &\text{by \ref{def:thetabang}.} \\
+%
+\end{array} \] But using \ref{deltahat:continuous} the maps
+$\widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \eta_{\delta_a \typeP}$ and
+$\theta_{{!}\typeP} \circ \delta_a \eta_{\typeP} \circ \theta^{-1}_{\typeP}$ are
+both continuous, so the result follows by \ref{bang:epi}.\end{proof}
 
 
 \subsection{The Structure of $\mathbf{FMCts}_s$}
@@ -1080,117 +1257,9 @@ Notice that the definitions above are the same as those for the adjunction
 $(-)^{\freshfor a+} \dashv \delta_a^+$ described in
 \ref{subsubsect:deltafreshadjlin}.
 %
-It is necessary to show that $(-)^{\freshfor a++}$ and $\delta_a^{++}$ send
-continuous maps to continuous maps.
-%
-This is demonstrated in \ref{freshhat:continuous} and \ref{deltahat:continuous}
-below.
-
-\begin{lemma} \label{freshhat:continuous} If $f : \widehat\typeP \to
-\widehat\typeQ$ is FM-continuous then so is \[\phi_{\typeQ} \circ f^{\freshfor
-a} \circ \phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
-\widehat{\typeQ^{\freshfor a}}.\] \end{lemma}
-
-\begin{proof} Let $X \subseteq \widehat{\typeP^{\freshfor a}}$ be directed and
-uniformly supported by $s'$.
-%
-Without loss of generality assume that $a \in s'$ and $s \subseteq s'$.
-%
-It is required to show that \[ \bigcup\{ (\phi_{\typeQ} \circ f^{\freshfor a}
-\circ \phi^{-1}_{\typeP})(x) \mid x \in X \} = (\phi_{\typeQ} \circ f^{\freshfor
-a} \circ \phi^{-1}_{\typeP}) \left(\bigcup X\right). \]
-%
-Let $p \in \bigcup\{ (\phi_{\typeQ} \circ f^{\freshfor a} \circ
-\phi^{-1}_{\typeP})(x) \mid x \in X \}$ and let $x \in X$ be such that $p \in
-(\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP})(x)$, then $x
-\subseteq \bigcup X$ so that by monotonicity $p \in (\phi_{\typeQ} \circ
-f^{\freshfor a} \circ \phi^{-1}_{\typeP}) \left(\bigcup X\right)$.
-%
-Conversely let $p \in (\phi_{\typeQ} \circ f^{\freshfor a} \circ
-\phi^{-1}_{\typeP}) \left(\bigcup X\right)$ then $p \freshfor a$ and $p \in
-f\left(\phi^{-1}_{\typeP} \left(\bigcup X\right)\right)$.
-%
-By \ref{bang:alg} it is the case that $\phi^{-1}_{\typeP} \left(\bigcup X\right)
-= \bigcup \{P \in \typelift\typeP \mid P \subseteq
-\phi^{-1}_{\typeP}\left(\bigcup X\right) \wedge \supp{P} \subseteq
-\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)}\}$.
-%
-Since $f$ is FM-continuous there exists $P \in \typelift\typeP$ such that $P
-\subseteq \phi^{-1}_{\typeP}\left(\bigcup X\right)$ and $\supp{P} \subseteq
-\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)}$ and $p \in fP$.
-%
-Notice that $\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)} \subseteq s'$ so
-that by $\ref{finelt:wlog}$ there exist $p_1, \ldots, p_n \in \phi^{-1}_{\typeP}
-\left(\bigcup X\right)$ such that $p \in f(\finelt{\{p_1, \ldots, p_n\}}{s'})$.
-%
-Let $b$ be a fresh name, then from \ref{characterisation:phiinv} it follows that
-$ (ab) \cdot p_i \in \bigcup X$ for all $i$ so that there exist $x_1, \ldots,
-x_n \in X$ such that $(ab) \cdot p_i \in x_i$.
-%
-However, $X$ is directed so there exists $x \in X$ such that $x_i \subseteq x$
-for all $i$, and $X$ is uniformly supported by $s'$ so that $\supp{x} \subseteq
-s'$ and hence $\finelt{\{p_1, \ldots, p_n\}}{s'} \subseteq (ab) \cdot x
-\subseteq \phi^{-1}_{\typeP} (x)$.
-%
-Therefore $p \in (\phi_{\typeQ} \circ f^{\freshfor a} \circ
-\phi^{-1}_{\typeP})(x)$ as required.  \end{proof}
-
-\begin{lemma} \label{deltahat:continuous} If $f : \widehat{\typeP} \to
-\widehat{\typeQ}$ is FM-continuous then so is \[\theta_{\typeQ} \circ \delta_a f
-\circ \theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \widehat{\delta_a
-\typeQ}.\]  \end{lemma}
-
-\begin{proof} Let $X \subseteq \widehat{\delta_a \typeP}$ be directed and
-uniformly supported by $s'$. Without loss of generality assume that $a \in s'$
-and $s \subseteq s'$.
-%
-It is required to show that \[\bigcup \{(\theta_\typeQ \circ \delta_a f \circ
-\theta^{-1}_{\typeP}) (x) \mid x \in X \} = (\theta_\typeQ \circ \delta_a f
-\circ \theta^{-1}_{\typeP}) \left( \bigcup X \right).\]
-%
-Let $p \in \bigcup \{(\theta_\typeQ \circ \delta_a f \circ \theta^{-1}_{\typeP})
-(x) \mid x \in X \}$ and let $x \in X$ be such that $p \in (\theta_\typeQ \circ
-\delta_a f \circ \theta^{-1}_{\typeP}) (x)$, then $x \subseteq \bigcup X$ so
-that by monotonicity $p \in  (\theta_\typeQ \circ \delta_a f \circ
-\theta^{-1}_{\typeP}) \left( \bigcup X \right)$.
-%
-Conversely let $p \in (\theta_\typeQ \circ \delta_a f \circ
-\theta^{-1}_{\typeP}) \left( \bigcup X \right)$ and let $b$ be a fresh name.
-%
-Therefore $p@b \in \left((\delta_a f \circ \theta^{-1}_{\typeP}) \left( \bigcup
-X \right) \right) @b = f \left( \left( \theta^{-1}_{\typeP} \left( \bigcup X
-\right) \right) @b\right)$.
-%
-By \ref{bang:alg} $\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right)
-@b = \bigcup \{P \in \typelift\typeP \mid P \subseteq \left(
-\theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b \wedge \supp{P}
-\subseteq \supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b}
-\}$.
-%
-Since $f$ is FM-continuous there exists $P \in \typelift\typeP$ such that $ P
-\subseteq \left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b$ and
-$\supp{P} \subseteq \supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right)
-\right) @b}$ and $p@b \in fP$.
-%
-Notice that $\supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right)
-@b} \subseteq s' \cup \{b\}$ so that by \ref{finelt:wlog} there exist $p_1,
-\ldots, p_n \in \left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b$
-such that $p@b \in f(\finelt{\{p_1, \ldots, p_n\}}{s' \cup \{b\}})$.
-%
-As $b \freshfor \bigcup X$ it follows that $[b].p_i \in \bigcup X$ and hence
-there exists $x_i \in X$ such that $[b].p_i \in x_i$ for all $i$.
-%
-However $X$ is directed so there exists $x \in X$ such that $x_i \subseteq x$
-for all $i$, and $X$ is uniformly supported by $s'$ so that $\supp{x} \subseteq
-s'$ and hence $\finelt{\{[b].p_1, \ldots, [b].p_n\}}{s'} \subseteq x$.
-%
-Using \ref{characterisation:thetabanginv} it follows that \[\finelt{\{p_1,
-\ldots, p_n\}}{s' \udot \{b\}} = \left( \theta^{-1}_{\typeP} \finelt{\{[b].p_1,
-\ldots, [b].p_n\}}{s'} \right)@b \subseteq \left( \theta^{-1}_{\typeP} x
-\right)@b\] so that $p@b \in f \left(\left( \theta^{-1}_{\typeP} (x)
-\right)@b\right) = \left( (\delta_a f \circ \theta^{-1}_{\typeP}) (x) \right)@b$
-and hence $p \in (\theta_{\typeQ} \circ \delta_a f \circ \theta^{-1}_{\typeP})
-(x)$ as required.  \end{proof}
+As shown in \ref{freshhat:continuous} and \ref{deltahat:continuous}, the actions
+of $(-)^{\freshfor a++}$ and $\delta_a^{++}$ do send continuous maps to
+continuous maps as required.
 
 
 \subsubsection{Freshness Assumptions.} \label{subsubsect:freshness-cts} The
