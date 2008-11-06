@@ -591,8 +591,13 @@ $\mathbf{FMCts}_s$ for $i \in \{1, 2\}$ then write $\langle f_1, f_2
 are arrows of $\mathbf{FMCts}_s$ for $i \in \{1, 2\}$ then define
 \begin{equation} \label{def:arrowamp} g_1 \amp g_2 \defeq \langle g_1 \circ
 \mathbf{out}_1, g_2 \circ \mathbf{out}_2 \rangle^{\amp} : \typePsub{1} \amp
-\typePsub{2} \to \typeQsub{1} \amp \typeQsub{2}. \end{equation}
-\end{definition}
+\typePsub{2} \to \typeQsub{1} \amp \typeQsub{2}. \end{equation} \end{definition}
+%
+It is not hard to see that the operation \[\mathord{\amp} :
+\mathbf{FMCts}_s(\typePsub{1}, \typeQsub{1}) \times
+\mathbf{FMCts}_s(\typePsub{2}, \typeQsub{2}) \to \mathbf{FMCts}_s(\typePsub{1}
+\amp \typePsub{2}, \typeQsub{1} \amp \typeQsub{2})\] preserves all joins in each
+argument.
 
 If $\typePsub{1}$ and $\typePsub{2}$ are objects of $\mathbf{FMCts}_s$ then
 there is an isomorphism $m_{\typePsub{1}, \typePsub{2}} : \widehat{\typePsub{1}}
