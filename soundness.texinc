@@ -67,7 +67,7 @@ induction on $u$} \\
 %
 &\sqsupseteq& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
 \eta_{\typeQp^{\freshfor s'}} \circ \sem{u'}^{\freshfor s'} &\text{by lemma
-\TODO{hat-fresh-eta triangle lemma}} \\
+\ref{hat-fresh-eta-lemma}} \\
 %
 &=& \sem{p} \circ  \epsilon_{\typeP} \circ \eta_{\typeP} \circ \sem{t} \circ
 \sem{u'}^{\freshfor s'} &\text{by naturality of $\eta$} \\

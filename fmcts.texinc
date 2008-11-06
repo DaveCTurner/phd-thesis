@@ -1260,7 +1260,30 @@ $(-)^{\freshfor a+} \dashv \delta_a^+$ described in
 As shown in \ref{freshhat:continuous} and \ref{deltahat:continuous}, the actions
 of $(-)^{\freshfor a++}$ and $\delta_a^{++}$ do send continuous maps to
 continuous maps as required.
+%
+Also, the action of $(-)^{\freshfor a+}$ interacts well with the unit $\eta$ of
+the ${!}$ comonad as follows.
 
+\begin{lemma} \label{comm:eta-phi-cts} The following diagram commutes. \[
+\xymatrix{ (-)^{\freshfor a} \ar[r]^{\eta^{\freshfor a++}}
+\ar[dr]_{\eta_{(-)^{\freshfor a}}} & ({!}-)^{\freshfor a}
+\ar[d]^{\widehat{\phi^{!}}} \\ & {!}((-)^{\freshfor a})} \] \end{lemma}
+
+\begin{proof} Let $\typeP$ be an object of $\mathbf{FMCts}_s$, then
+\begin{equation} \begin{array}[t]{rcll}
+%
+\widehat{\phi^{!}_{\typeP}} \circ \eta_{\typeP}^{\freshfor a++}
+%
+&=& \widehat{\phi^{!}_{\typeP}} \circ \phi_{\typelift\typeP} \circ
+\eta_{\typeP}^{\freshfor a} \circ \phi_{\typeP}^{-1} & \text{by
+\ref{def:freshcts}} \\
+%
+&=& \widehat{\phi^{!}_{\typeP}} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ
+\eta_{\typeP^{\freshfor a}} & \text{by \ref{comm:phieta}} \\
+%
+&=& \eta_{\typeP^{\freshfor a}} & \text{as required.} \\
+%
+\end{array} \end{equation} \end{proof}
 
 \subsubsection{Freshness Assumptions.} \label{subsubsect:freshness-cts} The
 machinery of freshness (such as the functor $(-)^{\freshfor a}$ and the
@@ -1310,6 +1333,14 @@ It is clear that if $s$, $s_1$ and $s_2$ are mutually disjoint then
 \begin{equation} \label{phi-vec:compose} \phi^{(s_1 \udot s_2)} =
 \phi^{(s_1)}_{(-)^{\freshfor s_2}} \circ {\phi^{(s_2)}}^{\freshfor s_1}.
 \end{equation}
+%
+A similar argument applies to the similarly-defined map \begin{equation}
+\label{def:phibang-vec} \phi^{!(s')} : ({!}-)^{\freshfor s'} \to
+{!}((-)^{\freshfor s'}) \end{equation} and in particular if $\typeP$ is an
+object of $\mathbf{FMCts}_s$ then \begin{equation} \label{hat-fresh-eta-lemma}
+\eta_{\typeP^{\freshfor s'}} = \widehat{\phi^{!(s')}_{\typeP}} \circ
+\eta_{\typeP}^{\freshfor s'++} \end{equation} by repeatedly applying lemma
+\ref{comm:eta-phi-cts}.
 
 Furthermore, the map $\tau^a : (-)^{\freshfor a} \to J$ of
 \ref{lemma:freshinclusion} extends in the obvious fashion to a natural
