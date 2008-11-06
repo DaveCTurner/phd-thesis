@@ -1120,25 +1120,7 @@ p\}} \\
 %
 \end{array} \end{equation}
 
-\paragraph{Right Triangle.}
-%
-Let $p \in \delta_a\typeP$, then \begin{equation} \label{comm:deltatriangle}
-\begin{array}[t]{rcl} \bigl(\{\cdot\}_{\delta_a\typeP}\bigr)p
-%
-&=& \{p' \in \delta_a\typeP \mid p' \le_{\delta_a\typeP} p\} \\
-%
-&=& \{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \le_{(ab) \cdot \typeP} p@b}\}
-\\
-%
-&=& \{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \in \{p@b\}_\downarrow}\} \\
-%
-&=& \bigl\{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \in
-([b].\{p@b\}_\downarrow)@b}\bigr\} \\
-%
-&=& \theta_{\typeP} \bigl(\freshin{b}{[b].\{p@b\}_\downarrow)}\bigr) \\
-%
-&=& \bigl( \theta_{\typeP} \circ \delta_a\{\cdot\}_{\typeP}\bigr) p.
-\end{array} \end{equation}
+\paragraph{Right Triangle.} By lemma \ref{comm:deltatriangle}.
 
 \paragraph{Right Pentagon.}
 %

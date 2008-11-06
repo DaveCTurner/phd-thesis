@@ -383,6 +383,39 @@ required.  It follows immediately that $\theta^{-1}_{\typeP}$ is natural in
 $\typeP$, and hence $\theta$ is a natural isomorphism with inverse given by
 $\theta^{-1}$ as required.  \end{proof}
 
+
+The transformation $\theta$ also interacts well with the unit
+$\{\cdot\}_{\downarrow}$ of the $\widehat{(-)}$ monad as follows.
+
+\begin{lemma} \label{comm:deltatriangle} The following diagram commutes.
+\[
+\xymatrix{
+\delta_a\typeP \ar[r]^{\delta_a\{\cdot\}_\typeP} 
+\ar[dr]_{\{\cdot\}_{\delta_a\typeP}} & 
+\delta_a\widehat{\typeP} \ar[d]^{\theta_{\typeP}} \\ & 
+\widehat{\delta_a\typeP}} \] \end{lemma}
+
+\begin{proof} Let $\typeP$ be an object of $\mathbf{FMCts}_{s \udot \{a\}}$ and
+let $p \in \delta_a\typeP$, then \begin{equation} \begin{array}[t]{rcl}
+\bigl(\{\cdot\}_{\delta_a\typeP}\bigr)p
+%
+&=& \{p' \in \delta_a\typeP \mid p' \le_{\delta_a\typeP} p\} \\
+%
+&=& \{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \le_{(ab) \cdot \typeP} p@b}\}
+\\
+%
+&=& \{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \in \{p@b\}_\downarrow}\} \\
+%
+&=& \bigl\{p' \in \delta_a\typeP \mid \freshin{b}{p'@b \in
+([b].\{p@b\}_\downarrow)@b}\bigr\} \\
+%
+&=& \theta_{\typeP} \bigl(\freshin{b}{[b].\{p@b\}_\downarrow)}\bigr) \\
+%
+&=& \bigl( \theta_{\typeP} \circ \delta_a\{\cdot\}_{\typeP}\bigr) p.
+\end{array} \end{equation} \end{proof}
+
+
+
 \subsection{The Structure of $\mathbf{FMLin}_s$}
 
 The use of the word `linear' in this context stems from the observation that
