@@ -1243,13 +1243,13 @@ a}$ and $\delta^{++}_a \typeP \defeq \delta_a \typeP$.
 %
 The unit and counit are given by $\widehat{\xi}$ and $\widehat{\zeta}$.
 %
-If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$ then $f^{\freshfor
-a++} : \typeP^{\freshfor a} \to \typeQ^{\freshfor a}$ is defined by
+If $f : \typeP \cto \typeQ$ is an arrow of $\mathbf{FMCts}_s$ then $f^{\freshfor
+a++} : \typeP^{\freshfor a} \cto \typeQ^{\freshfor a}$ is defined by
 \begin{equation} \label{def:freshcts} f^{\freshfor a++} \defeq \phi_{\typeQ}
 \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP}.  \end{equation}
 %
-Also if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_{s \udot \{a\}}$
-then $\delta_a^{++} f : \delta_a \typeP \to \delta_a \typeQ$ is defined by
+Also if $f : \typeP \cto \typeQ$ is an arrow of $\mathbf{FMCts}_{s \udot \{a\}}$
+then $\delta_a^{++} f : \delta_a \typeP \cto \delta_a \typeQ$ is defined by
 \begin{equation} \label{def:deltacts} \delta_a^{++} f \defeq \theta_{\typeQ}
 \circ \delta_a f \circ \theta^{-1}_{\typeP}.  \end{equation}
 %
