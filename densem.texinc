@@ -233,13 +233,13 @@ The isomorphism $\mathbf{rep} : \typerec{}{P}{\typeP} \cong
 a semantics for terms of recursively-defined types by folding (\ref{densem:abs})
 and unfolding (\ref{densem:rep}) the definition.
 %
-The hom-set $\sem{\Gamma} \to \typeP$ is $\omega$-complete which gives rise to a
-semantics for recursive processes (\ref{densem:rec}) as the $\omega$-limit of
-their finite unfoldings.
+The hom-set $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ is $\omega$-complete which
+gives rise to a semantics for recursive processes (\ref{densem:rec}) as the
+$\omega$-limit of their finite unfoldings.
 
-The hom-set $\sem{\Gamma} \to \typeP$ has more general joins than merely those
-of $\omega$-chains, and such joins give rise to a semantics for nondeterministic
-sums (\ref{densem:ndsum}).
+The hom-set $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ has more general joins than
+merely those of $\omega$-chains, and such joins give rise to a semantics for
+nondeterministic sums (\ref{densem:ndsum}).
 
 The adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
 \leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$ of \ref{deltafreshadjcts} gives
