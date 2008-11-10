@@ -69,7 +69,7 @@ then by \ref{hat:freeness} \begin{equation} \label{hat:epi} f = (f \circ
 \label{fmlin}
 
 Let $\mathbf{FMLin}_s$ be the category whose objects are FM-preorders $\typeP$,
-$\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \to \typeQ$ are
+$\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \lto \typeQ$ are
 FM-linear maps $\widehat{\typeP} \to \widehat{\typeQ}$ supported by $s$.
 %
 The discussion at the end of the previous section shows that
@@ -82,7 +82,7 @@ so that if $f$ preserves joins then $f a \vee f b = f (a \vee b) = f b$ and
 hence $f a \le f b$.
 %
 Therefore there is a functor $J : \mathbf{FMLin}_s \to \mathbf{FMPre}_s$, where
-$J\typeP \defeq \widehat{\typeP}$ and if $f : \typeP \to \typeQ$ is an arrow of
+$J\typeP \defeq \widehat{\typeP}$ and if $f : \typeP \lto \typeQ$ is an arrow of
 $\mathbf{FMLin}_s$ then $Jf \defeq f : \widehat{\typeP} \to \widehat{\typeQ}$ in
 $\mathbf{FMPre}_s$.
 %
@@ -91,7 +91,7 @@ Furthermore the freeness property \ref{hat:freeness} says that $(\typeP,
 $\ref{hat:adj}$ is an adjunction with $J$ the right adjoint to the functor which
 acts as the identity on objects and takes an arrow $f : \typeP \to \typeQ$ of
 $\mathbf{FMPre}_s$ to $\widehat f \defeq (\{\cdot\}_{\typeQ} \circ f)^{\dagger}
-: \typeP \to \typeQ$ in $\mathbf{FMLin}_s$.
+: \typeP \lto \typeQ$ in $\mathbf{FMLin}_s$.
 %
 Concretely this means that if $x \in \widehat{\typeP}$ then \begin{equation}
 \label{hat:arrows} \widehat{f}x = \{ q \in \typeQ \mid \exists p \in x. q
@@ -467,10 +467,9 @@ each $\mathbf{FMLin}_s$ as being enriched over $\mathbf{CMon}$.
 disjoint union of the orders $\typeP_1$ and $\typeP_2$ forms the binary
 coproduct $\typeP_1 + \typeP_2$ in $\mathbf{FMLin}_s$.
 %
-The $i$th injection $\mathbf{in}_i : \widehat{\typeP_i} \to \matthat{\typeP_1 +
-\typeP_2}$ is given by the action of $\widehat{(-)}$ on the $i$th injection of
-the underlying preorders: concretely, $\mathbf{in}_1 (x) = x \uplus
-\varnothing$ for example.
+The $i$th injection $\mathbf{in}_i : \typeP_i \lto \typeP_1 + \typeP_2$ is given
+by the action of $\widehat{(-)}$ on the $i$th injection of the underlying
+preorders: concretely, $\mathbf{in}_1 (x) = x \uplus \varnothing$ for example.
 %
 The empty order $\mathbb O$ is the empty coproduct.
 %
@@ -483,9 +482,8 @@ product $\typeP_1 \amp \typeP_2$.
 %
 The projections are defined by $\mathbf{out}_1 \defeq [\mathbf{1}_{\typeP_1},
 \varnothing]$ and $\mathbf{out}_2 \defeq [\varnothing, \mathbf{1}_{\typeP_2}]$,
-and concretely $\mathbf{out}_i : \matthat{\typeP_1 \amp \typeP_2} \to
-\widehat{\typeP_i}$ is given by $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid
-\mathbf{in}_i p \in x \}$.
+and concretely $\mathbf{out}_i : \typeP_1 \amp \typeP_2 \lto \typeP_i$ is given
+by $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid \mathbf{in}_i p \in x \}$.
 %
 Furthermore, the commutative monoid structure means that injections and
 projections satisfy \begin{equation} \label{biproducts} \begin{array}[t]{c}
@@ -513,14 +511,14 @@ Furthermore, for each $\ell_0 \in L$ the $\ell_0$th component
 $\typePsub{\ell_0}$ is an object of $\mathbf{FMLin}_{s \cup \supp{\ell_0}}$, and
 if $J : \mathbf{FMLin}_s \hookrightarrow \mathbf{FMLin}_{s \cup \supp{\ell_0}}$
 is an inclusion of categories then the $\ell_0$th injection is an arrow
-$\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \to J\stdtypesum$ of
+$\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \lto J\stdtypesum$ of
 $\mathbf{FMLin}_{s \cup \supp{\ell_0}}$.
 %
 Moreover if $\typeQ$ is an object of $\mathbf{FMLin}_s$ and $(f_\ell :
-\typePsub{\ell} \to \typeQ)_{\ell \in L}$ is a collection of arrows (in the
+\typePsub{\ell} \lto \typeQ)_{\ell \in L}$ is a collection of arrows (in the
 appropriate categories) such that the mapping $\ell \mapsto f_\ell$ is supported
 by $s' \supseteq s $ then there is a unique $[f_{\ell}]_{\ell \in L} :
-\stdtypesum \to \typeQ$ in $\mathbf{FMLin}_{s'}$ such that $[f_{\ell}]_{\ell \in
+\stdtypesum \lto \typeQ$ in $\mathbf{FMLin}_{s'}$ such that $[f_{\ell}]_{\ell \in
 L} \circ \mathbf{in}_{\ell_0} = f_{\ell_0}$ in $\mathbf{FMLin}_{s' \cup
 \supp{\ell_0}}$ for each $\ell_0$.
 %
@@ -528,7 +526,7 @@ In short, $\stdtypesum$ behaves much like a coproduct, except that its
 injections do not necessarily all inhabit the same categories.
 
 This generalised coproduct $\stdtypesum$ also has projections
-$\mathbf{out}_{\ell_0} : \stdtypesum \to \typePsub{\ell_0}$ that satisfy
+$\mathbf{out}_{\ell_0} : \stdtypesum \lto \typePsub{\ell_0}$ that satisfy
 conditions much like those of a product, except that again they also do not all
 lie in the same category.
 %
@@ -591,14 +589,14 @@ a}$ and $\delta^+_a \typeP \defeq \delta_a \typeP$.
 %
 The unit and counit are given by $\widehat{\xi}$ and $\widehat{\zeta}$.
 %
-If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then $f^{\freshfor
-a+} : \typeP^{\freshfor a} \to \typeQ^{\freshfor a}$ is the arrow of
+If $f : \typeP \lto \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then $f^{\freshfor
+a+} : \typeP^{\freshfor a} \lto \typeQ^{\freshfor a}$ is the arrow of
 $\mathbf{FMLin}_{s \udot \{a\}}$ defined concretely as \begin{equation}
 \label{concrete:freshlin} f^{\freshfor a+} x \defeq \{ q \in f(x_{\downarrow})
 \mid a \freshfor q\}.  \end{equation}
 %
-Also if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$
-then $\delta_a^+ f : \delta_a \typeP \to \delta_a \typeQ$ is the arrow of
+Also if $f : \typeP \lto \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$
+then $\delta_a^+ f : \delta_a \typeP \lto \delta_a \typeQ$ is the arrow of
 $\mathbf{FMLin}_s$ defined concretely as \begin{equation}
 \label{concrete:deltalin} \delta_a^+ f x \defeq \{ q \in \delta_a \typeQ \mid
 \exists p \in x.\ \freshin{b}{q@b \in ((ab) \cdot f) \{p@b\}_{\downarrow}}\}.
@@ -610,7 +608,7 @@ and $\delta_a^+$ in terms of $(-)^{\freshfor a}$, $\delta_a$, $\phi$ and
 $\theta$ as shown by the following results.
 
 
-\begin{lemma} \label{def:freshlin} If $f : \typeP \to \typeQ$ is an arrow of
+\begin{lemma} \label{def:freshlin} If $f : \typeP \lto \typeQ$ is an arrow of
 $\mathbf{FMLin}_s$ then \[f^{\freshfor a+} = \phi_{\typeQ} \circ f^{\freshfor a}
 \circ \phi^{-1}_{\typeP}.\]\end{lemma}
 
@@ -639,7 +637,7 @@ f(x_{\downarrow})$ and hence $q \in f^{\freshfor a+} x$ as required.
 %
 \end{proof}
 
-\begin{lemma} \label{def:deltalin} If $f : \typeP \to \typeQ$ is an arrow of
+\begin{lemma} \label{def:deltalin} If $f : \typeP \lto \typeQ$ is an arrow of
 $\mathbf{FMLin}_{s \udot \{a\}}$ then \[\delta_a^+ f = \theta_{\typeQ} \circ
 \delta_a f \circ \theta^{-1}_{\typeP}.\]\end{lemma}
 

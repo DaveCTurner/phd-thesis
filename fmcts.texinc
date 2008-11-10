@@ -376,7 +376,7 @@ to mean
 `preserves joins of increasing sequences' - for brevity this will be called
 `FM-continuous'. Let $\mathbf{FMCts}_s$ be the category whose objects are
 FM-preorders $\typeP$, $\typeQ$, $\ldots$ supported by $s$ and whose arrows
-$\typeP \to \typeQ$ are maps $\widehat{\typeP} \to \widehat{\typeQ}$ that are
+$\typeP \cto \typeQ$ are maps $\widehat{\typeP} \to \widehat{\typeQ}$ that are
 FM-continuous and supported by $s$. Note that in particular FM-linear maps are
 FM-continuous so that $\mathbf{FMLin}_s$ is a subcategory of $\mathbf{FMCts}_s$.
 
@@ -478,22 +478,22 @@ Therefore $P \subseteq x$ so as required it follows that \[p \in \bigcup \{P \in
 \}. \qedhere\] \end{proof}
 
 Lemma \ref{bang:alg} ensures the uniqueness of $f^{\ddagger}$, and in
-pariticular if $f$ and $g$ are FM-continuous maps $\widehat{\typeP} \to
-\widehat{\typeQ}$ and $f \circ i_{\typeP} = g \circ i_{\typeP}$ then
-\begin{equation} \label{bang:epi} f = (f \circ i_{\typeP})^{\ddagger} = (g \circ
-i_{\typeP})^{\ddagger} = g.  \end{equation}
+pariticular if $f$ and $g$ are FM-continuous maps $\typeP \cto \typeQ$ and $f
+\circ i_{\typeP} = g \circ i_{\typeP}$ then \begin{equation} \label{bang:epi} f
+= (f \circ i_{\typeP})^{\ddagger} = (g \circ i_{\typeP})^{\ddagger} = g.
+\end{equation}
 
-Notice that there is a natural FM-continuous $\eta_{\typeP} : \widehat\typeP \to
-\widehat{\typelift\typeP}$ given by $\eta_{\typeP} \defeq
+Notice that there is a natural FM-continuous $\eta_{\typeP} : \typeP \cto
+\typelift\typeP$ given by $\eta_{\typeP} \defeq
 \{\cdot\}_{\typelift\typeP}^{\ddagger}$, or concretely $\eta_{\typeP} X = \{P
 \in \typelift\typeP \mid P \subseteq X \}$.
 %
 In particular, \begin{equation} \label{def:eta} \eta_{\typeP} \circ i_{\typeP} =
 \{\cdot\}_{\typelift\typeP}.\end{equation}
 %
-Furthermore for every FM-continuous $f : \widehat\typeP \to \widehat\typeQ$ the
-FM-linear function $(f \circ i_{\typeP})^{\dagger} : \widehat{\typelift\typeP}
-\to \widehat\typeQ$ satisfies that \begin{equation}
+Furthermore for every FM-continuous $f : \typeP \cto \typeQ$ the FM-linear
+function $(f \circ i_{\typeP})^{\dagger} : \typelift\typeP \lto \typeQ$
+satisfies that \begin{equation}
 %
 (f \circ i_{\typeP})^{\dagger} \circ \eta_{\typeP} = ((f \circ
 i_{\typeP})^{\dagger} \circ \eta_{\typeP} \circ i_{\typeP})^{\ddagger} = ((f
@@ -501,8 +501,8 @@ i_{\typeP})^{\dagger} \circ \eta_{\typeP} \circ i_{\typeP})^{\ddagger} = ((f
 \circ i_{\typeP})^{\ddagger} = f \end{equation} by \ref{hat:freeness} and
 \ref{bang:freeness}.
 %
-Also, if $g : \widehat{\typelift\typeP} \to \widehat\typeQ$ is a FM-linear
-function such that $g \circ \eta_{\typeP} = f$ then \begin{equation} (f \circ
+Also, if $g : \typelift\typeP \lto \widehat\typeQ$ is a FM-linear function such
+that $g \circ \eta_{\typeP} = f$ then \begin{equation} (f \circ
 i_{\typeP})^{\dagger} = (g \circ \eta_{\typeP} \circ i_{\typeP})^{\dagger} = (g
 \circ \{\cdot\}_{\typelift\typeP})^{\dagger} = g.  \end{equation} Therefore $(f
 \circ i_{\typeP})^{\dagger}$ is the unique FM-linear function such that the
@@ -517,8 +517,8 @@ $\langle \eta_{\typeP}, \typelift\typeP \rangle$ is an initial object of
 $(\typeP \downarrow J)$.
 %
 If \begin{equation} \label{def:banglin} {!}f \defeq (\eta_{\typeQ} \circ f \circ
-i_{\typeP})^{\dagger} : \typelift\typeP \to \typelift\typeQ, \end{equation} for
-any arrow $f : \typeP \to \typeQ$ of $\mathbf{FMCts}_s$ then this means that
+i_{\typeP})^{\dagger} : \typelift\typeP \cto \typelift\typeQ, \end{equation} for
+any arrow $f : \typeP \cto \typeQ$ of $\mathbf{FMCts}_s$ then this means that
 there is an adjunction \begin{equation} \label{bang:adj} \mathbf{FMLin}_s
 (\typelift\typeP, \typeQ) \cong \mathbf{FMCts}_s (\typeP, \typeQ).\end{equation}
 with $!$ as the left adjoint.
@@ -994,12 +994,12 @@ Moreover composition is a monoid homomorphism which makes it possible to view
 each $\mathbf{FMCts}_s$ as being enriched over $\mathbf{CMon}$.
 
 More generally, if $(f_i)_{i \in I}$ is a collection of continuous maps $\typeP
-\to \typeQ$ where the mapping $i \mapsto f_i$ is supported by $s$ then their
+\cto \typeQ$ where the mapping $i \mapsto f_i$ is supported by $s$ then their
 union $\bigcup_{i \in I} f_i$ is an element of $\matthat{{!}\typeP^{\mathrm{op}}
 \times \typeQ}$ and it is not hard to see that it is supported by $s$.
 %
 By \ref{cts:homsets} it makes sense to denote the corresponding arrow of
-$\mathbf{FMCts}_s$ as $\sum_{i \in I} f_i : \typeP \to \typeQ$.
+$\mathbf{FMCts}_s$ as $\sum_{i \in I} f_i : \typeP \cto \typeQ$.
 
 
 \subsubsection{Products.}
@@ -1015,15 +1015,15 @@ The product of the objects $\typeP_1$ and $\typeP_2$ is written as $\typeP_1
 As in $\mathbf{FMLin}_s$, $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid
 \mathbf{in}_i p \in x \}$.
 
-\begin{definition} If $f_i : \typeQ \to \typePsub{i}$ are arrows of
+\begin{definition} If $f_i : \typeQ \cto \typePsub{i}$ are arrows of
 $\mathbf{FMCts}_s$ for $i \in \{1, 2\}$ then write $\langle f_1, f_2
 \rangle^{\amp}$ for the unique arrow such that \begin{equation}
 \label{def:angleamp} \mathbf{out}_i \circ \langle f_1, f_2 \rangle^{\amp} = f_i
-\ \text{for each $i$.} \end{equation} If $g_i : \typePsub{i} \to \typeQsub{i}$
+\ \text{for each $i$.} \end{equation} If $g_i : \typePsub{i} \cto \typeQsub{i}$
 are arrows of $\mathbf{FMCts}_s$ for $i \in \{1, 2\}$ then define
 \begin{equation} \label{def:arrowamp} g_1 \amp g_2 \defeq \langle g_1 \circ
 \mathbf{out}_1, g_2 \circ \mathbf{out}_2 \rangle^{\amp} : \typePsub{1} \amp
-\typePsub{2} \to \typeQsub{1} \amp \typeQsub{2}. \end{equation} \end{definition}
+\typePsub{2} \cto \typeQsub{1} \amp \typeQsub{2}. \end{equation} \end{definition}
 %
 It is not hard to see that the operation \[\mathord{\amp} :
 \mathbf{FMCts}_s(\typePsub{1}, \typeQsub{1}) \times
@@ -1051,12 +1051,12 @@ easily than dealing directly with elements of $\matthat{\typePsub{1} \amp
 In particular, \begin{equation} \label{characterisation:m:proj} (\mathbf{out}_i
 \circ m_{\typePsub{1}, \typePsub{2}}) = \pi_i : \widehat{\typePsub{1}} \times
 \widehat{\typePsub{2}} \to \widehat{\typePsub{i}}.  \end{equation} so that if
-$f_i : \typeQ \to \typePsub{i}$ are arrows of $\mathbf{FMCts}_s$ for $i \in \{1,
+$f_i : \typeQ \cto \typePsub{i}$ are arrows of $\mathbf{FMCts}_s$ for $i \in \{1,
 2\}$ then \begin{equation} \label{characterisation:m:pair} \langle f_1, f_2
 \rangle^{\amp} = m_{\typePsub{1}, \typePsub{2}} \circ \langle f_1, f_2 \rangle
 \end{equation}
 %
-and if $g_i : \typePsub{i} \to \typeQsub{i}$ are arrows of $\mathbf{FMCts}_s$
+and if $g_i : \typePsub{i} \cto \typeQsub{i}$ are arrows of $\mathbf{FMCts}_s$
 for $i \in \{1, 2\}$ then \begin{equation} \label{characterisation:m:prod} (g_1
 \amp g_2) \circ m_{\typePsub{1}, \typePsub{2}} = m_{\typeQsub{1}, \typeQsub{2}}
 \circ (g_1 \times g_2). \end{equation}
@@ -1067,18 +1067,18 @@ FM-continuous categories look a little more familiar.
 Also, since each $\mathbf{FMCts}_s$ is cartesian, for any objects $\typePsub{1}$
 and $\typePsub{2}$ there is a twist map \begin{equation} \label{def:varsigma}
 \varsigma_{\typePsub{1}, \typePsub{2}} \defeq \langle \mathbf{out}_2, \mathbf{out}_1
-\rangle^{\amp} : \typePsub{1} \amp \typePsub{2} \to \typePsub{2} \amp
+\rangle^{\amp} : \typePsub{1} \amp \typePsub{2} \cto \typePsub{2} \amp
 \typePsub{1} \end{equation}
 %
 In particular $\varsigma$ is natural in $\typePsub{1}$ and $\typePsub{2}$ in the
-sense that if $f_i : \typePsub{i} \to \typeQsub{i}$ for $i \in \{1, 2\}$ then
+sense that if $f_i : \typePsub{i} \cto \typeQsub{i}$ for $i \in \{1, 2\}$ then
 \begin{equation} \label{naturality:twist} (f_2 \amp f_1) \circ
 \varsigma_{\typePsub{1}, \typePsub{2}} = \varsigma_{\typeQsub{1}, \typeQsub{2}}
 \circ (f_1 \amp f_2). \end{equation}
 
 Finally for any objects $\typeP$ of $\mathbf{FMCts}_s$ there is a diagonal map
 \begin{equation} \label{def:diagonal} \Delta_{\typeP} \defeq \langle
-\mathbf{1}_{\typeP}, \mathbf{1}_{\typeP} \rangle^{\amp} : \typeP \to \typeP \amp
+\mathbf{1}_{\typeP}, \mathbf{1}_{\typeP} \rangle^{\amp} : \typeP \cto \typeP \amp
 \typeP. \end{equation}
 
 
@@ -1165,14 +1165,14 @@ and $\typeR$).  \begin{equation} \begin{array}[t]{rcl}
 in $\mathbf{FMCts}_s$, so that $\mathbf{FMCts}_s$ is cartesian closed.
 
 In detail, the exponential counit is $\mathbf{apply} : (\typelift\typeQ
-\multimap (-)) \amp \typeQ \to \mathbf{1}$ where if $f \in
+\multimap (-)) \amp \typeQ \cto \mathbf{1}$ where if $f \in
 \matthat{\typelift\typeQ \multimap \typeP}$ and $y \in \widehat{\typeQ}$ then
 \begin{equation} \label{def:apply} \mathbf{apply}_{\typeP} (f \uplus y) = \{ p
 \in \typeP \mid \exists Q \in \typelift\typeQ .\ Q \subseteq y \wedge \langle Q,
 p \rangle \in f \}. \end{equation}
 %
-The transpose of a continuous arrow $f : \typeP \amp \typeQ \to \typeR$ is
-$\mathbf{abstract}(f) : \typeP \to (\typelift\typeQ \multimap \typeR)$ where if
+The transpose of a continuous arrow $f : \typeP \amp \typeQ \cto \typeR$ is
+$\mathbf{abstract}(f) : \typeP \cto (\typelift\typeQ \multimap \typeR)$ where if
 $x \in \widehat{\typeP}$ then \begin{equation} \label{def:abstract}
 \mathbf{abstract}(f)(x) = \{ \langle Q, r \rangle \in \typelift\typeQ \multimap
 \typeR \mid r \in f (x \uplus Q) \}. \end{equation}

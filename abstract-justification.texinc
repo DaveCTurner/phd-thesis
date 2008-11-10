@@ -624,15 +624,15 @@ Therefore $L$ and $K$ are mutual inverses, which completes the proof.
 In particular, $K_{\mathbf{Lin}} : \mathbf{FMLin}_s \to
 \mathrm{Kl}\bigl(\widehat{(-)} \text{ on } \mathbf{FMPre}_s\bigr)$ and its
 inverse $L_{\mathbf{Lin}}$ are both defined as the identity on objects, and if
-$f : \typeP \to \typePp$ is an arrow of $\mathbf{FMLin}_s$ and $g : \typeQ \to
+$f : \typeP \lto \typePp$ is an arrow of $\mathbf{FMLin}_s$ and $g : \typeQ \to
 \widehat{\typeQp}$ is an arrow of $\mathbf{FMPre}_s$ then \begin{equation}
 \label{def:klin} K_{\mathbf{Lin}}f \defeq f \circ \{\cdot\}_{\typeP}
 \quad\text{and}\quad L_{\mathbf{Lin}}g \defeq g^{\dagger}.\end{equation}
 
 Similarly, $K_{\mathbf{Cts}} : \mathbf{FMCts}_s \to \mathrm{Kl}\bigl({!} \text{
 on } \mathbf{FMLin}_s\bigr)$ and its inverse $L_{\mathbf{Cts}}$ are both defined
-as the identity on objects, and if $f : \typeP \to \typePp$ is an arrow of
-$\mathbf{FMCts}_s$ and $g : \typelift\typeQ \to \typeQp$ is an arrow of
+as the identity on objects, and if $f : \typeP \cto \typePp$ is an arrow of
+$\mathbf{FMCts}_s$ and $g : \typelift\typeQ \lto \typeQp$ is an arrow of
 $\mathbf{FMLin}_s$ then \begin{equation} \label{def:kcts} K_{\mathbf{Cts}}f
 \defeq (f \circ i_{\typeP})^{\dagger} \quad\text{and}\quad L_{\mathbf{Cts}}g
 \defeq g \circ \eta_{\typeQ}.\end{equation}
@@ -1174,7 +1174,7 @@ If $\typeP$ is an object of $\mathbf{FMLin}_s$ then certainly
 $L_{\mathbf{Lin}}F^+K_{\mathbf{Lin}}\typeP = \typeP^{\freshfor a} =
 \typeP^{\freshfor a+}$.
 %
-If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then
+If $f : \typeP \lto \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then
 \begin{equation} \begin{array}[t]{rcll} L_{\mathbf{Lin}} F^+
 K_{\mathbf{Lin}} f
 %
@@ -1197,7 +1197,7 @@ a}\bigr)^{\dagger} \\
 Similarly, if $\typeP$ is an object of $\mathbf{FMLin}_{s \udot \{a\}}$ then
 $L_{\mathbf{Lin}}G^+K_{\mathbf{Lin}}\typeP = \delta_a\typeP = \delta_a^+\typeP$. 
 %
-If $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$ then
+If $f : \typeP \lto \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$ then
 \begin{equation} \begin{array}[t]{rcll} L_{\mathbf{Lin}}G^+ K_{\mathbf{Lin}} f  
 %
 &=& \bigl(\theta_\typeQ \circ \delta_a f \circ \delta_a
@@ -1355,7 +1355,7 @@ appropriate coherence conditions to apply lemma \ref{adjunctionlift}.
 \begin{lemma} \label{phihat:natural} $\widehat{{\phi^{!}}^{-1}}$ is a natural
 transformation ${!}((-)^{\freshfor a+}) \to ({!}-)^{\freshfor a+}$. \end{lemma}
 
-\begin{proof} Let $f : \typeP \to \typeQ$ be an arrow of $\mathbf{FMLin}_s$,
+\begin{proof} Let $f : \typeP \lto \typeQ$ be an arrow of $\mathbf{FMLin}_s$,
 then \[\begin{array}{rcll} \multicolumn{4}{l}{ ({!}f)^{\freshfor a+} \circ
 \widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{\typelift{(\typeP^{\freshfor
 a})} }} \\
@@ -1400,7 +1400,7 @@ equal as required.  \end{proof}
 \begin{lemma} \label{thetahat:natural} $\widehat{{\theta^{!}}^{-1}}$ is a
 natural transformation ${!}\delta^+_a \to \delta^+_a {!}$.\end{lemma}
 
-\begin{proof} Let $f : \typeP \to \typeQ$ be an arrow of $\mathbf{FMLin}_{s
+\begin{proof} Let $f : \typeP \lto \typeQ$ be an arrow of $\mathbf{FMLin}_{s
 \udot \{a\}}$, then \[\begin{array}{rcll} \multicolumn{4}{l}{ \delta^+_a {!}f
 \circ \widehat{{\theta^{!}_{\typeP}}^{-1}} \circ \{\cdot\}_{\typelift{\delta_a
 \typeP} }} \\
@@ -1447,11 +1447,11 @@ the coKleisli categories of the respective $!$ comonads.
 
 \begin{lemma}\label{deltafreshadjbangcokleisli} If $\typeP$ is an object of
 $\mathbf{FMLin}_s$ then define $F^{++} \typeP = \typeP^{\freshfor a}$, and if $f
-: \typelift\typeP \to \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then define
+: \typelift\typeP \lto \typeQ$ is an arrow of $\mathbf{FMLin}_s$ then define
 $F^{++}f = f^{\freshfor a+} \circ \widehat{{\phi^{!}_{\typeP}}^{-1}}$.
 %
 If $\typeP$ is an object of $\mathbf{FMLin}_{s \udot \{a\}}$ then define $G^{++}
-\typeP = \delta_a \typeP$, and if $f : \typelift\typeP \to \typeQ$ is an arrow
+\typeP = \delta_a \typeP$, and if $f : \typelift\typeP \lto \typeQ$ is an arrow
 of $\mathbf{FMLin}_{s \udot \{a\}}$ then define $G^{++}f = \delta_a^+ f \circ
 \widehat{{\theta^{!}_{\typeP}}^{-1}}$.
 %
@@ -1865,7 +1865,7 @@ gives rise to the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} :
 If $\typeP$ is an object of $\mathbf{FMCts}_s$ then certainly
 $L_{\mathbf{Cts}}F^{++}K_{\mathbf{Cts}}\typeP = \typeP^{\freshfor a}$.
 %
-Suppose that $f : \typeP \to \typeQ$ is an arrow of $\mathbf{FMCts}_s$, then the
+Suppose that $f : \typeP \cto \typeQ$ is an arrow of $\mathbf{FMCts}_s$, then the
 following commutes in $\mathbf{FMPre}_{s \udot \{a\}}$ by naturality of
 $\{\cdot\}_{\downarrow}$, \ref{def:phibang}, \ref{comm:freshtriangle},
 \ref{def:freshlin} and the freeness property \ref{hat:freeness}.
@@ -1931,7 +1931,7 @@ and \ref{def:freshcts}.
 \subsubsection{The Right Adjoint.}
 %
 Similarly, if $\typeP$ is an object of $\mathbf{FMCts}_{s \udot \{a\}}$ then
-$L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}}\typeP = \delta_a\typeP$. Suppose that $f : \typeP \to \typeQ$
+$L_{\mathbf{Cts}}G^{++}K_{\mathbf{Cts}}\typeP = \delta_a\typeP$. Suppose that $f : \typeP \cto \typeQ$
 is an arrow of $\mathbf{FMCts}_{s \udot\{a\}}$, then
 the following diagram commutes in $\mathbf{FMPre}_{s}$ by naturality of
 $\{\cdot\}_{\downarrow}$, \ref{def:thetabang}, \ref{comm:deltatriangle},

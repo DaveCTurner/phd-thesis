@@ -30,6 +30,11 @@
 \def\defeq{\mathrel{=_{\mathrm{def}} }}
 \def\freshin#1#2{\mathop{\mathbf{fresh}} {#1} \mathop{\mathbf{in}} {#2}}
 \def\TODO#1{\textbf{TODO:} \addcontentsline{toc}{subsection}{TODO: #1} {#1}}
+
+\def\lto{\mathrel{\mathop{\to}\limits_{{}^\mathbf{L}}%
+}}
+\def\cto{\mathrel{\mathop{\to}\limits_{{}^\mathbf{C}}%
+}}
 % }}}
 
 % TERM SYNTAX MACROS {{{

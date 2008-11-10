@@ -204,7 +204,7 @@ Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 
 Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
 \begin{equation*} \label{densem:tjudge} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} :
-\sem{\Gamma} \to \typeP \end{equation*} in $\mathbf{FMCts}_s$.
+\sem{\Gamma} \cto \typeP \end{equation*} in $\mathbf{FMCts}_s$.
 %
 The denotation of a typing judgement is built by recursion on the derivation of
 the typing judgement, making use of the various universal constructions
@@ -264,7 +264,7 @@ from the inclusion $\mathbf{FMCts}_s \hookrightarrow \mathbf{FMCts}_{s'}$.
 
 Typing judgements $\atjudge{s}{\typeP}{p}{\typePp}$ denote arrows
 \begin{equation*} \label{densem:atjudge} \sem{\atjudge{s}{\typeP}{p}{\typePp}} :
-\typeP \to \typelift\typePp \end{equation*} in $\mathbf{FMCts}_s$ by recursion
+\typeP \cto \typelift\typePp \end{equation*} in $\mathbf{FMCts}_s$ by recursion
 on the structure of $p$ as shown below.
 %
 Intuitively the arrow $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ matches its input
@@ -461,7 +461,7 @@ it is useful to be able to match against any action $q$ that $u$ may perform.
 More precisely, suppose now that $\tjudge{s}{\Lambda}{u}{\typeQp}$ and also that
 $\atjudge{s}{\typeQp}{q}{\typeQ}$, then matching the output of $u$ against the
 action $q$ can be achieved using the map $\sem{\atjudge{s}{\typeQp}{q}{\typeQ}}
-: \typeQp \to \typelift\typeQ$ as follows.
+: \typeQp \cto \typelift\typeQ$ as follows.
 %
 \begin{equation} \begin{array}[t]{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{\varnothing}{u}{q}{x}{t}{\typeQp}}{\typeP}}
@@ -569,7 +569,7 @@ with a particular label as follows.
 \begin{definition}[Semantics of Labelling] \label{densem:linj} If the judgement
 $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
 $\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$ then by the typing rules it must be that $s$ supports
-$\ell_0$ so that the injection $\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \to
+$\ell_0$ so that the injection $\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \cto
 \stdtypesum$ is an arrow of $\mathbf{FMCts}_s$.
 %
 Therefore define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}}
@@ -601,7 +601,7 @@ outputs of a process against a particular label as follows.
 judgement $\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived
 from $\tjudge{s}{\Gamma}{t}{\stdtypesum}$ then by the typing rules it must be
 that $s$ supports $\ell_0$ so that the projection $\mathbf{out}_{\ell_0} :
-\stdtypesum \to \typePsub{\ell_0}$ is an arrow of $\mathbf{FMCts}_s$.
+\stdtypesum \cto \typePsub{\ell_0}$ is an arrow of $\mathbf{FMCts}_s$.
 %
 Therefore define
 \[\sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}} \defeq
@@ -634,7 +634,7 @@ closely related to that of label projection at the label $\ell_0$ as follows.
 the judgement $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is
 derived from $\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$ then by the typing
 rules it must be that $s$ supports $\ell_0$ so that the projection
-$\mathbf{out}_{\ell_0} : \stdtypesum \to \typePsub{\ell_0}$ is an arrow of
+$\mathbf{out}_{\ell_0} : \stdtypesum \cto \typePsub{\ell_0}$ is an arrow of
 $\mathbf{FMCts}_s$.
 %
 Therefore define
@@ -666,7 +666,7 @@ Then \[\begin{array}{l}
 By \ref{cts:homsets} hom-sets of $\mathbf{FMCts}_s$ are posets which have all
 joins of $\omega$-chains.
 %
-Let $f : \typeQ \amp \typeP \to \typeP$ be an arrow of $\mathbf{FMCts}_s$ and
+Let $f : \typeQ \amp \typeP \cto \typeP$ be an arrow of $\mathbf{FMCts}_s$ and
 consider the operation on homsets $f^* : \mathbf{FMCts}_s(\typeQ, \typeP) \to
 \mathbf{FMCts}_s(\typeQ, \typeP)$ given by \[f^*(g) = f \circ
 (\mathbf{1}_{\typeQ} \amp g) \circ \Delta_{\typeQ}.\]
@@ -843,7 +843,7 @@ Then \[\begin{array}{l}
 $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ can be seen as a subset of the complete
 FM-preorder $\matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times \typeP}$.
 %
-Therefore, given a collection of arrows $f_i : \sem{\Gamma} \to \typeP$ where
+Therefore, given a collection of arrows $f_i : \sem{\Gamma} \cto \typeP$ where
 the mapping $i \mapsto f_i$ is supported by $s$, the join $\sum_{i \in I} f_i$
 of the $f_i$ (in $\matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times \typeP}$) is an
 arrow of $\mathbf{FMCts}_s$.
@@ -1431,7 +1431,7 @@ Firstly, note that \begin{equation} \begin{array}{l} \mathbf{1}_{\Gamma} \amp
 \varsigma_{{ {\typeQ {}_1}^{\freshfor s_1}}, {{\typeQ {}_2}^{\freshfor s_2}} }
 \\ \qquad {} = \langle \mathbf{out}_1, \mathbf{out}_3, \mathbf{out}_2
 \rangle^{\amp} : \sem{\Gamma} \amp \typeQsub{1}^{\freshfor s_1} \amp
-\typeQsub{2}^{\freshfor s_2} \to \sem{\Gamma} \amp \typeQsub{2}^{\freshfor s_2}
+\typeQsub{2}^{\freshfor s_2} \cto \sem{\Gamma} \amp \typeQsub{2}^{\freshfor s_2}
 \amp \typeQsub{1}^{\freshfor s_1}. \end{array} \end{equation}
 %
 Therefore by \ref{densem:def:angles} \begin{equation} \begin{array}[t]{rcll}
