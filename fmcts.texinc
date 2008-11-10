@@ -1,4 +1,4 @@
-\section{Categories of FM-Continuous Maps}
+\section{Continuity in FM Domain Theory}
 \label{fmcts}
 
 As in the development of HOPLA, linear maps are too restrictive to give a
@@ -367,7 +367,7 @@ By \ref{fineltminsupp} therefore $P = \finelt{F'}{\supp{P, \typeP}}$ and by
 \ref{fineltextension} there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that
 $P = \finelt{F}{s}$ as required. \end{proof}
 
-\subsection{FM-Continuous Maps}
+\subsection{Categories of FM-Continuous Maps}
 \label{fmcts:maps}
 
 The discussion of \ref{fm:continuity} indicates that `continuous' could be taken
