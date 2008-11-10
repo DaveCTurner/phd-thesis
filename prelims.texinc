@@ -30,16 +30,17 @@ deal with locally-scoped names, so this ability must be carefully implemented by
 hand.
 %
 Over the years a variety of ways to deal with locally-scoped names have been
-created (\TODO{Cite summary paper?}).
+created.
 %
-This discussion will concentrate on a recently developed method based on a
-non-standard set theory: the theory of nominal sets\cite{PittsAM:newaas-jv}.
+Shinwell\cite[Section 1.1]{shinwell:phdthesis} and Gabbay\cite[Section
+33]{gabbay:thesis} summarise some of these approaches and concentrate --- as
+does this discussion --- on a recently developed method based on a non-standard
+set theory: the theory of nominal sets\cite{PittsAM:newaas-jv}.
 %
-This theory is relevant to this thesis because it gives a purely semantic
-account of the idea of names and binding.
-%
-This will be very important for giving an account of a compositional
-denotational semantics.
+This theory is a powerful one in the context of this thesis because it gives a
+purely semantic account of the idea of a bound name, which makes it possible to
+give a natural account of a compositional denotational semantics incorporating
+binding.
 %
 For example, the denotation of the $\pi$-calculus term $\nu a. P$ should be
 built from the denotation of $P$ via some kind of binding operator: the name $a$
