@@ -643,17 +643,17 @@ This restriction of the map $\phi$ is written $\phi^{!} : {({!}-)}^{\freshfor a}
 
 \begin{lemma} \label{def:phibang} The following diagram commutes.
 \[\xymatrix{
-{!}(\typeQ^{\freshfor a})
-	\ar[r]^{{\phi^{!}_{\typeQ}}^{-1}}
-	\ar[d]_{i_{\typeQ^{\freshfor a}}}
+{!}(\typeP^{\freshfor a})
+	\ar[r]^{{\phi^{!}_{\typeP}}^{-1}}
+	\ar[d]_{i_{\typeP^{\freshfor a}}}
 &
-({!}\typeQ)^{\freshfor a}
-	\ar[d]^{i_{\typeQ}^{\freshfor a}}
+({!}\typeP)^{\freshfor a}
+	\ar[d]^{i_{\typeP}^{\freshfor a}}
 \\
-\widehat{\typeQ^{\freshfor a}}
-	\ar[r]^{\phi^{-1}_{\typeQ}}
+\widehat{\typeP^{\freshfor a}}
+	\ar[r]^{\phi^{-1}_{\typeP}}
 &
-\widehat{\typeQ}^{\freshfor a}
+\widehat{\typeP}^{\freshfor a}
 }\]\end{lemma}
 
 \begin{proof} By \ref{characterisation:phibanginv}.\end{proof}
@@ -857,17 +857,17 @@ This restriction of the map $\theta$ is written $\theta^{!} : \delta_a{!} \to
 
 \begin{lemma} \label{def:thetabang} The following diagram commutes.
 \[\xymatrix{
-{!}\delta_a \typeQ
-	\ar[r]^{{\theta^{!}_{\typeQ}}^{-1}}
-	\ar[d]_{i_{\delta_a \typeQ}}
+{!}\delta_a \typeP
+	\ar[r]^{{\theta^{!}_{\typeP}}^{-1}}
+	\ar[d]_{i_{\delta_a \typeP}}
 &
-\delta_a {!}\typeQ
-	\ar[d]^{\delta_a i_{\typeQ}}
+\delta_a {!}\typeP
+	\ar[d]^{\delta_a i_{\typeP}}
 \\
-\widehat{\delta_a \typeQ}
-	\ar[r]^{\theta^{-1}_{\typeQ}}
+\widehat{\delta_a \typeP}
+	\ar[r]^{\theta^{-1}_{\typeP}}
 &
-\delta_a \widehat{\typeQ}
+\delta_a \widehat{\typeP}
 }\]\end{lemma}
 
 \begin{proof} By \ref{characterisation:thetabanginv}.\end{proof}
