@@ -544,6 +544,21 @@ It is not hard to see that if $s$ supports $f$ then $\sigma \cdot s$ supports
 $\sigma \cdot f$ so that $X \to_{\mathrm{fs}} Y$ does have a well-defined
 $\mathcal{G}$-action.
 
+The remainder of this discussion will barely mention the fact that any
+particular object that has been constructed --- even powersets and function
+spaces --- is finitely supported.
+%
+This is justified by the following principle.
+
+\begin{theorem}[Finite Support Principle, cf. {\cite[Theorem
+3.5]{PittsAM:alpsri}}] \label{finitesupport} Any function or relation that is
+defined from finitely supported functions and relations using higher-order,
+classical logic without choice principles, is itself finitely supported.
+\end{theorem}
+
+A particularly special class of finitely-supported function consists of those
+that have empty support.
+
 \begin{definition} A function $f : X \to Y$ between nominal sets is
 \define{equivariant} iff it has empty support. \end{definition}
 
@@ -582,16 +597,6 @@ y$ iff $(\sigma \cdot x) \freshfor (\sigma \cdot y)$, $x \in A$ iff $\sigma
 \cdot x \in \sigma \cdot A$ and $A \subseteq A'$ iff $\sigma \cdot A \subseteq
 \sigma \cdot A'$.
 
-The remainder of this discussion will barely mention the fact that any
-particular object that has been constructed is finitely supported.
-%
-This is justified by the following principle.
-
-\begin{theorem}[Finite Support Principle, cf. {\cite[Theorem
-3.5]{PittsAM:alpsri}}] \label{finitesupport} Any function or relation that is
-defined from finitely supported functions and relations using higher-order,
-classical logic without choice principles, is itself finitely supported.
-\end{theorem}
 
 \subsection{A Category of Nominal Sets}
 \label{subsect:nset:category}
