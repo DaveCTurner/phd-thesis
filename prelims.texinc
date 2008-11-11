@@ -373,10 +373,10 @@ then say $x$ \define{is fresh for} $y$ and write `$x \freshfor y$' iff $\supp{x}
 and its relatives $s'$, $s''$, $s_1$, $s_i$, etc. always refer to
 \textit{finite} subsets of $\mathbb A$.
 
-\begin{lemma} \label{supports:eqvt} Let $X$ be a nominal set, $x \in X$, $s
-\subseteq_{\mathrm{fin}} \mathbb A$ and $a, b \in \mathbb A$. Then $s$
-supports $x$ if and only if $\{(ab) \cdot c \mid c \in s\}$ supports $(ab) \cdot
-x$.\end{lemma}
+\begin{lemma}[Equivariance of support] \label{supports:eqvt} Let $X$ be a
+nominal set, $x \in X$, $s \subseteq_{\mathrm{fin}} \mathbb A$ and $a, b \in
+\mathbb A$. Then $s$ supports $x$ if and only if $\{(ab) \cdot c \mid c \in s\}$
+supports $(ab) \cdot x$.\end{lemma}
 
 \begin{proof} Suppose that $s$ supports $x$ and let $\sigma$ be a permutation
 such that $\sigma \cdot (ab) \cdot c = (ab) \cdot c$ for all $c \in s$.
