@@ -408,6 +408,21 @@ $(ab) \cdot x$, but $a \notin \{(ab) \cdot c \mid c \in s\}$.
 However, since $a \in \supp{x}$ it follows that $\{(ab) \cdot c \mid c \in s\}$
 cannot support $x$, so that $x \neq (ab) \cdot x$ as required.  \end{proof}
 
+\begin{lemma} \label{supp-in-out-conv}
+%
+Let $X$ be a nominal set, $x \in X$, $a, b \in \mathbb A$ and suppose that $s
+\subseteq_{\mathrm{fin}} \mathbb A$ supports $x$.
+%
+If $b \notin s$ and $(ab) \cdot x \neq x$ then $a \in \supp{x}$.
+%
+\end{lemma}
+
+\begin{proof} Suppose that $a \notin \supp{x}$.
+%
+Since $b \notin s$ it follows that $b \notin \supp{x}$ too, but $\supp{x}$
+supports $x$ so that $(ab) \cdot x = x$ which is a contradiction as required.
+\end{proof}
+
 \subsection{Constructing Nominal Sets}
 \label{subsect:nset:examples}
 
