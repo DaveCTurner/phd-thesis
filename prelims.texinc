@@ -554,14 +554,27 @@ x). \end{equation}
 %
 The converse also holds.
 %
-There are many equivariant functions. It is not hard to see that the support
-function $\mathrm{supp} : X \to \mathcal{P}_{\mathrm{fs}} \mathbb A$ is
-equivariant: $\sigma \cdot \supp{x} = \supp{\sigma \cdot x}$. The identity
-function $\mathbf{1}_{X}$ is equivariant.  Composition is equivariant: $\sigma
-\cdot (g \circ f) = (\sigma \cdot g) \circ (\sigma \cdot f)$. The projections $X
-\times Y \to X$ and injections $X \to X + Y$ are equivariant. Function
-application is equivariant: $\sigma \cdot (f x) = (\sigma \cdot f) (\sigma \cdot
-x)$. 
+There are many equivariant functions.
+%
+Using lemma \ref{supports:eqvt} it is not hard to see that the support function
+$\mathrm{supp} : X \to \mathcal{P}_{\mathrm{fin}} \mathbb A$ is equivariant:
+$\sigma \cdot \supp{x} = \supp{\sigma \cdot x}$.
+%
+The identity function $\mathbf{1}_{X}$ is equivariant.
+%
+Composition is equivariant: $\sigma \cdot (g \circ f) = (\sigma \cdot g) \circ
+(\sigma \cdot f)$.
+%
+The projections $X \times Y \to X$ and injections $X \to X + Y$ are equivariant.
+%
+Function application is equivariant: $\sigma \cdot (f x) = (\sigma \cdot f)
+(\sigma \cdot x)$.
+%
+The boolean operations on sets are invariant: $\sigma \cdot (x \ast y) = (\sigma
+\cdot x) \ast (\sigma \cdot y)$ for $\ast \in \{ \mathord{\cup}, \mathord{\cap},
+\mathord{\setminus} \}$, and more generally $\sigma \cdot (\bigcup X) = \bigcup
+(\sigma \cdot X) = \bigcup \{ \sigma \cdot x \mid x \in X \}$ and similarly for
+intersections.
 
 Certain predicates also exhibit an equivariance property. For example,
 freshness, set membership and the subset relation are equivariant: $x \freshfor
