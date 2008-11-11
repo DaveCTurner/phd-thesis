@@ -439,9 +439,12 @@ Any finite nominal set is necessarily discrete.
 \subsubsection{The set of names.}
 %
 The set $\mathbb A$ is a nominal set with permutation action given by $\sigma
-\cdot a \defeq \sigma a$.  This is clearly a group action, and it is
-straightforward to show that every $a \in \mathbb A$ is supported by the finite
-set $\{a\}$. Therefore $\supp{a} = \{a\}$ and $a \freshfor b$ iff $a \neq b$.
+\cdot a \defeq \sigma a$.
+%
+This is clearly a group action, and it is straightforward to show that every $a
+\in \mathbb A$ is supported by the finite set $\{a\}$ and that $a \in \supp{a}$
+by lemma \ref{supp-in-out-conv} so that $\supp{a} = \{a\}$ and hence $a
+\freshfor b$ iff $a \neq b$.
 
 \subsubsection{The set of permutations of names.}
 %
