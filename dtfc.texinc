@@ -2,11 +2,184 @@
 
 \subsection{Complete Partial Orders and Continuous Functions}
 
-Parameterised by notion of approximation
+The objects of study in domain theory are ordered structures with appropriate
+completeness properties.
+%
+Two common such structures are CPOs and $\omega$-CPOs, as defined below.
+
+\begin{definition} A \define{complete partial order (CPO)} is a
+bottomed partial order $\langle D, \sqsubseteq_{D}, \bot_{D} \rangle$ that has
+joins of all directed subsets of $D$.\end{definition}
+
+\begin{definition} An \define{$\omega$-complete partial order ($\omega$CPO)} is
+a bottomed partial order $\langle D, \sqsubseteq_{D}, \bot_{D} \rangle$ that has
+joins of all increasing $\omega$-chains in $D$.\end{definition}
+
+The completeness property is chosen to capture the appropriate notion of
+approximation of elements of $D$ by some kind of limiting process.
+%
+For example, $\omega$-CPOs clearly capture the idea of iteration and can be used
+to give a denotation semantics to a language with $\mathbf{while}$ loops.
+%
+However, there is considerable freedom in choosing the appropriate notion of
+approximation and it will be useful to avoid tying this discussion to any
+particular choice, so it is worth making the following informal definition.
+
+\begin{definition}[Informal] A \define{$\Phi$-complete partial order
+($\Phi$CPO)} is a bottomed partial order $\langle D, \sqsubseteq_{D}, \bot_{D}
+\rangle$ that has joins of subsets of $D$ that have the property $\Phi$.
+\end{definition}
+
+In general the property $\Phi$ must satisfy some extra conditions that make it a
+suitable choice for approximating elements of $D$.
+%
+Investigating these extra conditions is beyond the scope of this discussion, so
+it is sufficient to think of $\Phi$ as being either $\Phi_d$ (directedness) or
+$\Phi_\omega$ (the property of being an $\omega$-chain) in the following.
+
+The property $\Phi$ also gives rise to a notion of $\Phi$-continuous function:
+$f : \langle D, \sqsubseteq_D, \bot_D \rangle \to \langle E, \sqsubseteq_E,
+\bot_E \rangle$ is $\Phi$-continuous if it is a function $f : D \to E$ that is
+monotone, $\bot$-preserving and which preserves $\Phi$-ness and joins of the
+$\Phi$ subsets of $D$.
+%
+The collection of $\Phi$CPOs and $\Phi$-continuous functions form a category
+$\mathbf{\Phi CPO}$.
+%
+If $\Phi \in \{\Phi_d, \Phi_\omega\}$ then the category $\mathbf{\Phi CPO}$ is
+cartesian closed.
+%
+The cartesian product is given by the product of the underlying sets ordered
+pointwise, and the exponential is given by the space of $\Phi$-continuous
+functions, again ordered pointwise.
+%
+This is important for giving denotational semantics to a language with
+higher-order functions.
 
 \subsection{Algebraic CPOs}
 
+Certain elements of a $\Phi$CPO $D$ cannot be reached by a succession of
+increasingly close proper approximations.
+%
+Such an element is called \textit{isolated}.
+%
+Computationally, the isolated elements of $D$ correspond to those computations
+that can be completed in finite time.
+
+\begin{definition} An element $d$ of the $\Phi$CPO $\langle D, \sqsubseteq_D,
+\bot_D \rangle$ is \define{$\Phi$-isolated} if whenever $d \sqsubseteq_D \bigvee
+x$ for some $x \subseteq D$ satisfying $\Phi$ it follows that there exists $d'
+\in x$ such that $d \sqsubseteq_D d'$.
+%
+The collection of all $\Phi$-isolated elements of $D$ is written $D^{\circ}$.
+\end{definition}
+
+Intuitively the computationally feasible elements of $D$ are only those elements
+that can be approximated by its $\Phi$-isolated elements.
+%
+Those $\Phi$CPOs that consist only of such approximable elements are called
+\textit{algebraic}:
+%
+\begin{definition} A $\Phi$CPO $D$ is \define{algebraic} if for every $d \in D$
+there exists an $x \subseteq D^\circ$ which is both $\Phi$ and such that $d =
+\bigvee x$. \end{definition}
+%
+Sometimes algebraicity also includes the constraint that $D^\circ$ is countable,
+but this point is not dwelt upon here.
+
+Importantly, if $f : D \to E$ is $\Phi$-continuous and $D$ is algebraic then $f$
+is entirely specified by its action on $D^\circ$:
+
+\begin{lemma} Let $\langle D, \sqsubseteq_D, \bot_D \rangle$ be an algebraic
+$\Phi$CPO and let $f, g : \langle D, \sqsubseteq_D, \bot_D \rangle
+\rightrightarrows \langle E, \sqsubseteq_E, \bot_E \rangle$ be two arrows of
+$\mathbf{\Phi CPO}$ such that for every $d \in D^\circ$ it is the case that
+$f(d) = g(d)$. Then $f = g$.  \end{lemma}
+
+\begin{proof} Let $d \in D$, then by the algebraicity of $D$ there exists $x
+\subseteq D^\circ$ which is both $\Phi$ and such that $d = \bigvee x$. Therefore
+\begin{equation} \begin{array}[t]{rcll} f(d) &=& f \bigl( \bigvee x \bigr) \\
+%
+&=& \bigvee \{ f(d') \mid d' \in x \} & \text{by continuity of $f$}\\
+%
+&=& \bigvee \{ g(d') \mid d' \in x \} & \text{since $f$ and $g$ agree on
+$D^\circ \supseteq x$}\\
+%
+&=& g \bigl(\bigvee x \bigr) & \text{by continuity of $g$} \\
+%
+&=& g(d) \end{array} \end{equation} as required. \end{proof}
+
+The collection of algebraic $\Phi$CPOs and $\Phi$-continuous functions forms a
+category $\mathbf{\Phi Alg}$.
+%
+Many of the constructions of $\mathbf{\Phi CPO}$ restrict to $\mathbf{\Phi
+Alg}$.
+%
+For example, the cartesian product of $\Phi$CPOs preserves algebraicity.
+%
+However if $D$ and $E$ are algebraic then it is not necessarily the case that
+the function space $D \to E$ is algebraic, so $\mathbf{\Phi Alg}$ is not
+cartesian closed in general.
+%
+Fortunately it is often the case that $\mathbf{\Phi Alg}$ contains a cartesian
+closed subcategory that is a suitable setting for some denotational semantics.
+%
+If $\Phi \in \{\Phi_d, \Phi_\omega\}$ then a suitable subcategory is the
+collection of Scott domains, which are those algebraic $\Phi$CPOs where every
+\textit{bounded} directed subset or \textit{bounded} $\omega$-chain has a join.
+%
+Alternatively, it could be the collection of \textit{strongly finite} or SFP
+objects(\TODO{Cite?}).
+
 \subsection{Nondeterminism in Domain Theory}
+
+In order to capture a denotational semantics for nondeterministic choice, it is
+possible to extend the notion of a $\Phi$CPO with a binary operation, $\sqcup$,
+representing the nondeterministic sum of a pair of computations.
+%
+There are a number of possible axiomatisations of the operation $\sqcup$,
+depending on the style of nondeterminism that is under study.
+
+\begin{definition} A \define{Plotkin-nondeterministic $\Phi$CPO} is a $\Phi$CPO
+$\langle D, \sqsubseteq_D, \bot_D \rangle$ together with an idempotent,
+commutative and associative binary operation
+$\mathord{\sqcup}_D : D \times D \to D$.
+
+A \define{Hoare-nondeterministic $\Phi$CPO} is a Plotkin-nondeterministic
+$\Phi$CPO $\langle D, \sqsubseteq_D, \bot_D, \mathord{\sqcup}_D \rangle$ such
+that additionally $d \sqsubseteq_D d \sqcup_D d'$ for all $d, d' \in D$.
+
+A \define{Smyth-nondeterministic $\Phi$CPO} is a Plotkin-nondeterministic
+$\Phi$CPO $\langle D, \sqsubseteq_D, \bot_D, \mathord{\sqcup}_D \rangle$ such
+that additionally $d \sqcup_D d' \sqsubseteq_D d$ for all $d, d' \in D$.
+\end{definition}
+
+Intuitively, the Hoare-style nondeterminism captures a `may do' semantics: a
+nondeterministic choice between two computations contains at least as much
+information as each of its parts, because it may produce the output of either of
+its parts.
+%
+Conversely, the Smyth-style nondeterminism captures a `must do' semantics: fewer
+guarantees can be made about the nondeterministic choice between two
+computations, so the choice contains less information.
+%
+Where the style of nondeterminism is unimportant, it is enough to talk about a
+nondeterministic $\Phi$CPO or N$\Phi$CPO for short.
+
+The natural morphisms between N$\Phi$CPOs are $\Phi$-continuous functions that
+are additionally $\sqcup$-homomorphisms, and these objects and morphisms form a
+category $\mathbf{N\Phi CPO}$ with the obvious forgetful functor $U :
+\mathbf{N\Phi CPO} \to \mathbf{\Phi CPO}$.
+%
+Furthermore this functor has a left adjoint $\mathcal P$ associating to each
+$\Phi$CPO $D$ the object $\mathcal P D$ which could be described as the free
+N$\Phi$CPO on $D$ or more commonly as the \textit{powerdomain} of $D$.
+
+\TODO{Always has a left adjoint? Or just here?}
+
+\TODO{Worth giving a concrete description of $\mathcal P_{\mathrm{Hoare}} D$
+etc?}
+
 
 \subsection{A Simple Domain Theory for Concurrency}
 
