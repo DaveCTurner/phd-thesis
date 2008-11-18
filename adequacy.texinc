@@ -1,30 +1,31 @@
 \subsection{A Logical Relation}
 
-Define a relation $\logrel{X}{\typeP}{t}$ between $X
-\subseteq_\downarrow \typeP$ and terms such that $\tjudge{}{}{t}{\typeP}$. Define
-also a relation $\login{p}{\typeP}{t}$ between $p \in \typeP$ and
-terms such that $\tjudge{}{}{t}{\typeP}$.
+Define a relation $\logrel{X}{\typeP}{t}$ between $X \subseteq \typeP$ and terms
+such that $\tjudge{}{}{t}{\typeP}$ by way of a relation $\login{p}{\typeP}{t}$
+between paths $p \in \typeP$ and terms such that $\tjudge{}{}{t}{\typeP}$.
 
 % Definition of \trianglelefteq_{\mathbb P} {{{
 \[\begin{array}{rcl}
 
-\logrel{X}{\typeP}{t}                                 & \Longleftrightarrow & 
+\logrel{X}{\typeP}{t}                                 & \Longleftrightarrow &
 \forall p \in X.\ \login{p}{\typeP}{t} \\
 
-\login{P}{\typelift{\typeP}}{t}                       & \Longleftrightarrow & 
-\exists t'.\ \ajudge{\typelift{\typeP}}{t}{\bangaction}{t'} 
-\text{ and } \logrel{P}{\typeP}{t'} \\
+\login{P}{\typelift{\typeP}}{t}                       & \Longleftrightarrow &
+\exists t'.\ \ajudge{\typelift{\typeP}}{t}{\bangaction}{t'} \text{ and }
+\logrel{P}{\typeP}{t'} \\
 
-\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t}      & \Longleftrightarrow & 
-\forall u.\ (\logrel{Q}{\typeQ}{u} \Rightarrow \login{p}{\typeP}{\apply{t}{u}{\typeQ}}) \\
+\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t}      & \Longleftrightarrow &
+\forall u.\ (\logrel{Q}{\typeQ}{u} \Rightarrow
+\login{p}{\typeP}{\apply{t}{u}{\typeQ}}) \\
 
-\login{\newpath{a}{p}}{\typedelta{\typeP}}{t}       & \Longleftrightarrow & 
+\login{\newpath{a}{p}}{\typedelta{\typeP}}{t}       & \Longleftrightarrow &
 \freshin{a}{\login{p}{\typeP}{\newapply{t}{a}}} \\
 
-\login{\ell_0:p}{\stdtypesum}{t}                      & \Longleftrightarrow & 
+\login{\ell_0:p}{\stdtypesum}{t}                      & \Longleftrightarrow &
 \login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}} \\
 
-\login{\abs{p}}{\typerec{j}{P}{\typeP}}{t}                               & \Longleftrightarrow & 
+\login{\abs{p}}{\typerec{j}{P}{\typeP}}{t}                               &
+\Longleftrightarrow &
 \login{p}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}} \\
 
 \end{array}\]
@@ -32,58 +33,62 @@ terms such that $\tjudge{}{}{t}{\typeP}$.
 
 \vfill\pagebreak
 
-\begin{lemma} \label{triangleleftandsyntacticpreorder}
-If $\login{p_0}{\typeP}{t}$ and $p_1 \le_{\mathbb P} p_0$ then $\login{p_1}{\typeP}{t}$.
-\end{lemma}
+\begin{lemma} \label{triangleleftandsyntacticpreorder} If
+$\login{p_0}{\typeP}{t}$ and $p_1 \le_{\mathbb P} p_0$ then
+$\login{p_1}{\typeP}{t}$.  \end{lemma}
 
 % Proof of triangleleftandsyntacticpreorder {{{
-\begin{proof}
-The proof is by induction on the path $p_0$.
-\TODO{Names of the cases in the proof of lemma
-\ref{triangleleftandsyntacticpreorder} are rubbish - think of better ones.}
+\begin{proof} The proof is by induction on the derivation of the statement $p_1
+\le_{\mathbb P} p_0$.
 
-\subparagraph{Finite Path Set} By assumption, $\login{P_0}{\typelift\typeP}{t}$
-and $P_1 \le_{\typelift\typeP} P_0$, so that $P_1 \subseteq P_0 \subseteq
-\typeP$ and $P_0$ and $P_1$ are chain-finite. From the definition of the logical
-relation, there exists $t'$ such that
-$\ajudge{\typelift\typeP}{t}{\bangaction}{t'}$ and
-$\logrel{P_0}{\typeP}{t'}$. Since $P_1 \subseteq P_0$,
-$\logrel{P_1}{\typeP}{t'}$ too. Therefore
-$\login{P_1}{\typelift\typeP}{t}$ as required.
+\subparagraph{Path Set} By assumption $\login{P_0}{\typelift\typeP}{t}$ so that
+from the definition of the logical relation there exists $t'$ such that
+$\ajudge{\typelift\typeP}{t}{\bangaction}{t'}$ and $\logrel{P_0}{\typeP}{t'}$.
+%
+Since $P_1 \le_{\typelift\typeP} P_0$ it follows that for each $p \in P_1$ there
+exists $p' \in P_0$ such that $p \le_{\typeP} p'$ so that by induction it
+follows that $\login{p}{\typeP}{t'}$.
+%
+Therefore $\logrel{P_1}{\typeP}{t'}$ so that $\login{P_1}{\typelift\typeP}{t}$
+as required.
 
-\subparagraph{Function Space Path} By assumption,
+\subparagraph{Function Space Path} By assumption
 $\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ and
-$\mappath{Q_1}{p_1} \le_{\typemap{\typeQ}{\typeP}} \mappath{Q_0}{p_0}$, so that
-$p_1 \le_{\typeP} p_0$ and $Q_0 \le_{\typelift\typeQ} Q_1$ and hence $Q_0
-\subseteq Q_1 \subseteq \typeQ$ and $Q_0$ and $Q_1$ are chain-finite.  We wish
-to show that $\login{\mappath{Q_1}{p_1}}{\typemap{\typeQ}{\typeP}}{t}$, so
-let $u$ be such that $\logrel{Q_1}{\typeQ}{u}$.
-Since $Q_0 \subseteq Q_1$, this means that $\logrel{Q_0}{\typeQ}{u}$ too,
-and since $\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ it must
-be the case that $\login{p_0}{\typeP}{\apply{t}{u}{\typeQ}}$ and hence by induction
+$\mappath{Q_1}{p_1} \le_{\typemap{\typeQ}{\typeP}} \mappath{Q_0}{p_0}$ so that
+$p_1 \le_{\typeP} p_0$ and $Q_0 \le_{\typelift\typeQ} Q_1$.
+%
+We wish to show that $\login{\mappath{Q_1}{p_1}}{\typemap{\typeQ}{\typeP}}{t}$
+so let $u$ be such that $\logrel{Q_1}{\typeQ}{u}$.
+%
+Since $Q_0 \le_{\typelift\typeQ} Q_1$ it follows that for each $q \in Q_0$ there
+exists $q' \in Q_1$ such that $q \le_{\typeQ} q'$ so that by induction it
+follows that $\login{q}{\typeQ}{u}$ and hence $\logrel{Q_0}{\typeQ}{u}$.
+%
+Now since $\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ it must be
+the case that $\login{p_0}{\typeP}{\apply{t}{u}{\typeQ}}$ and hence by induction
 $\login{p_1}{\typeP}{\apply{t}{u}{\typeQ}}$ as required.
 
-\subparagraph{New Name Path}
-By assumption, $\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$ and
-$\newpath{b}{p_0} \le_{\typedelta\typeP} \newpath{b}{p_1}$ where $b$ is a fresh
-name, and hence $p_0 \le_{\typeP} p_1$. We wish to show that
+\subparagraph{New Name Path} By assumption,
+$\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$ and $\newpath{b}{p_0}
+\le_{\typedelta\typeP} \newpath{b}{p_1}$ where $b$ is a fresh name, and hence
+$p_0 \le_{\typeP} p_1$. We wish to show that
 $\login{\newpath{b}{p_1}}{\typedelta\typeP}{t}$, so it is sufficient to show
 that $\login{p_1}{\typeP}{\newapply{t}{b}}$ and hence by induction that
-$\login{p_0}{\typeP}{\newapply{t}{b}}$; this is immediate since 
+$\login{p_0}{\typeP}{\newapply{t}{b}}$; this is immediate since
 $\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$.
 
-\subparagraph{Labelled Path}
-By assumption, $\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$ and
-$\labelpath{\ell_0}{p_0} \le_{\stdtypesum} \labelpath{\ell_1}{p_1}$ so that
-$\ell_0 = \ell_1$ and $p_0 \le_{\typePsub{\ell_0}} p_1$. We wish to show that
+\subparagraph{Labelled Path} By assumption,
+$\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$ and $\labelpath{\ell_0}{p_0}
+\le_{\stdtypesum} \labelpath{\ell_1}{p_1}$ so that $\ell_0 = \ell_1$ and $p_0
+\le_{\typePsub{\ell_0}} p_1$. We wish to show that
 $\login{\labelpath{\ell_0}{p_1}}{\stdtypesum}{t}$ so it is sufficient to show
 that $\login{p_1}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$ and hence by induction
 that $\login{p_0}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$; this is immediate
 since $\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$.
 
-\subparagraph{Recursive Type Path}
-By assumption, $\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$ and
-$\abspath{p_0} \le_{\typerec{j}{P}{\typeP}} \abspath{p_1}$ so that $p_0
+\subparagraph{Recursive Type Path} By assumption,
+$\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$ and $\abspath{p_0}
+\le_{\typerec{j}{P}{\typeP}} \abspath{p_1}$ so that $p_0
 \le_{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]} p_1$. We wish to show
 $\login{\abspath{p_1}}{\typerec{j}{P}{\typeP}}{t}$ so it is sufficient to show
 that $\login{p_1}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$ and hence
@@ -104,34 +109,30 @@ $\oprel{t_0}{\typeP}{t_1}$ if for all $t'$ and $p$,
 \begin{lemma}\label{ctxle1} If $\login{p}{\typeP}{t_0}$ and
 $\oprel{t_0}{\typeP}{t_1}$ then $\login{p}{\typeP}{t_1}$.  \end{lemma}
 
-\begin{proof}
-The proof is by induction on the path $p$.
-\TODO{Names of the cases in the proof of lemma \ref{ctxle1} are rubbish - think
-of better ones.}
+\begin{proof} The proof is by induction on the path $p$.
 
-\subparagraph{Finite Path Set} By assumption, $\login{P}{\typelift\typeP}{t_0}$, so
+\subparagraph{Path Set} By assumption, $\login{P}{\typelift\typeP}{t_0}$, so
 there exists $t'$ such that $\logrel{P}{\typeP}{t'}$ and
 $\ajudge{\typelift\typeP}{t_0}{\bangaction}{t'}$. Since
 $\oprel{t_0}{\typeP}{t_1}$, $\ajudge{\typelift\typeP}{t_1}{\bangaction}{t'}$
 too, so that $\login{P}{\typelift\typeP}{t_1}$ as required.
 
 \subparagraph{Function Space Path} By assumption,
-$\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_0}$, so that for all $u$ such that $\logrel{Q}{\typeQ}{u}$,
-$\login{p}{\typeP}{\apply{t_0}{u}{\typeQ}}$. Also
-$\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ implies that
+$\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_0}$, so that for all $u$
+such that $\logrel{Q}{\typeQ}{u}$, $\login{p}{\typeP}{\apply{t_0}{u}{\typeQ}}$.
+Also $\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ implies that
 $\oprel{\apply{t_0}{u}{\typeQ}}{\typeP}{\apply{t_1}{u}{\typeQ}}$ as follows.
-Suppose that
-$\ajudge{\typeP}{\apply{t_0}{u}{\typeQ}}{p'}{t'}$, then by lemma 
+Suppose that $\ajudge{\typeP}{\apply{t_0}{u}{\typeQ}}{p'}{t'}$, then by lemma
 \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:apply})
 $\ajudge{\typemap{\typeQ}{\typeP}}{t_0}{\mapaction{u}{p'}}{t'}$ and hence
-$\ajudge{\typemap{\typeQ}{\typeP}}{t_1}{\mapaction{u}{p'}}{t'}$ so that
-finally $\ajudge{\typeP}{\apply{t_1}{u}{\typeQ}}{p'}{t'}$. Thus by induction
+$\ajudge{\typemap{\typeQ}{\typeP}}{t_1}{\mapaction{u}{p'}}{t'}$ so that finally
+$\ajudge{\typeP}{\apply{t_1}{u}{\typeQ}}{p'}{t'}$. Thus by induction
 $\login{p}{\typeP}{\apply{t_1}{u}{\typeQ}}$, so that
 $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_1}$ as required.
 
-\subparagraph{New Name Path}
-By assumpton, $\login{\newpath{b}{p}}{\typedelta\typeP}{t_0}$ where $b$ is a
-fresh name, so that $\login{p}{\typeP}{\newapply{t_0}{b}}$. Also
+\subparagraph{New Name Path} By assumpton,
+$\login{\newpath{b}{p}}{\typedelta\typeP}{t_0}$ where $b$ is a fresh name, so
+that $\login{p}{\typeP}{\newapply{t_0}{b}}$. Also
 $\oprel{t_0}{\typedelta\typeP}{t_1}$ implies that
 $\oprel{\newapply{t_0}{b}}{\typeP}{\newapply{t_1}{b}}$ as follows. Suppose that
 $\ajudge{\typeP}{\newapply{t_0}{b}}{p'}{t'}$, then by lemma
@@ -142,14 +143,13 @@ $\ajudge{\typeP}{\newapply{t_1}{b}}{p'}{t'}$. Thus by induction
 $\login{p}{\typeP}{\newapply{t_1}{b}}$, so that
 $\login{\newpath{b}{p}}{\typedelta\typeP}{t_1}$ as required.
 
-\subparagraph{Labelled Path}
-By assumpton, $\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_0}$ so that
+\subparagraph{Labelled Path} By assumpton,
+$\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_0}$ so that
 $\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}$. Also
 $\oprel{t_0}{\stdtypesum}{t_1}$ implies that
 $\oprel{\lproj{\ell_0}{t_0}}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}$ as
-follows. Suppose that
-$\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}{p'}{t'}$, then by lemma
-\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:lproj})
+follows. Suppose that $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}{p'}{t'}$,
+then by lemma \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:lproj})
 $\ajudge{\stdtypesum}{t_0}{\labelaction{\ell_0}{p'}}{t'}$ and hence
 $\ajudge{\stdtypesum}{t_1}{\labelaction{\ell_0}{p'}}{t'}$ so that finally
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}{p'}{t'}$. Thus by induction
@@ -159,7 +159,7 @@ $\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_1}$ as required.
 \subparagraph{Recursive Type Path} By assumpton,
 $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{t_0}$, so that by definition
 $\login{p}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}$. Also
-$\oprel{t_0}{\typerec{j}{P}{\typeP}}{t_1}$ implies that 
+$\oprel{t_0}{\typerec{j}{P}{\typeP}}{t_1}$ implies that
 $\oprel{\rep{t_0}}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}$ as
 follows. Suppose that
 $\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}{p'}{t'}$, then by

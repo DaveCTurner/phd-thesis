@@ -19,11 +19,12 @@ by extension.
 It is therefore possible to construct a denotation for $\typeP$ in terms of a
 language of paths, given by the grammar \begin{equation} p ::= Q \mid
 \mappath{Q}{p} \mid \labelpath{\ell}{p} \mid \abspath{p} \mid \newpath{a}{p},
-\end{equation} where $Q$ is a set of paths of the form $\finelt{\{p_1, \ldots,
-p_n\}}{s}$, $\ell$ is a label and $a$ is a name.
+\end{equation} where $Q$ is a set of paths of the form $\bigcup_{\sigma
+\freshfor s} \sigma \cdot \{p_1, \ldots, p_n\}$, $\ell$ is a label and $a$ is a
+name.
 %
-A path of the form $\mappath{Q}{p}$ denotes a pairs $\langle Q, p \rangle$ in
-the continuous function space $\typemap{\typeQ}{\typeP} =
+A path of the form $\mappath{Q}{p}$ denotes a pair $\langle Q, p \rangle$ in the
+continuous function space $\typemap{\typeQ}{\typeP} =
 \typelift{\typeQ}^{\mathrm{op}} \times \typeP$.
 %
 A path of the form $\newpath{a}{p}$ denotes an equivalence class $[a].p$ in the
@@ -41,8 +42,8 @@ To capture this intuituion, paths are typed by judgements of the form $p :
 \typeP$ according to the following rules.  \begin{equation}
 \begin{array}[t]{ccc}
 %
-\infer{\finelt{\{p_1, \ldots, p_n\}}{s} : \typelift\typeP} {p_1 : \typeP &
-\ldots & p_n : \typeP} &\quad&
+\infer{\bigcup_{\sigma \freshfor s} \sigma \cdot \{p_1, \ldots, p_n\} :
+\typelift\typeP} {p_1 : \typeP & \ldots & p_n : \typeP} &\quad&
 %
 \infer{\mappath{Q}{p} : \typemap{\typeQ}{\typeP}} {Q : \typelift\typeQ & p :
 \typeP} \\
@@ -76,11 +77,10 @@ $\typeP$ is given recursively as follows.  \begin{equation}
 \end{array} \end{equation} Here, $P \preceq_{\typeP} P'$ means that for all $p
 \in P$ there exists $p' \in P'$ such that $p \le_{\typeP} p'$.
 %
-Finally, the permutation action on paths is defined by the following. \begin{equation}
-\begin{array}[t]{rcl}
+Finally, the permutation action on paths is defined by the following.
+\begin{equation} \begin{array}[t]{rcl}
 %
-\sigma \cdot \finelt{\{p_1, \ldots, p_n\}}{s} &\defeq& \finelt{\{\sigma \cdot
-p_1, \ldots, \sigma \cdot p_n\}}{\sigma \cdot s} \\
+\sigma \cdot P &\defeq& \{ \sigma \cdot p \mid p \in P \} \\
 %
 \sigma \cdot (\mappath{Q}{p}) &\defeq& \mappath{(\sigma \cdot Q)}{(\sigma \cdot
 p)} \\
@@ -90,7 +90,8 @@ p)} \\
 %
 \sigma \cdot (\abspath{p}) &\defeq& \abspath{(\sigma \cdot p)} \\
 %
-\sigma \cdot (\newpath{a}{p}) &\defeq& \newpath{(\sigma a)}{(\sigma \cdot p)}. \\
+\sigma \cdot (\newpath{a}{p}) &\defeq& \newpath{(\sigma a)}{(\sigma \cdot p)}.
+\\
 %
 \end{array} \end{equation}
 
