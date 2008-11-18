@@ -125,8 +125,9 @@ order to define a suitable notion of directedness in this setting.
 Firstly, notice that the supports of elements of total orders are very
 constrained as the following lemma shows.
 
-\begin{lemma} Let $\typeP$ be a totally ordered FM-poset. Then each $p \in
-\typeP$ has $\supp{p} \subseteq \supp{\typeP}$.  \end{lemma}
+\begin{lemma} \label{lemma:fm:totalorder} Let $\typeP$ be a totally ordered
+FM-poset. Then each $p \in \typeP$ has $\supp{p} \subseteq \supp{\typeP}$.
+\end{lemma}
 
 \begin{proof} Let $\mathbb A \ni b, c \freshfor \typeP$, then for all $p \in
 \typeP$ it follows that $(bc) \cdot p \in \typeP$ too, so that either $p \le
