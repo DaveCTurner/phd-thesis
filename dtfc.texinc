@@ -39,9 +39,11 @@ $\Phi_\omega$ (the property of being an $\omega$-chain) in the following.
 
 The property $\Phi$ also gives rise to a notion of $\Phi$-continuous function:
 $f : \langle D, \sqsubseteq_D, \bot_D \rangle \to \langle E, \sqsubseteq_E,
-\bot_E \rangle$ is $\Phi$-continuous if it is a function $f : D \to E$ that is
-monotone, $\bot$-preserving and which preserves $\Phi$-ness and joins of the
-$\Phi$ subsets of $D$.
+\bot_E \rangle$ is $\Phi$-continuous if it is a function $f : D \to E$ that
+preserves \begin{itemize} \item the ordering $\sqsubseteq$ (i.e. it is
+monotone), \item the bottom element $\bot$ (i.e. it is strict), \item the
+property of $\Phi$-ness, and \item joins of the $\Phi$ subsets of $D$.
+\end{itemize}
 %
 The collection of $\Phi$CPOs and $\Phi$-continuous functions form a category
 $\mathbf{\Phi CPO}$.
@@ -84,8 +86,9 @@ Those $\Phi$CPOs that consist only of such approximable elements are called
 there exists an $x \subseteq D^\circ$ which is both $\Phi$ and such that $d =
 \bigvee x$. \end{definition}
 %
-Sometimes algebraicity also includes the constraint that $D^\circ$ is countable,
-but this point is not dwelt upon here.
+Sometimes algebraicity also includes a constraint on the size of $D$ --- for
+example it may insist that that $D^\circ$ is countable --- but this point is not
+dwelt upon here.
 
 Importantly, if $f : D \to E$ is $\Phi$-continuous and $D$ is algebraic then $f$
 is entirely specified by its action on $D^\circ$:
@@ -180,8 +183,29 @@ N$\Phi$CPO on $D$ or more commonly as the \textit{powerdomain} of $D$.
 \TODO{Worth giving a concrete description of $\mathcal P_{\mathrm{Hoare}} D$
 etc?}
 
+\TODO{Also works on $\mathbf{\Phi Alg}$}
+
 
 \subsection{A Simple Domain Theory for Concurrency}
+
+Dropping some of the generality developed above, in the following consider just
+the notion of approximation given by directedness by letting $\Phi = \Phi_d$ and
+just the Hoare `may do' style of nondeterminism.
+%
+In this setting the powerdomain operation $\mathcal{P}_{H} : \mathbf{\Phi}_d
+\mathbf{Alg} \to \mathbf{\Phi}_d \mathbf{Alg}$ is used to adjoin nondeterminism.
+%
+Viewing nondeterminism as a computational effect (perhaps in the style of Moggi
+\cite{moggi:monads}) draws attention to the Kleisli category of
+$\mathcal{P}_{H}$ which is equivalent to the category $\mathbf{PORel}$ of
+partial orders $\typeP, \typeQ, \ldots$ and monotone relations between them.
+%
+In other words, an arrow $R : \typeP \to \typeQ$ is a relation $R \subseteq
+\typeP \times \typeQ$ such that if $p' \le_{\typeP} p \mathrel{R} q \le_{\typeQ}
+q'$ then $p' \mathrel{R} q'$.
+%
+Composition in $\mathbf{PORel}$ is straightforward relational composition, and
+the identity relation on the partial order $\typeP$ is simply $\le_{\typeP}$.
 
 
 \TODO{Write section introducing Domain Theory for Concurrency}
