@@ -8,40 +8,49 @@ completeness properties.
 Two common such structures are CPOs and $\omega$-CPOs, as defined below.
 
 \begin{definition} A \define{complete partial order (CPO)} is a
-bottomed partial order $\langle D, \sqsubseteq_{D}, \bot_{D} \rangle$ that has
+partial order $\langle D, \sqsubseteq_{D} \rangle$ that has
 joins of all directed subsets of $D$.\end{definition}
 
 \begin{definition} An \define{$\omega$-complete partial order ($\omega$CPO)} is
-a bottomed partial order $\langle D, \sqsubseteq_{D}, \bot_{D} \rangle$ that has
-joins of all increasing $\omega$-chains in $D$.\end{definition}
+a partial order $\langle D, \sqsubseteq_{D} \rangle$ that has joins of all
+increasing $\omega$-chains in $D$.\end{definition}
 
-The completeness property is chosen to capture the appropriate notion of
-approximation of elements of $D$ by some kind of limiting process.
+The completeness property is chosen to capture an appropriate notion of
+approximation of elements of $D$ by some kind of limiting process of the
+appropriate shape.
 %
-For example, $\omega$-CPOs clearly capture the idea of iteration and can be used
-to give a denotation semantics to a language with $\mathbf{while}$ loops.
+For example, consider the program $L \defeq \mathop{\mathbf{while}}
+\mathbf{true} \mathop{\mathbf{do}} C \mathop{\mathbf{od}}$ whose meaning can be
+approximated increasingly well by the sequence of programs $C$, $C;C$, $C;C;C$,
+$\ldots$.
+%
+Therefore it could be possible to give each of these programs a denotation as an
+element of an $\omega$CPO $D$ such that $\sem{C} \sqsubseteq_D \sem{C;C}
+\sqsubseteq_D \sem{C;C;C} \sqsubseteq_D \ldots$ and use the limit of the
+resulting $\omega$ chain as the denotation of $L$.
 %
 However, there is considerable freedom in choosing the appropriate notion of
 approximation and it will be useful to avoid tying this discussion to any
 particular choice, so it is worth making the following informal definition.
 
 \begin{definition}[Informal] A \define{$\Phi$-complete partial order
-($\Phi$CPO)} is a bottomed partial order $\langle D, \sqsubseteq_{D}, \bot_{D}
-\rangle$ that has joins of subsets of $D$ that have the property $\Phi$.
-\end{definition}
+($\Phi$CPO)} is a partial order $\langle D, \sqsubseteq_{D} \rangle$ that has
+joins of subsets of $D$ that have the property $\Phi$.  \end{definition}
 
-In general the property $\Phi$ must satisfy some extra conditions that make it a
-suitable choice for approximating elements of $D$.
+The property $\Phi$ serves to capture the notion of approximation under
+discussion.
+%
+In general $\Phi$ must satisfy some extra conditions that make it a suitable
+choice for approximating elements of $D$.
 %
 Investigating these extra conditions is beyond the scope of this discussion, so
 it is sufficient to think of $\Phi$ as being either $\Phi_d$ (directedness) or
 $\Phi_\omega$ (the property of being an $\omega$-chain) in the following.
 
 The property $\Phi$ also gives rise to a notion of $\Phi$-continuous function:
-$f : \langle D, \sqsubseteq_D, \bot_D \rangle \to \langle E, \sqsubseteq_E,
-\bot_E \rangle$ is $\Phi$-continuous if it is a function $f : D \to E$ that
-preserves \begin{itemize} \item the ordering $\sqsubseteq$ (i.e. it is
-monotone), \item the bottom element $\bot$ (i.e. it is strict), \item the
+$f : \langle D, \sqsubseteq_D \rangle \to \langle E, \sqsubseteq_E, \rangle$ is
+$\Phi$-continuous if it is a function $f : D \to E$ that preserves
+\begin{itemize} \item the ordering $\sqsubseteq$ (i.e. it is monotone) \item the
 property of $\Phi$-ness, and \item joins of the $\Phi$ subsets of $D$.
 \end{itemize}
 %
@@ -60,13 +69,13 @@ higher-order functions.
 
 \subsection{Algebraic CPOs}
 
-Certain elements of a $\Phi$CPO $D$ cannot be reached by a succession of
-increasingly close proper approximations.
+Certain elements of a $\Phi$CPO $D$ cannot be reached by the join of a
+succession of increasingly close proper approximations.
 %
 Such an element is called \textit{isolated}.
 %
 Computationally, the isolated elements of $D$ correspond to those computations
-that can be completed in finite time.
+that can be realised in finite time.
 
 \begin{definition} An element $d$ of the $\Phi$CPO $\langle D, \sqsubseteq_D,
 \bot_D \rangle$ is \define{$\Phi$-isolated} if whenever $d \sqsubseteq_D \bigvee
@@ -88,7 +97,15 @@ there exists an $x \subseteq D^\circ$ which is both $\Phi$ and such that $d =
 %
 Sometimes algebraicity also includes a constraint on the size of $D$ --- for
 example it may insist that that $D^\circ$ is countable --- but this point is not
-dwelt upon here.
+dwelt upon here\footnote{
+%
+In fact, much of this dissertation works within the theory of nominal sets, and
+in this theory the notion of cardinality is subtle because of the failure of the
+Axiom of Choice.
+%
+For example, lemma \ref{lemma:fm:totalorder} implies that any (internally)
+countable nominal set is discrete and therefore not particularly interesting for
+the purposes of this discussion.}.
 
 Importantly, if $f : D \to E$ is $\Phi$-continuous and $D$ is algebraic then $f$
 is entirely specified by its action on $D^\circ$:
@@ -132,7 +149,7 @@ collection of Scott domains, which are those algebraic $\Phi$CPOs where every
 \textit{bounded} directed subset or \textit{bounded} $\omega$-chain has a join.
 %
 Alternatively, it could be the collection of \textit{strongly finite} or SFP
-objects(\TODO{Cite?}).
+objects\cite{plotkin:powerdomains}.
 
 \subsection{Nondeterminism in Domain Theory}
 
@@ -143,19 +160,20 @@ representing the nondeterministic sum of a pair of computations.
 There are a number of possible axiomatisations of the operation $\sqcup$,
 depending on the style of nondeterminism that is under study.
 
-\begin{definition} A \define{Plotkin-nondeterministic $\Phi$CPO} is a $\Phi$CPO
-$\langle D, \sqsubseteq_D, \bot_D \rangle$ together with an idempotent,
-commutative and associative binary operation
+\begin{definition} A \define{Plotkin-nondeterministic $\Phi$CPO}
+($\text{N}_P\Phi\text{CPO}$) is a $\Phi$CPO $\langle D, \sqsubseteq_D \rangle$
+together with an idempotent, commutative and associative binary operation
 $\mathord{\sqcup}_D : D \times D \to D$.
 
-A \define{Hoare-nondeterministic $\Phi$CPO} is a Plotkin-nondeterministic
-$\Phi$CPO $\langle D, \sqsubseteq_D, \bot_D, \mathord{\sqcup}_D \rangle$ such
-that additionally $d \sqsubseteq_D d \sqcup_D d'$ for all $d, d' \in D$.
+A \define{Hoare-nondeterministic $\Phi$CPO} ($\text{N}_H\Phi\text{CPO}$) is a
+Plotkin-nondeterministic $\Phi$CPO $\langle D, \sqsubseteq_D, \mathord{\sqcup}_D
+\rangle$ such that additionally $d \sqsubseteq_D d \sqcup_D d'$ for all $d, d'
+\in D$.
 
-A \define{Smyth-nondeterministic $\Phi$CPO} is a Plotkin-nondeterministic
-$\Phi$CPO $\langle D, \sqsubseteq_D, \bot_D, \mathord{\sqcup}_D \rangle$ such
-that additionally $d \sqcup_D d' \sqsubseteq_D d$ for all $d, d' \in D$.
-\end{definition}
+A \define{Smyth-nondeterministic $\Phi$CPO} ($\text{N}_S\Phi\text{CPO}$) is a
+Plotkin-nondeterministic $\Phi$CPO $\langle D, \sqsubseteq_D, \mathord{\sqcup}_D
+\rangle$ such that additionally $d \sqcup_D d' \sqsubseteq_D d$ for all $d, d'
+\in D$.  \end{definition}
 
 Intuitively, the Hoare-style nondeterminism captures a `may do' semantics: a
 nondeterministic choice between two computations contains at least as much
@@ -164,10 +182,11 @@ its parts.
 %
 Conversely, the Smyth-style nondeterminism captures a `must do' semantics: fewer
 guarantees can be made about the nondeterministic choice between two
-computations, so the choice contains less information.
+computations, so the nondeterministic choice contains less information.
 %
-Where the style of nondeterminism is unimportant, it is enough to talk about a
-nondeterministic $\Phi$CPO or N$\Phi$CPO for short.
+When the discussion is not about any particular style of nondeterminism, it is
+enough to refer to $\text{N}_P\Phi\text{CPOs}$, $\text{N}_H\Phi\text{CPOs}$ and
+$\text{N}_S\Phi\text{CPOs}$ simply as N$\Phi$CPOs.
 
 The natural morphisms between N$\Phi$CPOs are $\Phi$-continuous functions that
 are additionally $\sqcup$-homomorphisms, and these objects and morphisms form a
@@ -206,6 +225,13 @@ q'$ then $p' \mathrel{R} q'$.
 %
 Composition in $\mathbf{PORel}$ is straightforward relational composition, and
 the identity relation on the partial order $\typeP$ is simply $\le_{\typeP}$.
+
+Concretely the equivalence $\mathrm{Kl}(\mathcal{P}_{H}) \simeq \mathbf{PORel}$
+factorises the monad $\mathcal{P}_{H}$ as \begin{equation} \xymatrix{
+\mathbf{\Phi}_d \mathbf{Alg} \ar@/^2ex/@<-2pt>[rr]^{K} & \bot &
+\mathcal{\mathbf{PORel}} \ar@/^2ex/@<-2pt>[ll]^{\mathrm{Idl}} } \end{equation}
+where the functor $\mathrm{Idl}$ takes a partial order to its ideal completion
+and $K$ takes an algebraic domain to the partial order of its isolated elements.
 
 
 \TODO{Write section introducing Domain Theory for Concurrency}
