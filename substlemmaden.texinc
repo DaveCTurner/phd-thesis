@@ -24,11 +24,11 @@ $\tjudge{s_1}{\Delta}{v}{\typeR}$, and $\Gamma'$ is a reordering of the
 environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
 \envvarfresh{yn}{\typeR}{r_n}$, and represent this reordering by the
 isomorphism $\sigma : \Gamma \amp \typeR^{\freshfor r_1} \amp \ldots \amp
-\typeR^{\freshfor r_n} \to \Gamma'$. Let $r = r_1 \cup \ldots \cup r_n$.
+\typeR^{\freshfor r_n} \cto \Gamma'$. Let $r = r_1 \cup \ldots \cup r_n$.
 Suppose also that $\dom\Gamma \cap \dom\Delta = \varnothing$ and that $s_1 \cap
 r = \varnothing$. Define \[\sem{v}^n = (j^*_1 \amp \ldots \amp j^*_n) \circ
 \Delta^n_{\typeR^{\freshfor r}} \circ
-\sem{\tjudge{s_1}{\Delta}{v}{\typeR}}^{\freshfor r} : \Delta^{\freshfor r} \to
+\sem{\tjudge{s_1}{\Delta}{v}{\typeR}}^{\freshfor r} : \Delta^{\freshfor r} \cto
 \typeR^{\freshfor r_1} \amp \ldots \amp \typeR^{\freshfor r_n}\] where $j_i :
 r_i \hookrightarrow r$ for each $i$.  The clash of $\Delta$s in the notation is
 unfortunate: where a $\Delta$ has a subscript this means the diagonal map on
