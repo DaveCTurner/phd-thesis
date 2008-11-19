@@ -2,36 +2,42 @@
 
 \subsection{Complete Partial Orders and Continuous Functions}
 
-The objects of study in domain theory are ordered structures with appropriate
-completeness properties.
+A \textit{domain} --- in the sense of domain theory --- is an ordered structure
+with some appropriate completeness property.
 %
-Two common such structures are CPOs and $\omega$-CPOs, as defined below.
-
-\begin{definition} A \define{complete partial order (CPO)} is a
-partial order $\langle D, \sqsubseteq_{D} \rangle$ that has
-joins of all directed subsets of $D$.\end{definition}
-
+The elements of a domain can be viewed as representing computations, and the
+order on a domain represents increasing computational information, information
+which can be represented as a limit of approximations.
+%
+A simple notion of approximation is by sequences of the form \begin{equation}
+d_0 \sqsubseteq d_1 \sqsubseteq \ldots \sqsubseteq d_n \sqsubseteq \ldots.
+\end{equation}
+%
+This gives rise to the following candidate for a suitable collection of domains.
+%
 \begin{definition} An \define{$\omega$-complete partial order ($\omega$CPO)} is
 a partial order $\langle D, \sqsubseteq_{D} \rangle$ that has joins of all
 increasing $\omega$-chains in $D$.\end{definition}
 
-The completeness property is chosen to capture an appropriate notion of
-approximation of elements of $D$ by some kind of limiting process of the
-appropriate shape.
+A more general notion of convergence is to consider approximation by a
+directed sets.
 %
-For example, consider the program $L \defeq \mathop{\mathbf{while}}
-\mathbf{true} \mathop{\mathbf{do}} C \mathop{\mathbf{od}}$ whose meaning can be
-approximated increasingly well by the sequence of programs $C$, $C;C$, $C;C;C$,
-$\ldots$.
+\begin{definition} A \define{complete partial order (CPO)} is a
+partial order $\langle D, \sqsubseteq_{D} \rangle$ that has
+joins of all directed subsets of $D$.\end{definition}
+
+Whichever completeness property is chosen, it is chosen to capture an
+appropriate notion of approximation of elements of $D$ by some kind of limiting
+process of the appropriate shape.
 %
-Therefore it could be possible to give each of these programs a denotation as an
-element of an $\omega$CPO $D$ such that $\sem{C} \sqsubseteq_D \sem{C;C}
-\sqsubseteq_D \sem{C;C;C} \sqsubseteq_D \ldots$ and use the limit of the
-resulting $\omega$ chain as the denotation of $L$.
+It is important here to emphasise that the choice of a suitable notion of
+approximation is a key variable in the development of domain theory, because it
+turns out that neither directed sets nor $\omega$-chains quite capture the
+appropriate notion of approximation in the theory of nominal sets (the setting
+for much of the rest of this dissertation) and it is necessary to choose a
+subtly different notion instead.
 %
-However, there is considerable freedom in choosing the appropriate notion of
-approximation and it will be useful to avoid tying this discussion to any
-particular choice, so it is worth making the following informal definition.
+Therefore it is worth making the following informal definition.
 
 \begin{definition}[Informal] A \define{$\Phi$-complete partial order
 ($\Phi$CPO)} is a partial order $\langle D, \sqsubseteq_{D} \rangle$ that has
@@ -41,24 +47,20 @@ The property $\Phi$ serves to capture the notion of approximation under
 discussion.
 %
 In general $\Phi$ must satisfy some extra conditions that make it a suitable
-choice for approximating elements of $D$, although investigating these extra
-conditions is beyond the scope of this discussion so it is sufficient to think
-of $\Phi$ as being either $\Phi_d$ (directedness) or $\Phi_\omega$ (the property
-of being an $\omega$-chain) in the following.
+choice for approximating elements of $D$.
 %
-It is important here to emphasise that the choice of a suitable notion of
-approximation $\Phi$ is a key variable in the development of domain theory,
-because it turns out that neither directed sets nor $\omega$-chains quite
-capture the appropriate notion of approximation in the theory of nominal sets
-(the setting for much of the rest of this dissertation) and it is necessary to
-choose a subtly different notion instead.
+Investigating these extra conditions is beyond the scope of this discussion so
+it is sufficient to think of $\Phi$ as being either $\Phi_d$ (directedness) or
+$\Phi_\omega$ (the property of being an $\omega$-chain) in the following.
 
-The property $\Phi$ also gives rise to a notion of $\Phi$-continuous function:
-$f : \langle D, \sqsubseteq_D \rangle \to \langle E, \sqsubseteq_E, \rangle$ is
-$\Phi$-continuous if it is a function $f : D \to E$ that preserves
-\begin{itemize} \item the ordering $\sqsubseteq$ (i.e. it is monotone) \item the
-property of $\Phi$-ness, and \item joins of the $\Phi$ subsets of $D$.
-\end{itemize}
+The property $\Phi$ also gives rise to a notion of $\Phi$-continuous function.
+\begin{equation} f : \langle D, \sqsubseteq_D \rangle \to \langle E,
+\sqsubseteq_E \rangle \end{equation} is $\Phi$-continuous if it is a function $f
+: D \to E$ that preserves \begin{itemize} \item the ordering $\sqsubseteq$ (i.e.
+it is monotone) \item the property of $\Phi$-ness (i.e. if $x \subseteq D$ is
+$\Phi$ then so is $\{f d \mid d \in x\}$), and \item joins of $\Phi$ subsets of
+$D$ (i.e. if $x \subseteq D$ is $\Phi$ then $f \bigl(\bigvee x \bigr) = \bigvee
+\{ f d \mid d \in x\}$.  \end{itemize}
 %
 The collection of $\Phi$CPOs and $\Phi$-continuous functions form a category
 $\mathbf{\Phi CPO}$.
@@ -76,9 +78,10 @@ higher-order functions.
 \subsection{Algebraic CPOs}
 
 Certain elements of a $\Phi$CPO $D$ cannot be reached by the join of a
-succession of increasingly close proper approximations.
-%
-Such an element is called \textit{isolated}.
+succession of increasingly close proper approximations and such elements are
+called \textit{isolated}\footnote{The terms \textit{compact} and \textit{finite}
+are also used in the literature, but this discussion consistently uses
+\textit{isolated}.}.
 %
 Computationally, the isolated elements of $D$ correspond to those computations
 that can be realised in finite time.
@@ -91,8 +94,8 @@ x$ for some $x \subseteq D$ satisfying $\Phi$ it follows that there exists $d'
 The collection of all $\Phi$-isolated elements of $D$ is written $D^{\circ}$.
 \end{definition}
 
-Intuitively the computationally feasible elements of $D$ are only those elements
-that can be approximated by its $\Phi$-isolated elements.
+If a $\Phi$CPO consists entirely of elements that can be approximated by its
+$\Phi$-isolated elements then its structure is considerably simplified.
 %
 Those $\Phi$CPOs that consist only of such approximable elements are called
 \textit{algebraic}:
@@ -114,13 +117,13 @@ countable nominal set is discrete and therefore not particularly interesting for
 the purposes of this discussion.}.
 
 Importantly, if $f : D \to E$ is $\Phi$-continuous and $D$ is algebraic then $f$
-is entirely specified by its action on $D^\circ$:
+is entirely specified by its action on $D^\circ$ as the following lemma shows.
 
 \begin{lemma} Let $\langle D, \sqsubseteq_D, \bot_D \rangle$ be an algebraic
-$\Phi$CPO and let $f, g : \langle D, \sqsubseteq_D, \bot_D \rangle
-\rightrightarrows \langle E, \sqsubseteq_E, \bot_E \rangle$ be two arrows of
-$\mathbf{\Phi CPO}$ such that for every $d \in D^\circ$ it is the case that
-$f(d) = g(d)$. Then $f = g$.  \end{lemma}
+$\Phi$CPO and let \[ f, g : \langle D, \sqsubseteq_D, \bot_D \rangle
+\rightrightarrows \langle E, \sqsubseteq_E, \bot_E \rangle \] be two arrows of
+$\mathbf{\Phi CPO}$ such that $f(d) = g(d)$ for every $d \in D^\circ$.  Then $f
+= g$.  \end{lemma}
 
 \begin{proof} Let $d \in D$, then by the algebraicity of $D$ there exists $x
 \subseteq D^\circ$ which is both $\Phi$ and such that $d = \bigvee x$. Therefore
@@ -136,12 +139,11 @@ $D^\circ \supseteq x$}\\
 &=& g(d) \end{array} \end{equation} as required. \end{proof}
 
 The collection of algebraic $\Phi$CPOs and $\Phi$-continuous functions forms a
-category $\mathbf{\Phi Alg}$.
+category $\mathbf{\Phi Alg}$ and much of the structure of $\mathbf{\Phi CPO}$
+restricts to $\mathbf{\Phi Alg}$.
 %
-Many of the constructions of $\mathbf{\Phi CPO}$ restrict to $\mathbf{\Phi
-Alg}$.
-%
-For example, the cartesian product of $\Phi$CPOs preserves algebraicity.
+For example, the cartesian product of a pair of algebraic $\Phi$CPOs (as objects
+of $\mathbf{\Phi CPO}$) is again an algebraic $\Phi$CPO.
 %
 However if $D$ and $E$ are algebraic then it is not necessarily the case that
 the function space $D \to E$ is algebraic, so $\mathbf{\Phi Alg}$ is not
@@ -171,15 +173,15 @@ depending on the style of nondeterminism that is under study.
 together with an idempotent, commutative and associative binary operation
 $\mathord{\sqcup}_D : D \times D \to D$.
 
-A \define{Hoare-nondeterministic $\Phi$CPO} ($\text{N}_H\Phi\text{CPO}$) is a
-Plotkin-nondeterministic $\Phi$CPO $\langle D, \sqsubseteq_D, \mathord{\sqcup}_D
-\rangle$ such that additionally $d \sqsubseteq_D d \sqcup_D d'$ for all $d, d'
-\in D$.
+A \define{Hoare-nondeterministic $\Phi$CPO} ($\text{N}_H\Phi\text{CPO}$) is
+a Plotkin-non\-det\-er\-min\-istic $\Phi$CPO $\langle D, \sqsubseteq_D,
+\mathord{\sqcup}_D \rangle$ such that additionally $d \sqsubseteq_D d \sqcup_D
+d'$ for all $d, d' \in D$.
 
 A \define{Smyth-nondeterministic $\Phi$CPO} ($\text{N}_S\Phi\text{CPO}$) is a
-Plotkin-nondeterministic $\Phi$CPO $\langle D, \sqsubseteq_D, \mathord{\sqcup}_D
-\rangle$ such that additionally $d \sqcup_D d' \sqsubseteq_D d$ for all $d, d'
-\in D$.  \end{definition}
+Plotkin-non\-det\-er\-min\-istic $\Phi$CPO $\langle D, \sqsubseteq_D,
+\mathord{\sqcup}_D \rangle$ such that additionally $d \sqcup_D d' \sqsubseteq_D
+d$ for all $d, d' \in D$.  \end{definition}
 
 Intuitively, the Hoare-style nondeterminism captures a `may do' semantics: a
 nondeterministic choice between two computations contains at least as much
@@ -190,9 +192,13 @@ Conversely, the Smyth-style nondeterminism captures a `must do' semantics: fewer
 guarantees can be made about the nondeterministic choice between two
 computations, so the nondeterministic choice contains less information.
 %
-When the discussion is not about any particular style of nondeterminism, it is
-enough to refer to $\text{N}_P\Phi\text{CPOs}$, $\text{N}_H\Phi\text{CPOs}$ and
-$\text{N}_S\Phi\text{CPOs}$ simply as N$\Phi$CPOs.
+The Plotkin-style nondeterminism captures a mixture of both the `may do' and
+`must do' styles of semantics.
+%
+When the discussion is not concerned with the differences between the styles of
+nondeterminism, it is enough to refer to $\text{N}_P\Phi\text{CPOs}$,
+$\text{N}_H\Phi\text{CPOs}$ and $\text{N}_S\Phi\text{CPOs}$ simply as
+N$\Phi$CPOs.
 
 The natural morphisms between N$\Phi$CPOs are $\Phi$-continuous functions that
 are additionally $\sqcup$-homomorphisms, and these objects and morphisms form a
@@ -218,13 +224,15 @@ powerdomain monad becomes a little easier to describe concretely in this
 setting.
 %
 For example, if $D$ is an algebraic $\Phi$CPO then there is an associated
-preorder ${!}D$ whose elements comprise the finite subsets of $D^\circ$ and
-whose order is defined by $F \le_{{!}D} F'$ iff for all $d \in F$ there exists
-$d' \in F'$ such that $d \sqsubseteq_D d'$.
+preorder ${!}(D^{\circ})$ whose elements comprise the finite subsets of
+$D^\circ$ and whose order is defined by setting $x \le_{{!}(D^{\circ})} x'$ iff
+for all $d \in x$ there exists $d' \in x'$ such that $d \sqsubseteq_D d'$.
 %
 The Hoare powerdomain $\mathcal{P}_{H} D$ is then given as the partial order
-obtained by taking the quotient of ${!}D$ by the preorder equivalence.
-
+obtained by taking the ideal-completion of ${!}(D^{\circ})$.
+%
+Alternatively, $\mathcal{P}_{H} D$ can be characterised as the collection of
+lower subsets of $D^{\circ}$ ordered by inclusion.
 
 
 
