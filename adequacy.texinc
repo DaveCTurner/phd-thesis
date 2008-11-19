@@ -1,8 +1,9 @@
 \subsection{A Logical Relation}
 
 Define a relation $\logrel{X}{\typeP}{t}$ between $X \subseteq \typeP$ and terms
-such that $\tjudge{}{}{t}{\typeP}$ by way of a relation $\login{p}{\typeP}{t}$
-between paths $p \in \typeP$ and terms such that $\tjudge{}{}{t}{\typeP}$.
+such that $\tjudge{}{}{t}{\typeP}$ by way of an auxiliary relation
+$\login{p}{\typeP}{t}$ between paths $p \in \typeP$ and terms such that
+$\tjudge{}{}{t}{\typeP}$ as follows.
 
 % Definition of \trianglelefteq_{\mathbb P} {{{
 \[\begin{array}{rcl}
