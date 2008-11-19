@@ -41,11 +41,17 @@ The property $\Phi$ serves to capture the notion of approximation under
 discussion.
 %
 In general $\Phi$ must satisfy some extra conditions that make it a suitable
-choice for approximating elements of $D$.
+choice for approximating elements of $D$, although investigating these extra
+conditions is beyond the scope of this discussion so it is sufficient to think
+of $\Phi$ as being either $\Phi_d$ (directedness) or $\Phi_\omega$ (the property
+of being an $\omega$-chain) in the following.
 %
-Investigating these extra conditions is beyond the scope of this discussion, so
-it is sufficient to think of $\Phi$ as being either $\Phi_d$ (directedness) or
-$\Phi_\omega$ (the property of being an $\omega$-chain) in the following.
+It is important here to emphasise that the choice of a suitable notion of
+approximation $\Phi$ is a key variable in the development of domain theory,
+because it turns out that neither directed sets nor $\omega$-chains quite
+capture the appropriate notion of approximation in the theory of nominal sets
+(the setting for much of the rest of this dissertation) and it is necessary to
+choose a subtly different notion instead.
 
 The property $\Phi$ also gives rise to a notion of $\Phi$-continuous function:
 $f : \langle D, \sqsubseteq_D \rangle \to \langle E, \sqsubseteq_E, \rangle$ is
@@ -193,16 +199,34 @@ are additionally $\sqcup$-homomorphisms, and these objects and morphisms form a
 category $\mathbf{N\Phi CPO}$ with the obvious forgetful functor $U :
 \mathbf{N\Phi CPO} \to \mathbf{\Phi CPO}$.
 %
-Furthermore this functor has a left adjoint $\mathcal P$ associating to each
-$\Phi$CPO $D$ the object $\mathcal P D$ which could be described as the free
-N$\Phi$CPO on $D$ or more commonly as the \textit{powerdomain} of $D$.
+Furthermore this functor has a left adjoint $F$ associating to each $\Phi$CPO
+$D$ the object $FD$ which is the free N$\Phi$CPO on $D$.
+%
+The composition $UF : \mathbf{\Phi CPO} \to \mathbf{\Phi CPO}$ is usually called
+the \textit{powerdomain monad} and is often written simply $\mathcal{P}$.
 
-\TODO{Always has a left adjoint? Or just here?}
+A similar story unfolds when attention is restricted to algebraic $\Phi$CPOs.
+%
+Nondeterministic algebraic $\Phi$CPOs are defined similarly to more general
+nondeterministic CPOs, and together with $\Phi$-continuous
+$\sqcup$-homomorphisms they form a category $\mathbf{N\Phi Alg}$ with a
+forgetful/free adjunction $F \dashv U : \mathbf{N\Phi Alg} \leftrightarrows
+\mathbf{\Phi Alg}$ as before.
+%
+An advantage of restricting attention to algebraic $\Phi$CPOs is that the
+powerdomain monad becomes a little easier to describe concretely in this
+setting.
+%
+For example, if $D$ is an algebraic $\Phi$CPO then there is an associated
+preorder ${!}D$ whose elements comprise the finite subsets of $D^\circ$ and
+whose order is defined by $F \le_{{!}D} F'$ iff for all $d \in F$ there exists
+$d' \in F'$ such that $d \sqsubseteq_D d'$.
+%
+The Hoare powerdomain $\mathcal{P}_{H} D$ is then given as the partial order
+obtained by taking the quotient of ${!}D$ by the preorder equivalence.
 
-\TODO{Worth giving a concrete description of $\mathcal P_{\mathrm{Hoare}} D$
-etc?}
 
-\TODO{Also works on $\mathbf{\Phi Alg}$}
+
 
 
 \subsection{A Simple Domain Theory for Concurrency}
@@ -211,13 +235,11 @@ Dropping some of the generality developed above, in the following consider just
 the notion of approximation given by directedness by letting $\Phi = \Phi_d$ and
 just the Hoare `may do' style of nondeterminism.
 %
-In this setting the powerdomain operation $\mathcal{P}_{H} : \mathbf{\Phi}_d
-\mathbf{Alg} \to \mathbf{\Phi}_d \mathbf{Alg}$ is used to adjoin nondeterminism.
-%
-Viewing nondeterminism as a computational effect (perhaps in the style of Moggi
+Viewing nondeterminism as a computational effect (in the style of Moggi
 \cite{moggi:monads}) draws attention to the Kleisli category of
-$\mathcal{P}_{H}$ which is equivalent to the category $\mathbf{PORel}$ of
-partial orders $\typeP, \typeQ, \ldots$ and monotone relations between them.
+$\mathcal{P}_{H}$ which, it turns out, is equivalent to the category
+$\mathbf{PORel}$ of partial orders $\typeP, \typeQ, \ldots$ and monotone
+relations between them.
 %
 In other words, an arrow $R : \typeP \to \typeQ$ is a relation $R \subseteq
 \typeP \times \typeQ$ such that if $p' \le_{\typeP} p \mathrel{R} q \le_{\typeQ}
@@ -228,10 +250,11 @@ the identity relation on the partial order $\typeP$ is simply $\le_{\typeP}$.
 
 Concretely the equivalence $\mathrm{Kl}(\mathcal{P}_{H}) \simeq \mathbf{PORel}$
 factorises the monad $\mathcal{P}_{H}$ as \begin{equation} \xymatrix{
-\mathbf{\Phi}_d \mathbf{Alg} \ar@/^2ex/@<-2pt>[rr]^{K} & \bot &
+\mathbf{\Phi}_d \mathbf{Alg} \ar@/^2ex/@<-2pt>[rr]^{(-)^{\circ}} & \bot &
 \mathcal{\mathbf{PORel}} \ar@/^2ex/@<-2pt>[ll]^{\mathrm{Idl}} } \end{equation}
 where the functor $\mathrm{Idl}$ takes a partial order to its ideal completion
-and $K$ takes an algebraic domain to the partial order of its isolated elements.
+and $(-)^{\circ}$ takes an algebraic domain to the partial order of its isolated
+elements.
 
 
 \TODO{Write section introducing Domain Theory for Concurrency}
