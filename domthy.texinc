@@ -176,7 +176,7 @@ It will turn out that it is worth being able to manipulate sets  such as
 $\mathbb A^{\freshfor a}$ as first-class objects. This is possible within
 Fraenkel-Mostowski (FM) set theory.
 
-\subsection{Fraenkel-Mostowski Set Theory}
+\subsection{Fraenkel-Mostowski Set Theory} \label{subsect:fm-set-theory}
 
 FM set theory is closely related to the theory of nominal sets.
 %
