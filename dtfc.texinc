@@ -465,14 +465,25 @@ In order to model a fully-fledged process algebra such as the $\pi$-calculus it
 is necessary to be able to model locally-scoped names and treat them as
 first-class data that can, for example, be passed from process to process.
 %
-Winskel and Zappa Nardelli\cite{WZ04} developed a language, new-HOPLA, in which
+Winskel and Zappa Nardelli\cite{WZ04} developed the language new-HOPLA in which
 this was possible.
 %
-This language was based on the idea t
-
-loosely
-based on the domain theory over $\mathbf{Cts}$ with name-generation added
-
-\TODO{Write section introducing Domain Theory for Concurrency}
+This language was based on a sketch of a denotational semantics given in the
+functor category $\mathbf{Lin}^{\mathbb I}$ --- where $\mathbb I$ is the
+category of injections between finite sets of names --- following the ideas of
+Pitts and Stark\cite{?}, Fiore\cite{?}, Moggi\cite{?} and Oles\cite{?} amongst
+others.
+%
+The use of $\mathbf{Lin}^{\mathbb I}$ rather than $\mathbf{Lin}$ facilitates a
+semantics that is parametric in the `current' set of names.
+%
+However there are some technical problems in the associated domain theory,
+particularly regarding the existence of function spaces.
+%
+This thesis aims to overcome such problems by avoiding the technical machinery
+of functor categories and working in a more elementary setting.
+%
+The following section introduces the theory of nominal sets, which provides a
+suitable situation for a name-theoretic domain theory for concurrency.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
