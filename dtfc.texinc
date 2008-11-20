@@ -119,8 +119,8 @@ are also used in the literature, but this discussion consistently uses
 Computationally, the isolated elements of $D$ correspond to those computations
 that can be realised in finite time.
 
-\begin{definition} An element $d$ of the $\Phi$CPO $\langle D, \sqsubseteq_D,
-\bot_D \rangle$ is \define{$\Phi$-isolated} if whenever $d \sqsubseteq_D \bigvee
+\begin{definition} An element $d$ of the $\Phi$CPO $\langle D, \sqsubseteq_D
+\rangle$ is \define{$\Phi$-isolated} if whenever $d \sqsubseteq_D \bigvee
 x$ for some $x \subseteq D$ satisfying $\Phi$ it follows that there exists $d'
 \in x$ such that $d \sqsubseteq_D d'$.
 %
@@ -191,9 +191,9 @@ It is now straightforward to show that $f$ and $g$ define an isomorphism $D
 Importantly, if $f : D \to E$ is $\Phi$-continuous and $D$ is algebraic then $f$
 is entirely specified by its action on $D^\circ$ as the following lemma shows.
 
-\begin{lemma} Let $\langle D, \sqsubseteq_D, \bot_D \rangle$ be an algebraic
-$\Phi$CPO and let \[ f, g : \langle D, \sqsubseteq_D, \bot_D \rangle
-\rightrightarrows \langle E, \sqsubseteq_E, \bot_E \rangle \] be two arrows of
+\begin{lemma} Let $\langle D, \sqsubseteq_D \rangle$ be an algebraic
+$\Phi$CPO and let \[ f, g : \langle D, \sqsubseteq_D \rangle
+\rightrightarrows \langle E, \sqsubseteq_E \rangle \] be two arrows of
 $\mathbf{\Phi CPO}$ such that $f(d) = g(d)$ for every $d \in D^\circ$.  Then $f
 = g$.  \end{lemma}
 
