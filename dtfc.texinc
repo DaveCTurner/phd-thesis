@@ -32,7 +32,7 @@ process of the appropriate shape.
 %
 It is important here to emphasise that the choice of a suitable notion of
 approximation is a key variable in the development of domain theory, because it
-turns out that neither directed sets nor $\omega$-chains quite capture the
+turns out that neither directed sets nor $\omega$-chains fully capture the
 appropriate notion of approximation in the theory of nominal sets (the setting
 for much of the rest of this dissertation) and it is necessary to choose a
 subtly different notion instead.
