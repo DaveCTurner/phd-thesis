@@ -92,12 +92,18 @@ functions, again ordered pointwise.
 This is important for giving denotational semantics to a language with
 higher-order functions.
 
+\begin{definition} If $\typeP$ is a preorder and $x \subseteq \typeP$ then
+define \[ x_\downarrow \defeq \{ p' \mid
+\exists p \in x. p' \le_\typeP p \}. \]
+Say that $x' \subseteq \typeP$ is a \define{lower set in $\typeP$} if it
+is of the form $x_\downarrow$ for some $x \subseteq \typeP$.
+\end{definition}
+
 \begin{definition} A \define{$\Phi$-ideal} in the preorder $\typeP$ is the lower
 set of a $\Phi$ subset of $\typeP$.
 %
-In other words, it is a set of the form \[ x_\downarrow \defeq \{ p' \mid
-\exists p \in x. p' \le_\typeP p \} \] where $x \subseteq \typeP$ has the
-property $\Phi$.
+In other words, it is a set of the form $x_\downarrow$ where $x \subseteq
+\typeP$ has the property $\Phi$.
 %
 The \define{$\Phi$-ideal completion} of $\typeP$, written
 $\mathrm{Idl}_{\Phi}(\typeP)$, is the set of all $\Phi$-ideals of $\typeP$
@@ -309,7 +315,7 @@ lower subsets of $D^{\circ}$ ordered by inclusion.
 
 
 
-\subsection{A Simple Domain Theory for Concurrency}
+\subsection{A Simple Domain Theory for Concurrency} \label{subsect:simple-dtfc}
 
 Dropping some of the generality developed above, in the following consider just
 the notion of approximation given by directedness by letting $\Phi = \Phi_d$ and
@@ -352,7 +358,7 @@ Considering the adjunction $(-)^{\circ} \dashv \mathrm{Idl}$ from the point of
 view of $\mathbf{PreRel}$ or $\mathbf{Lin}$ draws attention to the comonad
 ${!}((\mathrm{Idl}(-))^{\circ}) \cong {!}$.
 
-\subsection{Domains of Paths}
+\subsection{Domains of Paths} \label{domains-of-paths}
 
 The semantic setting discussed above can be approached more directly by taking
 the intuition that a nondeterministic process denotes the set of computation

@@ -1,12 +1,22 @@
-\section{Nominal Path Semantics}
-\label{nominalpathsemantics}
-
-\TODO{Motivate subsets of nominal path orders as representing processes.}
-
-\TODO{Notation: $\typeP_{\downarrow} = \{p' \mid \exists p \in \typeP. p' \le p \}$.}
-
 \section{Nominal Nondeterministic Domains}
 \label{nominalnondeterministicdomains}
+
+Recall from \ref{domains-of-paths} that the development of the classical domain
+theory that underpins the language HOPLA is based on a semantics of paths, where
+intuitively a process denotes the collection of computation paths that it may
+perform.
+%
+A similar intuition applies when working within FM set theory, with the added
+constraint that each process can only access finitely many names, so the
+denotation of a process must be finitely supported.
+%
+Apart from this additional constraint the development of categories of FM-linear
+maps follows closely that of the development of the classical category
+$\mathbf{Lin}$ of linear maps.
+%
+The FM-linear categories are similar in structure to $\mathbf{Lin}$, but they
+also have enough structure to capture the idea of names and binding, as
+demonstrated in \ref{subsubsect:deltafreshadjlin} below.
 
 \subsection{Free Join-Completions of Path Orders}
 
