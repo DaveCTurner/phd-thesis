@@ -31,36 +31,53 @@ appropriate notion of approximation of elements of $D$ by some kind of limiting
 process of the appropriate shape.
 %
 It is important here to emphasise that the choice of a suitable notion of
-approximation is a key variable in the development of domain theory, because it
-turns out that neither directed sets nor $\omega$-chains fully capture the
-appropriate notion of approximation in the theory of nominal sets (the setting
-for much of the rest of this dissertation) and it is necessary to choose a
+approximation is a key variable in the development of domain theory, so it is
+worth making the following definition.
+
+\begin{definition} Write $\Phi_d$ for the property of directedness and
+$\Phi_\omega$ for the property of being an $\omega$-chain.\end{definition}
+%
+$\Phi_d$ and $\Phi_\omega$ capture the two notions of approximation that have
+been introduced so far.
+%
+It turns out that elementary domain theory is somewhat independent of the choice
+of any particular notion of approximation, in which case the chosen notion of
+approximation can be written simply as $\Phi$.
+%
+This generality is important when working in the theory of nominal sets (the
+setting for much of the rest of this dissertation) since it helps to capture the
+salient features of the development of domain theory that are independent of any
+particular notions of approximation.
+%
+Indeed, neither $\Phi_d$ nor $\Phi_\omega$ fully capture an appropriate notion
+of approximation in the theory of nominal sets and it is necessary to use a
 subtly different notion instead.
 %
-Therefore it is worth making the following informal definition.
+It would perhaps be desirable to have an axiomatisation for the features that a
+property $\Phi$ must have in order to make it a suitable choice for a notion of
+approximation but investigating such an axiomatisation is beyond the scope of
+this thesis.
+%
+Instead, it is sufficient to think of $\Phi$ as being either $\Phi_d$ or
+$\Phi_\omega$ in the following, and when introducing approximations in nominal
+set theory in \ref{fmcts} the mathematics is developed from scratch using this
+section as a guide.
 
-\begin{definition}[Informal] A \define{$\Phi$-complete partial order
+
+\begin{definition} A \define{$\Phi$-complete partial order
 ($\Phi$CPO)} is a partial order $\langle D, \sqsubseteq_{D} \rangle$ that has
 joins of subsets of $D$ that have the property $\Phi$.  \end{definition}
 
-The property $\Phi$ serves to capture the notion of approximation under
-discussion.
-%
-In general $\Phi$ must satisfy some extra conditions that make it a suitable
-choice for approximating elements of $D$.
-%
-Investigating these extra conditions is beyond the scope of this discussion so
-it is sufficient to think of $\Phi$ as being either $\Phi_d$ (directedness) or
-$\Phi_\omega$ (the property of being an $\omega$-chain) in the following.
 
 The property $\Phi$ also gives rise to a notion of $\Phi$-continuous function.
-\begin{equation} f : \langle D, \sqsubseteq_D \rangle \to \langle E,
-\sqsubseteq_E \rangle \end{equation} is $\Phi$-continuous if it is a function $f
-: D \to E$ that preserves \begin{itemize} \item the ordering $\sqsubseteq$ (i.e.
-it is monotone) \item the property of $\Phi$-ness (i.e. if $x \subseteq D$ is
-$\Phi$ then so is $\{f d \mid d \in x\}$), and \item joins of $\Phi$ subsets of
-$D$ (i.e. if $x \subseteq D$ is $\Phi$ then $f \bigl(\bigvee x \bigr) = \bigvee
-\{ f d \mid d \in x\}$.  \end{itemize}
+%
+\begin{definition} \begin{equation} f : \langle D, \sqsubseteq_D \rangle \to
+\langle E, \sqsubseteq_E \rangle \end{equation} is \define{$\Phi$-continuous} if
+it is a function $f : D \to E$ that preserves \begin{itemize} \item the ordering
+$\sqsubseteq$ (i.e.  it is monotone) \item the property of $\Phi$-ness (i.e. if
+$x \subseteq D$ is $\Phi$ then so is $\{f d \mid d \in x\}$), and \item joins of
+$\Phi$ subsets of $D$ (i.e. if $x \subseteq D$ is $\Phi$ then $f \bigl(\bigvee x
+\bigr) = \bigvee \{ f d \mid d \in x\}$.  \end{itemize} \end{definition}
 %
 The collection of $\Phi$CPOs and $\Phi$-continuous functions form a category
 $\mathbf{\Phi CPO}$.
