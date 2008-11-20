@@ -45,13 +45,12 @@ In \ref{npre} the theory of nominal preorders is introduced, and is shown to be
 a straightforward combination of the theories of nominal sets and of classical
 preorders. In \ref{fmpre} this theory is generalised to include objects and
 arrows that have nontrivial finite supports, because the domain theory will need
-to make use of such structure. Then \ref{nominalpathsemantics} gives a
-construction of particular preorders that support a path-based semantics. In
-\ref{nominalnondeterministicdomains} these `path orders' are freely completed to
-incorporate nondeterminism and the induced `linear' maps are studied.
+to make use of such structure. Then \ref{nominalnondeterministicdomains} builds
+a path-based semantics using preorders of computation paths and the induced
+`linear' maps are studied.
 %
-As mentioned above, linearity is too restrictive a condition on the
-maps and in \ref{fmcts} an appropriate notion of continuity is developed.
+As mentioned above, linearity is too restrictive a condition on the maps and in
+\ref{fmcts} an appropriate notion of continuity is developed.
 
 \section{Nominal Preorders}
 \label{npre}
