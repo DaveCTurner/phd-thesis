@@ -334,8 +334,8 @@ On the other hand, $\mathbf{Cts}$ can be seen to be the coKleisli category of
 the comonad ${!} : \mathbf{Lin} \to \mathbf{Lin}$ introduced in the previous
 section.
 %
-$\mathbf{Cts}$ then forms a model of multiplicative-exponential linear logic
-(MELL)\cite{benton:linear}, with $!$ taking the role of the exponential.
+$\mathbf{Cts}$ then forms a model of multiplicative-exponential linear
+logic\cite{benton:linear}, with $!$ taking the role of the exponential.
 
 It is in the setting of $\mathbf{Cts}$ that Winskel and Nygaard have developed a
 simple domain theory that captures certain important computational features.
