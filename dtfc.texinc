@@ -146,7 +146,7 @@ For example, the cartesian product of a pair of algebraic $\Phi$CPOs (as objects
 of $\mathbf{\Phi CPO}$) is again an algebraic $\Phi$CPO.
 %
 However if $D$ and $E$ are algebraic then it is not necessarily the case that
-the function space $D \to E$ is algebraic, so $\mathbf{\Phi Alg}$ is not
+the function space $D \to E$ is algebraic, and $\mathbf{\Phi Alg}$ is not
 cartesian closed in general.
 %
 Fortunately it is often the case that $\mathbf{\Phi Alg}$ contains a cartesian
