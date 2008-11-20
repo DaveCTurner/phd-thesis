@@ -834,4 +834,159 @@ syntax.
 This is justified by the results of chapter \ref{densem} which relates the
 semantic and syntactic notions of binding in the language Nominal HOPLA.
 
+\subsection{Choice in Nominal Set Theory}
+
+Nominal set theory is closely related\footnote{See \ref{subsect:fm-set-theory}
+for more details.} to Fraenkel-Mostowski (FM) set theory, which was originally
+developed early in the 20th century to prove the independence of the Axiom of
+Choice (AC) from the other axioms of set theory.
+%
+As a consequence, AC fails to hold in FM set theory (by design!) and this
+failure also occurs in nominal set theory.
+%
+For example, the axiom of choice would imply that there is an injective function
+$f : \mathbb N \to \mathbb A$ picking distinct names for each $n \in \mathbb N$.
+%
+Suppose that $f$ has a finite support, $s$, then since $f$ has infinite range it
+must be that there exist $m \neq n \in \mathbb N$ such that $f(m), f(n) \notin
+s$ and hence $(f(m)\ f(n)) \cdot f = f$.
+%
+Also, $\mathbb N$ is a discrete nominal set so that $(f(m)\ f(n)) \cdot n = n$.
+%
+However, $(f(m)\ f(n)) \cdot (f(n)) = f(m) \neq f(n)$ which is a contradiction,
+which shows that $f$ cannot have a finite support so it certainly is not a
+function in the sense of nominal set theory.
+
+The impact of the failure of AC is not as severe as perhaps it sounds, but it
+does have some subtle consequences.
+%
+Perhaps one of the more interesting ones is that there are a number of distinct
+ways of characterising the subsets of a nominal set that are, in some sense,
+finite.
+
+\subsubsection{Definitions of Finiteness} \label{def:finiteness}
+%
+\begin{enumerate}[(1)] \item \label{finite:usual} The usual definition: $A$ is
+finite if it bijects with a finite ordinal.
+%
+\item \label{finite:kuratowski} Kuratowski's definition: $\varnothing$ is
+finite, $\{x\}$ is finite for each $x$ and if $A$ and $B$ are finite then so is
+$A \cup B$.
+%
+\item \label{finite:directed} $A$ is finite if for all directed collections
+$(B_i)_{i \in I}$ such that $A \subseteq \bigcup B_i$ there exists $i \in I$
+such that $A \subseteq B_i$.
+%
+\item \label{finite:chain} $A$ is finite if for all increasing
+(finitely-supported) chains $B_0 \subseteq B_1 \subseteq \ldots \subseteq B_n
+\subseteq \ldots$ such that $A \subseteq \bigcup B_n$ there exists $n \in
+\mathbb N$ such that $A \subseteq B_n$.
+%
+\item \label{finite:dedekind} Dedekind's definition: $A$ is finite if there
+exists no injection into one of its proper subsets.  \end{enumerate}
+
+For the avoidance of doubt, where the word `finite' appears in this discussion
+without reference to any of these definitions, it means
+(\ref{finite:usual})-finite.
+
+\begin{lemma} Let $A \subseteq X$ be a finitely-supported subset of a nominal
+set $X$. Then \[ \begin{array}{rc} & \text{$A$ is (\ref{finite:usual})-finite}
+\\ \Leftrightarrow & \text{$A$ is (\ref{finite:kuratowski})-finite} \\
+\Leftrightarrow & \text{$A$ is (\ref{finite:directed})-finite} \\ \Rightarrow &
+\text{$A$ is (\ref{finite:chain})-finite} \\ \Rightarrow & \text{$A$ is
+(\ref{finite:dedekind})-finite} \end{array} \] and no other implications hold in
+general.  \end{lemma}
+
+\begin{proof} \ \subparagraph{(\ref{finite:usual})-finite $\Rightarrow$
+(\ref{finite:kuratowski})-finite} If $A$ bijects with the finite ordinal $n$
+then its elements can be enumerated as $a_0, a_1, \ldots, a_{n-1}$.
+%
+By a simple induction on $n$ it follows that $A$ is
+(\ref{finite:kuratowski})-finite.
+
+\subparagraph{(\ref{finite:kuratowski})-finite $\Rightarrow$
+(\ref{finite:directed})-finite} Let $(B_i)_{i \in I}$ be a directed collection
+such that $A \subseteq \bigcup B_i$.
+%
+If $A = \varnothing$ then any $i \in I$ is such that $A \subseteq B_i$.
+%
+If $A = \{x\}$ then there must exist $i \in I$ such that $A \subseteq B_i$ since
+$A \subseteq \bigcup B_i$.
+%
+Finally if $A = A_1 \cup A_2$ where $A_1$ and $A_2$ are
+(\ref{finite:kuratowski})-finite then by induction there exist $i_1, i_2 \in I$
+such that $A_1 \subseteq B_{i_1}$ and $A_2 \subseteq B_{i_2}$, and by
+directedness there exists $i_3 \in I$ such that $B_{i_1} \subseteq B_{i_3}$ and
+$B_{i_2} \subseteq B_{i_3}$ so that $A \subseteq B_{i_3}$ as required.
+
+\subparagraph{(\ref{finite:directed})-finite $\Rightarrow$
+(\ref{finite:usual})-finite} Let $(B_i)_{i \in I}$ be the collection of all
+(\ref{finite:usual})-finite subsets of $A$ ordered by inclusion, then this
+collection is directed so there exists $i \in I$ such that $A \subseteq B_i$ and
+hence $A = B_i$ for some (\ref{finite:usual})-finite set $B_i$.
+
+\subparagraph{(\ref{finite:directed})-finite $\Rightarrow$
+(\ref{finite:chain})-finite} The chain $B_0 \subseteq B_1 \subseteq \ldots
+\subseteq B_n \subseteq \ldots$ is directed, so this case is immediate.
+
+\subparagraph{(\ref{finite:usual})-finite $\not\Rightarrow$
+(\ref{finite:directed})-finite} For example $\mathbb A$ is
+(\ref{finite:chain})-finite because if the increasing chain $B_0 \subseteq B_1
+\subseteq \ldots \subseteq \mathbb A$ is supported by the finite set $s$ then
+each element $B_i$ of the chain must also be supported by $s$.
+%
+However there are only finitely many such subsets of $\mathbb A$, namely the
+subsets of $s$ and the supersets of $\mathbb A \setminus s$, so the chain must
+eventually become stationary.
+%
+On the other hand by definition $\mathbb A$ is not (\ref{finite:usual})-finite.
+
+\subparagraph{(\ref{finite:chain})-finite $\Rightarrow$
+(\ref{finite:dedekind})-finite} It is simpler to show the contrapositive, so
+assume that $A$ is (\ref{finite:dedekind})-infinite and therefore obtain an
+injection $f : A \to A$ and an element $a \in A$ such that the range of $f$ is a
+subset of $A \setminus \{a\}$.
+%
+For each $n$ let $B_n = \{ a, f(a), f^2(a), \ldots, f^{n}(a) \}$.
+%
+It is straightforward to show that $B_0 \varsubsetneq B_1 \varsubsetneq \ldots$
+since $f$ is injective and $a$ is not in its range.
+%
+Let $B_\omega = \bigcup B_n$ and for each $n$ let $C_n = (A \setminus B_\omega)
+\cup B_n$, then certainly $A = \bigcup C_n$ but there exists no $n \in \mathbb
+N$ such that $A = C_n$ as required.
+
+\subparagraph{(\ref{finite:dedekind})-finite $\not\Rightarrow$
+(\ref{finite:chain})-finite} For example $\mathcal{P}_{\mathrm{fin}} \mathbb A$
+is (\ref{finite:chain})-infinite because if \begin{equation} B_n = \{ s
+\subseteq_{\mathrm{fin}} \mathbb A \mid |s| \le n \} \end{equation} then $B_0
+\subseteq B_1 \subseteq \ldots$ and $\mathbb A = \bigcup B_n$ but there exists
+no $n \in \mathbb N$ such that $\mathbb A = B_n$.
+%
+On the other hand suppose that $f : \mathcal{P}_{\mathrm{fin}} \mathbb A \to
+\mathcal{P}_{\mathrm{fin}} \mathbb A$ is a injection supported by the finite set
+$s$ and let $s_0$ be outside the range of $f$.
+%
+Considering the sequence that starts at $s_0$ and continues by setting $s_{n+1}
+= f(s_n)$, it is clear that this sequence never repeats as $f$ is injective.
+%
+However, by considering supports it is also the case that $s_{n+1} =
+\supp{s_{n+1}} = \supp{f(s_n)} \subseteq \supp{f} \cup \supp{s_n} \subseteq s
+\cup s_n$ so that $s \cup s_0 \supseteq s \cup s_1 \supseteq \ldots$ is a
+descending chain of finite sets which must therefore eventually become
+stationary.
+%
+This is a contradiction, so $\mathcal{P}_{\mathrm{fin}} \mathbb A$ is
+(\ref{finite:dedekind})-finite as required.  \end{proof}
+
+Notice that (\ref{finite:directed})-finiteness and
+(\ref{finite:chain})-finiteness are very closely related to the idea of
+isolation in domain theory with respect to approximation by directed sets and by
+$\omega$-chains respectively.
+%
+This observation affects the development of nominal domain theory, particularly
+the design of an appropriate notion of approximation, as demonstrated in the
+next chapter.
+
+
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
