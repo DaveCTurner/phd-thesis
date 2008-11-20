@@ -277,7 +277,7 @@ by inclusion.
 %
 Considering the adjunction $(-)^{\circ} \dashv \mathrm{Idl}$ from the point of
 view of $\mathbf{PreRel}$ or $\mathbf{Lin}$ draws attention to the comonad
-${!}((\mathrm{Idl}(-))^{\circ}) = {!}$.
+${!}((\mathrm{Idl}(-))^{\circ}) \cong {!}$.
 
 \subsection{Domains of Paths}
 
