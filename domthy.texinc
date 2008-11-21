@@ -55,7 +55,7 @@ As mentioned above, linearity is too restrictive a condition on the maps and in
 \section{Nominal Preorders}
 \label{npre}
 
-The theory of nominal preorders is a straighforward reinterpretation of the
+The theory of nominal preorders is a straightforward reinterpretation of the
 classical theory of preorders within nominal set theory. In some sense the
 nominal structure and the order structure are orthogonal, so that many of the
 results of these two base theories carry through into their combination.

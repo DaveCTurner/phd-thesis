@@ -448,7 +448,7 @@ of truth values.
 Intuitively, $\top$ and $\bot$ correspond to \textit{whether} a path was
 realised or not.
 %
-Replacing $\mathbf{2}$ with some larger collection of truth vaues opens the way
+Replacing $\mathbf{2}$ with some larger collection of truth values opens the way
 to thinking about \textit{how} a path may be realised.
 %
 In the case of $t_2$ above, the path $a$ could be realised in two different

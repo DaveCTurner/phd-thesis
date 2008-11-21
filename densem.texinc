@@ -38,7 +38,7 @@ Finally a path of the form $\abspath{p}$ denotes a path in the
 recursively-defined type $\typerec{j}{P}{\typeP}$, where $p$ is a path of the
 unfolded type $\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$.
 
-To capture this intuituion, paths are typed by judgements of the form $p :
+To capture this intuition, paths are typed by judgements of the form $p :
 \typeP$ according to the following rules.  \begin{equation}
 \begin{array}[t]{ccc}
 %
@@ -110,7 +110,7 @@ $\mathbf{abs}(p) \defeq \abspath{p}$ and $\mathbf{rep}(\abspath{p}) \defeq p$.
 
 \subsection{Environments as Products}
 
-Environments $\Gamma$ (with freshness contraints contained in $s_0$) denote
+Environments $\Gamma$ (with freshness constraints contained in $s_0$) denote
 objects of $\mathbf{FMCts}_{s_0}$ as follows.  \begin{equation}
 \label{densem:env} \sem{\envempty} = \typeO \qquad\text{and}\qquad
 \sem{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} = \sem{\Gamma} \amp

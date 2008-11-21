@@ -31,7 +31,7 @@ However, lemma \ref{typerestrictsupport} below demonstrates that it is not
 strictly necessary to include this information, since a suitable $s$ may
 inferred from the rest of the typing judgement.
 
-\subsubsection{Variable.} A bare variable is typed by the environment in the obvious fasion.
+\subsubsection{Variable.} A bare variable is typed by the environment in the obvious fashion.
 \[
 \infer{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing} }{\termvar{x}}{\typeP}}{-}
 \]
@@ -349,7 +349,7 @@ is bound in a term then it remains bound in its resumption.
 This concludes the definition of the type system for actions.
 %
 As is the case for terms, it is possible to use the type system for actions
-`backwards' in the following semse.
+`backwards' in the following sense.
 
 \begin{lemma} 
 \label{closedactiontypebackwards}
@@ -424,7 +424,7 @@ $\atjudge{\supp{p}}{\typeP}{p}{\typePp}$.
 \begin{proof} The proof is by mutual induction on the derivations of
 $\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
 %
-The proof is straightfoward with the exception of the case for terms of the
+The proof is straightforward with the exception of the case for terms of the
 form $\ndsum{i}{I}{t_i}$.
 
 \subparagraph{Variable} Trivially, since $\supp{\termvar{x}} = \varnothing$.

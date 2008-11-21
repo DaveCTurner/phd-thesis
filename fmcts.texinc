@@ -479,7 +479,7 @@ Therefore $P \subseteq x$ so as required it follows that \[p \in \bigcup \{P \in
 \}. \qedhere\] \end{proof}
 
 Lemma \ref{bang:alg} ensures the uniqueness of $f^{\ddagger}$, and in
-pariticular if $f$ and $g$ are FM-continuous maps $\typeP \cto \typeQ$ and $f
+particular if $f$ and $g$ are FM-continuous maps $\typeP \cto \typeQ$ and $f
 \circ i_{\typeP} = g \circ i_{\typeP}$ then \begin{equation} \label{bang:epi} f
 = (f \circ i_{\typeP})^{\ddagger} = (g \circ i_{\typeP})^{\ddagger} = g.
 \end{equation}
