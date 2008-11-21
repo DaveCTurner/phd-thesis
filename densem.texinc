@@ -668,7 +668,7 @@ By \ref{cts:homsets} hom-sets of $\mathbf{FMCts}_s$ are posets which have all
 joins of $\omega$-chains.
 %
 Let $f : \typeQ \amp \typeP \cto \typeP$ be an arrow of $\mathbf{FMCts}_s$ and
-consider the operation on homsets $f^* : \mathbf{FMCts}_s(\typeQ, \typeP) \to
+consider the operation on hom-sets $f^* : \mathbf{FMCts}_s(\typeQ, \typeP) \to
 \mathbf{FMCts}_s(\typeQ, \typeP)$ given by \[f^*(g) = f \circ
 (\mathbf{1}_{\typeQ} \amp g) \circ \Delta_{\typeQ}.\]
 %
