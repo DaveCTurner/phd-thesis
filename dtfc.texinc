@@ -133,6 +133,8 @@ x$ for some $x \subseteq D$ satisfying $\Phi$ it follows that there exists $d'
 The collection of all $\Phi$-isolated elements of $D$ is written $D^{\circ}$.
 \end{definition}
 
+\TODO{Define prime?}
+
 If a $\Phi$CPO consists entirely of elements that can be approximated by its
 $\Phi$-isolated elements then its structure is considerably simplified.
 %
@@ -141,7 +143,7 @@ Those $\Phi$CPOs that consist only of such approximable elements are called
 %
 \begin{definition} A $\Phi$CPO $D$ is \define{algebraic} if for every $d \in D$
 there exists an $x \subseteq D^\circ$ which is both $\Phi$ and such that $d =
-\bigvee x$. \end{definition}
+\bigvee x$. \end{definition} \TODO{Define prime-algebraic?}
 %
 Sometimes algebraicity also includes a constraint on the size of $D$ --- for
 example it may insist that that $D^\circ$ is countable --- but this point is not
