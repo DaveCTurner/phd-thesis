@@ -120,7 +120,7 @@ equivalence between the use of increasing sequences and the use of directed sets
 breaks down here.
 %
 It is therefore worthwhile to study increasing sequences in FM set theory in
-order to define a suitable notion of directedness in this setting.
+order to define a suitable notion of approximation in this setting.
 %
 Firstly, notice that the supports of elements of total orders are very
 constrained as the following lemma shows.
