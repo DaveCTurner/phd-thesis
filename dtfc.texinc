@@ -318,12 +318,12 @@ An advantage of restricting attention to algebraic $\Phi$CPOs is that the
 powerdomain monad becomes a little easier to describe concretely in this
 setting.
 %
-For example, if $D$ is an algebraic $\Phi$CPO then there is an associated
+For example, if $D$ is an algebraic $\Phi_d$CPO then there is an associated
 preorder ${!}(D^{\circ})$ whose elements comprise the finite subsets of
 $D^\circ$ and whose order is defined by setting $x \le_{{!}(D^{\circ})} x'$ iff
 for all $d \in x$ there exists $d' \in x'$ such that $d \sqsubseteq_D d'$.
 %
-The Hoare powerdomain $\mathcal{P}_{H} D$ is then given as the $\Phi$-ideal
+The Hoare powerdomain $\mathcal{P}_{H} D$ is then given as the $\Phi_d$-ideal
 completion of ${!}(D^{\circ})$.
 %
 Alternatively, $\mathcal{P}_{H} D$ can be characterised as the collection of
