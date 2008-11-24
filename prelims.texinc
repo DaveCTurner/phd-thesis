@@ -585,11 +585,11 @@ The projections $X \times Y \to X$ and injections $X \to X + Y$ are equivariant.
 Function application is equivariant: $\sigma \cdot (f x) = (\sigma \cdot f)
 (\sigma \cdot x)$.
 %
-The boolean operations on sets are invariant: $\sigma \cdot (x \ast y) = (\sigma
-\cdot x) \ast (\sigma \cdot y)$ for $\ast \in \{ \mathord{\cup}, \mathord{\cap},
-\mathord{\setminus} \}$, and more generally $\sigma \cdot (\bigcup X) = \bigcup
-(\sigma \cdot X) = \bigcup \{ \sigma \cdot x \mid x \in X \}$ and similarly for
-intersections.
+The boolean operations on sets are equivariant: $\sigma \cdot (x \ast y) =
+(\sigma \cdot x) \ast (\sigma \cdot y)$ for $\ast \in \{ \mathord{\cup},
+\mathord{\cap}, \mathord{\setminus} \}$, and more generally $\sigma \cdot
+(\bigcup X) = \bigcup (\sigma \cdot X) = \bigcup \{ \sigma \cdot x \mid x \in X
+\}$ and similarly for intersections.
 
 Certain predicates also exhibit an equivariance property. For example,
 freshness, set membership and the subset relation are equivariant: $x \freshfor
