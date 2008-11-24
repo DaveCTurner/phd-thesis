@@ -54,25 +54,25 @@ then \[\begin{array}{rcll}
 \sem{\tjudge{s}{}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}} \\
 %
 &=& \sem{p} \circ \epsilon_{\typeP} \circ {!}\sem{t} \circ
-\widehat{\phi_{\typeQp}} \circ \bigl(\sem{q} \circ \sem{u}\bigr)^{\freshfor s'}
+\widehat{\phi_{\typeQp}} \circ \bigl(\sem{q} \circ \sem{u}\bigr)^{\freshfor s'++}
 \\
 %
 &\sqsupseteq& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
-\widehat{\phi_{\typeQp}} \circ \sem{\bang{u'}}^{\freshfor s'} & \text{by
+\widehat{\phi_{\typeQp}} \circ \sem{\bang{u'}}^{\freshfor s'++} & \text{by
 induction on $u$} \\
 %
 &=& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
-\widehat{\phi_{\typeQp}} \circ \eta_{\typeQp}^{\freshfor s'} \circ
-\sem{u'}^{\freshfor s'} \\
+\widehat{\phi_{\typeQp}} \circ \eta_{\typeQp}^{\freshfor s'++} \circ
+\sem{u'}^{\freshfor s'++} \\
 %
 &\sqsupseteq& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
-\eta_{\typeQp^{\freshfor s'}} \circ \sem{u'}^{\freshfor s'} &\text{by lemma
+\eta_{\typeQp^{\freshfor s'}} \circ \sem{u'}^{\freshfor s'++} &\text{by lemma
 \ref{hat-fresh-eta-lemma}} \\
 %
 &=& \sem{p} \circ  \epsilon_{\typeP} \circ \eta_{\typeP} \circ \sem{t} \circ
-\sem{u'}^{\freshfor s'} &\text{by naturality of $\eta$} \\
+\sem{u'}^{\freshfor s'++} &\text{by naturality of $\eta$} \\
 %
-&=& \sem{p} \circ  \sem{t} \circ \sem{u'}^{\freshfor s'} &\text{by triangular
+&=& \sem{p} \circ  \sem{t} \circ \sem{u'}^{\freshfor s'++} &\text{by triangular
 identity} \\
 %
 &=& \sem{p} \circ  \sem{\termsubst{t}{u'}{x}} &\text{by substitution lemma} \\
