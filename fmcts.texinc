@@ -261,35 +261,39 @@ and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq
 since $F$ is finite it follows that $\bar{s}$ is finite and $\supp{F} \subseteq
 \bar{s}$.
 %
-Let
-$s''$ be a finite set of fresh names of greater cardinality that $\bar{s}$ and
-let $\Sigma = \{\sigma \mid \supp{\sigma} \subseteq (\bar{s} \cup s'') \setminus
-s \}$.  Let $F' = \bigcup_{\sigma \in \Sigma} \sigma \cdot F$ and note that
-$\Sigma$ is finite, so that $F'$ is also finite. Show that $\finelt{F}{s} =
-\finelt{F'}{s'}$ as follows.
+Let $s''$ be a finite set of fresh names of greater cardinality than $\bar{s}$
+and let $\Sigma = \{\sigma \mid \supp{\sigma} \subseteq (\bar{s} \cup s'')
+\setminus s \}$.
+%
+Let $F' = \bigcup_{\sigma \in \Sigma} \sigma \cdot F$ and note that $\Sigma$ is
+finite so that $F'$ is also finite.
+%
+Show that $\finelt{F}{s} = \finelt{F'}{s'}$ as follows.
 
-Let $p \in \finelt{F}{s}$, then by definition there exists $\sigma$ and $p'$
-where $\sigma \freshfor s$, $p' \in F$ and $p \le_{\typeP} \sigma \cdot p'$.  By
-lemma \ref{footprint} there exists $\sigma_1$, $\sigma_2$, $\sigma_3$ such that
-$\sigma = \sigma_1 \sigma_2 \sigma_3$ where $\sigma_1 \freshfor \bar{s}$ and
-$\sigma_3 \freshfor \bar{s}$ and $\supp{\sigma_2} \subseteq (\bar{s} \cup s'')
-\setminus s$.
+Let $p \in \finelt{F}{s}$, then by definition there exists $\sigma \freshfor s$
+such that $p \in \sigma \cdot F$.
+%
+By lemma \ref{footprint} there exists $\sigma_1$, $\sigma_2$, $\sigma_3$ such
+that $\sigma = \sigma_1 \sigma_2 \sigma_3$ where $\sigma_1 \freshfor \bar{s}$
+and $\sigma_3 \freshfor \bar{s}$ and $\supp{\sigma_2} \subseteq (\bar{s} \cup
+s'') \setminus s$.
 
 Firstly, $\supp{F} \subseteq \bar{s}$ so that $\sigma_3 \cdot F = F$ and hence
-$\sigma_3 \cdot p' \in F$.  Also, since $\sigma_2 \in \Sigma$, $\sigma_2 \cdot
-\sigma_3 \cdot p' \in F'$.  Also, since $p \le_{\typeP} \sigma_1 \cdot \sigma_2
-\cdot \sigma_3 \cdot p'$ it follows that $\sigma_1^{-1} \cdot p \le_{\typeP} \sigma_2 \cdot
-\sigma_3 \cdot p' \in F'$ and hence $p \in \sigma_1 \cdot F'_{\downarrow}$.
-Finally, $\sigma_1 \freshfor s'$ so that $p \in \finelt{F'}{s'}$ as required.
+$p \in \sigma_1 \cdot \sigma_2 \cdot F$.
+%
+Also, since $\sigma_2 \in \Sigma$ it follows that $p \in \sigma_1 \cdot F'$.
+%
+Finally since $\sigma_1 \freshfor \bar{s} \supseteq s'$ it follows that $p \in
+\finelt{F'}{s'}$ as required.
 
-Conversely, let $p \in \finelt{F'}{s'}$, then there exists $\sigma$ and $p'$
-where $\sigma \freshfor s'$, $p' \in F'$ and $p \le_{\typeP} \sigma \cdot p'$.
-By definition of $F'$, there exists $\sigma'$ such that $p' \in \sigma' \cdot F$
-and $\sigma' \freshfor s$. Therefore $p \le_{\typeP} \sigma \cdot p' = \sigma
-\cdot \sigma' \cdot \sigma'^{-1} \cdot p' \in \sigma \cdot \sigma' \cdot F$.
+Conversely, let $p \in \finelt{F'}{s'}$, then there exists $\sigma \freshfor s'$
+such that $p \in \sigma \cdot F'$.
+%
+By definition of $F'$, there exists $\sigma' \in \Sigma$ such that $p \in \sigma
+\cdot \sigma' \cdot F$ and therefore $\sigma' \freshfor s$.
+%
 Furthermore, $s \subseteq s'$ so that $\sigma \sigma' \freshfor s$ and hence $p
-\in \finelt{F}{s}$ as required.
-\end{proof}
+\in \finelt{F}{s}$ as required.  \end{proof}
 
 \begin{lemma}
 \label{fineltsupport}The support of $\finelt{F}{s}$ is contained in $s$.
