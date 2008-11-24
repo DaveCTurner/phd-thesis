@@ -133,8 +133,6 @@ x$ for some $x \subseteq D$ satisfying $\Phi$ it follows that there exists $d'
 The collection of all $\Phi$-isolated elements of $D$ is written $D^{\circ}$.
 \end{definition}
 
-\TODO{Define prime?}
-
 If a $\Phi$CPO consists entirely of elements that can be approximated by its
 $\Phi$-isolated elements then its structure is considerably simplified.
 %
@@ -143,7 +141,7 @@ Those $\Phi$CPOs that consist only of such approximable elements are called
 %
 \begin{definition} A $\Phi$CPO $D$ is \define{algebraic} if for every $d \in D$
 there exists an $x \subseteq D^\circ$ which is both $\Phi$ and such that $d =
-\bigvee x$. \end{definition} \TODO{Define prime-algebraic?}
+\bigvee x$. \end{definition}
 %
 Sometimes algebraicity also includes a constraint on the size of $D$ --- for
 example it may insist that that $D^\circ$ is countable --- but this point is not
@@ -237,6 +235,25 @@ $\Phi$CPOs where every \textit{bounded} $\Phi$-subset has a join.
 %
 Another is the collection of \textit{strongly finite} or SFP
 objects\cite{plotkin:powerdomains}.
+
+A strengthening of the concept of isolation is that of primality.
+%
+An element in a $\Phi$CPO is (completely) prime if it cannot be properly
+decomposed as a join of any shape.
+%
+The associated concept of algebraicity is that every element of the $\Phi$CPO
+can be approximated entirely by primes, as follows.
+
+\begin{definition} \label{def:prime} An element $d$ of the $\Phi$CPO $\langle D,
+\sqsubseteq_D \rangle$ is \define{completely prime} if whenever $d \sqsubseteq_D
+\bigvee x$ for any $x \subseteq D$ for which $\bigvee x$ exists it follows that
+there exists $d' \in x$ such that $d \sqsubseteq_D d'$.
+%
+A $\Phi$CPO $\langle D, \sqsubseteq_D \rangle$ is \define{prime algebraic} if
+for every $d \in D$ there exists $x \subseteq \{ d' \in D \mid \text{ $d'$
+completely prime} \}$ such that $d = \bigvee x$.  \end{definition}
+%
+Sometimes completely prime elements are called simply `prime'.
 
 \subsection{Nondeterminism in Domain Theory}
 
