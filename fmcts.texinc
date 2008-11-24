@@ -301,10 +301,11 @@ Furthermore, $s \subseteq s'$ so that $\sigma \sigma' \freshfor s$ and hence $p
 
 \begin{proof} It is sufficient to show that if $\sigma \freshfor s$ then $\sigma
 \cdot \finelt{F}{s} = \finelt{F}{s}$.  Let $p \in \finelt{F}{s}$, then there
-exists $\sigma' \freshfor s$ and $p' \in F$ such that $p \le \sigma' \cdot p'$.
-Then $\sigma \cdot p \le \sigma \cdot \sigma' \cdot p'$ and $\sigma\sigma'
-\freshfor s$ so that $\sigma \cdot p \in \finelt{F}{s}$ and hence $\sigma \cdot
-\finelt{F}{s} \subseteq \finelt{F}{s}$. The converse is similar.  \end{proof}
+exists $\sigma' \freshfor s$ such that $p \in \sigma' \cdot F$.
+%
+Then $\sigma \cdot p \in \sigma \cdot \sigma' \cdot F$ and $\sigma\sigma'
+\freshfor s$ so that $\sigma \cdot p \in \finelt{F}{s}$ and hence $\finelt{F}{s}
+\subseteq \sigma \cdot \finelt{F}{s}$. The converse is similar.  \end{proof}
 
 \begin{lemma}\label{finelts} An element $P \in \widehat{\typeP}$ is isolated iff
 it is of the form $\finelt{F}{s}$ where $F$ is a finite subset of $\typeP$ and
