@@ -19,7 +19,7 @@ discussion.
 %
 The replacement of $(\mathbf{FMPre}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$
 with a dependent type theory in the more canonical $\mathbf{NPre}$ is not
-studied in detail, but it is shown that key constructions in
+studied in detail, but it is shown here that key constructions in
 $(\mathbf{FMPre}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$ have a categorical
 --- as well as a set-theoretic --- description.
 %
@@ -161,7 +161,7 @@ $\sigma^{-1}_i \sigma'_i \freshfor s$ and since $X$ is supported by $s$ it
 follows that $X = \sigma^{-1}_i \cdot \sigma'_i \cdot X$ so that $\sigma_i \cdot
 X = \sigma'_i \cdot X$ as required.
 %
-Furthermore, if $\sigma$ is any permutation and $\langle i, x \rangle \in
+Furthermore if $\sigma$ is any permutation and $\langle i, x \rangle \in
 \overline{X}$ then $x \in \sigma_i \cdot X$ and $\sigma \cdot \langle i, x
 \rangle = \langle \sigma \circ i, \sigma \cdot x \rangle$.
 %
@@ -210,7 +210,7 @@ This shows that $\overline{f}$ is equivariant, and it is clear that
 $\overline{f}$ is monotone, so that $\overline{f}$ is an arrow of
 $\mathbf{FMPre}_{\varnothing}$.
 %
-Furthermore, $\pi_1 \circ \overline{f} = \pi_1$ so that it is possible to define
+Furthermore $\pi_1 \circ \overline{f} = \pi_1$ so that it is possible to define
 \begin{equation} \label{def:Fs:ar} F_s f \defeq \overline{f} : F_s X \to F_s Y
 \end{equation} as an arrow of $\mathbf{FMPre}_{\varnothing}/ys$.
 %
@@ -282,7 +282,7 @@ Then \begin{equation} \begin{array}[t]{rcl} x &\in& f^{-1} \{ f(x) \} \\
 &=& \sigma_{f(x)} \cdot G_s \langle X, f \rangle
 %
 \end{array} \end{equation} and hence $\beta^{-1}(x) \in \overline{G_s \langle X,
-f \rangle}$. Furthermore, $\beta^{-1}$ is clearly equivariant and monotone, and
+f \rangle}$. Furthermore $\beta^{-1}$ is clearly equivariant and monotone and
 $\pi_1 \circ \beta^{-1} = f$ so that $\beta^{-1}$ is an arrow of
 $\mathbf{FMPre}_{\varnothing}/ys$ as required.
 
@@ -350,7 +350,7 @@ i_{s'}\} \\
 &=& \sigma_i \cdot G_s \langle X, f \rangle, \end{array}\end{equation} and the
 action on arrows is straightforward. In particular, the inclusion $s
 \hookrightarrow s'$ gives rise to the inclusion $\mathbf{FMPre}_s
-\hookrightarrow \mathbf{FMPre}_{s'}$.
+\hookrightarrow \mathbf{FMPre}_{s'}$ in this way.
 
 A parallel construction in the codomain fibration on $(\mathbf{NPre} \downarrow
 y)$ gives rise to a more universal setting for this discussion.
@@ -522,7 +522,7 @@ for Concurrency is the use of Kleisli and co-Kleisli constructions, and from
 \ref{nsets} that a key feature of the theory of nominal sets is the adjunction
 $(-) \otimes \mathbb A \dashv \delta$.
 %
-Since this dissertation aims to merge these two theories, it will be important
+Since this dissertation aims to merge these two theories, it is important
 that these structures interplay well.
 %
 Abstractly, and subject to certain coherence conditions, they do indeed
@@ -666,7 +666,7 @@ combined with the isomorphism $K_{\mathbf{Lin}}$ defined in \ref{def:klin},
 gives rise to the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ described in
 \ref{subsubsect:deltafreshadjlin}.
 %
-Furthermore, it is shown in \ref{subsect:deltafreshadjcts} that this lifting
+Furthermore it is shown in \ref{subsect:deltafreshadjcts} that this lifting
 process applied to the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$,
 combined with the isomorphism $K_{\mathbf{Cts}}$ defined in \ref{def:kcts},
 gives rise to the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++}$
