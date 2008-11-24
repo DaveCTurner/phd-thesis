@@ -327,7 +327,7 @@ be contained in $s$.
 \subsubsection{Recursive Type Action.} As the recursively-defined type
 $\typerec{j}{P}{\typeP}$ is isomorphic (and not equal) to its unfolding
 $\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$ it is necessary to decorate actions
-in the unfolded type with the tag $\mathbf{abs}$ to record the use of the
+in the unfolded type with the tag $\mathtt{abs}$ to record the use of the
 isomorphism $\mathbf{abs} = \mathbf{rep}^{-1}$.
 \[
 \infer
