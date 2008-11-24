@@ -204,8 +204,8 @@ Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 \section{Terms and Actions}
 
 Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
-\begin{equation*} \label{densem:tjudge} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} :
-\sem{\Gamma} \cto \typeP \end{equation*} in $\mathbf{FMCts}_s$.
+\begin{equation} \label{densem:tjudge} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} :
+\sem{\Gamma} \cto \typeP \end{equation} in $\mathbf{FMCts}_s$.
 %
 The denotation of a typing judgement is built by recursion on the derivation of
 the typing judgement, making use of the various universal constructions
@@ -264,8 +264,8 @@ from the inclusion $\mathbf{FMCts}_s \hookrightarrow \mathbf{FMCts}_{s'}$.
 
 
 Typing judgements $\atjudge{s}{\typeP}{p}{\typePp}$ denote arrows
-\begin{equation*} \label{densem:atjudge} \sem{\atjudge{s}{\typeP}{p}{\typePp}} :
-\typeP \cto \typelift\typePp \end{equation*} in $\mathbf{FMCts}_s$ by recursion
+\begin{equation} \label{densem:atjudge} \sem{\atjudge{s}{\typeP}{p}{\typePp}} :
+\typeP \cto \typelift\typePp \end{equation} in $\mathbf{FMCts}_s$ by recursion
 on the structure of $p$ as shown below.
 %
 Intuitively the arrow $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ matches its input
@@ -669,8 +669,9 @@ joins of $\omega$-chains.
 %
 Let $f : \typeQ \amp \typeP \cto \typeP$ be an arrow of $\mathbf{FMCts}_s$ and
 consider the operation on hom-sets $f^* : \mathbf{FMCts}_s(\typeQ, \typeP) \to
-\mathbf{FMCts}_s(\typeQ, \typeP)$ given by \[f^*(g) = f \circ
-(\mathbf{1}_{\typeQ} \amp g) \circ \Delta_{\typeQ}.\]
+\mathbf{FMCts}_s(\typeQ, \typeP)$ given by \begin{equation} \label{def:recstar}
+f^*(g) = f \circ (\mathbf{1}_{\typeQ} \amp g) \circ \Delta_{\typeQ}.
+\end{equation}
 %
 Composition preserves joins of $\omega$-chains in both its arguments as noted in
 \ref{subsubsect:cts:homsets} and the functor $\mathbf{1} \amp (-)$ preserves
@@ -1171,20 +1172,20 @@ exchange corresponds to a twist map $\langle \pi_2, \pi_1 \rangle$, and
 contraction corresponds to the diagonal map $\langle \mathbf{1}, \mathbf{1}
 \rangle$.
 %
-The new structural rule of fresh-weakening, \begin{equation*} \infer[(s''
+The new structural rule of fresh-weakening, \begin{equation} \infer[(s''
 \subseteq s' \subseteq s)]
 {\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
 {\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}}
-\end{equation*} comes from the map $\tau^{(s' \setminus s'')++}$ defined in
+\end{equation} comes from the map $\tau^{(s' \setminus s'')++}$ defined in
 \ref{def:taucts}, which in turn arises from the map $\tau : (-)^{\freshfor a}
 \to \mathbf{1}$ defined in \ref{lemma:freshinclusion}.
 %
 Notice that the discussion of \ref{tau:projection} shows that this is ultimately
 given by the projection $(-) \otimes \mathbb A \to \mathbf{1}$.
 %
-The other new structural rule of support-weakening, \begin{equation*} \infer[(s'
+The other new structural rule of support-weakening, \begin{equation} \infer[(s'
 \subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}} {\tjudge{s'}{\Gamma}{t}{\typeP}}
-\end{equation*} is simply given by the inclusion $\mathbf{FMCts}_{s'}
+\end{equation} is simply given by the inclusion $\mathbf{FMCts}_{s'}
 \hookrightarrow \mathbf{FMCts}_s$.
 
 It is useful to characterise the action of these structural rules in terms of

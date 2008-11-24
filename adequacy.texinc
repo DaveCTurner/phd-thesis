@@ -6,7 +6,7 @@ $\login{p}{\typeP}{t}$ between paths $p \in \typeP$ and terms such that
 $\tjudge{}{}{t}{\typeP}$ as follows.
 
 % Definition of \trianglelefteq_{\mathbb P} {{{
-\[\begin{array}{rcl}
+\begin{equation} \begin{array}{rcl}
 
 \logrel{X}{\typeP}{t}                                 & \Longleftrightarrow &
 \forall p \in X.\ \login{p}{\typeP}{t} \\
@@ -29,7 +29,7 @@ $\tjudge{}{}{t}{\typeP}$ as follows.
 \Longleftrightarrow &
 \login{p}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}} \\
 
-\end{array}\]
+\end{array} \end{equation}
 % }}}
 
 \vfill\pagebreak
