@@ -209,7 +209,7 @@ Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
 %
 The denotation of a typing judgement is built by recursion on the derivation of
 the typing judgement, making use of the various universal constructions
-available in $\mathbf{FMCts}_s$.
+available in $\mathbf{FMCts}_s$ as described in \ref{subsect:cts:structure}.
 %
 Intuitively, the arrow $\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ receives some input
 in its free variables, as typed by $\Gamma$, and returns the set of paths that
@@ -295,7 +295,8 @@ $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
 $\sem{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }}$ to be the
 exponential transpose of
 $\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
-}}{t}{\typeP}}$ in $\mathbf{FMCts}_s$.  \end{definition}
+}}{t}{\typeP}}$ in $\mathbf{FMCts}_s$ as defined in \ref{def:abstract}.
+\end{definition}
 
 The semantics of function abstraction can be given a concrete, set theoretic,
 characterisation in terms of paths as follows.
@@ -330,7 +331,8 @@ $\sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}}$
 to be \[\mathbf{apply} \circ (
 \sem{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}}} \amp
 \sem{\tjudge{s}{\Lambda}{u}{\typeQ}}),\] where $\mathbf{apply}$ is the counit of
-the exponential adjunction in $\mathbf{FMCts}_s$.  \end{definition}
+the exponential adjunction in $\mathbf{FMCts}_s$ as defined in \ref{def:apply}.
+\end{definition}
 
 The semantics of function application can be given a concrete, set theoretic,
 characterisation in terms of paths as follows.
