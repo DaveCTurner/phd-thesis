@@ -416,8 +416,9 @@ section.
 $\mathbf{Cts}$ then forms a model of multiplicative-exponential linear
 logic\cite{benton:linear}, with $!$ taking the role of the exponential.
 
-It is in the setting of $\mathbf{Cts}$ that Winskel and Nygaard have developed a
-simple domain theory that captures certain important computational features.
+It is in the setting of $\mathbf{Cts}$ that Winskel and
+Nygaard\cite{nygaardwinskel1} have developed a simple domain theory that
+captures certain important computational features.
 %
 In detail, \begin{itemize} \item $\mathbf{Cts}$ is cartesian closed and
 therefore supports higher-order computations.
