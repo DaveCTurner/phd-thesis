@@ -371,9 +371,9 @@ form the partial order $\widehat{\typeP}$ and then an arrow $f : \typeP \to
 Concretely, $\widehat{\typeP}$ consists of all lower subsets of $\typeP$ ordered
 by inclusion.
 %
-Considering the adjunction $(-)^{\circ} \dashv \mathrm{Idl}$ from the point of
-view of $\mathbf{PreRel}$ or $\mathbf{Lin}$ draws attention to the comonad
-${!}((\mathrm{Idl}(-))^{\circ}) \cong {!}$.
+Considering the adjunction ${!}((-)^{\circ}) \dashv \mathrm{Idl}_{\Phi_d}$ from
+the point of view of $\mathbf{PreRel}$ or $\mathbf{Lin}$ draws attention to the
+comonad ${!}((\mathrm{Idl}_{\Phi_d}(-))^{\circ}) \cong {!}$.
 
 \subsection{Domains of Paths} \label{domains-of-paths}
 
