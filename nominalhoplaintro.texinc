@@ -49,7 +49,7 @@ variables. In particular, if $\termvar{x}$ is a variable and $\sigma$ is a
 permutation of the set of atoms then $\sigma \cdot \termvar{x} = \termvar{x}$.
 
 The design of Nominal HOPLA is motivated by universal constructions in the
-categories $(\mathbf{FMCts}_s){s \subseteq_{\mathrm{fin}} \mathbb A}$, such as
+categories $(\mathbf{FMCts}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$, such as
 their cartesian closed structure (for higher-order processes) and the adjunction
 $(-)^{\freshfor a++} \dashv \delta^{++}_a$ (for names and name binding).
 %
