@@ -390,15 +390,15 @@ exists $\sigma \freshfor \finelt{F}{s}, \typeP$ such that $p \in \sigma \cdot F
 
 \begin{corollary} \label{finelt:wlog} If $P \in \widehat{\typeP}$ is isolated
 and $\supp{P, \typeP} \subseteq s$ then there exists $F \subseteq_{\mathrm{fin}}
-\typeP$ such that $P = \finelt{F}{s}$.  \end{corollary}
+\typeP$ such that $P = \finelt{F}{s\downarrow}$.  \end{corollary}
 
 \begin{proof} If $P$ is isolated then by \ref{finelts} there exists finite $F'
 \subseteq \typeP$ and finite $s' \supseteq \supp{\typeP}$ such that $P =
-\finelt{F'}{s'}$.
+\finelt{F'}{s'\downarrow}$.
 %
-By \ref{fineltminsupp} therefore $P = \finelt{F'}{\supp{P, \typeP}}$ and by
-\ref{fineltextension} there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that
-$P = \finelt{F}{s}$ as required. \end{proof}
+By \ref{fineltminsupp} therefore $P = \finelt{F'}{\supp{P, \typeP}\downarrow}$
+and by \ref{fineltextension} there exists $F \subseteq_{\mathrm{fin}} \typeP$
+such that $P = \finelt{F}{s\downarrow}$ as required. \end{proof}
 
 \subsection{Categories of FM-Continuous Maps}
 \label{fmcts:maps}
