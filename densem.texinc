@@ -102,9 +102,9 @@ inspired by the theory of information systems\cite{winskel:infosystems}.
 Here it is straightforward to show that these definitions construct path orders
 that are nominal preorders and hence objects of $\mathbf{FMPre}_{\varnothing}$.
 %
-As in classical HOPLA, in a recursively-defined type $\typerec{j}{P}{\typeP}$
-each path is of the form $\abspath{p}$, which means there is an isomorphism
-\begin{equation} \label{repabsiso} \mathbf{rep} : \typerec{j}{P}{\typeP} \cong
+As in HOPLA, in a recursively-defined type $\typerec{j}{P}{\typeP}$ each path is
+of the form $\abspath{p}$ which means there is an isomorphism \begin{equation}
+\label{repabsiso} \mathbf{rep} : \typerec{j}{P}{\typeP} \cong
 \typeP_j[\typerec{}{P}{\typeP}/\vec{P}] : \mathbf{abs}, \end{equation}  where
 $\mathbf{abs}(p) \defeq \abspath{p}$ and $\mathbf{rep}(\abspath{p}) \defeq p$.
 
@@ -121,7 +121,7 @@ environments $\Gamma$ also denote objects of $\mathbf{FMPre}_{s_0}$ as follows.
 \begin{equation} \label{densem:envp} \semp{\envempty} = \widehat\typeO
 \qquad\text{and}\qquad \semp{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} =
 \semp{\Gamma} \times \widehat{\typeP}^{\freshfor s}\end{equation} so that
-elements of $\semp{\Gamma}$ are tuples of paths satisfying the appropriate
+elements of $\semp{\Gamma}$ are tuples of path-sets satisfying the appropriate
 freshness constraints.
 %
 The transformations $m$ and $\phi^{(s)}$ of \ref{def:m} and \ref{def:phi-vec}
@@ -238,9 +238,10 @@ The hom-set $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ is $\omega$-complete which
 gives rise to a semantics for recursive processes (\ref{densem:rec}) as the
 $\omega$-limit of their finite unfoldings.
 
-The hom-set $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ has more general joins than
-merely those of $\omega$-chains, and such joins give rise to a semantics for
-nondeterministic sums (\ref{densem:ndsum}).
+The hom-sets may be collected together to form $\bigcup_{s
+\subseteq_{\mathrm{fin}} \mathbb A} \mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$
+which has more general joins than merely those of $\omega$-chains, and such
+joins give rise to a semantics for nondeterministic sums (\ref{densem:ndsum}).
 
 The adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
 \leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$ of \ref{deltafreshadjcts} gives
@@ -272,8 +273,7 @@ Intuitively the arrow $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ matches its input
 against the action $p$ and returns a collection of possible resumptions after
 performing $p$.
 
-Often the type information is clear, and then
-$\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ and
+If the type information is clear then $\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ and
 $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ are abbreviated to $\sem{t}$ and
 $\sem{p}$ respectively.
 
@@ -1195,9 +1195,9 @@ $\Gamma$.
 %
 It turns out that these characterisations are all as one might expect.
 %
-However, the proofs of this are a little long and tedious, so
-the results are only stated alongside the corresponding definitions, and the
-proofs are collected at the end of this section.
+However, the proofs are a little long and tedious, so the results are only
+stated alongside the corresponding definitions, and the proofs are collected at
+the end of this section.
 
 
 
