@@ -240,14 +240,18 @@ analogy with a presentation of a group in terms of its generators: $\langle a,
 b, \ldots \mid R(a, b, \ldots) \rangle$.
 
 \begin{lemma} \label{finelt:mono} If $\supp{\typeP} \subseteq s \subseteq s'$
-and $F' \subseteq F \subseteq_{\mathrm{fin}} \typeP$ then $\finelt{F'}{s'}
-\subseteq \finelt{F}{s}$.\end{lemma}
+and $F', F \subseteq_{\mathrm{fin}} \typeP$ are such that $F' \subseteq
+F_\downarrow$ then $\finelt{F'}{s'} \subseteq
+\finelt{F}{s\downarrow}$.\end{lemma}
 
-\begin{proof} Let $p' \in \finelt{F'}{s'}$, then there exists $p \in F'$ and
-$\sigma' \freshfor s'$ such that $p' \le_{\typeP} \sigma \cdot p$.
+\begin{proof} Let $p' \in \finelt{F'}{s'}$, then there exists $\sigma' \freshfor
+s'$ such that $\sigma' \cdot p' \in F' \subseteq F_\downarrow$ so that $\sigma
+\cdot p' \in F_\downarrow$ and hence there exists $p \in F$ such that $\sigma
+\cdot p' \le_{\typeP} p$.
 %
-Also $F' \subseteq F$ so that $p \in F$ and $s \subseteq s'$ so that $\sigma
-\freshfor s$ and hence $p' \in \finelt{F}{s}$ as required.\end{proof}
+Also $s \subseteq s'$ so that $\sigma \freshfor s$ and hence $\sigma^{-1} \cdot
+p \in \finelt{F}{s}$ which implies that $p' \in \finelt{F}{s\downarrow}$ as
+required.\end{proof}
 
 \begin{lemma}\label{fineltextension} If $\supp{\typeP} \subseteq s \subseteq s'$
 and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq
