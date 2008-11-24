@@ -59,7 +59,7 @@ $f^{\dagger} : \widehat{\typeP} \to C$ that preserves all finitely supported
 joins and such that the following diagram commutes.  \begin{equation} \label
 {hat:freeness} \xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\typeP}} \ar[dr]_f &
 \widehat{\typeP} \ar[d]^{f^{\dagger}} \\& C}\end{equation} The function
-$f^{\dagger}$ is given by \begin{equation}f^{\dagger}x \defeq \bigcup\{f p \mid
+$f^{\dagger}$ is given by \begin{equation}f^{\dagger}x \defeq \bigvee\{f p \mid
 p \in x\}.\end{equation} The uniqueness of $f^{\dagger}$ follows from the
 algebraicity of $\widehat{\typeP}$, and it is not hard to show that it preserves
 finitely-supported joins and that it is itself finitely-supported. In
@@ -67,7 +67,7 @@ particular, if $C$ is of the form $\widehat{\typeQ}$ then this shows that
 finitely-supported monotone maps $\typeP \to \widehat{\typeQ}$ are in bijective
 correspondence with finitely-supported finitely-supported-join-preserving maps
 $\widehat{\typeP} \to \widehat{\typeQ}$.  For brevity, call such maps
-`FM-linear'.
+`FM-linear' or simply `linear'.
 
 Notice that if $f$ and $g$ are linear maps $\widehat{\typeP} \to
 \widehat{\typeQ}$ and $f \circ \{\cdot\}_{\typeP} = g \circ \{\cdot\}_{\typeP}$
@@ -117,7 +117,7 @@ by $\mathord{\cup} \defeq \mathbf{1}_{\widehat{(-)}}^\dagger$ where if $X \in
 
 In order to construct a functor $(-)^{\freshfor a+} : \mathbf{FMLin}_s \to
 \mathbf{FMLin}_{s \udot \{a\}}$ that plays a similar role to $(-)^{\freshfor a}
-: \mathbf{FMPre}_s \to \mathbf{FMPre}_{s \udot \{a\}}$, it is helpful to be able
+: \mathbf{FMPre}_s \to \mathbf{FMPre}_{s \udot \{a\}}$ it is helpful to be able
 to commute the functors $(-)^{\freshfor a}$ and $\widehat{(-)}$.
 %
 To that end, for each object $\typeP$ of $\mathbf{FMPre}_s$ define
@@ -280,7 +280,7 @@ $\{\cdot\}_{\downarrow}$ of the $\widehat{(-)}$ monad as follows.
 
 In order to construct a functor $\delta_a^+ : \mathbf{FMLin}_{s \udot\{a\}} \to
 \mathbf{FMLin}_s$ that plays a similar role to $\delta_a : \mathbf{FMPre}_{s
-\udot \{a\}} \to \mathbf{FMPre}_s$, it is helpful to be able to commute the
+\udot \{a\}} \to \mathbf{FMPre}_s$ it is helpful to be able to commute the
 functors $\delta_a$ and $\widehat{(-)}$.
 %
 To that end, for each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
@@ -430,7 +430,7 @@ let $p \in \delta_a\typeP$, then \begin{equation} \begin{array}[t]{rcl}
 
 The use of the word `linear' in this context stems from the observation that
 each $\mathbf{FMLin}_s$ has enough structure to be understood as a categorical
-model of multiplicative-exponential linear logic (MELL)\cite{benton:linear}.
+model of multiplicative-exponential linear logic\cite{benton:linear}.
 %
 It has other features that are important for the development of a rich domain
 theory too, and this section explores some of their details.
@@ -486,9 +486,9 @@ The empty order $\mathbb O$ is the empty coproduct.
 More general coproducts are defined similarly.
 
 \subsubsection{Products.} Since $\mathbf{FMLin}_s$ is enriched over
-$\mathbf{CMon}$ and it has binary coproducts given by disjoint union, it follows
-that the disjoint union of the orders $\typeP_1$ and $\typeP_2$ is also a binary
-product $\typeP_1 \amp \typeP_2$.
+$\mathbf{CMon}$ and it has binary coproducts it follows that the coproduct of
+the orders $\typeP_1$ and $\typeP_2$ is also a binary product $\typeP_1 \amp
+\typeP_2$.
 %
 The projections are defined by $\mathbf{out}_1 \defeq [\mathbf{1}_{\typeP_1},
 \varnothing]$ and $\mathbf{out}_2 \defeq [\varnothing, \mathbf{1}_{\typeP_2}]$,

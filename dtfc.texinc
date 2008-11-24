@@ -196,8 +196,8 @@ It is now straightforward to show that $f$ and $g$ define an isomorphism $D
 %
 \end{proof}
 
-Importantly, if $f : D \to E$ is $\Phi$-continuous and $D$ is algebraic then $f$
-is entirely specified by its action on $D^\circ$ as the following lemma shows.
+Also if $f : D \to E$ is $\Phi$-continuous and $D$ is algebraic then $f$ is
+entirely specified by its action on $D^\circ$ as the following lemma shows.
 
 \begin{lemma} Let $\langle D, \sqsubseteq_D \rangle$ be an algebraic
 $\Phi$CPO and let \[ f, g : \langle D, \sqsubseteq_D \rangle
@@ -225,27 +225,26 @@ restricts to $\mathbf{\Phi Alg}$.
 For example, the cartesian product of a pair of algebraic $\Phi$CPOs (as objects
 of $\mathbf{\Phi CPO}$) is again an algebraic $\Phi$CPO.
 %
-However if $D$ and $E$ are algebraic then it is not necessarily the case that
-the function space $D \to E$ is algebraic, and $\mathbf{\Phi Alg}$ is not
-cartesian closed in general.
+However if $D$ and $E$ are $\Phi$-algebraic then it is not necessarily the case
+that the function space $D \to E$ is $\Phi$-algebraic, and $\mathbf{\Phi Alg}$
+is not cartesian closed.
 %
-Fortunately it is often the case that $\mathbf{\Phi Alg}$ contains a cartesian
-closed subcategory that is a suitable setting for some denotational semantics.
+Fortunately $\mathbf{\Phi Alg}$ contains cartesian closed subcategories that are
+suitable settings for denotational semantics.
 %
-If $\Phi \in \{\Phi_d, \Phi_\omega\}$ then a suitable subcategory is the
-collection of Scott domains, which are those algebraic $\Phi$CPOs where every
-\textit{bounded} directed subset or \textit{bounded} $\omega$-chain has a join.
+One such setting is the collection of Scott domains, which are those algebraic
+$\Phi$CPOs where every \textit{bounded} $\Phi$-subset has a join.
 %
-Alternatively, it could be the collection of \textit{strongly finite} or SFP
+Another is the collection of \textit{strongly finite} or SFP
 objects\cite{plotkin:powerdomains}.
 
 \subsection{Nondeterminism in Domain Theory}
 
 In order to capture a denotational semantics for nondeterministic choice, it is
-possible to extend the notion of a $\Phi$CPO with a binary operation, $\sqcup$,
+possible to extend the notion of a $\Phi$CPO with a binary operation $\sqcup$
 representing the nondeterministic sum of a pair of computations.
 %
-There are a number of possible axiomatisations of the operation $\sqcup$,
+There are a number of possible axiomatisations of the operation $\sqcup$
 depending on the style of nondeterminism that is under study.
 
 \begin{definition} A \define{Plotkin-nondeterministic $\Phi$CPO}
@@ -264,13 +263,12 @@ Plotkin-non\-det\-er\-min\-istic $\Phi$CPO $\langle D, \sqsubseteq_D,
 d$ for all $d, d' \in D$.  \end{definition}
 
 Intuitively, the Hoare-style nondeterminism captures a `may do' semantics: a
-nondeterministic choice between two computations contains at least as much
-information as each of its parts, because it may produce the output of either of
-its parts.
+nondeterministic sum of two computations contains at least as much information
+as each of the summands, because it may produce the output of either.
 %
 Conversely, the Smyth-style nondeterminism captures a `must do' semantics: fewer
-guarantees can be made about the nondeterministic choice between two
-computations, so the nondeterministic choice contains less information.
+guarantees can be made about the nondeterministic sum of two computations, so
+the sum contains less information.
 %
 The Plotkin-style nondeterminism captures a mixture of both the `may do' and
 `must do' styles of semantics.
@@ -308,8 +306,8 @@ preorder ${!}(D^{\circ})$ whose elements comprise the finite subsets of
 $D^\circ$ and whose order is defined by setting $x \le_{{!}(D^{\circ})} x'$ iff
 for all $d \in x$ there exists $d' \in x'$ such that $d \sqsubseteq_D d'$.
 %
-The Hoare powerdomain $\mathcal{P}_{H} D$ is then given as the partial order
-obtained by taking the $\Phi$-ideal completion of ${!}(D^{\circ})$.
+The Hoare powerdomain $\mathcal{P}_{H} D$ is then given as the $\Phi$-ideal
+completion of ${!}(D^{\circ})$.
 %
 Alternatively, $\mathcal{P}_{H} D$ can be characterised as the collection of
 lower subsets of $D^{\circ}$ ordered by inclusion.

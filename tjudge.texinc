@@ -138,7 +138,7 @@ In both of these rules the support of $\ell_0$ must be contained in $s$.
 nondeterministic choice amongst its components and behaves as the chosen
 component.
 %
-The support of the mapping $i \mapsto \tjudge{s_i}{\Gamma}{t_i}{\typeP}$ must
+The mapping $i \mapsto \tjudge{s_i}{\Gamma}{t_i}{\typeP}$ must
 be supported by $s$.  \[ \infer {\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
 {\tjudge{s_i}{\Gamma}{t_i}{\typeP} \qquad\text{each $i \in I$}} \]
 
@@ -163,8 +163,8 @@ formers.
 %
 Intuitively the term $\new{a}{t}$ can perform the same actions as $t$ with the
 name $a$ bound, whereas the term $\newapply{t}{a}$ takes the outputs of $t$,
-which contain a bound name since $t$ is of type $\typedelta\typeP$, and unbinds
-that name to $a$.
+which contain a bound name since $t$ is of type $\typedelta\typeP$, and instantiates
+that name as $a$.
 \[
 \infer[(a \notin s)]
 {\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}}

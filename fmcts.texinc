@@ -13,7 +13,7 @@ development of HOPLA\cite{nygaardwinskel1}, continuity was chosen to mean
 `preserves directed joins' but the discussion of \ref{bindingdiscts}
 demonstrates that this is not a suitable choice in $\mathbf{FMLin}_s$.
 Reconsidering directed sets as generalised sequences in \ref{fm:continuity}
-suggests a more satisfactory definition of continuity. Section \ref{fm:isolated}
+suggests a more satisfactory notion of approximation. Section \ref{fm:isolated}
 demonstrates that it is simple to characterise the elements that are isolated
 with respect to this notion of approximation, and this gives rise to an
 appropriate exponential ${!}$ that captures the continuity in much the same way
@@ -21,7 +21,7 @@ that the finite-join-completion exponential does in HOPLA.
 
 \TODO{Complete this intro when this section is complete.}
 
-\subsection{Name-Binding is Not Directed-Join Continuous}
+\subsection{Name-Binding is not Directed-Join Continuous}
 \label{bindingdiscts}
 
 It is now necessary to speculate a little on what a nominal extension to the
@@ -31,8 +31,10 @@ development of new-HOPLA\cite{WZ04}.
 A key feature of a nominal extension to HOPLA would be terms of the form
 $\new{a}{t}$ whose intended meaning is to bind the name $a$ in the outputs of
 $t$. In particular there will be a term $\new{a}{\termvar{x}}$ (where
-$\termvar{x}$ is a free variable) which receives a process as input and binds
-the name $a$ in its output. As the effect of $\new{a}{t}$ is to bind $a$, if $b$
+$\termvar{x}$ is a free variable) which receives a process as input in the
+variable $\termvar{x}$ and binds the name $a$ in its output.
+%
+As the effect of $\new{a}{t}$ is to bind $a$, if $b$
 is a fresh name then it should be the case that $\new{a}{t} = \new{b}{\bigl((ab)
 \cdot t\bigr)}$, and in particular the name $a$ should not be in the support of
 $\new{a}{t}$. The semantics of $\new{a}{t}$ are motivated by the semantics of
@@ -105,8 +107,8 @@ Taking `continuous' to mean `preserves increasing $\omega$-sequences',
 continuous functions are those that are physically feasible\cite[Thesis
 5]{plotkin:pisa}.
 %
-Classically, it makes little difference to the theory whether one uses
-increasing sequences or directed sets.
+Classically it makes little difference to the elementary domain theory whether
+one uses increasing sequences or directed sets.
 %
 After all, a poset has limits of all increasing sequences iff it has limits of
 all directed sets: increasing sequences give rise to directed sets, and
@@ -185,18 +187,18 @@ Since $X$ is also directed it contains a maximal element $x$ so that
 \end{equation} and hence $\sem{\new{a}{\termvar{x}}}$ does preserve joins of
 directed sets that have uniform supports.
 %
-It turns out that preservation of uniformly-supported directed joins is a
-satisfactory definition of continuity in nominal domain theory.
+It turns out that approximation by uniformly-supported directed limits is a
+satisfactory notion of approximation in nominal domain theory.
 
 
 \subsection{FM-Isolated Elements}
 \label{fm:isolated}
 
 Considering $\widehat{\typeP}$ as a domain of meanings for processes of type
-$\typeP$, it is now sensible to investigate the structure of the isolated (or
-compact or `finite') elements of this domain with respect to FM-continuity,
-since the isolated elements correspond to those computations that can be
-realised in finitely many steps.
+$\typeP$, it is now sensible to investigate the structure of the isolated 
+elements of this domain with respect to uniformly-supported
+directed approximations, since the isolated elements correspond to those
+computations that can be realised in finitely many steps.
 
 \begin{definition} An element $P \in \widehat{\typeP}$ is \define{FM-isolated}
 iff for all uniformly supported directed sets $X \subseteq \widehat{\typeP}$, if
@@ -455,9 +457,13 @@ and directed, so there exists $x \in X$ such that $P \subseteq x$. It is clear
 that $f^{\ddagger} P = f P$, so by monotonicity $f P \le f^{\ddagger} x$ and
 $f^{\ddagger} x \le U$ so that $f P \le U$ as required.  \end{proof}
 
-\begin{lemma} \label{bang:alg} If $x \in \widehat{\typeP}$ then \[ x = \bigcup
-\{P \in \typelift\typeP \mid P \subseteq x \wedge \supp{P} \subseteq \supp{x,
-\typeP} \} \] \end{lemma}
+It is also the case that $\widehat{\typeP}$ is algebraic with respect to
+approximation by uniformly-supported directed sets, as the following lemma
+shows.
+
+\begin{lemma}[Algebraicity of $\widehat{\typeP}$] \label{bang:alg} If $x \in
+\widehat{\typeP}$ then \[ x = \bigcup \{P \in \typelift\typeP \mid P \subseteq x
+\wedge \supp{P} \subseteq \supp{x, \typeP} \} \] \end{lemma}
 
 \begin{proof} Certainly $x \supseteq \bigcup \{P \in \typelift\typeP \mid P
 \subseteq x \wedge \supp{P} \subseteq \supp{x, \typeP} \}$.
@@ -1001,6 +1007,8 @@ union $\bigcup_{i \in I} f_i$ is an element of $\matthat{{!}\typeP^{\mathrm{op}}
 %
 By \ref{cts:homsets} it makes sense to denote the corresponding arrow of
 $\mathbf{FMCts}_s$ as $\sum_{i \in I} f_i : \typeP \cto \typeQ$.
+%
+Concretely, this map is given by a pointwise union.
 
 
 \subsubsection{Products.}
@@ -1049,8 +1057,8 @@ The isomorphism $m$ can be used to perform calculations with products more
 easily than dealing directly with elements of $\matthat{\typePsub{1} \amp
 \typePsub{2}}$.
 %
-In particular, \begin{equation} \label{characterisation:m:proj} (\mathbf{out}_i
-\circ m_{\typePsub{1}, \typePsub{2}}) = \pi_i : \widehat{\typePsub{1}} \times
+In particular, \begin{equation} \label{characterisation:m:proj} \mathbf{out}_i
+\circ m_{\typePsub{1}, \typePsub{2}} = \pi_i : \widehat{\typePsub{1}} \times
 \widehat{\typePsub{2}} \to \widehat{\typePsub{i}}.  \end{equation} so that if
 $f_i : \typeQ \cto \typePsub{i}$ are arrows of $\mathbf{FMCts}_s$ for $i \in \{1,
 2\}$ then \begin{equation} \label{characterisation:m:pair} \langle f_1, f_2
@@ -1089,8 +1097,8 @@ Since $\mathbf{FMCts}_s$ is enriched over $\mathbf{CMon}$ and has finite
 products, its products are in fact biproducts.
 %
 In detail, the product $\typeP_1 \amp \typeP_2$ is also the coproduct of
-$\typeP_1$ and $\typeP_2$ -- the injections are given as in $\mathbf{FMLin}_s$
--- and the projections and injections satisfy \begin{equation}
+$\typeP_1$ and $\typeP_2$ --- the injections are given as in $\mathbf{FMLin}_s$
+--- and the projections and injections satisfy \begin{equation}
 \label{biproducts:cts} \begin{array}[t]{c} \mathbf{out}_i \circ \mathbf{in}_i =
 \mathbf{1}_{\typeP_i} \quad \mathbf{out}_i \circ \mathbf{in}_j = \varnothing \
 (i \neq j) \\ ((\mathbf{in}_1 \circ \mathbf{out}_1) \cup (\mathbf{in}_2 \circ

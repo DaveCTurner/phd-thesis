@@ -95,10 +95,11 @@ to capture the idea of `binding' a name.
 \subsection{Finite Automorphisms on Names}
 \label{subsect:nset:finaut}
 
-Let $\mathbb A$ be an infinite set of names.
+Let $\mathbb A$ be a fixed infinite set whose elements are to be called
+\textit{names}.
 %
-The letter $\mathbb A$ is chosen as names are also known as `atoms': they are
-atomic in the sense that they have no internal structure.
+The letter $\mathbb A$ is chosen as names are also known as \textit{atoms}: they
+are atomic in the sense that they have no internal structure.
 %
 From the discussion above, the basis for the theory of nominal sets is that of a
 finite automorphism of $\mathbb A$, i.e. a bijection $\sigma : \mathbb A \to
@@ -156,8 +157,8 @@ Note that $\sigma^{-1} a \neq a$ since $a \neq \sigma a$, so that $\vec{\tau}
 
 \subsubsection{The Footprint Lemma.}
 %
-The following lemma characterises permutations in terms of their `footprint' on
-a particular set $B$ of names.
+The following lemma characterises permutations in terms of their footprints on a
+particular set $B$ of names.
 %
 The intuition behind this lemma is as follows.
 %
@@ -174,9 +175,8 @@ Importantly, if $B$ contains all the names that are `known' by a calculation
 then for the purposes of that particular calculation any names outside $B$ are
 equivalent.
 %
-Therefore for the purposes of the calculation it is possible to characterise a
-permutation $\sigma$ in terms of its `footprint' on $B$: the action of $\sigma$
-just on the names in $B$.
+Therefore it is possible to characterise a permutation $\sigma$ in terms of its
+`footprint' on $B$: the action of $\sigma$ just on the names in $B$.
 %
 Of course if $a \notin B$ but $\sigma a \in B$ then this is significant,
 although the precise source $a$ of $\sigma a$ is not important.
@@ -267,8 +267,8 @@ factorisation in the desired form.
 
 It will sometimes be useful to be able to extend an injection $i : s
 \rightarrowtail \mathbb A$ into a permutation $\sigma_i : \mathbb A \to \mathbb
-A$. This is always possible if $s$ is finite, although there will be multiple
-possible choices for $\sigma_i$ if $|s| > 1$.
+A$. This is always possible if $s$ is finite, although there will be more than
+one choice for $\sigma_i$ if $|s| > 1$.
 
 \begin{lemma} \label{lemma:injextension} If $s \subseteq_{\mathrm{fin}} \mathbb
 A$ and $i : s \rightarrowtail \mathbb A$ is an injection then there exists a
@@ -309,7 +309,7 @@ permutations of $\mathbb A$. \end{definition}
 $\mathcal G$-action, written as the infix operator $\cdot_X$ or more commonly
 simply $\cdot$ where the set $X$ is clear from the context. \end{definition}
 
-A $\mathcal G$-set is conceptually a set whose elements `use names'.
+A $\mathcal G$-set is intuitively a set whose elements `use names'.
 %
 The action of a particular permutation on an element $x$ of a $\mathcal G$-set
 is therefore the action of permuting the names that $x$ uses.
@@ -322,8 +322,8 @@ needing to refer to syntax as follows.
 $\sigma$ such that $\sigma a = a$ for all $a \in s$ it is the case that $\sigma
 \cdot x = x$. \end{definition}
 
-Conceptually, $s$ supports $x$ if $s$ is an upper bound for the set of names
-that $x$ uses.
+Intuitively $s$ supports $x$ if $s$ is an upper bound for the set of names that
+$x$ uses.
 %
 The elements of interest use only finitely many names and in this case it is
 possible to find a smallest possible support.
@@ -726,7 +726,8 @@ Concretely, if $X$ and $Y$ are nominal sets then \begin{equation}
 \mid x \freshfor y \}  \end{equation} with the action on arrows given
 componentwise.
 %
-Since $\otimes$ is the Day tensor, $\mathbf{NSet}$ is closed with respect to it.
+By an abstract argument that relies on the characterisation of $\otimes$ as the
+Day tensor, $\mathbf{NSet}$ is $\otimes$-monoidal closed.
 %
 In fact this discussion will only use this tensor as part of the functor $(-)
 \otimes \mathbb A$ and it is possible to characterise its right adjoint, written
@@ -738,10 +739,10 @@ captures the notion of $\alpha$-equivalence as \begin{equation}
 \quad \Leftrightarrow_{\mathrm{def}} \quad \freshin{b}{(ab)\cdot x = (a'b) \cdot
 x'}.  \end{equation}
 %
-Write the equivalence classes as $[a].x \defeq [\langle x, a
-\rangle]_{\sim_{\alpha}}$ and define \begin{equation} \label{def:deltanom:obj}
-\delta X \defeq (X \times \mathbb A)/{\sim_\alpha} = \{ [a].x \mid a \in \mathbb
-A \wedge x \in X \}. \end{equation}
+Writing the equivalence classes as $[a].x \defeq [\langle x, a
+\rangle]_{\sim_{\alpha}}$ it is then possible to define \begin{equation}
+\label{def:deltanom:obj} \delta X \defeq (X \times \mathbb A)/{\sim_\alpha} = \{
+[a].x \mid a \in \mathbb A \wedge x \in X \}. \end{equation}
 %
 The permutation action on the equivalence classes is given by $\sigma \cdot
 ([a].x) \defeq [\sigma a].(\sigma \cdot x)$, from which it follows that
@@ -834,7 +835,7 @@ syntax.
 This is justified by the results of chapter \ref{densem} which relates the
 semantic and syntactic notions of binding in the language Nominal HOPLA.
 
-\subsection{Choice in Nominal Set Theory}
+\subsection{Choice and Nominal Sets}
 
 Nominal set theory is closely related\footnote{See \ref{subsect:fm-set-theory}
 for more details.} to Fraenkel-Mostowski (FM) set theory, which was originally
@@ -860,9 +861,8 @@ function in the sense of nominal set theory.
 The impact of the failure of AC is not as severe as perhaps it sounds, but it
 does have some subtle consequences.
 %
-Perhaps one of the more interesting ones is that there are a number of distinct
-ways of characterising the subsets of a nominal set that are, in some sense,
-finite.
+One of the more interesting ones is that there are a number of distinct ways of
+characterising the subsets of a nominal set that are, in some sense, finite.
 
 \subsubsection{Definitions of Finiteness} \label{def:finiteness}
 %
