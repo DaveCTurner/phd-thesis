@@ -416,11 +416,13 @@ FM-continuous so that $\mathbf{FMLin}_s$ is a subcategory of $\mathbf{FMCts}_s$.
 Following the development of HOPLA, it will be possible to characterise
 FM-continuous maps in terms of FM-linear maps whose domain is under an
 exponential ${!}$ which captures the appropriate notion of approximation.  Here,
-$\typelift\typeP$ will consist of the isolated elements of $\widehat\typeP$
-ordered by inclusion.
+$\typelift\typeP$ will consist of the all elements of the form $\finelt{F}{s}$
+where $F \subseteq_{\mathrm{fin}} \typeP$ and the ordering is given by letting
+$\finelt{F}{s} \le_{\typelift\typeP} \finelt{F'}{s'}$ whenever $\finelt{F}{s}
+\subseteq \finelt{F'}{s'\downarrow}$.
 %
-Write $i_{\typeP}$ for the natural inclusion $i_{\typeP} : \typelift\typeP
-\hookrightarrow \widehat{\typeP}$.
+Write $i_{\typeP}$ for the map $i_{\typeP} : \typelift\typeP \to
+\widehat{\typeP}$ given by $i_{\typeP} \finelt{F}{s} = \finelt{F}{s\downarrow}$.
 
 Each $\widehat{\typeP}$ is the free uniformly-supported-directed-join completion
 of $\typelift\typeP$. In detail, this means that $\widehat{\typeP}$ has all
@@ -429,13 +431,12 @@ and if $C$ is a poset that also has all uniformly-supported directed joins and
 $f : \typelift\typeP \to C$ is a monotone finitely-supported function then there
 is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
 \to C$ that such that the following diagram commutes.  \begin{equation}
-\label{bang:freeness} \xymatrix{ \typelift\typeP\
-\ar@<-4pt>@{^{(}->}[r]^{i_{\typeP}} \ar[dr]_f & \widehat{\typeP}
-\ar[d]^{f^{\ddagger}} \\& C} \end{equation} 
+\label{bang:freeness} \xymatrix{ \typelift\typeP\ \ar[r]^{i_{\typeP}} \ar[dr]_f
+& \widehat{\typeP} \ar[d]^{f^{\ddagger}} \\& C} \end{equation} 
 %
 The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x \defeq
-\bigvee\{f P \mid P \in \typelift\typeP \wedge P \subseteq x \wedge \supp{P}
-\subseteq \supp{x, \typeP} \}.\end{equation}
+\bigvee\{f P_\downarrow \mid P \in \typelift\typeP \wedge P \subseteq x \wedge
+\supp{P} \subseteq \supp{x, \typeP} \}.\end{equation}
 %
 Note that this is well-defined since the join is taken over a directed set that
 is uniformly supported by $\supp{f, x, \typeP}$, so the join exists in $C$.
@@ -447,28 +448,29 @@ It is also clear that $f^\ddagger$ is finitely-supported.
 
 \begin{proof} It not clear that $f^{\ddagger}$ is even monotone.  Let $x, x' \in
 \widehat{\typeP}$ be such that $x \subseteq x'$ and show that $f^{\ddagger} x
-\le f^{\ddagger} x'$ as follows. By the monotonicity of $f$ it is sufficient to
-show that for all $P \in \typelift\typeP$ such that $P \subseteq x$ and
-$\supp{P} \subseteq \supp{x, \typeP}$ there exists $P' \in \typelift\typeP$ such
-that $P \subseteq P'$ and $P' \subseteq x'$ and $\supp{P'} \subseteq \supp{x',
+\le f^{\ddagger} x'$ as follows.
+%
+By the monotonicity of $f$ it is sufficient to show that for all $P \in
+\typelift\typeP$ such that $P \subseteq x$ and $\supp{P} \subseteq \supp{x,
+\typeP}$ there exists $P' \in \typelift\typeP$ such that $P \subseteq
+P'_\downarrow$ and $P' \subseteq x'$ and $\supp{P'} \subseteq \supp{x',
 \typeP}$, so let $P \in \typelift\typeP$ be such that $P \subseteq x$ and
 without loss of generality (by \ref{finelt:wlog}) write $P =
 \finelt{F}{\supp{x,x',\typeP}}$.
 %
 Define $P' = \finelt{F}{\supp{x',\typeP}}$.
 %
-It is certainly the case that $P \subseteq P'$ (by \ref{finelt:mono}) and
-$\supp{P'} \subseteq \supp{x',\typeP}$ (by \ref{fineltsupport}) so it remains to
-show that $P' \subseteq x'$.
+It is certainly the case that $P \subseteq P'_\downarrow$ (by \ref{finelt:mono})
+and $\supp{P'} \subseteq \supp{x',\typeP}$ (by \ref{fineltsupport}) so it
+remains to show that $P' \subseteq x'$.
 %
-Let $p' \in P'$, then there exists $p \in F$ and $\sigma \freshfor x'$ such that
-$p' \le_{\typeP} \sigma \cdot p$.
+Let $p' \in P'$, then there exists $\sigma \freshfor x'$ such that $p' \in
+\sigma \cdot F$.
 %
 However, since $P = \finelt{F}{\supp{x,x',\typeP}} \subseteq x \subseteq x'$, it
-must be that $p \in x'$.
+must be that $p' \in \sigma \cdot x'$.
 %
-Since $\sigma \freshfor x'$, $\sigma \cdot p \in x'$ too, and $x' \in
-\widehat{\typeP}$ so that $p' \in x'$ as required.
+Since $\sigma \freshfor x'$ it follows that $p' \in x'$ as required.
 
 Having shown that $f^{\ddagger}$ is monotone, the proof of its continuity is
 standard.  Let $X \subseteq \widehat{\typeP}$ be uniformly-supported and
@@ -478,41 +480,43 @@ is an upper bound for $\{f^{\ddagger} x \mid x \in X \}$.  It remains to show
 that it is the least such upper bound, i.e.  for any $U$ such that $f^{\ddagger}
 x \le U$ for all $x \in X$ it is the case that $f^{\ddagger} \bigl(\bigcup
 X\bigr) \le U$. For this, it is sufficient to show that $U$ is an upper bound
-for $\{f P \mid P \in \typelift\typeP \wedge P \subseteq \bigcup X \wedge
-\supp{P} \subseteq \supp{\bigcup X, \typeP} \}$ since $f^{\ddagger}
+for $\{f P_\downarrow \mid P \in \typelift\typeP \wedge P \subseteq \bigcup X
+\wedge \supp{P} \subseteq \supp{\bigcup X, \typeP} \}$ since $f^{\ddagger}
 \bigl(\bigcup X \bigr)$ is the least such. Therefore, suppose that $P \in
 \typelift\typeP$ is such that $P \subseteq \bigcup X$ and $\supp{P} \subseteq
 \supp{\bigcup X, \typeP}$.  Then $P$ is isolated, and $X$ is uniformly-supported
 and directed, so there exists $x \in X$ such that $P \subseteq x$. It is clear
-that $f^{\ddagger} P = f P$, so by monotonicity $f P \le f^{\ddagger} x$ and
-$f^{\ddagger} x \le U$ so that $f P \le U$ as required.  \end{proof}
+that $f^{\ddagger} P_\downarrow = f P_\downarrow$, so by monotonicity $f
+P_\downarrow \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so that $f
+P_\downarrow \le U$ as required.  \end{proof}
 
 It is also the case that $\widehat{\typeP}$ is algebraic with respect to
 approximation by uniformly-supported directed sets, as the following lemma
 shows.
 
 \begin{lemma}[Algebraicity of $\widehat{\typeP}$] \label{bang:alg} If $x \in
-\widehat{\typeP}$ then \[ x = \bigcup \{P \in \typelift\typeP \mid P \subseteq x
-\wedge \supp{P} \subseteq \supp{x, \typeP} \} \] \end{lemma}
+\widehat{\typeP}$ then \[ x = \bigcup \{P_\downarrow \mid P \in \typelift\typeP
+\mid P \subseteq x \wedge \supp{P} \subseteq \supp{x, \typeP} \} \] \end{lemma}
 
-\begin{proof} Certainly $x \supseteq \bigcup \{P \in \typelift\typeP \mid P
-\subseteq x \wedge \supp{P} \subseteq \supp{x, \typeP} \}$.
+\begin{proof} Certainly $x \supseteq \bigcup \{P_\downarrow \mid P \in
+\typelift\typeP \mid P \subseteq x \wedge \supp{P} \subseteq \supp{x, \typeP}
+\}$.
 %
 To see the converse let $p \in x$ and let $P = \finelt{\{p\}}{\supp{x,
 \typeP}}$.
 %
 It is clear that $p \in P$.
 %
-From \ref{fineltsupport} it follows that $\supp{P} \subseteq \supp{x, \typeP}$ and
-from \ref{finelts} it follows that $P \in \typelift\typeP$.
+From \ref{fineltsupport} it follows that $\supp{P} \subseteq \supp{x, \typeP}$
+and from \ref{finelts} it follows that $P \in \typelift\typeP$.
 %
-Let $p' \in P$ then by definition there exists $\sigma \freshfor \supp{x,
-\typeP}$ such that $p' \le_{\typeP} \sigma \cdot p$, but $\sigma \cdot p \in
-\sigma \cdot x = x$ and hence $p' \in x$.
+Let $p' \in P_\downarrow$ then by definition there exists $\sigma \freshfor
+\supp{x, \typeP}$ such that $p' \le_{\typeP} \sigma \cdot p$, but $\sigma \cdot
+p \in \sigma \cdot x = x$ and hence $p' \in x$.
 %
-Therefore $P \subseteq x$ so as required it follows that \[p \in \bigcup \{P \in
-\typelift\typeP \mid P \subseteq x \wedge \supp{P} \subseteq \supp{x, \typeP}
-\}. \qedhere\] \end{proof}
+Therefore $P_\downarrow \subseteq x$ so as required it follows that \[p \in
+\bigcup \{P_\downarrow \mid P \in \typelift\typeP \mid P \subseteq x \wedge
+\supp{P} \subseteq \supp{x, \typeP} \}. \qedhere\] \end{proof}
 
 Lemma \ref{bang:alg} ensures the uniqueness of $f^{\ddagger}$, and in
 particular if $f$ and $g$ are FM-continuous maps $\typeP \cto \typeQ$ and $f
@@ -562,7 +566,7 @@ with $!$ as the left adjoint.
 %
 Concretely, \ref{def:banglin} means that if $X \in \widehat{\typelift\typeP}$
 then ${!}f(X) = \{Q \in \typelift\typeQ \mid \exists P \in X.\ Q \subseteq f
-P\}$.
+P_\downarrow\}$.
 %
 The unit of the adjunction is $\eta$ as defined above and the counit $\epsilon$
 is defined as $\epsilon_{\typeP} \defeq i_{\typeP}^{\dagger}$.
