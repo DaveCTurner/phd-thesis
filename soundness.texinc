@@ -91,20 +91,20 @@ derived from $\ajudge{\typeP}{t}{p}{t'}$, then \[\begin{array}{rcll}
 \sem{\tjudge{s}{}{\new{a}{t}}{\typedelta\typeP}}} \\
 %
 &=& \bigl(\widehat{\theta^{!}_{\typePp}} \circ \delta_a^{++} \sem{p} \bigr) \circ
-\sem{t}^{\vee} & \text{by the denotational semantics}\\
+\delta_a^{++} \sem{t} \circ \widehat{\xi_{\typeO}} & \text{by the denotational semantics}\\
 %
-&=& \widehat{\theta^{!}_{\typePp}} \circ \bigl(\sem{p} \circ \sem{t}\bigr)^{\vee}
-& \text{by naturality of the adjunction}\\
+&=& \widehat{\theta^{!}_{\typePp}} \circ \delta_a^{++} \bigl(\sem{p} \circ \sem{t}\bigr) \circ \widehat{\xi_{\typeO}}
+\\
 %
 &\sqsupseteq& \widehat{\theta^{!}_{\typePp}} \circ 
-\sem{\bang{t'}}^{\vee}
+\delta_a^{++} \sem{\bang{t'}} \circ \widehat{\xi_{\typeO}}
 & \text{by induction}\\
 %
 &=& \widehat{\theta^{!}_{\typePp}} \circ 
-\delta_a^{++} \eta_{\typePp} \circ \sem{t'}^{\vee}
-& \text{by naturality of the adjunction}\\
+\delta_a^{++} \eta_{\typePp} \circ \delta_a^{++} \sem{t'} \circ \widehat{\xi_{\typeO}}
+\\
 %
-&=& \eta_{\delta_a\typePp} \circ \sem{t'}^{\vee}
+&=& \eta_{\delta_a\typePp} \circ  \delta_a^{++} \sem{t'} \circ \widehat{\xi_{\typeO}}
 & \text{by lemma \ref{comm:thetaeta}}\\
 %
 &=& \sem{\tjudge{s}{}{\bang{\new{a}{t'}}}{\typelift{\typedelta\typePp}}}
