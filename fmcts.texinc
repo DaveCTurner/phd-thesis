@@ -977,6 +977,7 @@ both continuous, so the result follows by \ref{bang:epi}.\end{proof}
 
 
 \subsection{The Structure of $\mathbf{FMCts}_s$}
+\label{subsect:cts:structure}
 \TODO{Prose intro}
 
 \subsubsection{Hom-sets.}
