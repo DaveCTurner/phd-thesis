@@ -190,7 +190,7 @@ elements in $B$.
 %
 Then from the point of view of the calculation in question the permutation
 $\sigma$ may be represented as a permutation $\sigma_2$ such that
-\begin{enumerate}
+\begin{itemize}
 %
 \item if $b \in B$ and $\sigma b \in B$ then $\sigma_2 b = \sigma b$,
 %
@@ -198,7 +198,7 @@ $\sigma$ may be represented as a permutation $\sigma_2$ such that
 %
 \item if $a \notin B$ but $\sigma a \in B$ then $\sigma^{-1}_2 \sigma a \in D$.
 %
-\end{enumerate}
+\end{itemize}
 %
 Importantly a set $D$ may be chosen that suffices for any permutation $\sigma$,
 and a finite such $D$ exists, so $\sigma_2$ takes only finitely many possible
@@ -212,10 +212,10 @@ distinct names $b, d, e$.
 \begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
 mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
 permutations $\sigma$ such that $\sigma a = a$ for all $a \in A$ there exist
-permutations $\sigma_1$, $\sigma_2$, $\sigma_3$ such that \begin{enumerate}
-\item $\sigma = \sigma_1 \sigma_2 \sigma_3$, and \item $\sigma_1 a = a$ and
-$\sigma_3 a = a$ for all $a \in A \cup B$, and \item $\sigma_2 a \neq a$ only if
-$a \in (B \cup D) \setminus A$. \end{enumerate} \end{lemma}
+permutations $\sigma_1$, $\sigma_2$, $\sigma_3$ such that \begin{itemize} \item
+$\sigma = \sigma_1 \sigma_2 \sigma_3$, and \item $\sigma_1 a = a$ and $\sigma_3
+a = a$ for all $a \in A \cup B$, and \item $\sigma_2 a \neq a$ only if $a \in (B
+\cup D) \setminus A$. \end{itemize} \end{lemma}
 
 \begin{proof} Represent $\sigma$ as a finite list of transpositions of names not
 in $A$ and proceed by induction on the length of the list.
