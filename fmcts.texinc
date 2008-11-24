@@ -374,19 +374,19 @@ s}$. The converse case is similar.  \end{proof}
 \subseteq s$ then \[\finelt{F}{s} = \finelt{F}{\supp{\finelt{F}{s}, \typeP}}.\]
 \end{lemma}
 
-\begin{proof} Let $p' \in \finelt{F}{s}$ then there exists $p \in F$ and $\sigma
-\freshfor s$ such that $p' \le_{\typeP} \sigma \cdot p$.
+\begin{proof} Let $p \in \finelt{F}{s}$ then there exists $\sigma \freshfor s$
+such that $p \in \sigma \cdot F$.
 %
 By lemma \ref{fineltsupport}, $\supp{\finelt{F}{s}} \subseteq s$ so that $\sigma
 \freshfor \finelt{F}{s}$; furthermore $\sigma \freshfor \typeP$ as
-$\supp{\typeP} \subseteq s$ so that $p' \in \finelt{F}{\supp{\finelt{F}{s},
+$\supp{\typeP} \subseteq s$ so that $p \in \finelt{F}{\supp{\finelt{F}{s},
 \typeP}}$.
 %
-Conversely, let $p' \in \finelt{F}{\supp{\finelt{F}{s}, \typeP}}$ then there
-exists $p \in F$ and $\sigma \freshfor \finelt{F}{s}, \typeP$ such that $p'
-\le_{\typeP} \sigma \cdot p = \iota \cdot \sigma \cdot p$ and $\iota \freshfor
-\sigma \cdot s$ so that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma
-\cdot \finelt{F}{s} = \finelt{F}{s}$ as required.  \end{proof}
+Conversely, let $p \in \finelt{F}{\supp{\finelt{F}{s}, \typeP}}$ then there
+exists $\sigma \freshfor \finelt{F}{s}, \typeP$ such that $p \in \sigma \cdot F
+= \iota \cdot \sigma \cdot F$ and $\iota \freshfor \sigma \cdot s$ so that $p
+\in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma \cdot \finelt{F}{s} =
+\finelt{F}{s}$ as required.  \end{proof}
 
 \begin{corollary} \label{finelt:wlog} If $P \in \widehat{\typeP}$ is isolated
 and $\supp{P, \typeP} \subseteq s$ then there exists $F \subseteq_{\mathrm{fin}}
