@@ -105,7 +105,7 @@ $\mathbf{FMPre}_s$ to $\widehat f \defeq (\{\cdot\}_{\typeQ} \circ f)^{\dagger}
 %
 Concretely this means that if $x \in \widehat{\typeP}$ then \begin{equation}
 \label{hat:arrows} \widehat{f}x = \{ q \in \typeQ \mid \exists p \in x. q
-\le_{\typeQ} f p \}.\end{equation}
+\le_{\typeQ} f p \} = \{ f p \mid p \in x \}_\downarrow.\end{equation}
 %
 The unit of this adjunction is $\{\cdot\}_{\downarrow}$ and the counit is given
 by $\mathord{\cup} \defeq \mathbf{1}_{\widehat{(-)}}^\dagger$ where if $X \in
