@@ -308,35 +308,54 @@ Then $\sigma \cdot p \in \sigma \cdot \sigma' \cdot F$ and $\sigma\sigma'
 \subseteq \sigma \cdot \finelt{F}{s}$. The converse is similar.  \end{proof}
 
 \begin{lemma}\label{finelts} An element $P \in \widehat{\typeP}$ is isolated iff
-it is of the form $\finelt{F}{s}$ where $F$ is a finite subset of $\typeP$ and
-$s$ is a finite set of names that contains the support of $\typeP$.  \end{lemma}
+it is of the form $\finelt{F}{s\downarrow}$ where $F$ is a finite subset of
+$\typeP$ and $s$ is a finite set of names that contains the support of $\typeP$.
+\end{lemma}
 
-\begin{proof} Suppose that $\finelt{F}{s} \subseteq \bigcup X$ where $X
-\subseteq \widehat{\typeP}$ is uniformly supported and directed.  In the light
-of lemma \ref{fineltextension} suppose without loss of generality that $s$ is
-large enough to be a uniform support for $X$. Let $F = \{p_1, \ldots, p_n\}$,
-then for each $i \in \{1, \ldots, n\}$, $p_i \in \finelt{F}{s} \subseteq \bigcup
-X$ so there exists $x_i \in X$ such that $p_i \in x_i$. Since $X$ is directed,
-it contains an upper bound $\bar{x}$ for the $x_i$.  If $p \in \finelt{F}{s}$
-then $p \le_{\typeP} \sigma \cdot p_i$ for some $i \in \{1, \ldots, n\}$ and
-some $\sigma \freshfor s$. Therefore $p \in \sigma \cdot x_i \subseteq \sigma
-\cdot \bar{x}$, but $s$ is a uniform support for $X$ so that $\sigma \cdot
-\bar{x} = \bar{x}$ and hence $p \in \bar{x}$. Therefore $\finelt{F}{s}$ is
-isolated.
+\begin{proof} Suppose that $\finelt{F}{s\downarrow} \subseteq \bigcup X$ where
+$X \subseteq \widehat{\typeP}$ is uniformly supported and directed.
+%
+In the light of lemma \ref{fineltextension} suppose without loss of generality
+that $s$ is large enough to be a uniform support for $X$.
+%
+Let $F = \{p_1, \ldots, p_n\}$, then for each $i \in \{1, \ldots, n\}$, $p_i \in
+\finelt{F}{s} \subseteq \bigcup X$ so there exists $x_i \in X$ such that $p_i
+\in x_i$.
+%
+Since $X$ is directed, it contains an upper bound $\bar{x}$ for the $x_i$.
+%
+If $p \in \finelt{F}{s\downarrow}$ then $p \le_{\typeP} \sigma \cdot p_i$ for
+some $i \in \{1, \ldots, n\}$ and some $\sigma \freshfor s$.
+%
+Therefore $p \in \sigma \cdot x_i \subseteq \sigma \cdot \bar{x}$, but $s$ is a
+uniform support for $X$ so that $\sigma \cdot \bar{x} = \bar{x}$ and hence $p
+\in \bar{x}$.
+%
+Therefore $\finelt{F}{s\downarrow} \subseteq \bar{x}$ so that
+$\finelt{F}{s\downarrow}$ is isolated.
 
 Conversely, let $P \in \widehat{\typeP}$ be isolated, let $s = \supp{P} \cup
-\supp{\typeP}$ and define $X \subseteq \widehat{\typeP}$ by $X = \{\finelt{F}{s}
-\mid F \subseteq_{\mathrm{fin}} P\}$. From lemma \ref{fineltsupport} it follows
-that $X$ is uniformly supported by $s$, and it is clear that if $F_1
-\subseteq_{\mathrm{fin}} P$ and $F_2 \subseteq_{\mathrm{fin}} P$ then $F_1 \cup
-F_2 \subseteq_{\mathrm{fin}} P$ and $\finelt{F_1 \cup F_2}{s}$ is an upper bound
-for $\finelt{F_1}{s}$ and $\finelt{F_2}{s}$ so that $X$ is directed.  Therefore
-by the isolation of $P$ there exists $F \subseteq_{\mathrm{fin}} P$ such that $P
-\subseteq \finelt{F}{s}$. Furthermore, $\finelt{F}{s} \subseteq P$ as follows.
-Let $p \in \finelt{F}{s}$, then there exists $\sigma \freshfor s$ and $p' \in F$
-such that $p \le_{\typeP} \sigma \cdot p'$. Also, $F \subseteq P$ so that $p'
-\in P$, and $\sigma \freshfor s$ so that $\sigma \cdot P = P$ and hence $p
-\le_{\typeP} \sigma \cdot p' \in P \in \widehat{\typeP}$ so that $p \in P$.
+\supp{\typeP}$ and define $X \subseteq \widehat{\typeP}$ by $X =
+\{\finelt{F}{s\downarrow} \mid F \subseteq_{\mathrm{fin}} P\}$.
+%
+From lemma \ref{fineltsupport} it follows that $X$ is uniformly supported by
+$s$, and it is clear that if $F_1 \subseteq_{\mathrm{fin}} P$ and $F_2
+\subseteq_{\mathrm{fin}} P$ then $F_1 \cup F_2 \subseteq_{\mathrm{fin}} P$ and
+$\finelt{F_1 \cup F_2}{s\downarrow}$ is an upper bound for
+$\finelt{F_1}{s\downarrow}$ and $\finelt{F_2}{s\downarrow}$ so that $X$ is
+directed.
+%
+Therefore by the isolation of $P$ there exists $F \subseteq_{\mathrm{fin}} P$
+such that $P \subseteq \finelt{F}{s\downarrow}$.
+%
+Furthermore, $\finelt{F}{s\downarrow} \subseteq P$ as follows.  Let $p \in
+\finelt{F}{s\downarrow}$, then there exists $\sigma \freshfor s$ and $p' \in F$
+such that $p \le_{\typeP} \sigma \cdot p'$.
+%
+Also, $F \subseteq P$ so that $p' \in P$, and $\sigma \freshfor s$ so that
+$\sigma \cdot P = P$ and hence $p \le_{\typeP} \sigma \cdot p' \in P \in
+\widehat{\typeP}$ so that $p \in P$.
+%
 Therefore $P = \finelt{F}{s}$ as required.  \end{proof}
 
 \begin{lemma}
