@@ -363,12 +363,11 @@ Therefore $P = \finelt{F}{s}$ as required.  \end{proof}
 then \[\sigma \cdot \finelt{F}{s} = \finelt{\sigma \cdot F}{\sigma \cdot s}.\]
 \end{lemma}
 
-\begin{proof} Let $p' \in \sigma \cdot \finelt{F}{s}$ then there exists $p \in
-F$ and $\sigma' \freshfor s$ such that $p' \le_{\typeP} \sigma \cdot \sigma'
-\cdot p = \sigma \cdot \sigma' \cdot \sigma^{-1} \cdot \sigma \cdot p$, and
-$\sigma \cdot p \in \sigma \cdot F$ and $\sigma \sigma' \sigma^{-1} \freshfor
-\sigma \cdot s$ so that $p' \in \finelt{\sigma \cdot F}{\sigma \cdot s}$. The
-converse case is similar.  \end{proof}
+\begin{proof} Let $p \in \sigma \cdot \finelt{F}{s}$ then there exists $\sigma'
+\freshfor s$ such that $p \in \sigma \cdot \sigma' \cdot F = \sigma \cdot
+\sigma' \cdot \sigma^{-1} \cdot \sigma \cdot F$, and $\sigma \sigma' \sigma^{-1}
+\freshfor \sigma \cdot s$ so that $p \in \finelt{\sigma \cdot F}{\sigma \cdot
+s}$. The converse case is similar.  \end{proof}
 
 \begin{lemma}
 \label{fineltminsupp} If $F \subseteq_{\mathrm{fin}} \typeP$ and $\supp{\typeP}
