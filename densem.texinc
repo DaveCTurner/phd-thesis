@@ -110,6 +110,9 @@ $\mathbf{abs}(p) \defeq \abspath{p}$ and $\mathbf{rep}(\abspath{p}) \defeq p$.
 
 It is straightforward to show that each type $\typeP$ is a FM-preorder with
 empty support and therefore an object of $\mathbf{FMPre}_\varnothing$.
+%
+Importantly, this implies that for all names $a$ it is the case that $\delta_a
+\typeP = \delta \typeP$.
 
 \TODO{$\typelift\typeP$ given here is merely isomorphic to the ${!}\typeP$
 defined above - what to do?}
