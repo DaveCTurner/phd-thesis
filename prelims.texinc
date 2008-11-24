@@ -885,6 +885,9 @@ such that $A \subseteq B_i$.
 \item \label{finite:dedekind} Dedekind's definition: $A$ is finite if there
 exists no injection into one of its proper subsets.  \end{enumerate}
 
+All of these definitions coincide in classical ZFC set theory, but the situation
+is more complicated within nominal set theory as the following lemma shows.
+%
 For the avoidance of doubt, where the word `finite' appears in this discussion
 without reference to any of these definitions, it means
 (\ref{finite:usual})-finite.
@@ -929,8 +932,8 @@ hence $A = B_i$ for some (\ref{finite:usual})-finite set $B_i$.
 (\ref{finite:chain})-finite} The chain $B_0 \subseteq B_1 \subseteq \ldots
 \subseteq B_n \subseteq \ldots$ is directed, so this case is immediate.
 
-\subparagraph{(\ref{finite:usual})-finite $\not\Rightarrow$
-(\ref{finite:directed})-finite} For example $\mathbb A$ is
+\subparagraph{(\ref{finite:chain})-finite $\not\Rightarrow$
+(\ref{finite:usual})-finite} For example $\mathbb A$ is
 (\ref{finite:chain})-finite because if the increasing chain $B_0 \subseteq B_1
 \subseteq \ldots \subseteq \mathbb A$ is supported by the finite set $s$ then
 each element $B_i$ of the chain must also be supported by $s$.
