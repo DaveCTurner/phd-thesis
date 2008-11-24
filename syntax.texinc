@@ -28,38 +28,45 @@ $\sigma$, $\sigma \cdot \typeP = \typeP$.
 
 \subsection{Syntax of Environments}
 
-Environments are given by the grammar \[ \Gamma ::= \envempty \mid
-\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}}\] where $\termvar{x}$ ranges
+Environments are given by the grammar \begin{equation} \Gamma ::= \envempty
+\mid \envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}} \end{equation} 
+where $\termvar{x}$ ranges
 over variables, $\typeP$ ranges over types and $s$ ranges over finite sets of
 names, and the variables in $\Gamma$ are distinct from $\termvar{x}$. The
 intended meaning of $\envvarfresh{x}{\typeP}{s}$ is that the variable
 $\termvar{x}$ takes values of type $\typeP$ that are assumed to be fresh for
 $s$.  The set of environments may be equipped with a permutation action which
-simply permutes the freshness assumptions: \[ \sigma \cdot \envempty =
+simply permutes the freshness assumptions: \begin{equation}
+\sigma \cdot \envempty =
 \envempty \qquad\text{and}\qquad \sigma \cdot
 (\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}}) = \envcombine{(\sigma \cdot
-\Gamma)}{\envvarfresh{x}{\typeP}{(\sigma \cdot s)}},\] so that the support of
-an environment is the union of its freshness constraints.
+\Gamma)}{\envvarfresh{x}{\typeP}{(\sigma \cdot s)}}, \end{equation} so that the
+support of an environment is the union of its freshness constraints.
 %
 This is a finite support, so the collection of environments forms a nominal
 set.
 
-Define $\envcombine{\Gamma}{\Lambda}$ by the obvious recursion \[
+Define $\envcombine{\Gamma}{\Lambda}$ by the obvious recursion \begin{equation}
 \envcombine{\Gamma}{\envempty} = \Gamma \qquad\text{and}\qquad
 \envcombine{\Gamma}{(\envcombine{\Lambda}{\envvarfresh{x}{\typeP}{s}})} =
-\envcombine{(\envcombine{\Gamma}{\Lambda})}{\envvarfresh{x}{\typeP}{s} }, \]
-which only makes sense when the variables in $\Gamma$ and $\Lambda$ are 
-distinct. It is sometimes useful to be able to simultaneously alter all the
-freshness assumptions in an environment: define $\envfresh{\Gamma}{s}$ by
-\[\envfresh{\envempty}{s} = \envempty \qquad\text{and}\qquad
+\envcombine{(\envcombine{\Gamma}{\Lambda})}{\envvarfresh{x}{\typeP}{s} },
+\end{equation} which only makes sense when the variables in $\Gamma$ and
+$\Lambda$ are distinct.
+%
+It is sometimes useful to be able to simultaneously alter all the freshness
+assumptions in an environment: define $\envfresh{\Gamma}{s}$ by
+\begin{equation} \envfresh{\envempty}{s} = \envempty \qquad\text{and}\qquad
 \envfresh{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s'}}\bigr)}{s} =
-\envcombine{\envfresh{\Gamma}{s}}{\envvarfresh{x}{\typeP}{s' \cup s}},\] and
-define $\envrestrict{\Gamma}{s}$ by \[\envrestrict{\envempty}{s} = \envempty
-\qquad\text{and}\qquad
+\envcombine{\envfresh{\Gamma}{s}}{\envvarfresh{x}{\typeP}{s' \cup s}},
+\end{equation} and define $\envrestrict{\Gamma}{s}$ by \begin{equation}
+\envrestrict{\envempty}{s} = \envempty \qquad\text{and}\qquad
 \envrestrict{\bigl(\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s'}}\bigr)}{s} =
 \envcombine{\bigl(\envrestrict{\Gamma}{s}\bigr)}{\envvarfresh{x}{\typeP}{s'
-\cap s}}.\] Finally, omit $\envempty$ where it is unambiguous to do so. In
-particular, write $\envvarfresh{x}{\typeP}{s}$ for the single-variable
+\cap s}}. \end{equation}
+%
+Finally, omit $\envempty$ where it is unambiguous to do so.
+%
+In particular, write $\envvarfresh{x}{\typeP}{s}$ for the single-variable
 environment $\envcombine{()}{\envvarfresh{x}{\typeP}{s}}$.
 
 \vfill\pagebreak
@@ -68,8 +75,10 @@ environment $\envcombine{()}{\envvarfresh{x}{\typeP}{s}}$.
 
 Terms are given by the following grammar, where $\termvar{x}$ ranges over
 variables, $a$ ranges over names, $s$ over finite sets of names, $p$ over
-actions, $\ell$ over labels and $\typeP$ over types.
-\[\begin{array}{lclcl} t, u &::=&
+actions (see \ref{syn:actions}), $\ell$ over labels and $\typeP$ over types.
+%
+\begin{equation} \begin{array}[t]{lclcl} t, u &::=&
+%
 \quad \termvar{x} \bigmid \rec{x}{t} &&\text{variables; recursion}
 \\
 %
@@ -86,12 +95,12 @@ application} \\
 &&\bigmid \ndsum{i}{I}{t_i} && \text{nondeterminstic sum} \\
 %
 &&\bigmid \abs{t} \bigmid \rep{t} && \text{recursive types}\\
-\end{array}\]
+\end{array} \end{equation}
 (\TODO{Try superscript in syntax for match})
 %
-The forms \[\rec{x}{t} \qquad \matchz{s}{u}{p}{x}{t}{\typeP} \qquad
-\abstract{x}{t}\] all bind $\termvar{x}$ in $t$, and the set of free variables
-of $t$, $\fv{t}$, is defined in the usual way.
+The forms \begin{equation} \rec{x}{t} \qquad \matchz{s}{u}{p}{x}{t}{\typeP}
+\qquad \abstract{x}{t} \end{equation} all bind $\termvar{x}$ in $t$, and the
+set of free variables of $t$ is defined in the usual way.
 
 The nondeterministic sum may be over an infinite set $I$, but there are
 constraints to ensure that it behaves properly: the mapping $i \mapsto t_i$ is
@@ -104,19 +113,18 @@ Although the binding of variables is treated informally, the binding of the
 name $a$ in the form $\new{a}{t}$ must be treated more carefully. Strictly
 speaking, the form $\new{a}{t}$ is the equivalence class of pairs of names and
 terms that contains $(a, t)$ under the usual $\alpha$-equivalence relation
-\[(a, t) \sim (a', t') \quad\Leftrightarrow\quad \freshin{b}{ (ab) \cdot t =
-(a'b) \cdot t'}.\]
+\begin{equation} (a, t) \sim (a', t') \quad\Leftrightarrow\quad \freshin{b}{
+(ab) \cdot t = (a'b) \cdot t'}. \end{equation}
 %
 Therefore for any fresh name $b$,
 $\new{a}{t} = \new{b}{(ab) \cdot t}$, where the equality in this statement is
 literally equality, not simply equivalence-up-to-$\alpha$.
 
-\subsection{Syntax of Actions}
+\subsection{Syntax of Actions} \label{syn:actions}
 
-Actions are given by the following grammar, where $t$ ranges over closed terms
-(i.e. those terms $t$ with $\fv{t} = \varnothing$), $a$ ranges over names and
-$\ell$ over labels.
-\[\begin{array}{lclcl} p &::=&
+Actions are given by the following grammar, where $t$ ranges over closed terms,
+$a$ ranges over names and $\ell$ over labels.
+\begin{equation} \begin{array}[t]{lclcl} p &::=&
 \quad \bangaction &\qquad&\text{prefixing}
 \\
 %
@@ -127,12 +135,12 @@ $\ell$ over labels.
 &&\bigmid \absaction{p} && \text{recursive type actions}\\
 %
 &&\bigmid \newaction{a}{p} && \text{new name actions}\\
-\end{array}\]
+\end{array} \end{equation}
 The form $\newaction{a}{p}$ binds the name $a$ in the same way that $a$ is
 bound in the term $\new{a}{t}$.
 
 The permutation action on terms and actions is as follows.
-\[\begin{array}{rclcrcl} \sigma \cdot \termvar{x} &=& \termvar{x} &&
+\begin{equation} \begin{array}[t]{rclcrcl} \sigma \cdot \termvar{x} &=& \termvar{x} &&
 %
 \sigma \cdot (\rec{x}{t}) &=& \rec{x}{(\sigma \cdot t)} \\
 %
@@ -173,6 +181,6 @@ p)}{x}{(\sigma \cdot t)}{\typeP}} \\
 \sigma \cdot (\newaction{a}{p}) &=& \newaction{(\sigma \cdot a)}{(\sigma \cdot p)} \\
 %
 \sigma \cdot (\absaction{p}) &=& \absaction{(\sigma \cdot p)} \\
-\end{array}\]
+\end{array} \end{equation}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s tw=0 nowrap:

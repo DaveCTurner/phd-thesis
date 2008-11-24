@@ -18,8 +18,8 @@ $\tjudge{s_1}{\Delta}{v}{\typeR}$, and $\Gamma'$ is a reordering of the
 environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
 \envvarfresh{yn}{\typeR}{r_n}$. Let $r = r_1 \cup \ldots \cup r_n$. Suppose
 also that $\dom\Gamma \cap \dom\Delta = \varnothing$ and that $s_1 \cap r =
-\varnothing$. Then \[\tjudge{s \cup
-s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} } {t[v]}{\typeP}\] where $t[v]$
+\varnothing$. Then \begin{equation} \tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} } {t[v]}{\typeP} \end{equation} where $t[v]$
 is the term obtained by simultaneously substituting $v$ for the variables
 $\termvar{y1}, \ldots, \termvar{yn}$ in $t$.
 

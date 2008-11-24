@@ -4,7 +4,7 @@ The substitution $\termsubst{t}{v}{y}$ of a term $v$ for the variable
 $\termvar{y}$ in a term $t$ is defined by recursion on $t$ as follows.
 %
 % Definition of substitution {{{
-\[\begin{array}{ccc}
+\begin{equation} \begin{array}[t]{ccc}
 %
 \termsubst{\termvar{y}}{v}{y} = v
 %
@@ -46,13 +46,14 @@ $\termvar{y}$ in a term $t$ is defined by recursion on $t$ as follows.
 \rule{0pt}{3ex}
 \termsubst{\left( \ndsum{i}{I}{t_i} \right)}{v}{y} = 
 	\ndsum{i}{I}{(\termsubst{t_{i}}{v}{y})} &&
-\end{array}\]
+\end{array} \end{equation}
 % }}}
-As discussed above, substitution is capture-avoiding in both names and variables,
-in the sense that for substitution into a term of the forms \[\rec{x}{t}
-\qquad \matchz{s}{u}{p}{x}{t}{\typeP} \qquad \abstract{x}{t}\] the variable $\termvar{x}$
-is assumed not to be free in $v$, and for substitution into a term of the form
-\[\new{a}{t}\] the name $a$ is chosen to be fresh for $v$.
+As discussed above, substitution is capture-avoiding in both names and
+variables, in the sense that for substitution into a term of the forms
+\begin{equation} \rec{x}{t} \qquad \matchz{s}{u}{p}{x}{t}{\typeP} \qquad
+\abstract{x}{t} \end{equation} the variable $\termvar{x}$ is assumed not to be
+free in $v$, and for substitution into a term of the form \begin{equation}
+\new{a}{t} \end{equation} the name $a$ is chosen to be fresh for $v$.
 
 \begin{lemma}[Equivariance of Substitution] For any permutation $\sigma$,
 terms $t$ and $v$ and variable $\termvar{y}$, \[\sigma \cdot

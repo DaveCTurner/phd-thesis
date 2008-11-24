@@ -4,13 +4,16 @@
 Nominal HOPLA is given an operational semantics in the style of a labelled
 transition system. That a term $t$ such that $\tjudge{}{}{t}{\typeP}$ may
 perform an action $p$ such that $\atjudge{}{\typeP}{p}{\typePp}$ and resume as
-the term $t'$ is written \[\ajudge{\typeP}{t}{p}{t'}.\] The operational
+the term $t'$ is written \begin{equation} \ajudge{\typeP}{t}{p}{t'}.
+\end{equation}
+%
+The operational
 semantics of closed, well-typed terms are defined below. These rules define
 the semantics only of well-typed terms in the sense that each of these rules
 has an additional premise, omitted for clarity, that the term on the left of
 the transition in the conclusion has the correct type.
 %
-\[\begin{array}{ccc}
+\begin{equation} \begin{array}[t]{ccc}
 % ===========================================================================
 %                                      REC
 \infer
@@ -99,7 +102,7 @@ the transition in the conclusion has the correct type.
 {\ajudge{\typeP}{\ndsum{i}{I}{t_i}}{p}{t'}}
 {\ajudge{\typeP}{t_{i_0}}{p}{t'}}
 % ===========================================================================
-\end{array}\]
+\end{array} \end{equation}
 
 \subsection{Properties of the Operational Semantics}
 
