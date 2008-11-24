@@ -254,7 +254,10 @@ and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq
 \typeP$ such that $\finelt{F}{s} = \finelt{F'}{s'}$.  \end{lemma}
 
 \begin{proof} Let $\bar{s} = s' \cup \bigcup_{p \in F} \supp{p}$ and note that
-since $F$ is finite, $\bar{s}$ is finite and $\supp{F} \subseteq \bar{s}$.  Let
+since $F$ is finite it follows that $\bar{s}$ is finite and $\supp{F} \subseteq
+\bar{s}$.
+%
+Let
 $s''$ be a finite set of fresh names of greater cardinality that $\bar{s}$ and
 let $\Sigma = \{\sigma \mid \supp{\sigma} \subseteq (\bar{s} \cup s'') \setminus
 s \}$.  Let $F' = \bigcup_{\sigma \in \Sigma} \sigma \cdot F$ and note that
