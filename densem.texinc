@@ -456,14 +456,14 @@ This covers the case where $\termvar{x}$ is the only free variable of $t$.
 %
 More generally, if
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}{t}{\typeP}$
-then it is necessary to use the strength map $s$ of \ref{def:strength} to pass
+then it is necessary to use the strength map $S$ of \ref{def:strength} to pass
 the extra parameters to $t$ as follows.
 %
 \begin{equation} \begin{array}[t]{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{\varnothing}{u}{\bangaction}{x}{t}{\typeQ}}{\typeP}}
 \\ \quad {} \defeq \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}{t}{\typeP}}
-\circ s_{\Gamma, \typeQ} \circ (\mathbf{1}_{\Gamma} \amp
+\circ S_{\Gamma, \typeQ} \circ (\mathbf{1}_{\Gamma} \amp
 \sem{\tjudge{s}{\Lambda}{u}{\typelift\typeQ}}). \end{array} \end{equation}
 %
 Even more generally, the type of $u$ may be $\typeQp$ and not be in the form
@@ -479,7 +479,7 @@ action $q$ can be achieved using the map $\sem{\atjudge{s}{\typeQp}{q}{\typeQ}}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{\varnothing}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \\ \quad {} \defeq \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}{t}{\typeP}}
-\circ s_{\Gamma, \typeQ} \\ \quad {} \circ (\mathbf{1}_{\Gamma} \amp
+\circ S_{\Gamma, \typeQ} \\ \quad {} \circ (\mathbf{1}_{\Gamma} \amp
 (\sem{\atjudge{s}{\typeQp}{q}{\typeQ}} \circ
 \sem{\tjudge{s}{\Lambda}{u}{\typeQp}})). \end{array} \end{equation}
 %
@@ -497,7 +497,7 @@ defined in \ref{def:phibang-vec}, then \begin{equation*} \begin{array}[t]{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \\ \quad {} \defeq \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
-\circ s_{\Gamma, \typeQ^{\freshfor s'}} \\ \quad {} \circ
+\circ S_{\Gamma, \typeQ^{\freshfor s'}} \\ \quad {} \circ
 \left(\mathbf{1}_{\Gamma} \amp \left(\widehat{\phi^{{!}(s')}_{\typeQ}} \circ
 \sem{\atjudge{s''}{\typeQp}{q}{\typeQ}}^{\freshfor s'++} \circ
 \sem{\tjudge{s''}{\Lambda}{u}{\typeQp}}^{\freshfor s'++} \right) \right).

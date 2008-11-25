@@ -397,7 +397,7 @@ s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envfres
 &=& \epsilon_{\typeP} \circ {!}\sem{\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envvarfresh{x}{\typeQp}{s'}}
 } {t[v]}{\typeP}} \circ
-\mathbf{str}^{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}_{\typeQp^{\freshfor
+S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor
 s'}} \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor
 r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup
 s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup
@@ -411,7 +411,7 @@ s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 {!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} }
 {t}{\typeP}} \circ {!}(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor
 s'}} \amp \sem{v}^{n}) \circ
-\mathbf{str}^{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}_{\typeQp^{\freshfor
+S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor
 s'}} \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor
 r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup
 s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup
@@ -423,7 +423,7 @@ s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 %
 &=& \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} }
-{t}{\typeP}} \circ \mathbf{str}^{\Gamma'}_{\typeQp^{\freshfor s'}} \circ
+{t}{\typeP}} \circ S_{\Gamma', \typeQp^{\freshfor s'}} \circ
 (\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor s'}} \amp \sem{v}^{n})
 \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}}
 \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup
@@ -436,7 +436,7 @@ s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 %
 &=& \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} }
-{t}{\typeP}} \circ \mathbf{str}^{\Gamma'}_{\typeQp^{\freshfor s'}} \circ
+{t}{\typeP}} \circ S_{\Gamma', \typeQp^{\freshfor s'}} \circ
 (\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor s'}} \amp \sem{v}^{n})
 \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}}
 \amp (\widehat{\phi_{\typeQp}} \circ
@@ -450,7 +450,7 @@ s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 %
 &=& \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} }
-{t}{\typeP}} \circ \mathbf{str}^{\Gamma'}_{\typeQp^{\freshfor s'}} \circ
+{t}{\typeP}} \circ S_{\Gamma', \typeQp^{\freshfor s'}} \circ
 \bigl(\mathbf{1}_{\Gamma'} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ
 \sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \circ
 \sem{\tjudge{s''}{\Lambda'}{u}{\typeQ}}^{\freshfor s'++}) \bigr) \\&&{} \circ

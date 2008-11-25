@@ -1274,20 +1274,20 @@ The composition \begin{equation} \label{def:strength} \xymatrix{ \matthat{\typeP
 \widehat{\typelift\typeQ} \ar[r]^{n_{\typelift\typeP, \typelift\typeQ}} &
 \matthat{\typelift\typeP \times \typelift\typeQ} \ar[r]^{\widehat{m^{!}_{\typeP,
 \typeQ}}} & \matthat{\typelift(\typeP \amp \typeQ)} }\end{equation} defines a
-natural strength map $s_{\typeP, \typeQ}$ for the monad $({!}, \eta,
+natural strength map $S_{\typeP, \typeQ}$ for the monad $({!}, \eta,
 \epsilon_{!})$.
 %
 Concretely, if $x \in \widehat{\typeP}$ and $Y \in \widehat{\typelift\typeQ}$
-then \begin{equation} \label{concrete:strength} s_{\typeP, \typeQ} (x \uplus Y)
-= \{ P \uplus Q \mid P \subseteq x \wedge P \in \typelift\typeP \wedge Q \in Y
+then \begin{equation} \label{concrete:strength} S_{\typeP, \typeQ} (x \uplus Y)
+= \{ P \uplus Q \mid P \subseteq x, P \in \typelift\typeP \text{ and } Q \in Y
 \}. \end{equation}
 %
 It follows that if $x \in \widehat{\typeP}$ and $y \in \widehat{\typeQ}$ then
 \begin{equation} \label{strength:eta} \begin{array}[t]{rcl}
-\multicolumn{3}{l}{s_{\typeP, \typeQ} \circ (\mathbf{1}_{\typeP} \amp
+\multicolumn{3}{l}{S_{\typeP, \typeQ} \circ (\mathbf{1}_{\typeP} \amp
 \eta_{\typeQ}) (x \uplus y)} \\
 %
-&=& s_{\typeP, \typeQ} \circ (x \uplus \{ Q \in \typelift\typeQ \mid Q \subseteq
+&=& S_{\typeP, \typeQ} \circ (x \uplus \{ Q \in \typelift\typeQ \mid Q \subseteq
 y\}) \\
 %
 &=& \{ P \uplus Q \mid P \in \typelift\typeP \wedge Q \in \typelift\typeQ \wedge
