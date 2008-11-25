@@ -286,10 +286,10 @@ $\logrel{\bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varn
 \langle \gamma \rangle = \varnothing}{\typeP}{\rec{x}{t[v]}}$. Suppose that the
 result is true at $n$,
 then \[\begin{array}{rcll} \bigl(\sem{t}^*\bigr)^{n+1}\langle \gamma \rangle &=& \sem{t}
-\circ (\mathbf{1}_{\sem{\Gamma}} \times \bigl(\sem{t}^*\bigr)^n) \circ
+\circ (\mathbf{1}_{\sem{\Gamma}} \amp \bigl(\sem{t}^*\bigr)^n) \circ
 \Delta_{\sem{\Gamma}} \langle \gamma \rangle \\
 &=& \sem{t}
-\circ (\mathbf{1}_{\sem{\Gamma}} \times \bigl(\sem{t}^*\bigr)^n) \langle \gamma, \gamma \rangle \\
+\circ (\mathbf{1}_{\sem{\Gamma}} \amp \bigl(\sem{t}^*\bigr)^n) \langle \gamma, \gamma \rangle \\
 &=& \sem{t} \langle \gamma, \bigl(\sem{t}^*\bigr)^n \gamma \rangle \\
 &\trianglelefteq_{\typeP} & \termsubst{t[v]}{\rec{x}{t[v]}}{x} & \text{by
 induction} \\
