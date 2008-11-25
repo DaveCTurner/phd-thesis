@@ -307,7 +307,7 @@ induction} \\
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda \rangle$, then by the
 denotational semantics there exists $Q \in \typelift\typeQp$ such that $p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} }
-\langle \gamma, Q \rangle$ and $Q \in
+\langle \gamma, Q_\downarrow \rangle$ and $Q \in
 \bigl(\sem{\atjudge{s''}{\typeQ}{q}{\typeQp}} \circ
 \sem{\tjudge{s''}{\Lambda}{u}{\typeQ}} \bigr) \langle \lambda \rangle$. By
 induction on $u$, $\logrel{\sem{\tjudge{s''}{\Lambda}{u}{\typeQ}} \langle
