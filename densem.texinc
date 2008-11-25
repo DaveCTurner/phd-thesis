@@ -727,8 +727,8 @@ $\mathrm{fix}(f^*)$ defined as follows.
 %
 Let $g_0 = \varnothing \in \mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ and for each
 $n \in \omega$ define $g_{n+1} = f \circ (\mathbf{1}_{\Gamma} \amp g_n) \circ
-\Delta_{\sem{\Gamma}}$, then $\mathrm{fix}(f^*) \langle \gamma \rangle =
-\bigcup_{n \in \omega} g_n \langle \gamma \rangle$.
+\Delta_{\sem{\Gamma}}$, then $\mathrm{fix}(f^*) \langle \gamma \rangle_\Gamma =
+\bigcup_{n \in \omega} g_n \langle \gamma \rangle_\Gamma$.
 %
 This fixed point gives a semantics for terms of the form $\rec{x}{t}$ as
 follows.
@@ -914,13 +914,15 @@ collection of judgements $\tjudge{s_i}{\Gamma}{t_i}{\typeP}$ for each $i \in I$.
 %
 Let $\gamma \in \semp{\Gamma}$.
 %
-Then \[\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle\gamma\rangle
-= \bigcup_{i \in I} \bigl( \sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}}
-\langle\gamma\rangle \bigr).\] \end{lemma}
+Then \[\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}
+\langle\gamma\rangle_\Gamma = \bigcup_{i \in I} \bigl(
+\sem{\tjudge{s_i}{\Gamma}{t_i}{\typeP}} \langle\gamma\rangle_\Gamma \bigr).\]
+\end{lemma}
 
 \begin{proof} Since the join in $\matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times
 \typeP}$ that defines $\sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}}$ is
-given by union, this follows immediately from \ref{densem:ndsum}.  \end{proof}
+given by pointwise union, this follows immediately from \ref{densem:ndsum}.
+\end{proof}
 
 
 
