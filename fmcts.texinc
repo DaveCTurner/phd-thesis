@@ -417,12 +417,12 @@ Following the development of HOPLA, it will be possible to characterise
 FM-continuous maps in terms of FM-linear maps whose domain is under an
 exponential ${!}$ which captures the appropriate notion of approximation.  Here,
 $\typelift\typeP$ will consist of the all elements of the form $\finelt{F}{s}$
-where $F \subseteq_{\mathrm{fin}} \typeP$ and the ordering is given by letting
-$\finelt{F}{s} \le_{\typelift\typeP} \finelt{F'}{s'}$ whenever $\finelt{F}{s}
-\subseteq \finelt{F'}{s'\downarrow}$.
+where $F \subseteq_{\mathrm{fin}} \typeP$ and $s$ supports $\typeP$ and the
+ordering is given by letting $P \le_{\typelift\typeP} P'$ whenever $P \subseteq
+P'_\downarrow$.
 %
 Write $i_{\typeP}$ for the map $i_{\typeP} : \typelift\typeP \to
-\widehat{\typeP}$ given by $i_{\typeP} \finelt{F}{s} = \finelt{F}{s\downarrow}$.
+\widehat{\typeP}$ given by $i_{\typeP} P \defeq P_\downarrow$.
 
 Each $\widehat{\typeP}$ is the free uniformly-supported-directed-join completion
 of $\typelift\typeP$. In detail, this means that $\widehat{\typeP}$ has all
