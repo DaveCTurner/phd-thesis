@@ -435,7 +435,7 @@ is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
 & \widehat{\typeP} \ar[d]^{f^{\ddagger}} \\& C} \end{equation} 
 %
 The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x \defeq
-\bigvee\{f P_\downarrow \mid P \in \typelift\typeP \wedge P \subseteq x \wedge
+\bigvee\{f P_\downarrow \mid P \in \typelift\typeP, P \subseteq x \text{ and }
 \supp{P} \subseteq \supp{x, \typeP} \}.\end{equation}
 %
 Note that this is well-defined since the join is taken over a directed set that
@@ -495,11 +495,11 @@ approximation by uniformly-supported directed sets, as the following lemma
 shows.
 
 \begin{lemma}[Algebraicity of $\widehat{\typeP}$] \label{bang:alg} If $x \in
-\widehat{\typeP}$ then \[ x = \bigcup \{P_\downarrow \mid P \in \typelift\typeP
-\mid P \subseteq x \wedge \supp{P} \subseteq \supp{x, \typeP} \} \] \end{lemma}
+\widehat{\typeP}$ then \[ x = \bigcup \{P_\downarrow \mid P \in \typelift\typeP,
+P \subseteq x \text{ and } \supp{P} \subseteq \supp{x, \typeP} \} \] \end{lemma}
 
 \begin{proof} Certainly $x \supseteq \bigcup \{P_\downarrow \mid P \in
-\typelift\typeP \mid P \subseteq x \wedge \supp{P} \subseteq \supp{x, \typeP}
+\typelift\typeP, P \subseteq x \text{ and } \supp{P} \subseteq \supp{x, \typeP}
 \}$.
 %
 To see the converse let $p \in x$ and let $P = \finelt{\{p\}}{\supp{x,
@@ -515,8 +515,8 @@ Let $p' \in P_\downarrow$ then by definition there exists $\sigma \freshfor
 p \in \sigma \cdot x = x$ and hence $p' \in x$.
 %
 Therefore $P_\downarrow \subseteq x$ so as required it follows that \[p \in
-\bigcup \{P_\downarrow \mid P \in \typelift\typeP \mid P \subseteq x \wedge
-\supp{P} \subseteq \supp{x, \typeP} \}. \qedhere\] \end{proof}
+\bigcup \{P_\downarrow \mid P \in \typelift\typeP, P \subseteq x \text{ and }
+\supp{P} \subseteq \supp{x, \typeP} \} . \qedhere\] \end{proof}
 
 Lemma \ref{bang:alg} ensures the uniqueness of $f^{\ddagger}$, and in
 particular if $f$ and $g$ are FM-continuous maps $\typeP \cto \typeQ$ and $f
