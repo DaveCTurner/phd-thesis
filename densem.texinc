@@ -142,12 +142,6 @@ m_{\sem{\Gamma}, \typeP^{\freshfor s}} \circ \Bigl( \langle \mathord{\cdot}
 Therefore \begin{equation} \label{densem:angles} \langle \gamma, p
 \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} = \langle \gamma
 \rangle_{\Gamma} \uplus \{x \in p \mid x \freshfor s\}. \end{equation}
-%
-Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
-\rangle$.
-
-\TODO{It is always ambiguous to write $\langle \cdot \rangle_\Gamma$ as $\langle
-\cdot \rangle$.}
 
 
 %Given $f : \typefresh{\typeP}{{s}} \to \typefresh{\typePp}{{s'}}$, define $\envsubst{\Gamma}{f}{x} : \sem{\envsubst{\Gamma}{\envvarfresh{x}{\typeP}{{s}}}{x}} \to \sem{\envsubst{\Gamma}{\envvarfresh{x}{\typePp}{{s'}}}{x}}$ as follows.

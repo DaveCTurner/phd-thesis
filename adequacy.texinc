@@ -197,6 +197,9 @@ $\logrel{P}{\typePp}{t'}$.
 
 \begin{proof} The proof is by mutual induction on the respective derivations of
 $\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
+%
+Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
+\rangle$.
 
 \subparagraph{Variable} Here $n = 1$, $\typePsub{1} = \typeP$, $t =
 \termvar{x}_1$, $\gamma = \gamma_1$ and $s = s_1 = \varnothing$.
