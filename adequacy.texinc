@@ -227,7 +227,7 @@ Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 \end{array}\]
 where $[v']$ is the simultaneous substitution of $v_i$ for $x_i$ for $i \in
 \{1, \ldots, n\}$ only. However $t[v'] = t[v]$ since $x_{n+1}$ does not appear
-free in $t$ (\TODO{weakening does not add free variables - by induction}) which yields the desired result.
+free in $t$ which yields the desired result.
 
 \subparagraph{Exchange} 
 \[\begin{array}{rcll} \multicolumn{4}{l}{
