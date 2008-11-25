@@ -518,7 +518,12 @@ Therefore $P_\downarrow \subseteq x$ so as required it follows that \[p \in
 \bigcup \{P_\downarrow \mid P \in \typelift\typeP, P \subseteq x \text{ and }
 \supp{P} \subseteq \supp{x, \typeP} \} . \qedhere\] \end{proof}
 
-Lemma \ref{bang:alg} ensures the uniqueness of $f^{\ddagger}$, and in
+Lemma \ref{bang:alg}, together with the argument of lemma
+\ref{alg-ideal-completion}, demonstrates that $\widehat{\typeP} \cong
+\mathrm{Idl}(\typelift\typeP)$.
+%
+Lemma \ref{bang:alg}, together with the argument of lemma
+\ref{alg-cts-isolated}, also ensures the uniqueness of $f^{\ddagger}$, and in
 particular if $f$ and $g$ are FM-continuous maps $\typeP \cto \typeQ$ and $f
 \circ i_{\typeP} = g \circ i_{\typeP}$ then \begin{equation} \label{bang:epi} f
 = (f \circ i_{\typeP})^{\ddagger} = (g \circ i_{\typeP})^{\ddagger} = g.
