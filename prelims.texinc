@@ -883,7 +883,7 @@ such that $A \subseteq B_i$.
 \mathbb N$ such that $A \subseteq B_n$.
 %
 \item \label{finite:dedekind} Dedekind's definition: $A$ is finite if there
-exists no injection into one of its proper subsets.  \end{enumerate}
+exist no injections into any of its proper subsets.  \end{enumerate}
 
 All of these definitions coincide in classical ZFC set theory, but the situation
 is more complicated within nominal set theory as the following lemma shows.
