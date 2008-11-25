@@ -247,10 +247,12 @@ The hom-set $\mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$ is $\omega$-complete which
 gives rise to a semantics for recursive processes (\ref{densem:rec}) as the
 $\omega$-limit of their finite unfoldings.
 
-The hom-sets may be collected together to form $\bigcup_{s
-\subseteq_{\mathrm{fin}} \mathbb A} \mathbf{FMCts}_s(\sem{\Gamma}, \typeP)$
-which has more general joins than merely those of $\omega$-chains, and such
-joins give rise to a semantics for nondeterministic sums (\ref{densem:ndsum}).
+By \ref{cts:homsets} the hom-sets may be collected together to form
+\begin{equation} \bigcup_{s \subseteq_{\mathrm{fin}} \mathbb A}
+\mathbf{FMCts}_s(\sem{\Gamma}, \typeP) \cong
+\matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times \typeP} \end{equation} which has
+more general joins than merely those of $\omega$-chains, and such joins give
+rise to a semantics for nondeterministic sums (\ref{densem:ndsum}).
 
 The adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
 \leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$ of \ref{deltafreshadjcts} gives
