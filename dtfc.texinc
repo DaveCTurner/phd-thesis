@@ -158,7 +158,7 @@ the purposes of this discussion.}.
 Importantly, the isolated elements of an algebraic $\Phi$CPO determine its
 structure precisely, as the following lemma shows.
 
-\begin{lemma}
+\begin{lemma} \label{alg-ideal-completion}
 If $\langle D, \sqsubseteq_D \rangle$ is an algebraic $\Phi$CPO then $D \cong
 \mathrm{Idl}_{\Phi}(D^\circ)$.
 \end{lemma}
@@ -197,8 +197,8 @@ It is now straightforward to show that $f$ and $g$ define an isomorphism $D
 Also if $f : D \to E$ is $\Phi$-continuous and $D$ is algebraic then $f$ is
 entirely specified by its action on $D^\circ$ as the following lemma shows.
 
-\begin{lemma} Let $\langle D, \sqsubseteq_D \rangle$ be an algebraic
-$\Phi$CPO and let \[ f, g : \langle D, \sqsubseteq_D \rangle
+\begin{lemma} \label{alg-cts-isolated} Let $\langle D, \sqsubseteq_D \rangle$ be
+an algebraic $\Phi$CPO and let \[ f, g : \langle D, \sqsubseteq_D \rangle
 \rightrightarrows \langle E, \sqsubseteq_E \rangle \] be two arrows of
 $\mathbf{\Phi CPO}$ such that $f(d) = g(d)$ for every $d \in D^\circ$.  Then $f
 = g$.  \end{lemma}

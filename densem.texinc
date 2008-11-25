@@ -19,9 +19,8 @@ by extension.
 It is therefore possible to construct a denotation for $\typeP$ in terms of a
 language of paths, given by the grammar \begin{equation} p ::= Q \mid
 \mappath{Q}{p} \mid \labelpath{\ell}{p} \mid \abspath{p} \mid \newpath{a}{p},
-\end{equation} where $Q$ is a set of paths of the form $\bigcup_{\sigma
-\freshfor s} \sigma \cdot \{p_1, \ldots, p_n\}$, $\ell$ is a label and $a$ is a
-name.
+\end{equation} where $Q$ is a set of paths of the form $\finelt{\{p_1, \ldots,
+p_n\}}{s}$, $\ell$ is a label and $a$ is a name.
 %
 A path of the form $\mappath{Q}{p}$ denotes a pair $\langle Q, p \rangle$ in the
 continuous function space $\typemap{\typeQ}{\typeP} =
@@ -42,8 +41,8 @@ To capture this intuition, paths are typed by judgements of the form $p :
 \typeP$ according to the following rules.  \begin{equation}
 \begin{array}[t]{ccc}
 %
-\infer{\bigcup_{\sigma \freshfor s} \sigma \cdot \{p_1, \ldots, p_n\} :
-\typelift\typeP} {p_1 : \typeP & \ldots & p_n : \typeP} &\quad&
+\infer{\finelt{\{p_1, \ldots, p_n\}}{s} : \typelift\typeP} {p_1 : \typeP &
+\ldots & p_n : \typeP} &\quad&
 %
 \infer{\mappath{Q}{p} : \typemap{\typeQ}{\typeP}} {Q : \typelift\typeQ & p :
 \typeP} \\
@@ -113,9 +112,6 @@ empty support and therefore an object of $\mathbf{FMPre}_\varnothing$.
 %
 Importantly, this implies that for all names $a$ it is the case that $\delta_a
 \typeP = \delta \typeP$.
-
-\TODO{$\typelift\typeP$ given here is merely isomorphic to the ${!}\typeP$
-defined above - what to do?}
 
 \subsection{Environments as Products}
 
@@ -458,14 +454,14 @@ This covers the case where $\termvar{x}$ is the only free variable of $t$.
 %
 More generally, if
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}{t}{\typeP}$
-then it is necessary to use the strength map $s$ of \ref{def:strength} to pass
+then it is necessary to use the strength map $S$ of \ref{def:strength} to pass
 the extra parameters to $t$ as follows.
 %
 \begin{equation} \begin{array}[t]{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{\varnothing}{u}{\bangaction}{x}{t}{\typeQ}}{\typeP}}
 \\ \quad {} \defeq \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}{t}{\typeP}}
-\circ s_{\Gamma, \typeQ} \circ (\mathbf{1}_{\Gamma} \amp
+\circ S_{\Gamma, \typeQ} \circ (\mathbf{1}_{\Gamma} \amp
 \sem{\tjudge{s}{\Lambda}{u}{\typelift\typeQ}}). \end{array} \end{equation}
 %
 Even more generally, the type of $u$ may be $\typeQp$ and not be in the form
@@ -481,7 +477,7 @@ action $q$ can be achieved using the map $\sem{\atjudge{s}{\typeQp}{q}{\typeQ}}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{\varnothing}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \\ \quad {} \defeq \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}}{t}{\typeP}}
-\circ s_{\Gamma, \typeQ} \\ \quad {} \circ (\mathbf{1}_{\Gamma} \amp
+\circ S_{\Gamma, \typeQ} \\ \quad {} \circ (\mathbf{1}_{\Gamma} \amp
 (\sem{\atjudge{s}{\typeQp}{q}{\typeQ}} \circ
 \sem{\tjudge{s}{\Lambda}{u}{\typeQp}})). \end{array} \end{equation}
 %
@@ -499,7 +495,7 @@ defined in \ref{def:phibang-vec}, then \begin{equation*} \begin{array}[t]{l}
 \sem{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \\ \quad {} \defeq \epsilon_{\typeP} \circ
 {!}\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}}
-\circ s_{\Gamma, \typeQ^{\freshfor s'}} \\ \quad {} \circ
+\circ S_{\Gamma, \typeQ^{\freshfor s'}} \\ \quad {} \circ
 \left(\mathbf{1}_{\Gamma} \amp \left(\widehat{\phi^{{!}(s')}_{\typeQ}} \circ
 \sem{\atjudge{s''}{\typeQp}{q}{\typeQ}}^{\freshfor s'++} \circ
 \sem{\tjudge{s''}{\Lambda}{u}{\typeQp}}^{\freshfor s'++} \right) \right).
@@ -508,66 +504,101 @@ defined in \ref{def:phibang-vec}, then \begin{equation*} \begin{array}[t]{l}
 The semantics of prefix matching can be given a concrete, set theoretic,
 characterisation in terms of paths as follows.
 
-\TODO{Is this lemma an `iff'?}
-
 \begin{lemma}[Characterising Pattern Matching]
 \label{densem:match:characterisation} Suppose that $\gamma \in \semp{\Gamma}$,
-$\lambda \in \semp{\envfresh{\Lambda}{s'}}$ and \[p \in
+$\lambda \in \semp{\envfresh{\Lambda}{s'}}$ and $p \in \typeP$. Then \[p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda
-\rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}\] then there exists $Q$
-such that $p \in \sem{t} \langle \gamma, Q
+\rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}\] if and only if there
+exists $Q \in \typelift\typeQp$ such that $p \in \sem{t} \langle \gamma, Q
 \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ and $Q \in
 \bigl(\sem{q} \circ \sem{u}\bigr) \langle \lambda \rangle_{\Lambda}$ and $Q
-\freshfor s'$.
-\end{lemma}
+\freshfor s'$.  \end{lemma}
 
 \begin{proof} Let \begin{equation} f = \widehat{\phi^{{!}(s')}_{\typeQp}} \circ
 \sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \circ
 \sem{\tjudge{s''}{\Lambda}{u}{\typeQ}}^{\freshfor s'++}, \end{equation} then
-\begin{equation} \begin{array}[t]{rcl} p &\in&
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
-{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda
-\rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}} \\ \rule{0pt}{4ex}&=&
-\bigl(\epsilon_\typeP \circ {!}\sem{t} \circ s_{\Gamma,\typeQp^{\freshfor s'}}
-\circ (\mathbf{1}_{\Gamma} \amp f)\bigr) \langle \gamma, \lambda
-\rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}} \\ \rule{0pt}{4ex}&=&
-\mathord{\bigcup} \bigl( {!}\sem{t} \bigl( s_{\Gamma, \typeQp^{\freshfor s'}}
-(\langle \gamma \rangle_{\Gamma} \uplus f\langle \lambda
-\rangle_{\envfresh{\Lambda}{s'}}) \bigr)\bigr) \\ \end{array} \end{equation} and
-hence there exists $P \in {!}\sem{t} \bigl( s_{\Gamma, \typeQp^{\freshfor s'}}
-(\langle \gamma \rangle_{\Gamma} \uplus f\langle \lambda
-\rangle_{\envfresh{\Lambda}{s'}}) \bigr)\bigr)$ such that $p \in P$.
+\begin{equation} \begin{array}[t]{rcl} f \langle \lambda
+\rangle_{\envfresh{\Lambda}{s'}}
 %
-By the definition of the ${!}$ functor this means that $P$ is isolated and there
-exists $Q_0 \in s_{\Gamma, \typeQp^{\freshfor s'}} (\langle \gamma
-\rangle_{\Gamma} \uplus f\langle \lambda \rangle_{\envfresh{\Lambda}{s'}})$ such
-that $P \subseteq \sem{t}Q_0$, and hence $p \in \sem{t}Q_0$.
+&=& \left( \widehat{\phi^{{!}(s')}_{\typeQp}} \circ \bigl(\sem{q} \circ
+\sem{u}\bigr)^{\freshfor s'++} \circ \phi^{(s')}_{\sem{\Lambda}} \right) \langle
+\lambda \rangle_{\Lambda} \\
 %
-By \ref{concrete:strength} this means that $Q_0 = Q_1 \uplus Q_2$ where $Q_1
-\subseteq \langle \gamma \rangle_\Gamma$ is isolated and $Q_2 \in f \langle
-\lambda \rangle_{\envfresh{\Lambda}{s'}}$.
+&=& \left( \widehat{\phi^{{!}(s')}_{\typeQp}} \circ
+\phi^{(s')}_{\typelift\typeQp} \circ \bigl(\sem{q} \circ
+\sem{u}\bigr)^{\freshfor s'} \right) \langle \lambda \rangle_{\Lambda} \\
 %
-Therefore there exists $\gamma' \subseteq \gamma$ such that $Q_1 = \langle
-\gamma' \rangle_\Gamma$ so that by monotonicity it follows that $P \subseteq
-\sem{t}(\langle \gamma \rangle_\Gamma \uplus Q_2)$.
+&=& \widehat{\phi^{{!}(s')}_{\typeQp}} \bigl\{ Q \in (\sem{q} \circ \sem{u})
+\langle \lambda \rangle_{\Lambda} \mid Q \freshfor s' \bigr\} \\
 %
-Also, since $Q_2 \in f \langle \lambda \rangle_{\envfresh{\Lambda}{s'}} =
-\widehat{\phi_{\typeQp}} \bigl( (\sem{q} \circ \sem{u})^{\freshfor s'++} \langle
-\lambda \rangle_{\envfresh{\Lambda}{s'}} \bigr)$ this means that
-$\bigl(\phi_{\typeQp}^{-1} Q_2\bigr) \in \bigl(\sem{q} \circ
-\sem{u}\bigr)^{\freshfor s'++} \langle \lambda \rangle_{\envfresh{\Lambda}{s'}} =
-\bigl\{ Q \in \sem{q} \circ \sem{u} \langle \lambda \rangle_{\Lambda} \mid Q
-\freshfor s' \bigr\}$.
+&=& \bigl\{ \phi^{{!}(s')}_{\typeQp} Q \mid Q \in (\sem{q} \circ \sem{u})
+\langle \lambda \rangle_{\Lambda} \mid Q \freshfor s' \bigr\}_{\downarrow} \\
+%
+\end{array} \end{equation} so that $Q' \in f \langle \lambda
+\rangle_{\envfresh{\Lambda}{s'}}$ if and only if there exists $Q \in (\sem{q}
+\circ \sem{u}) \langle \lambda \rangle_{\Lambda}$ such that $Q \freshfor s'$ and
+$Q' \le_{\typelift\typeQp} \phi^{{!}(s')}_{\typeQp} Q$.
+%
+By definition this last condition is equivalent to $Q' \subseteq
+\bigl(\phi^{{!}(s')}_{\typeQp} Q\bigr)_\downarrow$ and by
+\ref{characterisation:phibang} this is equivalent to $Q' \subseteq
+\phi^{(s')}_{\typeQp} (Q_\downarrow)$.
 
-Letting $Q = \phi_{\typeQp}^{-1}Q_2$, this means that if $p \in
-\sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
+
+
+
+
+Unwinding definitions, 
+\begin{equation} \begin{array}[t]{rcl} 
+%
+\multicolumn{3}{l}{\sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda
-\rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}$ then there exists $Q$
-such that $p \in \sem{t} \langle \gamma, Q
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ and $Q \in
-\bigl(\sem{q} \circ \sem{u}\bigr) \langle \lambda \rangle_{\Lambda}$ and $Q
-\freshfor s'$ as required.  \end{proof}
+\rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}} \\
+%
+\rule{0pt}{4ex}&=& \bigl(\epsilon_\typeP \circ {!}\sem{t} \circ
+S_{\Gamma,\typeQp^{\freshfor s'}} \circ (\mathbf{1}_{\Gamma} \amp f)\bigr)
+\langle \gamma, \lambda \rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}} \\
+%
+\rule{0pt}{4ex}&=& \mathord{\bigcup} \bigl( {!}\sem{t} \bigl( S_{\Gamma,
+\typeQp^{\freshfor s'}} (\langle \gamma \rangle_{\Gamma} \uplus f\langle \lambda
+\rangle_{\envfresh{\Lambda}{s'}}) \bigr)\bigr) \\
+%
+\rule{0pt}{4ex} &=& \mathord{\bigcup} \bigl( {!}\sem{t} \{ G \uplus Q \mid G
+\subseteq \langle \gamma \rangle_{\Gamma}, G \in {!}\sem{\Gamma} \text{ and } Q
+\in f\langle \lambda \rangle_{\envfresh{\Lambda}{s'}} \} \bigr) \\
+%
+\rule{0pt}{4ex} &=& \mathord{\bigcup} \{ P \in \typelift\typeP \mid \exists G
+\in {!}\sem{\Gamma}, Q \in f\langle \lambda \rangle_{\envfresh{\Lambda}{s'}}
+\\&&\qquad \text{ such that } G \subseteq \langle \gamma \rangle_{\Gamma} \text{ and } P
+\subseteq \sem{t}(G \uplus Q)_\downarrow \}. \\
+%
+\end{array} \end{equation} 
+
+If $p \in \sem{\matchz{s'}{u}{q}{x}{t}{\typeQp}}$ then there exists $P$, $G$ and
+$Q'$ such that $p \in P \subseteq \sem{t}(G \uplus Q')_\downarrow$ where $G \in
+{!}\sem{\Gamma}$, $G \subseteq \langle \gamma \rangle_\Gamma$ and $Q' \in f
+\langle \lambda \rangle_{\envfresh{\Lambda}{s'}}$ so that by the discussion
+above there exists $Q \in (\sem{q} \circ \sem{u}) \langle \lambda
+\rangle_{\Lambda}$ such that $Q \freshfor s'$ and $Q' \subseteq
+\phi^{(s')}_{\typeQp} Q_\downarrow$.
+%
+By the monotonicity of $\sem{t}$ this means that $p \in \sem{t}\bigl( \langle
+\gamma \rangle_\Gamma \uplus \phi^{(s')}_{\typeQp} Q_\downarrow \bigr) = \sem{t}
+\langle \gamma, Q_\downarrow
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ as required.
+
+Conversely if there exists $Q \in (\sem{q} \circ \sem{u}) \langle \lambda
+\rangle_{\Lambda}$ such that $Q \freshfor s'$ and $p \in \sem{t} \langle \gamma,
+Q_\downarrow \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ then
+by algebraicity there exists $G \in {!}\sem{\Gamma}$ and $Q' \in
+{!}(\typeQp^{\freshfor s'})$ such that $G \uplus Q' \subseteq \langle \gamma,
+Q_\downarrow \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ and $p
+\in \sem{t} (G \uplus Q')_\downarrow$.
+%
+It follows from the discussion above that $Q' \in f \langle \lambda
+\rangle_{\envfresh{\Lambda}{s'}}$ so that $p \in
+\sem{\matchz{s'}{u}{q}{x}{t}{\typeQp}}$ as required.  \end{proof}
 
 
 
