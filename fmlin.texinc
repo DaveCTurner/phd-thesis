@@ -21,7 +21,7 @@ demonstrated in \ref{subsubsect:deltafreshadjlin} below.
 \subsection{Free Join-Completions of Path Orders}
 
 The collection of path sets over a nominal path order $\typeP$ may be ordered by
-inclusion to form the nominal partial order $\widehat{\typeP}$, which will be
+inclusion to form the nominal partial order $\widehat{\typeP}$, which can be
 interpreted as a domain of the meanings of processes of type $\typeP$. More
 generally, if $\typeP$ is any FM-preorder then define \begin{equation}
 \label{hat:objects} \widehat{\typeP} \defeq \{x_\downarrow \mid x

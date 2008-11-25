@@ -44,9 +44,9 @@ Axiom of Choice.
 In \ref{npre} the theory of nominal preorders is introduced, and is shown to be
 a straightforward combination of the theories of nominal sets and of classical
 preorders. In \ref{fmpre} this theory is generalised to include objects and
-arrows that have nontrivial finite supports, because the domain theory will need
-to make use of such structure. Then \ref{nominalnondeterministicdomains} builds
-a path-based semantics using preorders of computation paths and the induced
+arrows that have nontrivial finite supports, because the domain theory needs to
+make use of such structure. Then \ref{nominalnondeterministicdomains} builds a
+path-based semantics using preorders of computation paths and the induced
 `linear' maps are studied.
 %
 As mentioned above, linearity is too restrictive a condition on the maps and in
@@ -171,8 +171,8 @@ nominal set of all names (with the obvious permutation action) but $\mathbb A
 \mathbb A ^{\freshfor a}$ but $a = (ab) \cdot b \notin \mathbb A ^{\freshfor a}$
 so $\mathbb A^{\freshfor a}$ is not closed under the permutation action.
 
-It will turn out that it is worth being able to manipulate sets  such as
-$\mathbb A^{\freshfor a}$ as first-class objects. This is possible within
+It turns out that it is worth being able to manipulate sets  such as $\mathbb
+A^{\freshfor a}$ as first-class objects. This is possible within
 Fraenkel-Mostowski (FM) set theory.
 
 \subsection{Fraenkel-Mostowski Set Theory} \label{subsect:fm-set-theory}

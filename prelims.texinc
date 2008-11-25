@@ -59,8 +59,8 @@ concurrency within nominal set theory is accessible to conventional domain
 theorists as the name-theoretic details can be ignored when they are not
 relevant.
 
-The roots of nominal set theory lie in the study of syntax, so it will be
-introduced from this viewpoint.
+The roots of nominal set theory lie in the study of syntax, so it is
+introduced here from this viewpoint.
 %
 The theory rests on two key observations about names.
 %
@@ -135,7 +135,7 @@ Suppose that $|\{a \in \mathbb A \mid \sigma a \neq a\}| > 0$ and let $a \in
 In order to use the induction hypothesis, it is necessary to find an
 automorphism that moves strictly fewer names.
 %
-It will turn out that $\sigma \circ (a\ \sigma^{-1} a)$ is such an automorphism.
+It turns out that $\sigma \circ (a\ \sigma^{-1} a)$ is such an automorphism.
 %
 To see this, notice firstly that $\sigma \bigl((a\ \sigma^{-1} a) a\bigr) = a$.
 %
@@ -265,10 +265,11 @@ factorisation in the desired form.
 %
 \end{proof}
 
-It will sometimes be useful to be able to extend an injection $i : s
-\rightarrowtail \mathbb A$ into a permutation $\sigma_i : \mathbb A \to \mathbb
-A$. This is always possible if $s$ is finite, although there will be more than
-one choice for $\sigma_i$ if $|s| > 1$.
+It is sometimes useful to be able to extend an injection $i : s \rightarrowtail
+\mathbb A$ into a permutation $\sigma_i : \mathbb A \to \mathbb A$.
+%
+This is always possible if $s$ is finite, although there is never a unique such
+permutation.
 
 \begin{lemma} \label{lemma:injextension} If $s \subseteq_{\mathrm{fin}} \mathbb
 A$ and $i : s \rightarrowtail \mathbb A$ is an injection then there exists a
@@ -277,7 +278,7 @@ $i$.  \end{lemma}
 
 \begin{proof} The proof proceeds by induction on $|s|$.
 %
-If $s = \varnothing$ then any permutation will do for $\sigma_i$.
+If $s = \varnothing$ then any permutation suffices for $\sigma_i$.
 %
 Now suppose that $a \notin s$ and $i : s \udot \{a\} \rightarrowtail \mathbb A$,
 and let $i' = i|_s : s \rightarrowtail \mathbb A$.
@@ -544,9 +545,9 @@ It is not hard to see that if $s$ supports $f$ then $\sigma \cdot s$ supports
 $\sigma \cdot f$ so that $X \to_{\mathrm{fs}} Y$ does have a well-defined
 $\mathcal{G}$-action.
 
-The remainder of this discussion will barely mention the fact that any
-particular object that has been constructed --- even powersets and function
-spaces --- is finitely supported.
+The remainder of this discussion barely mentions the fact that any particular
+object that has been constructed --- even powersets and function spaces --- is
+finitely supported.
 %
 This is justified by the following principle.
 
@@ -685,15 +686,15 @@ FCB then write $\freshin{b}{f b}$ for the unique $x \in X$ such that for any
 name $b \freshfor f$ it is the case that $f b = x$.  \end{definition}
 
 When performing calculations involving terms of the form $\freshin{b}{f b}$, it
-will be common to pick a particular name $b$ that is fresh for $f$ and calculate
+is common to pick a particular name $b$ that is fresh for $f$ and calculate
 using $f b$.
 %
 Everything in the remainder of this discussion is finitely supported so it is
 always possible to simply pick a name that is asserted to be `fresh', which
 means that it is fresh for everything that has already been mentioned.
 %
-It will also normally be clear that the $f$ used in the term $\freshin{b}{f b}$
-does satisfy the FCB, so this fact will rarely be mentioned.
+It is also normally clear that the $f$ used in the term $\freshin{b}{f b}$ does
+satisfy the FCB, so this fact is rarely mentioned.
 %
 The following lemma illustrates a simple calculation using
 $\freshin{\ldots}{\ldots}$.
@@ -729,7 +730,7 @@ componentwise.
 By an abstract argument that relies on the characterisation of $\otimes$ as the
 Day tensor, $\mathbf{NSet}$ is $\otimes$-monoidal closed.
 %
-In fact this discussion will only use this tensor as part of the functor $(-)
+In fact this discussion only uses this tensor as part of the functor $(-)
 \otimes \mathbb A$ and it is possible to characterise its right adjoint, written
 $\delta$, as follows.
 %
@@ -827,8 +828,8 @@ elsewhere\cite{PittsAM:alpsri}.
 Notice that $\delta$ is a purely semantic construction, so it can be used even
 without any obvious notion of syntax.
 %
-For this reason, the word `binding' will be used to mean `related to the
-adjunction $(-)\otimes \mathbb A \dashv \delta$' in chapters \ref{domthy} and
+For this reason, the word `binding' is used to mean `related to the adjunction
+$(-)\otimes \mathbb A \dashv \delta$' in chapters \ref{domthy} and
 \ref{abstract-justification}, since these chapters are not concerned with
 syntax.
 %

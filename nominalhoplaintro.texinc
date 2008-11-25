@@ -3,7 +3,7 @@ Operational Semantics of Nominal HOPLA} \label{nomhopla} \chaptermark{Syntax and
 Operational Semantics}
 
 Nominal HOPLA is an expressive calculus for higher-order processes with
-nondeterminism and name-binding which will now be used to illustrate the domain
+nondeterminism and name-binding which can now be used to illustrate the domain
 theory of the previous section. Nominal HOPLA follows closely the development of
 HOPLA (Higher-Order Process LAnguage)\cite{nygaardwinskel1} and is inspired by
 the language new-HOPLA\cite{WZ04}.
@@ -30,7 +30,7 @@ related: HOPLA has no names, new-HOPLA treats names explicitly in its syntax,
 whereas the treatment of names in Nominal HOPLA is much more implicit.
 
 In order to present Nominal HOPLA it is necessary to give the language an
-abstract syntax, and this syntax will include some binding operators such as
+abstract syntax, and this syntax includes some binding operators such as
 $\abstract{x}{t}$ which binds free occurrences of the variable $\termvar{x}$ in
 the term $t$. One of the earliest applications of nominal
 sets\cite{PittsAM:alpsri} was to formalise common informal arguments about
@@ -42,21 +42,23 @@ names.
 
 However, the structure of interest here is not the syntax of Nominal HOPLA but
 its semantics, and the binding of variables in its syntax is a distraction.
-To avoid confusion the binding of variables will be treated in the usual
-informal fashion: bound variables will always be distinct from the other
-variables in scope, and substitution will silently avoid capturing free
-variables. In particular, if $\termvar{x}$ is a variable and $\sigma$ is a
-permutation of the set of atoms then $\sigma \cdot \termvar{x} = \termvar{x}$.
+%
+To avoid confusion the binding of variables is treated in the usual informal
+fashion: bound variables are always distinct from the other variables in scope,
+and substitution silently avoids capturing free variables.
+%
+In particular, if $\termvar{x}$ is a variable and $\sigma$ is a permutation of
+the set of atoms then $\sigma \cdot \termvar{x} = \termvar{x}$.
 
 The design of Nominal HOPLA is motivated by universal constructions in the
 categories $(\mathbf{FMCts}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$, such as
 their cartesian closed structure (for higher-order processes) and the adjunction
 $(-)^{\freshfor a++} \dashv \delta^{++}_a$ (for names and name binding).
 %
-This motivation will become clear in chapter \ref{densem} which shows the
+This motivation should become clear in chapter \ref{densem} which shows the
 details of the denotational semantics.
 %
 Before that, the syntax (section \ref{syntax}), type system (section
-\ref{tjudge}) and operational semantics (section \ref{opsem}) will be presented.
+\ref{tjudge}) and operational semantics (section \ref{opsem}) are presented.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:

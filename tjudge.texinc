@@ -181,8 +181,8 @@ that name as $a$.
 The typing rules are directed by the syntax of terms, so that it is sometimes
 possible to derive information about the type of subterms from the type of a
 term.  The structural rules make this difficult to do in general, but for the
-purposes of this discussion it will be enough to be able to derive type
-information about subterms of a closed term.
+purposes of this discussion it is enough to be able to derive type information
+about subterms of a closed term.
 
 \TODO{Only seem to need rules (\ref{closedtermtypebackwardsbang}) and
 (\ref{closedtermtypebackwardsnew}) - can they be rationalised? They are used in
@@ -284,10 +284,12 @@ so that $\tjudge{s_2 \setminus \{a\}}{}{t}{\typedelta\typeP}$ as required.
 Actions are typed with judgements of the form $\atjudge{s}{\typeP}{p}{\typePp}$
 where $s$ is a finite set of names and $\typeP$ and $\typePp$ are types.
 Intuitively this means that $p$ is an action that terms of type $\typeP$ may
-perform and the resumption will be of type $\typePp$. As with typing
-judgements for terms the set $s$ helps with the presentation of the associated
-denotational semantics and lemma \ref{typerestrictsupport} shows that, if
-omitted, a suitable $s$ may be inferred from the rest of the typing judgement.
+perform and the resumption is of type $\typePp$.
+%
+As with typing judgements for terms the set $s$ helps with the presentation of
+the associated denotational semantics and lemma \ref{typerestrictsupport} shows
+that, if omitted, a suitable $s$ may be inferred from the rest of the typing
+judgement.
 
 \subsubsection{Support-Weakening (Actions)} It is possible to extend the
 `current' set $s$ of names.

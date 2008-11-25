@@ -379,18 +379,17 @@ $P = \finelt{F}{s}$ as required. \end{proof}
 The discussion of \ref{fm:continuity} indicates that `continuous' could be taken
 to mean
 `preserves joins of uniformly-supported directed sets' or equivalently
-`preserves joins of increasing sequences' - for brevity this will be called
+`preserves joins of increasing sequences' - for brevity this is called
 `FM-continuous'. Let $\mathbf{FMCts}_s$ be the category whose objects are
 FM-preorders $\typeP$, $\typeQ$, $\ldots$ supported by $s$ and whose arrows
 $\typeP \cto \typeQ$ are maps $\widehat{\typeP} \to \widehat{\typeQ}$ that are
 FM-continuous and supported by $s$. Note that in particular FM-linear maps are
 FM-continuous so that $\mathbf{FMLin}_s$ is a subcategory of $\mathbf{FMCts}_s$.
 
-Following the development of HOPLA, it will be possible to characterise
-FM-continuous maps in terms of FM-linear maps whose domain is under an
-exponential ${!}$ which captures the appropriate notion of approximation.  Here,
-$\typelift\typeP$ will consist of the isolated elements of $\widehat\typeP$
-ordered by inclusion.
+Following the development of HOPLA, it is possible to characterise FM-continuous
+maps in terms of FM-linear maps whose domain is under an exponential ${!}$ which
+captures the appropriate notion of approximation.  Here, $\typelift\typeP$
+consists of the isolated elements of $\widehat\typeP$ ordered by inclusion.
 %
 Write $i_{\typeP}$ for the natural inclusion $i_{\typeP} : \typelift\typeP
 \hookrightarrow \widehat{\typeP}$.

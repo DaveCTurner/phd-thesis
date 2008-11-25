@@ -9,7 +9,7 @@ type variables $P, \ldots$, each with a discrete permutation action.
 Also fix a set $\mathcal L$ of nominal label-sets, also with the discrete
 permutation action.
 %
-Labels will be written $\ell, \ell_0, \ldots \in L \in \mathcal L$.
+Labels are written $\ell, \ell_0, \ldots \in L \in \mathcal L$.
 %
 Note that each $L \in \mathcal L$ does not necessarily have the discrete
 permutation action, so that for some labels $\ell$ and some permutations
@@ -17,14 +17,17 @@ $\sigma$ it may be the case that $\sigma \cdot \ell \neq \ell$.
 
 \subsection{Syntax of Types}
 
-Types are given by the grammar \begin{equation} \typeP, \typeQ ::= \typevar{P} \mid
-\typelift{\typeP} \mid \typemap{\typeQ}{\typeP} \mid \typedelta{\typeP} \mid
-\stdtypesum \mid \typerec{j}{P}{\typeP}, \end{equation} where $P$ is a type variable,
-$\vec{P}$ is a list of type variables, and $\typerec{j}{P}{\typeP}$ binds
-$\vec{P}$. A closed type is a type with no free variables, and in the
-following, closed types will normally simply be called `types'. The permutation
-action on types is the discrete action: for all types $\typeP$ and permutations
-$\sigma$, $\sigma \cdot \typeP = \typeP$.
+Types are given by the grammar \begin{equation} \typeP, \typeQ ::= \typevar{P}
+\mid \typelift{\typeP} \mid \typemap{\typeQ}{\typeP} \mid \typedelta{\typeP}
+\mid \stdtypesum \mid \typerec{j}{P}{\typeP}, \end{equation} where $P$ is a
+type variable, $\vec{P}$ is a list of type variables, and
+$\typerec{j}{P}{\typeP}$ binds $\vec{P}$.
+%
+A closed type is a type with no free variables, and in the following, closed
+types are normally simply called `types'.
+%
+The permutation action on types is the discrete action: for all types $\typeP$
+and permutations $\sigma$, $\sigma \cdot \typeP = \typeP$.
 
 \subsection{Syntax of Environments}
 
