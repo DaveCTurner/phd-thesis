@@ -17,9 +17,25 @@ suggests a more satisfactory notion of approximation. Section \ref{fm:isolated}
 demonstrates that it is simple to characterise the elements that are isolated
 with respect to this notion of approximation, and this gives rise to an
 appropriate exponential ${!}$ that captures the continuity in much the same way
-that the finite-join-completion exponential does in HOPLA.
+that the finite-join-completion exponential does in HOPLA, and section
+\ref{fmcts:maps} demonstrates that this exponential can be characterised by a
+coKleisli construction.
 
-\TODO{Complete this intro when this section is complete.}
+Sections \ref{subsect:fresh-bang} and \ref{subsect:delta-bang} demonstrate some
+technical results that show that the natural isomorphisms $\phi$ and $\theta$
+defined in \ref{def:phi} and \ref{def:theta} interplay well with the exponential
+${!}$, and section \ref{subsect:binding-and-continuity} demonstrates that the
+functors $(-)^{\freshfor a+}$ and $\delta_a^+$, as described in lemmas
+\ref{def:freshlin} and \ref{def:deltalin}, preserve continuity as well as
+linearity.
+%
+This ensures that these functors are suitable candidates for a binding
+adjunction on the continuous categories,
+
+Finally, section \ref{subsect:cts:structure} studies the structure of the
+induced categories of continuous maps and describes certain universal
+constructions that motivate the design of the language Nominal HOPLA in the
+following chapter.
 
 \subsection{Name-Binding is not Directed-Join Continuous}
 \label{bindingdiscts}
@@ -859,6 +875,7 @@ This latter map can importantly be characterised as follows.
 
 
 \subsection{Binding and Continuity}
+\label{subsect:binding-and-continuity}
 
 This section demonstrates that the actions of
 $(-)^{\freshfor a+}$ and $\delta_a^+$, as described in lemmas \ref{def:freshlin}
