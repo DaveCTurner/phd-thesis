@@ -449,7 +449,26 @@ a}$.  \end{definition}
 
 \section{Conclusion}
 
-\TODO{Refer to \ref{abstract-justification}}
-
+As promised, this chapter has developed a domain theory for nondeterministic
+processes with names by following the development of the domain theory behind
+the language HOPLA within the theory of nominal sets.
+%
+An important insight was to demonstrate that a sensible notion of approximation
+in nominal domain theory is that of approximation by directed sets that are also
+uniformly supported.
+%
+This notion of approximation gives rise to the collection of categories
+$(\mathbf{FMCts}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$ that are very rich
+in structure, and this structure motivates a process calculus, Nominal HOPLA,
+which is described in the next chapter.
+%
+Nominal HOPLA is designed so that the universal constructions in
+$(\mathbf{FMCts}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$ correspond very
+closely to its denotational semantics, as shown in chapter \ref{densem}.
+%
+Furthermore, although some of the development of the continuous categories
+within this chapter may appear to be a little ad-hoc, chapter
+\ref{abstract-justification} gives a more universal view of the situation which
+justifies abstractly the definitions and discussion above.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
