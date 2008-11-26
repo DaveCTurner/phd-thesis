@@ -1,9 +1,24 @@
 \chapter{Preliminaries}
 \label{prelims}
 
-This chapter discusses some prerequisites of the remainder of this dissertation.
+This chapter sets out some of the mathematical prerequisites for the remainder
+of this dissertation.
+%
+As such, it mostly consists of definitions, discussions and results that are
+well-known and published elsewhere, but which are collected here so that it is
+possible to make use of them with consistent nomenclature and notation.
 
-\TODO{Mention highlights like the Footprint Lemma}
+Notable exceptions to this rule include lemmas \ref{footprint} and
+\ref{lemma:finite:nset}, both of which are original work by the author.
+%
+Lemma \ref{footprint} in particular is a key insight that makes it possible to
+characterise the domain-theoretic notion of \textit{isolation} (also known
+elsewhere as \textit{compactness} or \textit{finiteness}) within the
+non-standard nominal set theory, as demonstrated in lemma \ref{fineltextension}.
+
+This chapter falls into two independent halves: section \ref{dtfc} introduces
+denotational semantics and elementary domain theory, and section \ref{nsets}
+introduces the theory of nominal sets.
 
 \section{Domain Theory} \label{dtfc} \input{dtfc.texinc}
 
@@ -904,8 +919,8 @@ For the avoidance of doubt, where the word `finite' appears in this discussion
 without reference to any of these definitions, it means
 (\ref{finite:usual})-finite.
 
-\begin{lemma} Let $A \subseteq X$ be a finitely-supported subset of a nominal
-set $X$.
+\begin{lemma} \label{lemma:finite:nset} Let $A \subseteq X$ be a
+finitely-supported subset of a nominal set $X$.
 %
 Then in the theory of nominal sets \[ \begin{array}{rc} & \text{$A$ is
 (\ref{finite:usual})-finite} \\ \Leftrightarrow & \text{$A$ is
