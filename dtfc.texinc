@@ -408,6 +408,11 @@ q'$ then $p' \mathrel{R} q'$.
 %
 Composition in $\mathbf{PreRel}$ is straightforward relational composition, and
 the identity relation on the preorder $\typeP$ is simply $\le_{\typeP}$.
+%
+The use of preorders --- rather than the more usual partial orders --- does not
+make a significant difference to much of the theory, but it does enable an
+intuitive method for solving simple recursive domain
+equations\cite{nygaardwinskel1}.
 
 Concretely the equivalence $\mathrm{Kl}(\mathcal{P}_{H}) \simeq \mathbf{PreRel}$
 factorises the monad $\mathcal{P}_{H}$ as \begin{equation} \xymatrix{
