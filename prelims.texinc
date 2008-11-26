@@ -853,16 +853,17 @@ semantic and syntactic notions of binding in the language Nominal HOPLA.
 
 \subsection{Choice and Nominal Sets}
 
-Nominal set theory is closely related\footnote{See \ref{subsect:fm-set-theory}
-for more details.} to Fraenkel-Mostowski (FM) set theory, which was originally
-developed early in the 20th century to prove the independence of the Axiom of
-Choice (AC) from the other axioms of set theory.
+Nominal set theory is closely related to Fraenkel-Mostowski (FM) set theory,
+which was originally developed early in the 20th century to prove the
+independence of the Axiom of Choice (AC) from the other axioms of set theory.
 %
-As a consequence, AC fails to hold in FM set theory (by design!) and this
-failure also occurs in nominal set theory.
+The relationship between the two theories is discussed further in section
+\ref{subsect:fm-set-theory} but here it is merely worth noting that, as a
+consequence of its origins, AC fails to hold in FM set theory and this failure
+also occurs in nominal set theory.
 %
-For example, the axiom of choice would imply that there is an injective function
-$f : \mathbb N \to \mathbb A$ picking distinct names for each $n \in \mathbb N$.
+For example, AC implies that there is an injective function $f : \mathbb N \to
+\mathbb A$ picking distinct names for each $n \in \mathbb N$.
 %
 Suppose that $f$ has a finite support, $s$, then since $f$ has infinite range it
 must be that there exist $m \neq n \in \mathbb N$ such that $f(m), f(n) \notin
