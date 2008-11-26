@@ -878,26 +878,40 @@ $A \cup B$.
 $(B_i)_{i \in I}$ such that $A \subseteq \bigcup B_i$ there exists $i \in I$
 such that $A \subseteq B_i$.
 %
-\item \label{finite:chain} $A$ is finite if for all increasing
-(finitely-supported) chains $B_0 \subseteq B_1 \subseteq \ldots \subseteq B_n
-\subseteq \ldots$ such that $A \subseteq \bigcup B_n$ there exists $n \in
-\mathbb N$ such that $A \subseteq B_n$.
+\item \label{finite:chain} $A$ is finite if for all increasing chains $B_0
+\subseteq B_1 \subseteq \ldots \subseteq B_n \subseteq \ldots$ such that $A
+\subseteq \bigcup B_n$ there exists $n \in \mathbb N$ such that $A \subseteq
+B_n$.
 %
 \item \label{finite:dedekind} Dedekind's definition: $A$ is finite if there
 exist no injections into any of its proper subsets.  \end{enumerate}
 
 All of these definitions coincide in classical ZFC set theory, but the situation
-is more complicated within nominal set theory as the following lemma shows.
+is more complicated within nominal set theory.
+%
+Fundamentally, this is because everything under discussion is implicitly assumed
+to be finitely-supported.
+%
+In particular, in the definition of (\ref{finite:directed})-finiteness the
+mapping $i \mapsto B_i$ must be finitely supported, and similarly the mapping $n
+\mapsto B_n$ is finitely-supported in the definition of
+(\ref{finite:chain})-finiteness.
+%
+Also in the definition of (\ref{finite:dedekind})-finiteness the injections in
+question are all finitely-supported. 
 %
 For the avoidance of doubt, where the word `finite' appears in this discussion
 without reference to any of these definitions, it means
 (\ref{finite:usual})-finite.
 
 \begin{lemma} Let $A \subseteq X$ be a finitely-supported subset of a nominal
-set $X$. Then \[ \begin{array}{rc} & \text{$A$ is (\ref{finite:usual})-finite}
-\\ \Leftrightarrow & \text{$A$ is (\ref{finite:kuratowski})-finite} \\
-\Leftrightarrow & \text{$A$ is (\ref{finite:directed})-finite} \\ \Rightarrow &
-\text{$A$ is (\ref{finite:chain})-finite} \\ \Rightarrow & \text{$A$ is
+set $X$.
+%
+Then in the theory of nominal sets \[ \begin{array}{rc} & \text{$A$ is
+(\ref{finite:usual})-finite} \\ \Leftrightarrow & \text{$A$ is
+(\ref{finite:kuratowski})-finite} \\ \Leftrightarrow & \text{$A$ is
+(\ref{finite:directed})-finite} \\ \Rightarrow & \text{$A$ is
+(\ref{finite:chain})-finite} \\ \Rightarrow & \text{$A$ is
 (\ref{finite:dedekind})-finite} \end{array} \] and no other implications hold in
 general.  \end{lemma}
 
@@ -947,25 +961,30 @@ On the other hand by definition $\mathbb A$ is not (\ref{finite:usual})-finite.
 
 \subparagraph{(\ref{finite:chain})-finite $\Rightarrow$
 (\ref{finite:dedekind})-finite} It is simpler to show the contrapositive, so
-assume that $A$ is (\ref{finite:dedekind})-infinite and therefore obtain an
-injection $f : A \to A$ and an element $a \in A$ such that the range of $f$ is a
-subset of $A \setminus \{a\}$.
+assume that $A$ is (\ref{finite:dedekind})-infinite and therefore obtain a
+finitely-supported injection $f : A \to A$ and an element $a \in A$ such that
+the range of $f$ is a subset of $A \setminus \{a\}$.
 %
 For each $n$ let $B_n = \{ a, f(a), f^2(a), \ldots, f^{n}(a) \}$.
 %
 It is straightforward to show that $B_0 \varsubsetneq B_1 \varsubsetneq \ldots$
 since $f$ is injective and $a$ is not in its range.
 %
+Furthermore since $f$ and $a$ are finitely supported it follows that each $B_n$
+is supported by $\supp{f} \cup \supp{a}$ so that the chain $(B_n)_{n \in \mathbb
+N}$ is also finitely supported.
+%
 Let $B_\omega = \bigcup B_n$ and for each $n$ let $C_n = (A \setminus B_\omega)
-\cup B_n$, then certainly $A = \bigcup C_n$ but there exists no $n \in \mathbb
-N$ such that $A = C_n$ as required.
+\cup B_n$, then certainly $A = \bigcup C_n$ and $(C_n)_{n \in \mathbb N}$ is
+finitely supported but there exists no $n \in \mathbb N$ such that $A = C_n$ so
+that $A$ is certainly not (\ref{finite:chain})-finite.
 
 \subparagraph{(\ref{finite:dedekind})-finite $\not\Rightarrow$
 (\ref{finite:chain})-finite} For example $\mathcal{P}_{\mathrm{fin}} \mathbb A$
 is (\ref{finite:chain})-infinite because if \begin{equation} B_n = \{ s
 \subseteq_{\mathrm{fin}} \mathbb A \mid |s| \le n \} \end{equation} then $B_0
-\subseteq B_1 \subseteq \ldots$ and $\mathbb A = \bigcup B_n$ but there exists
-no $n \in \mathbb N$ such that $\mathbb A = B_n$.
+\subseteq B_1 \subseteq \ldots$ is a finitely-supported chain and $\mathbb A =
+\bigcup B_n$ but there exists no $n \in \mathbb N$ such that $\mathbb A = B_n$.
 %
 On the other hand suppose that $f : \mathcal{P}_{\mathrm{fin}} \mathbb A \to
 \mathcal{P}_{\mathrm{fin}} \mathbb A$ is a injection supported by the finite set
@@ -976,9 +995,8 @@ Considering the sequence that starts at $s_0$ and continues by setting $s_{n+1}
 %
 However, by considering supports it is also the case that $s_{n+1} =
 \supp{s_{n+1}} = \supp{f(s_n)} \subseteq \supp{f} \cup \supp{s_n} \subseteq s
-\cup s_n$ so that $s \cup s_0 \supseteq s \cup s_1 \supseteq \ldots$ is a
-descending chain of finite sets which must therefore eventually become
-stationary.
+\cup s_n$ so that $s_n \subseteq s \cup s_0$ for all $n$ and therefore the
+sequence $(s_n)_{n \in \mathbb N}$ must eventually repeat.
 %
 This is a contradiction, so $\mathcal{P}_{\mathrm{fin}} \mathbb A$ is
 (\ref{finite:dedekind})-finite as required.  \end{proof}
