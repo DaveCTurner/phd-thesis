@@ -1017,14 +1017,22 @@ sequence $(s_n)_{n \in \mathbb N}$ must eventually repeat.
 This is a contradiction, so $\mathcal{P}_{\mathrm{fin}} \mathbb A$ is
 (\ref{finite:dedekind})-finite as required.  \end{proof}
 
-Notice that (\ref{finite:directed})-finiteness and
-(\ref{finite:chain})-finiteness are very closely related to the idea of
-isolation in domain theory with respect to approximation by directed sets and by
+\section{Conclusion}
+
+This chapter has set out the mathematical prerequisites for the remainder of
+this dissertation, defining a consistent nomenclature and notation for both
+domain theory and for the theory of nominal sets.
+%
+The next chapter concentrates on combining the ideas of these two theories to
+construct a nominal domain theory.
+%
+For an indication that this could be harder than it might first appear, notice
+that (\ref{finite:directed})-finiteness and (\ref{finite:chain})-finiteness
+(from \ref{def:finiteness}) are very closely related to the idea of isolation in
+domain theory with respect to approximation by directed sets and by
 $\omega$-chains respectively.
 %
-This observation affects the development of nominal domain theory, particularly
-the design of an appropriate notion of approximation, as demonstrated in the
-next chapter.
-
+This observation influences the design of an appropriate nominal notion of
+approximation, as demonstrated in section \ref{fm:continuity} below.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
