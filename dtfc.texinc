@@ -51,7 +51,7 @@ particular notions of approximation.
 %
 Indeed, neither $\Phi_d$ nor $\Phi_\omega$ fully capture an appropriate notion
 of approximation in the theory of nominal sets and it is necessary to use a
-subtly different notion instead.
+subtly different definition instead.
 %
 It would perhaps be desirable to have an axiomatisation for the features that a
 property $\Phi$ must have in order to make it a suitable choice for a notion of
@@ -60,8 +60,8 @@ this thesis.
 %
 Instead, it is sufficient to think of $\Phi$ as being either $\Phi_d$ or
 $\Phi_\omega$ in the following, and when introducing approximations in nominal
-set theory in \ref{fmcts} the mathematics is developed from scratch using this
-section as a guide.
+set theory in section \ref{fmcts} the mathematics is developed from scratch
+using this section as a guide.
 
 
 \begin{definition} A \define{$\Phi$-complete partial order
@@ -118,12 +118,14 @@ given by union.
 
 Certain elements of a $\Phi$CPO $D$ cannot be reached by the join of a
 succession of increasingly close proper approximations and such elements are
-called \textit{isolated}\footnote{The terms \textit{compact} and \textit{finite}
-are also used in the literature, but this discussion consistently uses
-\textit{isolated}.}.
+called \textit{isolated}.
 %
 Computationally, the isolated elements of $D$ correspond to those computations
 that can be realised in finite time.
+%
+The terms \textit{compact} and \textit{finite} are also used in the literature,
+but this discussion consistently uses the term \textit{isolated} which is
+defined as follows.
 
 \begin{definition} An element $d$ of the $\Phi$CPO $\langle D, \sqsubseteq_D
 \rangle$ is \define{$\Phi$-isolated} if whenever $d \sqsubseteq_D \bigvee
@@ -145,16 +147,19 @@ there exists an $x \subseteq D^\circ$ which is both $\Phi$ and such that $d =
 %
 Sometimes algebraicity also includes a constraint on the size of $D$ --- for
 example it may insist that that $D^\circ$ is countable --- but this point is not
-dwelt upon here\footnote{
+dwelt upon here.
 %
-In fact, much of this dissertation works within the theory of nominal sets, and
+Indeed, much of this dissertation works within the theory of nominal sets, and
 in this theory the notion of cardinality is subtle because of the failure of the
 Axiom of Choice.
 %
 For example, lemma \ref{lemma:fm:totalorder} implies that any (internally)
 countable nominal set is discrete and therefore not particularly interesting for
-the purposes of this discussion.}.
+the purposes of this discussion.
 %
+Also, lemma \ref{lemma:finite:nset} demonstrates that even the idea of
+finiteness is delicate.
+
 Importantly, the isolated elements of an algebraic $\Phi$CPO determine its
 structure precisely, as the following lemma shows.
 
@@ -335,14 +340,14 @@ lower subsets of $D^{\circ}$ ordered by inclusion.
 \subsection{A Simple Domain Theory for Concurrency} \label{subsect:simple-dtfc}
 
 Dropping some of the generality developed above, in the following consider just
-the notion of approximation given by directedness by letting $\Phi = \Phi_d$ and
-just the Hoare `may do' style of nondeterminism.
+the notion of approximation given by directedness and just the Hoare `may do'
+style of nondeterminism.
 %
 Viewing nondeterminism as a computational effect (in the style of Moggi
 \cite{moggi:monads}) draws attention to the Kleisli category of
-$\mathcal{P}_{H}$ which, it turns out, is equivalent to the category
-$\mathbf{PreRel}$ of preorders $\typeP, \typeQ, \ldots$ and monotone
-relations between them.
+$\mathcal{P}_{H}$ which is well-known to be equivalent to the category
+$\mathbf{PreRel}$ of preorders $\typeP, \typeQ, \ldots$ and monotone relations
+between them.
 %
 In other words, an arrow $R : \typeP \to \typeQ$ is a relation $R \subseteq
 \typeP \times \typeQ$ such that if $p' \le_{\typeP} p \mathrel{R} q \le_{\typeQ}
