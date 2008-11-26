@@ -314,7 +314,7 @@ Then \[\mappath{Q}{p} \in
 \sem{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }} \langle
 \gamma \rangle_{\Gamma} \text{ iff } p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
-}}{t}{\typeP}} \langle \gamma, Q
+}}{t}{\typeP}} \langle \gamma, Q_\downarrow
 \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing} }}.\]
 \end{lemma}
 
