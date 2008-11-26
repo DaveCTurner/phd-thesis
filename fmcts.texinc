@@ -1060,7 +1060,11 @@ both continuous, so the result follows by \ref{bang:epi}.\end{proof}
 
 \subsection{The Structure of $\mathbf{FMCts}_s$}
 \label{subsect:cts:structure}
-\TODO{Prose intro}
+
+This section studies the rich structure of the categories $\mathbf{FMCts}_s)_{s
+\subseteq_{\mathrm{fin}} \mathbb A}$ and in particular describes the universal
+constructions such as products and exponentials that motivate the design of the
+language Nominal HOPLA in chapter \ref{nomhopla}.
 
 \subsubsection{Hom-sets.}
 \label{subsubsect:cts:homsets}
