@@ -1,6 +1,57 @@
-\TODO{Intro}
+
+Denotational semantics is the branch of computer science that gives meaning to
+pieces of syntax by assigning to each program $P$ a mathematical object
+$\sem{P}$ that $P$ is said to \textit{denote}, and whose mathematical properties
+correspond to the computational properties of $P$.
+%
+Domain theory is a style of denotational semantics that uses mathematical
+structures called domains as universes of denotations.
+%
+Its origins lie in work in the 1960s when Scott(\TODO{Cite}) was searching for a
+setting for a denotational semantics for the untyped $\lambda$-calculs.
+%
+It was not possible to use the obvious semantics whereby each $\lambda$-term
+denotes a total function, because such a semantics would have required a set $D$
+such that $D \cong D \to D$ where $\to$ is the usual set-theoretic function
+space and a simple cardinality argument demonstrates that the only solutions to
+this equation are trivial.
+%
+A way around this problem was effectively to permit the model to contain partial
+as well as total functions, and to equip the sets $D$ with some extra structure
+that captures the relationships between the partial functions.
+%
+The resulting structured sets are generally all called domains, although this
+word has a variety of subtly different definitions depending on the detailed
+properties of the denotational semantics under study.
+
+This section gives an overview of elementary domain theory, but much deeper
+treatments are available elsewhere\cite{plotkin:pisa,winskel:densem}.
+%
+Firstly section \ref{subsect:cpos} introduces two of the more common basic
+notions of domain, namely CPOs and $\omega$CPOs, and the appropriate morphisms
+of domains that preserve their structure.
+%
+Then section \ref{subsect:alg-cpos} highlights a particularly useful class of
+\textit{algebraic} domains which can be obtained as the completion of a
+particular class of simple or \textit{isolated} elements. 
+%
+Section \ref{subsect:ncpos} discusses a number of general approaches to giving a
+domain theory for \textit{nondeterministic} processes whose computational
+behaviour is not totally specified and which may therefore make choices at
+certain points.
+%
+Nondeterminism can be used to describe \textit{concurrency}, where more than one
+computation can be performed at once and the interactions between such
+computations are not necessarily precisely specified.
+%
+Section \ref{subsect:simple-dtfc} introduces a particularly simple domain theory
+for concurrency and finally section \ref{domains-of-paths} gives an intuition
+for this domain theory in terms of the computation paths that processes can
+follow.
+
 
 \subsection{Complete Partial Orders and Continuous Functions}
+\label{subsect:cpos}
 
 A \textit{domain} --- in the sense of domain theory --- is an ordered structure
 with some appropriate completeness property.
@@ -115,6 +166,7 @@ The $\Phi$-ideal completion of a preorder $\typeP$ is a $\Phi$CPO with joins
 given by union.
 
 \subsection{Algebraic CPOs}
+\label{subsect:alg-cpos}
 
 Certain elements of a $\Phi$CPO $D$ cannot be reached by the join of a
 succession of increasingly close proper approximations and such elements are
@@ -261,6 +313,7 @@ completely prime} \}$ such that $d = \bigvee x$.  \end{definition}
 Sometimes completely prime elements are called simply `prime'.
 
 \subsection{Nondeterminism in Domain Theory}
+\label{subsect:ncpos}
 
 In order to capture a denotational semantics for nondeterministic choice, it is
 possible to extend the notion of a $\Phi$CPO with a binary operation $\sqcup$
