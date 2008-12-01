@@ -87,9 +87,9 @@ there is an isomorphism \begin{equation} \label{hat:adj}
 \mathbf{FMPre}_s(\typeP, \widehat{\typeQ}) \cong \mathbf{FMLin}_s(\typeP,
 \typeQ).\end{equation}
 
-FM-linear maps are necessarily monotone, since if $a \le b$ then $a \vee b = b$
-so that if $f$ preserves joins then $f a \vee f b = f (a \vee b) = f b$ and
-hence $f a \le f b$.
+FM-linear maps are necessarily monotone, since if $p \le p'$ then $p \vee p' =
+p'$ so that if $f$ preserves joins then $f p \vee f p' = f (p \vee p') = f p'$
+and hence $f p \le f p'$.
 %
 Therefore there is a functor $J : \mathbf{FMLin}_s \to \mathbf{FMPre}_s$, where
 $J\typeP \defeq \widehat{\typeP}$ and if $f : \typeP \lto \typeQ$ is an arrow of
