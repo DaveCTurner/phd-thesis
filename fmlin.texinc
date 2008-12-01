@@ -115,6 +115,9 @@ by $\mathord{\cup} \defeq \mathbf{1}_{\widehat{(-)}}^\dagger$ where if $X \in
 \subsection{A relationship between $(-)^{\freshfor a}$ and $\widehat{(-)}$}
 \label{subsect:fresh-hat}
 
+For the entirety of this section (\ref{subsect:fresh-hat}) let $s
+\subseteq_{\mathrm{fin}} \mathbb A$ and $a \in \mathbb A \setminus s$ be fixed.
+%
 In order to construct a functor $(-)^{\freshfor a+} : \mathbf{FMLin}_s \to
 \mathbf{FMLin}_{s \udot \{a\}}$ that plays a similar role to $(-)^{\freshfor a}
 : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s \udot \{a\}}$ it is helpful to be able
@@ -278,6 +281,9 @@ $\{\cdot\}_{\downarrow}$ of the $\widehat{(-)}$ monad as follows.
 \subsection{A relationship between $\delta_a$ and $\widehat{(-)}$}
 \label{subsect:delta-hat}
 
+For the entirety of this section (\ref{subsect:delta-hat}) let $s
+\subseteq_{\mathrm{fin}} \mathbb A$ and $a \in \mathbb A \setminus s$ be fixed.
+%
 In order to construct a functor $\delta_a^+ : \mathbf{FMLin}_{s \udot\{a\}} \to
 \mathbf{FMLin}_s$ that plays a similar role to $\delta_a : \mathbf{FMPre}_{s
 \udot \{a\}} \to \mathbf{FMPre}_s$ it is helpful to be able to commute the
@@ -580,9 +586,10 @@ so that $\mathbf{FMLin}_s$ is closed with respect to the $\times$ monoid, and
 the internal function space is given by $\typeQ \multimap \typeR \defeq
 \typeQ^{\mathrm{op}} \times \typeR$.
 
-\subsubsection{Name Binding.} \label{subsubsect:deltafreshadjlin} There is an
-adjunction on the FM-linear categories that is analogous to the adjunction
-$(-)^{\freshfor a} \dashv \delta_a$ described in lemma \ref{deltafreshadj}.
+\subsubsection{Name Binding.} \label{subsubsect:deltafreshadjlin} If $a \in
+\mathbb A \setminus s$ then there is an adjunction on the FM-linear categories
+that is analogous to the adjunction $(-)^{\freshfor a} \dashv \delta_a$
+described in lemma \ref{deltafreshadj}.
 %
 Abstractly this adjunction arises from the general argument of section
 \ref{subsect:deltafreshadjlin}, but this section describes it in concrete terms.
