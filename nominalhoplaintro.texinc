@@ -4,9 +4,11 @@ Operational Semantics}
 
 Nominal HOPLA is an expressive calculus for higher-order processes with
 nondeterminism and name-binding which can now be used to illustrate the domain
-theory of the previous section. Nominal HOPLA follows closely the development of
-HOPLA (Higher-Order Process LAnguage)\cite{nygaardwinskel1} and is inspired by
-the language new-HOPLA\cite{WZ04}.
+theory of the previous chapter.
+%
+Nominal HOPLA follows closely the development of HOPLA (a Higher-Order Process
+LAnguage)\cite{nygaardwinskel1} and is inspired by the language
+new-HOPLA\cite{WZ04}.
 
 Section \ref{subsect:nset:category} shows that the category $\mathbf{NSet}$ is
 equivalent to the Schanuel topos $\mathbf{Sch}$ of pullback-preserving
@@ -30,15 +32,17 @@ related: HOPLA has no names, new-HOPLA treats names explicitly in its syntax,
 whereas the treatment of names in Nominal HOPLA is much more implicit.
 
 In order to present Nominal HOPLA it is necessary to give the language an
-abstract syntax, and this syntax includes some binding operators such as
-$\abstract{x}{t}$ which binds free occurrences of the variable $\termvar{x}$ in
-the term $t$. One of the earliest applications of nominal
-sets\cite{PittsAM:alpsri} was to formalise common informal arguments about
-syntax with binding. For example, when performing a proof by induction over the
-syntax of a language with binding operators, bound variables are commonly
-assumed to be fresh, and this can be shown to be a valid induction principle by
-representing the syntax within nominal sets, where variables are represented by
-names.
+abstract syntax, and this syntax includes some binding operators such as the
+usual function abstraction $\abstract{x}{t}$ which binds free occurrences of the
+variable $\termvar{x}$ in the term $t$.
+%
+One of the earliest applications of nominal sets\cite{PittsAM:alpsri} was to
+formalise common informal arguments about syntax with binding.
+%
+For example, when performing a proof by induction over the syntax of a language
+with binding operators, bound variables are commonly assumed to be fresh, and
+this can be shown to be a valid induction principle by representing the syntax
+within nominal sets, where variables are represented by names.
 
 However, the structure of interest here is not the syntax of Nominal HOPLA but
 its semantics, and the binding of variables in its syntax is a distraction.
