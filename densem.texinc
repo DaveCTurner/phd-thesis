@@ -1,9 +1,36 @@
 \chapter[Nominal HOPLA: Denotational Semantics]{The Denotational Semantics of
 Nominal HOPLA} \label{densem} \chaptermark{Denotational Semantics}
 
-\TODO{Intro}
+It was claimed that the nominal domain theory developed in chapter \ref{domthy}
+was to motivate the design of the process calculus Nominal HOPLA as presented in
+the previous chapter.
+%
+This chapter provides the evidence to back up this claim.
+%
+In particular, section \ref{densem:terms-and-actions} demonstrates that the
+denotational semantics of Nominal HOPLA arises directly from the various
+universal properties in the categories $(\mathbf{FMCts}_s)_{s
+\subseteq_{\mathrm{fin}} \mathbb A}$.
+%
+That the denotational semantics is given by \textit{universal} properties is
+important: it provides some weight to the claim that the nominal domain theory
+captures the mathematical essence of the computational features that are
+supported.
+%
+The design of the simpler process calculus HOPLA\cite{nygaardwinskel1} was also
+guided by the principle of universal constructions, and Nominal HOPLA can be
+seen as a straightforward extension of HOPLA with terms of the form $\new{a}{t}$
+and $\newapply{t}{a}$ which arise directly from the adjunction $(-)^{\freshfor
+a++} \dashv \delta_a^{++}$.
 
-\section{Types and Environments}
+After the definition of the denotational semantics in sections
+\ref{densem:types-and-environments} and \ref{densem:terms-and-actions}, section
+\ref{substlemmaden} demonstrates that substitution in Nominal HOPLA effectively
+amounts to composition, and finally section \ref{soundness-and-adequacy} shows
+that the operational semantics defined above corresponds closely with the
+denotational semantics given here.
+
+\section{Types and Environments} \label{densem:types-and-environments}
 
 A closed type denotes a path order as shown below.
 %
