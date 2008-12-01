@@ -201,6 +201,8 @@ Therefore \begin{equation} \label{densem:angles} \langle \gamma, p
 
 
 \section{Terms and Actions}
+\label{densem:terms-and-actions}
+
 
 Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
 \begin{equation} \label{densem:tjudge} \sem{\tjudge{s}{\Gamma}{t}{\typeP}} :

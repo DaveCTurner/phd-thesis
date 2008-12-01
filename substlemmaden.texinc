@@ -1,4 +1,4 @@
-\section{Substitution as Composition}
+\section{Substitution as Composition} \label{substlemmaden}
 
 Substitution effectively amounts to composition of denotations, as the
 following lemma shows.
