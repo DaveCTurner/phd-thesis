@@ -124,15 +124,18 @@ In order to construct a functor $(-)^{\freshfor a+} : \mathbf{FMLin}_s \to
 to commute the functors $(-)^{\freshfor a}$ and $\widehat{(-)}$.
 %
 To that end, for each object $\typeP$ of $\mathbf{FMPre}_s$ define
-$\phi_{\typeP} : \widehat{\typeP}^{\freshfor a} \to \widehat{\typeP^{\freshfor
-a}}$ by \begin{equation} \label{def:phi} \phi_{\typeP} (x) \defeq \{ p \in x
-\mid a \freshfor p \} \end{equation}
+$\phi^{(a)}_{\typeP} : \widehat{\typeP}^{\freshfor a} \to
+\widehat{\typeP^{\freshfor a}}$ by \begin{equation} \label{def:phi}
+\phi^{(a)}_{\typeP} (x) \defeq \{ p \in x \mid a \freshfor p \} \end{equation}
 %
-and define also $\phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
+and define also ${\phi^{(a)}_{\typeP}}^{-1} : \widehat{\typeP^{\freshfor a}} \to
 \widehat{\typeP}^{\freshfor a} $ by \begin{equation} \label{def:phiinv}
-\phi^{-1}_{\typeP} (x) \defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot
+{\phi^{(a)}_{\typeP}}^{-1} (x) \defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot
 x.\end{equation}
 
+Often the parameter $a$ is given by the context, and it is then simpler to
+denote $\phi^{(a)}$ simply as $\phi$, and similarly for $\phi^{-1}$.
+%
 It is convenient to characterise the action of $\phi^{-1}_{\typeP}$ as follows.
 
 \begin{lemma} \label{characterisation:phiinv} If $\typeP$ is an object of
@@ -290,15 +293,20 @@ In order to construct a functor $\delta_a^+ : \mathbf{FMLin}_{s \udot\{a\}} \to
 functors $\delta_a$ and $\widehat{(-)}$.
 %
 To that end, for each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
-$\theta_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a \typeP}$ by
-\begin{equation} \label{def:theta} \theta_{\typeP}(x') \defeq \{p' \mid
+$\theta^{(a)}_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a \typeP}$ by
+\begin{equation} \label{def:theta} \theta^{(a)}_{\typeP}(x') \defeq \{p' \mid
 \freshin{b}{ p' @ b \in x' @ b\}} \end{equation} and define
-$\theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \delta_a\widehat{\typeP}$
-by \begin{equation} \label{def:thetainv} \theta^{-1}_{\typeP}(x) \defeq
+${\theta^{(a)}_{\typeP}}^{-1} : \widehat{\delta_a \typeP} \to \delta_a\widehat{\typeP}$
+by \begin{equation} \label{def:thetainv} {\theta^{(a)}_{\typeP}}^{-1} (x) \defeq
 \freshin{b}{ [b].\{p \mid [b].p \in x\}}.\end{equation}
 
 As was the case for $\phi$ in \ref{subsect:fresh-hat}, the notation is no
 accident as $\theta$ and $\theta^{-1}$ are natural and mutual inverses.
+%
+It is also usual to drop the parameter $a$ where it is otherwise clear from the
+context and hence to write $\theta^{(a)}$ simply as $\theta$.
+%
+A similar convention applies to ${\theta^{(a)}}^{-1}$ too.
 
 \begin{lemma}\label{deltahatiso} Let $a \notin s$. The map $\theta$ defined in
 \ref{def:theta} is a natural isomorphism of the functors \[\delta_a
