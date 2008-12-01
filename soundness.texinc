@@ -45,7 +45,7 @@ If $\ajudge{\typelift\typeP}{\bang{t}}{\bangaction}{t}$ then
 \circ \sem{\tjudge{s}{}{\bang{t}}{\typelift\typeP}} = \sem
 {\tjudge{s}{}{\bang{t}}{\typelift\typeP}}\] as required.
 
-\subparagraph{Prefix Match} Suppose that
+\subparagraph{Match} Suppose that
 $\ajudge{\typeP}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{p}{t'}$ is derived from
 $\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}$ and $\ajudge{\typeQ}{u}{q}{u'}$,
 then \[\begin{array}{rcll}

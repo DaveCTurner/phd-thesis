@@ -475,7 +475,7 @@ $\tjudge{\supp{t}}{\envcombine{\envrestrict{\Gamma}{\supp{t}}}{\envvarfresh{x}{\
 $\tjudge{\supp{\rec{x}{t}}}{\envrestrict{\Gamma}{\supp{\rec{x}{t}}}}{\rec{x}{t}}{\typeP}$
 as required.
 
-\subparagraph{Prefix-Match} Suppose that
+\subparagraph{Match} Suppose that
 $\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}$ is derived from
 \[\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP}, \quad

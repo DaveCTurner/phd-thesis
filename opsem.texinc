@@ -134,7 +134,7 @@ $\tjudge{}{}{\bang{t}}{\typelift\typeP}$ so that $\tjudge{}{}{t}{\typeP}$ by
 lemma \ref{closedtermtypebackwards}(\ref{closedtermtypebackwardsbang}), as
 required.
 
-\subparagraph{Prefix Match} The induction hypothesis says that
+\subparagraph{Match} The induction hypothesis says that
 $\atjudge{}{\typeP}{p}{\typePp}$ and
 $\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}$, so that
 $\tjudge{}{}{t'}{\typeP}$ follows immediately by induction.

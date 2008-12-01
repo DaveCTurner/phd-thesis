@@ -305,7 +305,7 @@ induction} \\
 %{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} &
 %\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
-\subparagraph{Prefix-Match} Let $p \in
+\subparagraph{Match} Let $p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda \rangle$, then by the
 denotational semantics there exists $Q \in \typelift\typeQp$ such that $p \in

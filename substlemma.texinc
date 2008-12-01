@@ -154,7 +154,7 @@ required.
 
 \vfill\pagebreak
 
-\subparagraph{Prefix-Match}
+\subparagraph{Match}
 %\infer[(s'' \subseteq s \setminus s')]
 %{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 %{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
