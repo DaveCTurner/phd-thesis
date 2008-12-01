@@ -1360,10 +1360,10 @@ This adjunction is the key structure in the FM-continuous categories that makes
 them a suitable setting for a domain theory that is sensitive to names and
 binding.
 %
-More precisely, for any $s$ and $a \notin s$ there is an adjunction
-\begin{equation} \label{deltafreshadjcts} (-)^{\freshfor a++} \dashv
-\delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot
-\{a\}}\end{equation} as follows.
+More precisely, for any $s \subseteq_{\mathrm{fin}} \mathbb A$ and $a \notin s$
+there is an adjunction \begin{equation} \label{deltafreshadjcts} (-)^{\freshfor
+a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s
+\udot \{a\}}\end{equation} as follows.
 %
 If $\typeP$ is an object then $\typeP^{\freshfor a++} \defeq \typeP^{\freshfor
 a}$ and $\delta^{++}_a \typeP \defeq \delta_a \typeP$.
