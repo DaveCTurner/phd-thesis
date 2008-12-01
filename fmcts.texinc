@@ -61,7 +61,7 @@ which outputs a name $b$ nondeterministically chosen from $\mathbb A$.
 %
 Recall that the
 type of a HOPLA term corresponds to the actions that it can do, so the type of
-this process will be (isomorphic to) $\mathbb A$ since its possible actions are
+this process will be (isomorphic to) $\mathbb A$ since its possible paths are
 (essentially) outputs of elements of $\mathbb A$. Furthermore, it is closed so
 its denotation will simply be a subset of $\mathbb A$, and since it can output
 any name it must be that \begin{equation} \label{allnamesum}
@@ -488,7 +488,7 @@ must be that $p' \in \sigma \cdot x'$.
 %
 Since $\sigma \freshfor x'$ it follows that $p' \in x'$ as required.
 
-Having shown that $f^{\ddagger}$ is monotone, the proof of its continuity is
+Having now shown that $f^{\ddagger}$ is monotone, the proof of its continuity is
 standard.  Let $X \subseteq \widehat{\typeP}$ be uniformly-supported and
 directed. For all $x \in X$ it is the case that $f^{\ddagger} x \le f^{\ddagger}
 \bigl(\bigcup X \bigr)$ by monotonicity, so $f^{\ddagger} \bigl(\bigcup X\bigr)$
