@@ -17,8 +17,8 @@ space and a simple cardinality argument demonstrates that the only solutions to
 this equation are trivial.
 %
 A way around this problem was effectively to permit the model to contain partial
-as well as total functions, and to equip the sets $D$ with some extra structure
-that captures the relationships between the partial functions.
+as well as total functions, and to equip the set $D$ with extra structure that
+captures the relationships between the partial functions.
 %
 The resulting structured sets are generally all called domains, although this
 word has a variety of subtly different definitions depending on the detailed
@@ -33,7 +33,7 @@ of domains that preserve their structure.
 %
 Then section \ref{subsect:alg-cpos} highlights a particularly useful class of
 \textit{algebraic} domains which can be obtained as the completion of a
-particular class of simple or \textit{isolated} elements. 
+particular class of simple \textit{isolated} elements. 
 %
 Section \ref{subsect:ncpos} discusses a number of general approaches to giving a
 domain theory for \textit{nondeterministic} processes whose computational
@@ -64,7 +64,7 @@ A simple notion of approximation is by sequences of the form \begin{equation}
 d_0 \sqsubseteq d_1 \sqsubseteq \ldots \sqsubseteq d_n \sqsubseteq \ldots.
 \end{equation}
 %
-This gives rise to the following candidate for a suitable collection of domains.
+This gives rise to the following candidate for a suitable notion of domain.
 %
 \begin{definition} An \define{$\omega$-complete partial order ($\omega$CPO)} is
 a partial order $\langle D, \sqsubseteq_{D} \rangle$ that has joins of all

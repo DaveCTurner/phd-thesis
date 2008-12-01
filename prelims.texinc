@@ -903,10 +903,9 @@ B_n$.
 exist no injections into any of its proper subsets.  \end{enumerate}
 
 All of these definitions coincide in classical ZFC set theory, but the situation
-is more complicated within nominal set theory.
-%
-Fundamentally, this is because everything under discussion is implicitly assumed
-to be finitely-supported.
+is more complicated within nominal set theory because in the internal
+higher-order logic of nominal set theory every quantification is over only
+finitely-supported objects.
 %
 In particular, in the definition of (\ref{finite:directed})-finiteness the
 mapping $i \mapsto B_i$ must be finitely supported, and similarly the mapping $n
@@ -971,7 +970,8 @@ each element $B_i$ of the chain must also be supported by $s$.
 %
 However there are only finitely many such subsets of $\mathbb A$, namely the
 subsets of $s$ and the supersets of $\mathbb A \setminus s$, so the chain must
-eventually become stationary.
+eventually become stationary and hence $B_n = \mathbb A$ for some $n \in \mathbb
+N$.
 %
 On the other hand by definition $\mathbb A$ is not (\ref{finite:usual})-finite.
 
@@ -1009,10 +1009,10 @@ $s$ and let $s_0$ be outside the range of $f$.
 Considering the sequence that starts at $s_0$ and continues by setting $s_{n+1}
 = f(s_n)$, it is clear that this sequence never repeats as $f$ is injective.
 %
-However, by considering supports it is also the case that $s_{n+1} =
-\supp{s_{n+1}} = \supp{f(s_n)} \subseteq \supp{f} \cup \supp{s_n} \subseteq s
-\cup s_n$ so that $s_n \subseteq s \cup s_0$ for all $n$ and therefore the
-sequence $(s_n)_{n \in \mathbb N}$ must eventually repeat.
+However, by considering supports it is also the case that \begin{equation}
+s_{n+1} = \supp{s_{n+1}} = \supp{f(s_n)} \subseteq \supp{f} \cup \supp{s_n}
+\subseteq s \cup s_n \end{equation} so that $s_n \subseteq s \cup s_0$ for all
+$n$ and therefore the sequence $(s_n)_{n \in \mathbb N}$ must eventually repeat.
 %
 This is a contradiction, so $\mathcal{P}_{\mathrm{fin}} \mathbb A$ is
 (\ref{finite:dedekind})-finite as required.  \end{proof}
@@ -1027,9 +1027,9 @@ The next chapter concentrates on combining the ideas of these two theories to
 construct a nominal domain theory.
 %
 For an indication that this could be harder than it might first appear, notice
-that (\ref{finite:directed})-finiteness and (\ref{finite:chain})-finiteness
-(from \ref{def:finiteness}) are very closely related to the idea of isolation in
-domain theory with respect to approximation by directed sets and by
+that (\ref{finite:directed})-finiteness and (\ref{finite:chain})-finiteness (as
+defined in \ref{def:finiteness}) are very closely related to the idea of
+isolation in domain theory with respect to approximation by directed sets and by
 $\omega$-chains respectively.
 %
 This observation influences the design of an appropriate nominal notion of
