@@ -101,16 +101,22 @@ the same type as $t$.
 \subsubsection{Function Abstraction and Application.} A term $t$ of type
 $\typeP$ may be abstracted with respect to the free variable $\termvar{x}$ of
 type $\typeQ$ to leave a term $\abstract{x}{t}$ of type
-$\typemap{\typeQ}{\typeP}$ that can be applied to a term of type $\typeQ$ in
-the usual fashion.
-\[
+$\typemap{\typeQ}{\typeP}$ that can in turn be applied to a term of type
+$\typeQ$ in the usual fashion.  \[
 \infer{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP} }}
-{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing} }}{t}{\typeP}} \qquad
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}
+}}{t}{\typeP}} \qquad
 %
 \infer{\tjudge{s}{\envcombine{\Gamma}{\Lambda}}{\apply{t}{u}{\typeQ}}{\typeP}}
-{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}} & 
-\tjudge{s}{\Lambda}{u}{\typeQ}}
-\]
+{\tjudge{s}{\Gamma}{t}{\typemap{\typeQ}{\typeP}} &
+\tjudge{s}{\Lambda}{u}{\typeQ}} \]
+%
+The inclusion of the type $\typeQ$ in terms of the form $\apply{t}{u}{\typeQ}$
+is simply so that lemma
+\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:apply}) holds: without it,
+the presence of terms that can be ambiguously typed --- such as
+$\abstract{x}{\termvar{x}}$ --- makes the situation too complicated for the
+purposes of this discussion.
 
 \subsubsection{Labelling and Label Projection.} The actions of a term $t$ may be
 `tagged' with a label $\ell_0$ by forming the term $\linj{\ell_0}{t}$.
