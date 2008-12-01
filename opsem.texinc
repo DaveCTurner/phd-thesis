@@ -106,6 +106,9 @@ the transition in the conclusion has the correct type.
 
 \subsection{Properties of the Operational Semantics}
 
+The following few lemmas demonstrate that the operational semantics given
+above interacts well with the type system described in section \ref{tjudge}.
+
 \begin{lemma} \label{ajudgeimptjudge} If $\ajudge{\typeP}{t}{p}{t'}$ then
 $\tjudge{}{}{t}{\typeP}$.  \end{lemma} \begin{proof} By definition.\end{proof}
 
