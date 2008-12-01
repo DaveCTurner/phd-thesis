@@ -420,14 +420,19 @@ such that $P = \finelt{F}{s\downarrow}$ as required. \end{proof}
 \label{fmcts:maps}
 
 The discussion of \ref{fm:continuity} indicates that `continuous' could be taken
-to mean
-`preserves joins of uniformly-supported directed sets' or equivalently
-`preserves joins of increasing sequences' - for brevity this is called
-`FM-continuous'. Let $\mathbf{FMCts}_s$ be the category whose objects are
-FM-preorders $\typeP$, $\typeQ$, $\ldots$ supported by $s$ and whose arrows
-$\typeP \cto \typeQ$ are maps $\widehat{\typeP} \to \widehat{\typeQ}$ that are
-FM-continuous and supported by $s$. Note that in particular FM-linear maps are
-FM-continuous so that $\mathbf{FMLin}_s$ is a subcategory of $\mathbf{FMCts}_s$.
+to mean `preserves joins of uniformly-supported directed sets' or equivalently
+`preserves joins of increasing sequences' which suggests the following
+definition.
+%
+\begin{definition} If $\typeP$, $\typeQ$ are preorders then say that a function
+$f : \widehat{\typeP} \to \widehat{\typeQ}$ is \define{FM-continuous} if it
+preserves all joins of uniformly-supported directed sets.  \end{definition}
+%
+Let $\mathbf{FMCts}_s$ be the category whose objects are FM-preorders $\typeP$,
+$\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \cto \typeQ$ are
+maps $\widehat{\typeP} \to \widehat{\typeQ}$ that are FM-continuous and
+supported by $s$. Note that in particular FM-linear maps are FM-continuous so
+that $\mathbf{FMLin}_s$ is a subcategory of $\mathbf{FMCts}_s$.
 
 Following the development of HOPLA, it will be possible to characterise
 FM-continuous maps in terms of FM-linear maps whose domain is under an
