@@ -58,15 +58,15 @@ then \[\begin{array}{rcll}
 \sem{\tjudge{s}{}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}} \\
 %
 &=& \sem{p} \circ \epsilon_{\typeP} \circ {!}\sem{t} \circ
-\widehat{\phi_{\typeQp}} \circ \bigl(\sem{q} \circ \sem{u}\bigr)^{\freshfor s'++}
+\widehat{\phi^{{!}(s')}_{\typeQp}} \circ \bigl(\sem{q} \circ \sem{u}\bigr)^{\freshfor s'++}
 \\
 %
 &\sqsupseteq& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
-\widehat{\phi_{\typeQp}} \circ \sem{\bang{u'}}^{\freshfor s'++} & \text{by
+\widehat{\phi^{{!}(s')}_{\typeQp}} \circ \sem{\bang{u'}}^{\freshfor s'++} & \text{by
 induction on $u$} \\
 %
 &=& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
-\widehat{\phi_{\typeQp}} \circ \eta_{\typeQp}^{\freshfor s'++} \circ
+\widehat{\phi^{{!}(s')}_{\typeQp}} \circ \eta_{\typeQp}^{\freshfor s'++} \circ
 \sem{u'}^{\freshfor s'++} \\
 %
 &\sqsupseteq& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
