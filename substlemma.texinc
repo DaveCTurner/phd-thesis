@@ -1,5 +1,12 @@
 \section{The Substitution Lemma}
 
+The intuition behind the following lemma is that a variable $\termvar{y}$ of
+type $\typeR$ in a term $t$ may receive a term $v$ as input, simply by
+substituting $v$ for $\termvar{y}$ in $t$.
+%
+If $\termvar{y}$ has freshness assumptions imposed on it then the given $v$
+must satisfy those assumptions.
+
 \begin{lemma}[Syntactic Substitution Lemma]\label{substitutionlemma} Suppose
 that $t$ and $v$ satisfy
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{y}{\typeR}{r} }}{t}{\typeP}$ and
