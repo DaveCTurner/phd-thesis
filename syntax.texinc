@@ -28,6 +28,28 @@ types are normally simply called `types'.
 %
 The permutation action on types is the discrete action: for all types $\typeP$
 and permutations $\sigma$, $\sigma \cdot \typeP = \typeP$.
+%
+Intuitively, a process of type $\typelift{\typeP}$ may perform an anonymous
+action --- written `$\bangaction$' and pronounced `bang' --- and resume as a
+process of type $\typeP$.
+%
+A process of type $\typemap{\typeQ}{\typeP}$ awaits input of type $\typeQ$ and
+acts as a process of type $\typeP$ on its receipt.
+%
+A process of type $\typedelta{\typeP}$ behaves as a process of type $\typeP$
+with one of its names bound, which can be used to model the dynamic generation
+of names.
+%
+A process of type $\stdtypesum$ behaves as any of its components
+$\typePsub{\ell_0}$ with the actions of the process having been tagged by the
+label $\ell_0$.
+%
+The recursively-defined type $\typerec{}{P}{\typeP}$ is isomorphic to its
+unfolding $\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$ and so processes of
+recursive types behave similarly to processes typed by their unfoldings.
+%
+For a better intuition about this system of types, see the operational
+semantics of Nominal HOPLA as described in section \ref{opsem}.
 
 \subsection{Syntax of Environments}
 
