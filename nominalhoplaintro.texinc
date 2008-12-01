@@ -23,7 +23,10 @@ more general functor category $[\mathbb I, \mathcal{C}]$ for some suitable
 $\mathcal{C}$.
 %
 Note that if $\mathcal{C} = \mathbf{Set}$ then this draws attention to the
-category of presheaves over $\mathbb{I}^{\mathrm{op}}$.
+category of presheaves over $\mathbb{I}^{\mathrm{op}}$ which is different from
+$\mathbf{NSet}$ in that in the presheaf setting there is no well-defined
+\textit{minimal} support in general, so that supports must be treated more
+explicitly than when working in $\mathbf{NSet}$.
 %
 Roughly speaking, HOPLA, new-HOPLA and Nominal HOPLA are related to each other
 in the same way that respectively set theory, presheaves over
