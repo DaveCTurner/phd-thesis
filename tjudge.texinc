@@ -7,10 +7,6 @@ as defined in this section.
 This definition is mutually recursive, since the term
 $\matchz{s'}{u}{q}{x}{t}{\typeQp}$ contains the action $q$ and the action
 $\mapaction{u}{p}$ contains the term $u$.
-%
-However for the sake of clarity it is presented here as two separate type
-systems (one for terms and the other for actions) with each assuming that the
-other is already defined.
 
 \subsection{Typing Rules for Terms}
 
