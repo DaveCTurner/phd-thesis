@@ -999,8 +999,9 @@ that $A$ is certainly not (\ref{finite:chain})-finite.
 (\ref{finite:chain})-finite} For example $\mathcal{P}_{\mathrm{fin}} \mathbb A$
 is (\ref{finite:chain})-infinite because if \begin{equation} B_n = \{ s
 \subseteq_{\mathrm{fin}} \mathbb A \mid |s| \le n \} \end{equation} then $B_0
-\subseteq B_1 \subseteq \ldots$ is a finitely-supported chain and $\mathbb A =
-\bigcup B_n$ but there exists no $n \in \mathbb N$ such that $\mathbb A = B_n$.
+\subseteq B_1 \subseteq \ldots$ is a finitely-supported chain and
+$\mathcal{P}_{\mathrm{fin}} \mathbb A = \bigcup B_n$ but there exists no $n \in
+\mathbb N$ such that $\mathcal{P}_{\mathrm{fin}} \mathbb A = B_n$.
 %
 On the other hand suppose that $f : \mathcal{P}_{\mathrm{fin}} \mathbb A \to
 \mathcal{P}_{\mathrm{fin}} \mathbb A$ is a injection supported by the finite set
