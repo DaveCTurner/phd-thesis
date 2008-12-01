@@ -1,7 +1,9 @@
 \subsection{A Logical Relation}
 
-Define a relation $\logrel{X}{\typeP}{t}$ between $X \subseteq \typeP$ and terms
-such that $\tjudge{}{}{t}{\typeP}$ by way of an auxiliary relation
+\TODO{Intuition}
+
+Define a relation $\logrel{X}{\typeP}{t}$ between subsets $X \subseteq \typeP$
+and terms such that $\tjudge{}{}{t}{\typeP}$ by way of an auxiliary relation
 $\login{p}{\typeP}{t}$ between paths $p \in \typeP$ and terms such that
 $\tjudge{}{}{t}{\typeP}$ as follows.
 
@@ -519,6 +521,8 @@ Suppose $\tjudge{s}{}{t}{\typeP}$. Then $\logrel{\sem{\tjudge{s}{}{t}{\typeP}} }
 Let $\Gamma$ be the empty environment and apply lemma \ref{biglemma}.
 \end{proof}
 
+\TODO{Intro - this is the big theorem}
+
 \begin{theorem}[Adequacy]\label{adequacy}
 $\sem{\tjudge{}{}{t}{\typelift{\typeP}} } = \varnothing$
 if and only if there exists no $t'$ such that
@@ -541,5 +545,9 @@ Then since $\sem{\tjudge{}{}{t}{\typelift\typeP}} \subseteq_\downarrow
 Hence by lemma \ref{mainlemma}, $\login{\varnothing}{\typelift{\typeP}}{t}$ and so
 there is a $t'$ such that
 $\ajudge{\typelift{\typeP}}{t}{\bangaction}{t'}$ as required.  \end{proof}
+
+\section{Conclusion}
+
+\TODO{Conclusion}
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:

@@ -1,6 +1,10 @@
 \section{Soundness and Adequacy}
 
+\TODO{Intro - relations between densem and opsem}
+
 \subsection{Soundness}
+
+\TODO{Intro + Intuition}
 
 \begin{lemma}[Soundness]
 \label{soundnessactions}

@@ -208,7 +208,8 @@ Typing judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ denote arrows
 %
 The denotation of a typing judgement is built by recursion on the derivation of
 the typing judgement, making use of the various universal constructions
-available in $\mathbf{FMCts}_s$ as described in \ref{subsect:cts:structure}.
+available in $\mathbf{FMCts}_s$ as described in section
+\ref{subsect:cts:structure}.
 %
 Intuitively, the arrow $\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ receives some input
 in its free variables, as typed by $\Gamma$, and returns the set of paths that
@@ -478,7 +479,7 @@ action $q$ can be achieved using the map $\sem{\atjudge{s}{\typeQp}{q}{\typeQ}}
 In full generality, the free variable $\termvar{x}$ of $t$ may have some
 freshness assumptions imposed on it, which leads to the following definition.
 
-\begin{definition}[Semantics of Pattern Matching] \label{densem:match} Suppose
+\begin{definition}[Semantics of Matching] \label{densem:match} Suppose
 that the typing judgements
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$,
 $\tjudge{s''}{\Lambda}{u}{\typeQp}$ and $\atjudge{s''}{\typeQp}{q}{\typeQ}$
@@ -498,14 +499,14 @@ defined in \ref{def:phibang-vec}, then \begin{equation*} \begin{array}[t]{l}
 The semantics of prefix matching can be given a concrete, set theoretic,
 characterisation in terms of paths as follows.
 
-\begin{lemma}[Characterising Pattern Matching]
+\begin{lemma}[Characterising Matching]
 \label{densem:match:characterisation} Suppose that $\gamma \in \semp{\Gamma}$,
 $\lambda \in \semp{\envfresh{\Lambda}{s'}}$ and $p \in \typeP$. Then \[p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda
 \rangle_{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}\] if and only if there
 exists $Q \in \typelift\typeQp$ such that $p \in \sem{t} \langle \gamma, Q
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ and $Q \in
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$, $Q \in
 \bigl(\sem{q} \circ \sem{u}\bigr) \langle \lambda \rangle_{\Lambda}$ and $Q
 \freshfor s'$.  \end{lemma}
 
