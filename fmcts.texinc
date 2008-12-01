@@ -607,15 +607,25 @@ Therefore $\epsilon_{\typeP}$ is the unique FM-linear map such that
 \label{subsect:fresh-bang}
 
 This section shows that there is an isomorphism --- indeed, a bijection ---
-$(\typelift\typeP)^{\freshfor a} \cong \typelift(\typeP^{\freshfor a})$.
+$(\typelift\typeP)^{\freshfor a} \cong \typelift(\typeP^{\freshfor a})$ where $a
+\in \mathbb A \setminus s$.
 %
 This bijection can be seen as arising from the action of $\phi_\typeP$ and its
 inverse, which have particularly simple characterisations when attention is
 restricted to just the isolated elements.
+%
+This isomorphism is a key ingredient in an adjunction on the continuous
+categories that is analogous to the `binding' adjunction $(-)^{\freshfor a+}
+\dashv \delta_a^+$ on the linear categories, as demonstrated in section
+\ref{subsect:deltafreshadjcts}.
+%
+It is also used in giving a denotational semantics to pattern matching in the
+process calculus Nominal HOPLA as demonstrated in \ref{densem:match}
 
 \begin{lemma} \label{characterisation:phibang} If $F \subseteq_{\mathrm{fin}}
-\typeP^{\freshfor a}$ and $a \notin s' \supseteq s$ then \[\phi_{\typeP}
-\finelt{F}{s'\downarrow} = \finelt{F}{s' \cup \{a\}\downarrow}.\]
+\typeP^{\freshfor a}$ and $a \notin s' \supseteq s$ where $\typeP$ is an object
+of $\mathbf{FMPre}_s$ then \[\phi_{\typeP} \finelt{F}{s'\downarrow} =
+\finelt{F}{s' \cup \{a\}\downarrow}.\]
 %
 Moreover any element of $(\typelift\typeP)^{\freshfor a}$ can be written in the
 form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$
@@ -660,8 +670,9 @@ Clearly $\finelt{F}{s' \udot \{a\}} \in \typelift{(\typeP^{\freshfor a})}$ by
 
 
 \begin{lemma} \label{characterisation:phibanginv} If $F \subseteq_{\mathrm{fin}}
-\typeP^{\freshfor a}$ and $a \in s' \supseteq s$ then \[\phi^{-1}_{\typeP}
-\finelt{F}{s'\downarrow} = \finelt{F}{s' \setminus \{a\}\downarrow}.\]
+\typeP^{\freshfor a}$ and $a \in s' \supseteq s \not\ni a$ where $\typeP$ is an
+object of $\mathbf{FMPre}_s$ then \[\phi^{-1}_{\typeP} \finelt{F}{s'\downarrow}
+= \finelt{F}{s' \setminus \{a\}\downarrow}.\]
 %
 Moreover any element of $\typelift{(\typeP^{\freshfor a})}$ can be written in
 the form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor
@@ -743,15 +754,25 @@ This latter map can importantly be characterised as follows.
 
 Similarly to section \ref{subsect:fresh-bang} this section shows that the
 isomorphism $\theta$ suggests a bijection $\delta_a\typelift\typeP \cong
-\typelift\delta_a\typeP$.
+\typelift\delta_a\typeP$ where $a \in \mathbb A \setminus s$.
 %
 As was the case with the relationship between $(-)^{\freshfor a}$ and $!$ the
 path to this result is to observe that $\theta_\typeP$ and its inverse have
 particularly simple characterisations when attention is restricted to just the
 isolated elements, as shown below.
+%
+This isomorphism, like the isomorphism $\phi^{!}$ defined above, is a key
+ingredient in an adjunction on the continuous categories that is analogous to
+the `binding' adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ on the linear
+categories, as demonstrated in section \ref{subsect:deltafreshadjcts}.
+%
+Its development is sufficiently similar to that of $\phi^{!}$ that it seems
+sensible to present it here, although it is not revisited until section
+\ref{subsect:deltafreshadjcts}.
 
 \begin{lemma} \label{characterisation:thetabang} If $b$ is a fresh name, $F
-\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \in s' \supseteq s$ then
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \in s' \supseteq s \not\ni a$
+where $\typeP$ is an object of $\mathbf{FMPre}_{s \udot \{a\}}$ then
 \[\theta_{\typeP} \bigl([b].\finelt{F}{s'\downarrow}\bigr) = \finelt{\{[b].p
 \mid p \in F\}}{s' \setminus \{b\}\downarrow}.\]
 %
@@ -791,7 +812,8 @@ F'\} \subseteq \delta_a \typeP$ so that $\finelt{\{[b].p \mid p \in F'\}}{s'
 \setminus \{b\}} \in \typelift{\delta_a\typeP}$ by \ref{finelts}. \end{proof}
 
 \begin{lemma} \label{characterisation:thetabanginv} If $b$ is a fresh name, $F
-\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \notin s' \supseteq s$ then
+\subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \notin s' \supseteq s \not\ni
+a$ where $\typeP$ is an object of $\mathbf{FMPre}_{s \udot \{a\}}$ then
 \[\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'\downarrow} =
 [b].\finelt{F}{s' \udot \{b\}\downarrow}.\]
 %
@@ -853,11 +875,11 @@ Therefore $(ab) \cdot \finelt{F}{s' \udot\{b\}} = \finelt{(ab)\cdot F}{(ab)\cdot
 
 It therefore makes sense to define $\theta^{!} : \delta_a{!}  \to {!}\delta_a$
 and its inverse by letting \begin{equation} \theta^{!}_{\typeP}
-\bigl([b].\finelt{F}{s'}\bigr) = \finelt{\{[b].p \mid p \in F\}}{s' \setminus
-\{b\}} \text{ where $b \in s' \supseteq s$} \end{equation} and \begin{equation}
-\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'\downarrow} =
-[b].\finelt{F}{s' \udot \{b\}\downarrow} \text{ where $b \notin s' \supseteq
-s$.} \end{equation}
+\bigl([b].\finelt{F}{s'}\bigr) \defeq \finelt{\{[b].p \mid p \in F\}}{s'
+\setminus \{b\}} \text{ where $b \in s' \supseteq s$} \end{equation} and
+\begin{equation} {\theta^{!}_{\typeP}}^{-1} \finelt{\{[b].p \mid p \in
+F\}}{s'\downarrow} \defeq [b].\finelt{F}{s' \udot \{b\}\downarrow} \text{ where
+$b \notin s' \supseteq s$.} \end{equation}
 %
 This latter map can importantly be characterised as follows.
 
@@ -890,10 +912,10 @@ This ensures that these functors are suitable candidates for a binding
 adjunction on the continuous categories, as discussed in
 \ref{subsubsect:deltafreshadjcts}.
 
-\begin{lemma} \label{freshhat:continuous} If $f : \widehat\typeP \to
-\widehat\typeQ$ is FM-continuous then so is \[\phi_{\typeQ} \circ f^{\freshfor
-a} \circ \phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}} \to
-\widehat{\typeQ^{\freshfor a}}.\] \end{lemma}
+\begin{lemma} \label{freshhat:continuous} If $a \notin s$ and $f : \typeP \cto
+\typeQ$ is an arrow of $\mathbf{FMCts}_s$ then the composition \[\phi_{\typeQ}
+\circ f^{\freshfor a} \circ \phi^{-1}_{\typeP} : \widehat{\typeP^{\freshfor a}}
+\to \widehat{\typeQ^{\freshfor a}} \] is also FM-continuous. \end{lemma}
 
 \begin{proof} Let $X \subseteq \widehat{\typeP^{\freshfor a}}$ be directed and
 uniformly supported by $s'$.
@@ -973,10 +995,11 @@ $\widehat{{\phi^{!}_{\typeP}}^{-1}} \circ \eta_{\typeP^{\freshfor a}}$ and
 $\phi_{{!}\typeP} \circ \eta_{\typeP}^{\freshfor a} \circ \phi^{-1}_{\typeP}$
 are both continuous, so the result follows by \ref{bang:epi}.\end{proof}
 
-\begin{lemma} \label{deltahat:continuous} If $f : \widehat{\typeP} \to
-\widehat{\typeQ}$ is FM-continuous then so is \[\theta_{\typeQ} \circ \delta_a f
-\circ \theta^{-1}_{\typeP} : \widehat{\delta_a \typeP} \to \widehat{\delta_a
-\typeQ}.\]  \end{lemma}
+\begin{lemma} \label{deltahat:continuous} If $a \notin s$ and $f : \typeP \cto
+\typeQ$ is an arrow of $\mathbf{FMCts}_{s \udot \{a\}}$ then the composition
+\[\theta_{\typeQ} \circ \delta_a f \circ \theta^{-1}_{\typeP} :
+\widehat{\delta_a \typeP} \to \widehat{\delta_a \typeQ}\] is also FM-continuous.
+\end{lemma}
 
 \begin{proof} Let $X \subseteq \widehat{\delta_a \typeP}$ be directed and
 uniformly supported by $s'$. Without loss of generality assume that $a \in s'$
