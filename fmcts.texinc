@@ -539,10 +539,14 @@ Therefore $P_\downarrow \subseteq x$ so as required it follows that \[p \in
 \bigcup \{P_\downarrow \mid P \in \typelift\typeP, P \subseteq x \text{ and }
 \supp{P} \subseteq \supp{x, \typeP} \} . \qedhere\] \end{proof}
 
-Lemma \ref{bang:alg}, together with the argument of lemma
-\ref{alg-ideal-completion}, demonstrates that $\widehat{\typeP} \cong
-\mathrm{Idl}(\typelift\typeP)$.
-%
+As a consequence, \begin{corollary} \[ \widehat{\typeP} \cong
+\mathrm{Idl}(\typelift\typeP) \] \end{corollary}
+
+\begin{proof} The quotient of $\typelift\typeP$ by the preorder equivalence is
+isomorphic to ${\widehat{\typeP}}{\raisebox{1ex}{${}^\circ$}}$ by lemma
+\ref{finelt:wlog}, and the result follows by the same argument as in lemma
+\ref{alg-ideal-completion}.  \end{proof}
+
 Lemma \ref{bang:alg}, together with the argument of lemma
 \ref{alg-cts-isolated}, also ensures the uniqueness of $f^{\ddagger}$, and in
 particular if $f$ and $g$ are FM-continuous maps $\typeP \cto \typeQ$ and $f
