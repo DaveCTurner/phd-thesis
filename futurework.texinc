@@ -1,15 +1,24 @@
-\chapter{Future Work}
+\chapter{Conclusion}
+
+\section{Summary}
+
+A simple domain theory for concurrency has been developed within the theory of
+nominal sets.
+%
+
+
+\section{Related and Future Work}
 \label{futurework}
 
-\section{Full Abstraction}
+\subsection{Full Abstraction}
 
 \TODO{Write this}
 
-\section{Relationship of Nominal HOPLA with New HOPLA}
+\subsection{Relationship of Nominal HOPLA with New HOPLA}
 
 \TODO{Write this}
 
-\section{Relationship of Nominal Domain Theory with Type Functors}
+\subsection{Relationship of Nominal Domain Theory with Type Functors}
 
 \TODO{Write this}
 
@@ -17,7 +26,7 @@
 type functors. For example, $\mathcal{P}\mathbb{A}$ is finite at every stage,
 but certainly not chain-finite.}
 
-\section{Presheaf Semantics}
+\subsection{Presheaf Semantics}
 
 \TODO{Write this}
 
