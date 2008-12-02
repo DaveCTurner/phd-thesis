@@ -914,7 +914,10 @@ such that $A \subseteq B_i$.
 B_n$.
 %
 \item \label{finite:dedekind} Dedekind's definition: $A$ is finite if there
-exist no injections into any of its proper subsets.  \end{enumerate}
+exist no injections into any of its proper subsets.
+%
+\newcounter{finitenessdefs} \setcounter{finitenessdefs}{\value{enumi}}
+\end{enumerate}
 
 All of these definitions coincide in classical ZFC set theory, but the situation
 is more complicated within nominal set theory because in the internal
@@ -932,6 +935,17 @@ question are all finitely-supported.
 For the avoidance of doubt, where the word `finite' appears in this discussion
 without reference to any of these definitions, it means
 (\ref{finite:usual})-finite.
+%
+There is another possible way to characterise finiteness that is specific to the
+theory of nominal sets: \begin{enumerate}[(1)]
+\setcounter{enumi}{\value{finitenessdefs}} 
+%
+\item \label{finite:stages} $A$ is finite if $\{x \in A \mid \supp{x} \subseteq
+s\}$ is (\ref{finite:usual})-finite for each $s \subseteq_{\mathrm{fin}} \mathbb
+A$. \setcounter{finitenessdefs}{\value{enumi}} \end{enumerate}
+
+In fact, these \arabic{finitenessdefs} characterisations capture only three
+distinct notions of finiteness as the following lemma shows.
 
 \begin{lemma} \label{lemma:finite:nset} Let $A \subseteq X$ be a
 finitely-supported subset of a nominal set $X$.
@@ -941,7 +955,8 @@ Then in the theory of nominal sets \[ \begin{array}{rc} & \text{$A$ is
 (\ref{finite:kuratowski})-finite} \\ \Leftrightarrow & \text{$A$ is
 (\ref{finite:directed})-finite} \\ \Rightarrow & \text{$A$ is
 (\ref{finite:chain})-finite} \\ \Rightarrow & \text{$A$ is
-(\ref{finite:dedekind})-finite} \end{array} \] and no other implications hold in
+(\ref{finite:dedekind})-finite} \\ \Leftrightarrow & \text{$A$ is
+(\ref{finite:stages})-finite} \end{array} \] and no other implications hold in
 general.  \end{lemma}
 
 \begin{proof} \ \subparagraph{(\ref{finite:usual})-finite $\Rightarrow$
@@ -992,7 +1007,7 @@ On the other hand by definition $\mathbb A$ is not (\ref{finite:usual})-finite.
 \subparagraph{(\ref{finite:chain})-finite $\Rightarrow$
 (\ref{finite:dedekind})-finite} It is simpler to show the contrapositive, so
 assume that $A$ is (\ref{finite:dedekind})-infinite and therefore obtain a
-finitely-supported injection $f : A \to A$ and an element $a \in A$ such that
+finitely supported injection $f : A \to A$ and an element $a \in A$ such that
 the range of $f$ is a subset of $A \setminus \{a\}$.
 %
 For each $n$ let $B_n = \{ a, f(a), f^2(a), \ldots, f^{n}(a) \}$.
@@ -1013,7 +1028,7 @@ that $A$ is certainly not (\ref{finite:chain})-finite.
 (\ref{finite:chain})-finite} For example $\mathcal{P}_{\mathrm{fin}} \mathbb A$
 is (\ref{finite:chain})-infinite because if \begin{equation} B_n = \{ s
 \subseteq_{\mathrm{fin}} \mathbb A \mid |s| \le n \} \end{equation} then $B_0
-\subseteq B_1 \subseteq \ldots$ is a finitely-supported chain and
+\subseteq B_1 \subseteq \ldots$ is a finitely supported chain and
 $\mathcal{P}_{\mathrm{fin}} \mathbb A = \bigcup B_n$ but there exists no $n \in
 \mathbb N$ such that $\mathcal{P}_{\mathrm{fin}} \mathbb A = B_n$.
 %
@@ -1030,7 +1045,40 @@ s_{n+1} = \supp{s_{n+1}} = \supp{f(s_n)} \subseteq \supp{f} \cup \supp{s_n}
 $n$ and therefore the sequence $(s_n)_{n \in \mathbb N}$ must eventually repeat.
 %
 This is a contradiction, so $\mathcal{P}_{\mathrm{fin}} \mathbb A$ is
-(\ref{finite:dedekind})-finite as required.  \end{proof}
+(\ref{finite:dedekind})-finite as required.
+
+\subparagraph{(\ref{finite:dedekind})-finite $\Rightarrow$
+(\ref{finite:stages})-finite} Suppose for a contradiction that $\{x \in A \mid
+\supp{x} \subseteq s\}$ were infinite.
+%
+This set can be wellordered (externally to the theory of nominal sets) so that
+it contains an injective sequence $x_0$, $x_1$, $\ldots$.
+%
+Define $f : A \to A$ by \begin{equation} f x \defeq \begin{cases} x_{n+1} &
+\text{if } x = x_n \\ x & \text{otherwise,} \end{cases} \end{equation} then $f$
+is supported by $\supp{A} \cup s$ because if $\sigma \freshfor \supp{A} \cup s$
+then $\sigma \cdot x_n = x_n$ for all $n \in \mathbb N$.
+%
+It is also immediate that $f$ is injective and not surjective so that $A$ is not
+(\ref{finite:dedekind})-finite as required.
+
+\subparagraph{(\ref{finite:stages})-finite $\Rightarrow$
+(\ref{finite:dedekind})-finite} Suppose for a contradiction that $f : A \to A$
+is finitely supported and injective but not surjective, and let $x_0$ be outside
+its range.
+%
+It follows that setting $x_{n+1} = f(x_n)$ for all $n \in \mathbb N$ gives an
+injective sequence $(x_n)_{n \in \mathbb N}$ in $A$.
+%
+Therefore for all $n$ \begin{equation} \supp{x_{n+1}} = \supp{f(x_n)} \subseteq
+\supp{f} \cup \supp{x_n} \end{equation} so that by induction $\supp{x_n}
+\subseteq \supp{f} \cup \supp{x_0}$ for all $n$.
+%
+Therefore $\{x \in A \mid \supp{x} \subseteq \supp{f} \cup \supp{x_0}\}$ cannot
+be finite, and hence $A$ is not (\ref{finite:stages})-finite as required.
+
+
+\end{proof}
 
 \section{Conclusion}
 
