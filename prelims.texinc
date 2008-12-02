@@ -613,6 +613,20 @@ y$ iff $(\sigma \cdot x) \freshfor (\sigma \cdot y)$, $x \in A$ iff $\sigma
 \cdot x \in \sigma \cdot A$ and $A \subseteq A'$ iff $\sigma \cdot A \subseteq
 \sigma \cdot A'$.
 
+A simple but useful consequence of equivariance is that an equivariant function
+cannot extend the support of its argument.
+%
+More precisely, \begin{lemma} \label{eqvt-supp-reduce} If $f : X \to Y$ is an
+equivariant function between nominal sets $X$ and $Y$ and $x \in X$ then
+$\supp{fx} \subseteq \supp{x}$.  \end{lemma}
+
+\begin{proof} If $\sigma$ is a permutation such that $\sigma a = a$ for all $a
+\in \supp{x}$ then it follows that $\sigma \cdot x = x$.
+%
+Furthermore by the equivariance of $f$ it is the case that $\sigma \cdot (fx) =
+f(\sigma \cdot x) = fx$ which implies that $\supp{x}$ supports $fx$ as required.
+\end{proof}
+
 
 \subsection{A Category of Nominal Sets}
 \label{subsect:nset:category}
