@@ -442,6 +442,8 @@ by inclusion.
 Considering the adjunction ${!}((-)^{\circ}) \dashv \mathrm{Idl}_{\Phi_d}$ from
 the point of view of $\mathbf{PreRel}$ or $\mathbf{Lin}$ draws attention to the
 comonad ${!}((\mathrm{Idl}_{\Phi_d}(-))^{\circ}) \cong {!}$.
+%
+\TODO{Have not --- strictly speaking --- defined {!}.}
 
 \subsection{Domains of Paths} \label{domains-of-paths}
 
