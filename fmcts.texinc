@@ -616,8 +616,9 @@ Therefore $\epsilon_{\typeP}$ is the unique FM-linear map such that
 \label{subsect:fresh-bang}
 
 This section shows that there is an isomorphism --- indeed, a bijection ---
-$(\typelift\typeP)^{\freshfor a} \cong \typelift(\typeP^{\freshfor a})$ where $a
-\in \mathbb A \setminus s$.
+\begin{equation} (\typelift\typeP)^{\freshfor a} \cong
+\typelift(\typeP^{\freshfor a}) \end{equation} where $a \in \mathbb A \setminus
+s$.
 %
 This bijection can be seen as arising from the action of $\phi_\typeP$ and its
 inverse, which have particularly simple characterisations when attention is
@@ -762,8 +763,9 @@ This latter map can importantly be characterised as follows.
 \label{subsect:delta-bang}
 
 Similarly to section \ref{subsect:fresh-bang} this section shows that the
-isomorphism $\theta$ suggests a bijection $\delta_a\typelift\typeP \cong
-\typelift\delta_a\typeP$ where $a \in \mathbb A \setminus s$.
+isomorphism $\theta$ suggests a bijection \begin{equation}
+\delta_a\typelift\typeP \cong \typelift\delta_a\typeP \end{equation} where $a
+\in \mathbb A \setminus s$.
 %
 As was the case with the relationship between $(-)^{\freshfor a}$ and $!$ the
 path to this result is to observe that $\theta_\typeP$ and its inverse have
