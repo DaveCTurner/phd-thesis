@@ -58,13 +58,14 @@
 \def\abs#1{\termfont{\termhl abs}\,{#1}}
 \def\rep#1{\termfont{\termhl rep}\,{#1}}
 \def\termsubst#1#2#3{{#1}{\termhl [}{#2}{\termhl /}{\termvar{#3}}{\termhl ]}}
+\def\intersect#1#2{\termfont{\termhl [}{#1}\termfont{\termhl ]}_{#2}}
 % }}}
 
 % ENVIRONMENT MACROS {{{
 \def\envhl{\colorswitched{red}}
 \def\envempty{{\envhl ()} }
-\def\envvarfresh#1#2#3{\envfresh{\envvarxx{#1}{#2}}{#3}}
-\def\envvarxx#1#2{{\termvar{#1}} \mathrel{\envhl :} {#2}}
+\def\envvarfresh#1#2#3{\envfresh{\envvar{#1}{#2}}{#3}}
+\def\envvar#1#2{{\termvar{#1}} \mathrel{\envhl :} {#2}}
 \def\envsymbcombine#1#2#3{{#1} \mathop{\envhl{#3}} {#2}}
 \def\envcombine#1#2{{#1}, {#2}}
 \def\envsubst#1#2#3{{#1}{\envhl [}{#2}{\envhl /}{\termvar{#3}}{\envhl ]}}

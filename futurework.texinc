@@ -6,36 +6,229 @@ A simple domain theory for concurrency has been developed within the theory of
 nominal sets.
 %
 
+\TODO{More}
+
 
 \section{Related and Future Work}
 \label{futurework}
 
 \subsection{Full Abstraction}
 
-\TODO{Write this}
+The path semantics of (classical) HOPLA was readily shown to be fully
+abstract\cite{nygaardwinskel1} by an argument which demonstrated inductively
+that all paths could be defined and distinguished by terms of the language.
+%
+A similar strong correspondence result has not been so forthcoming for Nominal
+HOPLA.
+%
+As it stands it would appear that every path may be defined by terms of the
+language but they cannot all be distinguished.
+%
+For example, Staton(\TODO{Cite}) claims that there is no way for a Nominal HOPLA
+process to tell apart the paths $P \defeq \finelt{\{a\}}{\varnothing}$ and $P_b
+\defeq \finelt{\{a\}}{\{b\}}$ (where $a \neq b$) unless it has $b$ in its
+support.
+%
+Since terms are always finitely-supported it follows that it is not possible to
+construct a term $t$ which distinguishes $P = \finelt{\{a\}}{\varnothing}$ from
+all other paths: for any candidate $t$ there exists a name $b \freshfor t$ which
+means that $t$ cannot tell the difference between $P$ and $P_b$.
 
-\subsection{Relationship of Nominal HOPLA with New HOPLA}
+More precisely, Staton's argument is to write $\tilde{\mathbb A} \defeq
+\typesum{a}{\mathbb A}{\typelift\typeO}$ and let \begin{equation}
+\begin{array}[t]{rcl} u_a &\defeq& \ndsum{b \neq a}{\mathbb A}
+{\linj{b}{\bang{\inactive}}} \text{ for each $a \in \mathbb A$,} \\ v &\defeq&
+\ndsum{b}{\mathbb A}{\linj{b}{\bang{\inactive}}}, \\ t_1 &\defeq&
+\ndsum{a}{\mathbb A}{\apply{\termvar{x}}{u_a}{\tilde{\mathbb A}}} \text{ and} \\
+t_2 &\defeq& \apply{\termvar{x}}{v}{\tilde{\mathbb A}} \mathop{\mathtt{+}}
+\ndsum{a}{\mathbb A}{\apply{\termvar{x}}{u_a}{\tilde{\mathbb A}}}. \\
+\end{array} \end{equation}
+%
+It is clear that it is possible to derive the following typing judgements.
+%
+\begin{equation} \begin{array}[t]{ccc} \tjudge{}{}{u_a}{\tilde{\mathbb A}}
+&\qquad& \tjudge{}{\envvar{x}{\tilde{\mathbb A} \to
+\typelift\typeO}}{t_1}{\typelift\typeO} \\ \tjudge{}{}{v}{\tilde{\mathbb A}} &&
+\tjudge{}{\envvar{x}{\tilde{\mathbb A} \to
+\typelift\typeO}}{t_2}{\typelift\typeO} \\ \end{array} \end{equation}
+%
+It is claimed that $t_1$ and $t_2$ are contextually equivalent: there is no
+context $C[-]$ such that the terms $\tjudge{}{}{C[t_1]}{\typelift\typeO}$ and
+$\tjudge{}{}{C[t_2]}{\typelift\typeO}$ behave differently.
+%
+However the function space $\tilde{\mathbb A} \to \typelift\typeO$ is isomorphic
+to $\mathbb A \to \{\ast\}$ and therefore to $\widehat{\typelift{\mathbb
+A}^{\mathrm{op}}}$ by \ref{cts:homsets} and under this isomorphism the element
+$\{ \mathbb A \}_{\downarrow} \in \widehat{\typelift{\mathbb A}^{\mathrm{op}}}$
+corresponds to an element $d \in \tilde{\mathbb A} \to \typelift\typeO$ such
+that $\sem{t_1}d = \varnothing$ and $\sem{t_2}d = \{\varnothing\}$ so that
+$\sem{t_1} \neq \sem{t_2}$.
+%
+It follows that $d$ is not definable in Nominal HOPLA, and importantly that
+contextual equivalence does not coincide with denotational equivalence.
 
-\TODO{Write this}
+In general it is not computationally unreasonable to want to distinguish $P_1
+\defeq \finelt{F_1}{s_1}$ and $P_2 \defeq \finelt{F_2}{s_2}$ as inequivalent
+isolated elements of $\widehat{\typeP}$.
+%
+To see this, notice that $s_1 \cup s_2$ supports both $P_1$ and $P_2$ so that by
+lemma \ref{finelt:wlog} there exist finite $F'_1$ and $F'_2$ such that $P_1 =
+\finelt{F'_1}{s_1 \cup s_2}$ and $P_2 = \finelt{F'_2}{s_1 \cup s_2}$.
+%
+Distinguishing $P_1$ and $P_2$ therefore boils down to comparing the finite sets
+$F'_1$ and $F'_2$.
 
-\subsection{Relationship of Nominal Domain Theory with Type Functors}
+Turning to the possibility of defining a distinguishing term, notice that
+\begin{equation} \begin{array}[t]{rcl} \finelt{F}{s} \subseteq x
+%
+& \Leftrightarrow & \forall \pi \freshfor s.\ \pi \cdot F \subseteq x \\
+%
+& \Leftrightarrow & \forall \pi \freshfor s.\ F \subseteq \pi \cdot x \\
+%
+& \Leftrightarrow & F \subseteq \bigcap_{\pi \freshfor s} \pi \cdot x
+\end{array} \end{equation} which suggests that if $t$ is a term then it might be
+worth defining a term $\intersect{t}{s}$ whose denotational semantics is given
+by \begin{equation} \label{densem:intersect} \sem{\intersect{t}{s}} \langle
+\gamma \rangle_{\Gamma} \defeq \bigcap_{\pi \freshfor s} \pi \cdot \sem{t}
+\langle \gamma \rangle_{\Gamma}.  \end{equation}
+%
+The proof that HOPLA was fully abstract constructed for each path $p$ a
+`producer' term $t_p$ and a `consumer' context $C_p[-]$ and Winskel(\TODO{Cite})
+claims that the same proof works for Nominal HOPLA extended by terms of the form
+$\intersect{t}{s}$.
+%
+The key alteration to the proof would be to define the `consumer' of the path
+$\finelt{\{p_1, \ldots, p_n\}}{s}$ to be a context such as \begin{equation}
+\matchz{\varnothing}{C_{p_1}[\intersect{-}{s}]}{\bangaction}{$\termvar{x}_1$}{
+\ldots
+\matchz{\varnothing}{C_{p_n}[\intersect{-}{s}]}{\bangaction}{$\termvar{x}_n$}{
+\bang{\inactive} }{\typeP} \ldots }{\typeP} \end{equation}
 
-\TODO{Write this}
+The denotational semantics given in \ref{densem:intersect} suggests an
+operational rule such as \begin{equation} \label{opsem:intersect}
+\infer{\ajudge{\typeP}{\intersect{t}{s}}{p}{t'}} {\ajudge{\typeP}{\pi \cdot
+t}{p}{t'} \text{ for all $\pi \freshfor s$}} \end{equation}
+%
+By an argument similar to that of \ref{finelt:wlog} using the footprint lemma
+(lemma \ref{footprint}) it can be shown that this rule is effectively finitary:
+only finitely many $\pi \freshfor s$ must be checked before it is clear that the
+premise holds.
+%
+Unfortunately this operational rule is not adequate: Staton(\TODO{Cite})
+observes that the term \begin{equation} t \defeq u_a \mathop{\mathtt{+}}
+\linj{a}{\bang{(\inactive \mathop{\mathtt{+}} \inactive)}} \end{equation} has
+$\sem{t} = \mathbb A$ and hence $\sem{\intersect{t}{\varnothing}} = \mathbb A$
+too.
+%
+If the semantics were adequate, it would follow that for each $c \neq a$ it
+should be that $\ajudge{\tilde{\mathbb
+A}}{\intersect{t}{\varnothing}}{\labelaction{c}{\bangaction}}{\inactive}$;
+however $\ajudge{\tilde{\mathbb A}}{(ac) \cdot
+t}{\labelaction{c}{\bangaction}}{t'}$ implies that $t' = \inactive
+\mathop{\mathtt{+}} \inactive$ which is a contradiction.
 
-\TODO{In particular, the $!$ comonad here is not the same as the $!$ comonad of
-type functors. For example, $\mathcal{P}\mathbb{A}$ is finite at every stage,
-but certainly not chain-finite.}
+It is not clear at this time how best to proceed to solve these discrepancies
+between the denotational and operational semantics.
+
+
+
+\subsection{New HOPLA}
+
+The language new-HOPLA of Zappa Nardelli and Winskel\cite{WZ04} was motivated by
+a similar idea to that of Nominal HOPLA: namely to design the language around
+universal constructions in a categorical setting that supported a notion of name
+generation.
+%
+As such, the languages have very similar operational semantics; the major
+difference is that new-HOPLA's judgements are indexed by a `current' set of
+names whereas that information is unnecessary in the operational semantics of
+Nominal HOPLA.
+%
+Because of this, it is believed that much of Zappa Nardelli's work on the
+expressivity of new-HOPLA will apply to Nominal HOPLA too.
+%
+In particular there is currently no clear reason why Nominal HOPLA cannot encode
+rich process calculi with name-generation such as the $\pi$-calculus, although
+this avenue of research has not yet been explored.
+%
+Similarly, it would be interesting to check that the results about operational
+equivalences in new-HOPLA --- such as that bisimilarity is a
+congruence\cite{FZN-thesis} --- also apply to Nominal HOPLA.
+
+Attempts have been made to equip new-HOPLA with a denotational semantics by
+making use of the functor category $\mathbf{Lin}^{\mathbb I}$ in place of the
+category $\mathbf{Lin}$ that was used for HOPLA.
+%
+Indeed, it is the structure of $\mathbf{Lin}^{\mathbb I}$ which motivated the
+design of the operational semantics for new-HOPLA.
+%
+However it transpires that not all function spaces exist in
+$\mathbf{Lin}^{\mathbb I}$.
+%
+It is possible that sufficiently many function spaces do exist in the
+functor-category setting but demonstrating this has proved remarkably
+delicate(\TODO{Cite}).
+%
+It is also possible that replacing $\mathbf{Lin}^{\mathbb I}$ with an
+internally-constructed version of $\mathbf{Lin}$ within the presheaf topos
+$\mathbf{Set}^{\mathbb I}$ would have provided a suitable setting for a
+denotational semantics for new-HOPLA, but the (notationally and conceptually)
+simpler setting of nominal set theory has helped to solve some of the problems
+associated with the functor-category-based domain theory.
+%
+Nominal set theory also helped to clarify a suitable ${!}$ comonad.
+%
+In $\mathbf{Lin}^{\mathbb I}$ the ${!}$ functor was defined by \begin{equation}
+(\typelift\typeP)s \defeq \{ F \subseteq_{\mathrm{fin}} \typeP s \}
+\end{equation} but lemma \ref{lemma:finite:nset} demonstrates that this picks
+out the internally \textit{Dedekind} finite subsets of $\typeP$ which do not
+quite coincide with the internally isolated elements of $\widehat{\typeP}$ as
+desired.
+%
+Because of this discrepancy it may be that the functor-category semantics also
+has a failure of continuity much like that described in section
+\ref{bindingdiscts}.
+
+
 
 \subsection{Presheaf Semantics}
 
-\TODO{Write this}
+The path semantics of HOPLA was motivated as a simplified version of the
+presheaf semantics of Cardelli and Winskel(\TODO{Cite}).
+%
+The presheaf setting gives a much more detailed semantics: the denotation of a
+process records not only which paths it can perform, but also \textit{how} those
+paths may be realised.
+%
+For example, the presheaf semantics distinguishes the processes
+$\bang{\bang\inactive}$ and $\bang\inactive \mathop{\mathtt{+}}
+\bang{\bang\inactive}$ which are not bisimilar but which are nonetheless
+confounded by the path semantics.
+%
+The cost of this extra detail is that it is more mathematically cumbersome to
+work directly with the presheaf semantics.
 
-\TODO{Development of 'Nominal Category Theory' a prerequisite?} 
-
-\TODO{What does $\delta$ of a category do?}
-
-\TODO{$\delta\widehat{\typeP} \simeq \widehat{\delta\typeP}$ for presheaves over
-the category $\typeP$}
+The development of a nominal path semantics suggests a similar approach to
+adjoining name generation to the presheaf semantics by working within a nominal
+setting.
+%
+Of course it is currently far from clear what might be meant by a `nominal
+setting' for the requisite category theory.
+%
+Presumably it would be involve some notion of a permutation action on a category
+giving rise to a notion of finitely-supported objects and arrows and equivariant
+functors.
+%
+It might then be necessary to design what is meant by the collection
+$\widehat{\mathcal{C}}$ of `nominal presheaves' on a category $\mathcal{C}$, as
+well as to build an analogue of the key binding adjunction $(-) \otimes \mathbb
+A \dashv \delta$.
+%
+Hopefully the important isomorphisms such as $\widehat{\delta\typeP} \cong
+\delta\widehat{\typeP}$ (cf. lemma \ref{deltahatiso}) would also carry across to
+the categorical setting.
+%
+There are many more worthwhile avenues of research to explore!
 
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
