@@ -111,15 +111,9 @@ Indeed, neither $\Phi_d$ nor $\Phi_\omega$ fully capture an appropriate notion
 of approximation in the theory of nominal sets and it is necessary to use a
 subtly different definition instead.
 %
-It would perhaps be desirable to have an axiomatisation for the features that a
-property $\Phi$ must have in order to make it a suitable choice for a notion of
-approximation but investigating such an axiomatisation is beyond the scope of
-this thesis.
-%
-Instead, it is sufficient to think of $\Phi$ as being either $\Phi_d$ or
+However, it is sufficient to think of $\Phi$ as being either $\Phi_d$ or
 $\Phi_\omega$ in the following, and when introducing approximations in nominal
-set theory in section \ref{fmcts} the mathematics is developed from scratch
-using this section as a guide.
+set theory in section \ref{fmcts} the mathematics is developed from scratch.
 
 
 \begin{definition} A \define{$\Phi$-complete partial order
