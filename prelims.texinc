@@ -122,11 +122,11 @@ finite automorphism of $\mathbb A$, i.e. a bijection $\sigma : \mathbb A \to
 %
 In particular this includes permutations of $\mathbb A$, which are represented
 as finite lists of transpositions of pairs of names $(a_1 b_1) \ldots (a_n b_n)$
-and whose action is defined by recursion on $n$ as $\iota a \defeq a$ and
-\begin{equation} (a_1 b_1) \ldots (a_n b_n) (a_{n+1} b_{n+1}) a \defeq
-\begin{cases} (a_1 b_1) \ldots (a_n b_n)  b_{n+1} & a = a_{n+1} \\ (a_1 b_1)
-\ldots (a_n b_n) a_{n+1} & a = b_{n+1} \\ (a_1 b_1) \ldots (a_n b_n)  a &
-\text{otherwise.} \end{cases} \end{equation}
+and whose action is defined by recursion on $n$ by letting $\iota a \defeq a$
+where $\iota$ is the empty list, and \begin{equation} (a_1 b_1) \ldots (a_n b_n)
+(a_{n+1} b_{n+1}) a \defeq \begin{cases} (a_1 b_1) \ldots (a_n b_n)  b_{n+1} & a
+= a_{n+1} \\ (a_1 b_1) \ldots (a_n b_n) a_{n+1} & a = b_{n+1} \\ (a_1 b_1)
+\ldots (a_n b_n)  a & \text{otherwise.} \end{cases} \end{equation}
 
 In fact, any finite automorphism may be represented as a permutation, as the
 following lemma shows.
