@@ -448,12 +448,13 @@ Write $i_{\typeP}$ for the map $i_{\typeP} : \typelift\typeP \to
 Each $\widehat{\typeP}$ is the free uniformly-supported-directed-join completion
 of $\typelift\typeP$. In detail, this means that $\widehat{\typeP}$ has all
 uniformly-supported directed joins (indeed, it has all finitely-supported joins)
-and if $C$ is a poset that also has all uniformly-supported directed joins and
-$f : \typelift\typeP \to C$ is a monotone finitely-supported function then there
-is a unique finitely-supported FM-continuous $f^{\ddagger} : \widehat{\typeP}
-\to C$ that such that the following diagram commutes.  \begin{equation}
-\label{bang:freeness} \xymatrix{ \typelift\typeP\ \ar[r]^{i_{\typeP}} \ar[dr]_f
-& \widehat{\typeP} \ar[d]^{f^{\ddagger}} \\& C} \end{equation} 
+and if $C$ is a FM-poset that also has all uniformly-supported directed joins
+and $f : \typelift\typeP \to C$ is a monotone finitely-supported function then
+there is a unique finitely-supported FM-continuous $f^{\ddagger} :
+\widehat{\typeP} \to C$ that such that the following diagram commutes.
+\begin{equation} \label{bang:freeness} \xymatrix{ \typelift\typeP\
+\ar[r]^{i_{\typeP}} \ar[dr]_f & \widehat{\typeP} \ar[d]^{f^{\ddagger}} \\& C}
+\end{equation} 
 %
 The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x \defeq
 \bigvee\{f P_\downarrow \mid P \in \typelift\typeP, P \subseteq x \text{ and }

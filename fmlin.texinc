@@ -52,7 +52,7 @@ prime algebraic.
 
 Finally, $\widehat{\typeP}$ can be characterised abstractly as the free
 finitely-supported join completion of $\typeP$. In other words,
-$\widehat{\typeP}$ has all finitely-supported joins and if $C$ is a poset that
+$\widehat{\typeP}$ has all finitely-supported joins and if $C$ is a FM-poset that
 also has all finitely supported joins and $f : \typeP \to C$ is a monotone
 finitely-supported function then there is a unique finitely-supported
 $f^{\dagger} : \widehat{\typeP} \to C$ that preserves all finitely supported
