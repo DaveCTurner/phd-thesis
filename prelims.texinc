@@ -845,8 +845,8 @@ $\Lambda/\mathord{\sim}_{\alpha}$ under $\alpha$-equivalence.
 The set $\Lambda$ may be defined recursively by the rules \begin{equation}
 \infer[(a \in \mathbb A)]{\quad a \quad}{} \quad \infer{MN}{M & N} \quad
 \infer[(a \in \mathbb A)]{\lambda a. M}{M} \end{equation} which amounts to
-saying that $\Lambda$ is an initial algebra for the functor $\mathbb A + (-)^{2}
-+ \mathbb A \times (-)$.
+saying that $\Lambda$ is an initial algebra for the endofunctor $\mathbb A +
+(-)^{2} + \mathbb A \times (-)$ on $\mathbf{NSet}$.
 %
 Notice that the components of this functor arise directly from the recursive
 definition of $\Lambda$.
@@ -855,8 +855,8 @@ Furthermore, the initiality of $\Lambda$ is the property that gives rise to the
 principle of structural induction on $\lambda$ terms.
 %
 Similarly, $\Lambda/\mathord{\sim}_{\alpha}$ is an initial algebra for the
-functor $\mathbb A + (-)^{2} + \delta(-)$, and the initiality gives rise to an
-induction principle that can be described as `structural-up-to-$\alpha$'.
+endofunctor $\mathbb A + (-)^{2} + \delta(-)$, and the initiality gives rise to
+an induction principle that can be described as `structural-up-to-$\alpha$'.
 %
 It is a structural principle in the sense that it decomposes terms into their
 components, and it is `up-to-$\alpha$' in the sense that a decomposition of a
