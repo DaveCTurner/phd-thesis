@@ -329,7 +329,8 @@ depending on the style of nondeterminism that is under study.
 \begin{definition} A \define{Plotkin-nondeterministic $\Phi$CPO}
 ($\text{N}_P\Phi\text{CPO}$) is a $\Phi$CPO $\langle D, \sqsubseteq_D \rangle$
 together with an idempotent, commutative and associative binary operation
-$\mathord{\sqcup}_D : D \times D \to D$.
+$\mathord{\sqcup}_D : D \times D \to D$ that is $\Phi$-continuous in each
+argument.
 
 A \define{Hoare-nondeterministic $\Phi$CPO} ($\text{N}_H\Phi\text{CPO}$) is
 a Plotkin-non\-det\-er\-min\-istic $\Phi$CPO $\langle D, \sqsubseteq_D,
