@@ -289,12 +289,12 @@ permutation.
 
 \begin{lemma} \label{lemma:injextension} If $s \subseteq_{\mathrm{fin}} \mathbb
 A$ and $i : s \rightarrowtail \mathbb A$ is an injection then there exists a
-permutation $\sigma_i$ such that that the restriction of $\sigma_i$ to $s$ is
-$i$.  \end{lemma}
+finite permutation $\sigma_i$ such that that the restriction of $\sigma_i$ to
+$s$ is $i$.  \end{lemma}
 
 \begin{proof} The proof proceeds by induction on $|s|$.
 %
-If $s = \varnothing$ then any permutation suffices for $\sigma_i$.
+If $s = \varnothing$ then any finite permutation suffices for $\sigma_i$.
 %
 Now suppose that $a \notin s$ and $i : s \udot \{a\} \rightarrowtail \mathbb A$,
 and let $i' = i|_s : s \rightarrowtail \mathbb A$.
