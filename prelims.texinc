@@ -654,7 +654,7 @@ subcategory $\mathbf{Sch}$ of $\mathbf{Set}^{\mathbb I}$ consisting of those
 presheaves that preserve pullbacks.\end{lemma}
 
 \begin{proof}[Sketch Proof] A functor $F: \mathbf{NSet} \to \mathbf{Sch}$ is
-defined by \begin{equation} F X s \defeq \{ x \in X \mid \text{$s$ supports $x$}
+defined by \begin{equation} (F X) s \defeq \{ x \in X \mid \text{$s$ supports $x$}
 \}, \end{equation} where if $i : s \rightarrowtail s'$ then there is some
 permutation $\sigma_i$ that extends $i$, so define $F i(x) \defeq \sigma_i \cdot
 x$.  Note that there are many choices for $\sigma_i$ but this definition is
