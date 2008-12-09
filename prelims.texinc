@@ -159,9 +159,9 @@ To see this, notice firstly that $\sigma \bigl((a a') a\bigr) = a$.
 Furthermore, suppose that $b$ is such that $\sigma \bigl((a a') b\bigr) \neq b$,
 then $\sigma b \neq b$ as follows.
 %
-Clearly $b \neq a$; also if $b = \sigma^{-1} a$ then $\sigma b = a \neq b$;
-finally if $b \neq a'$ then $(a a') b = b$ so that $b \neq \sigma \bigl((a a')
-b\bigr) = \sigma b$ as required.
+Clearly $b \neq a$; also if $b = a'$ then $\sigma b = a \neq b$; finally if $b
+\neq a'$ then $(a a') b = b$ so that $b \neq \sigma \bigl((a a') b\bigr) =
+\sigma b$ as required.
 %
 Therefore $\{b \in \mathbb A \mid \sigma \bigl((a a') b\bigr) \neq b\}
 \varsubsetneq \{a \in \mathbb A \mid \sigma a \neq a \}$ so the induction
@@ -170,6 +170,28 @@ transpositions.
 %
 Note that $a' \neq a$ since $a \neq \sigma a$, so that $\vec{\tau} (a a')$ is as
 desired.  \end{proof}
+
+It is sometimes useful to be able to reorder the list of transpositions that
+represent a particular permutation, which is possible as shown in the following
+lemma.
+
+\begin{lemma} \label{lemma:perm-swap} If $\sigma$ is a permutation and $a$
+and $b$ are names then $\sigma \circ (ab) = (\sigma a \ \sigma b) \circ \sigma$.
+\end{lemma}
+
+\begin{proof} It is sufficient to show that $\sigma (ab) c = (\sigma a \ \sigma
+b)  \sigma c$ for all names $c$, and for this it is sufficient to consider the
+three cases $c = a$, $c = b$ and $c \notin \{a, b\}$.
+%
+If $c \notin \{a, b\}$ then it follows that $(ab) c = c$ and $\sigma c \notin
+\{\sigma a, \sigma b\}$ so that $(\sigma a \ \sigma b)  \sigma c = \sigma c =
+\sigma (ab) c$.
+%
+If $c = a$ then $(ab)c = b$ and hence $(\sigma a \ \sigma b)  \sigma c = \sigma
+b = \sigma (ab) c$ as required.
+%
+The case $c = b$ is similar.  \end{proof}
+
 
 
 \subsubsection{The Footprint Lemma.}
@@ -222,9 +244,17 @@ and a finite such $D$ exists, so $\sigma_2$ takes only finitely many possible
 values.
 %
 This fact is used in the proof of \ref{fineltextension}.
+%
+Firstly it is necessary to show an elementary special case.
 
-Notice that this lemma generalises the result that $(be) = (de)(bd)(de)$ for
-distinct names $b, d, e$.
+\begin{lemma} \label{footprint1} If $b$, $d$ and $e$ are distinct names
+then $(be) = (de)(bd)(de)$. \end{lemma}
+
+\begin{proof} By lemma \ref{lemma:perm-swap} it is the case that $(de)(bd) =
+\bigl((de)b\ (de)d\bigr)(de) = (be)(de)$ so that $(be) = (be)(de)(de) =
+(de)(bd)(de)$ as required.  \end{proof}
+
+The general result is now as follows.
 
 \begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
 mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
@@ -251,13 +281,15 @@ If $a \notin B$ and $b \notin B$ then define $\sigma'_3 = \sigma_3(ab)$.  Since
 $\sigma'_3 c = c$ for all $c \in A \cup B$, $\sigma = \sigma_1 \sigma_2
 \sigma'_3$ is a factorisation in the desired form. 
 %
-If $a \in B$ and $b \in B$ then $\sigma_3(ab) = (ab)\sigma_3$ so let $\sigma'_2
-= \sigma_2(ab)$ which has $\sigma'_2 c \neq c$ only if $c \in (B \cup D)
-\setminus A$, so that $\sigma = \sigma_1 \sigma'_2 \sigma_3$ is a factorisation
-in the desired form.
+If $a \in B$ and $b \in B$ then $\sigma_3(ab) = (ab)\sigma_3$ by lemma
+\ref{lemma:perm-swap} so let $\sigma'_2 = \sigma_2(ab)$ which has $\sigma'_2 c
+\neq c$ only if $c \in (B \cup D) \setminus A$, so that $\sigma = \sigma_1
+\sigma'_2 \sigma_3$ is a factorisation in the desired form.
 
-Otherwise without loss of generality let $a \notin B$ and $b \in B$. Then
-$\sigma_3(ab) = (a'b)\sigma_3$ where $a' = \sigma_3 a$.
+Otherwise without loss of generality let $a \notin B$ and $b \in B$.
+%
+Then by lemma \ref{lemma:perm-swap} it follows that $\sigma_3(ab) =
+(a'b)\sigma_3$ where $a' = \sigma_3 a$.
 %
 Note that $a' \notin A \cup B$ since otherwise $a' = \sigma_3 a'$ and hence $a'
 = \sigma_3^{-1} a' = a \notin A \cup B$ which is a contradiction. There are two
@@ -271,10 +303,9 @@ $\sigma = \sigma_1 \sigma'_2 \sigma_3$ is a factorisation in the desired form.
 On the other hand $a' \notin D$ then let $c \in D$ be such that $\sigma_2 \cdot
 c \in D$, which exists since by assumption $|D| > |B|$.
 %
-Then $(a'b) = (a'c)(bc)(a'c)$.
-%
-Writing $c' = \sigma_2 \cdot c \in D$, then $\sigma = \sigma_1 (a'c') \sigma_2
-(bc) (a'c) \sigma_3$.
+Then $(a'b) = (a'c)(bc)(a'c)$ by lemma \ref{footprint1} so that writing $c' =
+\sigma_2 \cdot c \in D$ it follows that $\sigma = \sigma_1 (a'c') \sigma_2 (bc)
+(a'c) \sigma_3$ by lemma \ref{lemma:perm-swap}.
 %
 Let $\sigma'_1 = \sigma_1 (a'c')$, $\sigma'_2 = \sigma_2 (bc)$ and $\sigma'_3 =
 (a'c) \sigma_3$, then $\sigma = \sigma'_1 \sigma'_2 \sigma'_3$ is a
