@@ -72,8 +72,6 @@ r_n}}{\envvarfresh{x}{\typeQ}{\varnothing}} }}{t[v]}{\typeP}$ as required.
 
 \subparagraph{Exchange} This case is trivial, by reordering the environments appropriately.
 
-\vfill\pagebreak
-
 \subparagraph{Contraction} There are two possibilities for this case, depending on
 whether the contracted variable is subject to substitution or not. Suppose that
 the judgement
