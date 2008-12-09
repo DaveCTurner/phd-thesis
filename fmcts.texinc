@@ -161,8 +161,8 @@ argument.
 %
 However if $\supp{p} \nsubseteq \supp{\typeP}$ then letting $b \in \supp{p}
 \setminus \supp{\typeP}$ and $c \notin \supp{p, \typeP}$ means that $(bc) \cdot
-p \neq p$ which is a contradiction, so that $\supp{p} \subseteq \supp{\typeP}$
-as required.  \end{proof}
+p \neq p$ by lemma \ref{supp-in-out} which is a contradiction, so that $\supp{p}
+\subseteq \supp{\typeP}$ as required.  \end{proof}
 
 \begin{definition} An \define{increasing FM-sequence} in a poset $D$ is an
 increasing sequence (i.e. a monotone function from some ordinal $\alpha$ to $D$)
