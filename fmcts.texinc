@@ -130,10 +130,10 @@ continuous functions are those that are physically feasible\cite[Thesis
 Classically it makes little difference to the elementary domain theory whether
 one uses increasing sequences or directed sets.
 %
-After all, a poset has limits of all increasing sequences iff it has limits of
-all directed sets: increasing sequences give rise to directed sets, and
-conversely given a well-ordered directed set the well-ordering gives rise to an
-increasing sequence.
+After all, a poset has limits of all (ordinal-indexed) increasing sequences iff
+it has limits of all directed sets: increasing sequences give rise to directed
+sets, and conversely given a well-ordered directed set the well-ordering gives
+rise to an increasing sequence.
 %
 The Axiom of Choice ensures that all directed sets have well-orderings.
 %
