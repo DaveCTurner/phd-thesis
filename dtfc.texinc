@@ -279,14 +279,15 @@ For example, the cartesian product of a pair of algebraic $\Phi$CPOs (as objects
 of $\mathbf{\Phi CPO}$) is again an algebraic $\Phi$CPO.
 %
 However if $D$ and $E$ are $\Phi$-algebraic then it is not necessarily the case
-that the function space $D \to E$ is $\Phi$-algebraic, and $\mathbf{\Phi Alg}$
-is not cartesian closed.
+that the function space $D \to E$ is $\Phi$-algebraic, and neither
+$\mathbf{\Phi_d Alg}$ nor $\mathbf{\Phi_\omega Alg}$ is cartesian closed.
 %
-Fortunately $\mathbf{\Phi Alg}$ contains cartesian closed subcategories that are
-suitable settings for denotational semantics.
+Fortunately $\mathbf{\Phi Alg}$ may contain a cartesian closed subcategory that
+is a suitable setting for denotational semantics.
 %
-One such setting is the collection of Scott domains, which are those algebraic
-$\Phi$CPOs where every \textit{bounded} $\Phi$-subset has a join.
+In $\mathbf{\Phi_d Alg}$ one such setting is the collection of Scott domains,
+which are those algebraic $\Phi_d$CPOs where every \textit{bounded}
+$\Phi_d$-subset has a join.
 %
 Another is the collection of \textit{strongly finite} or SFP
 objects\cite{plotkin:powerdomains}.
