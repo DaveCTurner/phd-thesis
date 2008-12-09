@@ -207,11 +207,7 @@ Indeed, much of this dissertation works within the theory of nominal sets, and
 in this theory the notion of cardinality is subtle because of the failure of the
 Axiom of Choice.
 %
-For example, lemma \ref{lemma:fm:totalorder} implies that any (internally)
-countable nominal set is discrete and therefore not particularly interesting for
-the purposes of this discussion.
-%
-Also, lemma \ref{lemma:finite:nset} demonstrates that even the idea of
+For example, lemma \ref{lemma:finite:nset} demonstrates that even the idea of
 finiteness is delicate.
 
 Importantly, the isolated elements of an algebraic $\Phi$CPO determine its
