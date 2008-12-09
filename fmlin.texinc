@@ -162,8 +162,12 @@ then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
 The notation is no accident: $\phi$ and $\phi^{-1}$ are natural and mutual
 inverses.
 
-\begin{lemma}\label{freshhatiso} Let $a \notin s$. The map $\phi$ defined in
-\ref{def:phi} is a natural isomorphism of the functors
+\begin{lemma}\label{freshhatiso} If $a \notin s$ and $\typeP$ is an object of
+$\mathbf{FMPre}_s$ then \[\phi_{\typeP} : \widehat{\typeP}^{\freshfor a} \cong
+\widehat{\typeP^{\freshfor a}} : \phi^{-1}_{\typeP} \] is an isomorphism in
+$\mathbf{FMPre}_{s \udot \{a\}}$ which is natural in $\typeP$.
+%
+Put differently, the map $\phi$ is a natural isomorphism of the functors
 \[\widehat{(-)}^{\freshfor a}, \widehat{(-)^{\freshfor a}} : \mathbf{FMPre}_s
 \rightrightarrows \mathbf{FMPre}_{s \udot \{a\}}.\] \end{lemma}
 
@@ -312,9 +316,13 @@ context and hence to write $\theta^{(a)}$ simply as $\theta$.
 %
 A similar convention applies to ${\theta^{(a)}}^{-1}$ too.
 
-\begin{lemma}\label{deltahatiso} Let $a \notin s$. The map $\theta$ defined in
-\ref{def:theta} is a natural isomorphism of the functors \[\delta_a
-\widehat{(-)}, \widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}}
+\begin{lemma}\label{deltahatiso} If $a \notin s$ and $\typeP$ is an object of
+$\mathbf{FMPre}_{s \udot \{a\}}$ then \[\theta_{\typeP} : \widehat{\delta_a
+\typeP} \cong \delta_a \widehat{\typeP} : \theta^{-1}_{\typeP}\] is an
+isomorphism in $\mathbf{FMPre}_s$ which is natural in $\typeP$.
+%
+Put differently, the map $\theta$ is a natural isomorphism of the functors
+\[\delta_a \widehat{(-)}, \widehat{\delta_a -} : \mathbf{FMPre}_{s \udot \{a\}}
 \rightrightarrows \mathbf{FMPre}_s.\]\end{lemma}
 
 \begin{proof}
