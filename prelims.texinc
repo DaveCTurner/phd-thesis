@@ -352,7 +352,8 @@ $x$} \}$ supports $x$.  \end{lemma}
 \begin{proof} It is sufficient to show that if $s$ and $s'$ are finite supports
 of $x$ then $s \cap s'$ also supports $x$.
 %
-Let $a, b \in \mathbb A \setminus (s \cap s')$.
+Let $a, b \in \mathbb A \setminus (s \cap s')$ and show that $(ab) \cdot x = x$
+as follows.
 %
 If $a, b \in \mathbb A \setminus s$ then $(ab) \cdot x = x$ since $s$ supports
 $x$.
