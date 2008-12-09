@@ -546,8 +546,8 @@ P_{\mathrm{fin}} X$ is also a nominal set.
 
 \subsubsection{Nominal function spaces.}
 %
-If $X$ and $Y$ are nominal sets then the function space $X \to Y$ is a subset of
-$\mathcal P(X \times Y)$, where the derived $\mathcal{G}$-action becomes
+If $X$ and $Y$ are nominal sets then the set of functions $X \to Y$ is a subset
+of $\mathcal P(X \times Y)$, where the derived $\mathcal{G}$-action amounts to
 \begin{equation} (\sigma \cdot f)x \defeq \sigma \cdot \bigl( f(\sigma^{-1}
 \cdot x) \bigr). \end{equation} In general a function $f : X \to Y$ does not
 have finite support: if $A \subseteq \mathbb A$ is infinite and has infinite
