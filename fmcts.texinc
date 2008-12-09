@@ -1200,11 +1200,15 @@ for $i \in \{1, 2\}$ then \begin{equation} \label{characterisation:m:prod} (g_1
 This helps to make the presentation of a denotational semantics in the
 FM-continuous categories look a little more familiar.
 
-Also, since each $\mathbf{FMCts}_s$ is cartesian, for any objects $\typePsub{1}$
-and $\typePsub{2}$ there is a twist map \begin{equation} \label{def:varsigma}
-\varsigma_{\typePsub{1}, \typePsub{2}} \defeq \langle \mathbf{out}_2, \mathbf{out}_1
-\rangle^{\amp} : \typePsub{1} \amp \typePsub{2} \cto \typePsub{2} \amp
-\typePsub{1} \end{equation}
+Also, since each $\mathbf{FMCts}_s$ is cartesian it follows that it supports all
+the usual constructions in cartesian categories.
+%
+A few of these constructions are described here to fix their notation.
+%
+For any objects $\typePsub{1}$ and $\typePsub{2}$ there is a twist map
+\begin{equation} \label{def:varsigma} \varsigma_{\typePsub{1}, \typePsub{2}}
+\defeq \langle \mathbf{out}_2, \mathbf{out}_1 \rangle^{\amp} : \typePsub{1} \amp
+\typePsub{2} \cto \typePsub{2} \amp \typePsub{1} \end{equation}
 %
 In particular $\varsigma$ is natural in $\typePsub{1}$ and $\typePsub{2}$ in the
 sense that if $f_i : \typePsub{i} \cto \typeQsub{i}$ for $i \in \{1, 2\}$ then
