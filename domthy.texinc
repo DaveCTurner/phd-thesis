@@ -215,23 +215,39 @@ In some sense $\mathcal{V}_{\mathrm{FM}}$ is a large nominal set, or `nominal
 class': it has a permutation action and all of its members are
 finitely-supported.
 %
-Alternatively, for each ordinal $\alpha$ the $\alpha$th level of the cumulative
-FM hierarchy is a (small) nominal set.
+It only takes a small logical leap to see that this justifies the use of the
+language of nominal sets developed in chapter \ref{prelims} to manipulate FM
+sets too.
 %
-The discussion below could take place in either ${\mathcal{V}_{\mathrm{FM}}}$ or
-${\mathcal{V}_{\mathrm{FM}}}_\alpha$ for some $\alpha$, and can therefore use
-the language of nominal sets.
+For example, the freshness predicate $\freshfor$ and the construction
+$\freshin{\ldots}{\ldots}$ immediately carry across to FM set theory since any
+FM set can be seen as a subset of the nominal `set' $\mathcal{V}_{\mathrm{FM}}$.
 
-It is certainly possible to define a category $\mathbf{FMPre}$ of FM-preorders
-and finitely-supported monotone functions, and for any FM-preorder $\typeP$ it
-is the case that $\typeP^{\freshfor a}$ is also a FM-preorder (where $p_1
-\le_{\typeP^{\freshfor a}} p_2$ is defined to be $p_1 \le_\typeP p_2 \wedge p_1,
-p_2 \in \typeP^{\freshfor a}$) since $\typeP^{\freshfor a}$ is supported by the
-finite set $\supp{\typeP} \cup \{a\}$.
+For example, the analogue of the concept of a preorder in FM set theory is a
+\textit{FM-preorder}, which is a pair $\langle \typeP, \mathord{\le}_{\typeP}
+\rangle$ where $\typeP$ and $\le_{\typeP}$ are both FM sets such that
+$\le_{\typeP}$ is a reflexive and transitive binary relation on $\typeP$.
 %
-It would be convenient to be able to make $(-)^{\freshfor a}$ into a
-functor, but this is not possible on $\mathbf{FMPre}$. To see this, let $\typeP$
-be any FM-preorder and consider the unique map $f : \typeP \to \{a\}$ which is
+The $\in$-recursive nature of the permutation action on FM sets gives rise to a
+permutation action on FM-preorders, where $\sigma \cdot \typeP = \{ \sigma \cdot
+p \mid p \in \typeP \}$ and $p \le_{\typeP} p'$ if and only if $\sigma \cdot p
+\le_{\sigma \cdot \typeP} \sigma \cdot p'$.
+%
+The FM-preorder $\langle \typeP, \mathord{\le}_\typeP \rangle$ is often referred
+to simply as $\typeP$, but note carefully that $\supp{\typeP}$ is an
+abbreviation for $\supp{\typeP, \mathord{\le}_{\typeP}}$ (with respect to the
+permutation action described above, of course).
+
+The collection of FM-preorders and finitely-supported monotone functions between
+their underlying sets forms a category $\mathbf{FMPre}$, and for any FM-preorder
+$\typeP$ it is the case that $\typeP^{\freshfor a}$ is also a FM-preorder (where
+$p_1 \le_{\typeP^{\freshfor a}} p_2$ is defined to be $p_1 \le_\typeP p_2 \wedge
+p_1, p_2 \in \typeP^{\freshfor a}$) since $\typeP^{\freshfor a}$ is supported by
+the finite set $\supp{\typeP} \cup \{a\}$.
+%
+It would be convenient to be able to make $(-)^{\freshfor a}$ into a functor,
+but this is not possible on $\mathbf{FMPre}$. To see this, let $\typeP$ be any
+FM-preorder and consider the unique map $f : \typeP \to \{a\}$ which is
 necessarily monotone and finitely-supported, and hence an arrow of
 $\mathbf{FMPre}$: however if $\typeP$ contains an element without $a$ in its
 support then $\typeP^{\freshfor a} \neq \varnothing$ so there are no possible
