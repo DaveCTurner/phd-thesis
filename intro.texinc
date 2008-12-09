@@ -9,6 +9,9 @@ HOPLA/DTfC blah blah.
 
 The aim of this dissertation is to elegantly combine the theories of nominal
 sets and Winskel's Domain Theory for Concurrency.
+%
+This may demonstrate how to \textit{systematically} adjoin name generation to
+models for concurrency.
 
 Mention universality as a guiding principle.
 
