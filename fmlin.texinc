@@ -83,7 +83,7 @@ $\typeQ$, $\ldots$ supported by $s$ and whose arrows $\typeP \lto \typeQ$ are
 FM-linear maps $\widehat{\typeP} \to \widehat{\typeQ}$ supported by $s$.
 %
 The discussion at the end of the previous section shows that
-there is an isomorphism \begin{equation} \label{hat:adj}
+there is a bijection \begin{equation} \label{hat:adj}
 \mathbf{FMPre}_s(\typeP, \widehat{\typeQ}) \cong \mathbf{FMLin}_s(\typeP,
 \typeQ).\end{equation}
 
