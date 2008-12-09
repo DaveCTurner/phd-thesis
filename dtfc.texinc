@@ -4,21 +4,28 @@ pieces of syntax by assigning to each program $P$ a mathematical object
 $\sem{P}$ that $P$ is said to \textit{denote}, and whose mathematical properties
 correspond to the computational properties of $P$.
 %
-Domain theory is a style of denotational semantics that uses mathematical
+Domain theory is the foundation of denotational semantics, using mathematical
 structures called domains as universes of denotations.
 %
 Its origins lie in work in the 1960s when Scott(\TODO{Cite}) was searching for a
-setting for a denotational semantics for the untyped $\lambda$-calculs.
+setting for denotational semantics as pioneered by the work of
+Strachey(\TODO{Cite}).
 %
-It was not possible to use the obvious semantics whereby each $\lambda$-term
-denotes a total function, because such a semantics would have required a set $D$
-such that $D \cong D \to D$ where $\to$ is the usual set-theoretic function
-space and a simple cardinality argument demonstrates that the only solutions to
-this equation are trivial.
+A consequence of this work was the development of a denotational semantics for
+the untyped $\lambda$-calculus.
 %
-A way around this problem was effectively to permit the model to contain partial
-as well as total functions, and to equip the set $D$ with extra structure that
-captures the relationships between the partial functions.
+This was an important development since it is clear that it is not possible to
+use the `obvious' semantics where each $\lambda$-term denotes a total function,
+because such a semantics would have required a set $D$ such that $D \cong D \to
+D$ where $\to$ is the usual set-theoretic function space.
+%
+A simple cardinality argument demonstrates that the only solutions to this
+equation are trivial.
+%
+A way around this problem was effectively to permit the model to contain
+`partial' elements, corresponding to partially-defined functions, and to equip
+the set $D$ with extra structure that captures the relationships between these
+partial elements.
 %
 The resulting structured sets are generally all called domains, although this
 word has a variety of subtly different definitions depending on the detailed
