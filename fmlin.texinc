@@ -270,7 +270,7 @@ $\{\cdot\}_{\downarrow}$ of the $\widehat{(-)}$ monad as follows.
 \ar[dr]_{\{\cdot\}_{(-)^{\freshfor a}}} & \widehat{(-)}^{\freshfor a}
 \ar[d]^{\phi} \\ & \widehat{(-)^{\freshfor a}}} \] \end{lemma}
 
-\begin{proof} Let $\typeP$ be an object of $\mathbf{FMCts}_s$ and let $p \in
+\begin{proof} Let $\typeP$ be an object of $\mathbf{FMPre}_s$ and let $p \in
 \typeP^{\freshfor a}$, then \begin{equation} \begin{array}[t]{rcl}
 \bigl(\{\cdot\}_{\typeP^{\freshfor a}}\bigr)p 
 %
@@ -422,7 +422,7 @@ $\{\cdot\}_{\downarrow}$ of the $\widehat{(-)}$ monad as follows.
 \delta_a\widehat{\typeP} \ar[d]^{\theta_{\typeP}} \\ & 
 \widehat{\delta_a\typeP}} \] \end{lemma}
 
-\begin{proof} Let $\typeP$ be an object of $\mathbf{FMCts}_{s \udot \{a\}}$ and
+\begin{proof} Let $\typeP$ be an object of $\mathbf{FMPre}_{s \udot \{a\}}$ and
 let $p \in \delta_a\typeP$, then \begin{equation} \begin{array}[t]{rcl}
 \bigl(\{\cdot\}_{\delta_a\typeP}\bigr)p
 %
