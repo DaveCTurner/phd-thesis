@@ -593,7 +593,7 @@ Via \ref{homsets}, \begin{equation} \begin{array}[t]{rcl} \mathbf{FMLin}_s(\type
 & \cong & \mathbf{FMLin}_s(\typeP, \typeQ^{\mathrm{op}} \times \typeR)
 \end{array}\end{equation}
 %
-so that $\mathbf{FMLin}_s$ is closed with respect to the $\times$ monoid, and
+so that $\mathbf{FMLin}_s$ is closed with respect to the $\times$ tensor, and
 the internal function space is given by $\typeQ \multimap \typeR \defeq
 \typeQ^{\mathrm{op}} \times \typeR$.
 
