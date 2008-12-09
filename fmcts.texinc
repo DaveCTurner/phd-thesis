@@ -329,8 +329,7 @@ Then $\sigma \cdot p \in \sigma \cdot \sigma' \cdot F$ and $\sigma\sigma'
 
 \begin{lemma}\label{finelts} An element $P \in \widehat{\typeP}$ is isolated iff
 it is of the form $\finelt{F}{s\downarrow}$ where $F$ is a finite subset of
-$\typeP$ and $s$ is a finite set of names that contains the support of $\typeP$.
-\end{lemma}
+$\typeP$ and $s$ is a finite set of names that supports $\typeP$.  \end{lemma}
 
 \begin{proof} Suppose that $\finelt{F}{s\downarrow} \subseteq \bigcup X$ where
 $X \subseteq \widehat{\typeP}$ is uniformly supported and directed.
