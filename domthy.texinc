@@ -120,7 +120,10 @@ p_1, a_1 \rangle \le_{\typeP \otimes \mathbb A} \langle p_2, a_2 \rangle
 p_2.\end{equation}
 
 Finally, $\mathbf{NPre}$ is monoidal closed with respect to this tensor.
-Concretely, the right adjoint to $(-) \otimes \mathbb A$ is given in terms of
+%
+As was the case in $\mathbf{NSet}$, the important consequence of this is the
+existence of a right adjoint to the functor $(-) \otimes \mathbb A$ which can
+concretely be given in terms of
 the $\alpha$-equivalence relation on $\mathbb A \times \typeP$ where
 \begin{equation} \label{def:alphaequiv} \langle a_1, p_1 \rangle  \sim_{\alpha}
 \langle a_2, p_2 \rangle \Leftrightarrow_{\mathrm{def}} \freshin{b}{(a_1 b)
