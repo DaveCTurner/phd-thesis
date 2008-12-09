@@ -102,9 +102,9 @@ Terms are given by the following grammar, where $\termvar{x}$ ranges over
 variables, $a$ ranges over names, $s$ over finite sets of names, $p$ over
 actions (see \ref{syn:actions}), $\ell$ over labels and $\typeP$ over types.
 %
-To build an intuition for this definition, it is worth studying the typing
-rules in section \ref{tjudge} and the operational semantics as defined in
-section \ref{opsem}.
+To build an intuition for this definition, it is worth studying it in parallel
+with the typing rules in section \ref{tjudge} and the operational semantics as
+defined in section \ref{opsem}.
 %
 \begin{equation} \begin{array}[t]{lclcl} t, u &::=&
 %
