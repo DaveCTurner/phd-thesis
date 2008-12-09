@@ -967,8 +967,9 @@ exist no injections into any of its proper subsets.
 \end{enumerate}
 
 All of these definitions coincide in classical ZFC set theory, but the situation
-is more complicated within nominal set theory because in the internal
-higher-order logic of nominal set theory every quantification is over only
+is more complicated within nominal set theory because everything under
+discussion is assumed to be finitely-supported; technically, in the internal
+higher-order logic of nominal set theory every quantification ranges over only
 finitely-supported objects.
 %
 In particular, in the definition of (\ref{finite:directed})-finiteness the
