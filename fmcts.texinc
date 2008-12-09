@@ -40,6 +40,10 @@ following chapter.
 \subsection{Name-Binding is not Directed-Join Continuous}
 \label{bindingdiscts}
 
+\TODO{Sam prefers $\abstract{x}{\new{a}{\termvar{x}}}$ but I think that
+involving the function space and $\beta$-reduction is unnecessary and clouds the
+issue.}
+
 It is now necessary to speculate a little on what a nominal extension to the
 process calculus HOPLA may look like. This speculation is motivated by the
 development of new-HOPLA\cite{WZ04}.
