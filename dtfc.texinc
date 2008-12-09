@@ -293,6 +293,9 @@ $\Phi$CPOs where every \textit{bounded} $\Phi$-subset has a join.
 %
 Another is the collection of \textit{strongly finite} or SFP
 objects\cite{plotkin:powerdomains}.
+%
+\TODO{Sam says that Scott domains are where \textit{every} bounded set has a
+join -- check}
 
 A strengthening of the concept of isolation is that of primality.
 %
