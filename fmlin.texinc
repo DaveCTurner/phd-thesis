@@ -627,7 +627,7 @@ Also if $f : \typeP \lto \typeQ$ is an arrow of $\mathbf{FMLin}_{s \udot \{a\}}$
 then $\delta_a^+ f : \delta_a \typeP \lto \delta_a \typeQ$ is the arrow of
 $\mathbf{FMLin}_s$ defined concretely as \begin{equation}
 \label{concrete:deltalin} \delta_a^+ f x \defeq \{ q \in \delta_a \typeQ \mid
-\exists p \in x.\ \freshin{b}{q@b \in ((ab) \cdot f) \{p@b\}_{\downarrow}}\}.
+\exists p \in x.\ \freshin{b}{q@b \in ((ab) \cdot f) (\{p@b\}_{\downarrow})}\}.
 \end{equation}
 
 For the purposes of calculation these definitions are a little unwieldy and it
