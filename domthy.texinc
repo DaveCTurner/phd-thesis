@@ -243,9 +243,8 @@ a}$ on objects but $\mathbf{FMPre}$ is too large to define $(-)^{\freshfor a}$
 on arrows. Fortunately there is a middle ground:
 
 \begin{definition} For any finite set of names $s$ let
-\define{$\mathbf{FMPre}_s$} be the category of FM-preorders and
-finitely-supported monotone functions whose supports are all contained in $s$.
-\end{definition}
+\define{$\mathbf{FMPre}_s$} be the subcategory of $\mathbf{FMPre}$ consisting of
+only those objects and arrows which are supported by $s$.  \end{definition}
 
 The categories $\mathbf{FMPre}_s$ are appropriate for defining a
 functor $(-)^{\freshfor a}$ as follows.
