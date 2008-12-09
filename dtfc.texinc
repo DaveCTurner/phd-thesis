@@ -162,8 +162,9 @@ ordered by inclusion.
 %
 \end{definition}
 
-The $\Phi$-ideal completion of a preorder $\typeP$ is a $\Phi$CPO with joins
-given by union.
+The $\Phi_d$-ideal completion (respectively the $\Phi_\omega$-ideal completion)
+of a preorder $\typeP$ is a $\Phi_d$CPO (respectively a $\Phi_\omega$CPO) with
+joins given by union.
 
 \subsection{Algebraic CPOs}
 \label{subsect:alg-cpos}
