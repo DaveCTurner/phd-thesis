@@ -1224,8 +1224,9 @@ Finally for any objects $\typeP$ of $\mathbf{FMCts}_s$ there is a diagonal map
 
 \subsubsection{Coproducts.}
 %
-Since $\mathbf{FMCts}_s$ is enriched over $\mathbf{CMon}$ and has finite
-products, its products are in fact biproducts.
+Similarly to the situation in $\mathbf{FMLin}_s$, since $\mathbf{FMCts}_s$ is
+enriched over $\mathbf{CMon}$ and has finite products it follows that its
+products are in fact biproducts.
 %
 In detail, the product $\typeP_1 \amp \typeP_2$ is also the coproduct of
 $\typeP_1$ and $\typeP_2$ --- the injections are given as in $\mathbf{FMLin}_s$
