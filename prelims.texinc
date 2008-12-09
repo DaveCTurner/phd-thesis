@@ -50,7 +50,8 @@ created.
 Shinwell\cite[Section 1.1]{shinwell:phdthesis} and Gabbay\cite[Section
 33]{gabbay:thesis} summarise some of these approaches and concentrate --- as
 does this discussion --- on a recently developed method based on a non-standard
-set theory: the theory of nominal sets\cite{PittsAM:newaas-jv}.
+set theory: the theory of nominal sets as pioneered by
+Pitts\cite{PittsAM:newaas-jv}.
 %
 This theory is a powerful one in the context of this thesis because it gives a
 purely semantic account of the idea of a bound name, which makes it possible to
