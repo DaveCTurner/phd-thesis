@@ -150,24 +150,25 @@ Suppose that $|\{a \in \mathbb A \mid \sigma a \neq a\}| > 0$ and let $a \in
 In order to use the induction hypothesis, it is necessary to find an
 automorphism that moves strictly fewer names.
 %
-It turns out that $\sigma \circ (a\ \sigma^{-1} a)$ is such an automorphism.
+Letting $a' = \sigma^{-1}a$ it will now be shown that $\sigma \circ (a a')$ is
+such an automorphism.
 %
-To see this, notice firstly that $\sigma \bigl((a\ \sigma^{-1} a) a\bigr) = a$.
+To see this, notice firstly that $\sigma \bigl((a a') a\bigr) = a$.
 %
-Furthermore, suppose that $b$ is such that $\sigma \bigl((a\ \sigma^{-1} a)
-b\bigr) \neq b$, then $\sigma b \neq b$ as follows.
+Furthermore, suppose that $b$ is such that $\sigma \bigl((a a') b\bigr) \neq b$,
+then $\sigma b \neq b$ as follows.
 %
 Clearly $b \neq a$; also if $b = \sigma^{-1} a$ then $\sigma b = a \neq b$;
-finally if $b \neq \sigma^{-1} a$ then $(a\ \sigma^{-1} a) b = b$ so that $b
-\neq \sigma \bigl((a\ \sigma^{-1} a) b\bigr) = \sigma b$ as required.
+finally if $b \neq a'$ then $(a a') b = b$ so that $b \neq \sigma \bigl((a a')
+b\bigr) = \sigma b$ as required.
 %
-Therefore $\{b \in \mathbb A \mid \sigma \bigl((a\ \sigma^{-1} a) b\bigr) \neq
-b\} \varsubsetneq \{a \in \mathbb A \mid \sigma a \neq a \}$ so the induction
-hypothesis applies to $\sigma \circ (a\ \sigma^{-1} a)$ to give a sequence
-$\vec{\tau}$ of transpositions.
+Therefore $\{b \in \mathbb A \mid \sigma \bigl((a a') b\bigr) \neq b\}
+\varsubsetneq \{a \in \mathbb A \mid \sigma a \neq a \}$ so the induction
+hypothesis applies to $\sigma \circ (a a')$ to give a sequence $\vec{\tau}$ of
+transpositions.
 %
-Note that $\sigma^{-1} a \neq a$ since $a \neq \sigma a$, so that $\vec{\tau}
-(a\ \sigma^{-1}a)$ is as desired.  \end{proof}
+Note that $a' \neq a$ since $a \neq \sigma a$, so that $\vec{\tau} (a a')$ is as
+desired.  \end{proof}
 
 
 \subsubsection{The Footprint Lemma.}
