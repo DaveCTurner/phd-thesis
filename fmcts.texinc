@@ -123,7 +123,7 @@ such as $\sem{\new{a}{\termvar{x}}}$.
 Continuity in domain theory arises from considering the process of physically
 realising some computation by performing a sequence of computational steps.
 %
-Taking `continuous' to mean `preserves increasing $\omega$-sequences',
+Taking `continuous' to mean `preserves joins of increasing $\omega$-sequences',
 continuous functions are those that are physically feasible\cite[Thesis
 5]{plotkin:pisa}.
 %
