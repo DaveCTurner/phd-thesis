@@ -149,17 +149,15 @@ literally equality, not simply equivalence-up-to-$\alpha$.
 
 \subsection{Syntax of Actions} \label{syn:actions}
 
-The operational semantics of Nominal HOPLA, as defined in \ref{opsem}, is given
-in the style of a labelled transition system.
+The operational semantics of Nominal HOPLA, as defined in section \ref{opsem},
+is given in the style of a labelled transition system.
 %
 The grammar of actions, labelling the transitions in the operational semantics,
 is given as follows.
 %
 The symbol $t$ ranges over closed terms, $a$ ranges over names and $\ell$ over
-labels.
-\begin{equation} \begin{array}[t]{lclcl} p &::=&
-\quad \bangaction &\qquad&\text{prefixing}
-\\
+labels.  \begin{equation} \begin{array}[t]{lclcl} p &::=& \quad \bangaction
+&\qquad&\text{prefixing} \\
 %
 &&\bigmid \labelaction{\ell}{p} && \text{labelled actions}\\
 %
@@ -167,10 +165,9 @@ labels.
 %
 &&\bigmid \absaction{p} && \text{recursive type actions}\\
 %
-&&\bigmid \newaction{a}{p} && \text{new name actions}\\
-\end{array} \end{equation}
-The form $\newaction{a}{p}$ binds the name $a$ in the same way that $a$ is
-bound in the term $\new{a}{t}$.
+&&\bigmid \newaction{a}{p} && \text{new name actions}\\ \end{array}
+\end{equation} The form $\newaction{a}{p}$ binds the name $a$ in the same way
+that $a$ is bound in the term $\new{a}{t}$.
 
 \subsection{Permutations on Terms and Actions}
 

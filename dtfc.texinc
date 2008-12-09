@@ -178,7 +178,7 @@ Computationally, the isolated elements of $D$ correspond to those computations
 that can be realised in finite time.
 %
 The terms \textit{compact} and \textit{finite} are also used in the literature,
-but this discussion consistently uses the term \textit{isolated} which is
+but this dissertation consistently uses the term \textit{isolated} which is
 defined as follows.
 
 \begin{definition} An element $d$ of the $\Phi$CPO $\langle D, \sqsubseteq_D
@@ -379,8 +379,7 @@ forgetful/free adjunction $F \dashv U : \mathbf{N\Phi Alg} \leftrightarrows
 \mathbf{\Phi Alg}$ as before.
 %
 An advantage of restricting attention to algebraic $\Phi$CPOs is that the
-powerdomain monad becomes a little easier to describe concretely in this
-setting.
+powerdomain monad becomes easy to describe concretely in this setting.
 %
 For example, if $D$ is an algebraic $\Phi_d$CPO then there is an associated
 preorder ${!}(D^{\circ})$ whose elements comprise the finite subsets of
@@ -485,7 +484,7 @@ category $\mathbf{Aff}$, whereas directed-join-preserving maps could be called
 \textit{continuous} and form a category $\mathbf{Cts}$.
 
 From a different viewpoint it turns out that $\mathbf{Lin}$ can be used as a
-setting for a fragment of Girard's classical linear logic, and following the
+setting for Girard's classical linear logic, and following the
 discipline of linear logic it would seem that the solution to the strictness of
 linearity is to consider those maps whose domain is under an exponential.
 %
@@ -551,7 +550,8 @@ gives a domain theory in terms of presheaves $\typeP^{\mathrm{op}} \to
 simple-minded path semantics.
 %
 Cattani and Winskel\cite{cattaniwinskel1} developed this presheaf-based
-semantics with later work by Nygaard\cite{nygaard:phdthesis}.
+semantics before Nygaard and Winskel\cite{nygaard:phdthesis,nygaardwinskel1}
+explored the simpler path semantics.
 
 Also absent from the path-based semantics in $\mathbf{Cts}$ is the concept of
 name-generation.
