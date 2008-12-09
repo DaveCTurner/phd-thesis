@@ -466,7 +466,8 @@ The function $f^{\ddagger}$ is given by \begin{equation} f^{\ddagger}x \defeq
 Note that this is well-defined since the join is taken over a directed set that
 is uniformly supported by $\supp{f, x, \typeP}$, so the join exists in $C$.
 %
-It is also clear that $f^\ddagger$ is finitely-supported.
+It is also clear that $f^\ddagger$ is supported by the finite set $\supp{f, C,
+\typeP}$.
 
 \begin{lemma} \label{ddagger:cts} The map $f^{\ddagger}$ is FM-continuous.
 \end{lemma}
