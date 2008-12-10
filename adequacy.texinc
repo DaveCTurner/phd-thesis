@@ -45,7 +45,6 @@ These technical lemmas are important building blocks in demonstrating that if $p
 \end{array} \end{equation}
 % }}}
 
-\vfill\pagebreak
 
 \begin{lemma} \label{triangleleftandsyntacticpreorder} If
 $\login{p_0}{\typeP}{t}$ and $p_1 \le_{\mathbb P} p_0$ then
@@ -112,8 +111,6 @@ immediate since $\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$.
 %
 \end{proof}
 %}}}
-
-\vfill\pagebreak
 
 Define a relation between closed terms of type $\typeP$ by
 $\oprel{t_0}{\typeP}{t_1}$ if for all $t'$ and $p$,
@@ -186,10 +183,21 @@ that $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{t_1}$ as required.
 %
 \end{proof}
 
-\vfill\pagebreak
-
 \subsection{Adequacy} \label{secadequacy}
-\TODO{Words}
+
+The logical relation $\logrel{X}{\typeP}{t}$ of the previous section is now used
+to demonstrate that if a path $p$ appears --- semantically --- in the denotation
+$\sem{t}$ then the term $t$ can --- operationally --- perform the path $p$.
+%
+This result is complicated a little by the potential presence of free variables
+in $t$, leading to the statement of lemma \ref{biglemma}.
+%
+Furthermore, lemma \ref{biglemmaact} captures the intution that an action $p$
+denotes a map $\sem{p}$ which matches its input against the action $p$ and
+returns the resumptions of any matching paths.
+%
+These two lemmas are proved simultaneously by a mutual induction on the
+structure of typing judgements.
 
 \begin{lemma}\label{biglemma} Suppose $\tjudge{s}{\Gamma}{t}{\typeP}$ where
 $\Gamma = \envcombine{\envvarfresh{$\termvar{x}_1$}{\typePsub{1}}{s_1}}
