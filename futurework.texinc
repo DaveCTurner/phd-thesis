@@ -262,8 +262,53 @@ There are many more worthwhile avenues of research to explore!
 A simple domain theory for concurrency has been developed within the theory of
 nominal sets.
 %
+Elements of nominal sets are mathematical objects that have an intrinsic notion
+of `free name' and `bound name', so developing a theory using nominal sets has
+the effect of adjoining names to the mathematics.
+%
+Here, processes denote the (nominal) sets of computation paths that they can
+follow, and the paths may be collected together into domains that support a
+Hoare or `may do' style of nondeterminism.
+%
+Because the processes denote nominal sets, the computation paths may mention
+names, and binding and unbinding the names gives a semantics for generating a
+new name as required.
 
-\TODO{More}
+The use of nominal sets mostly requires little alteration to the theory, but an
+important point where it makes a difference is that the conventional
+domain-theoretic notion of approximation --- by directed sets --- is not
+suitable in the presence of name generation because binding a name turns out not
+to preserve directed joins.
+%
+The remedy is to consider approximation by directed sets that are also uniformly
+supported, i.e., whose elements only mention names drawn from some fixed finite
+set.
+
+The described domain theory gives rise to an expressive metalanguage, Nominal
+HOPLA, based entirely on universal constructions in the model.
+%
+Furthermore, the domain theory suggests an operational semantics for Nominal
+HOPLA which coincides closely with its denotational semantics.
+%
+More precisely, it is shown that the denotational semantics is a sound and
+computationally adequate description of the operational semantics.
+
+The relationship between the $\lambda$-calculus and the universal property of
+cartesian-closure is remarkably powerful because of its universality: the same
+machinery applies to give a notion of higher-order computation in any
+cartesian-closed setting.
+%
+Similarly by making use of universal properties in the development of Nominal
+HOPLA it should be the case that analogous constructions should work similarly
+in different settings.
+%
+It is also possible that the universality will help to unify various different
+approaches to giving a semantics to calculi that support concurrency and name
+generation by providing a common framework in which comparisons can be made.
+
+
+
+\TODO{More?}
 
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
