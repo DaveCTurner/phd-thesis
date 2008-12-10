@@ -55,6 +55,23 @@ adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ on the FM-linear categories to
 the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
 \leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$.
 
+To summarise, the process described above is as follows and each step can be
+described very abstractly. \[
+\xymatrix{
+(-) \otimes \mathbb A \dashv \delta : \mathbf{FMPre}_{\varnothing}
+\leftrightarrows \mathbf{FMPre}_{\varnothing}
+	\ar[d]^{\text{section \ref{binding-in-fmpre}}} \\
+(-)^{\freshfor a} \dashv \delta_a : \mathbf{FMPre}_{s} \leftrightarrows
+\mathbf{FMPre}_{s}
+	\ar[d]^{\text{section \ref{subsect:deltafreshadjlin}}} \\
+(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_{s} \leftrightarrows
+		\mathbf{FMLin}_{s}
+	\ar[d]^{\text{section \ref{subsect:deltafreshadjcts}}} \\
+(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_{s} \leftrightarrows
+		\mathbf{FMCts}_{s}
+}
+\]
+%
 In short, the key structure on the FM-continuous categories that makes them a
 suitable setting for a \textit{nominal} domain theory (i.e. the adjunction
 $(-)^{\freshfor a++} \dashv \delta_a^{++}$) has a canonical description.
@@ -361,6 +378,7 @@ this thesis, but it is worth highlighting how some aspects of the structure of
 $\mathbf{NPre}$ manifest themselves within the dependent type theory.
 
 \subsection{Binding in $(\mathbf{FMPre}_{\varnothing} \downarrow y)$}
+\label{binding-in-fmpre}
 
 This section demonstrates that the functor $(-) \otimes \mathbb A$ and its right
 adjoint $\delta$ give rise to the operation $(-)^{\freshfor a}$ and its right
@@ -382,6 +400,7 @@ $\mathbf{FMPre}_{\varnothing}$, and $\nu (i_{s \udot \{a\}}) = \langle i_s, a
 \rangle$.
 
 \subsubsection{The functors $(-) \otimes \mathbb A$ and $(-)^{\freshfor a}$.}
+\label{tensor-freshfor}
 %
 Consider the object $\langle X, f \rangle$ of $\mathbf{FMPre}_{\varnothing}/ys$.
 %
@@ -416,6 +435,7 @@ arrows gives rise to the action of $(-)^{\freshfor a}$ on arrows in the same
 fashion.
 
 \subsubsection{The functors $\delta$ and $\delta_a$.}
+\label{delta-deltaa}
 %
 Now consider the object $\langle X, f \rangle$ of
 $\mathbf{FMPre}_{\varnothing}/y(s \udot \{a\})$.
