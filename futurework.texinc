@@ -18,23 +18,25 @@ The path semantics of (classical) HOPLA was readily shown to be fully
 abstract\cite{nygaardwinskel1} by an argument which demonstrated inductively
 that all paths could be defined and distinguished by terms of the language.
 %
-A similar strong correspondence result has not been so forthcoming for Nominal
-HOPLA.
+A similar result has not yet been forthcoming for Nominal HOPLA, and initial
+work on the subject by
+Staton\cite{staton:full-abstraction-counterexample,staton:intersection-opsem-failure}
+and Winskel\cite{winskel:full-abstraction-fix} has so far not yielded a positive
+result.
 %
 As it stands it would appear that every path may be defined by terms of the
 language but they cannot all be distinguished.
 %
-For example, Staton\cite{staton:full-abstraction-counterexample} claims that
-there is no way for a Nominal HOPLA process to tell apart the paths $P \defeq
-\finelt{\{a\}}{\varnothing}$ and $P_b \defeq \finelt{\{a\}}{\{b\}}$ (where $a
-\neq b$) unless it has $b$ in its support.
+For example, it is suggested that there is no way for a Nominal HOPLA process to
+tell apart the paths $P \defeq \finelt{\{a\}}{\varnothing}$ and $P_b \defeq
+\finelt{\{a\}}{\{b\}}$ (where $a \neq b$) unless it has $b$ in its support.
 %
 Since terms are always finitely-supported it follows that it is not possible to
 construct a term $t$ which distinguishes $P = \finelt{\{a\}}{\varnothing}$ from
 all other paths: for any candidate $t$ there exists a name $b \freshfor t$ which
 means that $t$ cannot tell the difference between $P$ and $P_b$.
 
-More precisely, Staton's argument is to write $\tilde{\mathbb A} \defeq
+More precisely, the argument is to write $\tilde{\mathbb A} \defeq
 \typesum{a}{\mathbb A}{\typelift\typeO}$ and let \begin{equation}
 \begin{array}[t]{rcl} u_a &\defeq& \ndsum{b \neq a}{\mathbb A}
 {\linj{b}{\bang{\inactive}}} \text{ for each $a \in \mathbb A$,} \\ v &\defeq&
@@ -93,9 +95,9 @@ by \begin{equation} \label{densem:intersect} \sem{\intersect{t}{s}} \langle
 \langle \gamma \rangle_{\Gamma}.  \end{equation}
 %
 The proof that HOPLA was fully abstract constructed for each path $p$ a
-`producer' term $t_p$ and a `consumer' context $C_p[-]$ and
-Winskel\cite{winskel:full-abstraction-fix} claims that the same proof works for
-Nominal HOPLA extended by terms of the form $\intersect{t}{s}$.
+`producer' term $t_p$ and a `consumer' context $C_p[-]$ and it seems that that
+the same proof works for Nominal HOPLA extended by terms of the form
+$\intersect{t}{s}$.
 %
 The key alteration to the proof would be to define the `consumer' of the path
 $\finelt{\{p_1, \ldots, p_n\}}{s}$ to be a context such as \begin{equation}
@@ -114,11 +116,11 @@ By an argument similar to that of \ref{finelt:wlog} using the footprint lemma
 only finitely many $\pi \freshfor s$ must be checked before it is clear that the
 premise holds.
 %
-Unfortunately this operational rule is not adequate:
-Staton\cite{staton:intersection-opsem-failure} observes that the term \begin{equation} t
-\defeq u_a \mathop{\mathtt{+}} \linj{a}{\bang{(\inactive \mathop{\mathtt{+}}
-\inactive)}} \end{equation} has $\sem{t} = \mathbb A$ and hence
-$\sem{\intersect{t}{\varnothing}} = \mathbb A$ too.
+Unfortunately this operational rule might break the adequacy result presented
+above: the term \begin{equation} t \defeq u_a \mathop{\mathtt{+}}
+\linj{a}{\bang{(\inactive \mathop{\mathtt{+}} \inactive)}} \end{equation} has
+$\sem{t} = \mathbb A$ and hence $\sem{\intersect{t}{\varnothing}} = \mathbb A$
+too.
 %
 If the semantics were adequate, it would follow that for each $c \neq a$ it
 should be that $\ajudge{\tilde{\mathbb
@@ -129,7 +131,10 @@ t}{\labelaction{c}{\bangaction}}{t'}$ implies that $t' = \inactive
 
 It is not clear at this time how best to proceed to solve these discrepancies
 between the denotational and operational semantics.
-
+%
+The full abstraction result for HOPLA gave rise to a characteristic modal logic
+for the language, and it is hoped that a similar result for Nominal HOPLA may
+suggest a similar characteristic \textit{nominal} modal logic.
 
 
 \subsection{New HOPLA}
@@ -144,12 +149,12 @@ difference is that new-HOPLA's judgements are indexed by a `current' set of
 names whereas that information is unnecessary in the operational semantics of
 Nominal HOPLA.
 %
-Because of this, it is believed that much of Zappa Nardelli's work on the
-expressivity of new-HOPLA will apply to Nominal HOPLA too.
+Because of this, much of the work on the expressivity of new-HOPLA should apply
+to Nominal HOPLA too.
 %
-In particular there is currently no clear reason why Nominal HOPLA cannot encode
-rich process calculi with name-generation such as the $\pi$-calculus, although
-this avenue of research has not yet been explored.
+In particular it is believed that Nominal HOPLA can encode rich process calculi
+with name-generation such as the $\pi$-calculus, although this avenue of
+research has not yet been explored.
 %
 Similarly, it would be interesting to check that the results about operational
 equivalences in new-HOPLA --- such as that bisimilarity is a
@@ -176,7 +181,13 @@ denotational semantics for new-HOPLA, but the (notationally and conceptually)
 simpler setting of nominal set theory has helped to solve some of the problems
 associated with the functor-category-based domain theory.
 %
-Nominal set theory also helped to clarify a suitable ${!}$ comonad.
+It would be interesting to characterise the type functors that correspond to the
+types of Nominal HOPLA via the equivalence of lemma \ref{lemma:schequiv}, but
+this remains an open problem.
+
+Nominal set theory also helped to clarify a suitable ${!}$ comonad that captured
+the notions of approximation and continuity for a domain theory with
+name-generation.
 %
 In $\mathbf{Lin}^{\mathbb I}$ the ${!}$ functor was defined by \begin{equation}
 (\typelift\typeP)s \defeq \{ F \subseteq_{\mathrm{fin}} \typeP s \}
