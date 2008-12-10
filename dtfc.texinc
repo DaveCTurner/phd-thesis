@@ -288,13 +288,10 @@ is a suitable setting for denotational semantics.
 %
 In $\mathbf{\Phi_d Alg}$ one such setting is the collection of Scott domains,
 which are those algebraic $\Phi_d$CPOs where every \textit{bounded}
-$\Phi_d$-subset has a join.
+subset has a join.
 %
 Another is the collection of \textit{strongly finite} or SFP
 objects\cite{plotkin:powerdomains}.
-%
-\TODO{Sam says that Scott domains are where \textit{every} bounded set has a
-join -- check}
 
 A strengthening of the concept of isolation is that of primality.
 %
