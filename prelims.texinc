@@ -723,8 +723,6 @@ over a syntactic signature with binding.
 condition for binders} (FCB) if there exists $a \in \mathbb A$ such that $a
 \freshfor f$ and $a \freshfor f a$. \end{definition}
 
-\TODO{Define for FM sets too?}
-
 \begin{lemma} \label{lemma:FCB} If $f : \mathbb A \to X$ satisfies the FCB then
 there exists a unique $x \in X$ such that for any name $a \freshfor f$, $f a =
 x$. \end{lemma}
