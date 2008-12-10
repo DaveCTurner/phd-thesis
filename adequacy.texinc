@@ -320,7 +320,6 @@ induction} \\
 &\ctxle_{\typeP} & \rec{x}{t}[v] & \text{by the op. semantics}
 \end{array}\] so that $\login{p}{\typeP}{\rec{x}{t}[v]}$ as required.
 
-\vfill\pagebreak
 %\infer[(s'' \subseteq s \setminus s')]
 %{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 %{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
@@ -531,10 +530,13 @@ $\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$ as required.
 %
 \end{proof}
 
-\begin{lemma}
+It immediately follows that the denotation $\sem{t}$ consists of paths that the
+term $t$ perform.
+
+\begin{corollary}
 \label{mainlemma}
 Suppose $\tjudge{s}{}{t}{\typeP}$. Then $\logrel{\sem{\tjudge{s}{}{t}{\typeP}} }{\typeP}{t}$.
-\end{lemma}
+\end{corollary}
 
 \begin{proof}
 Let $\Gamma$ be the empty environment and apply lemma \ref{biglemma}.
