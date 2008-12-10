@@ -1,15 +1,25 @@
 \subsection{A Logical Relation}
 \label{logical-relation}
 
-\TODO{Intuition}
-
 Define a relation $\logrel{X}{\typeP}{t}$ between subsets $X \subseteq \typeP$
 and terms such that $\tjudge{}{}{t}{\typeP}$ by way of an auxiliary relation
 $\login{p}{\typeP}{t}$ between paths $p \in \typeP$ and terms such that
-$\tjudge{}{}{t}{\typeP}$ as follows.
+$\tjudge{}{}{t}{\typeP}$ as shown in \ref{def:logrel}.
+%
+The intuition behind the statement that $\login{p}{\typeP}{t}$ is that $p$ is a
+computation path of type $\typeP$ that the process $t$ may perform.
+%
+With this intuition in mind, lemma \ref{triangleleftandsyntacticpreorder}
+demonstrates that if $t$ can perform the path $p_0$ then it can certainly
+perform the shorter path $p_1$, and lemma \ref{ctxle1} demonstrates that if
+$t_0$ can perform the path $p$ and $t_1$ operationally subsumes $t_0$ then $t_1$
+can also follow the path $p$.
+%
+These technical lemmas are important building blocks in demonstrating that if $p
+\in \sem{t}$ then $t$ can perform the path $p$ in the next section.
 
 % Definition of \trianglelefteq_{\mathbb P} {{{
-\begin{equation} \begin{array}{rcl}
+\begin{equation} \label{def:logrel} \begin{array}[t]{rcl}
 
 \logrel{X}{\typeP}{t}                                 & \Longleftrightarrow &
 \forall p \in X.\ \login{p}{\typeP}{t} \\
