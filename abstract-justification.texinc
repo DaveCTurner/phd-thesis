@@ -37,21 +37,22 @@ isomorphic to the Kleisli category of the monad $\widehat{(-)} :
 \mathbf{FMPre}_s \to \mathbf{FMPre}_s$.
 %
 Section \ref{sect:adj-kleisli} develops some abstract machinery regarding
-adjunctions on Kleisli categories, and then \ref{subsect:deltafreshadjlin} uses
-this machinery to lift the binding adjunction $(-)^{\freshfor a} \dashv \delta_a
-: \mathbf{FMPre}_s \leftrightarrows \mathbf{FMPre}_{s \udot \{a\}}$ to the
-Kleisli category, and demonstrates that the result of this abstract lifting
-process coincides with the adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ :
-\mathbf{FMLin}_s \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$ of
+adjunctions on Kleisli categories, and then section
+\ref{subsect:deltafreshadjlin} uses this machinery to lift the binding
+adjunction $(-)^{\freshfor a} \dashv \delta_a : \mathbf{FMPre}_s
+\leftrightarrows \mathbf{FMPre}_{s \udot \{a\}}$ to the Kleisli category, and
+demonstrates that the result of this abstract lifting process coincides with the
+adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
+\leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$ of
 \ref{subsubsect:deltafreshadjlin}.
 
 Similarly, since $\mathbf{FMLin}_s ({!}\typeP, \typeQ) \cong \mathbf{FMCts}_s
 (\typeP, \typeQ)$ by \ref{bang:adj} it follows that $\mathbf{FMCts}_s$ is
 isomorphic to the coKleisli category of the monad ${!} : \mathbf{FMLin}_s \to
-\mathbf{FMLin}_s$ so that in \ref{subsect:deltafreshadjcts} it is shown that
-that the abstract machinery of \ref{sect:adj-kleisli} lifts the adjunction
-$(-)^{\freshfor a+} \dashv \delta_a^+$ on the FM-linear categories to the
-adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
+\mathbf{FMLin}_s$ so that in section \ref{subsect:deltafreshadjcts} it is shown
+that that the abstract machinery of section \ref{sect:adj-kleisli} lifts the
+adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ on the FM-linear categories to
+the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
 \leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$.
 
 In short, the key structure on the FM-continuous categories that makes them a
