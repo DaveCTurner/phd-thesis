@@ -238,6 +238,31 @@ A \dashv \delta$.
 Hopefully the important isomorphisms such as $\widehat{\delta\typeP} \cong
 \delta\widehat{\typeP}$ (cf. lemma \ref{deltahatiso}) would also carry across to
 the categorical setting.
+
+
+
+\subsection{Nominal Domain Theory}
+
+The domain theory presented in this dissertation is rather simple compared with
+many modern domain theories, and it skirts around many of the subtleties that
+concern conventional practitioners of the subject.
+%
+Perhaps from the viewpoint of domain theory the single most important lesson to
+be drawn from this thesis is that a great deal of care is required to capture a
+sensible notion of approximation in the presence of name generation, even in
+this simplified setting.
+%
+Working within nominal set theory can help because it is sufficiently similar to
+conventional set theory that many standard arguments continue to apply in the
+nominal setting, so intuitions that have been developed without name generation
+are still valuable in this setting.
+%
+It would be fascinating to develop a more general nominal domain theory,
+including results on solving recursive domain equations (including those that
+use a `binding' domain constructor $\delta$).
+%
+It is likely that this, too, would be greatly helped by the development of a
+notion of nominal category theory.
 %
 There are many more worthwhile avenues of research to explore!
 
