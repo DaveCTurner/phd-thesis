@@ -18,8 +18,7 @@ The path semantics of (classical) HOPLA was readily shown to be fully
 abstract\cite{nygaardwinskel1} by an argument which demonstrated inductively
 that all paths could be defined and distinguished by terms of the language.
 %
-A similar result has not yet been forthcoming for Nominal HOPLA, and initial
-work on the subject by
+Initial work towards a similar full abstraction theorem by
 Staton\cite{staton:full-abstraction-counterexample,staton:intersection-opsem-failure}
 and Winskel\cite{winskel:full-abstraction-fix} has so far not yielded a positive
 result.
