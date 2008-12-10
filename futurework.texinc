@@ -1,13 +1,5 @@
 \chapter{Conclusion}
 
-\section{Summary}
-
-A simple domain theory for concurrency has been developed within the theory of
-nominal sets.
-%
-
-\TODO{More}
-
 
 \section{Related and Future Work}
 \label{futurework}
@@ -264,6 +256,14 @@ It is likely that this, too, would be greatly helped by the development of a
 notion of nominal category theory.
 %
 There are many more worthwhile avenues of research to explore!
+
+\section{Summary}
+
+A simple domain theory for concurrency has been developed within the theory of
+nominal sets.
+%
+
+\TODO{More}
 
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
