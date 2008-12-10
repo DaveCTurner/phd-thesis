@@ -246,8 +246,8 @@ the term $t$ can perform with the given input.
 
 Exponentials in $\mathbf{FMCts}_s$ give rise to a semantics for
 $\lambda$-abstraction (\ref{densem:abstract}) and function application
-(\ref{densem:apply}) much as in the simply-typed $\lambda$-calculus.
-(\TODO{Cite?})
+(\ref{densem:apply}) much as in the simply-typed
+$\lambda$-calculus\cite{lambek-scott:categorical-logic}.
 
 The monad $(!, \eta, \epsilon_{!})$ on $\mathbf{FMCts}_s$ gives rise to the
 semantics for the anonymous prefix action $\bangaction$ (\ref{densem:prefix})
