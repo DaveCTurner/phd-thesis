@@ -546,9 +546,10 @@ gives a domain theory in terms of presheaves $\typeP^{\mathrm{op}} \to
 \mathbf{Set}$ with much finer-grained distinctions than is possible with the
 simple-minded path semantics.
 %
-Cattani and Winskel\cite{cattaniwinskel1} developed this presheaf-based
-semantics before Nygaard and Winskel\cite{nygaard:phdthesis,nygaardwinskel1}
-explored the simpler path semantics.
+Cattani and Winskel\cite{cattani-winskel:profunctors} developed this
+presheaf-based semantics before Nygaard and
+Winskel\cite{nygaard:phdthesis,nygaardwinskel1} explored the simpler path
+semantics.
 
 Also absent from the path-based semantics in $\mathbf{Cts}$ is the concept of
 name-generation.
@@ -563,8 +564,9 @@ this was possible.
 This language was based on a sketch of a denotational semantics given in the
 functor category $\mathbf{Lin}^{\mathbb I}$ --- where $\mathbb I$ is the
 category of injections between finite sets of names --- following the ideas of
-Pitts and Stark\cite{?}, Fiore\cite{?}, Moggi\cite{?} and Oles\cite{?} amongst
-others.
+Stark\cite{stark:fuladm}, Moggi\cite{moggi:abstract-view}, Fiore and
+Sangiorgi\cite{fiore:abstract-pi-calc} and Oles\cite{oles:block-structure}
+amongst others.
 %
 The use of $\mathbf{Lin}^{\mathbb I}$ rather than $\mathbf{Lin}$ facilitates a
 semantics that is parametric in the `current' set of names.

@@ -24,10 +24,10 @@ HOPLA.
 As it stands it would appear that every path may be defined by terms of the
 language but they cannot all be distinguished.
 %
-For example, Staton(\TODO{Cite}) claims that there is no way for a Nominal HOPLA
-process to tell apart the paths $P \defeq \finelt{\{a\}}{\varnothing}$ and $P_b
-\defeq \finelt{\{a\}}{\{b\}}$ (where $a \neq b$) unless it has $b$ in its
-support.
+For example, Staton\cite{staton:full-abstraction-counterexample} claims that
+there is no way for a Nominal HOPLA process to tell apart the paths $P \defeq
+\finelt{\{a\}}{\varnothing}$ and $P_b \defeq \finelt{\{a\}}{\{b\}}$ (where $a
+\neq b$) unless it has $b$ in its support.
 %
 Since terms are always finitely-supported it follows that it is not possible to
 construct a term $t$ which distinguishes $P = \finelt{\{a\}}{\varnothing}$ from
@@ -93,9 +93,9 @@ by \begin{equation} \label{densem:intersect} \sem{\intersect{t}{s}} \langle
 \langle \gamma \rangle_{\Gamma}.  \end{equation}
 %
 The proof that HOPLA was fully abstract constructed for each path $p$ a
-`producer' term $t_p$ and a `consumer' context $C_p[-]$ and Winskel(\TODO{Cite})
-claims that the same proof works for Nominal HOPLA extended by terms of the form
-$\intersect{t}{s}$.
+`producer' term $t_p$ and a `consumer' context $C_p[-]$ and
+Winskel\cite{winskel:full-abstraction-fix} claims that the same proof works for
+Nominal HOPLA extended by terms of the form $\intersect{t}{s}$.
 %
 The key alteration to the proof would be to define the `consumer' of the path
 $\finelt{\{p_1, \ldots, p_n\}}{s}$ to be a context such as \begin{equation}
@@ -114,11 +114,11 @@ By an argument similar to that of \ref{finelt:wlog} using the footprint lemma
 only finitely many $\pi \freshfor s$ must be checked before it is clear that the
 premise holds.
 %
-Unfortunately this operational rule is not adequate: Staton(\TODO{Cite})
-observes that the term \begin{equation} t \defeq u_a \mathop{\mathtt{+}}
-\linj{a}{\bang{(\inactive \mathop{\mathtt{+}} \inactive)}} \end{equation} has
-$\sem{t} = \mathbb A$ and hence $\sem{\intersect{t}{\varnothing}} = \mathbb A$
-too.
+Unfortunately this operational rule is not adequate:
+Staton\cite{staton:intersection-opsem-failure} observes that the term \begin{equation} t
+\defeq u_a \mathop{\mathtt{+}} \linj{a}{\bang{(\inactive \mathop{\mathtt{+}}
+\inactive)}} \end{equation} has $\sem{t} = \mathbb A$ and hence
+$\sem{\intersect{t}{\varnothing}} = \mathbb A$ too.
 %
 If the semantics were adequate, it would follow that for each $c \neq a$ it
 should be that $\ajudge{\tilde{\mathbb
@@ -167,7 +167,7 @@ $\mathbf{Lin}^{\mathbb I}$.
 %
 It is possible that sufficiently many function spaces do exist in the
 functor-category setting but demonstrating this has proved remarkably
-delicate(\TODO{Cite}).
+delicate\cite{winskel:namegen-linearity}.
 %
 It is also possible that replacing $\mathbf{Lin}^{\mathbb I}$ with an
 internally-constructed version of $\mathbf{Lin}$ within the presheaf topos
@@ -194,7 +194,7 @@ has a failure of continuity much like that described in section
 \subsection{Presheaf Semantics}
 
 The path semantics of HOPLA was motivated as a simplified version of the
-presheaf semantics of Cardelli and Winskel(\TODO{Cite}).
+presheaf semantics of Cattani and Winskel\cite{cattani-winskel:profunctors}.
 %
 The presheaf setting gives a much more detailed semantics: the denotation of a
 process records not only which paths it can perform, but also \textit{how} those
