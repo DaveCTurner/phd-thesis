@@ -19,7 +19,7 @@
 \newdir{pb}{:(1,-1)@^{|-}}
 \def\pb#1{\save[]+<16 pt,0 pt>:a(#1)\ar@{pb{}}[]\restore}
 
-%\renewcommand\baselinestretch{1.2}% -- 'Double'-spacing
+\renewcommand\baselinestretch{1.2}% -- 'Double'-spacing
 \setlength\parskip{2ex}
 \setlength\parindent{0pt}
 
@@ -52,7 +52,77 @@
 
 
 \begin{document}
-\maketitle
+
+\begin{titlepage}
+\vspace*{1mm}
+\begin{center}
+\Huge Nominal Domain Theory for Concurrency
+\end{center}
+\addvspace{20mm}
+\begin{center}
+\LARGE David C.~Turner
+\end{center}
+\addvspace{20mm}
+\begin{center}
+\resizebox{20mm}{!}{\includegraphics{CUarms.eps}}
+\end{center}
+\addvspace{23mm}
+\begin{center}
+\Large University of Cambridge\\
+Computer Laboratory\\
+Clare College
+\end{center}
+\addvspace{15mm}
+\begin{center}\Large December 2008\end{center}
+\addvspace{15mm}
+\begin{center}
+This dissertation is submitted for\\
+the degree of Doctor of Philosophy
+\end{center}
+\end{titlepage}
+\setcounter{page}{2} % titlepage otherwise forces following page to be 1
+%
+\pagestyle{empty}
+
+\cleardoublepage
+
+\vspace*{60mm}
+\textbf{\Large Declaration}
+\vspace{10mm}
+
+This dissertation is the result of my own work and includes
+nothing which is the outcome of work done in collaboration except
+where specifically indicated in the text.
+
+\bigskip
+This dissertation does not exceed the regulation length of $60\,000$
+words, including tables and footnotes.
+
+\cleardoublepage
+\begin{center}
+\Large Nominal Domain Theory for Concurrency
+\end{center}
+\begin{center}
+\large David C.~Turner
+\end{center}
+\vspace{10mm}
+\begin{center}
+\textbf{\large Abstract}
+\end{center}
+
+\input{abstract.texinc}
+
+\clearpage
+
+\vspace*{60mm}
+\textbf{\Large Acknowledgments}
+\vspace{10mm}
+
+\input{acknowledgements.texinc}
+
+\clearpage
+\pagestyle{headings}
+
 
 \tableofcontents
 
