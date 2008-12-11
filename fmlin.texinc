@@ -140,8 +140,8 @@ $\phi^{(a)}_{\typeP} : \widehat{\typeP}^{\freshfor a} \to
 %
 and define also ${\phi^{(a)}_{\typeP}}^{-1} : \widehat{\typeP^{\freshfor a}} \to
 \widehat{\typeP}^{\freshfor a} $ by \begin{equation} \label{def:phiinv}
-{\phi^{(a)}_{\typeP}}^{-1} (x) \defeq x \cup \bigcup_{b \freshfor x} (ab) \cdot
-x.\end{equation}
+{\phi^{(a)}_{\typeP}}^{-1} (x) \defeq x \cup \bigcup_{b \freshfor x, \typeP}
+(ab) \cdot x.\end{equation}
 
 Often the parameter $a$ is given by the context, and it is then simpler to
 denote $\phi^{(a)}$ simply as $\phi$, and similarly for $\phi^{-1}$.
@@ -162,7 +162,7 @@ and $p \in (ab) \cdot x$, then $b \freshfor p$. If $a = b$ then this reduces to
 the previous case, so suppose that $a \neq b$. Let $c$ be fresh, then \[p = (bc)
 \cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x\]
 as required. Conversely, suppose that $c$ is fresh and $p \in (ac) \cdot x$,
-then $c \freshfor x$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
+then $c \freshfor x, \typeP$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
 \end{proof}
 
 The notation is no accident: $\phi$ and $\phi^{-1}$ are natural and mutual
@@ -208,8 +208,11 @@ $\phi_{\typeP}$ is natural in $\typeP$.
 % Definition of inverse
 Now it is necessary to show that $\phi^{-1}_{\typeP}$ is well-defined, so let $x
 \in \widehat{\typeP^{\freshfor a}}$. Let $p \in \phi^{-1}_{\typeP} (x)$ and let
-$b$ be a fresh name, then $p \in (ab) \cdot x \subseteq (ab) \cdot \typeP =
-\typeP$ so that $\phi^{-1}_{\typeP} (x) \subseteq \typeP$. Now let $p'
+$b$ be a fresh name, then by lemma \ref{characterisation:phiinv} it follows that
+$p \in (ab) \cdot x \subseteq (ab) \cdot \typeP = \typeP$ so that
+$\phi^{-1}_{\typeP} (x) \subseteq \typeP$.
+%
+Now let $p'
 \le_{\typeP} p$, and let $b'$ be fresh, then $a \freshfor (ab') \cdot p'$ so
 that $(ab') \cdot p' \le_{\typeP^{\freshfor a}} (ab') \cdot p \in x \in
 \widehat{\typeP^{\freshfor a}}$ so that $(ab') \cdot p' \in x$ and hence $p' \in
