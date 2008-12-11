@@ -563,8 +563,7 @@ This language was based on a sketch of a denotational semantics given in the
 functor category $\mathbf{Lin}^{\mathbb I}$ --- where $\mathbb I$ is the
 category of injections between finite sets of names --- following the ideas of
 Stark\cite{stark:fuladm}, Moggi\cite{moggi:abstract-view}, Fiore and
-Sangiorgi\cite{fiore:abstract-pi-calc} and Oles\cite{oles:block-structure}
-amongst others.
+Sangiorgi\cite{fiore:picalc} and Oles\cite{oles:block-structure} amongst others.
 %
 The use of $\mathbf{Lin}^{\mathbb I}$ rather than $\mathbf{Lin}$ facilitates a
 semantics that is parametric in the `current' set of names.
