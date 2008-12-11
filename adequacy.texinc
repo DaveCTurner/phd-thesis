@@ -192,7 +192,7 @@ $\sem{t}$ then the term $t$ can --- operationally --- perform the path $p$.
 This result is complicated a little by the potential presence of free variables
 in $t$, leading to the statement of lemma \ref{biglemma}.
 %
-Furthermore, lemma \ref{biglemmaact} captures the intution that an action $p$
+Furthermore, lemma \ref{biglemmaact} captures the intuition that an action $p$
 denotes a map $\sem{p}$ which matches its input against the action $p$ and
 returns the resumptions of any matching paths.
 %
