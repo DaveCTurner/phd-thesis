@@ -1,18 +1,240 @@
 \chapter{Introduction}
 \label{intro}
 
-\TODO{Write introduction}
-
-Nominal sets blah blah.
-
-HOPLA/DTfC blah blah.
-
-The aim of this dissertation is to elegantly combine the theories of nominal
-sets and Winskel's Domain Theory for Concurrency.
+Scott and Strachey's domain theory\cite{stoy:domthy} provides a mathematical
+setting that unifies various approaches to understanding the semantics of
+sequential computation.
 %
-This may demonstrate how to \textit{systematically} adjoin name generation to
-models for concurrency.
+This unification helps to connect programming languages with one another and
+with the mathematical worlds of algebra, topology and logic, and moreover to
+inspire new features of programming languages, type systems, proof techniques
+and reasoning methods.
 
-Mention universality as a guiding principle.
+Sequential computations typically receive some input, perform some calculation,
+and return some output once they have finished.
+%
+On the other hand computation in the modern world is increasingly performed by
+interconnected collections of devices, all performing parts of computations and
+interacting with their neighbouring devices and with the environment in the
+course of their calculations.
+%
+Input may not all be received at once; output may not all be sent
+simultaneously; and computations do not necessarily even have a well-defined
+finish.
+%
+In this world of concurrent, distributed computation there is no global
+mathematical model that serves to guide developments, unify approaches and which
+provides a forum for comparing innovations.
+%
+In particular, classical domain theory has failed to scale to models of the
+intricacy required to properly understand concurrent computation.
+%
+The result of this is that a wide variety of approaches to understanding
+concurrency have been developed on a more-or-less \textit{ad hoc} basis.
+
+Operational semantics --- which studies collections of operational rules that
+dictate how a computation proceeds step-by-step --- is an accessible and popular
+approach to studying concurrency(\TODO{Cite Plotkin's SOS}).
+%
+Operational descriptions often suggest a possible physical implementation of a
+computation by providing a description of the local behaviour of a process.
+%
+Operational semantics is typically described syntactically, affecting the state
+of a computation by altering its symbolic representation.
+%
+Working at this low level of abstraction makes it is easier to understand the
+progress of a computation, but the level of detail can make it harder to see the
+high-level situation.
+
+On the other hand denotational semantics --- which associates computations with
+mathematical objects that capture the essence of the computation in their
+mathematical properties --- starts from a much more abstract viewpoint.
+%
+The drawback of this approach is that the mathematics involved is often either
+too coarse to be a suitable tool, or too intricate to be useful to the working
+scientist.
+%
+A notable method for modelling concurrency denotationally is that of causal or
+independence models (such as Petri nets(\TODO{Cite}) and event
+structures(\TODO{Cite})) in which computation paths are partial orders of
+`events'.
+
+Many modern concurrent systems are \textit{higher-order} in the sense that
+processes may manipulate other processes and not merely data.
+%
+This presents a challenge in understanding suitable equivalences between
+processes in terms of their interactions with the environment.
+
+In short, theories for concurrent computation form a fragmented landscape.
+%
+Relationships between different approaches are often unclear.
+%
+Particular process calculi are optimised to different tasks, and it is sometimes
+difficult to see which optimisations are valuable innovations that can be
+applied elsewhere and which are specific to the calculus in question.
+%
+The lack of a common framework means that lessons derived from work in one area
+remain isolated from other areas of study.
+
+Recent work by Cattani and Winskel on a denotational semantics given in terms of
+presheaves\cite{cattani-winskel:profunctors} has the potential to provide a
+common framework for studying concurrency.
+%
+The presheaf semantics supports a rich domain theory for concurrency which
+captures nondeterministic branching and provides a natural notion of equivalence
+for higher-order processes via bisimulation.
+%
+Importantly, many computational features can be captured by universal
+constructions on presheaves which justifies the claim that the presheaf
+semantics may provide a broadly applicable theory of concurrent computation.
+%
+This work also led to the development of a simpler semantics by Nygaard and
+Winskel\cite{nygaardwinskel1} where presheaves are replaced by sets of
+computation paths.
+%
+Roughly, this semantics describes \textit{whether} a process can perform a
+particular path, whereas the presheaf semantics describes \textit{how} the path
+can be performed.
+%
+The path semantics is therefore much coarser, but at the same time it is
+significantly simpler and more familiar to conventional domain theorists.
+%
+Intuitions developed in the path semantics can sometimes be translated into
+innovations in the presheaf semantics.
+
+A topic of particular interest to modern concurrency theory is that of
+\textit{names}.
+%
+In the $\pi$-calculus(\TODO{Cite Milner}) names are used to identify
+communication channels between processes.
+%
+Names may be passed from process to process to model the mobility of channels,
+hidden to model scope, and importantly a process may create a new channel,
+complete with a unique freshly-generated name, at will.
+%
+The original semantics of the $\pi$-calculus was given operationally, but more
+recent work has developed denotational models
+too\cite{stark:picalc,fiore:picalc}.
+
+Names also crop up in the study of syntax, in the guise of placeholders for
+variables.
+%
+A free variable in a term may be modelled by a name.
+%
+Like channel names in the $\pi$-calculus it may be passed around to other parts
+of a term, and hidden by a binder.
+%
+When performing a proof by structural induction over the syntax of a term that
+contains bound variables, it is common to unbind them and assert that they are
+\textit{chosen to be different} from the free variables that are already known,
+in effect generating fresh new names at will.
+%
+Informally, this practice is normally tacitly justified by an assertion such as
+Barendregt's variable convention\cite{barendregt:lambda}.
+
+Although this is acceptable practice when human beings are manipulating syntax,
+it is necessary to provide a more formal explanation to allow computers to do
+the same manipulations.
+%
+Shinwell\cite[Section 1.1]{shinwell:phdthesis} and Gabbay\cite[Section
+33]{gabbay:thesis} summarise some of the approaches that have been developed and
+concentrate --- as does this discussion --- on a recently developed method based
+on a non-standard set theory: the theory of nominal sets as pioneered by
+Pitts\cite{PittsAM:newaas-jv}.
+%
+Nominal set theory captures the common manipulations applied to names, such as
+binding and unbinding, in a very natural fashion and otherwise behaves much like
+more familiar set theories such as ZF.
+%
+This is important, because dealing with names can occasionally throw up some
+subtleties that might be hard to track down in a more cumbersome setting.
+%
+The similarity with standard set theories is also valuable because it makes it
+straightforward to transfer intuitions developed in a name-free setting into the
+nominal setting.
+
+Importantly, the operations of binding and generating names in nominal set
+theory are generalisations of --- rather than dependent on --- the corresponding
+syntactic notions.
+%
+It would therefore appear plausible that nominal set theory is a suitable
+setting for studying the semantic as well as syntactic uses of names, such as
+perhaps for channel names in the $\pi$-calculus.
+%
+It is this observation which motivates this thesis, the aims of which are
+\begin{enumerate}
+%
+\item to demonstrate that the nominal set theory of Pitts \textit{et al.} can be
+used to \textit{systematically} adjoin name generation to a conventional model
+for concurrency, and
+%
+\item to demonstrate that the path-based domain theory for concurrency of
+Winskel and Nygaard can be \textit{systematically} extended with name
+generation.
+%
+\end{enumerate}
+
+Chapter \ref{prelims} sets out the mathematical preliminaries of the discussion,
+in order to fix a consistent notation and nomenclature for the rest of the
+dissertation.
+%
+As such, it mostly consists of definitions, discussions and results that are
+well-known and published elsewhere.
+
+Chapter \ref{domthy} develops the promised domain theory for nondeterministic
+processes with names.
+%
+Roughly speaking, this development takes the construction of the path-based
+domain theory for concurrency mentioned above and follows a parallel road within
+the theory of nominal sets.
+%
+Importantly, all of the constructions given are by means of universal
+properties, which justifies that this work is applicable more generally than
+just in the given case.
+
+The path through the dissertation diverges at this point and the reader may
+choose whether to read chapters \ref{nomhopla} and \ref{densem} or chapter
+\ref{abstract-justification} next.
+
+Chapter \ref{nomhopla} introduces an expressive process calculus, Nominal HOPLA,
+which can be used to illustrate the domain theory of chapter \ref{domthy}.
+%
+Nominal HOPLA is closely related to the language HOPLA (a Higher-Order Process
+LAnguage)\cite{nygaardwinskel1} and is inspired by the language
+new-HOPLA\cite{WZ04}.
+%
+The content of chapter \ref{nomhopla} requires only a little nominal set
+theory and no domain theory to appreciate, since it concentrates on a syntactic
+and operational description of the process calculus.
+
+Chapter \ref{densem} links the operational semantics of chapter \ref{nomhopla}
+with the domain theory of chapter \ref{domthy} by giving a denotational
+semantics to Nominal HOPLA in terms of universal constructions, and then proving
+soundness and adequacy results that closely link the two styles of semantics.
+
+Chapter \ref{abstract-justification}, which depends only on chapters
+\ref{prelims} and \ref{domthy}, takes a more abstract approach and develops the
+categorical foundations for the domain theory of chapter \ref{domthy}, providing
+insight into the claim that this work systematically incorporates name
+generation into the model.
+
+Finally, chapter \ref{conclusion} discusses a number of possible future avenues
+of enquiry that this thesis has made available.
+
+This document uses a single hierarchical numbering system throughout. Thus the
+(unique) item numbered 3.3.2 appears before 3.3.3 and after 3.3.1, all of which
+are within the section numbered 3.3.
+%
+The numbers are sequences in $\mathbb N$, rather than elements of $\mathbb Q$,
+so that for example \ref{biproducts:cts} comes after
+\ref{subsubsect:cts:products}.
+%
+It is hoped that this convention will aid in the navigation of cross-references.
+
+
+
+
+
+
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
