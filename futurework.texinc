@@ -6,14 +6,14 @@
 
 \subsection{Full Abstraction}
 
-The path semantics of (classical) HOPLA was readily shown to be fully
+The path semantics of (classical) HOPLA was shown to be fully
 abstract\cite{nygaardwinskel1} by an argument which demonstrated inductively
 that all paths could be defined and distinguished by terms of the language.
 %
-Initial work towards a similar full abstraction theorem by
-Staton\cite{staton:full-abstraction-counterexample,staton:intersection-opsem-failure}
-and Winskel\cite{winskel:full-abstraction-fix} has so far not yielded a positive
-result.
+Initial suggestions towards a similar full abstraction theorem by Staton and
+Winskel (in personal correspondence\cite{staton:full-abstraction-counterexample,
+staton:intersection-opsem-failure, winskel:full-abstraction-fix}) has so far not
+yielded a positive result.
 %
 As it stands it would appear that every path may be defined by terms of the
 language but they cannot all be distinguished.
@@ -181,7 +181,7 @@ the notions of approximation and continuity for a domain theory with
 name-generation.
 %
 In $\mathbf{Lin}^{\mathbb I}$ the ${!}$ functor was defined by \begin{equation}
-(\typelift\typeP)s \defeq \{ F \subseteq_{\mathrm{fin}} \typeP s \}
+(\typelift\typeP)s \defeq \{ F \mid F \subseteq_{\mathrm{fin}} \typeP s \}
 \end{equation} but lemma \ref{lemma:finite:nset} demonstrates that this picks
 out the internally \textit{Dedekind} finite subsets of $\typeP$ which do not
 quite coincide with the internally isolated elements of $\widehat{\typeP}$ as

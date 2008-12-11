@@ -836,9 +836,9 @@ this situation it is also the case that $[b].\finelt{F}{s' \udot \{b\}} \in
 
 \begin{proof} Let $c$ be a fresh name, then to show that $\theta^{-1}_{\typeP}
 \finelt{\{[b].p \mid p \in F\}}{s'\downarrow} = [b].\finelt{F}{s' \udot
-\{b\}\downarrow}$ it is sufficient so show that $\bigl(\theta^{-1}_{\typeP}
-\finelt{\{[b].p \mid p \in F\}}{s'\downarrow}\bigr)@c = ([b].\finelt{F}{s'
-\udot\{b\}\downarrow})@c$.
+\{b\}\downarrow}$ it is sufficient so show that \begin{equation}
+\bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'\downarrow}\bigr)@c
+= ([b].\finelt{F}{s' \udot\{b\}\downarrow})@c. \end{equation}
 %
 Let $p' \in \bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
 F\}}{s'\downarrow}\bigr)@c$, then $[c].p' \in \finelt{\{[b].p \mid p \in
@@ -1241,10 +1241,10 @@ $\typeP_1$ and $\typeP_2$ --- the injections are given as in $\mathbf{FMLin}_s$
 
 \subsubsection{Generalised Biproducts.} \label{fmcts:genbiproducts}
 %
-Just as products and coproducts in $\mathbf{FMLin}_s$ are also products and
-coproducts in $\mathbf{FMCts}_s$, the object $\stdtypesum$ behaves as a
-`generalised biproduct' in $\mathbf{FMCts}_s$ when the mapping $\ell \mapsto
-\typePsub{\ell}$ is supported by $s$.
+Similarly to the fact that products and coproducts in $\mathbf{FMLin}_s$ are
+also products and coproducts in $\mathbf{FMCts}_s$, the object $\stdtypesum$
+behaves as a `generalised biproduct' in $\mathbf{FMCts}_s$ when the mapping
+$\ell \mapsto \typePsub{\ell}$ is supported by $s$.
 %
 In detail, for each $\ell_0 \in L$ the $\ell_0$th component $\typePsub{\ell_0}$
 is an object of $\mathbf{FMLin}_{s \cup \supp{\ell_0}}$, and the $\ell_0$th

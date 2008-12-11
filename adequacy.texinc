@@ -432,8 +432,9 @@ $\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
 \langle \gamma \rangle_\Gamma}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{t[v]}$
 and by the operational semantics
 $\oprel{t[v]}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{\abs{t} }}$ so that
-$\login{p}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{\abs{t} }}$ and
-hence $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{\abs{t[v]}}$ as required.
+$\login{p}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{\abs{t} }}$ and hence
+it follows that $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{\abs{t[v]}}$ as
+required.
 
 \subparagraph{Recursive Type Unfolding}
 Let $p \in

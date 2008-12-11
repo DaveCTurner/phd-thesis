@@ -205,38 +205,34 @@ as required.
 %\infer[(s'' \subseteq s' \subseteq s)]
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'} }}{t}{\typeP}}
 %{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''} }}{t}{\typeP}} 
-There are two possibilities for this case, depending on whether the variable
-with extra freshness assumptions is subject to substitution or not. If it is
-not subject to substitution then this case is a simple application of the
-inductive hypothesis. On the other hand, suppose that $r'_n \subseteq r_n
-\subseteq s$, that $\Gamma'$ is a reordering of the environment $\Gamma,
+There are two possibilities, depending on whether the variable with extra
+freshness assumptions is subject to substitution or not. If it is not subject
+to substitution then this case is a simple application of the inductive
+hypothesis. On the other hand, suppose that $r'_n \subseteq r_n \subseteq s$,
+that $\Gamma'$ is a reordering of the environment $\Gamma,
 \envvarfresh{y1}{\typeR}{r_1}, \ldots, \envvarfresh{yn}{\typeR}{r_n}$ and also
 that $\Gamma''$ is a reordering of the environment $\Gamma,
 \envvarfresh{y1}{\typeR}{r_1}, \ldots, \envvarfresh{yn}{\typeR}{r'_n}$. If
 $\tjudge{s}{\Gamma'}{t}{\typeP}$ is derived from
-$\tjudge{s}{\Gamma''}{t}{\typeP}$ then 
-\[\begin{array}{rcl}
+$\tjudge{s}{\Gamma''}{t}{\typeP}$ then \[\begin{array}{rcl}
 \multicolumn{3}{l}{\sem{\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup \ldots \cup r_{n-1} \cup
 r_n} }}{t[v]}{\typeP}}} \\
 %
 &=& \sem{\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup
-\ldots \cup r_{n-1} \cup
-r'_n} }}{t[v]}{\typeP}} \circ \bigl(\mathbf{1}_{\Gamma} \amp k_\Delta \bigr) \\
+\ldots \cup r_{n-1} \cup r'_n} }}{t[v]}{\typeP}} \circ
+\bigl(\mathbf{1}_{\Gamma} \amp k_\Delta \bigr) \\
 %
-&=& \sem{\tjudge{s}{\Gamma''}{t}{\typeP}} \circ 
-\bigl(\mathbf{1}_{\Gamma} \amp \sem{v}^{n}\bigr) \circ
-\bigl(\mathbf{1}_{\Gamma} \amp k_\Delta \bigr) \quad\text{by induction} \\
+&=& \sem{\tjudge{s}{\Gamma''}{t}{\typeP}} \circ \bigl(\mathbf{1}_{\Gamma} \amp
+\sem{v}^{n}\bigr) \circ \bigl(\mathbf{1}_{\Gamma} \amp k_\Delta \bigr)
+\quad\text{by induction} \\
 %
-&=& \sem{\tjudge{s}{\Gamma''}{t}{\typeP}} \circ 
-\bigl(\mathbf{1}_{\Gamma} \amp k^{(1)}_{\typeR} \amp \ldots \amp k^{(n)}_{\typeR} \bigr) \circ
+&=& \sem{\tjudge{s}{\Gamma''}{t}{\typeP}} \circ \bigl(\mathbf{1}_{\Gamma} \amp
+k^{(1)}_{\typeR} \amp \ldots \amp k^{(n)}_{\typeR} \bigr) \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \sem{v}^{n}\bigr) \\
 %
-&=& \sem{\tjudge{s}{\Gamma'}{t}{\typeP}} \circ 
-\bigl(\mathbf{1}_{\Gamma} \amp \sem{v}^{n}\bigr) \\
-\end{array}\]
-as required.
-\TODO{Check calculation}
+&=& \sem{\tjudge{s}{\Gamma'}{t}{\typeP}} \circ \bigl(\mathbf{1}_{\Gamma} \amp
+\sem{v}^{n}\bigr) \\ \end{array}\] as required.  \TODO{Check calculation}
 
 \subparagraph{Support-Weakening}
 %\infer[(s' \subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}}
@@ -565,7 +561,7 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{ (\new{a}{t})[v] =
 &=& \delta_a^{++} \sem{ \tjudge{s \cup \{a\}}{\envfresh{\Gamma'}{a}}{t}{\typeP} }
 \circ \delta_a^{++}(\mathbf{1}_{\Gamma^{\freshfor a}} \amp {\sem{v}^{n}}^{\freshfor a++})
 \circ \matthat{\xi_{\sem{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}}}
-\quad\text{by induction}\\
+\quad\text{by ind.}\\
 %
 &=& \delta_a^{++} \sem{ \tjudge{s \cup \{a\}}{\envfresh{\Gamma'}{a}}{t}{\typeP} }
 \circ \matthat{\xi_{\sem{\Gamma'}}}

@@ -437,7 +437,7 @@ fashion.
 \subsubsection{The functors $\delta$ and $\delta_a$.}
 \label{delta-deltaa}
 %
-Now consider the object $\langle X, f \rangle$ of
+Now consider the object $\langle X, f \rangle$ of the category
 $\mathbf{FMPre}_{\varnothing}/y(s \udot \{a\})$.
 %
 The action of $\delta$ takes it to the arrow $\delta f : \delta X \to \delta(y(s
