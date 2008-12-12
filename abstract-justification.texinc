@@ -534,6 +534,7 @@ corresponds to an arrow $(G_s \langle X, f \rangle)^{\freshfor a} \to G_s
 $\pi_1: X \otimes \mathbb A \to X$.
 
 
+\clearpage
 
 \section{Adjunctions and Kleisli Categories}
 \label{sect:adj-kleisli}
@@ -658,6 +659,8 @@ $\mathbf{FMLin}_s$ then \begin{equation} \label{def:kcts} K_{\mathbf{Cts}}f
 \defeq (f \circ i_{\typeP})^{\dagger} \quad\text{and}\quad L_{\mathbf{Cts}}g
 \defeq g \circ \eta_{\typeQ}.\end{equation}
 
+
+\clearpage
 \subsection{Adjunctions in Kleisli Categories}
 
 In a situation

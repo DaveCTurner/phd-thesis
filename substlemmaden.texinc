@@ -541,8 +541,6 @@ s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}} \bigr)
 as required.
 
 
-\vfill\pagebreak
-
 \subparagraph{Name Abstraction} Suppose that
 $\tjudge{s}{\Gamma'}{\new{a}{t}}{\typedelta \typeP}$ is derived from $\tjudge{s
 \udot \{a\}}{\envfresh{\Gamma'}{a}}{t}{\typeP}$ where $a$ is a fresh name and
@@ -720,6 +718,5 @@ as required.
 %
 \end{proof}
 
-\vfill\pagebreak
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s tw=0 nowrap:

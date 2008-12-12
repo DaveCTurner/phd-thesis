@@ -1,3 +1,4 @@
+\clearpage
 \section{The Substitution Lemma}
 
 The intuition behind the following lemma is that a variable $\termvar{y}$ of
@@ -150,8 +151,6 @@ hence $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 }}{\rec{x}{(t[v])} = (\rec{x}{t}) [v]}{\typeP}$ as
 required.
 
-\vfill\pagebreak
-
 \subparagraph{Match}
 %\infer[(s'' \subseteq s \setminus s')]
 %{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
@@ -228,8 +227,6 @@ $\tjudge{s \cup s_1}{\envcombine{\Gamma}
 {\envcombine{\Lambda}{\envfresh{\Delta}{r \cup r'}} }}{\apply{(t[v])}{(u[v])}{\typeQ}
 = (\apply{t}{u}{\typeQ})[v]}{\typeP}$ as required.
 
-\vfill\pagebreak
-
 \subparagraph{Name Abstraction}
 Suppose that
 $\tjudge{s}{\Gamma'}{\new{a}{t}}{\typedelta \typeP}$ is derived from the judgement $\tjudge{s \udot
@@ -299,7 +296,5 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\rep{(t[v])}
 %
 \end{proof}
 % }}}
-
-\vfill\pagebreak
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s tw=0 nowrap:

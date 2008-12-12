@@ -178,9 +178,11 @@ that name as $a$.
 \]
 
 
-\vfill\pagebreak
+%\vfill\pagebreak
 
-The typing rules are directed by the syntax of terms, so that it is sometimes
+This concludes the definition of the type system for terms.
+%
+The syntax-directed nature of the typing rules, means that it is sometimes
 possible to derive information about the type of subterms from the type of a
 term.  The structural rules make this difficult to do in general, but for the
 purposes of this discussion it is enough to be able to derive type information
@@ -280,6 +282,8 @@ derivation it must be that $a \in s_1$ so that $s_1 \setminus \{a\} \subseteq
 s_2 \setminus \{a\}$ and $\tjudge{s_1 \setminus \{a\}}{}{t}{\typedelta\typeP}$,
 so that $\tjudge{s_2 \setminus \{a\}}{}{t}{\typedelta\typeP}$ as required.
 \end{proof}
+
+\clearpage
 
 \subsection{Typing Rules for Actions}
 
@@ -681,7 +685,5 @@ $\atjudge{}{\typeP}{p}{\typePp}$ for $\atjudge{\supp{p}}{\typeP}{p}{\typePp}$.
 %\begin{proof}
 %The proof is by induction on the derivation of the respective typing judgements.
 %\end{proof}
-
-\vfill\pagebreak
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s tw=0 nowrap:
