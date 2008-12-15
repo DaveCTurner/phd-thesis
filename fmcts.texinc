@@ -943,28 +943,31 @@ It is required to show that \[ \bigcup\{ (\phi_{\typeQ} \circ f^{\freshfor a}
 a} \circ \phi^{-1}_{\typeP}) \left(\bigcup X\right). \]
 %
 Let $p \in \bigcup\{ (\phi_{\typeQ} \circ f^{\freshfor a} \circ
-\phi^{-1}_{\typeP})(x) \mid x \in X \}$ and let $x \in X$ be such that $p \in
-(\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP})(x)$, then $x
-\subseteq \bigcup X$ so that by monotonicity $p \in (\phi_{\typeQ} \circ
-f^{\freshfor a} \circ \phi^{-1}_{\typeP}) \left(\bigcup X\right)$.
+\phi^{-1}_{\typeP})(x) \mid x \in X \}$, then there exists $x \in X$ such that
+$p \in (\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP})(x)$.
+%
+It is also the case that $x \subseteq \bigcup X$ so that by monotonicity $p \in
+(\phi_{\typeQ} \circ f^{\freshfor a} \circ \phi^{-1}_{\typeP}) \left(\bigcup
+X\right)$.
 %
 Conversely let $p \in (\phi_{\typeQ} \circ f^{\freshfor a} \circ
 \phi^{-1}_{\typeP}) \left(\bigcup X\right)$ then $p \freshfor a$ and $p \in
 f\left(\phi^{-1}_{\typeP} \left(\bigcup X\right)\right)$.
 %
-By \ref{bang:alg} it is the case that $\phi^{-1}_{\typeP} \left(\bigcup X\right)
-= \bigcup \{P_\downarrow \mid P \in \typelift\typeP \mid P \subseteq
-\phi^{-1}_{\typeP}\left(\bigcup X\right) \wedge \supp{P} \subseteq
-\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)}\}$.
+By \ref{bang:alg} it is the case that \begin{equation} \begin{array}[t]{rcl}
+\phi^{-1}_{\typeP} \left(\bigcup X\right) &=& \bigcup \{P_\downarrow \mid P \in
+\typelift\typeP \text{ and } P \subseteq \phi^{-1}_{\typeP}\left(\bigcup
+X\right) \\&&\qquad \text{ and } \supp{P} \subseteq \supp{\phi^{-1}_{\typeP}
+\left(\bigcup X\right)}\}. \end{array} \end{equation}
 %
 Since $f$ is FM-continuous there exists $P \in \typelift\typeP$ such that $P
 \subseteq \phi^{-1}_{\typeP}\left(\bigcup X\right)$ and $\supp{P} \subseteq
 \supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)}$ and $p \in fP_\downarrow$.
 %
 Notice that $\supp{\phi^{-1}_{\typeP} \left(\bigcup X\right)} \subseteq s'$ so
-that by $\ref{finelt:wlog}$ there exist $p_1, \ldots, p_n \in \phi^{-1}_{\typeP}
-\left(\bigcup X\right)$ such that $p \in f(\finelt{\{p_1, \ldots,
-p_n\}}{s'\downarrow})$.
+it follows that by $\ref{finelt:wlog}$ there exists a finite set $\{ p_1,
+\ldots, p_n \} \subseteq \phi^{-1}_{\typeP} \left(\bigcup X\right)$ such that $p
+\in f(\finelt{\{p_1, \ldots, p_n\}}{s'\downarrow})$.
 %
 Let $b$ be a fresh name, then from \ref{characterisation:phiinv} it follows that
 $ (ab) \cdot p_i \in \bigcup X$ for all $i$ so that there exist $x_1, \ldots,
@@ -1026,10 +1029,12 @@ It is required to show that \[\bigcup \{(\theta_\typeQ \circ \delta_a f \circ
 \circ \theta^{-1}_{\typeP}) \left( \bigcup X \right).\]
 %
 Let $p \in \bigcup \{(\theta_\typeQ \circ \delta_a f \circ \theta^{-1}_{\typeP})
-(x) \mid x \in X \}$ and let $x \in X$ be such that $p \in (\theta_\typeQ \circ
-\delta_a f \circ \theta^{-1}_{\typeP}) (x)$, then $x \subseteq \bigcup X$ so
-that by monotonicity $p \in  (\theta_\typeQ \circ \delta_a f \circ
-\theta^{-1}_{\typeP}) \left( \bigcup X \right)$.
+(x) \mid x \in X \}$, then there exists $x \in X$ such that $p \in
+(\theta_\typeQ \circ \delta_a f \circ \theta^{-1}_{\typeP}) (x)$.
+%
+It is also the case that $x \subseteq \bigcup X$ so that by monotonicity $p \in
+(\theta_\typeQ \circ \delta_a f \circ \theta^{-1}_{\typeP}) \left( \bigcup X
+\right)$.
 %
 Conversely let $p \in (\theta_\typeQ \circ \delta_a f \circ
 \theta^{-1}_{\typeP}) \left( \bigcup X \right)$ and let $b$ be a fresh name.
@@ -1038,21 +1043,23 @@ Therefore $p@b \in \left((\delta_a f \circ \theta^{-1}_{\typeP}) \left( \bigcup
 X \right) \right) @b = f \left( \left( \theta^{-1}_{\typeP} \left( \bigcup X
 \right) \right) @b\right)$.
 %
-By \ref{bang:alg} $\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right)
-@b = \bigcup \{P \in \typelift\typeP \mid P \subseteq \left(
-\theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b \wedge \supp{P}
-\subseteq \supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b}
-\}$.
+By \ref{bang:alg} it is the case that \begin{equation} \begin{array}[t]{rcl}
+\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b &=& \bigcup
+\{P_\downarrow \mid P \in \typelift\typeP \text{ and } \subseteq \left(
+\theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b \\&&\qquad \text{ and }
+\supp{P} \subseteq \supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right)
+\right) @b} \}. \end{array} \end{equation}
 %
 Since $f$ is FM-continuous there exists $P \in \typelift\typeP$ such that $ P
 \subseteq \left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b$ and
 $\supp{P} \subseteq \supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right)
 \right) @b}$ and $p@b \in fP$.
 %
-Notice that $\supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right)
-@b} \subseteq s' \cup \{b\}$ so that by \ref{finelt:wlog} there exist $p_1,
-\ldots, p_n \in \left( \theta^{-1}_{\typeP} \left( \bigcup X \right) \right) @b$
-such that $p@b \in f(\finelt{\{p_1, \ldots, p_n\}}{s' \cup \{b\}})$.
+Notice the fact that $\supp{\left( \theta^{-1}_{\typeP} \left( \bigcup X \right)
+\right) @b} \subseteq s' \cup \{b\}$ so that by \ref{finelt:wlog} there exists a
+finite set $\{ p_1, \ldots, p_n \} \subseteq \left( \theta^{-1}_{\typeP} \left(
+\bigcup X \right) \right) @b$ such that $p@b \in f(\finelt{\{p_1, \ldots,
+p_n\}}{s' \cup \{b\}})$.
 %
 As $b \freshfor \bigcup X$ it follows that $[b].p_i \in \bigcup X$ and hence
 there exists $x_i \in X$ such that $[b].p_i \in x_i$ for all $i$.
@@ -1066,8 +1073,8 @@ Using \ref{characterisation:thetabanginv} it follows that \[\finelt{\{p_1,
 \ldots, [b].p_n\}}{s'} \right)@b \subseteq \left( \theta^{-1}_{\typeP} x
 \right)@b\] so that $p@b \in f \left(\left( \theta^{-1}_{\typeP} (x)
 \right)@b\right) = \left( (\delta_a f \circ \theta^{-1}_{\typeP}) (x) \right)@b$
-and hence $p \in (\theta_{\typeQ} \circ \delta_a f \circ \theta^{-1}_{\typeP})
-(x)$ as required.  \end{proof}
+and hence as required $p \in (\theta_{\typeQ} \circ \delta_a f \circ
+\theta^{-1}_{\typeP}) (x)$.  \end{proof}
 
 Finally, it is useful to characterise the interaction between $\theta^{!}$ and
 the unit $\eta$ of the ${!}$ comonad as follows.
@@ -1107,8 +1114,8 @@ both continuous, so the result follows by \ref{bang:epi}.\end{proof}
 
 This section studies the rich structure of the categories $(\mathbf{FMCts}_s)_{s
 \subseteq_{\mathrm{fin}} \mathbb A}$ and in particular describes the universal
-constructions such as products and exponentials that motivate the design of the
-language Nominal HOPLA in chapter \ref{nomhopla}.
+constructions that motivate the design of the language Nominal HOPLA in chapter
+\ref{nomhopla}.
 
 \subsubsection{Hom-sets.}
 \label{subsubsect:cts:homsets}
@@ -1174,12 +1181,12 @@ It is not hard to see that the operation \[\mathord{\amp} :
 \amp \typePsub{2}, \typeQsub{1} \amp \typeQsub{2})\] preserves all joins in each
 argument.
 
-If $\typePsub{1}$ and $\typePsub{2}$ are objects of $\mathbf{FMCts}_s$ then
-there is an isomorphism $m_{\typePsub{1}, \typePsub{2}} : \widehat{\typePsub{1}}
-\times \widehat{\typePsub{2}} \cong \matthat{\typePsub{1} \amp \typePsub{2}}$
-where if $x_i \in \widehat{\typePsub{i}}$ for $i \in \{1, 2\}$ then
-\begin{equation} \label{def:m} m_{\typePsub{1}, \typePsub{2}} \langle x_1, x_2
-\rangle \defeq x_1 \uplus x_2. \end{equation}
+If $\typePsub{1}$ and $\typePsub{2}$ are objects of $\mathbf{FMPre}_s$ then it
+follows that there exists an isomorphism $m_{\typePsub{1}, \typePsub{2}} :
+\widehat{\typePsub{1}} \times \widehat{\typePsub{2}} \cong \matthat{\typePsub{1}
+\amp \typePsub{2}}$ where if $x_i \in \widehat{\typePsub{i}}$ for $i \in \{1,
+2\}$ then \begin{equation} \label{def:m} m_{\typePsub{1}, \typePsub{2}} \langle
+x_1, x_2 \rangle \defeq x_1 \uplus x_2. \end{equation}
 %
 It is not hard to see that this isomorphism is supported by $s$ and monotone,
 and hence an arrow of $\mathbf{FMPre}_s$.
@@ -1194,8 +1201,8 @@ easily than dealing directly with elements of $\matthat{\typePsub{1} \amp
 In particular, \begin{equation} \label{characterisation:m:proj} \mathbf{out}_i
 \circ m_{\typePsub{1}, \typePsub{2}} = \pi_i : \widehat{\typePsub{1}} \times
 \widehat{\typePsub{2}} \to \widehat{\typePsub{i}}.  \end{equation} so that if
-$f_i : \typeQ \cto \typePsub{i}$ are arrows of $\mathbf{FMCts}_s$ for $i \in \{1,
-2\}$ then \begin{equation} \label{characterisation:m:pair} \langle f_1, f_2
+$f_i : \typeQ \cto \typePsub{i}$ are arrows of $\mathbf{FMCts}_s$ for $i \in
+\{1, 2\}$ then \begin{equation} \label{characterisation:m:pair} \langle f_1, f_2
 \rangle^{\amp} = m_{\typePsub{1}, \typePsub{2}} \circ \langle f_1, f_2 \rangle
 \end{equation}
 %
@@ -1319,11 +1326,11 @@ In detail, the exponential counit is $\mathbf{apply} : (\typelift\typeQ
 \in \typeP \mid \exists Q \in \typelift\typeQ .\ Q \subseteq y \wedge \langle Q,
 p \rangle \in f \}. \end{equation}
 %
-The transpose of a continuous arrow $f : \typeP \amp \typeQ \cto \typeR$ is
-$\mathbf{abstract}(f) : \typeP \cto (\typelift\typeQ \multimap \typeR)$ where if
-$x \in \widehat{\typeP}$ then \begin{equation} \label{def:abstract}
-\mathbf{abstract}(f)(x) = \{ \langle Q, r \rangle \in \typelift\typeQ \multimap
-\typeR \mid r \in f (x \uplus Q) \}. \end{equation}
+The exponential transpose of a continuous arrow $f : \typeP \amp \typeQ \cto
+\typeR$ is written $\mathbf{abstract}(f) : \typeP \cto (\typelift\typeQ
+\multimap \typeR)$ where if $x \in \widehat{\typeP}$ then \begin{equation}
+\label{def:abstract} \mathbf{abstract}(f)(x) = \{ \langle Q, r \rangle \in
+\typelift\typeQ \multimap \typeR \mid r \in f (x \uplus Q) \}. \end{equation}
 
 
 
@@ -1504,7 +1511,7 @@ The maps $\tau^{(s')}$ and $\phi^{(s')}$ can be used to construct the map
 \tau_{\widehat{(-)}}^{(s')} \circ {\phi^{(s')}}^{-1}: \widehat{(-)^{\freshfor
 s'}} \to \widehat{(-)}. \end{equation}
 
-\begin{lemma} The map $\tau^{(s')++}$ is a natural transformation
+\begin{lemma} The map $\tau^{(s')++}$ is a natural transformation of the type
 $(-)^{\freshfor s'++} \to J : \mathbf{FMCts}_{s} \rightrightarrows
 \mathbf{FMCts}_{s \udot s'}$ where $J$ is the inclusion of categories.
 \end{lemma}
@@ -1514,8 +1521,9 @@ $\tau^{(s')}$.
 %
 It remains to show that each $\tau^{(s')++}_{\typeP}$ is FM-continuous so let $X
 \subseteq \widehat{\typeP^{\freshfor s'}}$ be directed and uniformly supported
-by $s''$, then it is necessary to show that $\tau^{(s')++}_{\typeP} \bigl(
-\bigcup X \bigr) = \bigcup_{x \in X} \tau^{(s')++}_{\typeP} x$.
+by $s''$, then it is necessary to show that \begin{equation}
+\tau^{(s')++}_{\typeP} \bigl( \bigcup X \bigr) = \bigcup_{x \in X}
+\tau^{(s')++}_{\typeP} x. \end{equation}
 %
 Let $s' = \{a_1, \ldots, a_n\}$.
 %
@@ -1525,9 +1533,9 @@ $c_n$ be fresh and let $\sigma = (a_1 c_1) \ldots (a_n c_n)$.
 Therefore $p \in \sigma \cdot \bigcup X$ so there exists $x \in X$ such that $p
 \in \sigma \cdot x$.
 %
-However, the $c_i$ were chosen to be fresh for $s''$ so that $p \in
-\tau^{(s')++}_{\typeP} (x) \subseteq \bigcup_{x \in X} \tau^{(s')++}_{\typeP} x$
-as required.
+However, the $c_i$ were chosen to be fresh for $s''$ so that as required $p \in
+\tau^{(s')++}_{\typeP} (x) \subseteq \bigcup_{x \in X} \tau^{(s')++}_{\typeP}
+x$.
 %
 Conversely let $p \in \bigcup_{x \in X} \tau^{(s')++}_{\typeP} x$, let $x \in X$
 be such that $p \in \tau^{(s')++}_{\typeP} (x)$, let $c_1$, $\ldots$, $c_n$ be
