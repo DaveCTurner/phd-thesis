@@ -113,9 +113,9 @@ above interacts well with the type system described in section \ref{tjudge}.
 $\tjudge{}{}{t}{\typeP}$.  \end{lemma} \begin{proof} By definition.\end{proof}
 
 \begin{lemma} \label{ajudgeimpatjudge} If $\ajudge{\typeP}{t}{p}{t'}$ then
-there exists a unique $\typePp$ such that $\atjudge{}{\typeP}{p}{\typePp}$.
-\end{lemma} \begin{proof} By induction over the derivation of
-$\ajudge{\typeP}{t}{p}{t'}$.  \end{proof}
+there exists a unique $\typePp$ such that the judgement
+$\atjudge{}{\typeP}{p}{\typePp}$ holds.  \end{lemma} \begin{proof} By
+induction over the derivation of $\ajudge{\typeP}{t}{p}{t'}$.  \end{proof}
 
 \begin{lemma}
 If $\ajudge{\typeP}{t}{p}{t'}$ and $\atjudge{}{\typeP}{p}{\typePp}$ then
@@ -149,7 +149,8 @@ therefore $\atjudge{}{\typeP}{p}{\typePp}$ so that by induction
 $\tjudge{}{}{t'}{\typePp}$ and hence
 $\tjudge{}{}{\new{a}{t'}}{\typedelta\typePp}$ as required.
 
-\subparagraph{Name Application} The induction hypothesis says that $\atjudge{}{\typeP}{p}{\typePp}$ and
+\subparagraph{Name Application} The induction hypothesis says that
+$\atjudge{}{\typeP}{p}{\typePp}$ and also
 $\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}$ so that
 $\atjudge{}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$ and hence
 by induction $\tjudge{}{}{\new{a}{t'}}{\typedelta\typePp}$.  From lemma
@@ -164,7 +165,7 @@ $\atjudge{}{\typeP}{p}{\typePp}$ and hence by induction
 $\tjudge{}{}{t'}{\typePp}$ as required.
 
 \subparagraph{Function Application} The induction hypothesis says that
-$\atjudge{}{\typeP}{p}{\typePp}$ and
+$\atjudge{}{\typeP}{p}{\typePp}$ and also
 $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$.  By lemma
 \ref{ajudgeimpatjudge} there exists a unique $\typePpp$ such that
 $\atjudge{}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePpp}$ and by
@@ -174,7 +175,7 @@ $\typePpp = \typePp$. Therefore by induction $\tjudge{}{}{t'}{\typePp}$ as
 required.
 
 \subparagraph{Labelling} The induction hypothesis says that
-$\ajudge{\typePsub{\ell_0}}{t}{p}{t'}$ and
+$\ajudge{\typePsub{\ell_0}}{t}{p}{t'}$ and also that
 $\atjudge{}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$.  From lemma
 \ref{closedactiontypebackwards}(\ref{closedactiontypebackwardslabel})
 therefore $\atjudge{}{\typePsub{\ell_0}}{p}{\typePp}$ so that
@@ -197,9 +198,9 @@ $\tjudge{}{}{t'}{\typePp}$ by induction as required.
 \subparagraph{Recursive Type Unfolding} The induction hypothesis gives the
 statements that
 $\atjudge{}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}$ and
-$\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$. From the typing
-rules $\atjudge{}{\typerec{j}{P}{\typeP}}{\absaction{p}}{t'}$ so that
-$\tjudge{}{}{t'}{\typePp}$ by induction as required.
+$\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$. From the typing rules
+it follows that $\atjudge{}{\typerec{j}{P}{\typeP}}{\absaction{p}}{t'}$ so
+that $\tjudge{}{}{t'}{\typePp}$ by induction as required.
 
 \subparagraph{Nondeterministic Sum}
 The induction hypothesis says that
