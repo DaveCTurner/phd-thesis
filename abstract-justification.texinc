@@ -1480,7 +1480,7 @@ adjunction \[F^{++} \dashv G^{++} : \mathrm{coKl}\bigl({!} \text{ on }
 \begin{proof}
 By the dual of lemma \ref{adjunctionlift}, the following argument is sufficient.
 
-\TODO{Diagrams?}
+%\TODO{Diagrams?}
 
 \paragraph{Left Triangle.}
 \[\begin{array}{rcll}

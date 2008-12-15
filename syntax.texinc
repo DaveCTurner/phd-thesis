@@ -123,7 +123,8 @@ application} \\
 &&\bigmid \ndsum{i}{I}{t_i} && \text{nondeterminstic sum} \\
 %
 &&\bigmid \abs{t} \bigmid \rep{t} && \text{recursive types}\\ \end{array}
-\end{equation} (\TODO{Try superscript in syntax for match})
+\end{equation} 
+%(\TODO{Try superscript in syntax for match})
 %
 The forms \begin{equation} \rec{x}{t} \qquad \matchz{s}{u}{p}{x}{t}{\typeP}
 \qquad \abstract{x}{t} \end{equation} all bind $\termvar{x}$ in $t$, and the
