@@ -382,11 +382,11 @@ Therefore $P = \finelt{F}{s}$ as required.  \end{proof}
 then \[\sigma \cdot \finelt{F}{s} = \finelt{\sigma \cdot F}{\sigma \cdot s}.\]
 \end{lemma}
 
-\begin{proof} Let $p \in \sigma \cdot \finelt{F}{s}$ then there exists $\sigma'
-\freshfor s$ such that $p \in \sigma \cdot \sigma' \cdot F = \sigma \cdot
-\sigma' \cdot \sigma^{-1} \cdot \sigma \cdot F$, and $\sigma \sigma' \sigma^{-1}
-\freshfor \sigma \cdot s$ so that $p \in \finelt{\sigma \cdot F}{\sigma \cdot
-s}$. The converse case is similar.  \end{proof}
+\begin{proof} Let $p \in \sigma \cdot \finelt{F}{s}$ then it follows that there
+exists $\sigma' \freshfor s$ such that $p \in \sigma \cdot \sigma' \cdot F =
+\sigma \cdot \sigma' \cdot \sigma^{-1} \cdot \sigma \cdot F$, and $\sigma
+\sigma' \sigma^{-1} \freshfor \sigma \cdot s$ so that $p \in \finelt{\sigma
+\cdot F}{\sigma \cdot s}$. The converse case is similar.  \end{proof}
 
 \begin{lemma}
 \label{fineltminsupp} If $F \subseteq_{\mathrm{fin}} \typeP$ and $\supp{\typeP}
@@ -403,9 +403,9 @@ $\supp{\typeP} \subseteq s$ so that $p \in \finelt{F}{\supp{\finelt{F}{s},
 %
 Conversely, let $p \in \finelt{F}{\supp{\finelt{F}{s}, \typeP}}$ then there
 exists $\sigma \freshfor \finelt{F}{s}, \typeP$ such that $p \in \sigma \cdot F
-= \iota \cdot \sigma \cdot F$ and $\iota \freshfor \sigma \cdot s$ so that $p
-\in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma \cdot \finelt{F}{s} =
-\finelt{F}{s}$ as required.  \end{proof}
+= \iota \cdot \sigma \cdot F$ and $\iota \freshfor \sigma \cdot s$ so it follows
+that $p \in \finelt{\sigma \cdot F}{\sigma \cdot s} = \sigma \cdot \finelt{F}{s}
+= \finelt{F}{s}$ as required.  \end{proof}
 
 \begin{corollary} \label{finelt:wlog} If $P \in \widehat{\typeP}$ is isolated
 and $\supp{P, \typeP} \subseteq s$ then there exists $F \subseteq_{\mathrm{fin}}
@@ -506,15 +506,16 @@ is an upper bound for $\{f^{\ddagger} x \mid x \in X \}$.  It remains to show
 that it is the least such upper bound, i.e.  for any $U$ such that $f^{\ddagger}
 x \le U$ for all $x \in X$ it is the case that $f^{\ddagger} \bigl(\bigcup
 X\bigr) \le U$. For this, it is sufficient to show that $U$ is an upper bound
-for $\{f P_\downarrow \mid P \in \typelift\typeP \wedge P \subseteq \bigcup X
-\wedge \supp{P} \subseteq \supp{\bigcup X, \typeP} \}$ since $f^{\ddagger}
-\bigl(\bigcup X \bigr)$ is the least such. Therefore, suppose that $P \in
-\typelift\typeP$ is such that $P \subseteq \bigcup X$ and $\supp{P} \subseteq
-\supp{\bigcup X, \typeP}$.  Then $P$ is isolated, and $X$ is uniformly-supported
-and directed, so there exists $x \in X$ such that $P \subseteq x$. It is clear
-that $f^{\ddagger} P_\downarrow = f P_\downarrow$, so by monotonicity $f
-P_\downarrow \le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so that $f
-P_\downarrow \le U$ as required.  \end{proof}
+for \begin{equation} \{f P_\downarrow \mid P \in \typelift\typeP \wedge P
+\subseteq \bigcup X \wedge \supp{P} \subseteq \supp{\bigcup X, \typeP} \}
+\end{equation} since $f^{\ddagger} \bigl(\bigcup X \bigr)$ is the least such.
+Therefore, suppose that $P \in \typelift\typeP$ is such that $P \subseteq
+\bigcup X$ and $\supp{P} \subseteq \supp{\bigcup X, \typeP}$.  Then
+$P_\downarrow$ is isolated, and $X$ is uniformly-supported and directed, so
+there exists $x \in X$ such that $P_\downarrow \subseteq x$. It is clear that
+$f^{\ddagger} P_\downarrow = f P_\downarrow$, so by monotonicity $f P_\downarrow
+\le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so that $f P_\downarrow \le U$ as
+required.  \end{proof}
 
 It is also the case that $\widehat{\typeP}$ is algebraic with respect to
 approximation by uniformly-supported directed sets, as the following lemma
@@ -567,9 +568,9 @@ Notice that there is a natural FM-continuous $\eta_{\typeP} : \typeP \cto
 In particular, \begin{equation} \label{def:eta} \eta_{\typeP} \circ i_{\typeP} =
 \{\cdot\}_{\typelift\typeP}.\end{equation}
 %
-Furthermore for every FM-continuous $f : \typeP \cto \typeQ$ the FM-linear
-function $(f \circ i_{\typeP})^{\dagger} : \typelift\typeP \lto \typeQ$
-satisfies that \begin{equation}
+Furthermore for every FM-continuous $f : \typeP \cto \typeQ$ it is the case that
+the FM-linear function $(f \circ i_{\typeP})^{\dagger} : \typelift\typeP \lto
+\typeQ$ satisfies \begin{equation}
 %
 (f \circ i_{\typeP})^{\dagger} \circ \eta_{\typeP} = ((f \circ
 i_{\typeP})^{\dagger} \circ \eta_{\typeP} \circ i_{\typeP})^{\ddagger} = ((f
@@ -637,9 +638,9 @@ process calculus Nominal HOPLA as demonstrated in \ref{densem:match}
 of $\mathbf{FMPre}_s$ then \[\phi_{\typeP} \finelt{F}{s'\downarrow} =
 \finelt{F}{s' \cup \{a\}\downarrow}.\]
 %
-Moreover any element of $(\typelift\typeP)^{\freshfor a}$ can be written in the
-form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$
-and $a \notin s' \supseteq s$ and in this situation it is also the case that
+Moreover any element of $(\typelift\typeP)^{\freshfor a}$ can be written as
+$\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$ and $a
+\notin s' \supseteq s$ and in this situation it is also the case that
 $\finelt{F}{s' \cup \{a\}} \in \typelift{(\typeP^{\freshfor a})}$. \end{lemma}
 
 \begin{proof} Let $p' \in \phi_{\typeP} \finelt{F}{s'\downarrow}$, then $a
@@ -684,9 +685,9 @@ Clearly $\finelt{F}{s' \udot \{a\}} \in \typelift{(\typeP^{\freshfor a})}$ by
 object of $\mathbf{FMPre}_s$ then \[\phi^{-1}_{\typeP} \finelt{F}{s'\downarrow}
 = \finelt{F}{s' \setminus \{a\}\downarrow}.\]
 %
-Moreover any element of $\typelift{(\typeP^{\freshfor a})}$ can be written in
-the form $\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor
-a}$ and $a \in s' \supseteq s$ and in this situation it is also the case that
+Moreover any element of $\typelift{(\typeP^{\freshfor a})}$ can be written as
+$\finelt{F}{s'}$ where $F \subseteq_{\mathrm{fin}} \typeP^{\freshfor a}$ and $a
+\in s' \supseteq s$ and in this situation it is also the case that
 $\finelt{F}{s' \setminus \{a\}} \in (\typelift\typeP)^{\freshfor a}$.
 \end{lemma}
 
@@ -795,32 +796,34 @@ case that $\finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}} \in
 
 \begin{proof}
 %
-Let $p' \in \theta_{\typeP} \bigl([b].\finelt{F}{s'\downarrow}\bigr)$ and let $c$ be a
-fresh name, then $p'@c \in (bc) \cdot \finelt{F}{s'\downarrow}$ so that there exists $p
-\in F$ and $\sigma \freshfor s'$ so that $(bc) \cdot (p'@c) \le_{(ab) \cdot
-\typeP} \sigma \cdot p$. Therefore $\big((bc) \cdot p') @ b \le_{(ab) \cdot
-\typeP} \sigma \cdot p = \bigl([b].(\sigma \cdot p)\bigr)@b$ so that $(bc) \cdot
-p' \le_{\delta_a \typeP} [b].(\sigma \cdot p)$. However $\sigma \freshfor s' \ni
-b$ so $[b].(\sigma \cdot p) = \sigma \cdot ([b].p)$ and hence $p' \le_{\delta_a
-\typeP} (bc) \cdot \sigma \cdot ([b].p)$ so that $p' \in \finelt{\{[b].p \mid p
-\in F\}}{s' \setminus \{b\}\downarrow}$ as required. Conversely, let $p' \in
-\finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}\downarrow}$, then there exists $p \in
-F$ and $\sigma \freshfor s' \setminus \{b\}$ such that $p' \le_{\delta_a \typeP}
-\sigma \cdot ([b].p)$. Let $c$ be a fresh name, then $p'@c \le_{(ac) \cdot
-\typeP} \sigma \cdot (bc) \cdot p = (bc) \cdot (bc) \cdot \sigma \cdot (bc)
-\cdot p$. Furthermore, $(bc)\sigma(bc) \freshfor s'$ so that $p'@c \in (bc)
-\cdot \finelt{F}{s'\downarrow}$ and hence $p' \in \theta_{\typeP}
-\bigl([b].\finelt{F}{s'\downarrow}\bigr)$ as required.
+Let $p' \in \theta_{\typeP} \bigl([b].\finelt{F}{s'\downarrow}\bigr)$ and let
+$c$ be a fresh name, then $p'@c \in (bc) \cdot \finelt{F}{s'\downarrow}$ so that
+there exists $p \in F$ and $\sigma \freshfor s'$ so that $(bc) \cdot (p'@c)
+\le_{(ab) \cdot \typeP} \sigma \cdot p$. Therefore $\big((bc) \cdot p') @ b
+\le_{(ab) \cdot \typeP} \sigma \cdot p = \bigl([b].(\sigma \cdot p)\bigr)@b$ so
+that $(bc) \cdot p' \le_{\delta_a \typeP} [b].(\sigma \cdot p)$. However $\sigma
+\freshfor s' \ni b$ so $[b].(\sigma \cdot p) = \sigma \cdot ([b].p)$ and hence
+$p' \le_{\delta_a \typeP} (bc) \cdot \sigma \cdot ([b].p)$ so it follows that
+$p' \in \finelt{\{[b].p \mid p \in F\}}{s' \setminus \{b\}\downarrow}$ as was
+required. Conversely, let $p' \in \finelt{\{[b].p \mid p \in F\}}{s' \setminus
+\{b\}\downarrow}$, then there exists $p \in F$ and $\sigma \freshfor s'
+\setminus \{b\}$ such that $p' \le_{\delta_a \typeP} \sigma \cdot ([b].p)$. Let
+$c$ be a fresh name, then \begin{equation} p'@c \le_{(ac) \cdot \typeP} \sigma
+\cdot (bc) \cdot p = (bc) \cdot (bc) \cdot \sigma \cdot (bc) \cdot
+p.\end{equation} Furthermore, $(bc)\sigma(bc) \freshfor s'$ so that $p'@c \in
+(bc) \cdot \finelt{F}{s'\downarrow}$ and hence as required $p' \in
+\theta_{\typeP} \bigl([b].\finelt{F}{s'\downarrow}\bigr)$.
 
-If $P' \in \delta_a \typelift\typeP$ and $b$ is a fresh name then $P'@b \in (ab)
-\cdot \typelift\typeP$ so that if $a \in s' \supseteq s \cup \supp{P'}$ then
-there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that $(ab) \cdot (P'@b) =
-\finelt{F}{s'}$  and hence $P' = [b].\bigl( \finelt{(ab) \cdot F}{(ab) \cdot s'}
-\bigr)$ and $b \in (ab) \cdot s'$ as required. 
-%
+If $P' \in \delta_a \typelift\typeP$ and $b$ is a fresh name then it follows
+that $P'@b \in (ab) \cdot \typelift\typeP$ so that if $a \in s' \supseteq s \cup
+\supp{P'}$ then there exists $F \subseteq_{\mathrm{fin}} \typeP$ such that $(ab)
+\cdot (P'@b) = \finelt{F}{s'}$  and hence $P' = [b].\bigl( \finelt{(ab) \cdot
+F}{(ab) \cdot s'} \bigr)$ and $b \in (ab) \cdot s'$ as required. 
+
 Finally, if $F' \subseteq (ab) \cdot \typeP$ it follows that $\{[b].p \mid p \in
-F'\} \subseteq \delta_a \typeP$ so that $\finelt{\{[b].p \mid p \in F'\}}{s'
-\setminus \{b\}} \in \typelift{\delta_a\typeP}$ by \ref{finelts}. \end{proof}
+F'\} \subseteq \delta_a \typeP$ so that by \ref{finelts} \begin{equation}
+\finelt{\{[b].p \mid p \in F'\}}{s' \setminus \{b\}} \in
+\typelift{\delta_a\typeP}.  \qedhere \end{equation} \end{proof}
 
 \begin{lemma} \label{characterisation:thetabanginv} If $b$ is a fresh name, $F
 \subseteq_{\mathrm{fin}} (ab) \cdot \typeP$ and $b \notin s' \supseteq s \not\ni
@@ -834,40 +837,41 @@ $\finelt{\{[b].p \mid p \in F\}}{s'}$ where $b$ is a fresh name, $F
 this situation it is also the case that $[b].\finelt{F}{s' \udot \{b\}} \in
 \delta_a\typelift\typeP$.  \end{lemma}
 
-\begin{proof} Let $c$ be a fresh name, then to show that $\theta^{-1}_{\typeP}
-\finelt{\{[b].p \mid p \in F\}}{s'\downarrow} = [b].\finelt{F}{s' \udot
-\{b\}\downarrow}$ it is sufficient so show that \begin{equation}
-\bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in F\}}{s'\downarrow}\bigr)@c
-= ([b].\finelt{F}{s' \udot\{b\}\downarrow})@c. \end{equation}
+\begin{proof} Let $c$ be a fresh name, then it is sufficient so show that
+\begin{equation} \bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
+F\}}{s'\downarrow}\bigr)@c = ([b].\finelt{F}{s' \udot\{b\}\downarrow})@c.
+\end{equation}
 %
 Let $p' \in \bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
 F\}}{s'\downarrow}\bigr)@c$, then $[c].p' \in \finelt{\{[b].p \mid p \in
 F\}}{s'\downarrow}$ so that there exists $p \in F$ and $\sigma \freshfor s'$
 such that $[c].p' \le_{\delta_a \typeP} \sigma \cdot [b].p$.
 %
-Let $d$ be a fresh name, then $(cd) \cdot p' \le_{(ad) \cdot \typeP} (\sigma
-\cdot [b].p)@d = \sigma \cdot (bd) \cdot p$ and hence $p' \le_{(ac) \cdot
-\typeP} (cd) \cdot \sigma \cdot (bd) \cdot p$.
+Let $d$ be a fresh name, then it follows that $(cd) \cdot p' \le_{(ad) \cdot
+\typeP} (\sigma \cdot [b].p)@d = \sigma \cdot (bd) \cdot p$ so it is the case
+that $p' \le_{(ac) \cdot \typeP} (cd) \cdot \sigma \cdot (bd) \cdot p$.
 %
 Since $c \freshfor F$ and $F$ is finite $c \freshfor p$ so that $p = (cd) \cdot
-p$; furthermore $(cd) = (bc)(cd)(bd)$, so that $(cd) \cdot \sigma \cdot (bd)
-\cdot p = (bc) \cdot (cd) \cdot (bd) \cdot \sigma \cdot (bd) \cdot (cd) \cdot
-p$.
+p$; furthermore $(cd) = (bc)(cd)(bd)$, so that \begin{equation} (cd) \cdot
+\sigma \cdot (bd) \cdot p = (bc) \cdot (cd) \cdot (bd) \cdot \sigma \cdot (bd)
+\cdot (cd) \cdot p. \end{equation}
 %
-Also, $s' \cup \{d\} \freshfor \sigma$ so that $s' \cup \{b\} \freshfor
-(cd)(bd)\sigma(bd)(cd)$, which shows that $p' \in (bc) \cdot \finelt{F}{s' \udot
-\{b\}\downarrow} = ([b].\finelt{F}{s' \udot\{b\}\downarrow})@c$.
+Also it is the case that $s' \cup \{d\} \freshfor \sigma$ so that $s' \cup \{b\}
+\freshfor (cd)(bd)\sigma(bd)(cd)$, from which it follows that $p' \in (bc) \cdot
+\finelt{F}{s' \udot \{b\}\downarrow} = ([b].\finelt{F}{s'
+\udot\{b\}\downarrow})@c$.
 %
 Conversely, let $p' \in ([b].\finelt{F}{s' \udot\{b\}\downarrow})@c = (bc) \cdot
 \finelt{F}{s' \udot \{b\}\downarrow}$, then there exists $p \in F$ and $\sigma
 \freshfor s' \udot \{b\}$ such that $p' \le_{(ac) \cdot \typeP} (bc) \cdot
 \sigma \cdot p$.
 %
-Therefore $[c].p' \le_{\delta_a\typeP} [c].\bigl((bc) \cdot \sigma \cdot p\bigr)
-= (bc) \cdot \sigma \cdot [b].p$ and $(bc)\sigma \freshfor s'$ so that $[c].p'
-\in \finelt{\{[b].p \mid p \in F\}}{s'\downarrow}$ and hence $p' \in
+Therefore \begin{equation} [c].p' \le_{\delta_a\typeP} [c].\bigl((bc) \cdot
+\sigma \cdot p\bigr) = (bc) \cdot \sigma \cdot [b].p \end{equation} and
+$(bc)\sigma \freshfor s'$ so that $[c].p' \in \finelt{\{[b].p \mid p \in
+F\}}{s'\downarrow}$ and hence as required it is the case that $p' \in
 \bigl(\theta^{-1}_{\typeP} \finelt{\{[b].p \mid p \in
-F\}}{s'\downarrow}\bigr)@c$ as required. 
+F\}}{s'\downarrow}\bigr)@c$.
 
 If $P \in \typelift{\delta_a\typeP}$ then by \ref{finelt:wlog} there exists $F'
 \subseteq \delta_a \typeP$ such that $P = \finelt{F'}{\supp{P, s, \typeP}}$.
@@ -880,9 +884,10 @@ that $b \freshfor p'$ for all $p' \in F'$, so that $F' = \{[b].(p'@b) \mid p'
 Finally since $s' \supseteq s$ it follows that $(ab) \cdot (s' \udot \{b\})
 \supseteq (ab) \cdot s = s$.
 %
-Therefore $(ab) \cdot \finelt{F}{s' \udot\{b\}} = \finelt{(ab)\cdot F}{(ab)\cdot
-(s' \udot\{b\})} \in \typelift\typeP$ so that $[b].\finelt{F}{s' \udot\{b\}} \in
-\delta_a\typelift\typeP$.  \end{proof}
+Therefore it is the case that $(ab) \cdot \finelt{F}{s' \udot\{b\}} =
+\finelt{(ab)\cdot F}{(ab)\cdot (s' \udot\{b\})} \in \typelift\typeP$ so that as
+required $[b].\finelt{F}{s' \udot\{b\}} \in \delta_a\typelift\typeP$.
+\end{proof}
 
 It therefore makes sense to define $\theta^{!} : \delta_a{!}  \to {!}\delta_a$
 and its inverse by letting \begin{equation} \theta^{!}_{\typeP}

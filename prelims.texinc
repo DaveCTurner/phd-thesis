@@ -175,17 +175,17 @@ It is sometimes useful to be able to reorder the list of transpositions that
 represent a particular permutation, which is possible as shown in the following
 lemma.
 
-\begin{lemma} \label{lemma:perm-swap} If $\sigma$ is a permutation and $a$
-and $b$ are names then $\sigma \circ (ab) = (\sigma a \ \sigma b) \circ \sigma$.
+\begin{lemma} \label{lemma:perm-swap} If $\sigma$ is a permutation and $a$ and
+$b$ are names then \[ \sigma \circ (ab) = (\sigma a \ \sigma b) \circ \sigma. \]
 \end{lemma}
 
 \begin{proof} It is sufficient to show that $\sigma (ab) c = (\sigma a \ \sigma
 b)  \sigma c$ for all names $c$, and for this it is sufficient to consider the
 three cases $c = a$, $c = b$ and $c \notin \{a, b\}$.
 %
-If $c \notin \{a, b\}$ then it follows that $(ab) c = c$ and $\sigma c \notin
-\{\sigma a, \sigma b\}$ so that $(\sigma a \ \sigma b)  \sigma c = \sigma c =
-\sigma (ab) c$.
+If $c \notin \{a, b\}$ then it follows that $(ab) c = c$ and it is also the case
+that $\sigma c \notin \{\sigma a, \sigma b\}$ by the injectivity of $\sigma$, so
+that $(\sigma a \ \sigma b)  \sigma c = \sigma c = \sigma (ab) c$.
 %
 If $c = a$ then $(ab)c = b$ and hence $(\sigma a \ \sigma b)  \sigma c = \sigma
 b = \sigma (ab) c$ as required.
@@ -250,8 +250,8 @@ Firstly it is necessary to show an elementary special case.
 \begin{lemma} \label{footprint1} If $b$, $d$ and $e$ are distinct names
 then $(be) = (de)(bd)(de)$. \end{lemma}
 
-\begin{proof} By lemma \ref{lemma:perm-swap} it is the case that $(de)(bd) =
-\bigl((de)b\ (de)d\bigr)(de) = (be)(de)$ so that $(be) = (be)(de)(de) =
+\begin{proof} It is the case that $(de)(bd) = \bigl((de)b\ (de)d\bigr)(de) =
+(be)(de)$ by lemma \ref{lemma:perm-swap}, so that $(be) = (be)(de)(de) =
 (de)(bd)(de)$ as required.  \end{proof}
 
 The general result is now as follows.
@@ -429,7 +429,8 @@ nominal set, $x \in X$, $s \subseteq_{\mathrm{fin}} \mathbb A$ and $a, b \in
 supports $(ab) \cdot x$.\end{lemma}
 
 \begin{proof} Suppose that $s$ supports $x$ and let $\sigma$ be a permutation
-such that $\sigma \cdot (ab) \cdot c = (ab) \cdot c$ for all $c \in s$.
+such that for all $c \in s$ it is the case that $\sigma \cdot (ab) \cdot c =
+(ab) \cdot c$.
 %
 Therefore $(ab) \cdot \sigma \cdot (ab) \cdot c = c$ for all $c \in s$ so that
 $(ab) \cdot \sigma \cdot (ab) \cdot x = x$ since $s$ supports $x$.
@@ -443,7 +444,7 @@ $\{(ab) \cdot c \mid c \in \{(ab) \cdot d \mid d \in s\}\} = s$.\end{proof}
 
 \begin{lemma} \label{supp-in-out}
 %
-Let $X$ be a nominal set, $x \in X$ and let $a, b \in \mathbb A$.
+Let $X$ be a nominal set, let $x \in X$ and let $a, b \in \mathbb A$.
 %
 If $a \in \supp{x}$ and $b \notin \supp{x}$ then $(ab) \cdot x \neq x$.
 %
@@ -612,10 +613,10 @@ that have empty support.
 \begin{definition} A function $f : X \to Y$ between nominal sets is
 \define{equivariant} iff it has empty support. \end{definition}
 
-If $f$ is equivariant then $\sigma^{-1} \cdot f = f$ so that for all $x \in X$,
-$f x = (\sigma^{-1} \cdot f) x = \sigma^{-1} \cdot \bigl( f (\sigma x) \bigr)$
-and hence \begin{equation} \label{def:eqvt} \sigma \cdot (f x) = f (\sigma \cdot
-x). \end{equation}
+If $f$ is equivariant then $\sigma^{-1} \cdot f = f$ so that for all $x \in X$
+it follows that $f x = (\sigma^{-1} \cdot f) x = \sigma^{-1} \cdot \bigl( f
+(\sigma x) \bigr)$ and hence \begin{equation} \label{def:eqvt} \sigma \cdot (f
+x) = f (\sigma \cdot x). \end{equation}
 %
 The converse also holds.
 %
@@ -651,10 +652,10 @@ A simple but useful consequence of equivariance is that an equivariant function
 cannot extend the support of its argument.
 %
 More precisely, \begin{lemma} \label{eqvt-supp-reduce} If $f : X \to Y$ is an
-equivariant function between nominal sets $X$ and $Y$ and $x \in X$ then
-$\supp{fx} \subseteq \supp{x}$. More generally, if $f : X \to Y$ is a
-finitely-supported function then $\supp{fx} \subseteq \supp{f} \cup \supp{x}$.
-\end{lemma}
+equivariant function between nominal sets $X$ and $Y$ and $x \in X$ then it
+follows that $\supp{fx} \subseteq \supp{x}$. More generally, if $f : X \to Y$ is
+a finitely-supported function then it follows that $\supp{fx} \subseteq \supp{f}
+\cup \supp{x}$.  \end{lemma}
 
 \begin{proof} If $\sigma$ is a permutation such that $\sigma a = a$ for all $a
 \in \supp{x}$ then it follows that $\sigma \cdot x = x$.
@@ -664,7 +665,7 @@ f(\sigma \cdot x) = fx$ which implies that $\supp{x}$ supports $fx$ as required.
 %
 The general case follows by noting that function evaluation is equivariant  as a
 function $((X \to_{\mathrm{fs}} Y) \times X) \to Y$, and the support of the pair
-$\langle{f, x\rangle}$ is $\supp{f} \cup \supp{x}$.  \end{proof}
+$\langle{f, x\rangle}$ is given by $\supp{f} \cup \supp{x}$.  \end{proof}
 
 
 \subsection{A Category of Nominal Sets}
@@ -817,12 +818,11 @@ x'}.  \end{equation}
 Writing the equivalence classes as $[a].x \defeq [\langle x, a
 \rangle]_{\sim_{\alpha}}$ it is then possible to define \begin{equation}
 \label{def:deltanom:obj} \delta X \defeq (X \times \mathbb A)/{\sim_\alpha} = \{
-[a].x \mid a \in \mathbb A \wedge x \in X \}. \end{equation}
+[a].x \mid a \in \mathbb A \text{ and } x \in X \}. \end{equation}
 %
-The permutation action on the equivalence classes is given by $\sigma \cdot
-([a].x) \defeq [\sigma a].(\sigma \cdot x)$, from which it follows that
-$\supp{[a].x} = \supp{x} \setminus \{a\}$ and therefore $\delta X$ is a nominal
-set.
+The permutation action is given by $\sigma \cdot ([a].x) \defeq [\sigma
+a].(\sigma \cdot x)$, from which it follows that $\supp{[a].x} = \supp{x}
+\setminus \{a\}$ and therefore $\delta X$ is a nominal set.
 
 If $x' \in \delta X$ and $a \freshfor x'$ then define the \define{concretion}
 $x'@a$ as the unique $x \in X$ such that $x' = [a].x$.
@@ -857,7 +857,7 @@ $\mathbf{NSet}$, $b \in \mathbb A$ and $x \in X$ then \begin{equation*}\delta f 
 &=& [b].(f x) \\ \end{array} \end{equation} since $c$ is fresh and $b \freshfor
 [b].(f x)$. \end{proof}
 
-The unit of the adjunction $(-)\otimes \mathbb A \dashv \delta$ is the natural
+The unit of the adjunction $(-)\otimes \mathbb A \dashv \delta$ is the
 transformation $\xi : \mathbf{1} \to \delta ((-) \otimes \mathbb A)$ defined by
 \begin{equation} \xi_X(x) \defeq \freshin{a}{[a].\langle x, a \rangle}.
 \end{equation}
@@ -874,8 +874,8 @@ $\Lambda/\mathord{\sim}_{\alpha}$ under $\alpha$-equivalence.
 %
 The set $\Lambda$ may be defined recursively by the rules \begin{equation}
 \infer[(a \in \mathbb A)]{\quad a \quad}{} \quad \infer{MN}{M & N} \quad
-\infer[(a \in \mathbb A)]{\lambda a. M}{M} \end{equation} which amounts to
-saying that $\Lambda$ is an initial algebra for the endofunctor $\mathbb A +
+\infer[(a \in \mathbb A)]{\lambda a. M}{M} \end{equation} which amounts to the
+statement that $\Lambda$ is an initial algebra for the endofunctor $\mathbb A +
 (-)^{2} + \mathbb A \times (-)$ on $\mathbf{NSet}$.
 %
 Notice that the components of this functor arise directly from the recursive
@@ -940,6 +940,7 @@ does have some subtle consequences.
 One of the more interesting ones is that there are a number of distinct ways of
 characterising the subsets of a nominal set that are, in some sense, finite.
 
+\clearpage
 \subsubsection{Definitions of Finiteness} \label{def:finiteness}
 %
 \begin{enumerate}[(1)] \item \label{finite:usual} The usual definition: $A$ is
@@ -1120,8 +1121,9 @@ Therefore for all $n$ \begin{equation} \supp{x_{n+1}} = \supp{f(x_n)} \subseteq
 \supp{f} \cup \supp{x_n} \end{equation} so that by induction $\supp{x_n}
 \subseteq \supp{f} \cup \supp{x_0}$ for all $n$.
 %
-Therefore $\{x \in A \mid \supp{x} \subseteq \supp{f} \cup \supp{x_0}\}$ cannot
-be finite, and hence $A$ is not (\ref{finite:stages})-finite as required.
+Therefore it cannot be that $\{x \in A \mid \supp{x} \subseteq \supp{f} \cup
+\supp{x_0}\}$ is finite, and hence $A$ is not (\ref{finite:stages})-finite as
+required.
 
 
 \end{proof}

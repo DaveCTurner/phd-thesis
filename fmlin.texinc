@@ -153,17 +153,16 @@ $\mathbf{FMLin}_s$ and $x \in \widehat{\typeP^{\freshfor a}}$ then \[ p \in
 \phi^{-1}_{\typeP} (x) \quad \Leftrightarrow\quad \freshin{c}{p \in (ac) \cdot
 x}.\] \end{lemma}
 
-\begin{proof}
-Suppose that $p \in \phi^{-1}_{\typeP} (x)$, then either $p \in x$
+\begin{proof} Suppose that $p \in \phi^{-1}_{\typeP} (x)$, then either $p \in x$
 or there exists $b$ such that $b \freshfor x$ and $p \in (ab) \cdot x$. If $p
-\in x$ then $a \freshfor p$.  Let $c$ be fresh, then $p = (ac) \cdot p \in (ac)
-\cdot x$ as required. On the other hand, let $b$ be such that $b \freshfor x$
-and $p \in (ab) \cdot x$, then $b \freshfor p$. If $a = b$ then this reduces to
-the previous case, so suppose that $a \neq b$. Let $c$ be fresh, then \[p = (bc)
-\cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x\]
-as required. Conversely, suppose that $c$ is fresh and $p \in (ac) \cdot x$,
-then $c \freshfor x, \typeP$ so that $p \in \phi^{-1}_{\typeP}(x)$ as required.
-\end{proof}
+\in x$ then $a \freshfor p$.  Let $c$ be fresh, then it is the case that $p =
+(ac) \cdot p \in (ac) \cdot x$ as required. On the other hand, let $b$ be such
+that $b \freshfor x$ and $p \in (ab) \cdot x$, then $b \freshfor p$. If $a = b$
+then this reduces to the previous case, so suppose that $a \neq b$. Let $c$ be
+fresh, then \[p = (bc) \cdot p \in (bc) \cdot (ab) \cdot x = (ac) \cdot (bc)
+\cdot x = (ac) \cdot x\] as required. Conversely, suppose that $c$ is fresh and
+$p \in (ac) \cdot x$, then $c \freshfor x, \typeP$ so that $p \in
+\phi^{-1}_{\typeP}(x)$ as required.  \end{proof}
 
 The notation is no accident: $\phi$ and $\phi^{-1}$ are natural and mutual
 inverses.
@@ -212,19 +211,18 @@ $b$ be a fresh name, then by lemma \ref{characterisation:phiinv} it follows that
 $p \in (ab) \cdot x \subseteq (ab) \cdot \typeP = \typeP$ so that
 $\phi^{-1}_{\typeP} (x) \subseteq \typeP$.
 %
-Now let $p'
-\le_{\typeP} p$, and let $b'$ be fresh, then $a \freshfor (ab') \cdot p'$ so
-that $(ab') \cdot p' \le_{\typeP^{\freshfor a}} (ab') \cdot p \in x \in
-\widehat{\typeP^{\freshfor a}}$ so that $(ab') \cdot p' \in x$ and hence $p' \in
-\phi^{-1}_{\typeP} (x)$. Therefore $\phi^{-1}_{\typeP} (x) \in
+Now let $p' \le_{\typeP} p$, and let $b'$ be fresh, then $a \freshfor (ab')
+\cdot p'$ so that $(ab') \cdot p' \le_{\typeP^{\freshfor a}} (ab') \cdot p \in x
+\in \widehat{\typeP^{\freshfor a}}$ so that $(ab') \cdot p' \in x$ and hence $p'
+\in \phi^{-1}_{\typeP} (x)$. Therefore $\phi^{-1}_{\typeP} (x) \in
 \widehat{\typeP}$. It remains to show that $a \freshfor \phi^{-1}_{\typeP} (x)$,
-so let $b$ be a fresh name and aim to prove that $\phi^{-1}_{\typeP} (x) = (ab)
-\cdot \phi^{-1}_{\typeP} (x)$. Let $p \in \phi^{-1}_{\typeP} (x)$ and let $c$ be
-a fresh name, then $p \in (ac) \cdot x$ and hence $(ab) \cdot p \in (ab) \cdot
-(ac) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x$ so that $(ab) \cdot p \in
-\phi^{-1}_{\typeP} (x)$. Therefore $\phi^{-1}_{\typeP} (x) \subseteq (ab) \cdot
-\phi^{-1}_{\typeP} (x)$ so that by equivariance $\phi^{-1}_{\typeP} (x) = (ab)
-\cdot \phi^{-1}_{\typeP} (x)$ and hence $\phi^{-1}_{\typeP} (x) \in
+so let $b$ be a fresh name and show that $\phi^{-1}_{\typeP} (x) = (ab) \cdot
+\phi^{-1}_{\typeP} (x)$ as follows. Let $p \in \phi^{-1}_{\typeP} (x)$ and let
+$c$ be a fresh name, then $p \in (ac) \cdot x$ and hence $(ab) \cdot p \in (ab)
+\cdot (ac) \cdot x = (ac) \cdot (bc) \cdot x = (ac) \cdot x$ so that $(ab) \cdot
+p \in \phi^{-1}_{\typeP} (x)$. Therefore $\phi^{-1}_{\typeP} (x) \subseteq (ab)
+\cdot \phi^{-1}_{\typeP} (x)$ so that by equivariance $\phi^{-1}_{\typeP} (x) =
+(ab) \cdot \phi^{-1}_{\typeP} (x)$ and hence $\phi^{-1}_{\typeP} (x) \in
 \widehat{\typeP}^{\freshfor a}$.
 %
 % Supported by s+a
@@ -266,7 +264,7 @@ To see that $\phi_{\typeP} \circ \phi^{-1}_{\typeP} =
 \mathbf{1}_{\widehat{\typeP^{\freshfor a}}}$, let $x \in
 \widehat{\typeP^{\freshfor a}}$ and show that $(\phi_{\typeP} \circ
 \phi^{-1}_\typeP) (x) = x$ as follows. Let $p \in x$, then $p \in
-\phi^{-1}_{\typeP}(x)$ and furthermore $a \freshfor p$ so that $p \in
+\phi^{-1}_{\typeP}(x)$ and furthermore $a \freshfor p$ so it follows that $p \in
 (\phi_{\typeP} \circ \phi^{-1}_{\typeP}) (x)$. Conversely, let $p \in
 (\phi_{\typeP} \circ \phi^{-1}_{\typeP}) (x)$, then $a \freshfor p$ and $p \in
 \phi^{-1}_{\typeP} (x)$ so that for a fresh name $b$, $p \in (ab) \cdot x$ and
@@ -318,7 +316,7 @@ $\delta_a$ on the linear categories, but for the purposes of this section it
 suffices to work more concretely.
 %
 To that end, for each object $\typeP$ of $\mathbf{FMPre}_{s \udot \{a\}}$ define
-$\theta^{(a)}_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a
+the map $\theta^{(a)}_{\typeP} : \delta_a \widehat{\typeP} \to \widehat{\delta_a
 \typeP}$ by \begin{equation} \label{def:theta} \theta^{(a)}_{\typeP}(x') \defeq
 \{p' \mid \freshin{b}{ p' @ b \in x' @ b\}} \end{equation} and define
 ${\theta^{(a)}_{\typeP}}^{-1} : \widehat{\delta_a \typeP} \to
@@ -415,7 +413,7 @@ that $\theta^{-1}_{\typeP}$ is an arrow of $\mathbf{FMPre}_{s}$.
 To see that $\theta^{-1}_{\typeP} \circ \theta_{\typeP} =
 \mathbf{1}_{\delta_a\widehat{\typeP}}$, let $x' \in \delta_a\widehat{\typeP}$
 and show that $(\theta^{-1}_{\typeP} \circ \theta_{\typeP}) (x') = x'$ as
-follows. Let $b$ be a fresh name, then it suffices to show that
+follows. Let $b$ be a fresh name, then it suffices to show
 $\bigl((\theta^{-1}_{\typeP} \circ \theta_{\typeP}) (x')\bigr) @ b = x' @ b$.
 Let $p \in x'@b$, then $([b].p)@b \in x'@b$ and hence $[b].p \in
 \theta_{\typeP}(x')$ so that finally $p \in \bigl(\theta^{-1}_{\typeP}
@@ -536,8 +534,9 @@ the orders $\typeP_1$ and $\typeP_2$ is also a binary product $\typeP_1 \amp
 %
 The projections are defined by $\mathbf{out}_1 \defeq [\mathbf{1}_{\typeP_1},
 \varnothing]$ and $\mathbf{out}_2 \defeq [\varnothing, \mathbf{1}_{\typeP_2}]$,
-and concretely $\mathbf{out}_i : \typeP_1 \amp \typeP_2 \lto \typeP_i$ is given
-by $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid \mathbf{in}_i p \in x \}$.
+and concretely for each $i$ the map $\mathbf{out}_i : \typeP_1 \amp \typeP_2
+\lto \typeP_i$ is given by $\mathbf{out}_i x \defeq \{ p \in \typeP_i \mid
+\mathbf{in}_i p \in x \}$.
 %
 Furthermore, the commutative monoid structure means that injections and
 projections satisfy \begin{equation} \label{biproducts} \begin{array}[t]{c}

@@ -190,7 +190,7 @@ x$ for some $x \subseteq D$ satisfying $\Phi$ it follows that there exists $d'
 The collection of all $\Phi$-isolated elements of $D$ is written $D^{\circ}$.
 \end{definition}
 
-If a $\Phi$CPO consists entirely of elements that can be approximated by its
+If a $\Phi$CPO consists of elements that can all be approximated by its
 $\Phi$-isolated elements then its structure is considerably simplified.
 %
 Those $\Phi$CPOs that consist only of such approximable elements are called
@@ -426,19 +426,19 @@ described above).
 The category $\mathbf{PreRel}$ is isomorphic to the category $\mathbf{Lin}$ of
 preorders and join preserving (or \textit{linear}) maps. 
 %
-More precisely, each preorder $\typeP$ can be freely completed with all joins to
-form the partial order $\widehat{\typeP}$ and then an arrow $f : \typeP \to
-\typeQ$ of $\mathbf{Lin}$ is a function $f : \widehat{\typeP} \to
-\widehat{\typeQ}$ which preserves all joins.
+In detail, each preorder $\typeP$ can be freely completed with all joins to form
+the partial order $\widehat{\typeP}$ and then an arrow $f : \typeP \lto \typeQ$
+of $\mathbf{Lin}$ is a function $f : \widehat{\typeP} \to \widehat{\typeQ}$
+which preserves all joins.
 %
 Concretely, $\widehat{\typeP}$ consists of all lower subsets of $\typeP$ ordered
 by inclusion.
 %
-Considering the adjunction ${!}((-)^{\circ}) \dashv \mathrm{Idl}_{\Phi_d}$ from
-the point of view of $\mathbf{PreRel}$ or $\mathbf{Lin}$ draws attention to the
-comonad ${!}((\mathrm{Idl}_{\Phi_d}(-))^{\circ}) \cong {!}$.
+From the point of view of $\mathbf{PreRel} \cong \mathbf{Lin}$ the adjunction
+${!}((-)^{\circ}) \dashv \mathrm{Idl}_{\Phi_d}$ gives rise to the comonad
+${!}((\mathrm{Idl}_{\Phi_d}(-))^{\circ}) \cong {!}$ on $\mathbf{Lin}$.
 %
-\TODO{Have not --- strictly speaking --- defined {!}.}
+%\TODO{Have not --- strictly speaking --- defined {!}.}
 
 \subsection{Domains of Paths} \label{domains-of-paths}
 
@@ -479,14 +479,14 @@ category $\mathbf{Aff}$, whereas directed-join-preserving maps could be called
 \textit{continuous} and form a category $\mathbf{Cts}$.
 
 From a different viewpoint it turns out that $\mathbf{Lin}$ can be used as a
-setting for Girard's classical linear logic, and following the
-discipline of linear logic it would seem that the solution to the strictness of
-linearity is to consider those maps whose domain is under an exponential.
+setting for Girard's classical linear logic, and following the discipline of
+linear logic it would seem that the solution to the strictness of linearity is
+to consider those maps whose domain is under an exponential.
 %
 $\mathbf{Aff}$ can be seen to be the coKleisli category of the comonad $(-)_\bot
-: \mathbf{Lin} \to \mathbf{Lin}$ which takes a preorder $\typeP$ to $\typeP_\bot
-= \typeP \uplus \{\bot\}$ where the new element $\bot$ is ordered below each
-element of $\typeP$.
+: \mathbf{Lin} \to \mathbf{Lin}$ which takes a preorder $\typeP$ to the order
+$\typeP_\bot = \typeP \uplus \{\bot\}$ where the new element $\bot$ is ordered
+below each element of $\typeP$.
 %
 $\mathbf{Aff}$ then forms a model of affine-linear
 logic\cite{jacobs:weakening-contraction}.
@@ -544,17 +544,18 @@ gives a domain theory in terms of presheaves $\typeP^{\mathrm{op}} \to
 \mathbf{Set}$ with much finer-grained distinctions than is possible with the
 simple-minded path semantics.
 %
-Cattani and Winskel\cite{cattani-winskel:profunctors} developed this
-presheaf-based semantics before Nygaard and
-Winskel\cite{nygaard:phdthesis,nygaardwinskel1} explored the simpler path
+In fact, Cattani and Winskel\cite{cattani-winskel:profunctors} developed this
+presheaf-based semantics first, and it motivated Nygaard and
+Winskel\cite{nygaard:phdthesis,nygaardwinskel1} to explore the simpler path
 semantics.
 
 Also absent from the path-based semantics in $\mathbf{Cts}$ is the concept of
 name-generation.
 %
-In order to model a fully-fledged process algebra such as the $\pi$-calculus it
-is necessary to be able to model locally-scoped names and treat them as
-first-class data that can, for example, be passed from process to process.
+In order to model a modern fully-fledged process algebra such as the
+$\pi$-calculus it is necessary to be able to model locally-scoped names and
+treat them as first-class data that can, for example, be passed from process to
+process.
 %
 Winskel and Zappa Nardelli\cite{WZ04} developed the language new-HOPLA in which
 this was possible.
