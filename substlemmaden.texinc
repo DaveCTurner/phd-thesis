@@ -52,6 +52,11 @@ $\termvar{x1}$ stand for those that are not.
 %
 Where it is unimportant, omit the map $\sigma$ and the functors $i_1^*$ and
 $i_2^*$ to preserve the clarity of the proof.
+%
+For a similar reason, the various maps $\tau^{(s')++}_{\typePp}$ that appear in
+the proof will be written $\tau_{\typePp}$ or $\tau$ where the decorations are
+clear from the context.
+
 
 \subparagraph{Variable}
 %\infer{\tjudge{\varnothing}{\envvarfresh{x}{\typeP}{\varnothing}
@@ -221,18 +226,18 @@ r_n} }}{t[v]}{\typeP}}} \\
 %
 &=& \sem{\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup
 \ldots \cup r_{n-1} \cup r'_n} }}{t[v]}{\typeP}} \circ
-\bigl(\mathbf{1}_{\Gamma} \amp k_\Delta \bigr) \\
+\bigl(\mathbf{1}_{\Gamma} \amp \tau_\Delta \bigr) \\
 %
 &=& \sem{\tjudge{s}{\Gamma''}{t}{\typeP}} \circ \bigl(\mathbf{1}_{\Gamma} \amp
-\sem{v}^{n}\bigr) \circ \bigl(\mathbf{1}_{\Gamma} \amp k_\Delta \bigr)
+\sem{v}^{n}\bigr) \circ \bigl(\mathbf{1}_{\Gamma} \amp \tau_\Delta \bigr)
 \quad\text{by induction} \\
 %
 &=& \sem{\tjudge{s}{\Gamma''}{t}{\typeP}} \circ \bigl(\mathbf{1}_{\Gamma} \amp
-k^{(1)}_{\typeR} \amp \ldots \amp k^{(n)}_{\typeR} \bigr) \circ
+\tau^{(1)}_{\typeR} \amp \ldots \amp \tau^{(n)}_{\typeR} \bigr) \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \sem{v}^{n}\bigr) \\
 %
 &=& \sem{\tjudge{s}{\Gamma'}{t}{\typeP}} \circ \bigl(\mathbf{1}_{\Gamma} \amp
-\sem{v}^{n}\bigr) \\ \end{array}\] as required.  \TODO{Check calculation}
+\sem{v}^{n}\bigr) \\ \end{array}\] as required.
 
 \subparagraph{Support-Weakening}
 %\infer[(s' \subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}}
@@ -385,8 +390,8 @@ s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r \cup r'
 &=& \sem{\tjudge{s \cup
 s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envfresh{\Lambda}{s'}}
 }{\envfresh{\Delta'}{r' \cup s'}} } {\matchz{s'}{u[v']}{q}{x}{t[v]}{\typeQp}}{\typeP}}
-\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp k^{(2)}_\Delta \bigr) \circ
+\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
+\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
 \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
 %
@@ -398,8 +403,8 @@ s'}} \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor
 r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup
 s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup
 s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor
-s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp k^{(2)}_\Delta \bigr) \circ
+s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
+\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
 \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
 %
@@ -412,8 +417,8 @@ s'}} \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor
 r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup
 s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup
 s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor
-s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp k^{(2)}_\Delta \bigr) \circ
+s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
+\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
 \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
 %
@@ -425,8 +430,8 @@ s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup
 s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup
 s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor
-s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp k^{(2)}_\Delta \bigr) \circ
+s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
+\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
 \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
 %
@@ -439,8 +444,8 @@ s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 \sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \circ
 \sem{\tjudge{s''}{\Lambda'}{u}{\typeQ}}^{\freshfor s'++} \\&&\qquad {}\circ
 (\mathbf{1}_{\Lambda^{\freshfor s'}} \amp {\sem{v}^{m}}^{\freshfor s'++})) \bigr)
-\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp k^{(2)}_\Delta \bigr) \circ
+\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
+\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
 \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
 %
@@ -453,8 +458,8 @@ s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 (\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda'}^{\freshfor s'}} \amp
 \sem{v}^{n}) \circ (\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}}
 \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp {\sem{v}^{m}}^{\freshfor s'++})
-\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp k^{(2)}_\Delta \bigr) \circ
+\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
+\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
 \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
 %
@@ -462,7 +467,7 @@ s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp k^{(1)}_\Delta \amp
 \sem{\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'}}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \\&&{} \circ \Bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda}^{\freshfor
 s'}} \amp \bigl((\sem{v}^{n} \amp {\sem{v}^{m}}^{\freshfor s'++}) \circ
-(k^{(1)}_\Delta \amp k^{(2)}_\Delta) \circ \Delta_{\Delta^{\freshfor r \cup r'
+(\tau^{(1)}_\Delta \amp \tau^{(2)}_\Delta) \circ \Delta_{\Delta^{\freshfor r \cup r'
 \cup s'}}\bigr)\Bigr) \\
 %
 &=&
@@ -516,22 +521,22 @@ of the environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
 s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }
 {\envcombine{\Lambda}{\envfresh{\Delta'}{r'}}
 }}{\apply{(t[v])}{(u[v'])}{\typeQ} }{\typeP}} \\&&{} \circ \bigl(
-\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda} \amp ((k^{(1)}_\Delta \amp
-k^{(2)}_\Delta) \circ \Delta_{\Delta}) \\
+\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda} \amp ((\tau^{(1)}_\Delta \amp
+\tau^{(2)}_\Delta) \circ \Delta_{\Delta}) \\
 %
 &=& \mathbf{apply} \circ \bigl(\sem{\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}}
 }{t[v]}{\typemap{\typeQ}{\typeP}}} \amp \sem{\tjudge{s \cup
 s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}} \bigr) \\&&{}
 \circ \bigl( \mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda} \amp
-((k^{(1)}_\Delta \amp k^{(2)}_\Delta) \circ \Delta_{\Delta}) \\
+((\tau^{(1)}_\Delta \amp \tau^{(2)}_\Delta) \circ \Delta_{\Delta}) \\
 %
 &=& \mathbf{apply} \circ
 \bigl(\sem{\tjudge{s}{\Gamma'}{t}{\typemap{\typeQ}{\typeP}}} \amp
 \sem{\tjudge{s}{\Lambda'}{u}{\typeQ}} \bigr) \circ \bigl(\mathbf{1}_{\Gamma}
 \amp \sem{v}^n \amp \mathbf{1}_{\Lambda} \amp \sem{v}^m \bigr) \\&&{} \circ
-\bigl( \mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda} \amp ((k^{(1)}_\Delta \amp
-k^{(2)}_\Delta) \circ \Delta_{\Delta}) \\
+\bigl( \mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda} \amp ((\tau^{(1)}_\Delta \amp
+\tau^{(2)}_\Delta) \circ \Delta_{\Delta}) \\
 %
 &=& \mathbf{apply} \circ
 \bigl(\sem{\tjudge{s}{\Gamma'}{t}{\typemap{\typeQ}{\typeP}}} \amp
