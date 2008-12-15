@@ -19,14 +19,14 @@ yielded a positive result.
 As it stands it would appear that every path may be defined by terms of the
 language but they cannot all be distinguished.
 %
-For example, it is suggested that there is no way for a Nominal HOPLA process to
+For example, it is suggested that it is impossible for a Nominal HOPLA term to
 tell apart the paths $P \defeq \finelt{\{a\}}{\varnothing}$ and $P_b \defeq
 \finelt{\{a\}}{\{b\}}$ (where $a \neq b$) unless it has $b$ in its support.
 %
 Since terms are always finitely-supported it follows that it is not possible to
-construct a term $t$ which distinguishes $P = \finelt{\{a\}}{\varnothing}$ from
-all other paths: for any candidate $t$ there exists a name $b \freshfor t$ which
-means that $t$ cannot tell the difference between $P$ and $P_b$.
+construct a term $t$ which distinguishes $P$ from all other paths: for any
+candidate $t$ there exists a name $b \freshfor t$ which means that $t$ cannot
+tell the difference between $P$ and $P_b$.
 
 More precisely, the argument is to write $\tilde{\mathbb A} \defeq
 \typesum{a}{\mathbb A}{\typelift\typeO}$ and let \begin{equation}
@@ -61,9 +61,9 @@ $\sem{t_1} \neq \sem{t_2}$.
 It follows that $d$ is not definable in Nominal HOPLA, and importantly that
 contextual equivalence does not coincide with denotational equivalence.
 
-In general it is not computationally unreasonable to want to distinguish $P_1
-\defeq \finelt{F_1}{s_1}$ and $P_2 \defeq \finelt{F_2}{s_2}$ as inequivalent
-isolated elements of $\widehat{\typeP}$.
+In general it is not computationally unreasonable to want to distinguish the
+paths $P_1 \defeq \finelt{F_1}{s_1}$ and $P_2 \defeq \finelt{F_2}{s_2}$ of type
+$\typelift\typeP$.
 %
 To see this, notice that $s_1 \cup s_2$ supports both $P_1$ and $P_2$ so that by
 lemma \ref{finelt:wlog} there exist finite $F'_1$ and $F'_2$ such that $P_1 =
