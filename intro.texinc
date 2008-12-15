@@ -73,13 +73,13 @@ applied elsewhere and which are specific to the calculus in question.
 The lack of a common framework means that lessons derived from work in one area
 remain isolated from other areas of study.
 
-Work by Cattani and Winskel on a denotational semantics given in terms of
+Work by Cattani and Winskel on a semantics given in terms of
 presheaves\cite{cattani-winskel:profunctors} has the potential to provide a
-common framework for studying concurrency.
+common denotational framework for studying concurrency.
 %
-The presheaf semantics supports a rich domain theory for concurrency which
-captures nondeterministic branching and provides a natural notion of equivalence
-for higher-order processes via bisimulation.
+The presheaf semantics supports a rich domain theory which captures
+nondeterministic branching and provides a natural notion of equivalence for
+higher-order processes via bisimulation.
 %
 Importantly, many computational features can be captured by universal
 constructions on presheaves which justifies the claim that the presheaf
