@@ -20,9 +20,10 @@ $\supp{t,p,t'} \subseteq s$, then \[\sem{\tjudge{s}{}{\bang{t'}
 \begin{proof}
 By induction on the derivation of $\ajudge{\typeP}{t}{p}{t'}$ as follows.
 
-\subparagraph{Recursion} Suppose that $\ajudge{\typeP}{\rec{x}{t}}{p}{t'}$ is
-derived from $\ajudge{\typeP}{\termsubst{t}{\rec{x}{t}}{x}}{p}{t'}$.  Let $t^*$
-be defined by $t^*(f) = \sem{t} \circ f$, then \[\begin{array}{rcll}
+\subparagraph{Recursion} Suppose that the judgement
+$\ajudge{\typeP}{\rec{x}{t}}{p}{t'}$ is derived from
+$\ajudge{\typeP}{\termsubst{t}{\rec{x}{t}}{x}}{p}{t'}$.  Let $t^*$ be defined
+by $t^*(f) = \sem{t} \circ f$, then \[\begin{array}{rcll}
 %
 \multicolumn{4}{l}{\sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ
 \sem{\tjudge{s}{}{\rec{x}{t}}{\typeP}}} \\
@@ -41,7 +42,8 @@ semantics}\\
 &=& \sem{p} \circ \sem{\termsubst{t}{\rec{x}{t}}{x}} & \text{by the
 substitution lemma}\\
 %
-&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by induction}\\
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by
+induction}\\
 %
 \end{array}\] as required.
 
@@ -51,7 +53,7 @@ If $\ajudge{\typelift\typeP}{\bang{t}}{\bangaction}{t}$ then
 \circ \sem{\tjudge{s}{}{\bang{t}}{\typelift\typeP}} = \sem
 {\tjudge{s}{}{\bang{t}}{\typelift\typeP}}\] as required.
 
-\subparagraph{Match} Suppose that
+\subparagraph{Match} Suppose that the judgement
 $\ajudge{\typeP}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{p}{t'}$ is derived from
 $\ajudge{\typeP}{\termsubst{t}{u'}{x}}{p}{t'}$ and $\ajudge{\typeQ}{u}{q}{u'}$,
 then \[\begin{array}{rcll}
@@ -60,12 +62,12 @@ then \[\begin{array}{rcll}
 \sem{\tjudge{s}{}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}} \\
 %
 &=& \sem{p} \circ \epsilon_{\typeP} \circ {!}\sem{t} \circ
-\widehat{\phi^{{!}(s')}_{\typeQp}} \circ \bigl(\sem{q} \circ \sem{u}\bigr)^{\freshfor s'++}
-\\
+\widehat{\phi^{{!}(s')}_{\typeQp}} \circ \bigl(\sem{q} \circ
+\sem{u}\bigr)^{\freshfor s'++} \\
 %
 &\sqsupseteq& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
-\widehat{\phi^{{!}(s')}_{\typeQp}} \circ \sem{\bang{u'}}^{\freshfor s'++} & \text{by
-induction on $u$} \\
+\widehat{\phi^{{!}(s')}_{\typeQp}} \circ \sem{\bang{u'}}^{\freshfor s'++} &
+\text{by induction on $u$} \\
 %
 &=& \sem{p} \circ  \epsilon_{\typeP} \circ {!}\sem{t} \circ
 \widehat{\phi^{{!}(s')}_{\typeQp}} \circ \eta_{\typeQp}^{\freshfor s'++} \circ
@@ -119,7 +121,7 @@ derived from $\ajudge{\typeP}{t}{p}{t'}$, then \[\begin{array}{rcll}
 \end{array}\]
 as required.
 
-\subparagraph{Name Application} Suppose that
+\subparagraph{Name Application} Suppose that the judgement
 $\ajudge{\typeP}{\newapply{t}{a}}{p}{t'}$ is derived from
 $\ajudge{\typedelta\typeP}{t}{\newaction{a}{p}}{\new{a}{t'}}$, then
 \[\begin{array}{rcll} \multicolumn{4}{l}{ \sem{\atjudge{s \udot
@@ -157,7 +159,7 @@ a++} &\text{by naturality} \\
 &=& \sem{\tjudge{s \udot \{a\}}{}{\bang{t'}}{\typelift\typePp}} \end{array}\]
 by the denotational semantics as required.
 
-\subparagraph{Function Abstraction} Suppose that
+\subparagraph{Function Abstraction} Suppose that the judgement
 $\ajudge{\typemap{\typeQ}{\typeP}}{\abstract{x}{t}}{\mapaction{u}{p}}{t'}$ is
 derived from $\ajudge{\typeP}{\termsubst{t}{u}{x}}{p}{t'}$, then
 \[\begin{array}{rcll}
@@ -181,27 +183,28 @@ derived from $\ajudge{\typeP}{\termsubst{t}{u}{x}}{p}{t'}$, then
 \end{array}\]
 as required.
 
-\subparagraph{Function Application}
-Suppose that $\ajudge{\typeP}{\apply{t}{u}{\typeQ}}{p}{t'}$
-is derived from $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$, then
+\subparagraph{Function Application} Suppose that the judgement
+$\ajudge{\typeP}{\apply{t}{u}{\typeQ}}{p}{t'}$ is derived from
+$\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$, then
 \[\begin{array}{rcll}
 %
-\multicolumn{4}{l}{\sem{\atjudge{s}{\typeP}{p}{\typePp}}
-\circ \sem{\tjudge{s}{}{\apply{t}{u}{\typeQ}}{\typeP}}} \\
+\multicolumn{4}{l}{\sem{\atjudge{s}{\typeP}{p}{\typePp}} \circ
+\sem{\tjudge{s}{}{\apply{t}{u}{\typeQ}}{\typeP}}} \\
+%
+&=& \sem{p} \circ \mathbf{apply} \circ \bigl(\sem{t} \amp \sem{u} \bigr) &
+\text{by the denotational semantics}\\
 %
 &=& \sem{p} \circ \mathbf{apply} \circ
-\bigl(\sem{t} \amp \sem{u} \bigr) & \text{by the denotational semantics}\\
+\bigl(\mathbf{1}_{\typemap{\typeQ}{\typeP}} \amp \sem{u} \bigr) \circ \sem{t} &
+\text{by naturality}\\
 %
-&=& \sem{p} \circ \mathbf{apply} \circ
-\bigl(\mathbf{1}_{\typemap{\typeQ}{\typeP}} \amp \sem{u} \bigr) \circ
-\sem{t} & \text{by naturality}\\
+&=& \sem{\mapaction{u}{p}} \circ \sem{t} & \text{by the denotational
+semantics}\\
 %
-&=& \sem{\mapaction{u}{p}} \circ \sem{t} & \text{by the denotational semantics}\\
+&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by
+induction}\\
 %
-&\sqsupseteq& \sem{\tjudge{s}{}{\bang{t'}}{\typelift\typePp}} & \text{by induction}\\
-%
-\end{array}\]
-as required.
+\end{array}\] as required.
 
 \subparagraph{Labelling} Suppose that
 $\ajudge{\stdtypesum}{\linj{\ell_0}{t}}{\labelaction{\ell_0}{p}}{t'}$ is
@@ -221,7 +224,7 @@ induction}\\
 \end{array}\] as required
 
 \subparagraph{Label Projection}
-Suppose that $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}$
+Suppose that the judgement $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}$
 is derived from $\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$,
 then \[\begin{array}{rcll}
 %
@@ -277,7 +280,7 @@ induction}\\
 \end{array}\] as required
 
 \subparagraph{Nondeterministic Sum}
-Suppose that $\ajudge{\typeP}{\ndsum{i}{I}{t_i}}{p}{t'}$
+Suppose that the judgement $\ajudge{\typeP}{\ndsum{i}{I}{t_i}}{p}{t'}$
 is derived from $\ajudge{\typeP}{t_{i_0}}{p}{t'}$, then
 \[\begin{array}{rcll}
 %
