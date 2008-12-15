@@ -556,11 +556,11 @@ as required.
 
 
 \subparagraph{Label Projection} Suppose that
-$\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
-the judgement $\tjudge{s}{\Gamma}{t}{\stdtypesum}$, then by induction followed by
+$\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from the
+judgement $\tjudge{s}{\Gamma}{t}{\stdtypesum}$, then by induction followed by
 support-weakening and freshness-weakening
 $\tjudge{\supp{t,\ell_0}}{\envrestrict{\Gamma}{\supp{t,\ell_0}}}{t}{\stdtypesum}$.
-Also $\supp{\lproj{\ell_0}{t}} = \supp{t,\ell_0}$ so that
+Also it is the case that $\supp{\lproj{\ell_0}{t}} = \supp{t,\ell_0}$ so that
 $\tjudge{\supp{t,\ell_0}}{\envrestrict{\Gamma}{\supp{t,\ell_0}}}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$
 as required.
 
@@ -572,8 +572,8 @@ for each $i \in I$ it follows that
 $\tjudge{\supp{t_i}}{\envrestrict{\Gamma}{\supp{t_i}}}{t_i}{\typeP}$. Let $i
 \in I$. Enumerate the names in $(\supp{i} \cap \supp{\Gamma}) \setminus
 \supp{\lambda i. t_i}$ as $a_1, \ldots, a_n$, let $b_1, \ldots, b_n$ be fresh
-and let $\pi = (a_1 b_1) \ldots (a_n b_n)$. Since the $a_j$ and $b_j$ are fresh
-for $\lambda i. t_i$, it follows that $\pi \cdot t_i = t_{\pi \cdot i}$. Since
+and let $\pi = (a_1 b_1) \ldots (a_n b_n)$. As the $a_j$ and $b_j$ are fresh
+for $\lambda i. t_i$ it follows that $\pi \cdot t_i = t_{\pi \cdot i}$. Since
 typing is equivariant, $\tjudge{\supp{t_i}}{\pi^{-1} \cdot
 \bigl(\envrestrict{\Gamma}{\supp{t_{\pi \cdot i}}}\bigr)}{t_i}{\typeP}$.
 Suppose that the freshness assumption $\termvar{x} \freshfor a$ is in the
@@ -630,7 +630,8 @@ as required.
 \subparagraph{Higher-Order Action} Suppose that
 $\atjudge{s}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ is derived
 from $\atjudge{s}{\typeP}{p}{\typePp}$ and $\tjudge{s}{}{u}{\typeQ}$, then by
-induction and support-weakening $\atjudge{\supp{u,p}}{\typeP}{p}{\typePp}$ and
+induction and support-weakening it follows that
+$\atjudge{\supp{u,p}}{\typeP}{p}{\typePp}$ and
 $\tjudge{\supp{u,p}}{}{u}{\typeQ}$. Also $\supp{\mapaction{u}{p}} = \supp{u,p}$
 so that
 $\atjudge{\supp{u,p}}{\typemap{\typeQ}{\typeP}}{\mapaction{u}{p}}{\typePp}$ as
@@ -638,16 +639,16 @@ required.
 
 \subparagraph{Labelled Action} Suppose that
 $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is derived from
-$\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$, then by induction and
-support-weakening $\atjudge{\supp{p, \ell_0}}{\typePsub{\ell_0}}{p}{\typePp}$.
-Also $\supp{\labelaction{\ell_0}{p}} = \supp{p, \ell_0}$ so that
-$\atjudge{\supp{p, \ell_0}}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ as
-required.
+the judgement $\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$, then by induction
+and support-weakening it follows that $\atjudge{\supp{p,
+\ell_0}}{\typePsub{\ell_0}}{p}{\typePp}$.  Also $\supp{\labelaction{\ell_0}{p}}
+= \supp{p, \ell_0}$ so that as required $\atjudge{\supp{p,
+\ell_0}}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$.
 
 \subparagraph{New Name Action} Suppose that
 $\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}$ is derived
-from $\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}$, then by induction and
-support-weakening $\atjudge{\supp{p} \cup \{a\}}{\typeP}{p}{\typePp}$. Also
+from the judgement $\atjudge{s \udot \{a\}}{\typeP}{p}{\typePp}$, then by induction and
+support-weakening it follows that $\atjudge{\supp{p} \cup \{a\}}{\typeP}{p}{\typePp}$. Also
 $\supp{\newaction{a}{p}} = \supp{p} \setminus \{a\}$ so that $\atjudge{\supp{p}
 \setminus \{a\}}{\typedelta\typeP}{\newaction{a}{p}}{\typePp}$ as required.
 
