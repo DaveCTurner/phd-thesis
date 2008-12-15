@@ -551,15 +551,6 @@ Suppose $\tjudge{s}{}{t}{\typeP}$. Then $\logrel{\sem{\tjudge{s}{}{t}{\typeP}} }
 Let $\Gamma$ be the empty environment and apply lemma \ref{biglemma}.
 \end{proof}
 
-The operational semantics of Nominal HOPLA gives rise to a notion of observation
-that can be made about the process: it is possible to observe an action
-$\atjudge{}{\typeP}{p}{\typePp}$ by deriving a judgement of the form
-$\ajudge{\typeP}{t}{p}{t'}$.
-%
-In fact the match operator reduces these general observations to observations of
-just $\bangaction$ actions, because to observe the action $p$ in the term $t$ is
-the same as to observe a $\bangaction$ action in the term
-$\matchz{s}{t}{p}{x}{\bang{\inactive}}{\typeP}$.
 
 It is now possible to demonstrate the main theorem of this thesis, namely the
 computational adequacy of the given semantics of Nominal HOPLA with respect to
