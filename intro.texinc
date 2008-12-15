@@ -51,7 +51,7 @@ of a computation by altering its symbolic representation.
 Operational descriptions often suggest a possible physical implementation of a
 computation by providing a description of the local behaviour of a process.
 %
-Working at this low level of abstraction makes it is easier to understand the
+Working at this low level of abstraction makes it easier to understand the
 progress of a computation, but the quantity of detail can make it harder to see
 the high-level situation.
 
