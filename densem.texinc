@@ -311,8 +311,8 @@ $\sem{p}$ respectively.
 \subsection{Higher-Order Processes}
 
 The cartesian-closed structure of $\mathbf{FMPre}_s$, described in
-\ref{fmcts:exponentials}, gives rise to a denotational semantics for
-higher-order processes as for the simply-typed $\lambda$-calculus.
+\ref{fmcts:exponentials}, gives rise to a semantics for higher-order processes
+as for the simply-typed $\lambda$-calculus.
 
 Firstly, abstraction of a variable of type $\typeP$ is simply given by
 transposition in the exponential adjunction $(-) \amp \typeP \dashv \typeP \to
@@ -529,7 +529,7 @@ The semantics of prefix matching can be given a concrete, set theoretic,
 characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Matching] \label{densem:match:characterisation}
-Suppose that $\gamma \in \semp{\Gamma}$, $\lambda \in
+Suppose that $\gamma \in \semp{\Gamma}$ and $\lambda \in
 \semp{\envfresh{\Lambda}{s'}}$ and $p \in \typeP$. Then \[p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}}
 {\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda
@@ -607,22 +607,23 @@ above there exists $Q \in (\sem{q} \circ \sem{u}) \langle \lambda
 \rangle_{\Lambda}$ such that $Q \freshfor s'$ and $Q' \subseteq
 \phi^{(s')}_{\typeQp} Q_\downarrow$.
 %
-By the monotonicity of $\sem{t}$ this means that $p \in \sem{t}\bigl( \langle
-\gamma \rangle_\Gamma \uplus \phi^{(s')}_{\typeQp} Q_\downarrow \bigr) = \sem{t}
-\langle \gamma, Q_\downarrow
-\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ as required.
+By the monotonicity of $\sem{t}$ this means that as required $p \in
+\sem{t}\bigl( \langle \gamma \rangle_\Gamma \uplus \phi^{(s')}_{\typeQp}
+Q_\downarrow \bigr) = \sem{t} \langle \gamma, Q_\downarrow
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$.
 
-Conversely if there exists $Q \in (\sem{q} \circ \sem{u}) \langle \lambda
-\rangle_{\Lambda}$ such that $Q \freshfor s'$ and $p \in \sem{t} \langle \gamma,
-Q_\downarrow \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ then
-by algebraicity there exists $G \in {!}\sem{\Gamma}$ and $Q' \in
-{!}(\typeQp^{\freshfor s'})$ such that $G \uplus Q' \subseteq \langle \gamma,
+Conversely if there exists a $Q \in (\sem{q} \circ \sem{u}) \langle \lambda
+\rangle_{\Lambda}$ such that $Q \freshfor s'$ and also $p \in \sem{t} \langle
+\gamma, Q_\downarrow
+\rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ then by
+algebraicity there exists $G$ and $Q'$ such that $G \in {!}\sem{\Gamma}$ and $Q'
+\in {!}(\typeQp^{\freshfor s'})$ and $G \uplus Q' \subseteq \langle \gamma,
 Q_\downarrow \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}}}$ and $p
 \in \sem{t} (G \uplus Q')_\downarrow$.
 %
 It follows from the discussion above that $Q' \in f \langle \lambda
-\rangle_{\envfresh{\Lambda}{s'}}$ so that $p \in
-\sem{\matchz{s'}{u}{q}{x}{t}{\typeQp}}$ as required.  \end{proof}
+\rangle_{\envfresh{\Lambda}{s'}}$ so that as required $p \in
+\sem{\matchz{s'}{u}{q}{x}{t}{\typeQp}}$.  \end{proof}
 
 
 
@@ -635,11 +636,11 @@ give rise to a denotational semantics for labelling.
 Injection into the biproduct corresponds to tagging the outputs of a process
 with a particular label as follows.
 
-\begin{definition}[Semantics of Labelling] \label{densem:linj} If the judgement
+\begin{definition}[Semantics of Labelling] \label{densem:linj} If
 $\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
-$\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$ then by the typing rules it must be that $s$ supports
-$\ell_0$ so that the injection $\mathbf{in}_{\ell_0} : \typePsub{\ell_0} \cto
-\stdtypesum$ is an arrow of $\mathbf{FMCts}_s$.
+$\tjudge{s}{\Gamma}{t}{\typePsub{\ell_0}}$ then by the typing rules it must be
+that $s$ supports $\ell_0$ so that the injection $\mathbf{in}_{\ell_0} :
+\typePsub{\ell_0} \cto \stdtypesum$ is an arrow of $\mathbf{FMCts}_s$.
 %
 Therefore define \[\sem{\tjudge{s}{\Gamma}{\linj{\ell_0}{t}}{\stdtypesum}}
 \defeq \mathbf{in}_{\ell_0} \circ
@@ -682,7 +683,7 @@ terms of paths which highlight how it captures the semantics of label-matching
 as follows.
 
 \begin{lemma}[Characterising Label Projection]
-\label{densem:lproj:characterisation} Suppose that
+\label{densem:lproj:characterisation} Suppose that the judgement
 $\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
 $\tjudge{s}{\Gamma}{t}{\stdtypesum}$.
 %
@@ -700,11 +701,11 @@ The denotational semantics of the labelled action $\labelaction{\ell_0}{p}$ is
 closely related to that of label projection at the label $\ell_0$ as follows.
 
 \begin{definition}[Semantics of Labelled Actions] \label{densem:labelaction} If
-the judgement $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is
-derived from $\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$ then by the typing
-rules it must be that $s$ supports $\ell_0$ so that the projection
-$\mathbf{out}_{\ell_0} : \stdtypesum \cto \typePsub{\ell_0}$ is an arrow of
-$\mathbf{FMCts}_s$.
+the typing judgement
+$\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is derived from
+$\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$ then by the typing rules it must be
+that $s$ supports $\ell_0$ so that the projection $\mathbf{out}_{\ell_0} :
+\stdtypesum \cto \typePsub{\ell_0}$ is an arrow of $\mathbf{FMCts}_s$.
 %
 Therefore define
 \[\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}} \defeq
@@ -715,7 +716,7 @@ The semantics of the labelled action $\labelaction{\ell_0}{p}$ can be given a
 concrete, set theoretic, characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Labelled Actions]
-\label{densem:labelaction:characterisation} Suppose that
+\label{densem:labelaction:characterisation} Suppose that the judgement
 $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is derived from
 $\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$.
 %
@@ -829,7 +830,7 @@ The isomorphism $\mathbf{rep} : \typerec{j}{P}{\typeP}  \cong
 type to its unfolding, gives rise to the denotational semantics for terms of
 recursive types as follows.
 
-\begin{definition}[Semantics of Folding] \label{densem:abs} If the judgement
+\begin{definition}[Semantics of Folding] \label{densem:abs} If
 $\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }$ is derived from
 $\tjudge{s}{\Gamma}{t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ then define
 \[\sem{\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }} \defeq \mathbf{abs}
@@ -855,7 +856,7 @@ Then \[\abspath{p} \in \sem{\tjudge{s}{\Gamma}{\abs{t}}{\typerec{j}{P}{\typeP} }
 Similarly, unfolding a recursively-defined type uses the inverse $\mathbf{rep}$
 in its semantics.
 
-\begin{definition}[Semantics of Unfolding] \label{densem:rep} If the judgement
+\begin{definition}[Semantics of Unfolding] \label{densem:rep} If
 $\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is
 derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP}}$ then define
 \[\sem{\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}}
@@ -866,7 +867,7 @@ The semantics of unfolding can be given a concrete, set theoretic,
 characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Unfolding] \label{densem:rep:characterisation}
-Suppose that
+Suppose that the typing judgement
 $\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is
 derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }$.
 %
@@ -1001,7 +1002,7 @@ The semantics of name abstraction can be given a concrete, set theoretic,
 characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Name Abstraction]
-\label{densem:new:characterisation} Suppose that
+\label{densem:new:characterisation} Suppose that the judgement
 $\tjudge{s}{\Gamma}{\new{a}{t}}{\typedelta \typeP}$ is derived from $\tjudge{s
 \udot \{a\}}{\envfresh{\Gamma}{a}}{t}{\typeP}$ where $a \notin s$.
 %
@@ -1095,10 +1096,9 @@ a}}^{-1} \circ \widehat{\xi_{\sem{\Gamma}}}\bigr) \langle \gamma \rangle_\Gamma
 \\ \end{array}\end{equation} as required.  \end{proof}
 
 
-The other transposition in the adjunction $(-)^{\freshfor a++} \dashv
-\delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot
-\{a\}}$ gives rise to a denotational semantics for terms of the form
-$\newapply{t}{a}$ as follows.
+The adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
+\leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$ also gives rise to a
+denotational semantics for terms of the form $\newapply{t}{a}$ as follows.
 
 \begin{definition}[Semantics of Name Application] \label{densem:newapply} If the
 judgement $\tjudge{s \udot
@@ -1151,7 +1151,7 @@ Then \[ \newpath{a}{p} \in \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}}
 %
 Notice that $a \freshfor \newpath{a}{p}$ so that if $ \newpath{a}{p} \in
 \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma \rangle_{\Gamma} $
-then $\newpath{a}{p} \in \phi_{\delta_a \typeP} \Bigl(
+then it follows that $\newpath{a}{p} \in \phi_{\delta_a \typeP} \Bigl(
 \sem{\tjudge{s}{\Gamma}{t}{\typedelta \typeP}} \langle \gamma \rangle_{\Gamma}
 \Bigr)$ and hence \begin{equation} \begin{array}[r]{rcl} p &=&
 (\newpath{a}{p})@a  \\
@@ -1292,7 +1292,7 @@ $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
 \end{equation*} \end{definition}
 
 \begin{lemma}[Characterising Weakening]
-\label{densem:weakening:characterisation} Suppose that
+\label{densem:weakening:characterisation} Suppose that the judgement
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{\varnothing}}
 }{t}{\typeP}$ is derived from $\tjudge{s}{\Gamma}{t}{\typeP}$ by weakening.
 %
@@ -1381,8 +1381,8 @@ Then \begin{equation*} \begin{array}{l}
 {\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }} \\ \end{array}
 \end{equation*} \end{lemma}
 
-\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak}
-Suppose that $s'' \subseteq s' \subseteq s$ and that
+\begin{definition}[Semantics of Fresh-Weakening] \label{densem:freshweak} Let
+$s'' \subseteq s' \subseteq s$ and suppose that
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s''}}}{t}{\typeP}$ is
 derived from
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQ}{s'}}}{t}{\typeP}$ by
