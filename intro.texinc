@@ -85,7 +85,7 @@ Importantly, many computational features can be captured by universal
 constructions on presheaves which justifies the claim that the presheaf
 semantics may provide a broadly applicable theory of concurrent computation.
 %
-This work also led to the development of a simpler semantics by Nygaard and
+This work also led to the development of a simple semantics by Nygaard and
 Winskel\cite{nygaardwinskel1} where presheaves are replaced by sets of
 computation paths.
 %
