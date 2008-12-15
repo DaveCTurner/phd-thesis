@@ -63,12 +63,6 @@ The drawback of this approach is that the mathematics involved is often either
 too coarse to be a suitable tool, or too intricate to be useful to the working
 scientist.
 
-Many modern concurrent systems are \textit{higher-order} in the sense that
-processes may manipulate other processes and not merely data.
-%
-This presents a challenge in understanding suitable equivalences between
-processes in terms of their interactions with the environment.
-
 In short, theories for concurrent computation form a disjointed landscape with
 unclear relationships between different approaches.
 %
