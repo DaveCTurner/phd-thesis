@@ -96,7 +96,8 @@ $\finelt{\{p_1, \ldots, p_n\}}{s}$ to be a context such as \begin{equation}
 \matchz{\varnothing}{C_{p_1}[\intersect{-}{s}]}{\bangaction}{$\termvar{x}_1$}{
 \ldots
 \matchz{\varnothing}{C_{p_n}[\intersect{-}{s}]}{\bangaction}{$\termvar{x}_n$}{
-\bang{\inactive} }{\typeP} \ldots }{\typeP} \end{equation}
+\bang{\inactive} }{\typeP} \ldots }{\typeP} \end{equation} although such a guess
+is not immediately obviously well-defined.
 
 The denotational semantics given in \ref{densem:intersect} suggests an
 operational rule such as \begin{equation} \label{opsem:intersect}
