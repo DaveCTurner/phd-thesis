@@ -12,9 +12,9 @@ must satisfy those assumptions.
 that $t$ and $v$ satisfy
 $\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{y}{\typeR}{r} }}{t}{\typeP}$ and
 $\tjudge{s_1}{\Delta}{v}{\typeP}$ where $s_1 \cap r = \varnothing$ and the
-variables in $\Gamma$ and $\Delta$ are distinct.  Then \[\tjudge{s \cup
-s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\termsubst{t}{v}{y}}{\typeP}\]
-\end{lemma}
+variables in $\Gamma$ are distinct from those in $\Delta$.  Then \[\tjudge{s
+\cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{\termsubst{t}{v}{y}}{\typeP}\] \end{lemma}
 
 % Proof of Substitution Lemma {{{
 \begin{proof} The proof is by induction over the typing rules. Because of the
@@ -25,11 +25,11 @@ Suppose that $\tjudge{s}{\Gamma'}{t}{\typeP}$,
 $\tjudge{s_1}{\Delta}{v}{\typeR}$, and $\Gamma'$ is a reordering of the
 environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
 \envvarfresh{yn}{\typeR}{r_n}$. Let $r = r_1 \cup \ldots \cup r_n$. Suppose
-also that $\dom\Gamma \cap \dom\Delta = \varnothing$ and that $s_1 \cap r =
-\varnothing$. Then \begin{equation} \tjudge{s \cup
-s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} } {t[v]}{\typeP} \end{equation} where $t[v]$
-is the term obtained by simultaneously substituting $v$ for the variables
-$\termvar{y1}, \ldots, \termvar{yn}$ in $t$.
+also that the variables in $\Gamma$ are distinct from those in $\Delta$ and
+that $s_1 \cap r = \varnothing$. Then \begin{equation} \tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} } {t[v]}{\typeP} \end{equation}
+where $t[v]$ is the term obtained by simultaneously substituting $v$ for the
+variables $\termvar{y1}, \ldots, \termvar{yn}$ in $t$.
 
 The proof now proceeds by induction on the derivation of
 $\tjudge{s}{\Gamma'}{t}{\typeP}$.
@@ -109,10 +109,9 @@ it is not subject to substitution then this case is a simple application of the
 inductive hypothesis. On the other hand, suppose that $r'_n \subseteq r_n
 \subseteq s$, that $\Gamma'$ is a reordering of the environment $\Gamma,
 \envvarfresh{y1}{\typeR}{r_1}, \ldots, \envvarfresh{yn}{\typeR}{r_n}$ and also
-that $\Gamma''$ is a reordering of the environment $\Gamma,
-\envvarfresh{y1}{\typeR}{r_1}, \ldots, \envvarfresh{yn}{\typeR}{r'_n}$. If
-$\tjudge{s}{\Gamma'}{t}{\typeP}$ is derived from
-$\tjudge{s}{\Gamma''}{t}{\typeP}$ then $\tjudge{s \cup
+that $\Gamma''$ is a reordering of $\Gamma, \envvarfresh{y1}{\typeR}{r_1},
+\ldots, \envvarfresh{yn}{\typeR}{r'_n}$. If $\tjudge{s}{\Gamma'}{t}{\typeP}$ is
+derived from $\tjudge{s}{\Gamma''}{t}{\typeP}$ then $\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup \ldots \cup r_{n-1} \cup
 r'_n} }}{t[v]}{\typeP}$ by induction, hence $\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r_1 \cup \ldots \cup r_{n-1} \cup
@@ -122,13 +121,11 @@ variables in $\Delta$, as required.
 \subparagraph{Support-Weakening}
 %\infer[(s' \subseteq s)] {\tjudge{s}{\Gamma}{t}{\typeP}}
 %{\tjudge{s'}{\Gamma}{t}{\typeP}} \\
-Suppose that $s' \subseteq s$ and that
-$\tjudge{s}{\Gamma'}{t}{\typeP}$ is
+Suppose that $s' \subseteq s$ and that $\tjudge{s}{\Gamma'}{t}{\typeP}$ is
 derived from $\tjudge{s'}{\Gamma'}{t}{\typeP}$, then $\tjudge{s' \cup
-s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typeP}$
-by induction, and hence $\tjudge{s \cup
-s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typeP}$
-by support-weakening as required.
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typeP}$ by induction,
+and hence by support-weakening it follows that $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\typeP}$ as required.
 
 \subparagraph{Prefix}
 %\infer{\tjudge{s}{\Gamma}{\bang{t}}{\typelift\typeP}}
@@ -191,12 +188,12 @@ s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}
 \matchz{s'}{u}{q}{x}{t}{\typeQp}[v].\]
 
 If $m = 0$ then by induction $\tjudge{s \cup
-s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envvarfresh{x}{\typeQp}{s'}
-}}{t[v]}{\typeP}$ and $s'' \subseteq s \setminus s' \subseteq (s \cup s_1)
-\setminus s'$.  Therefore \[\tjudge{s \cup
-s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{\envfresh{\Lambda}{s'}} }
-{\matchz{s'}{u}{q}{x}{t[v]}{\typeQp} = \matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}{\typeP}\] as
-required (up-to exchange).
+s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}
+}{\envvarfresh{x}{\typeQp}{s'} }}{t[v]}{\typeP}$ and furthermore $s'' \subseteq
+s \setminus s' \subseteq (s \cup s_1) \setminus s'$.  Therefore \[\tjudge{s
+\cup s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}
+}{\envfresh{\Lambda}{s'}} } {\matchz{s'}{u}{q}{x}{t[v]}{\typeQp} =
+\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}{\typeP}\] as required (up-to exchange).
 
 \subparagraph{Function Abstraction} Suppose that
 $\tjudge{s}{\Gamma'}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP}}$ is derived from the judgement
@@ -208,24 +205,25 @@ hence $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 }}{\abstract{x}{(t[v])} = (\abstract{x}{t}) [v]}{\typemap{\typeQ}{\typeP}}$ as required.
 
 \subparagraph{Function Application} Suppose that
-$\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}{\typeQ}}{\typeP}$ is derived
-from $\tjudge{s}{\Gamma'}{t}{\typemap{\typeQ}{\typeP}}$ and
-$\tjudge{s}{\Lambda'}{u}{\typeQ}$.  Suppose that $\Gamma'$ is a reordering of
-the environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
-\envvarfresh{yn}{\typeR}{r_n}$ and that $\Lambda'$ is a reordering of the
-environment $\Lambda, \envvarfresh{z1}{\typeR}{r'_1}, \ldots,
-\envvarfresh{zm}{\typeR}{r'_m}$. Let $r = r_1 \cup \ldots \cup r_n$ and $r' =
-r'_1 \cup \ldots \cup r'_m$. By induction, it follows that $\tjudge{s \cup
-s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }{t[v]}{\typemap{\typeQ}{\typeP}}$
-and $\tjudge{s \cup
+$\tjudge{s}{\envcombine{\Gamma'}{\Lambda'}}{\apply{t}{u}{\typeQ}}{\typeP}$ is
+derived from the judgement $\tjudge{s}{\Gamma'}{t}{\typemap{\typeQ}{\typeP}}$
+and $\tjudge{s}{\Lambda'}{u}{\typeQ}$.  Suppose that $\Gamma'$ is a reordering
+of the environment $\Gamma, \envvarfresh{y1}{\typeR}{r_1}, \ldots,
+\envvarfresh{yn}{\typeR}{r_n}$ and that $\Lambda'$ is a reordering of $\Lambda,
+\envvarfresh{z1}{\typeR}{r'_1}, \ldots, \envvarfresh{zm}{\typeR}{r'_m}$. Let $r
+= r_1 \cup \ldots \cup r_n$ and $r' = r'_1 \cup \ldots \cup r'_m$. By
+induction, it follows that $\tjudge{s \cup
+s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}}
+}{t[v]}{\typemap{\typeQ}{\typeP}}$ and $\tjudge{s \cup
 s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}$ so that
 $\tjudge{s \cup s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}} }
-{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}} }}{\apply{(t[v])}{(u[v'])}{\typeQ}
-}{\typeP}$ where $\Delta'$ and $v'$ are $\Delta$ and $v$ with freshly-named
-variables. Therefore by contraction and exchange and fresh-weakening,
-$\tjudge{s \cup s_1}{\envcombine{\Gamma}
-{\envcombine{\Lambda}{\envfresh{\Delta}{r \cup r'}} }}{\apply{(t[v])}{(u[v])}{\typeQ}
-= (\apply{t}{u}{\typeQ})[v]}{\typeP}$ as required.
+{\envcombine{\Lambda}{\envfresh{\Delta'}{r'}}
+}}{\apply{(t[v])}{(u[v'])}{\typeQ} }{\typeP}$ where $\Delta'$ and $v'$ are
+$\Delta$ and $v$ with freshly-named variables. Therefore by contraction and
+exchange and fresh-weakening, $\tjudge{s \cup s_1}{\envcombine{\Gamma}
+{\envcombine{\Lambda}{\envfresh{\Delta}{r \cup r'}}
+}}{\apply{(t[v])}{(u[v])}{\typeQ} = (\apply{t}{u}{\typeQ})[v]}{\typeP}$ as
+required.
 
 \subparagraph{Name Abstraction}
 Suppose that
@@ -257,24 +255,24 @@ s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
 Suppose that $\tjudge{s}{\Gamma'}{\linj{\ell_0}{t}}{\stdtypesum}$ is derived from
 $\tjudge{s}{\Gamma'}{t}{\typePsub{\ell_0}}$, then by induction
 $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
-}}{t[v]}{\typePsub{\ell_0}}$ and so $\tjudge{s \cup
+}}{t[v]}{\typePsub{\ell_0}}$ and so as required it follows that $\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\linj{\ell_0}{(t[v])}
-={(\linj{\ell_0}{t})}[v]}{\stdtypesum}$ as required.
+={(\linj{\ell_0}{t})}[v]}{\stdtypesum}$.
 
-\subparagraph{Label Projection}
-Suppose that $\tjudge{s}{\Gamma'}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
-$\tjudge{s}{\Gamma'}{t}{\stdtypesum}$, then by induction
-$\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
-}}{t[v]}{\stdtypesum}$ and so $\tjudge{s \cup
-s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\lproj{\ell_0}{(t[v])}
-={(\lproj{\ell_0}{t})}[v]}{\typePsub{\ell_0}}$ as required.
+\subparagraph{Label Projection} Suppose that
+$\tjudge{s}{\Gamma'}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from the
+judgement $\tjudge{s}{\Gamma'}{t}{\stdtypesum}$, then by induction $\tjudge{s
+\cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{t[v]}{\stdtypesum}$ and
+so $\tjudge{s \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
+}}{\lproj{\ell_0}{(t[v])} ={(\lproj{\ell_0}{t})}[v]}{\typePsub{\ell_0}}$ as
+required.
 
-\subparagraph{Nondeterministic Sum}
-Suppose that $\tjudge{s}{\Gamma'}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from
+\subparagraph{Nondeterministic Sum} Suppose that
+$\tjudge{s}{\Gamma'}{\ndsum{i}{I}{t_i}}{\typeP}$ is derived from the judgement
 $\tjudge{s_i}{\Gamma'}{t_i}{\typeP}$ for all $i \in I$, then by induction
 $\tjudge{s_i \cup s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r}
-}}{t_i[v]}{\typeP}$ for all $i \in I$. Note that the support of the
-mapping $i \mapsto s_i \cup s_1$ is at most $s \cup s_1$ and so $\tjudge{s \cup
+}}{t_i[v]}{\typeP}$ for all $i \in I$. Note that the support of the mapping $i
+\mapsto s_i \cup s_1$ is at most $s \cup s_1$ and so $\tjudge{s \cup
 s_1}{\envcombine{\Gamma}{\envfresh{\Delta}{r} }}{\ndsum{i}{I}{(t[v])}
 ={\bigl(\ndsum{i}{I}{t}\bigr)}[v]}{\stdtypesum}$ as required.
 
