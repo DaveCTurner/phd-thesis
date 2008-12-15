@@ -12,7 +12,7 @@ $(\mathbf{FMPre}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$ of categories arises
 in a natural way from a dependent type theory in $\mathbf{FMPre}_{\varnothing}$.
 %
 The category $\mathbf{FMPre}_\varnothing$ could be replaced by $\mathbf{NPre}$
-or equivalently the category of sheaves on $\mathbf{Pre}^{\mathbb I}$, which
+or equivalently the category of sheaves in $\mathbf{Pre}^{\mathbb I}$, which
 highlights that the set-theoretical foundations of the $(\mathbf{FMPre}_s)_{s
 \subseteq_{\mathrm{fin}} \mathbb A}$ are not especially important in this
 discussion.
