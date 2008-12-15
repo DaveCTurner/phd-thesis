@@ -259,6 +259,8 @@ notion of nominal category theory.
 %
 There are many more worthwhile avenues of research to explore!
 
+\clearpage
+
 \section{Summary}
 
 A simple domain theory for concurrency has been developed within the theory of
@@ -310,7 +312,6 @@ generation by providing a common framework in which comparisons can be made.
 
 
 
-\TODO{More?}
 
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
