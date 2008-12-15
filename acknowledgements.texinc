@@ -1,1 +1,70 @@
-\TODO{Acknowledgments}
+%\TODO{Acknowledgments}
+
+Firstly I would like to wholeheartedly thank my supervisor, Glynn Winskel, for
+all the ideas, support, encouragement, direction and freedom that he has given
+me over the course of my research.
+%
+I hope that my work brings his vision for the future of semantics closer to
+reality.
+%
+By extension I would like to thank the EPSRC for their generous support through
+grant number (\TODO{Grant number?}).
+
+Sam Staton's positive influence on my work cannot be overstated, both for his
+detailed mathematical support and his equally thorough typographical assistance.
+%
+All errors that remain are entirely my own work.
+
+Andrew Pitts must also receive my appreciation for his auspiciously timed
+seminar on nominal set theory at the start of my studies, as well as his
+enthusiasm for all things nominal --- this thesis included --- and for his
+terrible puns.
+%
+It is ironic that for this work his support seems to be infinite.
+%
+I regret not having capitalised more on Jamie Gabbay's infectious zeal for the
+subject; I hope that he, and all the other participants of CANS, enjoy reading
+this thesis as much as I have enjoyed producing it.
+
+At the Computer Laboratory and at DPMMS there were --- and are --- many other
+wonderful people who have helped me along my way.
+%
+To Martin Hyland: thank you for pointing me in Glynn's direction in the first
+place.
+%
+To Matthew Parkinson: thank you for helping me to hammer \LaTeX\ into shape and
+in particular for your macro to produce
+\raisebox{-0.7ex}{$\matthat{\raisebox{0.7ex}{\text{very wide hats indeed}}}$}.
+%
+To the Theory and Semantics Group: thank you for all our varied conversations on
+all manner of topics over tea and beer and pool.
+
+
+Clare College has been a wonderfully supportive --- and remarkably patient ---
+\textit{alma mater} to me, and the source of many valuable and lasting
+friendships.
+
+
+My family have played a larger part in this work than perhaps they realise.
+%
+To Mum and Dad and Andy and Di and Howard and all my grandparents: thank you for
+giving me the encouragement, the work ethic and the environment that brought me
+here.
+%
+I hope you can make it as far as page \pageref{end-of-layman} and I hope it
+makes you proud.
+
+Finally, to Tess, who is the most wonderfully uplifting person in the world:
+%
+without you I would have never got so far, so happily, with so much of my sanity
+still intact.
+%
+You made it all worthwhile.
+%
+This is for you.
+
+To all of you, thank you.
+
+\hfill --- \textit{Dave Turner, Cambridge, December 2008}
+
+% vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:

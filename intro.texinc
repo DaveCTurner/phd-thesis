@@ -75,6 +75,8 @@ applied elsewhere and which are relevant only to the calculus in question.
 The lack of a common framework means that lessons derived from work in one area
 remain isolated from other areas of study.
 
+\label{end-of-layman}
+
 Work by Cattani and Winskel on a semantics given in terms of
 presheaves\cite{cattani-winskel:profunctors} has the potential to provide a
 common denotational framework for studying concurrency.
