@@ -156,7 +156,7 @@ syntactic notions.
 %
 It would therefore appear plausible that nominal set theory is a suitable
 setting for studying the semantic as well as syntactic uses of names, such as
-perhaps for channel names in the $\pi$-calculus.
+for channel identifiers in the $\pi$-calculus.
 %
 It is this observation which motivates this thesis, the aims of which are
 \begin{enumerate}
