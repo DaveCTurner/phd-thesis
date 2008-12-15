@@ -32,11 +32,20 @@ denotational semantics given here.
 
 \section{Types and Environments} \label{densem:types-and-environments}
 
-A closed type denotes a path order as shown below.
+A closed type denotes the collection of paths of the appropriate type, ordered
+by extension.
 %
-Environments denote tuples of path orders as shown below.
-
-\TODO{More Intro}
+Such \textit{path orders}, even recursively-defined ones, can be constructed
+inductively out of syntactic tokens by a method inspired by the use of
+information systems to solve recursive domain
+equations\cite{winskel:infosystems} as demonstrated below.
+%
+Temporarily ignoring its freshness assumptions, an environment denotes the
+product of the path orders denoted by the types of its variables.
+%
+The functors $\bigl((-)^{\freshfor s++}\bigr)_{s \subseteq_{\mathrm{fin}}
+\mathbb A}$ are used to modify the path orders to incorporate freshness
+assumptions, as demonstrated in section \ref{densem:environments}.
 
 \subsection{Types as Path Orders}
 
@@ -141,6 +150,7 @@ Importantly, this implies that for all names $a$ it is the case that $\delta_a
 \typeP = \delta \typeP$.
 
 \subsection{Environments as Products}
+\label{densem:environments}
 
 Environments $\Gamma$ (with freshness constraints contained in $s_0$) denote
 objects of $\mathbf{FMCts}_{s_0}$ as follows.  \begin{equation}
