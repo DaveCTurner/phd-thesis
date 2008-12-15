@@ -62,13 +62,13 @@ described very abstractly. \[
 \leftrightarrows \mathbf{FMPre}_{\varnothing}
 	\ar[d]^{\text{section \ref{binding-in-fmpre}}} \\
 (-)^{\freshfor a} \dashv \delta_a : \mathbf{FMPre}_{s} \leftrightarrows
-\mathbf{FMPre}_{s}
+\mathbf{FMPre}_{s \udot \{a\}}
 	\ar[d]^{\text{section \ref{subsect:deltafreshadjlin}}} \\
 (-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_{s} \leftrightarrows
-		\mathbf{FMLin}_{s}
+		\mathbf{FMLin}_{s \udot \{a\}}
 	\ar[d]^{\text{section \ref{subsect:deltafreshadjcts}}} \\
 (-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_{s} \leftrightarrows
-		\mathbf{FMCts}_{s}
+		\mathbf{FMCts}_{s \udot \{a\}}
 }
 \]
 %
