@@ -101,15 +101,16 @@ significantly simpler and more familiar to conventional domain theorists.
 Intuitions developed in the path semantics can sometimes be translated into
 innovations in the presheaf semantics.
 
-A topic of particular interest to modern concurrency theory is that of
-\textit{names}.
+A notable omission from this semantic model is that it does not support the
+notion of \textit{name generation}.
 %
-In the $\pi$-calculus\cite{milner:picalc} names are used to identify
-communication channels between processes.
+In the $\pi$-calculus\cite{milner:picalc}, for example, names may be used to
+identify communication channels between processes.
 %
-Names may be passed from process to process to model the mobility of channels;
+They may be passed from process to process to model the mobility of channels;
 they may be hidden to model restricted scope; and importantly a process may
-create a new channel, complete with a unique freshly-generated name, at will.
+create a new channel, complete with a unique freshly-generated identifier, at
+will.
 %
 The original semantics of the $\pi$-calculus was given operationally, but more
 recent work has developed denotational models
