@@ -65,13 +65,13 @@ follows that $\login{p}{\typeP}{t'}$.
 Therefore $\logrel{P_1}{\typeP}{t'}$ so that $\login{P_1}{\typelift\typeP}{t}$
 as required.
 
-\subparagraph{Function Space Path} By assumption
-$\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ and
+\subparagraph{Function Space Path} The induction hypothesis permits the
+assumption that $\login{\mappath{Q_0}{p_0}}{\typemap{\typeQ}{\typeP}}{t}$ and
 $\mappath{Q_1}{p_1} \le_{\typemap{\typeQ}{\typeP}} \mappath{Q_0}{p_0}$ so that
 $p_1 \le_{\typeP} p_0$ and $Q_0 \le_{\typelift\typeQ} Q_1$.
 %
-We wish to show that $\login{\mappath{Q_1}{p_1}}{\typemap{\typeQ}{\typeP}}{t}$
-so let $u$ be such that $\logrel{Q_1}{\typeQ}{u}$.
+In order to show that $\login{\mappath{Q_1}{p_1}}{\typemap{\typeQ}{\typeP}}{t}$
+let $u$ be such that $\logrel{Q_1}{\typeQ}{u}$.
 %
 Since $Q_0 \le_{\typelift\typeQ} Q_1$ it follows that for each $q \in Q_0$ there
 exists $q' \in Q_1$ such that $q \le_{\typeQ} q'$ so that by induction it
@@ -84,30 +84,30 @@ $\login{p_1}{\typeP}{\apply{t}{u}{\typeQ}}$ as required.
 \subparagraph{New Name Path} By assumption,
 $\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$ and $\newpath{b}{p_0}
 \le_{\typedelta\typeP} \newpath{b}{p_1}$ where $b$ is a fresh name, and hence
-$p_0 \le_{\typeP} p_1$. We wish to show that
-$\login{\newpath{b}{p_1}}{\typedelta\typeP}{t}$, so it is sufficient to show
-that $\login{p_1}{\typeP}{\newapply{t}{b}}$ and hence by induction that
+$p_0 \le_{\typeP} p_1$. In order to show that
+$\login{\newpath{b}{p_1}}{\typedelta\typeP}{t}$ it is sufficient to show that
+$\login{p_1}{\typeP}{\newapply{t}{b}}$ and hence by induction that
 $\login{p_0}{\typeP}{\newapply{t}{b}}$; this is immediate since
 $\login{\newpath{b}{p_0}}{\typedelta\typeP}{t}$.
 
 \subparagraph{Labelled Path} By assumption,
 $\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$ and $\labelpath{\ell_0}{p_0}
 \le_{\stdtypesum} \labelpath{\ell_1}{p_1}$ so that $\ell_0 = \ell_1$ and $p_0
-\le_{\typePsub{\ell_0}} p_1$. We wish to show that
-$\login{\labelpath{\ell_0}{p_1}}{\stdtypesum}{t}$ so it is sufficient to show
-that $\login{p_1}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$ and hence by induction
-that $\login{p_0}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$; this is immediate
-since $\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$.
+\le_{\typePsub{\ell_0}} p_1$. In order to show that
+$\login{\labelpath{\ell_0}{p_1}}{\stdtypesum}{t}$ it is sufficient to show that
+$\login{p_1}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$ and hence by induction that
+$\login{p_0}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$; this is immediate since
+$\login{\labelpath{\ell_0}{p_0}}{\stdtypesum}{t}$.
 
-\subparagraph{Recursive Type Path} By assumption,
-$\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$ and $\abspath{p_0}
-\le_{\typerec{j}{P}{\typeP}} \abspath{p_1}$ so that $p_0
-\le_{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]} p_1$. We wish to show
-$\login{\abspath{p_1}}{\typerec{j}{P}{\typeP}}{t}$ so it is sufficient to show
-that $\login{p_1}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$ and hence
-by induction that
-$\login{p_0}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$; this is
-immediate since $\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$.
+\subparagraph{Recursive Type Path} The inductive hypothesis permits the
+assumption that $\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$ and
+$\abspath{p_0} \le_{\typerec{j}{P}{\typeP}} \abspath{p_1}$ so that $p_0
+\le_{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]} p_1$. To show that
+$\login{\abspath{p_1}}{\typerec{j}{P}{\typeP}}{t}$ it is sufficient to show that
+$\login{p_1}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$ and hence by
+induction that $\login{p_0}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$;
+this is immediate since by assumption
+$\login{\abspath{p_0}}{\typerec{j}{P}{\typeP}}{t}$.
 %
 \end{proof}
 %}}}
@@ -130,8 +130,9 @@ too, so that $\login{P}{\typelift\typeP}{t_1}$ as required.
 
 \subparagraph{Function Space Path} By assumption,
 $\login{\mappath{Q}{p}}{\typemap{\typeQ}{\typeP}}{t_0}$, so that for all $u$
-such that $\logrel{Q}{\typeQ}{u}$, $\login{p}{\typeP}{\apply{t_0}{u}{\typeQ}}$.
-Also $\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ implies that
+such that $\logrel{Q}{\typeQ}{u}$ it follows that
+$\login{p}{\typeP}{\apply{t_0}{u}{\typeQ}}$.  Also
+$\oprel{t_0}{\typemap{\typeQ}{\typeP}}{t_1}$ implies that
 $\oprel{\apply{t_0}{u}{\typeQ}}{\typeP}{\apply{t_1}{u}{\typeQ}}$ as follows.
 Suppose that $\ajudge{\typeP}{\apply{t_0}{u}{\typeQ}}{p'}{t'}$, then by lemma
 \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:apply})
@@ -159,8 +160,9 @@ $\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t_0}$ so that
 $\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}$. Also
 $\oprel{t_0}{\stdtypesum}{t_1}$ implies that
 $\oprel{\lproj{\ell_0}{t_0}}{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}$ as
-follows. Suppose that $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}{p'}{t'}$,
-then by lemma \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:lproj})
+follows. Suppose it is the case that
+$\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_0}}{p'}{t'}$, then by lemma
+\ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:lproj})
 $\ajudge{\stdtypesum}{t_0}{\labelaction{\ell_0}{p'}}{t'}$ and hence
 $\ajudge{\stdtypesum}{t_1}{\labelaction{\ell_0}{p'}}{t'}$ so that finally
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t_1}}{p'}{t'}$. Thus by induction
@@ -176,7 +178,8 @@ follows. Suppose that
 $\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_0}}{p'}{t'}$, then by
 lemma \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:rep})
 $\ajudge{\typerec{j}{P}{\typeP}}{t_0}{\absaction{p'}}{t'}$ and hence
-$\ajudge{\typerec{j}{P}{\typeP}}{t_1}{\absaction{p'}}{t'}$ so that finally
+$\ajudge{\typerec{j}{P}{\typeP}}{t_1}{\absaction{p'}}{t'}$ so that finally by
+the operational semantics it follows that
 $\ajudge{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}{p'}{t'}$.  Thus by
 induction $\login{p}{\typeP_j[\typerec{j}{P}{\typeP}/\vec{P}]}{\rep{t_1}}$, so
 that $\login{\abspath{p}}{\typerec{j}{P}{\typeP}}{t_1}$ as required.
@@ -206,8 +209,8 @@ each $i \in \{1, \ldots, n\}$ let $\gamma_i \in \widehat{\mathbb P_i}^{\freshfor
 s_i}$ and let $v_i$ be a closed term such that $\tjudge{s \setminus
 s_i}{}{v_i}{\typePsub{i}}$ and $\logrel{\gamma_i}{\typePsub{i}}{v_i}$.  Then
 \[\logrel{\sem{\tjudge{s}{\Gamma}{t}{\typeP}} \langle \gamma_1, \ldots, \gamma_n
-\rangle}{\typeP}{t[v]} \] where $t[v]$ is the term obtained by simultaneously
-substituting each $\termvar{x}_i$ with $v_i$.\end{lemma}
+\rangle_\Gamma}{\typeP}{t[v]} \] where $t[v]$ is the term obtained by
+simultaneously substituting each $\termvar{x}_i$ with $v_i$.\end{lemma}
 
 \begin{lemma}
 \label{biglemmaact}
@@ -217,7 +220,8 @@ $\logrel{P}{\typePp}{t'}$.
 \end{lemma}
 
 \begin{proof} The proof is by mutual induction on the respective derivations of
-$\tjudge{s}{\Gamma}{t}{\typeP}$ and $\atjudge{s}{\typeP}{p}{\typePp}$.
+the judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ and
+$\atjudge{s}{\typeP}{p}{\typePp}$.
 %
 Where it is unambiguous, write $\langle \cdot \rangle_\Gamma$ as $\langle \cdot
 \rangle$.
@@ -327,21 +331,23 @@ induction} \\
 %\tjudge{s''}{\Lambda}{u}{\typeQ} & \atjudge{s''}{\typeQ}{q}{\typeQp} }} \\
 \subparagraph{Match} Let $p \in
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
-{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda \rangle$, then by the
-denotational semantics there exists $Q \in \typelift\typeQp$ such that $p \in
+{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}} \langle \gamma, \lambda \rangle$,
+then by the denotational semantics there exists $Q \in \typelift\typeQp$ such
+that \begin{equation*} \begin{array}[t]{rcl} p &\in&
 \sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'} }}{t}{\typeP} }
-\langle \gamma, Q_\downarrow \rangle$ and $Q \in
+\langle \gamma, Q_\downarrow \rangle \\ \text{and } Q &\in&
 \bigl(\sem{\atjudge{s''}{\typeQ}{q}{\typeQp}} \circ
-\sem{\tjudge{s''}{\Lambda}{u}{\typeQ}} \bigr) \langle \lambda \rangle$. By
-induction on $u$, $\logrel{\sem{\tjudge{s''}{\Lambda}{u}{\typeQ}} \langle
-\lambda \rangle}{\typeQ}{u[v]}$ so that by induction on $q$ there exists $u'$
-such that $\ajudge{\typeQ}{u[v]}{q}{u'}$ and $\logrel{Q}{\typeQp}{u'}$.
-By induction on $t$ it follows that
+\sem{\tjudge{s''}{\Lambda}{u}{\typeQ}} \bigr) \langle \lambda \rangle.
+\end{array} \end{equation*} By induction on $u$,
+$\logrel{\sem{\tjudge{s''}{\Lambda}{u}{\typeQ}} \langle \lambda
+\rangle}{\typeQ}{u[v]}$ so that by induction on $q$ there exists $u'$ such that
+$\ajudge{\typeQ}{u[v]}{q}{u'}$ and $\logrel{Q}{\typeQp}{u'}$.  By induction on
+$t$ it follows that
 $\logrel{\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeQp}{s'}
-}}{t}{\typeP} } \langle \gamma, Q_\downarrow \rangle}{\typeP}{\termsubst{t}{u'}{x}[v]}$ and
-by the operational semantics $\oprel{\termsubst{t}{u'}{x}[v]}{\typeP}{
-\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}$ so that
-$\login{p}{\typeP}{\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}$ as required.
+}}{t}{\typeP} } \langle \gamma, Q_\downarrow
+\rangle}{\typeP}{\termsubst{t}{u'}{x}[v]}$ and by the operational semantics
+$\oprel{\termsubst{t}{u'}{x}[v]}{\typeP}{ \matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}$
+so that $\login{p}{\typeP}{\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}$ as required.
 
 \subparagraph{Function Abstraction} Let $\mappath{Q}{p} \in
 \sem{\tjudge{s}{\Gamma}{\abstract{x}{t}}{\typemap{\typeQ}{\typeP}}} \langle
@@ -412,8 +418,8 @@ Let $p \in \sem{\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}}
 \langle \gamma \rangle_\Gamma$, then by the denotational
 semantics $\labelpath{\ell_0}{p} \in \sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}} \langle \gamma \rangle_\Gamma$. Also by
 induction it follows that $\logrel{\sem{\tjudge{s}{\Gamma}{t}{\stdtypesum}}\gamma}{\stdtypesum}{t[v]}$ so that
-$\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t[v]}$ and hence
-$\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t[v]}}$ as required.
+$\login{\labelpath{\ell_0}{p}}{\stdtypesum}{t[v]}$ and hence as required
+$\login{p}{\typePsub{\ell_0}}{\lproj{\ell_0}{t[v]}}$.
 
 \subparagraph{Nondeterministic Sum} Let $p \in
 \sem{\tjudge{s}{\Gamma}{\ndsum{i}{I}{t_i}}{\typeP}} \langle \gamma
@@ -473,14 +479,15 @@ lemma
 $\ajudge{\typemap{\typeQ}{\typeP}}{t}{\mapaction{u}{p}}{t'}$ as
 required.
 
-\subparagraph{Labelled Action} Let $X' = \{ p' \mid \labelpath{\ell_0}{p'}
-\in X \}$ then $\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}X = \sem{
+\subparagraph{Labelled Action} Let $X' = \{ p' \mid \labelpath{\ell_0}{p'} \in X
+\}$ then by the denotational semantics
+$\sem{\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}}X = \sem{
 \atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}}X'$ and if
 $\logrel{X}{\stdtypesum}{t}$ then
 $\logrel{X'}{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}$. Therefore by induction
 there exists $t'$ such that
 $\ajudge{\typePsub{\ell_0}}{\lproj{\ell_0}{t}}{p}{t'}$ and
-$\logrel{P}{\typePp}{t'}$ and hence by lemma 
+$\logrel{P}{\typePp}{t'}$ and hence by lemma
 \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:lproj})
 $\ajudge{\stdtypesum}{t}{\labelaction{\ell_0}{p}}{t'}$ as required.
 
@@ -490,44 +497,45 @@ $\logrel{X}{\typedelta\typeP}{t}$ and $P \in
 \sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}X$. By
 the denotational semantics, $P \in
 \sem{\atjudge{s}{\typedelta\typeP}{\newaction{a}{p}}{\typedelta\typePp}}X$
-implies that $P = \theta^{!}_{\typePp} P'$ and for fresh $b$, $P' @ b \in
-\sem{\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}} X'$ where $X' = \{ x
-\mid \newpath{b}{x} \in X\}$.
+implies that $P = \theta^{!}_{\typePp} P'$ and for fresh $b$ it is the case that
+$P' @ b \in \sem{\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}} X'$ where
+$X' = \{ x \mid \newpath{b}{x} \in X\}$.
 
-Let $x' \in X'$, then $\newpath{b}{x'} \in X
-\trianglelefteq_{\typedelta\typeP} t$ and hence 
-$\login{x'}{\typeP}{\newapply{t}{b}}$. Therefore
+Let $x' \in X'$, then $\newpath{b}{x'} \in X \trianglelefteq_{\typedelta\typeP}
+t$ so that $\login{x'}{\typeP}{\newapply{t}{b}}$. Therefore
 $\logrel{X'}{\typeP}{\newapply{t}{b}}$; also $P' @ b \in
-\sem{\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}} X'$
-and $\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}$ so that by
-induction there exists $t'$ such that $\ajudge{\typeP}{\newapply{t}{b}}{(ab) \cdot p}{t'}$ and
-$\logrel{P'@b}{\typePp}{t'}$. By lemma
+\sem{\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}} X'$ and
+$\atjudge{s\udot\{b\}}{\typeP}{(ab) \cdot p}{\typePp}$ so that by induction
+there exists $t'$ such that $\ajudge{\typeP}{\newapply{t}{b}}{(ab) \cdot p}{t'}$
+and $\logrel{P'@b}{\typePp}{t'}$. By lemma
 \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:newapply}),
 $\ajudge{\typeP}{t}{\newaction{b}{(ab) \cdot p}}{\new{b}{t'}}$, and by
-$\alpha$-equivalence $\newaction{b}{(ab) \cdot p} = \newaction{a}{p}$ so that
-finally $\ajudge{\typeP}{t}{\newaction{a}{p}}{\new{b}{t'}}$.
+$\alpha$-equivalence it is the case that $\newaction{b}{(ab) \cdot p} =
+\newaction{a}{p}$ so that finally
+$\ajudge{\typeP}{t}{\newaction{a}{p}}{\new{b}{t'}}$.
 
 It remains to show that $\logrel{P}{\typedelta\typePp}{\new{b}{t'}}$. Let $x \in
-P$ and recall that $P = \theta^{!}_{\typePp} P' = \{x \mid \freshin{b}{x@b \in
-P'@b}\}$. Let $b$ be fresh, then $x = \newpath{b}{x'}$ and $x' \in P'@b$.
-Furthermore, $\logrel{P'@b}{\typePp}{t'}$ so that $\login{x'}{\typePp}{t'}$. By
-the operational semantics, $\oprel{t'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ so
-that $\login{x'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ and hence
+P$ and recall from above that $P = \theta^{!}_{\typePp} P' = \{x \mid
+\freshin{b}{x@b \in P'@b}\}$. Let $b$ be fresh, then it follows that $x =
+\newpath{b}{x'}$ and $x' \in P'@b$.  Furthermore, $\logrel{P'@b}{\typePp}{t'}$
+so that $\login{x'}{\typePp}{t'}$. By the operational semantics,
+$\oprel{t'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ so that
+$\login{x'}{\typePp}{\newapply{\new{b}{t'}}{b}}$ and hence
 $\login{x}{\typedelta\typePp}{\new{b}{t'}}$, as required.
 
-\subparagraph{Recursive Type Action} Let \[X' = \{ p' \mid \abspath{p'} \in X \}\]
-then $\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}X =
-\sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}X'$ and if
-$\logrel{X}{\typerec{j}{P}{\typeP}}{t}$ then
+\subparagraph{Recursive Type Action} Let \[X' = \{ p' \mid \abspath{p'} \in X
+\}\] then $\sem{\atjudge{s}{\typerec{j}{P}{\typeP}}{\absaction{p}}{\typePp}}X =
+\sem{\atjudge{s}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{p}{\typePp}}X'$ and
+$\logrel{X}{\typerec{j}{P}{\typeP}}{t}$ implies that
 $\logrel{X'}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}$. Therefore by
 induction there exists $t'$ such that
 $\ajudge{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}{\rep{t}}{p}{t'}$ and
-$\logrel{P}{\typePp}{t'}$ and hence by lemma 
+$\logrel{P}{\typePp}{t'}$ and hence by lemma
 \ref{lemma:opsembackwards}(\ref{lemma:opsembackwards:rep}),
 $\ajudge{\typerec{j}{P}{\typeP}}{t}{\absaction{p}}{t'}$ as required.
 
-\subparagraph{Support-Weakening (Actions)}
-\TODO{Support-Weakening (Actions) case}
+\subparagraph{Support-Weakening (Actions)} This case is clear from the given
+denotational semantics.
 %
 \end{proof}
 
