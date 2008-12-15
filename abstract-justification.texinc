@@ -46,14 +46,15 @@ adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
 \leftrightarrows \mathbf{FMLin}_{s \udot \{a\}}$ of
 \ref{subsubsect:deltafreshadjlin}.
 
-Similarly, since $\mathbf{FMLin}_s ({!}\typeP, \typeQ) \cong \mathbf{FMCts}_s
-(\typeP, \typeQ)$ by \ref{bang:adj} it follows that $\mathbf{FMCts}_s$ is
-isomorphic to the coKleisli category of the monad ${!} : \mathbf{FMLin}_s \to
-\mathbf{FMLin}_s$ so that in section \ref{subsect:deltafreshadjcts} it is shown
-that that the abstract machinery of section \ref{sect:adj-kleisli} lifts the
-adjunction $(-)^{\freshfor a+} \dashv \delta_a^+$ on the FM-linear categories to
-the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} : \mathbf{FMCts}_s
-\leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$.
+By dualising this argument, since $\mathbf{FMLin}_s ({!}\typeP, \typeQ) \cong
+\mathbf{FMCts}_s (\typeP, \typeQ)$ by \ref{bang:adj} it follows that
+$\mathbf{FMCts}_s$ is isomorphic to the coKleisli category of the comonad ${!} :
+\mathbf{FMLin}_s \to \mathbf{FMLin}_s$ so that in section
+\ref{subsect:deltafreshadjcts} it is shown that that the abstract machinery of
+section \ref{sect:adj-kleisli} lifts the adjunction $(-)^{\freshfor a+} \dashv
+\delta_a^+$ on the FM-linear categories to the adjunction $(-)^{\freshfor a++}
+\dashv \delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot
+\{a\}}$.
 
 To summarise, the process described above is as follows and each step can be
 described very abstractly. \[
@@ -73,8 +74,9 @@ described very abstractly. \[
 \]
 %
 In short, the key structure on the FM-continuous categories that makes them a
-suitable setting for a \textit{nominal} domain theory (i.e. the adjunction
-$(-)^{\freshfor a++} \dashv \delta_a^{++}$) has a canonical description.
+suitable setting for a domain theory that supports name generation (i.e. the
+adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++}$) has a canonical
+description.
 %
 It is therefore hoped that this chapter points a way towards a more general
 theory of semantics with names.
@@ -252,9 +254,9 @@ Define \begin{equation} \label{def:Gs:ar} G_s h \defeq h \mathord{\bigmid}_{G_s
 \langle X, f \rangle.} \end{equation}
 %
 If $x \in G_s \langle X, f \rangle$ then $f(x) = i_s$ and $G_s h(x) = h(x)$, but
-$(g \circ G_s h)(x) = (g \circ h) (x) = f(x) = i_s$ so that $G_s h(x) \in G_s
-\langle Y, g \rangle$ and hence $G_s h : G_s \langle X, f \rangle \to G_s
-\langle Y, f \rangle$.
+it is also the case that $(g \circ G_s h)(x) = (g \circ h) (x) = f(x) = i_s$ so
+that $G_s h(x) \in G_s \langle Y, g \rangle$ and hence $G_s h : G_s \langle X, f
+\rangle \to G_s \langle Y, f \rangle$.
 %
 If $\sigma \freshfor s$ is a permutation and $x \in G_s \langle X, f \rangle$
 then $\sigma \cdot (G_s h(x)) = \sigma \cdot (h(x)) = h (\sigma \cdot x) = G_s h
@@ -280,10 +282,11 @@ If $\langle X, f \rangle$ is an object of $\mathbf{FMPre}_{\varnothing}/ys$ then
 define $\beta : F_s G_s \langle X, f \rangle \to \langle X, f \rangle$ by $\beta
 \langle i, x \rangle \defeq x$.
 %
-If $\langle i, x \rangle \in \overline{G_s \langle X, f \rangle}$ then $x \in
-\sigma_i \cdot G_s \langle X, f \rangle = \sigma_i \cdot f^{-1} \{i_s\} = f^{-1}
-\{ \sigma_i \circ i_s \}$ and hence $(f \circ \beta)\langle i, x \rangle = f(x)
-= \sigma_i \circ i_s = i = \pi_1 \langle i, x \rangle$.
+If $\langle i, x \rangle \in \overline{G_s \langle X, f \rangle}$ then
+\begin{equation} x \in \sigma_i \cdot G_s \langle X, f \rangle = \sigma_i \cdot
+f^{-1} \{i_s\} = f^{-1} \{ \sigma_i \circ i_s \} \end{equation} and hence $(f
+\circ \beta)\langle i, x \rangle = f(x) = \sigma_i \circ i_s = i = \pi_1 \langle
+i, x \rangle$.
 %
 Also, $\beta$ is clearly an equivariant monotone map, so it is an arrow of
 $\mathbf{FMPre}_{\varnothing}/ys$ as required.
@@ -309,7 +312,7 @@ their definitions are natural in $\langle X, f \rangle$, which completes the
 equivalence of $\mathbf{FMPre}_{\varnothing}/ys$ and $\mathbf{FMPre}_s$ as
 required.  \end{proof}
 
-Define a functor (\TODO{better word than 'cod'}) $\mathrm{cod} :
+Write $\mathrm{cod}$ for the forgetful `codomain' functor $\mathrm{cod} :
 (\mathbf{FMPre}_{\varnothing} \downarrow y) \to \mathbb{I}^{\mathrm{op}}$.
 
 \begin{lemma} \label{lemma:cartesian} An arrow $\langle h, i \rangle : \langle
@@ -345,11 +348,11 @@ $\mathbf{FMPre}_{\varnothing}$ has pullbacks.\end{proof}
 If $i : s \rightarrowtail s'$ is an arrow of $\mathbb I$ then there is a
 corresponding reindexing functor $i^* : \mathbf{FMPre}_{\varnothing}/ys \to
 \mathbf{FMPre}_{\varnothing}/ys'$ given by pullback. If $\sigma_i$ is a
-permutation that extends $i$ then $i^*$ gives rise to the permutation functor
-$\sigma_i : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$ via the equivalence of
-lemma \ref{lemma:slice} as follows. Let $\langle X, f \rangle$ be an object of
-$\mathbf{FMPre}_{\varnothing}/ys$, then \begin{equation} \label{reindexing}
-\begin{array}[t]{rcl} G_{s'} i^* \langle X, f \rangle
+permutation that extends $i$ then this reindexing corresponds to the permutation
+functor $\sigma_i : \mathbf{FMPre}_s \to \mathbf{FMPre}_{s'}$ via the
+equivalence of lemma \ref{lemma:slice} as follows. Let $\langle X, f \rangle$ be
+an object of $\mathbf{FMPre}_{\varnothing}/ys$, then \begin{equation}
+\label{reindexing} \begin{array}[t]{rcl} G_{s'} i^* \langle X, f \rangle
 %
 &=& G_{s'} \langle X \times_{ys} ys', \pi_2\rangle \\
 %
@@ -370,8 +373,8 @@ action on arrows is straightforward. In particular, the inclusion $s
 \hookrightarrow s'$ gives rise to the inclusion $\mathbf{FMPre}_s
 \hookrightarrow \mathbf{FMPre}_{s'}$ in this way.
 
-A parallel construction in the codomain fibration on $(\mathbf{NPre} \downarrow
-y)$ gives rise to a more universal setting for this discussion.
+A parallel construction in the `codomain' fibration on $(\mathbf{NPre}
+\downarrow y)$ gives rise to a more universal setting for this discussion.
 %
 As mentioned above, the details of this construction are outside the scope of
 this thesis, but it is worth highlighting how some aspects of the structure of
@@ -404,12 +407,13 @@ $\mathbf{FMPre}_{\varnothing}$, and $\nu (i_{s \udot \{a\}}) = \langle i_s, a
 %
 Consider the object $\langle X, f \rangle$ of $\mathbf{FMPre}_{\varnothing}/ys$.
 %
-The action of $(-) \otimes \mathbb A$ takes it to the arrow $f \otimes
-\mathbf{1}_{\mathbb A} : X \otimes \mathbb A \to ys \otimes \mathbb A$.
+The action of $(-) \otimes \mathbb A$ on $f : X \to ys$ results in the arrow $f
+\otimes \mathbf{1}_{\mathbb A} : X \otimes \mathbb A \to ys \otimes \mathbb A$.
 %
 From the equivalence in lemma \ref{lemma:slice} the object $\langle X \otimes
 \mathbb A, \nu^{-1} \circ (f \otimes \mathbf{1}_{\mathbb A}) \rangle$
-corresponds to the FM set \begin{equation} \label{deptype:fresh} \begin{array}[t]{rcl}
+corresponds to the FM set \begin{equation} \label{deptype:fresh}
+\begin{array}[t]{rcl}
 %
 \multicolumn{3}{l}{G_{s \udot \{a\}} \langle X \otimes \mathbb A, \nu^{-1} \circ
 (f \otimes \mathbf{1}_{\mathbb A}) \rangle} \\
@@ -434,39 +438,25 @@ It is straightforward to see that the action of $(-) \otimes \mathbb A$ on
 arrows gives rise to the action of $(-)^{\freshfor a}$ on arrows in the same
 fashion.
 
-\subsubsection{The functors $\delta$ and $\delta_a$.}
-\label{delta-deltaa}
+\subsubsection{The functors $\delta$ and $\delta_a$.} \label{delta-deltaa}
 %
 Now consider the object $\langle X, f \rangle$ of the category
 $\mathbf{FMPre}_{\varnothing}/y(s \udot \{a\})$.
 %
-The action of $\delta$ takes it to the arrow $\delta f : \delta X \to \delta(y(s
-\udot \{a\}))$, and using the isomorphism \ref{def:ysa} this corresponds to an
-arrow $\delta\nu \circ \delta f : \delta X \to \delta(ys \otimes \mathbb A)$.
+The action of $\delta$ on $f : X \to y(s \udot \{a\})$ results in the arrow
+$\delta f : \delta X \to \delta(y(s \udot \{a\}))$, and using the isomorphism
+\ref{def:ysa} this corresponds to an arrow $\delta\nu \circ \delta f : \delta X
+\to \delta(ys \otimes \mathbb A)$.
 %
 Form the pullback against the unit $\xi_{ys} : ys \to \delta (ys \otimes \mathbb
-A)$ as follows: \begin{equation} \xymatrix{
-\delta X \times_{\delta(ys \otimes \mathbb A)} ys
-	\pb{315}
-	\ar[d]_{\pi_1}
-	\ar[rr]^{\pi_2}
-&&
-ys
-	\ar[d]^{\xi_{ys}}
-\\
-\delta X
-	\ar[r]_(0.35){\delta f}
-&
-\delta (y(s \udot \{a\}))
-	\ar[r]_{\delta\nu}
-&
-\delta (ys \otimes \mathbb A)
-} \end{equation}
+A)$ as follows: \begin{equation} \xymatrix{ \delta X \times_{\delta(ys \otimes
+\mathbb A)} ys \pb{315} \ar[d]_{\pi_1} \ar[rr]^{\pi_2} && ys \ar[d]^{\xi_{ys}}
+\\ \delta X \ar[r]_(0.35){\delta f} & \delta (y(s \udot \{a\}))
+\ar[r]_{\delta\nu} & \delta (ys \otimes \mathbb A) } \end{equation}
 %
-Via lemma \ref{lemma:slice} the object $\langle \delta X
-\times_{\delta(ys \otimes \mathbb A)} ys, \pi_2 \rangle$ of
-$\mathbf{FMPre}_{\varnothing}/ys$ corresponds to \begin{equation}
-\begin{array}[t]{rcl}
+Via lemma \ref{lemma:slice} the object $\langle \delta X \times_{\delta(ys
+\otimes \mathbb A)} ys, \pi_2 \rangle$ of $\mathbf{FMPre}_{\varnothing}/ys$
+corresponds to \begin{equation} \begin{array}[t]{rcl}
 %
 \multicolumn{3}{l}{G_s \langle \delta X \times_{\delta(ys \otimes \mathbb A)}
 ys, \pi_2 \rangle} \\
@@ -490,9 +480,8 @@ ys, \pi_2 \rangle} \\
 %
 \end{array} \end{equation}
 %
-It is straightforward to see that the action of $\delta$ on
-arrows gives rise to the action of $\delta_a$ on arrows in the same
-fashion.
+It is straightforward to see that the action of $\delta$ on arrows gives rise to
+the action of $\delta_a$ on arrows in the same fashion.
 
 \subsubsection{The transformations $\pi_1 : (-)\otimes \mathbb A \to \mathbf{1}$
 and $\tau_a : (-)^{\freshfor a}  \to \mathbf{1}$.}
@@ -1111,9 +1100,9 @@ commute.
 Let $X \in \widehat{\widehat{\typeP}}^{\freshfor a}$.  First, let $p \in
 \bigl(\phi_{\typeP} \circ \mathord{\cup}_{\typeP}^{\freshfor a}\bigr)X$, then $a
 \freshfor p$ and there exists $x \in X$ such that $p \in x$.  Let $b$ be a fresh
-name, then $p = (ab) \cdot p \in (ab) \cdot x \in (ab) \cdot X = X$ and $a
-\freshfor (ab) \cdot x$. Therefore $(ab) \cdot x \in \phi_{\widehat\typeP} X$
-and $p \in \phi_{\typeP} (ab) \cdot x$ so that $p \in
+name, then it follows that $p = (ab) \cdot p \in (ab) \cdot x \in (ab) \cdot X =
+X$ and $a \freshfor (ab) \cdot x$. Therefore $(ab) \cdot x \in
+\phi_{\widehat\typeP} X$ and $p \in \phi_{\typeP} (ab) \cdot x$ so that $p \in
 \bigl(\mathord{\cup}_{\typeP^{\freshfor a}} \circ \widehat{\phi_\typeP} \circ
 \phi_{\widehat\typeP} \bigr) X$. Conversely, let $p \in
 \bigl(\mathord{\cup}_{\typeP^{\freshfor a}} \circ \widehat{\phi_\typeP} \circ
@@ -1150,18 +1139,19 @@ p\}} \\
 %
 Let $X' \in \delta_a \widehat{\widehat{\typeP}}$. First, let $p' \in
 \bigl(\theta_\typeP \circ \delta_a \mathord{\cup}_{\typeP}\bigr) X'$ and let $b$
-be a fresh name, then \[p' @ b \in \bigl(\delta_a \mathord{\cup}_{\typeP}
-X'\bigr) @ b = \bigcup (X'@b)\] and hence there exists $x \in X'@b$ such that
-$p'@b \in x$.  It follows that $([b].x)@b \in X'@b$ and $p'@b \in ([b].x)@b$ and
-hence $[b].x \in \theta_{\widehat{\typeP}} X'$ and $p' \in \theta_{\typeP}
-[b].x$ so that $p' \in \bigl(\mathord{\cup}_{\delta_a\typeP} \circ
-\widehat{\theta_{\typeP}} \circ \theta_{\widehat{\typeP}}\bigr) X'$. Conversely,
-let $p' \in \bigl(\mathord{\cup}_{\delta_a\typeP} \circ
-\widehat{\theta_{\typeP}} \circ \theta_{\widehat{\typeP}}\bigr) X'$, then there
-exists $x'$ such that for a fresh name $b$ it is the case that $p' @ b \in x' @
-b$ and $x' @ b \in X' @ b$ so that $p' @ b \in \bigcup(X'@b) = \bigl(\delta_a
-\mathord{\cup}_{\typeP} X'\bigr) @ b$ and hence $p' \in \bigl(\theta_\typeP
-\circ \delta_a \mathord{\cup}_{\typeP}\bigr) X'$ as required.
+be a fresh name, then $p' @ b \in \bigl(\delta_a \mathord{\cup}_{\typeP}
+X'\bigr) @ b = \bigcup (X'@b)$ and hence there exists some $x \in X'@b$ such
+that $p'@b \in x$.  It follows that $([b].x)@b \in X'@b$ and $p'@b \in
+([b].x)@b$ and hence $[b].x \in \theta_{\widehat{\typeP}} X'$ and $p' \in
+\theta_{\typeP} [b].x$ so it follows that $p' \in
+\bigl(\mathord{\cup}_{\delta_a\typeP} \circ \widehat{\theta_{\typeP}} \circ
+\theta_{\widehat{\typeP}}\bigr) X'$.  Conversely, let $p' \in
+\bigl(\mathord{\cup}_{\delta_a\typeP} \circ \widehat{\theta_{\typeP}} \circ
+\theta_{\widehat{\typeP}}\bigr) X'$, then there exists $x'$ such that for a
+fresh name $b$ it is the case that $p' @ b \in x' @ b$ and $x' @ b \in X' @ b$
+so that $p' @ b \in \bigcup(X'@b) = \bigl(\delta_a \mathord{\cup}_{\typeP}
+X'\bigr) @ b$ and hence $p' \in \bigl(\theta_\typeP \circ \delta_a
+\mathord{\cup}_{\typeP}\bigr) X'$ as required.
 
 \paragraph{Counit Square.}
 %
@@ -1464,7 +1454,7 @@ and $\widehat{{\theta^{!}_{\typeQ}}^{-1}} \circ {!}\delta^+_a f$ are both
 linear, so by \ref{hat:epi} they are equal as required.\end{proof}
 
 It is now possible to show the main result of this section, namely that the
-abstract machinery of lemma \ref{adjunctionlift} can be used to lift the
+abstract machinery of lemma \ref{adjunctionlift} can be used to lift the binding
 adjunction $(-)^{\freshfor a+} \dashv \delta_a^+ : \mathbf{FMLin}_s
 \leftrightarrows \mathbf{FMLin}_{s\udot\{a\}}$ to a corresponding adjunction on
 the coKleisli categories of the respective $!$ comonads.
@@ -1881,7 +1871,7 @@ This completes the proof.\end{proof}
 
 Via the isomorphism $L_{\mathbf{Cts}} = K_{\mathbf{Cts}}^{-1}$ of \ref{def:kcts}
 the adjunction $F^{++} \dashv G^{++}$ of lemma \ref{deltafreshadjbangcokleisli}
-gives rise to the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} :
+begets the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} :
 \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$ of
 \ref{subsubsect:deltafreshadjcts} as follows.
 
