@@ -57,14 +57,16 @@ the high-level situation.
 
 On the other hand denotational semantics --- which associates a computation with
 a mathematical object that captures the essence of the computation in its
-mathematical properties --- starts from a much more abstract viewpoint.
+mathematical properties --- starts from a much more abstract viewpoint and makes
+it easier to distinguish general results about computation itself from specific
+results about particular syntactic systems.
 %
 The drawback of this approach is that the mathematics involved is often either
 too coarse to be a suitable tool, or too intricate to be useful to the working
 scientist.
 
-In short, theories for concurrent computation form a disjointed landscape with
-unclear relationships between different approaches.
+Consequently, theories for concurrent computation form a disjointed landscape
+with unclear relationships between different approaches.
 %
 Particular process calculi are optimised to different tasks, and it is sometimes
 difficult to see which optimisations are valuable innovations that can be
