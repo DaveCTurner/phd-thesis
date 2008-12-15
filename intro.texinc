@@ -122,9 +122,9 @@ Like channel names in the $\pi$-calculus it may be passed around to other parts
 of a term, and hidden by a binder.
 %
 When performing a proof by induction over the structure of a term that contains
-bound variables, it is common to unbind them and assert that they are
-\textit{chosen to be different} from the free variables that are already known,
-in effect generating fresh new names at will.
+bound variables, it is common to unbind them and assert that they are ``chosen
+to be different'' from the free variables that are already known, effectively
+generating fresh new names at will.
 %
 This practice is normally justified by an informal assertion such as
 Barendregt's Variable Convention\cite{barendregt:lambda}.
