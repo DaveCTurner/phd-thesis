@@ -99,14 +99,18 @@ Also, since each piece of syntax only mentions finitely many names it is
 possible to turn attention to those bijective renamings that fix all but
 finitely many names.
 %
-A few lemmas about such bijective renamings are developed in
-\ref{subsect:nset:finaut}, then \ref{subsect:nset:theory} introduces the theory
-of nominal sets and \ref{subsect:nset:examples} shows some examples and
-constructions for building new ones.
+A few lemmas about such bijective renamings are developed in section
+\ref{subsect:nset:finaut}, then section \ref{subsect:nset:theory} introduces the
+theory of nominal sets and section \ref{subsect:nset:examples} shows some
+examples and constructions for building new ones.
 %
-The category of nominal sets is briefly explored in \ref{subsect:nset:category}
-and finally \ref{subsect:nset:binding} demonstrates how the theory can be used
-to capture the idea of `binding' a name.
+The category of nominal sets is briefly explored in section
+\ref{subsect:nset:category} and section \ref{subsect:nset:binding} demonstrates
+how the theory can be used to capture the idea of `binding' a name.
+%
+Finally, one of the more important differences between nominal and conventional
+set theories is the failure of the Axiom of Choice in the nominal setting, and
+section \ref{subsect:nset:choice} explores the consequences of this.
 
 \subsection{Finite Automorphisms on Names}
 \label{subsect:nset:finaut}
@@ -911,6 +915,7 @@ This is justified by the results of chapter \ref{densem} which relates the
 semantic and syntactic notions of binding in the language Nominal HOPLA.
 
 \subsection{Choice and Nominal Sets}
+\label{subsect:nset:choice}
 
 Nominal set theory is closely related to Fraenkel-Mostowski (FM) set theory,
 which was originally developed early in the 20th century to prove the
