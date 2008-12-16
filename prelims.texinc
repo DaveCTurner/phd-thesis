@@ -573,9 +573,10 @@ However, $\mathcal P X$ does contain a nominal set, \begin{equation}
 \mathcal{P}_{\mathrm{fs}}(X) \defeq \{ A \subseteq X \mid \text{$A$ has finite
 support} \}. \end{equation}
 %
-It is not hard to see that if $A \subseteq X$ is supported by $s$ then $\sigma
-\cdot A$ is supported by $\{ \sigma a \mid a \in s\} = \sigma \cdot s$ so that
-$\mathcal{P}_{\mathrm{fs}} X$ does have a well-defined $\mathcal{G}$-action.
+Lemma \ref{supports:eqvt} demonstrates that if $A \subseteq X$ is supported by
+$s$ then $\sigma \cdot A$ is supported by $\{ \sigma a \mid a \in s\} = \sigma
+\cdot s$ so that $\mathcal{P}_{\mathrm{fs}} X$ does have a well-defined
+$\mathcal{G}$-action.
 %
 Notice that any finite subset of $X$ is supported by the union of the supports
 of its elements (which is finite) and therefore the finite powerset $\mathcal
