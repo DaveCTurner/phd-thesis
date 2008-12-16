@@ -338,14 +338,14 @@ step follows since $c$ is fresh and $b \freshfor [b].((ab) \cdot f) p$.
 Suppose that $\sigma$ is a permutation that fixes $s$, let $p' \in \delta_a
 \typeP$ and let $b$ be a fresh name, then $p' @ b \in (ab) \cdot \typeP$ and
 hence $(\sigma \cdot p') @ b = \sigma \cdot (p' @ b) \in \sigma \cdot (ab) \cdot
-\typeP$.  However, $\supp{(ab) \cdot \typeP} = s \udot \{b\}$ and $\sigma$ fixes
-$s$ and $b$ was fresh so that $\sigma$ fixes $b$ too, and hence $\sigma \cdot
-(ab) \cdot \typeP = (ab) \cdot \typeP$.  Therefore $\sigma \cdot p' \in \delta_a
-\typeP$ and hence $\sigma \cdot \delta_a \typeP \subseteq \delta_a \typeP$. By
-the same argument $\sigma^{-1} \cdot \delta_a \typeP \subseteq \delta_a \typeP$
-and hence $\sigma \cdot \delta_a \typeP = \delta_a \typeP$ by equivariance.
-Therefore $s$ supports $\delta_a \typeP$ so that the action of $\delta_a$ on
-objects is well-defined.
+\typeP$.  However, $\supp{(ab) \cdot \typeP} \subseteq s \udot \{b\}$ and
+$\sigma$ fixes $s$ and $b$ was fresh so that $\sigma$ fixes $b$ too, and hence
+$\sigma \cdot (ab) \cdot \typeP = (ab) \cdot \typeP$.  Therefore $\sigma \cdot
+p' \in \delta_a \typeP$ and hence $\sigma \cdot \delta_a \typeP \subseteq
+\delta_a \typeP$. By the same argument $\sigma^{-1} \cdot \delta_a \typeP
+\subseteq \delta_a \typeP$ and hence $\sigma \cdot \delta_a \typeP = \delta_a
+\typeP$ by equivariance.  Therefore $s$ supports $\delta_a \typeP$ so that the
+action of $\delta_a$ on objects is well-defined.
 
 Now let $f : \typeP \to \typeQ$ be an arrow of $\mathbf{FMPre}_{s \udot \{a\}}$,
 let $p' \in \delta_a \typeP$ and let $b$ be a fresh name.  Therefore $p'@b \in
