@@ -601,8 +601,8 @@ $\sigma \cdot f$ so that $X \to_{\mathrm{fs}} Y$ does have a well-defined
 $\mathcal{G}$-action.
 
 The remainder of this discussion barely mentions the fact that any particular
-object that has been constructed --- even powersets and function spaces --- is
-finitely supported.
+object that has been constructed --- even subsets and functions --- is finitely
+supported.
 %
 This is justified by the following principle.
 
