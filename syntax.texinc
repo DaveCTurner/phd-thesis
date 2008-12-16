@@ -192,10 +192,10 @@ p)}{x}{(\sigma \cdot t)}{\typeP}} \\
 %
 \sigma \cdot (\apply{t}{u}{\typeP}) &=& \apply{(\sigma \cdot t)}{(\sigma \cdot u)}{\typeP} \\
 %
-\sigma \cdot (\new{a}{t}) &=& \new{(\sigma \cdot a)}{(\sigma \cdot t)} &&
+\sigma \cdot (\new{a}{t}) &=& \new{(\sigma a)}{(\sigma \cdot t)} &&
 %
 \sigma \cdot (\newapply{t}{a}) &=& 
-\newapply{(\sigma \cdot t)}{(\sigma \cdot a)} \\
+\newapply{(\sigma \cdot t)}{(\sigma a)} \\
 %
 \sigma \cdot (\linj{\ell}{t}) &=& \linj{(\sigma \cdot \ell)}{(\sigma \cdot t)} &&
 %
