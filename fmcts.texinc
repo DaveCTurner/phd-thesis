@@ -211,7 +211,7 @@ directed sets that have uniform supports.
 It turns out that approximation by uniformly-supported directed limits is a
 satisfactory notion of approximation in nominal domain theory.
 
-
+\clearpage
 \subsection{FM-Isolated Elements}
 \label{fm:isolated}
 
@@ -919,6 +919,7 @@ This latter map can importantly be characterised as follows.
 \begin{proof} By \ref{characterisation:thetabanginv}.\end{proof}
 
 
+\clearpage
 \subsection{Binding and Continuity}
 \label{subsect:binding-and-continuity}
 
@@ -1378,6 +1379,7 @@ P \subseteq x \wedge Q \subseteq y\}) \\
 
 
 
+\clearpage
 \subsubsection{Name-Binding.}
 \label{subsubsect:deltafreshadjcts}
 
@@ -1442,6 +1444,9 @@ the ${!}$ comonad as follows.
 %
 \end{array} \end{equation} \end{proof}
 
+
+
+\clearpage
 \subsubsection{Freshness Assumptions.} \label{subsubsect:freshness-cts} The
 machinery of freshness (such as the functor $(-)^{\freshfor a}$ and the
 isomorphism $\phi : \widehat{(-)}^{\freshfor a} \to \widehat{(-)^{\freshfor
