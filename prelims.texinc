@@ -260,6 +260,8 @@ then $(be) = (de)(bd)(de)$. \end{proposition}
 (be)(de)$ by lemma \ref{lemma:perm-swap}, so that $(be) = (be)(de)(de) =
 (de)(bd)(de)$ as required.  \end{proof}
 
+\clearpage
+
 The general result is now as follows.
 
 \begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
@@ -480,6 +482,7 @@ Since $b \notin s$ it follows that $b \notin \supp{x}$ too, but $\supp{x}$
 supports $x$ so that $(ab) \cdot x = x$ which is a contradiction as required.
 \end{proof}
 
+\clearpage
 \subsection{Constructing Nominal Sets}
 \label{subsect:nset:examples}
 
@@ -934,13 +937,14 @@ However, $(f(m)\ f(n)) \cdot (f(n)) = f(m) \neq f(n)$ which is a contradiction,
 which shows that $f$ cannot have a finite support so it certainly is not a
 function in the sense of nominal set theory.
 
+\clearpage
+
 The impact of the failure of AC is not as severe as perhaps it sounds, but it
 does have some subtle consequences.
 %
 One of the more interesting ones is that there are a number of distinct ways of
 characterising the subsets of a nominal set that are, in some sense, finite.
 
-\clearpage
 \subsubsection{Definitions of Finiteness} \label{def:finiteness}
 %
 \begin{enumerate}[(1)] \item \label{finite:usual} The usual definition: $A$ is
@@ -993,6 +997,8 @@ A$. \setcounter{finitenessdefs}{\value{enumi}} \end{enumerate}
 
 In fact, these \arabic{finitenessdefs} characterisations capture only three
 distinct notions of finiteness as the following lemma shows.
+
+\clearpage
 
 \begin{lemma} \label{lemma:finite:nset} Let $A \subseteq X$ be a
 finitely-supported subset of a nominal set $X$.
