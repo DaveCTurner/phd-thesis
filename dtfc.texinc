@@ -139,11 +139,11 @@ If $\Phi \in \{\Phi_d, \Phi_\omega\}$ then the category $\mathbf{\Phi CPO}$ is
 cartesian closed.
 %
 The cartesian product is given by the product of the underlying sets ordered
-pointwise, and the exponential is given by the space of $\Phi$-continuous
-functions, again ordered pointwise.
+componentwise, and the exponential is given by the space of $\Phi$-continuous
+functions with the pointwise order.
 %
 This is important for giving denotational semantics to a language with
-higher-order functions.
+higher-order functions such as the $\lambda$-calculus.
 
 \begin{definition} If $\typeP$ is a preorder and $x \subseteq \typeP$ then
 define \[ x_\downarrow \defeq \{ p' \mid
