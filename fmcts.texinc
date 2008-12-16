@@ -507,16 +507,16 @@ is an upper bound for $\{f^{\ddagger} x \mid x \in X \}$.  It remains to show
 that it is the least such upper bound, i.e.  for any $U$ such that $f^{\ddagger}
 x \le U$ for all $x \in X$ it is the case that $f^{\ddagger} \bigl(\bigcup
 X\bigr) \le U$. For this, it is sufficient to show that $U$ is an upper bound
-for \begin{equation} \{f P_\downarrow \mid P \in \typelift\typeP \wedge P
-\subseteq \bigcup X \wedge \supp{P} \subseteq \supp{\bigcup X, \typeP} \}
-\end{equation} since $f^{\ddagger} \bigl(\bigcup X \bigr)$ is the least such.
-Therefore, suppose that $P \in \typelift\typeP$ is such that $P \subseteq
-\bigcup X$ and $\supp{P} \subseteq \supp{\bigcup X, \typeP}$.  Then
-$P_\downarrow$ is isolated, and $X$ is uniformly-supported and directed, so
-there exists $x \in X$ such that $P_\downarrow \subseteq x$. It is clear that
-$f^{\ddagger} P_\downarrow = f P_\downarrow$, so by monotonicity $f P_\downarrow
-\le f^{\ddagger} x$ and $f^{\ddagger} x \le U$ so that $f P_\downarrow \le U$ as
-required.  \end{proof}
+for \begin{equation} \left\{f P_\downarrow \mid P \in \typelift\typeP \text{ and
+} P \subseteq \textstyle\bigcup X \text{ and } \supp{P} \subseteq
+\supp{\textstyle\bigcup X, \typeP} \right\} \end{equation} since $f^{\ddagger}
+\bigl(\bigcup X \bigr)$ is the least such.  Therefore, suppose that $P \in
+\typelift\typeP$ is such that $P \subseteq \bigcup X$ and $\supp{P} \subseteq
+\supp{\bigcup X, \typeP}$.  Then $P_\downarrow$ is isolated, and $X$ is
+uniformly-supported and directed, so there exists $x \in X$ such that
+$P_\downarrow \subseteq x$. It is clear that $f^{\ddagger} P_\downarrow = f
+P_\downarrow$, so by monotonicity $f P_\downarrow \le f^{\ddagger} x$ and
+$f^{\ddagger} x \le U$ so that $f P_\downarrow \le U$ as required.  \end{proof}
 
 It is also the case that $\widehat{\typeP}$ is algebraic with respect to
 approximation by uniformly-supported directed sets, as the following lemma
