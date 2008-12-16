@@ -736,24 +736,15 @@ x$. \end{lemma}
 \begin{proof} Since $f$ satisfies the FCB let $a \in \mathbb A$ be such that $a
 \freshfor f$ and $a \freshfor f a$.
 %
-Let $b \freshfor f$ and let $c \freshfor (f, a, b)$.
+Let $b \freshfor f$, so that $(ab) \cdot f = f$.
 %
 If $a = b$ then $f a = f b$ trivially, so suppose that $a \neq b$.
 %
-Then \begin{equation} \begin{array}[t]{rcl} f b &=& (ab) \cdot (f a) \quad \text{as
-$a \freshfor f$ and $b \freshfor f$} \\
+Then $f b = ((ab) \cdot f) b = (ab) \cdot (f ((ab) b)) = (ab) \cdot (f a)$.
 %
-&=& (ac) \cdot (bc) \cdot (ac) \cdot (f a) \\
-%
-&=& (ac) \cdot (bc) \cdot (f a) \quad \text{as $a \freshfor fa$ and $c \freshfor
-(f, a)$} \\
-%
-&=& (ac) \cdot (f a) \quad \text{as $b \freshfor f$ and $a \neq b$ and $c
-\freshfor (f, a)$} \\
-%
-&=& f a \quad \text{as $a \freshfor f a$ and $c \freshfor (f, a)$} \\
-\end{array} \end{equation} so that $f a$ is the unique element of $X$ as
-required.\end{proof}
+However $b \freshfor f, a$ implies that $b \freshfor fa$ and by assumption $a
+\freshfor fa$ so that $(ab) \cdot (f a) = f a$ and hence $f b = f a$ which means
+that $f a$ is the unique element of $X$ as required. \end{proof}
 
 \begin{definition} \label{def:freshin} If $f : \mathbb A \to X$ satisfies the
 FCB then write $\freshin{b}{f b}$ for the unique $x \in X$ such that for any
