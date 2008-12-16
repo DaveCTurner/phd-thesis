@@ -66,7 +66,7 @@ too coarse to be a suitable tool, or too intricate to be useful to the working
 scientist.
 
 Consequently, theories for concurrent computation form a disjointed landscape
-with unclear relationships between different approaches.
+with unclear relationships between approaches.
 %
 Particular process calculi are optimised to different tasks, and it is sometimes
 difficult to see which optimisations are valuable innovations that can be
@@ -110,9 +110,9 @@ In the $\pi$-calculus\cite{milner:picalc}, for example, names may be used to
 identify communication channels between processes.
 %
 They may be passed from process to process to model the mobility of channels;
-they may be hidden to model restricted scope; and importantly a process may
-create a new channel, complete with a unique freshly-generated identifier, at
-will.
+they may be hidden to model the restriction of scope; and importantly a process
+may create a new channel, complete with a unique freshly-generated identifier,
+at will.
 %
 The original semantics of the $\pi$-calculus was given operationally, but more
 recent work has developed denotational models
@@ -149,7 +149,7 @@ binding and unbinding, in a very natural fashion and otherwise behaves much like
 more familiar set theories such as ZF.
 %
 This is important, because dealing with names can occasionally throw up some
-subtleties that might be hard to track down in a more cumbersome setting.
+subtleties that might be hard to pin down in a more cumbersome setting.
 %
 The similarity with standard set theories is also valuable because it makes it
 straightforward to transfer intuitions developed in a name-free setting into the
@@ -195,7 +195,7 @@ Roughly speaking, this development takes the construction of the path-based
 domain theory for concurrency mentioned above and follows a parallel road within
 the theory of nominal sets.
 %
-Importantly, all of the constructions given are by means of universal
+Importantly, all of the constructions are given by means of universal
 properties, which supports the claim that this work points towards a general
 framework for concurrency.
 
