@@ -679,11 +679,12 @@ $\langle{f, x\rangle}$ is given by $\supp{f} \cup \supp{x}$.  \end{proof}
 \begin{definition} The category \define{$\mathbf{NSet}$} has nominal sets for
 objects and equivariant functions for arrows. \end{definition}
 
-It is reasonably clear that the composition of equivariant functions is
-equivariant, so this does define a category.  Furthermore, it has products
-$\times$, coproducts $+$ and exponentials $\to_{\mathrm{fs}}$ given as above,
-and to cut a long story short it is also a Boolean topos: the subobject
-classifier is the discrete nominal set on $\mathbf{2} \defeq \{ \top, \bot\}$.
+It is clear that the composition of equivariant functions is equivariant, so
+this does define a category.  Furthermore, it has products $\times$, coproducts
+$+$ and exponentials $\to_{\mathrm{fs}}$ given as above, and to cut a long story
+short it is also a Boolean topos: the subobject classifier is the discrete
+nominal set on $\mathbf{2} \defeq \{ \top, \bot\}$ and powerobjects are given by
+$\mathcal{P}_{\mathrm{fs}}$.
 
 \begin{lemma} \label{lemma:schequiv} Let $\mathbb I$ be the category whose
 objects are finite subsets of $\mathbb A$ and whose arrows are injections
