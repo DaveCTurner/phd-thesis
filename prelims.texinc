@@ -251,8 +251,8 @@ This fact is used in the proof of \ref{fineltextension}.
 %
 Firstly it is necessary to show an elementary special case.
 
-\begin{lemma} \label{footprint1} If $b$, $d$ and $e$ are distinct names
-then $(be) = (de)(bd)(de)$. \end{lemma}
+\begin{proposition} \label{footprint1} If $b$, $d$ and $e$ are distinct names
+then $(be) = (de)(bd)(de)$. \end{proposition}
 
 \begin{proof} It is the case that $(de)(bd) = \bigl((de)b\ (de)d\bigr)(de) =
 (be)(de)$ by lemma \ref{lemma:perm-swap}, so that $(be) = (be)(de)(de) =
@@ -307,7 +307,7 @@ $\sigma = \sigma_1 \sigma'_2 \sigma_3$ is a factorisation in the desired form.
 On the other hand $a' \notin D$ then let $c \in D$ be such that $\sigma_2 \cdot
 c \in D$, which exists since by assumption $|D| > |B|$.
 %
-Then $(a'b) = (a'c)(bc)(a'c)$ by lemma \ref{footprint1} so that writing $c' =
+Then $(a'b) = (a'c)(bc)(a'c)$ by proposition \ref{footprint1} so that writing $c' =
 \sigma_2 \cdot c \in D$ it follows that $\sigma = \sigma_1 (a'c') \sigma_2 (bc)
 (a'c) \sigma_3$ by lemma \ref{lemma:perm-swap}.
 %
