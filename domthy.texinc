@@ -116,7 +116,7 @@ and concretely \begin{equation} \label{def:freshtensor} \typeP \otimes \mathbb A
 \defeq \{\langle p, a \rangle \in \typeP \times \mathbb A \mid a \freshfor
 p\}\end{equation} where \begin{equation} \label{def:freshtensor:order} \langle
 p_1, a_1 \rangle \le_{\typeP \otimes \mathbb A} \langle p_2, a_2 \rangle
-\Leftrightarrow_{\mathrm{def}} a_1 = a_2 \wedge p_1 \le_{\typeP}
+\Leftrightarrow_{\mathrm{def}} a_1 = a_2 \text{ and } p_1 \le_{\typeP}
 p_2.\end{equation}
 
 Finally, $\mathbf{NPre}$ is monoidal closed with respect to this tensor.
