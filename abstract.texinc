@@ -41,7 +41,7 @@ denotational and operational descriptions are explored.
 
 The generality of this approach to including name generation into a simple
 semantic model indicates that it will be possible to apply the same techniques
-to more general domain theories for concurrency, such as those based on
+to more powerful domain theories for concurrency, such as those based on
 presheaves.
 
 
