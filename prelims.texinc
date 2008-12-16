@@ -69,7 +69,7 @@ syntactic notion of free names.
 It also allows the construction of the kind of binding operator that takes
 $\sem{P}$ to $\sem{\nu a. P}$.
 %
-Importantly, the internal language of the theory of nominal sets is very close
+Importantly, the internal logic of the theory of nominal sets is very close
 to that of standard set theory, so the development of a domain theory for
 concurrency within nominal set theory is accessible to conventional domain
 theorists as the name-theoretic details can be ignored when they are not
