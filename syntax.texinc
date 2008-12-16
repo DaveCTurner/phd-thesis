@@ -46,9 +46,10 @@ label $\ell_0$.
 %
 The recursively-defined type $\typerec{}{P}{\typeP}$ is isomorphic to its
 unfolding $\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$ and so processes of
-recursive types behave similarly to processes typed by their unfoldings.
+recursively-defined types behave similarly to processes typed by their
+unfoldings.
 %
-For a better intuition about this system of types, see the operational
+For a more detailed intuition about this system of types, see the operational
 semantics of Nominal HOPLA as described in section \ref{opsem}.
 
 \subsection{Syntax of Environments}
