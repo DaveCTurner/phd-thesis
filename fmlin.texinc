@@ -1,10 +1,10 @@
 \section{Nominal Nondeterministic Domains}
 \label{nominalnondeterministicdomains}
 
-Recall from \ref{domains-of-paths} that the development of the classical domain
-theory that underpins the language HOPLA is based on a semantics of paths, where
-intuitively a process denotes the collection of computation paths that it may
-perform.
+Recall from section \ref{domains-of-paths} that the development of the classical
+domain theory that underpins the language HOPLA is based on a semantics of
+paths, where intuitively a process denotes the collection of computation paths
+that it may perform.
 %
 A similar intuition applies when working within FM set theory, with the added
 constraint that each process can only access finitely many names, so the
