@@ -89,13 +89,15 @@ A}{\labelaction{b}{\bang{\inactive}} }\bigr)}} = \sem{\new{a}{\termvar{x}}}
 \sem{\new{a}{\termvar{x}}} (\mathbb A). \end{equation}
 
 Now $\mathbb A = \bigcup_{s \subseteq_{\mathrm{fin}} \mathbb A} s$ is a directed
-join, so if $\sem{\new{a}{\termvar{x}}}$ is continuous then \begin{equation}
-\label{allnamejoin} \sem{\new{a}{\termvar{x}}} (\mathbb A) =
-\sem{\new{a}{\termvar{x}}} \left(\bigcup_{s \subseteq_{\mathrm{fin}} \mathbb A}
-s \right) = \bigcup_{s \subseteq_{\mathrm{fin}} \mathbb A}
-\sem{\new{a}{\termvar{x}} } s, \end{equation} so it follows that $\new{a}{a} \in
-\bigcup_{s \subseteq_{\mathrm{fin}} \mathbb A} \sem{\new{a}{\termvar{x}} } s$.
-Let $\{b_1, \ldots, b_n\}$ be such that \begin{equation} \label{boundnamein}
+join, so if $\sem{\new{a}{\termvar{x}}}$ is directed-join continuous then
+\begin{equation} \label{allnamejoin} \sem{\new{a}{\termvar{x}}} (\mathbb A) =
+\sem{\new{a}{\termvar{x}}}
+\raisebox{-1ex}{$\left(\raisebox{1ex}{$\displaystyle\bigcup_{s
+\subseteq_{\mathrm{fin}} \mathbb A} s$} \right)$} = \bigcup_{s
+\subseteq_{\mathrm{fin}} \mathbb A} \sem{\new{a}{\termvar{x}} } s,
+\end{equation} so it follows that $\new{a}{a} \in \bigcup_{s
+\subseteq_{\mathrm{fin}} \mathbb A} \sem{\new{a}{\termvar{x}} } s$.  Let $\{b_1,
+\ldots, b_n\}$ be such that \begin{equation} \label{boundnamein}
 \newaction{a}{a} \in \sem{\new{a}{\termvar{x}}} \{b_1, \ldots, b_n\} =
 \sem{\new{a}{\termvar{x}}} \circ \sem{\linj{b_1}{\bang{\inactive}}
 \mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}} \linj{b_n}{\bang{\inactive}}}.
