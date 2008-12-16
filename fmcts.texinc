@@ -10,16 +10,16 @@ hence a linear process with no input can generate no output.
 The solution to this issue is be to consider maps which are continuous (with
 respect to some notion of approximation) rather than merely linear. In the
 development of HOPLA\cite{nygaardwinskel1}, continuity was chosen to mean
-`preserves directed joins' but the discussion of \ref{bindingdiscts}
+`preserves directed joins' but the discussion of section \ref{bindingdiscts}
 demonstrates that this is not a suitable choice in $\mathbf{FMLin}_s$.
-Reconsidering directed sets as generalised sequences in \ref{fm:continuity}
-suggests a more satisfactory notion of approximation. Section \ref{fm:isolated}
-demonstrates that it is simple to characterise the elements that are isolated
-with respect to this notion of approximation, and this gives rise to an
-appropriate exponential ${!}$ that captures the continuity in much the same way
-that the finite-join-completion exponential does in HOPLA, and section
-\ref{fmcts:maps} demonstrates that this exponential can be characterised by a
-coKleisli construction.
+Reconsidering directed sets as generalised sequences in section
+\ref{fm:continuity} suggests a more satisfactory notion of approximation.
+Section \ref{fm:isolated} demonstrates that it is simple to characterise the
+elements that are isolated with respect to this notion of approximation, and
+this gives rise to an appropriate exponential ${!}$ that captures the continuity
+in much the same way that the finite-join-completion exponential does in HOPLA,
+and section \ref{fmcts:maps} demonstrates that this exponential can be
+characterised by a coKleisli construction.
 
 Sections \ref{subsect:fresh-bang} and \ref{subsect:delta-bang} demonstrate some
 technical results that show that the natural isomorphisms $\phi$ and $\theta$
