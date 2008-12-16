@@ -241,6 +241,8 @@ $\sigma$ may be represented as a permutation $\sigma_2$ such that
 %
 \item if $a \notin B$ but $\sigma a \in B$ then $\sigma^{-1}_2 \sigma a \in D$.
 %
+\item if $e \notin B \cup D$ then $\sigma_2 e = e$.
+%
 \end{itemize}
 %
 Importantly a set $D$ may be chosen that suffices for any permutation $\sigma$,
