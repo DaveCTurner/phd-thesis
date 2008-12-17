@@ -153,10 +153,10 @@ Importantly, this implies that for all names $a$ it is the case that $\delta_a
 \label{densem:environments}
 
 Environments $\Gamma$ (with freshness constraints contained in $s_0$) denote
-objects of $\mathbf{FMCts}_{s_0}$ as follows.  \begin{equation}
-\label{densem:env} \sem{\envempty} = \typeO \qquad\text{and}\qquad
-\sem{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} = \sem{\Gamma} \amp
-\typeP^{\freshfor s} \end{equation}
+objects of $\mathbf{FMCts}_{s_0}$ as follows. $\typeO$ is the empty preorder.
+\begin{equation} \label{densem:env} \sem{\envempty} = \typeO
+\qquad\text{and}\qquad \sem{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s} }} =
+\sem{\Gamma} \amp \typeP^{\freshfor s} \end{equation}
 
 To help provide a suggestive notation for the elements of $\sem{\Gamma}$,
 environments $\Gamma$ also denote objects of $\mathbf{FMPre}_{s_0}$ as follows.
