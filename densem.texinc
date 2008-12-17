@@ -5,7 +5,7 @@ It was claimed that the nominal domain theory developed in chapter \ref{domthy}
 was to motivate the design of the process calculus Nominal HOPLA as presented in
 the previous chapter.
 %
-This chapter provides the evidence to back up this claim.
+The present chapter provides the evidence to back up this claim.
 %
 In particular, section \ref{densem:terms-and-actions} demonstrates that the
 denotational semantics of Nominal HOPLA arises directly from the various
