@@ -41,7 +41,7 @@ with one of its names bound, which can be used to model the dynamic generation
 of names.
 %
 A process of type $\stdtypesum$ behaves as any of its components
-$\typePsub{\ell_0}$ with the actions of the process having been tagged by the
+$\typePsub{\ell_0}$ with the actions of the component having been tagged by the
 label $\ell_0$.
 %
 The recursively-defined type $\typerec{}{P}{\typeP}$ is isomorphic to its
