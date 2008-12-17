@@ -49,7 +49,7 @@ inferred from the rest of the typing judgement.
 \subsubsection{Contraction.} It is possible to replace a pair of variables (with equal types) with a single variable.
 \[
 \infer
-{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }}{\termsubst{t}{\termvar{x2}}{x1}}{\typeP}}
+{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x1}{\typeQ}{{s'}} }}{\termsubst{t}{\termvar{x1}}{x2}}{\typeP}}
 {\tjudge{s}{\envcombine{\Gamma}{\envcombine{\envvarfresh{x1}{\typeQ}{s'}}{\envvarfresh{x2}{\typeQ}{s'}} }}{t}{\typeP}}
 \]
 
