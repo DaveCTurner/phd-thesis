@@ -11,11 +11,11 @@ In \ref{fmpre:alternative} it is shown that the collection
 $(\mathbf{FMPre}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$ of categories arises
 in a natural way from a dependent type theory in $\mathbf{FMPre}_{\varnothing}$.
 %
-The category $\mathbf{FMPre}_\varnothing$ could be replaced by $\mathbf{NPre}$
-or equivalently the category of sheaves in $\mathbf{Pre}^{\mathbb I}$, which
-highlights that the set-theoretical foundations of the $(\mathbf{FMPre}_s)_{s
-\subseteq_{\mathrm{fin}} \mathbb A}$ are not especially important in this
-discussion.
+The category $\mathbf{FMPre}_\varnothing$ can be seen to be similar to
+$\mathbf{NPre}$ or equivalently the category of sheaves in
+$\mathbf{Pre}^{\mathbb I}$, which shows that the set-theoretical foundations of
+the $(\mathbf{FMPre}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$ are not a key
+factor in this discussion.
 %
 The replacement of $(\mathbf{FMPre}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$
 with a dependent type theory in the more canonical $\mathbf{NPre}$ is not
