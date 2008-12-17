@@ -1871,9 +1871,9 @@ This completes the proof.\end{proof}
 
 Via the isomorphism $L_{\mathbf{Cts}} = K_{\mathbf{Cts}}^{-1}$ of \ref{def:kcts}
 the adjunction $F^{++} \dashv G^{++}$ of lemma \ref{deltafreshadjbangcokleisli}
-begets the adjunction $(-)^{\freshfor a++} \dashv \delta_a^{++} :
-\mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}$ of
-\ref{subsubsect:deltafreshadjcts} as follows.
+gives rise to the adjunction \begin{equation} (-)^{\freshfor a++} \dashv
+\delta_a^{++} : \mathbf{FMCts}_s \leftrightarrows \mathbf{FMCts}_{s \udot \{a\}}
+\end{equation} of \ref{subsubsect:deltafreshadjcts} as follows.
 
 \subsubsection{The Left Adjoint.}
 If $\typeP$ is an object of $\mathbf{FMCts}_s$ then certainly

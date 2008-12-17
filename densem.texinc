@@ -693,7 +693,7 @@ terms of paths which highlight how it captures the semantics of label-matching
 as follows.
 
 \begin{lemma}[Characterising Label Projection]
-\label{densem:lproj:characterisation} Suppose that the judgement
+\label{densem:lproj:characterisation} Suppose that the typing judgement
 $\tjudge{s}{\Gamma}{\lproj{\ell_0}{t}}{\typePsub{\ell_0}}$ is derived from
 $\tjudge{s}{\Gamma}{t}{\stdtypesum}$.
 %
@@ -726,7 +726,7 @@ The semantics of the labelled action $\labelaction{\ell_0}{p}$ can be given a
 concrete, set theoretic, characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Labelled Actions]
-\label{densem:labelaction:characterisation} Suppose that the judgement
+\label{densem:labelaction:characterisation} Suppose that the typing judgement
 $\atjudge{s}{\stdtypesum}{\labelaction{\ell_0}{p}}{\typePp}$ is derived from
 $\atjudge{s}{\typePsub{\ell_0}}{p}{\typePp}$.
 %
@@ -877,7 +877,7 @@ The semantics of unfolding can be given a concrete, set theoretic,
 characterisation in terms of paths as follows.
 
 \begin{lemma}[Characterising Unfolding] \label{densem:rep:characterisation}
-Suppose that the typing judgement
+Suppose that the typing jud\-gement
 $\tjudge{s}{\Gamma}{\rep{t}}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$ is
 derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }$.
 %
