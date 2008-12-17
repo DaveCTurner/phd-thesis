@@ -17,11 +17,11 @@ important: it provides weight to the claim that the nominal domain theory
 captures the mathematical essence of the computational features that are
 supported.
 %
-The design of the simpler process calculus HOPLA\cite{nygaardwinskel1} was also
-guided by the principle of universal constructions, and Nominal HOPLA can be
-seen as a straightforward extension of HOPLA with terms of the form $\new{a}{t}$
-and $\newapply{t}{a}$ which arise directly from the adjunction $(-)^{\freshfor
-a++} \dashv \delta_a^{++}$.
+The design of the name-free process calculus HOPLA\cite{nygaardwinskel1} was
+also guided by the principle of universal constructions, and Nominal HOPLA can
+be seen as a straightforward extension of HOPLA with terms of the form
+$\new{a}{t}$ and $\newapply{t}{a}$ which arise directly from the adjunction
+$(-)^{\freshfor a++} \dashv \delta_a^{++}$.
 
 After the definition of the denotational semantics in sections
 \ref{densem:types-and-environments} and \ref{densem:terms-and-actions}, section
