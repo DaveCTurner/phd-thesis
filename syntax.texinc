@@ -141,13 +141,14 @@ term $\ndsum{i}{\varnothing} t_i$.
 Although the binding of variables is treated informally, the binding of the
 name $a$ in the form $\new{a}{t}$ must be treated more carefully. Strictly
 speaking, the form $\new{a}{t}$ is the equivalence class of pairs of names and
-terms that contains $(a, t)$ under the usual $\alpha$-equivalence relation
-\begin{equation} (a, t) \sim (a', t') \quad\Leftrightarrow\quad \freshin{b}{
-(ab) \cdot t = (a'b) \cdot t'}. \end{equation}
+terms that contains $\langle a, t \rangle$ under the usual $\alpha$-equivalence
+relation \begin{equation} \langle a, t \rangle \sim  \langle a', t' \rangle
+\quad\Leftrightarrow\quad \freshin{b}{ (ab) \cdot t = (a'b) \cdot t'}.
+\end{equation}
 %
-Therefore for any fresh name $b$,
-$\new{a}{t} = \new{b}{(ab) \cdot t}$, where the equality in this statement is
-literally equality, not simply equivalence-up-to-$\alpha$.
+Therefore for any fresh name $b$, $\new{a}{t} = \new{b}{(ab) \cdot t}$, where
+the equality in this statement is literally equality, not simply
+equivalence-up-to-$\alpha$.
 
 \subsection{Syntax of Actions} \label{syn:actions}
 
