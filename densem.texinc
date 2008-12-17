@@ -40,11 +40,11 @@ inductively out of syntactic tokens by a method inspired by the use of
 information systems to solve recursive domain
 equations\cite{winskel:infosystems} as demonstrated below.
 %
-Temporarily ignoring its freshness assumptions, an environment denotes the
-product of the path orders denoted by the types of its variables.
+With no freshness assumptions an environment denotes the product of the path
+orders denoted by the types of its variables.
 %
 The functors $\bigl((-)^{\freshfor s++}\bigr)_{s \subseteq_{\mathrm{fin}}
-\mathbb A}$ are used to modify the path orders to incorporate freshness
+\mathbb A}$ are used to modify this product to incorporate freshness
 assumptions, as demonstrated in section \ref{densem:environments}.
 
 \subsection{Types as Path Orders}
