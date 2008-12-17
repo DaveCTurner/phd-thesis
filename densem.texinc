@@ -13,7 +13,7 @@ universal properties in the categories $(\mathbf{FMCts}_s)_{s
 \subseteq_{\mathrm{fin}} \mathbb A}$.
 %
 That the denotational semantics is given by \textit{universal} properties is
-important: it provides some weight to the claim that the nominal domain theory
+important: it provides weight to the claim that the nominal domain theory
 captures the mathematical essence of the computational features that are
 supported.
 %
