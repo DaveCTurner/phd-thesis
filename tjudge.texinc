@@ -307,7 +307,7 @@ judgement.
 \]
 
 \subsubsection{Prefix Action.} The resumption of a process of type $\typelift\typeP$
-after performing a $\bangaction$ action is $\typeP$.
+after performing a $\bangaction$ action is of type $\typeP$.
 \[
 \infer
 {\atjudge{\varnothing}{\typelift\typeP}{\bangaction}{\typeP}}
