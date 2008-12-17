@@ -18,21 +18,20 @@ All errors that remain are entirely my own work.
 
 Andrew Pitts must also receive my appreciation for his auspiciously timed
 seminar on nominal set theory at the start of my studies, as well as his
-enthusiasm for all things nominal --- this thesis included --- and for his
-terrible puns.
+enthusiasm for all things nominal, and for his terrible puns:
 %
-It is ironic that for this work his support seems to be infinite.
+it is fortunate that for this work his support seems to be infinite.
 %
 I regret not having capitalised more on Jamie Gabbay's equally infectious zeal
 for the subject; I hope that he, and all the other participants of CANS, enjoy
 reading this thesis as much as I have enjoyed producing it.
 
-At the Computer Laboratory and at DPMMS there were --- and are --- many other
-wonderful people who have helped me along my way.
+At the Computer Laboratory and at DPMMS I have met many other wonderful people
+who have helped me along my way.
 %
 In particular I would like to thank Martin Hyland for pointing me in Glynn's
-direction in the first place; Matthew Parkinson for for helping me to hammer
-\LaTeX\ into shape and in particular for your macro to produce
+direction in the first place; Matthew Parkinson for helping me to hammer \LaTeX\
+into shape and in particular for his macro to produce
 \raisebox{-0.7ex}{$\matthat{\raisebox{0.7ex}{\text{very wide hats indeed}}}$};
 and the Theory and Semantics Group for all our varied conversations on all
 manner of topics over tea and beer and games of pool.
