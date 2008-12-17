@@ -489,5 +489,8 @@ Furthermore, although some of the development of the continuous categories
 within this chapter may appear to be a little ad-hoc, chapter
 \ref{abstract-justification} gives a more universal view of the situation which
 justifies abstractly the definitions and discussion above.
+%
+If desired, it is acceptable to bypass chapters \ref{nomhopla} and \ref{densem}
+as chapter \ref{abstract-justification} is independent of their contents.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
