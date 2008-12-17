@@ -62,8 +62,8 @@ categories $(\mathbf{FMCts}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$, such as
 their cartesian closed structure (for higher-order processes) and the adjunction
 $(-)^{\freshfor a++} \dashv \delta^{++}_a$ (for names and name binding).
 %
-This motivation should become clear in chapter \ref{densem} which shows the
-details of the denotational semantics.
+This motivation will become clear in chapter \ref{densem} which shows the
+details of its denotational semantics.
 %
 Before that, the syntax (section \ref{syntax}), type system (section
 \ref{tjudge}) and operational semantics (section \ref{opsem}) are presented.
