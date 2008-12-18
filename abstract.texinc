@@ -28,7 +28,7 @@ nominal setting.
 
 Here the original path-based domain theory for concurrency is developed within
 nominal set theory, which has the effect of systematically adjoining
-name-generation into the model.
+name-generation to the model.
 %
 This gives rise to an expressive metalanguage, Nominal HOPLA, which supports a
 notion of name-generation.
