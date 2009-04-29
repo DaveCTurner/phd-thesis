@@ -8,8 +8,9 @@ As such, it mostly consists of definitions, discussions and results that are
 well-known and published elsewhere, but which are collected here so that it is
 possible to make use of them with consistent nomenclature and notation.
 
-Notable exceptions to this rule include lemmas \ref{footprint} and
-\ref{lemma:finite:nset}, both of which are original work by the author.
+Notable exceptions to this rule include lemma \ref{footprint} and the
+non-implications of lemma \ref{lemma:finite:nset}, both of which are original
+work by the author.
 %
 Lemma \ref{footprint} in particular is a key insight that makes it possible to
 characterise the domain-theoretic notion of \textit{isolated} elements (also known
