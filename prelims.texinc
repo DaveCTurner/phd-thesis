@@ -337,7 +337,7 @@ permutation.
 
 \begin{lemma} \label{lemma:injextension} If $s \subseteq_{\mathrm{fin}} \mathbb
 A$ and $i : s \rightarrowtail \mathbb A$ is an injection then there exists a
-finite permutation $\sigma_i$ such that that the restriction of $\sigma_i$ to
+finite permutation $\sigma_i$ such that the restriction of $\sigma_i$ to
 $s$ is $i$.  \end{lemma}
 
 \begin{proof} The proof proceeds by induction on $|s|$.
