@@ -513,8 +513,8 @@ supports recursively-defined processes and nondeterministic sums.
 \item The operation $!$ gives rise to a primitive observable action. A richer
 structure of actions is supported by means of labelling.  \end{itemize}
 %
-Perhaps of the greatest importance is that all of this structure is given
-universally, rather than by \textit{ad hoc} definition.
+Perhaps of the greatest importance is that all of this structure is given by
+universal properties, rather than by \textit{ad hoc} definition.
 %
 That said, the domain theory based in $\mathbf{Cts}$ is no panacea.
 %
