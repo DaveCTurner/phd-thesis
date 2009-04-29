@@ -26,7 +26,8 @@ equation are trivial.
 A way around this problem was effectively to permit the model to contain
 `partial' elements, corresponding to partially-defined functions, and to equip
 the set $D$ with extra structure that captures the relationships between these
-partial elements.
+partial elements in terms of continuous operations with respect to an
+appropriate topology.
 %
 The resulting structured sets are generally all called domains, although this
 word has a variety of subtly different definitions depending on the detailed
