@@ -269,8 +269,11 @@ then $(be) = (de)(bd)(de)$. \end{proposition}
 
 The general result is now as follows.
 
-\begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be
-mutually disjoint finite sets of names such that $|D| > |B|$. Then for all
+\begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be finite
+sets of names such that $|D| > |B|$, $A \subseteq B$, and such that $B$ and $D$
+are disjoint.
+%
+Then for all
 permutations $\sigma$ such that $\sigma a = a$ for all $a \in A$ there exist
 permutations $\sigma_1$, $\sigma_2$, $\sigma_3$ such that \begin{itemize} \item
 $\sigma = \sigma_1 \sigma_2 \sigma_3$, and \item $\sigma_1 a = a$ and $\sigma_3
