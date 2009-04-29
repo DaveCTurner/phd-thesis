@@ -701,9 +701,9 @@ $\mathcal{P}_{\mathrm{fs}}$.
 
 \begin{lemma} \label{lemma:schequiv} Let $\mathbb I$ be the category whose
 objects are finite subsets of $\mathbb A$ and whose arrows are injections
-between them. Then the category $\mathbf{NSet}$ is equivalent to the full
-subcategory $\mathbf{Sch}$ of $\mathbf{Set}^{\mathbb I}$ consisting of those
-presheaves that preserve pullbacks.\end{lemma}
+between them. Then the category $\mathbf{NSet}$ is equivalent to the Schanuel
+topos $\mathbf{Sch}$ which is the full subcategory of $\mathbf{Set}^{\mathbb I}$
+consisting of those presheaves that preserve pullbacks.\end{lemma}
 
 \begin{proof}[Sketch Proof] A functor $F: \mathbf{NSet} \to \mathbf{Sch}$ is
 defined by \begin{equation} (F X) s \defeq \{ x \in X \mid \text{$s$ supports $x$}
