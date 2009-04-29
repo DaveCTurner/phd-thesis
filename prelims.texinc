@@ -805,6 +805,7 @@ $\freshin{a}{f a} = f d$ and $\freshin{b}{g b} = g d$, and $\freshin{c}{h\ (f c)
 Notice that as promised above it is clear that $\lambda c. h (f c)(g c)$
 satisfies the FCB: if $d \freshfor f, g, h$ then certainly $d \freshfor \lambda
 c. h (f c)(g c)$ and furthermore since $f$ and $g$ satisfy the FCB it follows
+from lemma \ref{lemma:FCB}
 that $d \freshfor f d$ and $d \freshfor g d$ so by lemma \ref{eqvt-supp-reduce}
 it follows that $d \freshfor h (f d)(g d)$ as required.  \end{proof}
 
