@@ -405,7 +405,7 @@ $\mathbf{PreRel}$ of preorders $\typeP, \typeQ, \ldots$ and monotone relations
 between them.
 %
 In other words, an arrow $R : \typeP \to \typeQ$ is a relation $R \subseteq
-\typeP \times \typeQ$ such that if $p' \le_{\typeP} p \mathrel{R} q \le_{\typeQ}
+\typeP \times \typeQ$ such that if $p' \ge_{\typeP} p \mathrel{R} q \ge_{\typeQ}
 q'$ then $p' \mathrel{R} q'$.
 %
 Composition in $\mathbf{PreRel}$ is straightforward relational composition, and
