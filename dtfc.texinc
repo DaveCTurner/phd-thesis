@@ -396,8 +396,8 @@ Dropping some of the generality developed above, in the following consider just
 the notion of approximation given by directedness and just the Hoare `may do'
 style of nondeterminism.
 %
-Viewing nondeterminism as a computational effect (in the style of Moggi
-\cite{moggi:monads}) draws attention to the Kleisli category of
+Viewing nondeterminism as a computational effect (in the style of
+Moggi\cite{moggi:monads}) draws attention to the Kleisli category of
 $\mathcal{P}_{H}$ which is well-known to be equivalent to the category
 $\mathbf{PreRel}$ of preorders $\typeP, \typeQ, \ldots$ and monotone relations
 between them.
