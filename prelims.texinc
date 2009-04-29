@@ -1130,8 +1130,7 @@ Therefore for all $n$ \begin{equation} \supp{x_{n+1}} = \supp{f(x_n)} \subseteq
 Therefore it cannot be that $\{x \in A \mid \supp{x} \subseteq \supp{f} \cup
 \supp{x_0}\}$ is finite, and hence $A$ is not (\ref{finite:stages})-finite as
 required.
-
-
+%
 \end{proof}
 
 \section{Conclusion}
