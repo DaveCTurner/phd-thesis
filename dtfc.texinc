@@ -177,8 +177,8 @@ Certain elements of a $\Phi$CPO $D$ cannot be reached by the join of a
 succession of increasingly close proper approximations and such elements are
 called \textit{isolated}.
 %
-Computationally, the isolated elements of $D$ correspond to those computations
-that can be realised in finite time.
+Computationally, the isolated elements of $D$ typically correspond to those
+computations that can be realised in finite time.
 %
 The terms \textit{compact} and \textit{finite} are also used in the literature,
 but this dissertation consistently uses the term \textit{isolated} which is
