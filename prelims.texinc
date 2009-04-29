@@ -134,8 +134,9 @@ where $\iota$ is the empty list, and \begin{equation} (a_1 b_1) \ldots (a_n b_n)
 = a_{n+1} \\ (a_1 b_1) \ldots (a_n b_n) a_{n+1} & a = b_{n+1} \\ (a_1 b_1)
 \ldots (a_n b_n)  a & \text{otherwise.} \end{cases} \end{equation}
 
-In fact, any finite automorphism may be represented as a permutation, as the
-following lemma shows.
+It is well-known that any finite automorphism may be represented as a
+permutation; the following lemma strengthens this result by restricting the
+length of this permutation and the names that it permutes as much as possible.
 
 \begin{lemma} \label{lemma:automorphism:permutation} Any finite automorphism
 $\sigma : \mathbb A \to \mathbb A$ may be represented as a sequence of
