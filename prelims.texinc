@@ -247,6 +247,9 @@ $\sigma$ may be represented as a permutation $\sigma_2$ such that
 %
 \end{itemize}
 %
+(The symbol $\sigma_2$ is chosen for consistency with the notation in the
+following lemma.)
+%
 Importantly a set $D$ may be chosen that suffices for any permutation $\sigma$,
 and a finite such $D$ exists, so $\sigma_2$ takes only finitely many possible
 values.
