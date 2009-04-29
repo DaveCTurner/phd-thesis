@@ -110,9 +110,9 @@ In the $\pi$-calculus\cite{milner:picalc}, for example, names may be used to
 identify communication channels between processes.
 %
 They may be passed from process to process to model the mobility of channels;
-they may be hidden to model the restriction of scope; and importantly a process
-may create a new channel, complete with a unique freshly-generated identifier,
-at will.
+and importantly they may be hidden to model the restriction of scope or, from
+another viewpoint, a process may create a new channel, complete with a unique
+freshly-generated identifier, at will.
 %
 The original semantics of the $\pi$-calculus was given operationally, but more
 recent work has developed denotational models
