@@ -839,8 +839,15 @@ Writing the equivalence classes as $[a].x \defeq [\langle x, a
 [a].x \mid a \in \mathbb A \text{ and } x \in X \}. \end{equation}
 %
 The permutation action is given by $\sigma \cdot ([a].x) \defeq [\sigma
-a].(\sigma \cdot x)$, from which it follows that $\supp{[a].x} = \supp{x}
-\setminus \{a\}$ and therefore $\delta X$ is a nominal set.
+a].(\sigma \cdot x)$, which is well-defined since if $[a].x = [a'].x'$ and $b$
+is a fresh name then $(ab) \cdot x = (a'b) \cdot x'$ so that $\sigma \cdot (ab)
+\cdot x = \sigma \cdot (a'b) \cdot x'$ and hence $(\sigma a\ b) \cdot (\sigma
+\cdot x) = (\sigma a'\ b) \cdot (\sigma \cdot x')$ by lemma
+\ref{lemma:perm-swap} so that finally $[\sigma a].(\sigma \cdot x) = [\sigma
+a'].(\sigma \cdot x')$ as required.
+%
+It follows that $\supp{[a].x} = \supp{x} \setminus \{a\}$ and therefore $\delta
+X$ is a nominal set.
 
 If $x' \in \delta X$ and $a \freshfor x'$ then define the \define{concretion}
 $x'@a$ as the unique $x \in X$ such that $x' = [a].x$.
