@@ -80,7 +80,8 @@ a partial order $\langle D, \sqsubseteq_{D} \rangle$ that has joins of all
 increasing $\omega$-chains in $D$.\end{definition}
 
 A more general notion of convergence is to consider approximation by
-directed sets.
+directed sets (which, to avoid any ambiguity, here does not include
+$\varnothing$.)
 %
 \begin{definition} A \define{complete partial order (CPO)} is a
 partial order $\langle D, \sqsubseteq_{D} \rangle$ that has
