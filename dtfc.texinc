@@ -4,8 +4,8 @@ pieces of syntax by assigning to each program $P$ a mathematical object
 $\sem{P}$ that $P$ is said to \textit{denote}, and whose mathematical properties
 correspond to the computational properties of $P$.
 %
-Domain theory is the foundation of denotational semantics, using mathematical
-structures called \textit{domains} as universes of denotations.
+Domain theory is an important branch of denotational semantics, using
+mathematical structures called \textit{domains} as universes of denotations.
 %
 Its origins lie in work in the 1960s when Scott was searching for a setting for
 denotational semantics as pioneered by the work of Strachey.
