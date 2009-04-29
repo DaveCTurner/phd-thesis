@@ -817,8 +817,8 @@ abstractly as the Day tensor\cite{day:closedcats} of functors $\mathbb I \to
 %
 Concretely, if $X$ and $Y$ are nominal sets then \begin{equation}
 \label{def:otimes} X \otimes Y \defeq \{ \langle x, y \rangle \in X \times Y
-\mid x \freshfor y \}  \end{equation} with the action on arrows given
-componentwise.
+\mid x \freshfor y \}  \end{equation} with the action of the tensor on arrows
+given componentwise.
 %
 By an abstract argument that relies on the characterisation of $\otimes$ as the
 Day tensor, $\mathbf{NSet}$ is $\otimes$-monoidal closed.
