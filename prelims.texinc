@@ -1026,7 +1026,8 @@ distinct notions of finiteness as the following lemma shows.
 \begin{lemma} \label{lemma:finite:nset} Let $A \subseteq X$ be a
 finitely-supported subset of a nominal set $X$.
 %
-Then in the theory of nominal sets \[ \begin{array}{rc} & \text{$A$ is
+Then interpreting each of these $6$ sentences in the theory of nominal sets
+\[ \begin{array}{rc} & \text{$A$ is
 (\ref{finite:usual})-finite} \\ \Leftrightarrow & \text{$A$ is
 (\ref{finite:kuratowski})-finite} \\ \Leftrightarrow & \text{$A$ is
 (\ref{finite:directed})-finite} \\ \Rightarrow & \text{$A$ is
