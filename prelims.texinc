@@ -40,9 +40,9 @@ Furthermore, such a name may only make sense in a particular context.
 
 This concept can be seen to be surprisingly subtle when working fully formally.
 %
-Computers (and the formal systems that they implement) have no innate ability to
-deal with locally-scoped names, so this ability must be carefully implemented by
-hand.
+Computers (and the formal systems that they implement) have no such innate
+ability to deal with locally-scoped names, so this ability must be carefully
+implemented by hand.
 %
 Over the years a variety of ways to deal with locally-scoped names have been
 created.
