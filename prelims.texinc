@@ -963,8 +963,8 @@ such that $A \subseteq B_i$.
 \subseteq \bigcup B_n$ there exists $n \in \mathbb N$ such that $A \subseteq
 B_n$.
 %
-\item \label{finite:dedekind} Dedekind's definition: $A$ is finite if there
-exist no injections into any of its proper subsets.
+\item \label{finite:dedekind} Dedekind's definition: $A$ is finite if it has no
+injections into any of its proper subsets.
 %
 \newcounter{finitenessdefs} \setcounter{finitenessdefs}{\value{enumi}}
 \end{enumerate}
