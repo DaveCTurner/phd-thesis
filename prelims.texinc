@@ -745,7 +745,10 @@ condition for binders} (FCB) if there exists $a \in \mathbb A$ such that $a
 
 \begin{lemma} \label{lemma:FCB} If $f : \mathbb A \to X$ satisfies the FCB then
 there exists a unique $x \in X$ such that for any name $a \freshfor f$, $f a =
-x$. \end{lemma}
+x$.
+%
+Furthermore, in this case $\supp{x} \subseteq \supp{f}$ and in particular $a
+\freshfor x$.\end{lemma}
 
 \begin{proof} Since $f$ satisfies the FCB let $a \in \mathbb A$ be such that $a
 \freshfor f$ and $a \freshfor f a$.
@@ -758,7 +761,11 @@ Then $f b = ((ab) \cdot f) b = (ab) \cdot (f ((ab) b)) = (ab) \cdot (f a)$.
 %
 However $b \freshfor f, a$ implies that $b \freshfor fa$ and by assumption $a
 \freshfor fa$ so that $(ab) \cdot (f a) = f a$ and hence $f b = f a$ which means
-that $f a$ is the unique element of $X$ as required. \end{proof}
+that $f a$ is the unique element of $X$ as required.
+
+Lemma \ref{eqvt-supp-reduce} shows that $\supp{f a} \subseteq \supp{f, a}$, and
+$a \freshfor f a$ by the argument above, so it follows that $\supp{f a}
+\subseteq \supp{f, a} \setminus \{a\} = \supp{f}$.\end{proof}
 
 \begin{definition} \label{def:freshin} If $f : \mathbb A \to X$ satisfies the
 FCB then write $\freshin{b}{f b}$ for the unique $x \in X$ such that for any
