@@ -490,8 +490,8 @@ It is worth discussing some examples of nominal sets.
 
 \subsubsection{Discrete nominal sets.}
 %
-Any set may be given the trivial $\mathcal G$-action $\sigma \cdot x = x$ and
-with respect to this action every element has empty support. A set with the
+Any set may be given the trivial $\mathcal G$-action $\sigma \cdot x \defeq x$
+and with respect to this action every element has empty support. A set with the
 trivial $\mathcal G$-action is called a discrete nominal set.
 %
 Any finite nominal set is necessarily discrete.
