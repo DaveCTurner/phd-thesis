@@ -974,8 +974,8 @@ characterising the subsets of a nominal set that are, in some sense, finite.
 finite if it bijects with a finite ordinal.
 %
 \item \label{finite:kuratowski} Kuratowski's definition: $\varnothing$ is
-finite, $\{x\}$ is finite for each $x$ and if $A$ and $B$ are finite then so is
-$A \cup B$.
+finite, $\{x\}$ is finite for each $x$, if $A$ and $B$ are finite then so is $A
+\cup B$, and no other sets are finite.
 %
 \item \label{finite:directed} $A$ is finite if for all directed collections
 $(B_i)_{i \in I}$ such that $A \subseteq \bigcup B_i$ there exists $i \in I$
