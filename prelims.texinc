@@ -370,7 +370,7 @@ More details and longer discussions are available elsewhere\cite{PittsAM:alpsri}
 \begin{definition} Write \define{$\mathcal G$} for the group of finite
 permutations of $\mathbb A$. \end{definition}
 
-\begin{definition} A \define{$\mathcal G$-set} is a set $X$ together with an
+\begin{definition} A \define{$\mathcal G$-set} is a set $X$ together with a left
 $\mathcal G$-action, written as the infix operator $\cdot_X$ or more commonly
 simply $\cdot$ where the set $X$ is clear from the context. \end{definition}
 
