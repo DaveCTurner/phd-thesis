@@ -25,7 +25,12 @@ inclusion to form the nominal partial order $\widehat{\typeP}$, which can be
 interpreted as a domain of the meanings of processes of type $\typeP$. More
 generally, if $\typeP$ is any FM-preorder then define \begin{equation}
 \label{hat:objects} \widehat{\typeP} \defeq \{x_\downarrow \mid x
-\subseteq_{\mathrm{fs}} \typeP\},\end{equation} ordered by inclusion. Such a
+\subseteq_{\mathrm{fs}} \typeP\},\end{equation} ordered by inclusion.
+%
+(For the sake of definiteness, the set comprehension involved in the definition
+above is external to the universe of nominal sets.)
+%
+Such a
 poset is an FM-complete join-semilattice in the sense that every
 finitely-supported subset of $\widehat{\typeP}$ has a join in $\widehat{\typeP}$
 given by its union.
