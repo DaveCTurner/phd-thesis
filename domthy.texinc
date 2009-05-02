@@ -82,8 +82,7 @@ permutation $\sigma$, $\sigma \cdot f(p) = f(\sigma \cdot p)$ (i.e.  it is
 equivariant).\end{definition}
 
 \begin{definition} The category \define{$\mathbf{NPre}$} has nominal preorders
-for objects and nominal monotone functions between them for
-arrows.\end{definition}
+for objects and nominal monotone functions for arrows.\end{definition}
 
 It is not hard to see that this structure really is a category: the composition
 of monotone functions is monotone and the composition of equivariant functions
