@@ -183,7 +183,7 @@ Fraenkel-Mostowski (FM) set theory.
 FM set theory is closely related to the theory of nominal sets.
 %
 The cumulative hierarchy of FM sets $\mathcal{V}_{\mathrm{FM}}$ is constructed
-similarly to the the von Neumann hierarchy $\mathcal{V}_{\mathrm{ZF}}$ of ZF set
+similarly to the von Neumann hierarchy $\mathcal{V}_{\mathrm{ZF}}$ of ZF set
 theory, with the following differences\cite{PittsAM:newaas-jv}.
 %
 Firstly, the starting point includes an infinite collection of atoms as well as
