@@ -167,8 +167,8 @@ its support then it might be desirable to record this information in the type of
 that computation. This could be achieved by means of an operation
 $(-)^{\freshfor a}$ which essentially deletes all elements with $a$ in their
 supports from the denotation of the type. This operation certainly does not
-result in a nominal set in general: for example, recall that $\mathbb A$ is the
-nominal set of all names (with the obvious permutation action) but $\mathbb A
+result in a nominal set in general: for example, $\mathbb A$ is the
+nominal set of all names but $\mathbb A
 ^{\freshfor a} = \mathbb A \setminus \{a\}$ is not a nominal set, as $b \in
 \mathbb A ^{\freshfor a}$ but $a = (ab) \cdot b \notin \mathbb A ^{\freshfor a}$
 so $\mathbb A^{\freshfor a}$ is not closed under the permutation action.
