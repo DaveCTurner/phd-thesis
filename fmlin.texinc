@@ -75,8 +75,10 @@ algebraicity of $\widehat{\typeP}$, and it is not hard to show that it preserves
 finitely-supported joins and that it is itself finitely-supported. In
 particular, if $C$ is of the form $\widehat{\typeQ}$ then this shows that
 finitely-supported monotone maps $\typeP \to \widehat{\typeQ}$ are in bijective
-correspondence with finitely-supported finitely-supported-join-preserving maps
-$\widehat{\typeP} \to \widehat{\typeQ}$.  For brevity, call such maps
+correspondence with finitely-supported maps $\widehat{\typeP} \to
+\widehat{\typeQ}$ that preserve finitely-supported joins.
+%
+For brevity, call such maps
 `FM-linear' or simply `linear'.
 
 Notice that if $f$ and $g$ are linear maps $\widehat{\typeP} \to
