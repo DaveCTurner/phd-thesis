@@ -30,7 +30,7 @@ functors $(-)^{\freshfor a+}$ and $\delta_a^+$, as described in lemmas
 linearity.
 %
 This ensures that these functors are suitable candidates for a binding
-adjunction on the continuous categories,
+adjunction on the continuous categories.
 
 Finally, section \ref{subsect:cts:structure} studies the structure of the
 induced categories of continuous maps and describes certain universal
