@@ -638,7 +638,8 @@ the internal function space is given by $\typeQ \multimap \typeR \defeq
 
 \subsubsection{Name Binding.} \label{subsubsect:deltafreshadjlin} If $a \in
 \mathbb A \setminus s$ then there is an adjunction on the FM-linear categories
-that is analogous to the adjunction $(-)^{\freshfor a} \dashv \delta_a$
+that is analogous to (and built from) the adjunction $(-)^{\freshfor a} \dashv
+\delta_a$
 described in lemma \ref{deltafreshadj}.
 %
 Abstractly this adjunction arises from the general argument of section
