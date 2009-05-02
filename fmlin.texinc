@@ -61,7 +61,12 @@ $\widehat{\typeP}$ has all finitely-supported joins and if $C$ is a FM-poset tha
 also has all finitely supported joins and $f : \typeP \to C$ is a monotone
 finitely-supported function then there is a unique finitely-supported
 $f^{\dagger} : \widehat{\typeP} \to C$ that preserves all finitely supported
-joins and such that the following diagram commutes.  \begin{equation} \label
+joins and such that the following diagram commutes. Note that the $\mathbb{P}$th
+component of the natural transformation $\{\cdot\}_{\downarrow} : \mathbf{1} \to
+\widehat{(-)}$ is written $\{\cdot\}_{\typeP}$ and not
+$\{\cdot\}_{\downarrow\typeP}$.
+%
+\begin{equation} \label
 {hat:freeness} \xymatrix{ \typeP \ar[r]^{\{\cdot\}_{\typeP}} \ar[dr]_f &
 \widehat{\typeP} \ar[d]^{f^{\dagger}} \\& C}\end{equation} The function
 $f^{\dagger}$ is given by \begin{equation}f^{\dagger}x \defeq \bigvee\{f p \mid
