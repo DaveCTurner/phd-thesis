@@ -7,7 +7,7 @@ perform actions spontaneously, without having received any input, but linear
 maps are join-preserving so that they preserve empty joins in particular and
 hence a linear process with no input can generate no output.
 
-The solution to this issue is be to consider maps which are continuous (with
+The solution to this issue is to consider maps which are continuous (with
 respect to some notion of approximation) rather than merely linear. In the
 development of HOPLA\cite{nygaardwinskel1}, continuity was chosen to mean
 `preserves directed joins' but the discussion of section \ref{bindingdiscts}
