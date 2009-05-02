@@ -335,6 +335,9 @@ It is sometimes useful to be able to extend an injection $i : s \rightarrowtail
 This is always possible if $s$ is finite, although there is never a unique such
 permutation.
 
+\subsubsection{Notation.} If two sets $A$, $B$ are disjoint then their
+union $A \cup B$ may be written as $A \udot B$ to emphasize its disjointness.
+
 \begin{lemma} \label{lemma:injextension} If $s \subseteq_{\mathrm{fin}} \mathbb
 A$ and $i : s \rightarrowtail \mathbb A$ is an injection then there exists a
 finite permutation $\sigma_i$ such that the restriction of $\sigma_i$ to
