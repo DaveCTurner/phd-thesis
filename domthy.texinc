@@ -222,7 +222,7 @@ For example, the freshness predicate $\freshfor$ and the construction
 $\freshin{\ldots}{\ldots}$ immediately carry across to FM set theory since any
 FM set can be seen as a subset of the nominal `set' $\mathcal{V}_{\mathrm{FM}}$.
 
-For example, the analogue of the concept of a preorder in FM set theory is a
+The analogue of the concept of a preorder in FM set theory is a
 \textit{FM-preorder}, which is a pair $\langle \typeP, \mathord{\le}_{\typeP}
 \rangle$ where $\typeP$ and $\le_{\typeP}$ are both FM sets such that
 $\le_{\typeP}$ is a reflexive and transitive binary relation on $\typeP$.
