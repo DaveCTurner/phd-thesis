@@ -103,7 +103,7 @@ iff $p_1 \le_{\typeP} p_2$ and $q_1 \le_{\typeQ} q_2$.
 The coproduct of $\typeP$ and $\typeQ$ is given by $\langle \typeP + \typeQ,
 \le_{\typeP +\typeQ} \rangle$ where $\typeP + \typeQ \defeq \typeP \uplus
 \typeQ$ with the permutation action given componentwise, and
-$\mathord{\le_{\typeP + \typeQ}} = \mathord{\le_{\typeP}} \uplus
+$\mathord{\le_{\typeP + \typeQ}} \defeq \mathord{\le_{\typeP}} \uplus
 \mathord{\le_{\typeQ}}$.
 
 The category $\mathbf{NPre}$ is also cartesian closed, where the function space
