@@ -1416,6 +1416,9 @@ As shown in \ref{freshhat:continuous} and \ref{deltahat:continuous}, the actions
 of $(-)^{\freshfor a++}$ and $\delta_a^{++}$ do send continuous maps to
 continuous maps as required.
 %
+That this genuinely is an adjunction follows from the abstract arguments of
+\ref{binding-cts:concrete}.
+%
 Also, the action of $(-)^{\freshfor a+}$ interacts well with the unit $\eta$ of
 the ${!}$ comonad as follows.
 
