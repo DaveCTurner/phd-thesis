@@ -301,7 +301,8 @@ Also $s \subseteq s'$ so that $\sigma \freshfor s$ and hence $\sigma^{-1} \cdot
 p \in \finelt{F}{s}$ which implies that $p' \in \finelt{F}{s\downarrow}$ as
 required.\end{proof}
 
-\begin{lemma}\label{fineltextension} If $\supp{\typeP} \subseteq s \subseteq s'$
+\begin{lemma}\label{fineltextension} If $\supp{\typeP} \subseteq s \subseteq s'
+\subseteq_{\mathrm{fin}} \mathbb A$
 and $F \subseteq \typeP$ is finite then there exists a finite $F' \subseteq
 \typeP$ such that $\finelt{F}{s} = \finelt{F'}{s'}$.  \end{lemma}
 
