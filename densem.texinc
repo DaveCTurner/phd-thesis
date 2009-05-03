@@ -58,8 +58,9 @@ $\sem{\cdot}$ around the denotations of types in HOPLA and its derivatives.)
 It is therefore possible to construct a denotation for $\typeP$ in terms of a
 language of paths, given by the grammar \begin{equation} p ::= Q \mid
 \mappath{Q}{p} \mid \labelpath{\ell}{p} \mid \abspath{p} \mid \newpath{a}{p},
-\end{equation} where $Q$ is a set of paths of the form $\finelt{\{p_1, \ldots,
-p_n\}}{s}$, $\ell$ is a label and $a$ is a name.
+\end{equation} where $\ell$ is a label, $a$ is a name, and $Q$ is a set of paths
+of the form $\finelt{\{p_1, \ldots, p_n\}}{s}$ which denotes an element of
+$\typelift\typeP$ as defined in \ref{def:bangP}.
 %
 A path of the form $\mappath{Q}{p}$ denotes a pair $\langle Q, p \rangle$ in the
 continuous function space $\typemap{\typeQ}{\typeP} =
