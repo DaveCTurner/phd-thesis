@@ -15,8 +15,7 @@ equivalent to the Schanuel topos $\mathbf{Sch}$ of pullback-preserving
 presheaves over $\mathbb I^{\mathrm{op}}$.
 %
 In fact, Johnstone\cite[Examples A2.1.11(g)]{johnstone:elephant:i} comments that
-$\mathbf{Sch}$ is precisely the category of sheaves over $\mathbb
-I^{\mathrm{op}}$.
+$\mathbf{Sch}$ is a category of sheaves over $\mathbb I^{\mathrm{op}}$.
 %
 Others\cite{fiore:picalc,stark:picalc} have made sense of binding operators in a
 more general functor category $[\mathbb I, \mathcal{C}]$ for some suitable
