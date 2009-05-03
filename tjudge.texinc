@@ -74,7 +74,7 @@ perform and the resumption is of type $\typePp$.
 \]
 
 \subsubsection{Prefix.} The term constructor $\bang{}$ takes a term $t$ to a
-term $\bang{t}$ that intuitively may perform an anonymous action $\bangaction$
+term $\bang{t}$ that intuitively may perform a primitive action $\bangaction$
 and resume as $t$.
 %
 The possible action $\bangaction$ is recorded in the type.
