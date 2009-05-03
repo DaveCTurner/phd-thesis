@@ -67,4 +67,18 @@ details of its denotational semantics.
 Before that, the syntax (section \ref{syntax}), type system (section
 \ref{tjudge}) and operational semantics (section \ref{opsem}) are presented.
 
+This development follows extremely closely that of HOPLA by Nygaard and
+Winskel\cite{nygaardwinskel1}, translated to a nominal setting.
+%
+The main differences are the mention of supports in typing judgements (although
+lemma \ref{typerestrictsupport} demonstrates that these may eventually be
+dropped) and the two new term formers $\new{a}{t}$ and $\newapply{t}{a}$ which
+are very similar to the $\new{\alpha}{t}$ and $\newapply{t}{\alpha}$ of Winskel
+and Zappa Nardelli's new-HOPLA\cite{WZ04}, and which
+arise directly from the adjunction
+$(-)^{\freshfor a++} \dashv \delta_a^{++}$ of \ref{deltafreshadjcts}.
+
+
+%
+
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
