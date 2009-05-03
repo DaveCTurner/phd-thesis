@@ -468,11 +468,14 @@ that $\mathbf{FMLin}_s$ is a subcategory of $\mathbf{FMCts}_s$.
 
 Following the development of HOPLA, it will be possible to characterise
 FM-continuous maps in terms of FM-linear maps whose domain is under an
-exponential ${!}$ which captures the appropriate notion of approximation.  Here,
-$\typelift\typeP$ will consist of the all elements of the form $\finelt{F}{s}$
+exponential ${!}$ which captures the appropriate notion of approximation.
+%
+\begin{definition} \label{def:bangP} The preorder
+$\typelift\typeP$ consists of the all elements of the form $\finelt{F}{s}$
 where $F \subseteq_{\mathrm{fin}} \typeP$ and $s$ supports $\typeP$ and the
 ordering is given by letting $P \le_{\typelift\typeP} P'$ whenever $P \subseteq
 P'_\downarrow$.
+\end{definition}
 %
 Write $i_{\typeP}$ for the map $i_{\typeP} : \typelift\typeP \to
 \widehat{\typeP}$ given by $i_{\typeP} P \defeq P_\downarrow$.
