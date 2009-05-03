@@ -16,7 +16,8 @@ $t_0$ can perform the path $p$ and $t_1$ operationally subsumes $t_0$ then $t_1$
 can also follow the path $p$.
 %
 These technical lemmas are important building blocks in demonstrating that if $p
-\in \sem{t}$ then $t$ can perform the path $p$ in the next section.
+\in \sem{t}$ then $t$ can perform the path $p$ which is the subject of the next
+section.
 
 % Definition of \trianglelefteq_{\mathbb P} {{{
 \begin{equation} \label{def:logrel} \begin{array}[t]{rcl}
