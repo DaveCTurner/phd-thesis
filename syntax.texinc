@@ -57,6 +57,9 @@ by their unfoldings.
 %
 For a more detailed intuition about this system of types, see the operational
 semantics of Nominal HOPLA as described in section \ref{opsem}.
+%
+Note that this type system corresponds closely to that of HOPLA: the only
+difference is the new type former $\delta$.
 
 \subsection{Syntax of Environments}
 
