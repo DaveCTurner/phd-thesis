@@ -63,8 +63,8 @@ continuous function space $\typemap{\typeQ}{\typeP} =
 \typelift{\typeQ}^{\mathrm{op}} \times \typeP$.
 %
 A path of the form $\newpath{a}{p}$ denotes an equivalence class $[a].p$ in the
-path order $\delta\typeP$, and in particular if $b$ is a fresh name then $[a].p
-= [b].((ab) \cdot p)$.
+path order $\delta\typeP$, and in particular if $b$ is a fresh name then
+$\newpath{a}{p} = \newpath{b}{((ab) \cdot p)}$.
 %
 A path of the form $\labelpath{\ell_0}{p}$ denotes a path in the $\ell_0$th
 component of the biproduct $\stdtypesum$.
