@@ -77,8 +77,19 @@ Finally a path of the form $\abspath{p}$ denotes a path in the
 recursively-defined type $\typerec{j}{P}{\typeP}$, where $p$ is a path of the
 unfolded type $\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$.
 
-To capture this intuition, paths are typed by judgements of the form $p :
-\typeP$ according to the following rules.  \begin{equation}
+It is recognised that confusion might arise from using the letter $p$ here to
+range over paths whereas in the previous chapter $p$ was used for actions.
+%
+There is an unfortunate clash between the use of $a$ to range over actions in
+the standard treatment of HOPLA and the use of $a$ to range over names in the
+standard treatment of nominal set theory.
+%
+Using $a$ for both of these purposes here is impossible, but there are no other
+appropriate letters, so because of the closeness of the relationship between
+paths and actions, $p$ is used for both.
+
+To capture the intuition described above, paths are typed by judgements of the
+form $p : \typeP$ according to the following rules.  \begin{equation}
 \begin{array}[t]{ccc}
 %
 \infer{\finelt{\{p_1, \ldots, p_n\}}{s} : \typelift\typeP} {p_1 : \typeP &
