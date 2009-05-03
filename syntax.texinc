@@ -135,7 +135,7 @@ application} \\
 %
 &&\bigmid \linj{\ell}{t} \bigmid \lproj{\ell}{t} && \text{labelling}\\
 %
-&&\bigmid \ndsum{i}{I}{t_i} && \text{nondeterminstic sum} \\
+&&\bigmid \ndsum{i}{I}{t_i} && \text{nondeterministic sum} \\
 %
 &&\bigmid \abs{t} \bigmid \rep{t} && \text{recursive types}\\ \end{array}
 \end{equation} 
