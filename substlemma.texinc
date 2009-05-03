@@ -17,7 +17,12 @@ variables in $\Gamma$ are distinct from those in $\Delta$.  Then \[\tjudge{s
 }}{\termsubst{t}{v}{y}}{\typeP}\] \end{lemma}
 
 % Proof of Substitution Lemma {{{
-\begin{proof} The proof is by induction over the typing rules. Because of the
+\begin{proof} The proof is by a very routine induction over the typing rules.
+%
+It does not provide any especially deep insights and can be skipped by all but
+the most dedicated of readers.
+%
+Because of the
 structural rules of contraction and exchange it is necessary to use a stronger
 induction hypothesis than that given by the statement of the lemma:
 
