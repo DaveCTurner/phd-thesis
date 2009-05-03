@@ -896,7 +896,7 @@ and its inverse by letting \begin{equation} \theta^{!}_{\typeP}
 \bigl([b].\finelt{F}{s'}\bigr) \defeq \finelt{\{[b].p \mid p \in F\}}{s'
 \setminus \{b\}} \text{ where $b \in s' \supseteq s$} \end{equation} and
 \begin{equation} {\theta^{!}_{\typeP}}^{-1} \finelt{\{[b].p \mid p \in
-F\}}{s'\downarrow} \defeq [b].\finelt{F}{s' \udot \{b\}\downarrow} \text{ where
+F\}}{s'} \defeq [b].\finelt{F}{s' \udot \{b\}} \text{ where
 $b \notin s' \supseteq s$.} \end{equation}
 %
 This latter map can importantly be characterised as follows.
