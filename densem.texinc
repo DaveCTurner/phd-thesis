@@ -278,7 +278,7 @@ gives rise to a semantics for recursive processes (\ref{densem:rec}) as the
 $\omega$-limit of their finite unfoldings.
 
 By \ref{cts:homsets} the hom-sets may be collected together to form
-\begin{equation} \bigcup_{s \subseteq_{\mathrm{fin}} \mathbb A}
+\begin{equation} \bigcup_{\supp{\Gamma} \subseteq s \subseteq_{\mathrm{fin}} \mathbb A}
 \mathbf{FMCts}_s(\sem{\Gamma}, \typeP) \cong
 \matthat{{!}\sem{\Gamma}^{\mathrm{op}} \times \typeP} \end{equation} which has
 more general joins than merely those of $\omega$-chains, and such joins give
