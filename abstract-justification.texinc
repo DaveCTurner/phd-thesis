@@ -994,7 +994,8 @@ the identity on $FA$ respectively, which demonstrates the triangular identity
 for $F^+$. This completes the proof.
 \end{proof}
 
-The commuting diagrams (a) -- (f) may be referred to respectively as the `left
+The commuting diagrams (a) -- (f) of lemma \ref{adjunctionlift} 
+may be referred to respectively as the `left
 triangle', `left pentagon', `unit square', `right triangle', `right pentagon'
 and `counit square'.
 
