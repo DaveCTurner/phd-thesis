@@ -52,6 +52,9 @@ assumptions, as demonstrated in section \ref{densem:environments}.
 A closed type $\typeP$ denotes the collection of paths of type $\typeP$ ordered
 by extension.
 %
+(It is conventional, albeit confusing, to omit the semantic brackets
+$\sem{\cdot}$ around the denotations of types in HOPLA and its derivatives.)
+%
 It is therefore possible to construct a denotation for $\typeP$ in terms of a
 language of paths, given by the grammar \begin{equation} p ::= Q \mid
 \mappath{Q}{p} \mid \labelpath{\ell}{p} \mid \abspath{p} \mid \newpath{a}{p},
