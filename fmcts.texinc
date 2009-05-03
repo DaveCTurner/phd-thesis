@@ -119,6 +119,12 @@ support.  Therefore \begin{equation} \label{allnamecomp:finite}
 \mathop{\mathtt{+}} \ldots \mathop{\mathtt{+}} \linj{b_n}{\bang{\inactive}}} =
 \{ [a'].b_1, \ldots, [a'].b_n \}.  \end{equation} But this is a contradiction:
 $[a].a = [a'].a' \neq [a'].b_i$ for any $i$ as $a'$ was chosen to be fresh.
+
+If it is unpalatable to take a sum over the set $\mathbb A$ of all names, notice
+that the argument above also applies to a term of the form
+$\ndsum{b}{B}{\labelaction{b}{\bang{\inactive}}}$ for any cofinite $B
+\subseteq_{\mathrm{fs}} \mathbb A$, since it rests only on the fact that $B$ is
+infinite but finitely supported.
 %
 From all of the speculative assumptions made in this example, the least
 convincing is that $\sem{\new{a}{\termvar{x}}}$ must preserve directed joins, so
