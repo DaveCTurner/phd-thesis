@@ -179,8 +179,8 @@ p \neq p$ by lemma \ref{supp-in-out} which is a contradiction, so that $\supp{p}
 \subseteq \supp{\typeP}$ as required.  \end{proof}
 
 \begin{definition} An \define{increasing FM-sequence} in a FM-poset $D$ is an
-increasing sequence (i.e. a monotone function from some ordinal $\alpha$ to $D$)
-that is additionally finitely-supported.  \end{definition} 
+increasing sequence (i.e. a monotone function from some (external) ordinal
+$\alpha$ to $D$) that is additionally finitely-supported.  \end{definition} 
 
 Notice that the ordinal $\alpha$ is totally ordered, so if $d_0 \le d_1 \le
 \ldots$ is an increasing FM-sequence in $D$ then each $d_i$ in the sequence
