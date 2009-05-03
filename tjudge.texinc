@@ -4,7 +4,7 @@
 Nominal HOPLA is a strongly typed language, and its terms and actions are typed
 as defined in this section.
 %
-This definition is given by a structural recursion, and it is is mutually
+This definition is given by a structural recursion, and it is mutually
 recursive since the term $t$ appears in the action $\mapaction{t}{p}$ and
 conversely the action $p$ appears in the term
 $\matchz{s'}{u}{p}{x}{t}{\typeQp}$.
