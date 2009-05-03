@@ -734,7 +734,7 @@ there exists $F \subseteq \typeP^{\freshfor a}$ such that $P =
 
 It therefore makes sense to define $\phi^{!} : {({!}-)}^{\freshfor a} \to
 {!}((-)^{\freshfor a})$ and its inverse by letting \begin{equation}
-\phi^{!}_\typeP \finelt{F}{s} \defeq \finelt{F}{s' \udot \{a\}} \text{ where $a
+\phi^{!}_\typeP \finelt{F}{s'} \defeq \finelt{F}{s' \udot \{a\}} \text{ where $a
 \notin s' \supseteq s$ } \end{equation} and \begin{equation}
 {\phi^{!}_{\typeP}}^{-1} \finelt{F}{s'} \defeq \finelt{F}{s' \setminus \{a\}}
 \text{ where $a \in s' \supseteq s$.} \end{equation}
