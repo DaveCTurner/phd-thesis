@@ -50,10 +50,10 @@ A process of type $\stdtypesum$ behaves as any of its components
 $\typePsub{\ell_0}$ with the actions of the component having been tagged by the
 label $\ell_0$.
 %
-The recursively-defined type $\typerec{j}{P}{\typeP}$ is isomorphic to its
-unfolding $\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$ and so processes of
-recursively-defined types behave similarly to processes typed by their
-unfoldings.
+The recursively-defined type $\typerec{j}{P}{\typeP}$ is isomorphic to the
+$j$th component of its unfolding $\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$ and
+so processes of recursively-defined types behave similarly to processes typed
+by their unfoldings.
 %
 For a more detailed intuition about this system of types, see the operational
 semantics of Nominal HOPLA as described in section \ref{opsem}.
