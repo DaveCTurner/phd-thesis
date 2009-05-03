@@ -192,9 +192,11 @@ This concludes the definition of the type system for terms.
 The weakening, exchange, contraction, fresh-weakening and support-weakening rules
 are together called the \textit{structural} rules.
 %
-The syntax-directed nature of the typing rules, means that it is sometimes
-possible to derive information about the type of subterms from the type of a
-term.  The structural rules make this difficult to do in general, but for the
+The syntax-directed nature of the non-structural typing rules means that it is
+sometimes possible to derive information about the type of subterms from the
+type of a term.
+%
+The structural rules make this difficult to do in general, but for the
 purposes of this discussion it is enough to be able to derive type information
 about subterms of a closed term.
 
