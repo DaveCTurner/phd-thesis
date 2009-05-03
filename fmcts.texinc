@@ -54,6 +54,13 @@ $t$. In particular there will be a term $\new{a}{\termvar{x}}$ (where
 $\termvar{x}$ is a free variable) which receives a process as input in the
 variable $\termvar{x}$ and binds the name $a$ in its output.
 %
+The term $\termvar{x}$ (set in \texttt{teletype} typeface), is an
+\textit{object-level} variable which is therefore treated with the usual
+informal methods regarding binding and $\alpha$-conversion as discussed in
+chapter \ref{nomhopla}.
+%
+In particular, the permutation action on $\termvar{x}$ is discrete.
+
 As the effect of $\new{a}{t}$ is to bind $a$, if $b$
 is a fresh name then it should be the case that $\new{a}{t} = \new{b}{\bigl((ab)
 \cdot t\bigr)}$, and in particular the name $a$ should not be in the support of
