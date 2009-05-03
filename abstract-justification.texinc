@@ -88,11 +88,11 @@ The purist may wonder whether it is necessary that the foundations of this
 dissertation need to be as precisely specified as the cumulative hierarchy
 $\mathcal{V}_{\mathrm{FM}}$ of FM sets.
 %
-After all, $\mathbf{Nom}$ can be constructed as $Sh(\mathbf{Set}^{\mathbb I})$
+After all, $\mathbf{NSet}$ can be constructed as $Sh(\mathbf{Set}^{\mathbb I})$
 where $\mathbf{Set}$ is some category of sets, not necessarily one with a
 cumulative hierarchy out of which one can construct $\mathcal{V}_{\mathrm{FM}}$. 
 %
-Nor does $\mathbf{Nom}$ insist that the permutation action on any particular set
+Nor does $\mathbf{NSet}$ insist that the permutation action on any particular set
 is given by $\mathord{\in}$-recursion as FM set theory does.
 %
 More practically, conventional domain theory does not really require all the
