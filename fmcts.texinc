@@ -286,7 +286,8 @@ certain permutations, and the origin of the notation $\finelt{F}{s}$ is by
 analogy with a presentation of a group in terms of its generators: $\langle a,
 b, \ldots \mid R(a, b, \ldots) \rangle$.
 
-\begin{lemma} \label{finelt:mono} If $\supp{\typeP} \subseteq s \subseteq s'$
+\begin{lemma} \label{finelt:mono} If $\supp{\typeP} \subseteq s \subseteq s'
+\subseteq_{\mathrm{fin}} \mathbb A$
 and $F', F \subseteq_{\mathrm{fin}} \typeP$ are such that $F' \subseteq
 F_\downarrow$ then $\finelt{F'}{s'} \subseteq
 \finelt{F}{s\downarrow}$.\end{lemma}
