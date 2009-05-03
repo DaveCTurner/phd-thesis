@@ -142,7 +142,8 @@ Although the binding of variables is treated informally, the binding of the
 name $a$ in the form $\new{a}{t}$ must be treated more carefully. Strictly
 speaking, the form $\new{a}{t}$ is the equivalence class of pairs of names and
 terms that contains $\langle a, t \rangle$ under the usual $\alpha$-equivalence
-relation \begin{equation} \langle a, t \rangle \sim  \langle a', t' \rangle
+relation \begin{equation} \langle a, t \rangle \sim_\alpha \langle a', t'
+\rangle
 \quad\Leftrightarrow\quad \freshin{b}{ (ab) \cdot t = (a'b) \cdot t'}.
 \end{equation}
 %
