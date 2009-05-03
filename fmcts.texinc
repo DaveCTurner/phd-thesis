@@ -251,8 +251,21 @@ $\mathbb A \setminus s$.
 %
 Therefore $X$ is finite, and since it is also directed it contains a maximal
 element $x'$ and hence $x \subseteq x'$.
+
+The usual definition of isolation in the theory of FM sets would be with respect
+to approximation by finitely-supported directed sets.
 %
-More generally, \begin{definition} If $\typeP$ is a FM-preorder, $F$ a finite
+With this definition, isolated elements of $\widehat{\mathbb A}$ are precisely
+the finite subsets of $\mathbb A$.
+%
+Intuitively, the cofinite subsets (with support $s$) of $\mathbb A$ can also be
+represented by a finite process since if $B \subseteq \mathbb A$ is supported by
+$s$ then it is only necessary to check the membership status of the elements of
+$s$ and a single $a \notin s$ to characterise $B$.
+%
+Working towards a generalisation of this intuition,
+%
+\begin{definition} If $\typeP$ is a FM-preorder, $F$ a finite
 subset of $\typeP$ and $s$ a finite set of names that contains $\supp{\typeP}$
 then define \begin{equation} \label{def:finelt} \finelt{F}{s} \defeq
 \bigcup_{\sigma \freshfor s} \sigma \cdot F. \end{equation}
