@@ -1235,13 +1235,16 @@ Finally for any objects $\typeP$ of $\mathbf{FMCts}_s$ there is a diagonal map
 
 \subsubsection{Coproducts.}
 %
-Similarly to the situation in $\mathbf{FMLin}_s$, since $\mathbf{FMCts}_s$ is
-enriched over $\mathbf{CMon}$ and has finite products it follows that its
-products are in fact biproducts.
+In $\mathbf{FMLin}_s$ the finite products were also coproducts and there were
+relationships between the injections and projections that made them into
+biproducts.
 %
-In detail, the product $\typeP_1 \amp \typeP_2$ is also the coproduct of
-$\typeP_1$ and $\typeP_2$ --- the injections are given as in $\mathbf{FMLin}_s$
---- and the projections and injections satisfy \begin{equation}
+This structure carries across to $\mathbf{FMCts}_s$, except that there may not
+be a mediating arrow in the coproduct diagram if its legs are continuous but not
+linear.
+%
+In detail, the injections into the product $\typeP_1 \amp \typeP_2$ are given as
+in $\mathbf{FMLin}_s$ and the projections and injections satisfy \begin{equation}
 \label{biproducts:cts} \begin{array}[t]{c} \mathbf{out}_i \circ \mathbf{in}_i =
 \mathbf{1}_{\typeP_i} \quad \mathbf{out}_i \circ \mathbf{in}_j = \varnothing \
 (i \neq j) \\ ((\mathbf{in}_1 \circ \mathbf{out}_1) \cup (\mathbf{in}_2 \circ
@@ -1250,8 +1253,7 @@ $\typeP_1$ and $\typeP_2$ --- the injections are given as in $\mathbf{FMLin}_s$
 
 \subsubsection{Generalised Biproducts.} \label{fmcts:genbiproducts}
 %
-Similarly to the fact that products and coproducts in $\mathbf{FMLin}_s$ are
-also products and coproducts in $\mathbf{FMCts}_s$, the object $\stdtypesum$
+Similarly to the situation in $\mathbf{FMLin}_s$, the object $\stdtypesum$
 behaves as a `generalised biproduct' in $\mathbf{FMCts}_s$ when the mapping
 $\ell \mapsto \typePsub{\ell}$ is supported by $s$.
 %
