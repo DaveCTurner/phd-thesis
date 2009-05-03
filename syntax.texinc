@@ -23,6 +23,12 @@ Types are given by the grammar \begin{equation} \typeP, \typeQ ::= \typevar{P}
 type variable, $\vec{P}$ is a list of type variables, and
 $\typerec{j}{P}{\typeP}$ binds $\vec{P}$.
 %
+Note that this grammar allows types to be defined by \textit{mutual} recursion,
+where $\typerec{j}{P}{\typeP}$ defines the $j$th component of the mutual
+definition, and its first unfolding (substituting $\typerec{k}{P}{\typeP}$ in
+for the $k$th variable for each $k$) is written
+$\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]$.
+%
 A closed type is a type with no free variables, and in the following, closed
 types are normally simply called `types'.
 %
