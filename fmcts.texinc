@@ -1137,12 +1137,6 @@ structure, given by $\subseteq$, and joins given by union.
 %
 Furthermore composition preserves joins in both its arguments, and in particular
 it is monotone.
-%
-The order structure on the hom-sets gives rise to a commutative monoid
-structure, with multiplication given by $\cup$ and unit given by $\varnothing$.
-%
-Moreover composition is a monoid homomorphism which makes it possible to view
-each $\mathbf{FMCts}_s$ as being enriched over $\mathbf{CMon}$.
 
 More generally, if $(f_i)_{i \in I}$ is a collection of continuous maps $\typeP
 \cto \typeQ$ where the mapping $i \mapsto f_i$ is supported by $s$ then their
