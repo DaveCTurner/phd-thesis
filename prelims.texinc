@@ -1067,8 +1067,16 @@ theory of nominal sets: \begin{enumerate}[(1)]
 s\}$ is (\ref{finite:usual})-finite for each $s \subseteq_{\mathrm{fin}} \mathbb
 A$. \setcounter{finitenessdefs}{\value{enumi}} \end{enumerate}
 
-In fact, these \arabic{finitenessdefs} characterisations capture only three
+In fact, these \arabic{finitenessdefs} characterisations capture three
 distinct notions of finiteness as the following lemma shows.
+%
+The non-implications (\ref{finite:chain})-finite $\not\Rightarrow$
+(\ref{finite:usual})-finite and (\ref{finite:dedekind})-finite $\not\Rightarrow$
+(\ref{finite:chain})-finite are the key features of this lemma.
+%
+Many of the other implications are well-known
+general results\cite[Chapter D2]{johnstone:elephant:ii}.
+
 
 \begin{lemma} \label{lemma:finite:nset} Let $A \subseteq X$ be a
 finitely-supported subset of a nominal set $X$.
