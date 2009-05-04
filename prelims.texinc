@@ -313,8 +313,8 @@ then $(be) = (de)(bd)(de)$. \end{proposition}
 The general result is now as follows.
 
 \begin{lemma}[Footprint Lemma] \label{footprint} Let $A$, $B$ and $D$ be finite
-sets of names such that $|D| > |B|$, $A \subseteq B$, and such that $B$ and $D$
-are disjoint.
+sets of names such that $|D| > |B|$ and such that $A \cup B$ and $D$ are
+disjoint.
 %
 Then for all
 permutations $\sigma$ such that $\sigma a = a$ for all $a \in A$ there exist
