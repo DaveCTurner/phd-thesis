@@ -142,7 +142,16 @@ a similar idea to that of Nominal HOPLA: namely to design the language around
 universal constructions in a categorical setting that supported a notion of name
 generation.
 %
-As such, the languages have very similar operational semantics; the major
+The emphasis of the work so far on new-HOPLA has been more concerned with its
+operational semantics and particularly its expressivity, which is in contrast
+with the present development of Nominal HOPLA.
+%
+Indeed, Zappa Nardelli\cite{FZN-thesis} demonstrates a number of results about
+operational equivalences for new-HOPLA and shows that this calculus is
+expressive enough to encode two variants of the $\pi$-calculus.
+
+Because of the similarity between the origins of new-HOPLA and Nominal HOPLA,
+the languages have very similar operational semantics; the major
 difference is that new-HOPLA's judgements are indexed by a `current' set of
 names whereas that information is unnecessary in the operational semantics of
 Nominal HOPLA.
