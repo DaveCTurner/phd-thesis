@@ -378,13 +378,13 @@ now two possibilities, depending on whether $m = 0$ or not. Suppose that $m
 renamed. Then \[\begin{array}{rcl} \multicolumn{3}{l}{
 \sem{\tjudge{s \cup s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta}{r \cup r' \cup s'}} } {\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}{\typeP}}
 } \\
-%
+%1
 &=&
 \sem{\tjudge{s \cup s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r \cup r' \cup s'}}}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta'}{r \cup r' \cup s'}} } {\matchz{s'}{u[v']}{q}{x}{t[v]}{\typeQp}}{\typeP}}
 \\&&{} \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
 \\
-%
+%2
 &=&
 \sem{\tjudge{s \cup s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta'}{r' \cup s'}} } {\matchz{s'}{u[v']}{q}{x}{t[v]}{\typeQp}}{\typeP}}
 \\&&{} \circ 
@@ -392,7 +392,7 @@ renamed. Then \[\begin{array}{rcl} \multicolumn{3}{l}{
 \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
 \\
-%
+%3
 &=& 
 \epsilon_{\typeP}
 \circ
@@ -406,7 +406,7 @@ S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor s'}}
 \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
 \\
-%
+%4
 &=&
 \epsilon_{\typeP}
 \circ
@@ -422,7 +422,7 @@ S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor s'}}
 \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
 \\
-%
+%5
 &=&
 \epsilon_{\typeP}
 \circ
@@ -438,7 +438,7 @@ S_{\Gamma', \typeQp^{\freshfor s'}}
 \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
 \\
-%
+%6
 &=&
 \epsilon_{\typeP}
 \circ
@@ -454,7 +454,7 @@ S_{\Gamma', \typeQp^{\freshfor s'}}
 \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
 \\
-%
+%7
 &=&
 \epsilon_{\typeP}
 \circ
@@ -472,13 +472,13 @@ S_{\Gamma', \typeQp^{\freshfor s'}}
 \circ
 \bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
 \\
-%
+%8
 &=&
 \sem{\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'}}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \\&&{} \circ
 \Bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda}^{\freshfor s'}} \amp \bigl((\sem{v}^{n} \amp {\sem{v}^{m}}^{\freshfor s'++}) \circ (\tau^{(1)}_\Delta \amp \tau^{(2)}_\Delta) \circ \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)\Bigr)
 \\
-%
+%9
 &=&
 \sem{\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'}}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
 \circ
