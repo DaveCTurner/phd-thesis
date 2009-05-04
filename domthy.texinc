@@ -303,6 +303,28 @@ If $f : \typeP \to \typeQ$ is a finitely-supported monotone function then for
 all $p' \in \delta_a \typeP$ define \begin{equation} \delta_a f (p') \defeq
 \freshin{b}{[b].\bigl((ab) \cdot f) (p' @ b)}.\end{equation}\end{definition}
 
+Intuitively, $\delta_a$ captures the idea of `hiding' the name $a$ within a FM
+preorder that might have had $a$ in its support, which is closely related to the
+idea of binding $a$ in a syntactic object.
+%
+To see this, notice that $(\mathbb A \times \mathbb A)/\sim_{\alpha} = \delta
+\mathbb A \cong \mathbb A \uplus \{\ast\}$ where the new element $\ast$ is the
+$\alpha$-equivalence class containing $\langle a, a \rangle$ for all $a \in
+\mathbb A$.
+%
+If $s \subseteq_{\mathrm{fin}} \mathbb A \setminus \{a\}$ then under this
+bijection $\delta_a s \cong s$ and $\delta_a (s \udot \{a\}) \cong s \udot
+\{\ast\}$: in the latter case, $a$ is hidden by replacing it with the new
+element $\ast$.
+%
+Furthermore $\delta_a (\mathbb A \setminus s) \cong \mathbb A \setminus s \udot
+\{\ast\}$ and $\delta_a (\mathbb A \setminus (s \udot \{ a \})) \cong \mathbb A
+\setminus s$: again, $a$ is hidden by using the new element $\ast$ in its place.
+%
+Note carefully that $\delta_a$ does not simply delete $a$: if $x
+\subseteq_{\mathrm{fs}} \mathbb A$ then $a \in \delta_a x$ if and only if $x$ is
+cofinite.
+
 \begin{lemma} \label{lemma:delta-a-abs} If $f : \typeP \to \typeQ$ is a
 finitely-supported monotone function, $p \in \typeP$ and $f \freshfor b \in
 \mathbb A \setminus \{a\}$ then \[ \delta_a f ([b].p) = [b].(((ab) \cdot f) p).
