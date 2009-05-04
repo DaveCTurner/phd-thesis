@@ -67,7 +67,25 @@ Environments are given by the grammar \begin{equation} \Gamma ::= \envempty
 \mid \envcombine{\Gamma}{\envvarfresh{x}{\typeP}{s}} \end{equation} 
 where $\termvar{x}$ ranges
 over variables, $\typeP$ ranges over types and $s$ ranges over finite sets of
-names, and the variables in $\Gamma$ are distinct from $\termvar{x}$. The
+names, and the variables in $\Gamma$ are distinct from $\termvar{x}$.
+%
+In new-HOPLA\cite{WZ04} the typing environments of HOPLA were augmented by a
+separate set of freshness distinctions, written $d$, consisting of pairs of
+names and variables that were asserted to be fresh for each other.
+%
+Although the syntax of nominal HOPLA's environments is quite different from
+those of new-HOPLA, there is a close correspondence between the two approaches.
+%
+The syntax of environments in nominal HOPLA was chosen as it is a much cleaner
+way to represent common operations such as adding a freshness constraint or
+replacing a variable in a substitution operation.
+%
+This representation of freshness constraints is very similar to that which is
+used in Nominal Equational Logic\cite{clouston-pitts:nel}, Nominal
+Unification\cite{urban-pitts-gabbay:nomu-jv} and Nominal
+Algebra\cite{gabbay-mathijssen:noma-nwpt}.
+
+The
 intended meaning of $\envvarfresh{x}{\typeP}{s}$ is that the variable
 $\termvar{x}$ takes values of type $\typeP$ that are assumed to be fresh for
 $s$.  The set of environments may be equipped with a permutation action which
