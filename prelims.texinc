@@ -238,10 +238,14 @@ $\sigma$ may be represented as a permutation $\sigma_2$ such that
 \begin{itemize}
 %
 \item if $b \in B$ and $\sigma b \in B$ then $\sigma_2 b = \sigma b$,
+\begin{center}\input{footprint-in-in.pstex_t}\end{center}
 %
-\item if $b \in B$ but $\sigma b \notin B$ then $\sigma_2 b \in D$, and
+\item if $b \in B$ but $\sigma b \notin B$ then $\sigma_2 b \in D$,
+\begin{center}\input{footprint-in-out.pstex_t}\end{center}
 %
-\item if $a \notin B$ but $\sigma a \in B$ then $\sigma^{-1}_2 \sigma a \in D$.
+\item if $a \notin B$ but $\sigma a \in B$ then $\sigma^{-1}_2 \sigma a \in D$,
+and
+\begin{center}\input{footprint-out-in.pstex_t}\end{center}
 %
 \item if $e \notin B \cup D$ then $\sigma_2 e = e$.
 %
@@ -255,8 +259,45 @@ and a finite such $D$ exists, so $\sigma_2$ takes only finitely many possible
 values.
 %
 This fact is used in the proof of \ref{fineltextension}.
+
+To illustrate this, consider the simple case where $B = \{b\}$ is a singleton.
 %
-Firstly it is necessary to show an elementary special case.
+For this case the choice $D = \{d\}$ for some $d \neq b$ suffices.
+%
+If a permutation $\sigma$ fixes $b$ then the footprint of $\sigma$ on $B$ is
+represented by the identity permutation, since this is a permutation that
+satisfies the four properties listed above.
+%
+On the other hand if $\sigma \cdot b \neq b$ then also $\sigma^{-1} \cdot b \neq
+b$ so that $\sigma_2 = (bd)$ represents the footprint of $\sigma$ on $B$: it is
+a permutation that satisfies the four properties of a footprint representation
+listed above.
+
+In this case the representing permutations were unique, but in general this is
+not so:
+%
+if $B = \{b\}$ and $D$ were chosen to be $\{d, d'\}$ where $b$, $d$ and $d'$ are
+distinct, then $(bd)$, $(bd')$, $(bdd')$ and $(bd'd)$ are all representations of
+a permutation $\sigma$ such that $\sigma \cdot b \neq b$, and both the identity
+and the transposition $(dd')$ represent any $\sigma$ such that $\sigma \cdot b =
+b$.
+
+The idea of representing $\sigma$ in terms of a particularly constrained
+permutation $\sigma_2$ can be phrased in terms of a factorisation property which
+states that there exist $\sigma_1$, $\sigma_2$ and $\sigma_3$ such that $\sigma
+= \sigma_1 \sigma_2 \sigma_3$ and where $\sigma_1$ and $\sigma_3$ leave $B$
+fixed and $\sigma_2$ moves only $B \cup D$.
+%
+The following diagram illustrates this idea: the shaded areas cover the names
+that may be moved.
+%
+The set $A$ in this diagram is a set of names that $\sigma$ and its factors must
+all fix, which is a refinement of the fundamental idea that is necessary for the
+later application of this lemma.
+
+Firstly it is necessary to show a well-known and elementary special case, where
+$B = \{b\}$ is the set of names of interest, $D$ is chosen as the disjoint
+set $\{d\}$, and $\sigma = (be)$ for some fresh name $e$.
 
 \begin{proposition} \label{footprint1} If $b$, $d$ and $e$ are distinct names
 then $(be) = (de)(bd)(de)$. \end{proposition}
@@ -265,7 +306,9 @@ then $(be) = (de)(bd)(de)$. \end{proposition}
 (be)(de)$ by lemma \ref{lemma:perm-swap}, so that $(be) = (be)(de)(de) =
 (de)(bd)(de)$ as required.  \end{proof}
 
-\clearpage
+\begin{center}
+\input{footprint-factorisation.pstex_t}
+\end{center}
 
 The general result is now as follows.
 
