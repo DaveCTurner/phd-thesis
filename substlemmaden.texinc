@@ -359,8 +359,6 @@ as required.
 \vfill\pagebreak
 
 \subparagraph{Match}
-\TODO{Tidy this case up, using abbreviations perhaps?}
-
 % 1_G & t^(1) & 1_L & t^(2)
 \def\matchtaupair{\bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp \mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr)}
 % 1_G & 1_L & Delta_Delta
@@ -368,12 +366,10 @@ as required.
 % Composition of the above two
 \def\matchTauDelta{\matchtaupair \circ \matchdeltaA}
 % 1_G & 1_D & (phi_Q o [[q]] & [[u[v]]])
-\def\matchquv{\bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor s'++} ) \bigr)}
+\def\matchquv{\bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor s'++} ) \bigr)}
 % 1_G & 1_D & (phi_Q o ([[q]] & [[u]]) o (1_L & [[v]]))
-\def\matchquvSub{\bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \circ \sem{\tjudge{s''}{\Lambda'}{u}{\typeQ}}^{\freshfor s'++} \\&&\qquad {}\circ (\mathbf{1}_{\Lambda^{\freshfor s'}} \amp {\sem{v}^{m}}^{\freshfor s'++})) \bigr)}
-
-
-
+\def\matchquvSub{\bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad {}\circ \sem{\tjudge{s''}{\Lambda'}{u}{\typeQ}}^{\freshfor s'++} \circ (\mathbf{1}_{\Lambda^{\freshfor s'}} \amp {\sem{v}^{m}}^{\freshfor s'++})) \bigr)}
+%
 %\infer[(s'' \subseteq s \setminus s')]
 %{\tjudge{s}{\envcombine{\Gamma}{\envfresh{\Lambda}{s'} }}
 %{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
@@ -416,54 +412,53 @@ S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor s'}}
 \matchquv
 \\&&{} \circ
 \matchTauDelta
+\end{array}\]
+by contraction and fresh-weakening. Writing \[\begin{array}{rcl}(\cdots 1 \cdots) &\defeq& \matchquv
+\\&&{} \circ \matchTauDelta \\
+%6(partial)
+&=& \matchquvSub \\&&{} \circ \matchTauDelta \end{array}\]
+by induction, and $\sem{t}$ for $\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} } {t}{\typeP}}$,
+\[\begin{array}{rcl}
+\multicolumn{3}{l}{
+\sem{\tjudge{s \cup s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta}{r \cup r' \cup s'}} } {\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}{\typeP}}
+} \\
+%3
+&=& 
+\epsilon_{\typeP}
+\circ
+{!}\sem{\tjudge{s \cup s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envvarfresh{x}{\typeQp}{s'}} } {t[v]}{\typeP}}
+\circ
+S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor s'}}
+\circ (\cdots 1 \cdots)
 \\
 %4
 &=&
 \epsilon_{\typeP}
 \circ
-{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} } {t}{\typeP}}
+{!}\sem{t}
 \circ
 {!}(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor s'}} \amp \sem{v}^{n})
 \circ
 S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor s'}}
-\\&&{} \circ
-\matchquv
-\\&&{} \circ
-\matchTauDelta
+\circ (\cdots 1 \cdots)
 \\
 %5
 &=&
 \epsilon_{\typeP}
 \circ
-{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} } {t}{\typeP}}
+{!}\sem{t}
 \circ
 S_{\Gamma', \typeQp^{\freshfor s'}}
 \circ
 (\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor s'}} \amp \sem{v}^{n})
-\\&&{} \circ
-\matchquv
-\\&&{} \circ
-\matchTauDelta
+\circ (\cdots 1 \cdots)
 \\
-%6
-&=&
-\epsilon_{\typeP}
-\circ
-{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} } {t}{\typeP}}
-\circ
-S_{\Gamma', \typeQp^{\freshfor s'}}
-\circ
-(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor s'}} \amp \sem{v}^{n})
-\\&&{} \circ
-\matchquvSub
-\\&&{} \circ
-\matchTauDelta
-\\
+%6 omitted
 %7
 &=&
 \epsilon_{\typeP}
 \circ
-{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} } {t}{\typeP}}
+{!}\sem{t}
 \circ
 S_{\Gamma', \typeQp^{\freshfor s'}}
 \circ
