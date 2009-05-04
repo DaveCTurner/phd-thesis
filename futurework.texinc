@@ -208,6 +208,40 @@ has a failure of continuity much like that described in section
 \ref{bindingdiscts}.
 
 
+\subsection{Even-More-Nominal HOPLA} \label{futurework:even-more-nominal-hopla}
+
+A fundamental driving force in the study of nominal set theory is to avoid
+explicitly mentioning the `current' set of names whenever possible, because it
+is usually not necessary to do so.
+%
+Lemma \ref{typerestrictsupport} validates dropping the explicit supports in the
+typing rules for nominal HOPLA, but moreover it points the way towards dropping
+explicit supports throughout the whole denotational semantics developed here.
+%
+Sadly, this lemma was formulated too late in the development of this thesis for
+it to have been possible to follow up this line of enquiry.
+
+In personal correspondence, Pitts points out that it would be `more nominal' to
+consider a categorical setting of the form $(\mathbf{FMPre}^{\freshfor s})_{s
+\subseteq_{\mathrm{fin}} \mathbb A}$, that is, categories indexed by the names
+that are fresh for --- rather than that explicitly support --- their objects and
+arrows.
+%
+The key adjunction $(-)^{\freshfor a} \dashv \delta_a$ appears in this setting
+too, in the form \[(-)^{\freshfor a} : \mathbf{FMPre}^{\freshfor s \udot \{a\}}
+\leftrightarrows \mathbf{FMPre}^{\freshfor s} : \delta_a\] and moreover here it
+is an \textit{equivalence} of categories.
+%
+Intuitively, this equivalence is related to the freedom in the choice of the
+primitive set $\mathbb A$ of names that was made at the very lowest level of the
+development of nominal set theory.
+%
+It captures the idea that it is possible to add or remove a name from the chosen
+$\mathbb A$ without changing the resulting mathematical theory.
+%
+Perhaps this equivalence also helps to explain the slightly mysterious
+$\delta_a$ functor: it describes the operation of removing the name $a$ from
+sight.
 
 \subsection{Presheaf Semantics}
 
