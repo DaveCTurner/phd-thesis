@@ -61,6 +61,11 @@ $\sem{t_1} \neq \sem{t_2}$.
 It follows that $d$ is not definable in Nominal HOPLA, and importantly that
 contextual equivalence does not coincide with denotational equivalence.
 
+If it is unpalatable to take a sum over the set $\mathbb A$ of all names, notice
+that the argument above also applies to sums over any cofinite $B
+\subseteq_{\mathrm{fs}} \mathbb A$, since it rests only on the fact that $B$ is
+infinite but finitely supported.
+
 In general it is not computationally unreasonable to want to distinguish the
 paths $P_1 \defeq \finelt{F_1}{s_1}$ and $P_2 \defeq \finelt{F_2}{s_2}$ of type
 $\typelift\typeP$.
