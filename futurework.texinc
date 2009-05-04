@@ -16,7 +16,7 @@ Winskel (in personal correspondence\cite{staton:full-abstraction-counterexample,
 staton:intersection-opsem-failure, winskel:full-abstraction-fix}) has so far not
 yielded a positive result.
 %
-As it stands it would appear that every path may be defined by terms of the
+As it stands it would appear that every path may be defined by a term of the
 language but they cannot all be distinguished.
 %
 For example, it is suggested that it is impossible for a Nominal HOPLA term to
