@@ -375,105 +375,115 @@ and that $\Lambda'$ is a reordering of $\Lambda,
 = r_1 \cup \ldots \cup r_n$ and $r' = r'_1 \cup \ldots \cup r'_m$.  There are
 now two possibilities, depending on whether $m = 0$ or not. Suppose that $m
 \neq 0$. Let $\Delta'$ and $v'$ be $\Delta$ and $v$ with all the variables
-renamed. Then \[\begin{array}{rcl} \multicolumn{3}{l}{\sem{\tjudge{s \cup
-s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}}
-}{\envfresh{\Delta}{r \cup r' \cup s'}} }
-{\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}{\typeP}}} \\
+renamed. Then \[\begin{array}{rcl} \multicolumn{3}{l}{
+\sem{\tjudge{s \cup s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta}{r \cup r' \cup s'}} } {\matchz{s'}{u}{q}{x}{t}{\typeQp}[v]}{\typeP}}
+} \\
 %
-&=& \sem{\tjudge{s \cup
-s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r \cup r'
-\cup s'}}}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta'}{r \cup r' \cup s'}} }
-{\matchz{s'}{u[v']}{q}{x}{t[v]}{\typeQp}}{\typeP}} \\&&{} \circ
-\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
-\Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
+&=&
+\sem{\tjudge{s \cup s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r \cup r' \cup s'}}}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta'}{r \cup r' \cup s'}} } {\matchz{s'}{u[v']}{q}{x}{t[v]}{\typeQp}}{\typeP}}
+\\&&{} \circ
+\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
+\\
 %
-&=& \sem{\tjudge{s \cup
-s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envfresh{\Lambda}{s'}}
-}{\envfresh{\Delta'}{r' \cup s'}} } {\matchz{s'}{u[v']}{q}{x}{t[v]}{\typeQp}}{\typeP}}
-\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
-\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
-\Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
+&=&
+\sem{\tjudge{s \cup s_1}{\envcombine{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envfresh{\Lambda}{s'}} }{\envfresh{\Delta'}{r' \cup s'}} } {\matchz{s'}{u[v']}{q}{x}{t[v]}{\typeQp}}{\typeP}}
+\\&&{} \circ 
+\bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp \mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr)
+\circ
+\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
+\\
 %
-&=& \epsilon_{\typeP} \circ {!}\sem{\tjudge{s \cup
-s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envvarfresh{x}{\typeQp}{s'}}
-} {t[v]}{\typeP}} \circ
-S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor
-s'}} \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor
-r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup
-s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup
-s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor
-s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
-\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
-\Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
+&=& 
+\epsilon_{\typeP}
+\circ
+{!}\sem{\tjudge{s \cup s_1}{\envcombine{\envcombine{\Gamma}{\envfresh{\Delta}{r}}}{\envvarfresh{x}{\typeQp}{s'}} } {t[v]}{\typeP}}
+\circ
+S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor s'}}
+\\&&{} \circ
+\bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor s'++} ) \bigr)
+\\&&{} \circ
+\bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp \mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr)
+\circ
+\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
+\\
 %
-&=& \epsilon_{\typeP} \circ
-{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} }
-{t}{\typeP}} \circ {!}(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor
-s'}} \amp \sem{v}^{n}) \circ
-S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor
-s'}} \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor
-r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup
-s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup
-s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor
-s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
-\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
-\Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
+&=&
+\epsilon_{\typeP}
+\circ
+{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} } {t}{\typeP}}
+\circ
+{!}(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor s'}} \amp \sem{v}^{n})
+\circ
+S_{(\envcombine{\Gamma}{\envfresh{\Delta}{r}}), \typeQp^{\freshfor s'}}
+\\&&{} \circ
+\bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor s'++} ) \bigr)
+\\&&{} \circ
+\bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp \mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr)
+\circ
+\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
+\\
 %
-&=& \epsilon_{\typeP} \circ
-{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} }
-{t}{\typeP}} \circ S_{\Gamma', \typeQp^{\freshfor s'}} \circ
+&=&
+\epsilon_{\typeP}
+\circ
+{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} } {t}{\typeP}}
+\circ
+S_{\Gamma', \typeQp^{\freshfor s'}}
+\circ
 (\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor s'}} \amp \sem{v}^{n})
-\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}}
-\\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup
-s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup
-s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor
-s'++} ) \bigr) \\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
-\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
-\Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
+\\&&{} \circ
+\bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s'' \cup s_1}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \\&&\qquad\qquad{} \circ \sem{\tjudge{s'' \cup s_1}{\envcombine{\Lambda}{\envfresh{\Delta}{r'}} }{u[v]}{\typeQ}}^{\freshfor s'++} ) \bigr)
+\\&&{} \circ
+\bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp \mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr)
+\circ
+\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
+\\
 %
-&=& \epsilon_{\typeP} \circ
-{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} }
-{t}{\typeP}} \circ S_{\Gamma', \typeQp^{\freshfor s'}} \circ
+&=&
+\epsilon_{\typeP}
+\circ
+{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} } {t}{\typeP}}
+\circ
+S_{\Gamma', \typeQp^{\freshfor s'}}
+\circ
 (\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\typeQp^{\freshfor s'}} \amp \sem{v}^{n})
-\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}}
-\amp (\widehat{\phi_{\typeQp}} \circ
-\sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \circ
-\sem{\tjudge{s''}{\Lambda'}{u}{\typeQ}}^{\freshfor s'++} \\&&\qquad {}\circ
-(\mathbf{1}_{\Lambda^{\freshfor s'}} \amp {\sem{v}^{m}}^{\freshfor s'++})) \bigr)
-\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
-\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
-\Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
+\\&&{} \circ
+\bigl(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \circ \sem{\tjudge{s''}{\Lambda'}{u}{\typeQ}}^{\freshfor s'++} \\&&\qquad {}\circ (\mathbf{1}_{\Lambda^{\freshfor s'}} \amp {\sem{v}^{m}}^{\freshfor s'++})) \bigr)
+\\&&{} \circ
+\bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp \mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr)
+\circ
+\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
+\\
 %
-&=& \epsilon_{\typeP} \circ
-{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} }
-{t}{\typeP}} \circ S_{\Gamma', \typeQp^{\freshfor s'}} \circ
-\bigl(\mathbf{1}_{\Gamma'} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ
-\sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \circ
-\sem{\tjudge{s''}{\Lambda'}{u}{\typeQ}}^{\freshfor s'++}) \bigr) \\&&{} \circ
-(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda'}^{\freshfor s'}} \amp
-\sem{v}^{n}) \circ (\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}}
-\amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp {\sem{v}^{m}}^{\freshfor s'++})
-\\&&{} \circ \bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp
-\mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr) \circ
-\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp
-\Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr) \\
+&=&
+\epsilon_{\typeP}
+\circ
+{!}\sem{\tjudge{s}{\envcombine{\Gamma'}{\envvarfresh{x}{\typeQp}{s'}} } {t}{\typeP}}
+\circ
+S_{\Gamma', \typeQp^{\freshfor s'}}
+\circ
+\bigl(\mathbf{1}_{\Gamma'} \\&&\qquad {} \amp (\widehat{\phi_{\typeQp}} \circ \sem{\atjudge{s''}{\typeQ}{q}{\typeQp}}^{\freshfor s'++} \circ \sem{\tjudge{s''}{\Lambda'}{u}{\typeQ}}^{\freshfor s'++}) \bigr)
+\\&&{} \circ
+(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda'}^{\freshfor s'}} \amp \sem{v}^{n})
+\circ
+(\mathbf{1}_\Gamma \amp \mathbf{1}_{\Delta^{\freshfor r}} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp {\sem{v}^{m}}^{\freshfor s'++})
+\\&&{} \circ
+\bigl(\mathbf{1}_\Gamma \amp \tau^{(1)}_\Delta \amp \mathbf{1}_{\envfresh{\Lambda}{s'}} \amp \tau^{(2)}_\Delta \bigr)
+\circ
+\bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{\Lambda^{\freshfor s'}} \amp \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)
+\\
 %
 &=&
 \sem{\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'}}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
-\\&&{} \circ \Bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda}^{\freshfor
-s'}} \amp \bigl((\sem{v}^{n} \amp {\sem{v}^{m}}^{\freshfor s'++}) \circ
-(\tau^{(1)}_\Delta \amp \tau^{(2)}_\Delta) \circ \Delta_{\Delta^{\freshfor r \cup r'
-\cup s'}}\bigr)\Bigr) \\
+\\&&{} \circ
+\Bigl(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda}^{\freshfor s'}} \amp \bigl((\sem{v}^{n} \amp {\sem{v}^{m}}^{\freshfor s'++}) \circ (\tau^{(1)}_\Delta \amp \tau^{(2)}_\Delta) \circ \Delta_{\Delta^{\freshfor r \cup r' \cup s'}}\bigr)\Bigr)
+\\
 %
 &=&
 \sem{\tjudge{s}{\envcombine{\Gamma'}{\envfresh{\Lambda'}{s'}}}{\matchz{s'}{u}{q}{x}{t}{\typeQp}}{\typeP}}
-\circ (\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda}^{\freshfor s'}} \amp
-\sem{v}^{m+n}) \\
+\circ
+(\mathbf{1}_{\Gamma} \amp \mathbf{1}_{{\Lambda}^{\freshfor s'}} \amp \sem{v}^{m+n})
+\\
 %
 \end{array}\] as required. The proof in the case $m = 0$ is similar, albeit
 simpler.
