@@ -166,9 +166,35 @@ ordered by inclusion.
 %
 \end{definition}
 
+\begin{lemma}
 The $\Phi_d$-ideal completion (respectively the $\Phi_\omega$-ideal completion)
 of a preorder $\typeP$ is a $\Phi_d$CPO (respectively a $\Phi_\omega$CPO) with
 joins given by union.
+\end{lemma}
+
+\begin{proof} It is only hard to see that the union of an $\omega$-chain of
+$\Phi_{\omega}$-ideals is itself a $\Phi_{\omega}$-ideal.
+%
+Let $x_0 \subseteq x_1 \subseteq \ldots$ be an $\omega$-chain of
+$\Phi_{\omega}$-ideals of $\typeP$.
+%
+Suppose that each $x_i$ is of the form $\{p_{i,0} \le_{\typeP} p_{i,1}
+\le_{\typeP} \ldots \}_{\downarrow}$.
+%
+For each $i \in \omega$, define $j(i)$ to be the least $j$ such that $
+p_{k,l} \le_{\typeP} p_{i,j}$ for all $k,l \le i$.
+%
+Such a $j$ certainly exists, for if $k,l \le i$ then $x_k \subseteq x_i$
+and hence $p_{k,l} \in x_i$ from which it follows that there exists $j$ such
+that $p_{k,l} \le p_{i,j}$; there are only finitely many $k, l \le i$.
+%
+Now it is the case that $\bigcup_{i \in \omega} x_i = \{p_{0,j(0)} \le_{\typeP}
+p_{1, j(1)} \le_{\typeP} \ldots \}_{\downarrow}$, for if $p \in \bigcup_{i \in
+\omega} x_i$ then $p \in x_k$ for some $k$ and hence there exists $l$ such that
+$p \le_{\typeP} p_{k, l} \le_{\typeP} p_{m,j(m)}$ where $m = \mathrm{max}(k,l)$
+by definition of $j(m)$ as required.
+%
+\end{proof}
 
 \subsection{Algebraic CPOs}
 \label{subsect:alg-cpos}
