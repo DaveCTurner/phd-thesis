@@ -6,6 +6,7 @@
 \label{futurework}
 
 \subsection{Full Abstraction}
+\label{full-abstraction-counterexample}
 
 The path semantics of (classical) HOPLA was shown to be fully
 abstract\cite{nygaardwinskel1} by an argument which demonstrated inductively
