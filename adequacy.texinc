@@ -599,15 +599,4 @@ This full abstraction property is well-known for its fragility and in particular
 it is not a property of Nominal HOPLA as shown in section
 \ref{full-abstraction-counterexample} below.
 
-\section{Conclusion}
-
-As promised, this chapter has provided a denotational semantics for the language
-Nominal HOPLA that has been built from universal constructions in the categories
-$(\mathbf{FMCts}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$.
-%
-It has also provided support for the claim that the operational semantics
-detailed in chapter \ref{nomhopla} was motivated by denotational concerns by
-demonstrating soundness and adequacy results relating the operational and
-denotational approaches.
-
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
