@@ -488,6 +488,9 @@ model of multiplicative-exponential linear logic\cite{benton:linear}.
 %
 It has other features that are important for the development of a rich domain
 theory too, and this section explores some of their details.
+%
+This exploration closely follows the pattern of Winskel and Nygaard's
+exploration of $\mathbf{Lin}$ in the development of HOPLA\cite{nygaardwinskel1}.
 
 \subsubsection{Hom-sets.} Recall from \ref{def:fsfunction} that $\typeP
 \to_{\mathrm{fs}} \typeQ$ means all finitely-supported functions from $\typeP$
