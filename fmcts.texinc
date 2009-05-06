@@ -61,11 +61,14 @@ chapter \ref{nomhopla}.
 %
 In particular, the permutation action on $\termvar{x}$ is discrete.
 
-As the effect of $\new{a}{t}$ is to bind $a$, if $b$
-is a fresh name then it should be the case that $\new{a}{t} = \new{b}{\bigl((ab)
-\cdot t\bigr)}$, and in particular the name $a$ should not be in the support of
-$\new{a}{t}$. The semantics of $\new{a}{t}$ are motivated by the semantics of
-$\new{\alpha}{t}$ from new-HOPLA.
+As the effect of $\new{a}{t}$ is to bind $a$, if $b$ is a fresh name then it
+should be the case that $\new{a}{t} = \new{b}{\bigl((ab) \cdot t\bigr)}$, and in
+particular the name $a$ should not be in the support of $\new{a}{t}$. The
+semantics of $\new{a}{t}$ are motivated by the semantics of $\new{\alpha}{t}$
+from new-HOPLA: \[\infer
+{\ajudge{\typedelta\typeP}{\new{\alpha}{t}}{\new{\alpha}{p}}{\new{\alpha}{t'}}}
+{\ajudge{\typeP}{t}{p}{t'}} \] where $\alpha$ is a variable that ranges over
+names.
 
 Now consider the term $\ndsum{b}{\mathbb A}{\labelaction{b}{\bang{\inactive}}}$
 which outputs a name $b$ nondeterministically chosen from $\mathbb A$.
