@@ -586,6 +586,9 @@ This thesis aims to overcome such problems by avoiding the technical machinery
 of functor categories and working in a more elementary setting.
 %
 The following section introduces the theory of nominal sets, which provides a
-suitable situation for a name-theoretic domain theory for concurrency.
+suitable situation for a name-theoretic domain theory for concurrency, which
+ultimately leads the way to a metalanguage, dubbed Nominal HOPLA, in the same
+way that constructions in $\mathbf{Cts}$ and $\mathbf{Lin}^{\mathbb I}$ led
+respectively to HOPLA and new-HOPLA.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
