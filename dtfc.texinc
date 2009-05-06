@@ -516,6 +516,14 @@ structure of actions is supported by means of labelling.  \end{itemize}
 Perhaps of the greatest importance is that all of this structure is given by
 universal properties, rather than by \textit{ad hoc} definition.
 %
+Moreover, Winskel and Nygaard are led by these universal properties to the
+expressive metalanguage HOPLA, so named because it is a Higher-Order Process
+LAnguage.
+%
+They demonstrate that HOPLA can simulate well-known process calculi such as
+higher-order CCS, and because of its denotational underpinnings it is claimed that
+this approach points the way towards more universal models of concurrency.
+%
 That said, the domain theory based in $\mathbf{Cts}$ is no panacea.
 %
 In particular because the semantics is based on a simple-minded notion of paths
