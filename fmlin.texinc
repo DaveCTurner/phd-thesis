@@ -344,6 +344,22 @@ context and hence to write $\theta^{(a)}$ simply as $\theta$.
 %
 A similar convention applies to ${\theta^{(a)}}^{-1}$ too.
 
+It is perhaps interesting to note that the existence of this isomorphism seemed
+implausible when first it was realised that such a relationship was necessary
+for the development of this thesis.
+%
+In personal correspondence Pitts pointed out that the isomorphism $\delta(X \to
+Y) \cong \delta X \to \delta Y$ in nominal sets\cite{gabbay:thesis} might
+provide useful insights, since letting $Y = \mathbf{2}$ draws attention to the
+isomorphism $\mathcal{P}\delta X \cong \delta \mathcal{P} X$ where
+$\mathcal{P}$, the powerset functor, corresponds closely to $\widehat{(-)}$.
+%
+This observation led directly to the definitions above, and notice that if
+$\typeP$ is a nominal set then $\delta_a \typeP = \delta \typeP$ and if $\typeP$
+has the discrete ordering then $\widehat{\typeP} = \mathcal{P} \typeP$ so that
+$\mathcal{P}\delta \typeP \cong \delta \mathcal{P} \typeP$ is a special case of
+the isomorphism given here.
+
 \begin{lemma}\label{deltahatiso} If $a \notin s$ and $\typeP$ is an object of
 $\mathbf{FMPre}_{s \udot \{a\}}$ then \[\theta_{\typeP} : \widehat{\delta_a
 \typeP} \cong \delta_a \widehat{\typeP} : \theta^{-1}_{\typeP}\] is an
