@@ -579,15 +579,24 @@ Hence by lemma \ref{mainlemma}, $\login{\varnothing}{\typelift{\typeP}}{t}$ and 
 there is a $t'$ such that
 $\ajudge{\typelift{\typeP}}{t}{\bangaction}{t'}$ as required.  \end{proof}
 
-\section{Conclusion}
-
-As promised, this chapter has provided a denotational semantics for the language
-Nominal HOPLA that has been built from universal constructions in the categories
-$(\mathbf{FMCts}_s)_{s \subseteq_{\mathrm{fin}} \mathbb A}$.
+As discussed in the introduction to \ref{soundness-and-adequacy}, the
+observation of general actions of the form $\atjudge{}{\typeP}{p}{\typePp}$ may
+be reduced to the observation of primitive actions of the form
+$\atjudge{}{\typelift\typePp}{\bangaction}{\typePp}$ by the matching operator
+$\matchz{s}{t}{p}{x}{\bang{\inactive}}{\typePp}$.
 %
-It has also provided support for the claim that the operational semantics
-detailed in chapter \ref{nomhopla} was motivated by denotational concerns by
-demonstrating soundness and adequacy results relating the operational and
-denotational approaches.
+Because of this, a consequence of theorem \ref{adequacy} is that two terms with
+equal denotations must also be operationally indistinguishable.
+%
+This could be summarised by a slogan saying that \textit{denotational
+equivalence implies contextual equivalence}, although the details of the
+definition of contextual equivalence are not included here.
+%
+In the original version of HOPLA\cite{nygaardwinskel1} contextual equivalence
+coincided precisely with denotational equivalence: HOPLA is fully abstract.
+%
+This full abstraction property is well-known for its fragility and in particular
+it is not a property of Nominal HOPLA as shown in section
+\ref{full-abstraction-counterexample} below.
 
 % vim: set filetype=tex foldlevel=0 cms=\%%s nowrap tw=80:
