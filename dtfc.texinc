@@ -58,6 +58,7 @@ for concurrency and finally section \ref{domains-of-paths} gives an intuition
 for this domain theory in terms of the computation paths that processes can
 follow.
 
+\clearpage
 
 \subsection{Complete Partial Orders and Continuous Functions}
 \label{subsect:cpos}
