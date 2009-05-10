@@ -33,6 +33,8 @@ actions are typed with judgements of the form $\atjudge{s}{\typeP}{p}{\typePp}$
 where $s$ is a finite set of names and $\typeP$ and $\typePp$ are types.
 Intuitively this means that $p$ is an action that terms of type $\typeP$ may
 perform and the resumption is of type $\typePp$.
+%
+The typing rules for actions are defined in section \ref{def:tjudge:actions}.
 
 \subsubsection{Variable.} A bare variable is typed by the environment in the obvious fashion.
 \[
@@ -298,6 +300,7 @@ so that $\tjudge{s_2 \setminus \{a\}}{}{t}{\typedelta\typeP}$ as required.
 \clearpage
 
 \subsection{Typing Rules for Actions}
+\label{def:tjudge:actions}
 
 Actions are typed with judgements of the form $\atjudge{s}{\typeP}{p}{\typePp}$
 where $s$ is a finite set of names and $\typeP$ and $\typePp$ are types.
