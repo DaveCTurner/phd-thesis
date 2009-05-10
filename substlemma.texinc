@@ -1,4 +1,3 @@
-\clearpage
 \section{The Substitution Lemma}
 
 The intuition behind the following lemma is that a variable $\termvar{y}$ of

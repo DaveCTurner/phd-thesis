@@ -200,7 +200,9 @@ type of a term.
 %
 The structural rules make this difficult to do in general, but for the
 purposes of this discussion it is enough to be able to derive type information
-about subterms of a closed term.
+about subterms of a closed term as shown in the following lemma.
+
+\clearpage
 
 %\TODO{Only seem to need rules (\ref{closedtermtypebackwardsbang}) and
 %(\ref{closedtermtypebackwardsnew}) - can they be rationalised? They are used
@@ -296,8 +298,6 @@ derivation it must be that $a \in s_1$ so that $s_1 \setminus \{a\} \subseteq
 s_2 \setminus \{a\}$ and $\tjudge{s_1 \setminus \{a\}}{}{t}{\typedelta\typeP}$,
 so that $\tjudge{s_2 \setminus \{a\}}{}{t}{\typedelta\typeP}$ as required.
 \end{proof}
-
-\clearpage
 
 \subsection{Typing Rules for Actions}
 \label{def:tjudge:actions}
@@ -416,6 +416,8 @@ if it is valid at support $s_1$ then it remains valid at $s_2$. For case
 (\ref{closedactiontypebackwardsnew}) if $a$ is fresh for $s_2$ then it is
 certainly fresh for $s_1$, so this case follows.\end{proof}
 
+\clearpage
+
 \begin{lemma}[Equivariance of Typing] For all permutations $\sigma$,
 \begin{enumerate}[(a)]
 %
@@ -428,8 +430,6 @@ s)}{\typeP}{(\sigma \cdot p)}{\typePp}$.
 \end{enumerate}\end{lemma} \begin{proof}By a straightforward induction over the
 derivations of the judgements $\tjudge{s}{\Gamma}{t}{\typeP}$ and
 $\atjudge{s}{\typeP}{p}{\typePp}$.  \end{proof}
-
-\vfill\pagebreak
 
 \begin{lemma}\label{typerestrictsupport} If the current set $s$ of names is
 omitted in a typing judgement then a suitable $s$ can be deduced from the syntax
@@ -637,8 +637,7 @@ is derived from $\tjudge{s}{\Gamma}{t}{\typerec{j}{P}{\typeP} }$
 then by induction 
 $\tjudge{\supp{t}}{\envrestrict{\Gamma}{\supp{t}}}{t}{\typerec{j}{P}{\typeP} }$
 and $\supp{\rep t} = \supp t$ so that
-$\tjudge{\supp{\rep t}}{\envrestrict{\Gamma}{\supp{\rep t}}}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$
-as required.
+$\tjudge{\supp{\rep t}}{\envrestrict{\Gamma}{\supp{\rep t}}}{\rep t}{\typeP_j[\typerec{}{P}{\typeP}/\vec{P}]}$.
 
 \subparagraph{Prefix Action} Trivially, since $\supp{\bangaction} = \varnothing$.
 
