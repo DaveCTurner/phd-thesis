@@ -82,8 +82,7 @@ permutation $\sigma$, $\sigma \cdot f(p) = f(\sigma \cdot p)$ (i.e.  it is
 equivariant).\end{definition}
 
 \begin{definition} The category \define{$\mathbf{NPre}$} has nominal preorders
-for objects and nominal monotone functions between them for
-arrows.\end{definition}
+for objects and nominal monotone functions for arrows.\end{definition}
 
 It is not hard to see that this structure really is a category: the composition
 of monotone functions is monotone and the composition of equivariant functions
@@ -168,8 +167,8 @@ its support then it might be desirable to record this information in the type of
 that computation. This could be achieved by means of an operation
 $(-)^{\freshfor a}$ which essentially deletes all elements with $a$ in their
 supports from the denotation of the type. This operation certainly does not
-result in a nominal set in general: for example, recall that $\mathbb A$ is the
-nominal set of all names (with the obvious permutation action) but $\mathbb A
+result in a nominal set in general: for example, $\mathbb A$ is the
+nominal set of all names but $\mathbb A
 ^{\freshfor a} = \mathbb A \setminus \{a\}$ is not a nominal set, as $b \in
 \mathbb A ^{\freshfor a}$ but $a = (ab) \cdot b \notin \mathbb A ^{\freshfor a}$
 so $\mathbb A^{\freshfor a}$ is not closed under the permutation action.
@@ -223,7 +222,7 @@ For example, the freshness predicate $\freshfor$ and the construction
 $\freshin{\ldots}{\ldots}$ immediately carry across to FM set theory since any
 FM set can be seen as a subset of the nominal `set' $\mathcal{V}_{\mathrm{FM}}$.
 
-For example, the analogue of the concept of a preorder in FM set theory is a
+The analogue of the concept of a preorder in FM set theory is a
 \textit{FM-preorder}, which is a pair $\langle \typeP, \mathord{\le}_{\typeP}
 \rangle$ where $\typeP$ and $\le_{\typeP}$ are both FM sets such that
 $\le_{\typeP}$ is a reflexive and transitive binary relation on $\typeP$.

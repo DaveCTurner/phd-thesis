@@ -156,7 +156,8 @@ Although the binding of variables is treated informally, the binding of the
 name $a$ in the form $\new{a}{t}$ must be treated more carefully. Strictly
 speaking, the form $\new{a}{t}$ is the equivalence class of pairs of names and
 terms that contains $\langle a, t \rangle$ under the usual $\alpha$-equivalence
-relation \begin{equation} \langle a, t \rangle \sim  \langle a', t' \rangle
+relation \begin{equation} \langle a, t \rangle \sim_\alpha \langle a', t'
+\rangle
 \quad\Leftrightarrow\quad \freshin{b}{ (ab) \cdot t = (a'b) \cdot t'}.
 \end{equation}
 %
@@ -197,7 +198,7 @@ action is given by a straightforward structural recursion as follows.
 \sigma \cdot (\bang{t}) &=& \bang{(\sigma \cdot t)} &&
 %
 \sigma \cdot \left(\ndsum{i}{I}{t_i}\right) &=& \ndsum{i}{I}{(\sigma \cdot
-t_i)} \\
+t_{\sigma^{-1} \cdot i})} \\
 %
 \multicolumn{7}{c}{\sigma \cdot (\matchz{s}{u}{p}{x}{t}{\typeP}) =
 \matchz{(\sigma \cdot s)}{(\sigma \cdot u)}{(\sigma \cdot

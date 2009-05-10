@@ -578,10 +578,10 @@ Taking this idea sufficiently far suggests that $\mathbf{2}$ could be replaced
 by the category $\mathbf{Set}$; viewing each $\typeP$ as a small category then
 gives a domain theory in terms of presheaves $\typeP^{\mathrm{op}} \to
 \mathbf{Set}$ with much finer-grained distinctions than is possible with the
-simple-minded path semantics.
+coarser path semantics.
 %
 In fact, Cattani and Winskel\cite{cattani-winskel:profunctors} developed this
-presheaf-based semantics first, and it motivated Nygaard and
+presheaf-based semantics first, which motivated Nygaard and
 Winskel\cite{nygaard:phdthesis,nygaardwinskel1} to explore the simpler path
 semantics.
 

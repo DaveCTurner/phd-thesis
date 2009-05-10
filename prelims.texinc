@@ -41,9 +41,9 @@ Furthermore, such a name may only make sense in a particular context.
 
 This concept can be seen to be surprisingly subtle when working fully formally.
 %
-Computers (and the formal systems that they implement) have no innate ability to
-deal with locally-scoped names, so this ability must be carefully implemented by
-hand.
+Computers (and the formal systems that they implement) have no such innate
+ability to deal with locally-scoped names, so this ability must be carefully
+implemented by hand.
 %
 Over the years a variety of ways to deal with locally-scoped names have been
 created.
@@ -544,8 +544,8 @@ It is worth discussing some examples of nominal sets.
 
 \subsubsection{Discrete nominal sets.}
 %
-Any set may be given the trivial $\mathcal G$-action $\sigma \cdot x = x$ and
-with respect to this action every element has empty support. A set with the
+Any set may be given the trivial $\mathcal G$-action $\sigma \cdot x \defeq x$
+and with respect to this action every element has empty support. A set with the
 trivial $\mathcal G$-action is called a discrete nominal set.
 %
 Any finite nominal set is necessarily discrete.
@@ -1032,8 +1032,8 @@ such that $A \subseteq B_i$.
 \subseteq \bigcup B_n$ there exists $n \in \mathbb N$ such that $A \subseteq
 B_n$.
 %
-\item \label{finite:dedekind} Dedekind's definition: $A$ is finite if there
-exist no injections into any of its proper subsets.
+\item \label{finite:dedekind} Dedekind's definition: $A$ is finite if it has no
+injections into any of its proper subsets.
 %
 \newcounter{finitenessdefs} \setcounter{finitenessdefs}{\value{enumi}}
 \end{enumerate}
@@ -1200,8 +1200,7 @@ Therefore for all $n$ \begin{equation} \supp{x_{n+1}} = \supp{f(x_n)} \subseteq
 Therefore it cannot be that $\{x \in A \mid \supp{x} \subseteq \supp{f} \cup
 \supp{x_0}\}$ is finite, and hence $A$ is not (\ref{finite:stages})-finite as
 required.
-
-
+%
 \end{proof}
 
 \section{Conclusion}
