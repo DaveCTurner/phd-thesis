@@ -235,6 +235,7 @@ elements in $B$.
 %
 Then from the point of view of the calculation in question the permutation
 $\sigma$ may be represented as a permutation $\sigma_2$ such that
+\clearpage
 \begin{itemize}
 %
 \item if $b \in B$ and $\sigma b \in B$ then $\sigma_2 b = \sigma b$,
@@ -295,6 +296,10 @@ The set $A$ in this diagram is a set of names that $\sigma$ and its factors must
 all fix, which is a refinement of the fundamental idea that is necessary for the
 later application of this lemma.
 
+\begin{center}
+\input{footprint-factorisation.pstex_t}
+\end{center}
+
 Firstly it is necessary to show a well-known and elementary special case, where
 $B = \{b\}$ is the set of names of interest, $D$ is chosen as the disjoint
 set $\{d\}$, and $\sigma = (be)$ for some fresh name $e$.
@@ -306,9 +311,8 @@ then $(be) = (de)(bd)(de)$. \end{proposition}
 (be)(de)$ by lemma \ref{lemma:perm-swap}, so that $(be) = (be)(de)(de) =
 (de)(bd)(de)$ as required.  \end{proof}
 
-\begin{center}
-\input{footprint-factorisation.pstex_t}
-\end{center}
+
+\clearpage
 
 The general result is now as follows.
 
@@ -371,6 +375,8 @@ Let $\sigma'_1 = \sigma_1 (a'c')$, $\sigma'_2 = \sigma_2 (bc)$ and $\sigma'_3 =
 factorisation in the desired form.
 %
 \end{proof}
+
+\clearpage
 
 It is sometimes useful to be able to extend an injection $i : s \rightarrowtail
 \mathbb A$ into a permutation $\sigma_i : \mathbb A \to \mathbb A$.
@@ -536,7 +542,6 @@ Since $b \notin s$ it follows that $b \notin \supp{x}$ too, but $\supp{x}$
 supports $x$ so that $(ab) \cdot x = x$ which is a contradiction as required.
 \end{proof}
 
-\clearpage
 \subsection{Constructing Nominal Sets}
 \label{subsect:nset:examples}
 
@@ -1006,8 +1011,6 @@ However, $(f(m)\ f(n)) \cdot (f(n)) = f(m) \neq f(n)$ which is a contradiction,
 which shows that $f$ cannot have a finite support so it certainly is not a
 function in the sense of nominal set theory.
 
-\clearpage
-
 The impact of the failure of AC is not as severe as perhaps it sounds, but it
 does have some subtle consequences.
 %
@@ -1066,8 +1069,6 @@ A$. \setcounter{finitenessdefs}{\value{enumi}} \end{enumerate}
 
 In fact, these \arabic{finitenessdefs} characterisations capture only three
 distinct notions of finiteness as the following lemma shows.
-
-\clearpage
 
 \begin{lemma} \label{lemma:finite:nset} Let $A \subseteq X$ be a
 finitely-supported subset of a nominal set $X$.
