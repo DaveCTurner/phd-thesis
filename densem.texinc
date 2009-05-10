@@ -328,7 +328,7 @@ on the structure of $p$ as shown below.
 Intuitively the arrow $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ matches its input
 against the action $p$ and returns a collection of possible resumptions after
 performing $p$.
-
+%
 If the type information is clear then $\sem{\tjudge{s}{\Gamma}{t}{\typeP}}$ and
 $\sem{\atjudge{s}{\typeP}{p}{\typePp}}$ are abbreviated to $\sem{t}$ and
 $\sem{p}$ respectively.
@@ -338,7 +338,7 @@ $\sem{p}$ respectively.
 The cartesian-closed structure of $\mathbf{FMPre}_s$, described in
 \ref{fmcts:exponentials}, gives rise to a semantics for higher-order processes
 as for the simply-typed $\lambda$-calculus.
-
+%
 Firstly, abstraction of a variable of type $\typeP$ is simply given by
 transposition in the exponential adjunction $(-) \amp \typeP \dashv \typeP \to
 (-)$ as follows.
@@ -817,11 +817,11 @@ Then \[\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} \langle \gamma
 \mathrm{fix}(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
 }}{t}{\typeP}}^*) \langle \gamma \rangle_{\Gamma} \\
 %
-&=&
-\bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
-}}{t}{\typeP}} \circ (\mathbf{1}_{\Gamma} \amp
-\mathrm{fix}(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
-}}{t}{\typeP}}^*)) \circ \Delta_\Gamma \bigr) \langle \gamma \rangle_{\Gamma} \\
+%&=&
+%\bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+%}}{t}{\typeP}} \circ (\mathbf{1}_{\Gamma} \amp
+%\mathrm{fix}(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
+%}}{t}{\typeP}}^*)) \circ \Delta_\Gamma \bigr) \langle \gamma \rangle_{\Gamma} \\
 %
 &=&
 \bigl(\sem{\tjudge{s}{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing}
@@ -845,6 +845,7 @@ Then \[\sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}} \langle \gamma
 }}{t}{\typeP}} \langle \gamma, \sem{\tjudge{s}{\Gamma}{\rec{x}{t}}{\typeP}}
 \langle \gamma \rangle_\Gamma
 \rangle_{\envcombine{\Gamma}{\envvarfresh{x}{\typeP}{\varnothing} }}\end{array}
+\qedhere
 \end{equation*} \end{proof}
 
 
@@ -1000,6 +1001,7 @@ given by pointwise union, this follows immediately from \ref{densem:ndsum}.
 
 
 
+\clearpage
 
 \subsection{Names and Binding}
 
@@ -1259,6 +1261,8 @@ X\}}\bigr) \\
 %
 &=& \{\theta^{!}_{\typePp}Y \mid \freshin{b}{ Y @ b \in \sem{(ab) \cdot p} \{x
 \mid \newpath{b}{x} \in X}\}\}_{\downarrow} \\ \end{array}\] \end{proof}
+
+\clearpage
 
 \subsection{Structural Rules}
 
