@@ -10,7 +10,8 @@ mathematical structures called \textit{domains} as universes of denotations.
 Its origins lie in work in the 1960s when Scott was searching for a setting for
 denotational semantics as pioneered by the work of Strachey.
 %
-Stoy\cite{stoy:domthy} provides a good account of the subject.
+Stoy\cite{stoy:domthy} and Amadio and Curien\cite{amadio-curien:domains} provide
+good accounts of the subject.
 %
 A consequence of this work was the development of a denotational semantics for
 the untyped $\lambda$-calculus.
