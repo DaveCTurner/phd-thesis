@@ -871,8 +871,8 @@ Concretely, if $X$ and $Y$ are nominal sets then \begin{equation}
 \mid x \freshfor y \}  \end{equation} with the action of the tensor on arrows
 given componentwise.
 %
-By an abstract argument that relies on the characterisation of $\otimes$ as the
-Day tensor, $\mathbf{NSet}$ is $\otimes$-monoidal closed.
+By an abstract argument\cite{day:closedcats} that relies on the characterisation
+of $\otimes$ as the Day tensor, $\mathbf{NSet}$ is $\otimes$-monoidal closed.
 %
 In fact this discussion only uses this tensor as part of the functor $(-)
 \otimes \mathbb A$ and it is possible to characterise its right adjoint, written
