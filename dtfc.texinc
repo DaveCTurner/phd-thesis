@@ -428,20 +428,52 @@ style of nondeterminism.
 %
 Viewing nondeterminism as a computational effect (in the style of
 Moggi\cite{moggi:monads}) draws attention to the Kleisli category of
-$\mathcal{P}_{H}$ which is well-known to be equivalent to the category
-$\mathbf{PreRel}$ of preorders $\typeP, \typeQ, \ldots$ and monotone relations
-between them.
+$\mathcal{P}_{H}$ which can be more simply characterised as the category
+$\mathbf{PreRel}$ of preorders and monotone relations as follows.
+
+\begin{definition} The objects of the category $\mathbf{PreRel}$ are preorders
+$\typeP, \typeQ, \ldots$.
 %
-In other words, an arrow $R : \typeP \to \typeQ$ is a relation $R \subseteq
-\typeP \times \typeQ$ such that if $p' \ge_{\typeP} p \mathrel{R} q \ge_{\typeQ}
-q'$ then $p' \mathrel{R} q'$.
+Its arrows $R : \typeP \to \typeQ$ are relations $R \subseteq \typeP \times
+\typeQ$ such that if $p' \ge_{\typeP} p \mathrel{R} q \ge_{\typeQ} q'$ then $p'
+\mathrel{R} q'$.
 %
 Composition in $\mathbf{PreRel}$ is straightforward relational composition, and
-the identity relation on the preorder $\typeP$ is simply $\le_{\typeP}$.
+the identity relation on the preorder $\typeP$ is simply $\ge_{\typeP}$.
 %
-The use of preorders --- rather than the more usual partial orders --- does not
-make a significant difference to much of the theory, but it does enable an
-intuitive method for solving simple recursive domain
+\end{definition}
+
+\begin{proposition} If $\mathcal{P}_{H} : \mathbf{\Phi_d Alg} \to \mathbf{\Phi_d
+Alg}$ is the Hoare powerdomain functor described above, then its Kleisli
+category $\mathrm{Kl}(\mathcal{P}_{H})$ is equivalent to $\mathbf{PreRel}$.
+\end{proposition}
+
+\begin{proof}[Sketch Proof (Object-parts only)] The equivalence comprises the
+functors $(-)^{\circ} : \mathrm{Kl}(\mathcal{P}_{H}) \to \mathbf{PreRel}$ and
+$\mathrm{Idl}_{\Phi_d} : \mathbf{PreRel} \to \mathrm{Kl}(\mathcal{P}_{H})$.
+%
+Lemma \ref{alg-ideal-completion} demonstrates that if $D$ is an algebraic
+$\Phi_d$CPO then $D \cong \mathrm{Idl}_{\Phi_d}(D^\circ)$.
+%
+For the converse, suppose that $\typeP$ is a preorder and consider elements $x
+\in (\mathrm{Idl}_{\Phi_d} (\typeP))^{\circ}$.
+%
+Since $x \in \mathrm{Idl}_{\Phi_d} (\typeP)$, there exists a directed $x_0
+\subseteq \typeP$ such that $x = {x_0}_{\downarrow}$ and hence $x = \bigcup_{p
+\in x_0} \{p\}_{\downarrow}$.
+%
+Also since $x_0$ is directed in $\typeP$ it follows that $\{ \{p\}_{\downarrow}
+\mid p \in x_0 \}$ is directed in $\mathrm{Idl}_{\Phi_d} (\typeP)$, and since
+$x$ is isolated there must exist $p \in x_0$ such that $x_0 = \{p\}_\downarrow$.
+%
+Thus $\typeP$ and $(\mathrm{Idl}_{\Phi_d} (\typeP))^{\circ}$ are isomorphic in
+$\mathbf{PreRel}$.
+%
+\end{proof}
+
+The use of preorders in the domain theory --- rather than the more usual partial
+orders --- does not make a significant difference to much of the theory, but it
+does enable an intuitive method for solving simple recursive domain
 equations\cite{nygaardwinskel1}.
 
 Concretely the equivalence $\mathrm{Kl}(\mathcal{P}_{H}) \simeq \mathbf{PreRel}$
@@ -453,22 +485,57 @@ $\Phi_d$-ideal completion and ${!}((-)^{\circ})$ takes an algebraic domain to
 the preorder of finite sets of its $\Phi_d$-isolated elements (with the order as
 described above).
 
-The category $\mathbf{PreRel}$ is isomorphic to the category $\mathbf{Lin}$ of
-preorders and join preserving (or \textit{linear}) maps. 
+The category $\mathrm{Kl}(\mathcal{P}_{H})$ is also equivalent to the category
+$\mathbf{Lin}$ of preorders and join preserving (or \textit{linear}) maps. 
 %
-In detail, each preorder $\typeP$ can be freely completed with all joins to form
-the partial order $\widehat{\typeP}$ and then an arrow $f : \typeP \lto \typeQ$
-of $\mathbf{Lin}$ is a function $f : \widehat{\typeP} \to \widehat{\typeQ}$
-which preserves all joins.
+\begin{definition} The objects of $\mathbf{Lin}$ are preorders $\typeP, \typeQ,
+\ldots$.
+%
+Its arrows $f : \typeP \lto \typeQ$ of $\mathbf{Lin}$ are functions $f :
+\widehat{\typeP} \to \widehat{\typeQ}$ which preserves all joins, where
+$\widehat{\typeP}$ is the free join-completion of $\typeP$. 
 %
 Concretely, $\widehat{\typeP}$ consists of all lower subsets of $\typeP$ ordered
-by inclusion.
+by inclusion.  \end{definition}
+
+\begin{proposition}
+The category $\mathbf{PreRel}$ is isomorphic to the category $\mathbf{Lin}$ of
+preorders and join preserving (or \textit{linear}) maps.
+\end{proposition}
+
+\begin{proof}[Sketch Proof] The isomorphism acts as the identity on objects.
 %
-From the point of view of $\mathbf{PreRel} \cong \mathbf{Lin}$ the adjunction
-${!}((-)^{\circ}) \dashv \mathrm{Idl}_{\Phi_d}$ gives rise to the comonad
-${!}((\mathrm{Idl}_{\Phi_d}(-))^{\circ}) \cong {!}$ on $\mathbf{Lin}$.
+If $R : \typeP \to \typeQ$ is an arrow of $\mathbf{PreRel}$ then the
+corresponding arrow of $\mathbf{Lin}$ is $FR$ where if $x \in \widehat{\typeP}$
+then $FR x = \{q \in \typeQ \mid \exists p \in x. p \mathrel{R} q\}$.
 %
-%\TODO{Have not --- strictly speaking --- defined {!}.}
+Conversely if $f : \typeP \to \typeQ$ is an arrow of $\mathbf{Lin}$ then the
+corresponding arrow of $\mathbf{PreRel}$ is $Gf$ where if $p \in \typeP$ and $q
+\in \typeQ$ then $p \mathrel{Gf} q$ iff $q \in f \{p\}_{\downarrow}$.
+%
+It is straightforward to show that $F$ and $G$ are mutual inverses.
+%
+\end{proof}
+
+$\mathbf{Lin}$ can be understood as a categorical model of Girard's linear
+logic\cite{nygaardwinskel1}.
+%
+From this viewpoint, the arrows of $\mathbf{Lin}$ correspond to \textit{linear}
+processes which do not either duplicate or discard their inputs.
+%
+This linearity is an important aspect of concurrency: in a distributed
+computation it may be difficult to copy processes.
+%
+Copying may not be impossible, however, and in general it is too restrictive to
+constrain attention just to linear maps.
+%
+Following the discipline of linear logic, copying and discarding may be
+controlled explicitly by considering maps whose domain is under an exponential
+which corresponds to a comonad on the underlying category.
+%
+The adjunction ${!}((-)^{\circ}) \dashv \mathrm{Idl}_{\Phi_d}$ above draws
+attention to the comonad ${!}((\mathrm{Idl}_{\Phi_d}(-))^{\circ}) \cong {!}$ on
+$\mathbf{Lin}$.
 
 \subsection{Domains of Paths} \label{domains-of-paths}
 
