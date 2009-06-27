@@ -444,8 +444,8 @@ the identity relation on the preorder $\typeP$ is simply $\ge_{\typeP}$.
 \end{definition}
 
 \begin{proposition} If $\mathcal{P}_{H} : \mathbf{\Phi_d Alg} \to \mathbf{\Phi_d
-Alg}$ is the Hoare powerdomain functor described above, then its Kleisli
-category $\mathrm{Kl}(\mathcal{P}_{H})$ is equivalent to $\mathbf{PreRel}$.
+Alg}$ is the Hoare powerdomain functor described above then its Kleisli category
+$\mathrm{Kl}(\mathcal{P}_{H})$ is equivalent to $\mathbf{PreRel}$.
 \end{proposition}
 
 \begin{proof}[Sketch Proof (Object-parts only)] The equivalence comprises the
