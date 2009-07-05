@@ -20,7 +20,10 @@ FIGBAKS:=$(patsubst %.fig,%.fig.bak,$(FIGURES))
 PSTEXES:=$(patsubst %.fig,%.pstex,$(FIGURES))
 PSTEX_TS:=$(patsubst %.fig,%.pstex_t,$(FIGURES))
 
-all: $(PSES)
+all: $(PSES) thesis-as-techreport.ps
+
+thesis-as-techreport.ps: thesis.ps
+	psselect -p3- $< $@
 
 ps: $(PSES)
 
